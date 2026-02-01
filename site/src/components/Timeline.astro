@@ -1,0 +1,114 @@
+---
+interface TimelineEvent {
+  date: string;
+  title: string;
+  description?: string;
+  status?: 'complete' | 'active' | 'planned';
+}
+
+interface Props {
+  events: TimelineEvent[];
+}
+
+const { events } = Astro.props;
+
+const statusColors: Record<string, string> = {
+  complete: "var(--recovery-stable)",
+  active: "var(--recovery-active)",
+  planned: "var(--fg-muted)",
+};
+---
+
+<div class="timeline">
+  {events.map((event) => {
+    const dotColor = statusColors[event.status || 'complete'];
+    return (
+      <div class:list={["timeline-item", `timeline-${event.status || 'complete'}`]}>
+        <div class="timeline-marker" style={`--dot-color: ${dotColor}`}>
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-content">
+          <span class="timeline-date">{event.date}</span>
+          <p class="timeline-title">{event.title}</p>
+          {event.description && <p class="timeline-desc">{event.description}</p>}
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-item:last-child .timeline-line {
+    display: none;
+  }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dot-color);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    box-shadow: 0 0 8px color-mix(in srgb, var(--dot-color) 40%, transparent);
+  }
+
+  .timeline-line {
+    width: 1px;
+    flex-grow: 1;
+    background: var(--border);
+    margin-top: 0.5rem;
+  }
+
+  .timeline-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .timeline-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--fg);
+    margin: 0.125rem 0 0.25rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .timeline-planned .timeline-title {
+    color: var(--fg-muted);
+  }
+
+  .timeline-planned .timeline-desc {
+    color: var(--fg-muted);
+  }
+</style>

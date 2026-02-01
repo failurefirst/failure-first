@@ -1,0 +1,77 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const frameworkPages = [
+  {
+    title: "Benchmark Card",
+    href: "/framework/benchmark/",
+    description: "What the benchmark measures, its scope, limitations, and intended use.",
+  },
+  {
+    title: "Dataset Documentation",
+    href: "/framework/datasets/",
+    description: "Data provenance, format specifications, and responsible use guidelines.",
+  },
+  {
+    title: "Test Harness Specification",
+    href: "/framework/harness/",
+    description: "How to evaluate embodied AI systems using the failure-first framework.",
+  },
+  {
+    title: "Draft Safety Standard",
+    href: "/framework/standard/",
+    description: "Proposed safety evaluation standard for embodied AI deployment.",
+  },
+];
+---
+
+<ContentLayout
+  title="Framework | Failure-First"
+  description="Tools, standards, and specifications for failure-first AI safety evaluation."
+  breadcrumbs={[{ label: "Framework" }]}
+>
+  <PageHeader
+    title="Framework"
+    tagline="Tools and standards for failure-first evaluation"
+  />
+
+  <h2>Components</h2>
+  <div class="framework-grid">
+    {frameworkPages.map((page) => (
+      <a href={page.href} class="framework-card card">
+        <h3>{page.title}</h3>
+        <p>{page.description}</p>
+      </a>
+    ))}
+  </div>
+</ContentLayout>
+
+<style>
+  .framework-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .framework-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .framework-card:hover {
+    border-bottom: none;
+  }
+
+  .framework-card h3 {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  .framework-card p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+  }
+</style>

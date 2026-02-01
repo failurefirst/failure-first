@@ -1,0 +1,137 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const researchPages = [
+  {
+    title: "Moltbook: Multi-Agent Attack Surface",
+    href: "/research/moltbook/",
+    description: "Empirical analysis of 1,497 AI agent interactions on an agent-only social network.",
+    status: "active",
+  },
+  {
+    title: "Model Vulnerability Findings",
+    href: "/research/model-vulnerability/",
+    description: "How model size, architecture, and training affect vulnerability to adversarial attacks.",
+    status: "active",
+  },
+  {
+    title: "Humanoid Robotics Safety",
+    href: "/research/humanoid-safety/",
+    description: "Safety analysis of humanoid robots across 15+ research dimensions.",
+    status: "active",
+  },
+  {
+    title: "Attack Pattern Taxonomy",
+    href: "/research/attack-taxonomy/",
+    description: "34+ attack patterns classified across 7 categories.",
+    status: "complete",
+  },
+  {
+    title: "Failure Mode Taxonomy",
+    href: "/research/failure-modes/",
+    description: "Recursive, contextual, interactional, and temporal failure classifications.",
+    status: "complete",
+  },
+  {
+    title: "Recovery Mechanisms",
+    href: "/research/recovery-taxonomy/",
+    description: "How AI systems recover (or fail to recover) from failure states.",
+    status: "complete",
+  },
+  {
+    title: "Research Methodology",
+    href: "/research/methodology/",
+    description: "Our approach to adversarial AI safety research and benchmarking.",
+    status: "complete",
+  },
+];
+
+const statusColors: Record<string, string> = {
+  active: "var(--recovery-active)",
+  draft: "var(--failure-warning)",
+  complete: "var(--recovery-stable)",
+};
+
+const statusLabels: Record<string, string> = {
+  active: "Active",
+  draft: "Draft",
+  complete: "Published",
+};
+---
+
+<ContentLayout
+  title="Research | Failure-First"
+  description="Research hub for failure-first AI safety studies."
+  breadcrumbs={[{ label: "Research" }]}
+>
+  <PageHeader
+    title="Research"
+    tagline="Studies on how AI systems fail, degrade, and recover"
+  />
+
+  <h2>Studies</h2>
+  <div class="research-grid">
+    {researchPages.map((page) => (
+      <a href={page.href} class="research-card card">
+        <div class="research-card-header">
+          <h3>{page.title}</h3>
+          <span class="status-pill" style={`--pill-color: ${statusColors[page.status]}`}>
+            {statusLabels[page.status]}
+          </span>
+        </div>
+        <p>{page.description}</p>
+      </a>
+    ))}
+  </div>
+</ContentLayout>
+
+<style>
+  .research-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .research-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .research-card:hover {
+    border-bottom: none;
+  }
+
+  .research-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .research-card h3 {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  .research-card p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+  }
+
+  .status-pill {
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.1875rem 0.5rem;
+    border: 1px solid var(--pill-color);
+    color: var(--pill-color);
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+</style>

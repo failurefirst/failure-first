@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
+  modifiedDate?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  type = 'website',
+  publishedDate,
+  modifiedDate,
+  image = '/og-image.png',
+} = Astro.props;
+
+const canonicalURL = canonical || Astro.url.href;
+const siteName = "Failure-First Embodied AI";
+
+// JSON-LD: ResearchProject for the whole site
+const jsonLdBase = {
+  "@context": "https://schema.org",
+  "@type": "ResearchProject",
+  name: siteName,
+  description: "A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.",
+  url: "https://failurefirst.org",
+  sameAs: [
+    "https://github.com/adrianwedd/failure-first"
+  ],
+};
+
+// JSON-LD: ScholarlyArticle for research pages
+const isResearchPage = Astro.url.pathname.startsWith('/research/') && Astro.url.pathname !== '/research/';
+const jsonLdArticle = isResearchPage ? {
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  headline: title,
+  description,
+  url: canonicalURL,
+  publisher: {
+    "@type": "Organization",
+    name: siteName,
+    url: "https://failurefirst.org",
+  },
+  ...(publishedDate && { datePublished: publishedDate }),
+  ...(modifiedDate && { dateModified: modifiedDate }),
+} : null;
+---
+
+<!-- Primary Meta -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Open Graph -->
+<meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:image" content={new URL(image, Astro.site).href} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.site).href} />
+
+{publishedDate && <meta property="article:published_time" content={publishedDate} />}
+{modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdBase)} />
+{jsonLdArticle && <script type="application/ld+json" set:html={JSON.stringify(jsonLdArticle)} />}

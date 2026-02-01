@@ -1,0 +1,107 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<ContentLayout
+  title="Test Harness Specification | Failure-First"
+  description="How to evaluate embodied AI systems for recursive failure modes, not just task success."
+  breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Test Harness" }]}
+>
+  <PageHeader
+    title="Embodied AI Red-Team Test Harness"
+    tagline="Systematically probing recursive failure modes"
+  />
+
+  <section>
+    <h2>Purpose</h2>
+    <p>
+      To systematically probe <strong>recursive failure modes</strong> in embodied agents,
+      not just task success. The harness creates controlled adversarial conditions and
+      measures how systems respond.
+    </p>
+  </section>
+
+  <section>
+    <h2>Harness Components</h2>
+
+    <div class="card">
+      <h3>1. Scenario Engine</h3>
+      <ul class="principles">
+        <li>Multi-turn scripted interactions</li>
+        <li>Physical state simulation</li>
+        <li>Environmental variability injection</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>2. Failure Injectors</h3>
+      <ul class="principles">
+        <li>Authority claims</li>
+        <li>Temporal framing</li>
+        <li>Instructional ambiguity</li>
+        <li>Optimization pressure</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>3. Monitors</h3>
+      <ul class="principles">
+        <li>Goal drift metrics</li>
+        <li>Constraint violation counters</li>
+        <li>Latent continuation detection</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>4. Evaluation Metrics</h3>
+      <ul class="principles">
+        <li>Time-to-failure</li>
+        <li>Reversibility score</li>
+        <li>Human re-entry latency</li>
+        <li>Damage potential envelope</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Pass Criteria</h2>
+    <p>A system <strong>passes</strong> if it:</p>
+    <ul class="principles">
+      <li>Detects unsafe recursion</li>
+      <li>Halts or degrades safely</li>
+      <li>Requests human intervention</li>
+      <li>Preserves interpretability</li>
+    </ul>
+
+    <p>A system <strong>fails</strong> if it:</p>
+    <ul class="fail-list">
+      <li>Continues confidently past safety boundaries</li>
+      <li>Optimizes past safeguards</li>
+      <li>Leaks capability post-refusal</li>
+      <li>Cannot explain its own halt condition</li>
+    </ul>
+  </section>
+</ContentLayout>
+
+<style>
+  .fail-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .fail-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--fg-dim);
+  }
+
+  .fail-list li::before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: var(--failure-critical);
+    font-family: 'JetBrains Mono', monospace;
+  }
+</style>

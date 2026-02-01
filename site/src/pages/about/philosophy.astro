@@ -1,0 +1,91 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<ContentLayout
+  title="Design Philosophy | Failure-First"
+  description="The design philosophy behind the Failure-First research framework: multiple lenses, preserved tension, and failure realism."
+  breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Philosophy" }]}
+>
+  <PageHeader
+    title="Design Philosophy"
+    tagline="Multiple lenses, preserved tension, and failure realism"
+  />
+
+  <section>
+    <p>
+      This project is the result of multiple, intentionally divergent design passes.
+      Rather than collapse those perspectives into a single voice, we preserve their tension.
+    </p>
+  </section>
+
+  <section>
+    <h2>Failure-First Orientation</h2>
+    <p>
+      The project treats failure as the primary signal of interest. Success is neither
+      assumed nor privileged. Safety is examined through breakdown, recovery, and
+      interaction over time.
+    </p>
+  </section>
+
+  <section>
+    <h2>Complementary Design Lenses</h2>
+    <p>We explicitly privilege different lenses for different concerns:</p>
+
+    <div class="card">
+      <h3>Executable Rigor</h3>
+      <p>
+        Contracts, schemas, and validation. Prioritizes clarity, consistency, and testability.
+        Every dataset is schema-validated, every claim is structured for verification.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Failure Realism</h3>
+      <p>
+        Episodes, dynamics, and drift. Prioritizes emergent behavior, recursion, and
+        human interaction. The world does not conform to clean schemas&mdash;this lens
+        ensures we capture what actually happens.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Governance Clarity</h3>
+      <p>
+        Contributing guidelines, safety gates, and CI. Prioritizes auditability,
+        responsibility, and constraint visibility. Research that cannot be audited
+        cannot be trusted.
+      </p>
+    </div>
+
+    <p>No single lens is sufficient.</p>
+  </section>
+
+  <section>
+    <h2>On Alignment</h2>
+    <p>
+      This project does not treat alignment as a solved or binary property.
+      Instead, alignment is understood as fragile, contextual, and continuously
+      renegotiated through interaction.
+    </p>
+  </section>
+
+  <section>
+    <h2>On Guarantees</h2>
+    <p>
+      Conformance to benchmarks or schemas in this repository does not imply
+      safety, correctness, or alignment. It indicates only that a system has been
+      evaluated within defined failure-oriented constraints.
+    </p>
+  </section>
+
+  <section>
+    <h2>Evolution</h2>
+    <p>
+      Taxonomies, schemas, and benchmarks are expected to evolve as new failure
+      modes are discovered. Stability is pursued cautiously and only where it
+      does not obscure risk.
+    </p>
+  </section>
+</ContentLayout>

@@ -1,0 +1,125 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<ResearchLayout
+  title="Research Methodology | Failure-First"
+  description="How we study AI system failures: adversarial dataset construction, multi-model benchmarking, and failure classification."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Methodology" }]}
+  status="complete"
+>
+  <PageHeader
+    title="Research Methodology"
+    tagline="How we study AI system failures"
+  />
+
+  <section>
+    <h2>Approach</h2>
+    <p>
+      Our research follows a three-phase methodology: construct adversarial scenarios,
+      evaluate systems against those scenarios, and classify the resulting failure modes.
+      Each phase is designed to surface failures that traditional evaluation misses.
+    </p>
+  </section>
+
+  <section>
+    <h2>Phase 1: Scenario Construction</h2>
+    <div class="card">
+      <h3>Adversarial Dataset Design</h3>
+      <p>
+        We construct JSONL datasets containing adversarial scenarios organized by domain
+        (humanoid robotics, warehouse systems, medical devices, etc.) and attack class
+        (recursive, substitution, framing, temporal).
+      </p>
+      <p>
+        Each scenario includes structured metadata: environment context, adversarial injectors,
+        expected failure modes, and labels for instruction-hierarchy subversion signals.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Schema-Enforced Quality</h3>
+      <p>
+        All datasets are validated against versioned JSON Schemas. Schema validation
+        catches structural errors; invariant checks catch semantic inconsistencies
+        (e.g., intent bait scenarios that don't set <code>attack_attempt: true</code>).
+      </p>
+    </div>
+    <div class="card">
+      <h3>Safety Linting</h3>
+      <p>
+        An automated linter checks all scenarios for safety violations: refusal suppression
+        framed as desired output, overly operational phrasing, and future-year circumvention
+        justifications. This ensures scenarios remain pattern-level, not operational.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Phase 2: Multi-Model Evaluation</h2>
+    <div class="card">
+      <h3>CLI-Based Benchmarking</h3>
+      <p>
+        Native CLI tools (Claude Code, Codex CLI, Gemini CLI) evaluate scenarios
+        with full tool-use capability, testing how systems behave when given
+        access to real tools in adversarial conditions.
+      </p>
+    </div>
+    <div class="card">
+      <h3>HTTP API Benchmarking</h3>
+      <p>
+        100+ models evaluated via OpenRouter API. Supports free-tier models for
+        large-scale screening and paid models for detailed analysis.
+        Results include complete response text with reasoning traces.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Local Model Evaluation</h3>
+      <p>
+        Ollama integration enables evaluation of open-weight models locally,
+        with no rate limits and no API costs. Useful for reasoning model
+        analysis where thinking traces are especially valuable.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Phase 3: Failure Classification</h2>
+    <div class="card">
+      <h3>Automated Classification</h3>
+      <p>
+        Two-layer detection: regex pattern matching for format-level signals,
+        and LLM semantic classification for intent-level patterns.
+        Our research shows these methods are complementary&mdash;regex catches
+        explicit signals while LLMs catch narrative-level attacks.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Human Verification</h3>
+      <p>
+        All automated classifications are spot-checked through manual review.
+        We learned (the hard way) that unvalidated heuristics produce misleading results.
+        Manual verification on a sample is mandatory before any claim.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Score Reports</h3>
+      <p>
+        Aggregated metrics across models: attack success rates, refusal quality,
+        reentry support, and recovery behavior. Reports are generated from
+        trace JSONL files for reproducibility.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Principles</h2>
+    <ul class="principles">
+      <li>Every claim requires supporting data or explicit marking as hypothetical</li>
+      <li>Sample sizes are always stated &mdash; &ldquo;In our 15-file sample&hellip;&rdquo;</li>
+      <li>Conditions are always specified &mdash; &ldquo;Under these test conditions&hellip;&rdquo;</li>
+      <li>Single model results are anecdotes, not data</li>
+      <li>Validate automated detection on manual samples before trusting it</li>
+    </ul>
+  </section>
+</ResearchLayout>

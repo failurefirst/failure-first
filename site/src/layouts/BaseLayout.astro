@@ -1,4 +1,8 @@
 ---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import SEOHead from '../components/SEOHead.astro';
+
 interface Props {
   title: string;
   description?: string;
@@ -12,30 +16,38 @@ const { title, description = "A research framework for characterizing how embodi
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEOHead title={title} description={description} />
   </head>
   <body>
-    <canvas id="sensor-grid-bg"></canvas>
-    <main>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <canvas id="sensor-grid-bg" aria-hidden="true"></canvas>
+    <Navigation />
+    <main id="main-content">
       <slot />
     </main>
-    <footer>
-      <p>
-        <strong>Remember:</strong> This is a research tool for improving AI safety.
-        Use responsibly. Study failures to build better defenses.
-      </p>
-      <p style="margin-top: 1rem;">
-        © 2025 Failure-First Embodied AI Project |
-        <a href="https://github.com/adrianwedd/failure-first">GitHub</a>
-      </p>
-    </footer>
+    <Footer />
   </body>
 </html>
 
 <style is:global>
   @import '../styles/global.css';
+
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background: var(--accent-primary);
+    color: var(--bg);
+    z-index: 200;
+    font-size: 0.875rem;
+    border-bottom: none;
+  }
+
+  .skip-link:focus {
+    top: 0;
+  }
 </style>
 
 <script>

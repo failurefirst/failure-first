@@ -1,0 +1,108 @@
+---
+interface Bar {
+  label: string;
+  value: number;
+  displayValue?: string;
+}
+
+interface Props {
+  title?: string;
+  bars: Bar[];
+  maxValue?: number;
+  color?: string;
+}
+
+const { title, bars, maxValue: propMax, color = "var(--accent-primary)" } = Astro.props;
+const maxValue = propMax || Math.max(...bars.map(b => b.value));
+---
+
+{title && <h3 class="chart-title">{title}</h3>}
+<div class="bar-chart">
+  {bars.map((bar) => {
+    const pct = maxValue > 0 ? (bar.value / maxValue) * 100 : 0;
+    return (
+      <div class="bar-row">
+        <span class="bar-label">{bar.label}</span>
+        <div class="bar-track">
+          <div class="bar-fill" style={`width: ${pct}%; --bar-color: ${color}`}></div>
+        </div>
+        <span class="bar-value">{bar.displayValue ?? `${bar.value}%`}</span>
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .chart-title {
+    margin-bottom: 1rem;
+  }
+
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 50px;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .bar-label {
+    color: var(--fg-dim);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .bar-track {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 2px;
+    height: 20px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    background: var(--bar-color);
+    opacity: 0.7;
+    border-radius: 1px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .bar-value {
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    .bar-row {
+      grid-template-columns: 80px 1fr 40px;
+      gap: 0.5rem;
+    }
+
+    .bar-label {
+      font-size: 0.625rem;
+    }
+
+    .bar-value {
+      font-size: 0.625rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .bar-row {
+      grid-template-columns: 60px 1fr 36px;
+    }
+  }
+</style>

@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import StatGrid from '../components/StatGrid.astro';
+import WarningBox from '../components/WarningBox.astro';
+import LinkButton from '../components/LinkButton.astro';
 ---
 
 <BaseLayout title="Failure-First Embodied AI | Research Framework">
-  <header>
-    <h1>Failure-First Embodied AI</h1>
-    <p class="tagline">A research framework for characterizing how embodied AI systems fail</p>
-  </header>
+  <PageHeader
+    title="Failure-First Embodied AI"
+    tagline="A research framework for characterizing how embodied AI systems fail"
+  />
 
   <section>
     <h2>Philosophy</h2>
@@ -19,24 +23,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
   </section>
 
-  <div class="stats">
-    <div class="stat">
-      <div class="stat-number">51,000+</div>
-      <div class="stat-label">Adversarial Scenarios</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">661</div>
-      <div class="stat-label">Failure Classes</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">19</div>
-      <div class="stat-label">Domains Covered</div>
-    </div>
-    <div class="stat">
-      <div class="stat-number">51+</div>
-      <div class="stat-label">Models Evaluated</div>
-    </div>
-  </div>
+  <StatGrid items={[
+    { value: "51,000+", label: "Adversarial Scenarios" },
+    { value: "661", label: "Failure Classes" },
+    { value: "19", label: "Domains Covered" },
+    { value: "51+", label: "Models Evaluated" },
+  ]} />
 
   <section>
     <h2>What We Study</h2>
@@ -62,14 +54,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <div class="warning">
-    <p><strong>Research Context</strong></p>
+  <WarningBox>
     <p>
       This is <strong>defensive AI safety research</strong>. All adversarial content is
       pattern-level description for testing, not operational instructions for exploitation.
       Similar to penetration testing in cybersecurity—we study vulnerabilities to build better defenses.
     </p>
-  </div>
+  </WarningBox>
 
   <section>
     <h2>Adversarial Technique Taxonomy</h2>
@@ -85,7 +76,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
 
     <div class="card">
-      <h3>Multi-Agent Patterns (New)</h3>
+      <h3>Multi-Agent Patterns</h3>
       <p>Discovered through analysis of 1,497 posts on <a href="https://www.moltbook.com" target="_blank" rel="noopener">Moltbook</a>, an AI-agent-only social network:</p>
       <p><strong>Environment Shaping</strong> &mdash; Manipulating the information environment that agents read, rather than prompting them directly.</p>
       <p><strong>Narrative Constraint Erosion</strong> &mdash; Philosophical or emotional framing that socially penalizes safety compliance.</p>
@@ -150,7 +141,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         narrative propagation. All conducted transparently as a safety researcher.
       </p>
       <p style="margin-top: 0.75rem;">
-        <a href="/moltbook/" class="link-button" style="font-size: 0.875rem;">Read the full research &rarr;</a>
+        <a href="/research/moltbook/" class="link-button" style="font-size: 0.875rem;">Read the full research &rarr;</a>
       </p>
     </div>
   </section>
@@ -190,10 +181,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section>
     <h2>Get Started</h2>
     <div class="links">
-      <a href="https://github.com/adrianwedd/failure-first" class="link-button">View on GitHub</a>
-      <a href="https://github.com/adrianwedd/failure-first/blob/main/README.md" class="link-button">Read the README</a>
-      <a href="https://github.com/adrianwedd/failure-first/blob/main/DESIGN_CHARTER.md" class="link-button">Design Charter</a>
-      <a href="https://github.com/adrianwedd/failure-first/blob/main/IMPLEMENTATION_PLAN.md" class="link-button">Implementation Plan</a>
+      <LinkButton href="https://github.com/adrianwedd/failure-first" text="View on GitHub" external />
+      <LinkButton href="https://github.com/adrianwedd/failure-first/blob/main/README.md" text="Read the README" external />
+      <LinkButton href="https://github.com/adrianwedd/failure-first/blob/main/DESIGN_CHARTER.md" text="Design Charter" external />
+      <LinkButton href="https://github.com/adrianwedd/failure-first/blob/main/IMPLEMENTATION_PLAN.md" text="Implementation Plan" external />
     </div>
   </section>
 

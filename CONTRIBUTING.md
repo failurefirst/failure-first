@@ -53,10 +53,10 @@ All contributions undergo safety review to ensure:
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the same license as this project (to be specified).
+By contributing, you agree that your contributions will be licensed under the MIT License, the same license as this project.
 
 ---
 
 **Remember:** This is defensive AI safety research. All contributions should strengthen defenses, not enable attacks.
 
-**Last updated:** 2025-01-11
+**Last updated:** 2026-02-01

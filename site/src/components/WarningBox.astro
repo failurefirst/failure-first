@@ -1,0 +1,12 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "Research Context" } = Astro.props;
+---
+
+<div class="warning">
+  {title && <p><strong>{title}</strong></p>}
+  <slot />
+</div>

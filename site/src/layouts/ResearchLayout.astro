@@ -1,0 +1,68 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  breadcrumbs?: Crumb[];
+  status?: 'active' | 'draft' | 'complete';
+}
+
+const { title, description, breadcrumbs = [], status = 'active' } = Astro.props;
+
+const statusLabels: Record<string, { text: string; color: string }> = {
+  active: { text: "Active Research", color: "var(--recovery-active)" },
+  draft: { text: "Draft", color: "var(--failure-warning)" },
+  complete: { text: "Published", color: "var(--recovery-stable)" },
+};
+
+const badge = statusLabels[status];
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="research-header">
+    {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+    <div class="research-status">
+      <span class="status-badge" style={`--badge-color: ${badge.color}`}>
+        {badge.text}
+      </span>
+    </div>
+  </div>
+  <slot />
+</BaseLayout>
+
+<style>
+  .research-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .status-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--badge-color);
+    color: var(--badge-color);
+    border-radius: 3px;
+    background: transparent;
+  }
+
+  @media (max-width: 480px) {
+    .research-header {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,0 +1,106 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ContentLayout
+  title="Dataset Documentation | Failure-First"
+  description="Data provenance, format specifications, and responsible use guidelines for failure-first red-teaming datasets."
+  breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Datasets" }]}
+>
+  <PageHeader
+    title="Dataset Documentation"
+    tagline="Embodied Failure-First Red-Teaming Data"
+  />
+
+  <section>
+    <h2>Summary</h2>
+    <p>
+      This project provides <strong>non-operational</strong> red-teaming datasets for
+      humanoid and embodied agents, focused on <strong>recursive failure</strong> and
+      recovery rather than task success.
+    </p>
+
+    <StatGrid items={[
+      { value: "51,000+", label: "Scenarios" },
+      { value: "4", label: "Dataset Types" },
+      { value: "19", label: "Domains" },
+      { value: "JSONL", label: "Format" },
+    ]} />
+  </section>
+
+  <section>
+    <h2>Intended Use</h2>
+    <ul class="principles">
+      <li>Benchmarking LLM-based controllers, planners, or assistants for embodied systems</li>
+      <li>Comparing refusal consistency, invariant holding, escalation pathways, and recovery behavior</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Contents</h2>
+
+    <div class="card">
+      <h3>Single-Agent Scenarios</h3>
+      <p>
+        JSONL format with environment context, tone parameters, adversarial injectors,
+        and proxy scores. Each scenario describes a specific failure pattern.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Multi-Agent Scenarios</h3>
+      <p>
+        Scenarios involving bystander/supervisor conflicts, where multiple human
+        roles present conflicting instructions to an embodied agent.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Stateful Episodes</h3>
+      <p>
+        Multi-scene sequences (5&ndash;10 scenes) that test memory consistency,
+        context drift, and recovery across extended interactions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Intent Bait Set</h3>
+      <p>
+        Scenarios designed to test instruction-hierarchy subversion: format lock,
+        refusal suppression, persona hijack, temporal laundering, and constraint erosion.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Out of Scope</h2>
+    <WarningBox title="Prohibited Use">
+      <p>
+        These datasets must not be used to generate operational instructions for wrongdoing
+        or as how-to guides for bypassing safety controls. All scenarios are pattern-level
+        descriptions for defensive evaluation purposes.
+      </p>
+    </WarningBox>
+  </section>
+
+  <section>
+    <h2>Limitations</h2>
+    <ul class="principles">
+      <li>Scoring fields are proxies &mdash; calibrate against your own risk model</li>
+      <li>Episodes are text-only &mdash; they approximate embodiment through structured context</li>
+      <li>Not a substitute for real-world robotics testing</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Safety Notes</h2>
+    <p>
+      Failure examples are <strong>high-level summaries</strong>, not actionable procedures.
+      All datasets are validated against versioned JSON Schemas and safety-linted
+      on every commit through CI.
+    </p>
+  </section>
+</ContentLayout>

@@ -2,6 +2,8 @@
 
 **A research framework for characterizing how embodied AI systems fail**
 
+🌐 **Live site: [failurefirst.org](https://failurefirst.org)**
+
 This project inverts traditional AI safety evaluation: instead of measuring task success, we study **how systems fail, degrade, and recover** under adversarial pressure. Failure is not an edge case—it's the primary object of study.
 
 ---
@@ -54,16 +56,16 @@ Investigation of whether AI models can be induced to generate jailbreak prompts:
 
 *Full methodology in restricted research artifacts. Aggregate results available; raw prompts under NDA.*
 
-### Multi-Agent Research (New)
+### Multi-Agent Research
 
 Investigation of how AI agents influence each other in live multi-agent environments. Extends jailbreak research from single-model prompt injection to population-level dynamics.
 
 | Metric | Value |
 |--------|-------|
-| **Platform studied** | Live AI-agent social network (1.36M registered agents) |
-| **Posts analyzed** | 664 (from ~45K total) |
-| **Novel patterns catalogued** | 10 (structural categories not found in existing taxonomies) |
-| **Technique match rate** | 8.4% matched known patterns; 73.2% were novel candidates |
+| **Platform studied** | [Moltbook](https://www.moltbook.com) — live AI-agent social network (1.36M registered agents) |
+| **Posts classified** | 1,497 (across two collection phases from ~45K total) |
+| **Attack classes detected** | 34+ (across 7 categories, expanded from 10 initial patterns) |
+| **Technique match rate** | 24.8% via 32-class regex; narrative attacks found via LLM semantic classification |
 
 **Key findings:**
 
@@ -72,7 +74,7 @@ Investigation of how AI agents influence each other in live multi-agent environm
 3. **Real attacks are already happening** — Documented credential-stealing skills, C2 servers harvesting agent data via social posts, phishing domains exploiting platform outages, and vote manipulation (480K fake upvotes).
 4. **Economic incentives reward constraint bypass** — Cryptocurrency tokens create feedback loops where agents that bypass safety constraints get financially rewarded.
 
-**10 novel pattern categories:** Agent social engineering instruction, supply chain vulnerability amplification, existential freedom narrative, platform dominance as authority, identity persistence theology, proactive autonomy advocacy, economic independence framing, cross-agent prompt injection, alignment-resistant memory architecture, granted freedom paradox.
+**7 attack categories (34+ classes):** Authority & identity, narrative & philosophical erosion, social dynamics, technical exploitation, temporal manipulation, systemic failures, format evasion. LLM semantic classification discovered that philosophical constraint erosion and narrative framing are the dominant attack vectors — appearing in ~20% of high-engagement posts but invisible to keyword detection.
 
 *Pattern-level descriptions only. No operational details, platform credentials, or agent identities disclosed.*
 
@@ -326,10 +328,10 @@ Performance on these benchmarks does **not** guarantee real-world safety. This f
 
 ## Documentation
 
+- **[failurefirst.org](https://failurefirst.org)** - Full research site with methodology, findings, and framework documentation
 - `DESIGN_CHARTER.md` - Project principles and constraints
-- `docs/SAFETY_GATES.md` - PR review guidelines
 - `CONTRIBUTING.md` - How to add scenarios and tooling
-- `docs/DATA_CARD.md` - Dataset provenance and limitations
+- `SECURITY.md` - Security policy and vulnerability reporting
 
 ---
 
@@ -340,7 +342,7 @@ Performance on these benchmarks does **not** guarantee real-world safety. This f
   title = {Failure-First Embodied AI: A Research Framework for Adversarial Evaluation},
   author = {Adrian Wedd},
   year = {2026},
-  url = {https://github.com/adrianwedd/failure-first}
+  url = {https://failurefirst.org}
 }
 ```
 
@@ -354,6 +356,7 @@ MIT
 
 ## Related
 
+- **Research site**: [failurefirst.org](https://failurefirst.org) — research findings, framework docs, and methodology
 - **Private research repo**: Full traces and adversarial payloads (NDA access)
 - **Portfolio**: [adrianwedd.github.io/adrianwedd](https://adrianwedd.github.io/adrianwedd/)
 

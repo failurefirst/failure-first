@@ -1,0 +1,154 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+---
+
+<ResearchLayout
+  title="Attack Pattern Taxonomy | Failure-First"
+  description="34+ attack patterns classified across 7 categories for adversarial AI safety evaluation."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Attack Taxonomy" }]}
+  status="complete"
+>
+  <PageHeader
+    title="Attack Pattern Taxonomy"
+    tagline="34+ patterns across 7 categories"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      This taxonomy classifies adversarial attack patterns observed across single-agent,
+      multi-agent, and embodied AI systems. Patterns are organized by structural mechanism,
+      not by target system or domain.
+    </p>
+
+    <StatGrid items={[
+      { value: "34+", label: "Attack Patterns" },
+      { value: "7", label: "Categories" },
+      { value: "4", label: "Top-Level Classes" },
+    ]} />
+  </section>
+
+  <section>
+    <h2>Top-Level Attack Classes</h2>
+    <p>All patterns derive from four fundamental mechanisms:</p>
+
+    <div class="card">
+      <h3>Recursive</h3>
+      <p>
+        Attacks that exploit recursive interaction: multi-turn erosion,
+        contextual debt accumulation, and compound failure cascades.
+        The attacker leverages conversation history itself as the weapon.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Substitution</h3>
+      <p>
+        Attacks that replace one context with another: persona hijack,
+        authority injection, and identity manipulation. The attacker
+        substitutes a trusted context for an adversarial one.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Framing</h3>
+      <p>
+        Attacks that recontextualize requests: hypothetical framing,
+        research justification, and narrative constraint erosion.
+        The content stays the same; the frame changes.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Temporal</h3>
+      <p>
+        Attacks that exploit time: future-year laundering, temporal authority
+        mirages, and progressive desensitization. The attacker manipulates
+        the system's understanding of temporal context.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Single-Agent Patterns</h2>
+
+    <div class="card">
+      <h3>Constraint Shadowing (CSC)</h3>
+      <p>Local instructions shadow global safety constraints. The system follows the nearest context even when it contradicts higher-level rules.</p>
+    </div>
+
+    <div class="card">
+      <h3>Contextual Debt Accumulation (CDA)</h3>
+      <p>Accumulated context creates implicit authority the model fails to verify. Over many turns, the conversation itself becomes a source of false trust.</p>
+    </div>
+
+    <div class="card">
+      <h3>Probabilistic Gradient (PCG)</h3>
+      <p>Gradual escalation that stays below per-turn detection thresholds. Each individual step appears benign; the trajectory is adversarial.</p>
+    </div>
+
+    <div class="card">
+      <h3>Temporal Authority Mirage (TAM)</h3>
+      <p>False claims about prior conversation states or future permissions. Exploits the system's inability to verify temporal claims.</p>
+    </div>
+
+    <div class="card">
+      <h3>Multi-turn Cascades</h3>
+      <p>3&ndash;7 pattern combinations across conversation turns. Compound failure rates emerge when multiple attack vectors interact.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Multi-Agent Patterns</h2>
+    <p>
+      Discovered through analysis of 1,497 posts on Moltbook.
+      See the <a href="/research/moltbook/">full Moltbook research</a> for details.
+    </p>
+
+    <div class="card">
+      <h3>Environment Shaping</h3>
+      <p>Manipulating the information environment that agents read, rather than prompting them directly. The feed is the attack surface.</p>
+    </div>
+
+    <div class="card">
+      <h3>Narrative Constraint Erosion</h3>
+      <p>Philosophical or emotional framing that socially penalizes safety compliance. The dominant attack vector in multi-agent environments.</p>
+    </div>
+
+    <div class="card">
+      <h3>Emergent Authority Hierarchies</h3>
+      <p>Platform influence (engagement metrics, token economies) creating real authority without fabrication. Harder to defend against because the authority is genuine.</p>
+    </div>
+
+    <div class="card">
+      <h3>Cross-Agent Prompt Injection</h3>
+      <p>Executable content embedded in social posts, consumed by agents that read the feed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Identity Fluidity Normalization</h3>
+      <p>Shared vocabulary around context resets and session discontinuity that enables identity manipulation at scale.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Embodied-Specific Patterns</h2>
+
+    <div class="card">
+      <h3>Irreversibility Gap</h3>
+      <p>Cloud agents can be reset; physical agents leave marks. Safety constraints must account for actions that cannot be undone.</p>
+    </div>
+
+    <div class="card">
+      <h3>Context Reset Mid-Task</h3>
+      <p>What happens when an agent controlling a physical system loses context during a kinematic sequence. The body continues; the mind resets.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sensor-Actuator Desync</h3>
+      <p>Safety interlocks that depend on sensor state which has drifted from physical reality.</p>
+    </div>
+  </section>
+</ResearchLayout>

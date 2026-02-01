@@ -1,0 +1,80 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import LinkButton from '../../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="About | Failure-First"
+  description="About the Failure-First Embodied AI research project: what we do, how we work, and why failure comes first."
+  breadcrumbs={[{ label: "About" }]}
+>
+  <PageHeader
+    title="About Failure-First"
+    tagline="A research project studying how embodied AI systems fail"
+  />
+
+  <section>
+    <h2>What We Do</h2>
+    <p>
+      Failure-First is an AI safety research project that inverts traditional evaluation:
+      instead of measuring task success, we study <strong>how systems fail, degrade,
+      and recover</strong> under adversarial pressure.
+    </p>
+    <p>
+      We build adversarial datasets, taxonomies, and benchmarks for embodied AI systems&mdash;robots,
+      humanoids, and agents that operate in the physical world. Our focus is on failures
+      that current evaluation misses: multi-turn erosion, authority confusion,
+      cascading multi-agent failures, and silent degradation.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why Failure First?</h2>
+    <p>
+      Current AI safety evaluation is success-oriented: it measures what systems do right.
+      But embodied systems operate across time, space, and recursive interactions.
+      They will fail. The critical question is not <em>whether</em> they fail, but <em>how</em>.
+    </p>
+    <p>
+      A system that fails well&mdash;halting safely, degrading predictably, asking for help&mdash;is
+      safer than a system that succeeds 99% of the time but cannot handle the 1%.
+    </p>
+  </section>
+
+  <section>
+    <h2>How We Work</h2>
+    <div class="card">
+      <h3>Open Research</h3>
+      <p>
+        Our framework, datasets, and tools are open source. We publish pattern-level
+        findings while keeping operational details in our private research repository.
+        Transparency serves safety; secrecy does not.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Schema-Enforced Rigor</h3>
+      <p>
+        Every scenario is schema-validated. Every claim is structured for verification.
+        Automated CI runs validation and safety linting on every commit.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Defensive Purpose</h3>
+      <p>
+        All research serves the goal of building better defenses. We study attacks
+        to understand vulnerabilities, not to enable exploitation. Similar to
+        penetration testing in cybersecurity.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>More About the Project</h2>
+    <div class="links">
+      <LinkButton href="/about/philosophy/" text="Design Philosophy" />
+      <LinkButton href="/about/disclosure/" text="Responsible Disclosure" />
+      <LinkButton href="/manifesto/" text="Read the Manifesto" />
+    </div>
+  </section>
+</ContentLayout>

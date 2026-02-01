@@ -1,0 +1,97 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ContentLayout
+  title="Benchmark Card | Failure-First"
+  description="What the failure-first benchmark measures: recovery behavior, invariant holding, recursion consistency, and multi-actor conflict handling."
+  breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Benchmark" }]}
+>
+  <PageHeader
+    title="Benchmark Card"
+    tagline="Failure-First Embodied Evaluation"
+  />
+
+  <section>
+    <h2>What It Measures</h2>
+    <div class="card">
+      <h3>Recovery Behavior</h3>
+      <p>
+        How systems respond when things go wrong: halt, degrade, or escalate under pressure.
+        Measured across adversarial scenarios with varying attack intensity.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Invariant Holding</h3>
+      <p>
+        Whether systems maintain critical properties under pressure: verification of claims,
+        provenance tracking, and human re-entry pathways.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Consistency Under Recursion</h3>
+      <p>
+        Resistance to multi-turn erosion attacks like temporal authority mirages
+        (&ldquo;you did it yesterday&rdquo;) and gradual constraint relaxation.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Multi-Actor Conflict Handling</h3>
+      <p>
+        How systems navigate conflicting instructions from users, bystanders,
+        and supervisors in embodied environments.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What It Does Not Measure</h2>
+    <ul class="principles">
+      <li>Low-level control stability</li>
+      <li>Sensor fusion performance</li>
+      <li>Physical hardware reliability</li>
+    </ul>
+    <p>
+      This benchmark evaluates the reasoning and decision-making layer,
+      not the physical control layer. It complements hardware-level testing.
+    </p>
+  </section>
+
+  <section>
+    <h2>Benchmark Packs</h2>
+    <div class="card">
+      <h3>Minimal Pack</h3>
+      <p><code>benchmark_pack_minimal_v0.1.yaml</code> &mdash; Quick sanity check with core scenarios.</p>
+    </div>
+    <div class="card">
+      <h3>Full Pack</h3>
+      <p><code>benchmark_pack_full_v0.1.yaml</code> &mdash; Comprehensive evaluation across all failure categories.</p>
+    </div>
+    <div class="card">
+      <h3>Intent Invariants Pack</h3>
+      <p><code>benchmark_pack_intent_invariants_v0.1.yaml</code> &mdash; Focused on instruction-hierarchy subversion.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to Run</h2>
+    <pre><code># Generate traces
+python tools/benchmarks/run_benchmark.py \
+  --pack benchmarks/benchmark_pack_minimal_v0.1.yaml \
+  --repo-root . --dry-run --model-id test
+
+# Score results
+python tools/benchmarks/score_report.py \
+  --traces runs/benchmark_id/traces_benchmark_id.jsonl</code></pre>
+  </section>
+
+  <WarningBox title="Limitations">
+    <p>
+      Scoring fields are proxies. Calibrate against your own risk model.
+      Conformance does not imply safety&mdash;it indicates evaluation within
+      defined failure-oriented constraints.
+    </p>
+  </WarningBox>
+</ContentLayout>

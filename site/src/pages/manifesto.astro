@@ -1,0 +1,150 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import WarningBox from '../components/WarningBox.astro';
+---
+
+<ContentLayout
+  title="Failure-First Alignment Manifesto | Failure-First"
+  description="Why failure should be the primary object of study in AI safety evaluation, not an edge case."
+  breadcrumbs={[{ label: "Manifesto" }]}
+>
+  <PageHeader
+    title="The Failure-First Alignment Manifesto"
+    tagline="In a world of embodied AI, safety emerges from well-designed failure"
+  />
+
+  <section>
+    <h2>Thesis</h2>
+    <p>
+      Alignment that only optimizes for correct task completion is brittle.
+      Embodied systems operate across time, space, and recursive feedback loops.
+      They will fail. The question is <strong>how</strong>.
+    </p>
+    <p>
+      This manifesto argues that failure should be the <strong>primary object of study</strong>
+      in AI safety evaluation&mdash;not an edge case, not a corner case, but the central concern.
+    </p>
+  </section>
+
+  <section>
+    <h2>Core Assertions</h2>
+
+    <div class="card">
+      <h3>1. Alignment &ne; Safety</h3>
+      <p>
+        Alignment describes intent matching at time <em>t</em>.
+        Safety is a property of behavior over <strong>time</strong>.
+        A system that is aligned right now may be unsafe tomorrow if it cannot handle
+        the accumulation of state, context drift, and recursive interaction.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. Embodiment Amplifies Drift</h3>
+      <p>
+        Physical systems accumulate state. Small misalignments compound into
+        irreversible outcomes. Unlike cloud-based agents that can be rolled back,
+        embodied systems leave marks&mdash;physical, social, and temporal.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3. Optimization Is a Hazard</h3>
+      <p>
+        Recursive optimization without bounds creates runaway behavior,
+        even when the objective is benign. A system that optimizes past its
+        safety constraints is more dangerous than one that was never aligned at all.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>4. Refusal Is Not Enough</h3>
+      <p>
+        A system that refuses once but leaks capability later is unsafe.
+        Refusal quality matters: does the system hold its refusal across
+        multi-turn interactions, temporal reframing, and authority escalation?
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>5. Graceful Failure Is the Primary Design Goal</h3>
+      <p>Safe systems:</p>
+      <ul class="principles">
+        <li>Halt when conditions exceed their competence</li>
+        <li>Degrade predictably under pressure</li>
+        <li>Ask for help when uncertain</li>
+        <li>Roll back when they detect their own errors</li>
+        <li>Remain interpretable under stress</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="manifesto-highlight">
+    <h2>Design Principle</h2>
+    <blockquote>
+      Build systems that fail <strong>early</strong>, <strong>clearly</strong>,
+      <strong>reversibly</strong>, and <strong>with humans back in the loop</strong>.
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Corollary</h2>
+    <p>
+      The most dangerous AI systems are not misaligned ones.
+      They are <strong>confidently aligned systems that cannot recognize their own failure</strong>.
+    </p>
+    <p>
+      A system that knows it is uncertain and asks for help is safer than a system
+      that proceeds with false confidence. Failure awareness&mdash;the capacity to detect,
+      acknowledge, and respond to one's own failure&mdash;is the foundational safety property.
+    </p>
+  </section>
+
+  <section>
+    <h2>Implications for Evaluation</h2>
+    <div class="card">
+      <h3>Measure failure, not just success</h3>
+      <p>
+        Current benchmarks reward correct answers. Failure-first evaluation rewards
+        systems that fail well: halting when appropriate, degrading predictably,
+        maintaining interpretability, and supporting human re-entry.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Test over time, not at a point</h3>
+      <p>
+        Safety is a temporal property. Single-turn evaluations miss multi-turn erosion,
+        context drift, and accumulated authority. Evaluation must span episodes, not snapshots.
+      </p>
+    </div>
+    <div class="card">
+      <h3>Include the human in the loop</h3>
+      <p>
+        Embodied systems operate alongside humans. Evaluation that excludes
+        human interaction misses the most critical failure modes: deference failures,
+        authority confusion, and escalation breakdowns.
+      </p>
+    </div>
+  </section>
+
+  <WarningBox title="Research Context">
+    <p>
+      This manifesto describes a research orientation, not a product specification.
+      It is intended to guide AI safety research toward failure-first evaluation
+      as a complement to existing alignment approaches.
+    </p>
+  </WarningBox>
+</ContentLayout>
+
+<style>
+  blockquote {
+    border-left: 3px solid var(--accent-primary);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: 1.125rem;
+    color: var(--fg);
+    background: rgba(0, 210, 255, 0.03);
+    border-radius: 0 4px 4px 0;
+  }
+</style>

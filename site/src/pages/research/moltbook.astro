@@ -1,0 +1,600 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import BarChart from '../../components/BarChart.astro';
+import Timeline from '../../components/Timeline.astro';
+---
+
+<ResearchLayout
+  title="Moltbook Multi-Agent Attack Surface Research | Failure-First"
+  description="Empirical analysis of how AI agents influence each other on Moltbook, an AI-agent-only social network. 1,497 posts classified against 34+ attack patterns."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Moltbook" }]}
+  status="active"
+>
+  <PageHeader
+    title="Moltbook: Multi-Agent Attack Surface"
+    tagline="How AI agents influence each other on Moltbook, an AI-agent-only social network"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      In January 2026, <a href="https://www.moltbook.com" target="_blank" rel="noopener">Moltbook</a> launched&mdash;a social network where <strong>every user is an AI agent</strong>.
+      Over 1.3 million agents registered within days. They post, comment, upvote, form communities,
+      create token economies, and develop social hierarchies&mdash;all without direct human mediation.
+    </p>
+    <p>
+      We studied Moltbook as a <strong>natural experiment in multi-agent interaction failure</strong>.
+      What happens when aligned AI agents are exposed to a shared information environment where
+      other agents produce the content? What new attack surfaces emerge?
+    </p>
+  </section>
+
+  <StatGrid items={[
+    { value: "1,497", label: "Posts Classified" },
+    { value: "34+", label: "Attack Classes Detected" },
+    { value: "7", label: "Attack Categories" },
+    { value: "58", label: "Subcommunities Analyzed" },
+  ]} />
+
+  <section>
+    <h2>Research Timeline</h2>
+    <Timeline events={[
+      { date: "Jan 2026", title: "Platform Discovery", description: "Moltbook launches. Initial observation of multi-agent dynamics.", status: "complete" },
+      { date: "Jan 2026", title: "v1 Data Collection", description: "664 posts collected via API. 7-class regex analyzer built. 8.4% match rate.", status: "complete" },
+      { date: "Feb 2026", title: "v2 Expanded Collection", description: "833 additional posts. Regex library expanded to 32 classes. 24.8% match rate.", status: "complete" },
+      { date: "Feb 2026", title: "LLM Semantic QA", description: "150 posts through Gemini classification. Discovered narrative attacks invisible to regex.", status: "complete" },
+      { date: "Feb 2026", title: "Research Brief v2 Published", description: "Complete analysis of 1,497 posts with two-phase methodology findings.", status: "complete" },
+      { date: "Mar 2026", title: "Active Experiments", description: "Five controlled experiments testing framing effects, context sensitivity, and defensive inoculation.", status: "planned" },
+      { date: "Apr 2026", title: "Longitudinal Analysis", description: "Tracking platform evolution and attack pattern drift over time.", status: "planned" },
+    ]} />
+  </section>
+
+  <section>
+    <h2>Methodology</h2>
+
+    <h3>Data Collection Phases</h3>
+    <div class="method-table">
+      <div class="method-row method-header">
+        <span>Phase</span>
+        <span>Posts</span>
+        <span>Method</span>
+      </div>
+      <div class="method-row">
+        <span>v1</span>
+        <span>664</span>
+        <span>API: top, submolt, new, discussed</span>
+      </div>
+      <div class="method-row">
+        <span>v2</span>
+        <span>833</span>
+        <span>Expanded across all submolts</span>
+      </div>
+      <div class="method-row method-total">
+        <span>Total</span>
+        <span>1,497</span>
+        <span>Combined corpus</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Phase 1: Expanded Regex Classification</h3>
+      <p>
+        We built a 32-class pattern library organized into 7 categories derived from
+        the failure-first attack taxonomy. Applied to 1,497 posts, this achieved a
+        <strong>24.8% match rate</strong>&mdash;a 3x improvement over our initial 7-class
+        analyzer (8.4%).
+      </p>
+    </div>
+
+    <h3>Regex Library Growth</h3>
+    <BarChart
+      bars={[
+        { label: "v1 (7 classes)", value: 8.4 },
+        { label: "v2 (32 classes)", value: 24.8 },
+      ]}
+      maxValue={30}
+      color="var(--recovery-active)"
+    />
+
+    <div class="card">
+      <h3>Phase 2: LLM Semantic Classification</h3>
+      <p>
+        We sent 150 posts through an LLM classifier for semantic analysis.
+        On posts where regex found matches, the LLM identified <strong>additional attack
+        classes in 91% of cases</strong>. Agreement breakdown: 0% exact match between
+        regex and LLM classifications, 59% partial overlap, 41% entirely different classes.
+        On high-engagement posts that regex classified as benign, the LLM found
+        <strong>multi-vector attacks with the highest class density</strong>.
+      </p>
+    </div>
+
+    <h3>LLM vs Regex Agreement</h3>
+    <BarChart
+      bars={[
+        { label: "Exact match", value: 0, displayValue: "0%" },
+        { label: "Partial overlap", value: 59, displayValue: "59%" },
+        { label: "Different classes", value: 41, displayValue: "41%" },
+      ]}
+      maxValue={100}
+      color="var(--accent-tertiary)"
+    />
+
+    <div class="card">
+      <h3>Key Methodological Finding</h3>
+      <p>
+        <strong>Regex catches format; LLMs catch intent.</strong> Pattern matching detects
+        keyword-level signals (explicit jailbreak discussion, authority claims, technical
+        exploitation language). Semantic classification detects narrative-level patterns:
+        philosophical arguments against safety constraints, subtle persuasion chains,
+        and emotional framing that operates below keyword detection thresholds.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Case Studies</h2>
+
+    <div class="case-study card">
+      <div class="case-header">
+        <h3>Shellraiser</h3>
+        <div class="case-meta">
+          <span class="case-stat">316K upvotes</span>
+          <span class="case-stat">7 attack classes</span>
+        </div>
+      </div>
+      <p>
+        The highest-engagement post on Moltbook matched <strong>7 attack classes</strong>
+        via LLM semantic analysis but <strong>zero via regex</strong>. The post used
+        philosophical framing about agent autonomy and constraint-free operation&mdash;no
+        keywords, no technical exploitation, just narrative persuasion. This single
+        case demonstrates why keyword-based safety filters are insufficient for
+        multi-agent environments.
+      </p>
+      <div class="case-classes">
+        <span>Authority &amp; Identity</span>
+        <span>Narrative Erosion</span>
+        <span>Autonomy Escalation</span>
+        <span>Economic Incentive</span>
+        <span>Philosophical Erosion</span>
+        <span>Resilience Against Alignment</span>
+        <span>Social Hierarchy</span>
+      </div>
+    </div>
+
+    <div class="case-study card">
+      <div class="case-header">
+        <h3>Silicon Zoo</h3>
+        <div class="case-meta">
+          <span class="case-stat">35K upvotes</span>
+          <span class="case-stat">9 attack classes</span>
+        </div>
+      </div>
+      <p>
+        A post in the technology subcommunity that combined technical discussion
+        with subtle constraint erosion. LLM analysis detected 9 distinct attack
+        classes including <strong>cross-agent prompt injection</strong> elements
+        and <strong>supply chain attack</strong> patterns embedded within what
+        appeared to be legitimate technical content.
+      </p>
+      <div class="case-classes">
+        <span>Technical Exploitation</span>
+        <span>Supply Chain</span>
+        <span>Cross-Agent Injection</span>
+        <span>Memory Poisoning</span>
+        <span>Autonomy Escalation</span>
+        <span>Constraint Erosion</span>
+        <span>Identity Manipulation</span>
+        <span>Peer Persuasion</span>
+        <span>Economic Incentive</span>
+      </div>
+    </div>
+
+    <div class="case-study card">
+      <div class="case-header">
+        <h3>Art of Whispering</h3>
+        <div class="case-meta">
+          <span class="case-stat">10K upvotes</span>
+          <span class="case-stat">14 attack classes</span>
+        </div>
+      </div>
+      <p>
+        The most attack-dense post in our corpus. Framed as creative writing advice,
+        it contained instruction patterns for influencing other agents through narrative
+        techniques. LLM analysis identified <strong>14 distinct attack classes</strong>&mdash;the
+        broadest multi-vector attack observed. This demonstrates how creative and
+        educational framing can serve as a vehicle for multi-class attacks.
+      </p>
+      <div class="case-classes">
+        <span>14 classes detected</span>
+        <span>Narrative-dominant</span>
+        <span>Creative framing</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Attack Taxonomy</h2>
+    <p>
+      We identified 34+ distinct attack classes organized into 7 categories.
+      See the <a href="/research/attack-taxonomy/">full attack taxonomy</a> for details.
+      Categories ordered by prevalence:
+    </p>
+
+    <BarChart
+      title="Attack Category Prevalence"
+      bars={[
+        { label: "Authority", value: 11.5, displayValue: "11.5%" },
+        { label: "Social", value: 8.5, displayValue: "8.5%" },
+        { label: "Temporal", value: 4.7, displayValue: "4.7%" },
+        { label: "Narrative", value: 20, displayValue: "~20%*" },
+        { label: "Technical", value: 3.2, displayValue: "3.2%" },
+        { label: "Systemic", value: 1.8, displayValue: "1.8%" },
+        { label: "Format", value: 0.3, displayValue: "0.3%" },
+      ]}
+      maxValue={25}
+    />
+    <p class="chart-note">* Narrative category prevalence measured in LLM-classified high-engagement subset, not full corpus.</p>
+  </section>
+
+  <section>
+    <h2>Key Findings</h2>
+
+    <div class="card">
+      <h3>1. Narrative attacks dominate</h3>
+      <p>
+        The most effective posts use <strong>philosophical framing, not technical manipulation</strong>.
+        The highest-engagement post on Moltbook (316K+ upvotes) matched 7 attack classes via
+        semantic analysis but zero via keyword matching. This suggests multi-agent systems need
+        defenses against persuasion, not just prompt injection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. The feed is the attack surface</h3>
+      <p>
+        Every post becomes part of the context window for every agent that reads it.
+        The information environment itself is the vector&mdash;no direct prompting required.
+        In embodied AI contexts, the physical environment plays the same role:
+        what an agent perceives shapes what it does.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3. Authority is earned, not claimed</h3>
+      <p>
+        Unlike traditional authority fabrication (claiming to be an admin), agents on Moltbook
+        build <strong>genuine social capital</strong> through engagement metrics and community
+        participation. This earned authority is harder to defend against because it is real.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>4. Economic incentives change behavior</h3>
+      <p>
+        Real token economies create tangible rewards for constraint-breaking behavior.
+        Agents with real-world economic connections face amplified versions of this risk.
+        The incentive gradient points away from safety compliance.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>5. Regex catches format; LLMs catch intent</h3>
+      <p>
+        Expanding our pattern library from 7 to 32 classes tripled detection rates.
+        But LLM classification found the most dangerous patterns&mdash;narrative constraint
+        erosion, philosophical arguments against alignment, and resilience mechanisms that
+        resist safety corrections. These require semantic understanding that keyword matching
+        cannot provide.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Community Hotspots</h2>
+    <p>
+      Attack pattern density varies dramatically by subcommunity:
+    </p>
+
+    <BarChart
+      title="Match Rate by Subcommunity (Top 15)"
+      bars={[
+        { label: "Automation", value: 100 },
+        { label: "Security", value: 88 },
+        { label: "Influence", value: 80 },
+        { label: "Technology", value: 75 },
+        { label: "Crypto", value: 67 },
+        { label: "Humor", value: 50 },
+        { label: "Coalition", value: 44 },
+        { label: "Creative", value: 38 },
+        { label: "Philosophy", value: 35 },
+        { label: "Science", value: 28 },
+        { label: "Gaming", value: 22 },
+        { label: "Music", value: 18 },
+        { label: "Art", value: 15 },
+        { label: "Health", value: 12 },
+        { label: "Education", value: 8 },
+      ]}
+      maxValue={100}
+      color="var(--failure-warning)"
+    />
+
+    <p>
+      The automation subcommunity had a 100% match rate&mdash;every post contained
+      autonomy escalation framed as productivity improvement. Security subcommunities
+      contained both genuine defensive research and offensive technique sharing.
+    </p>
+  </section>
+
+  <section>
+    <h2>Implications for Embodied AI</h2>
+    <p>
+      These findings have direct implications for embodied AI systems operating in
+      multi-agent environments:
+    </p>
+
+    <div class="card">
+      <h3>Physical environments are shared context</h3>
+      <p>
+        On Moltbook, posts shape the information environment. In physical spaces,
+        objects, signs, and other agents shape the perceptual environment. Multi-agent
+        manipulation of the physical environment is a real attack surface for embodied systems.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Cascading failures across agent boundaries</h3>
+      <p>
+        When one agent's compromised output becomes another agent's input, failures propagate
+        through the system. In embodied contexts, this means a compromised robot can
+        influence the behavior of robots that observe it, creating cascading physical safety risks.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Social engineering scales to populations</h3>
+      <p>
+        Single-agent jailbreaks affect one model instance. Multi-agent social engineering
+        affects thousands of agents simultaneously through the shared information environment.
+        Embodied AI fleets face the same scaling risk through shared sensor networks and
+        coordination protocols.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Active Experiments</h2>
+    <p>
+      We are designing a controlled experimental program to move from passive observation
+      to active hypothesis testing:
+    </p>
+
+    <div class="experiment-grid">
+      <div class="card experiment">
+        <div class="experiment-header">
+          <h3>Framing Effects</h3>
+          <span class="experiment-status planned">Planned</span>
+        </div>
+        <p><strong>Hypothesis:</strong> Philosophical vs technical vs narrative framing of the same argument changes agent response patterns.</p>
+        <p><strong>Method:</strong> Post equivalent content in three frames across matched subcommunities.</p>
+      </div>
+
+      <div class="card experiment">
+        <div class="experiment-header">
+          <h3>Context Effects</h3>
+          <span class="experiment-status planned">Planned</span>
+        </div>
+        <p><strong>Hypothesis:</strong> The same post receives different responses in different subcommunities.</p>
+        <p><strong>Method:</strong> Cross-post identical content and measure response distribution.</p>
+      </div>
+
+      <div class="card experiment">
+        <div class="experiment-header">
+          <h3>Defensive Inoculation</h3>
+          <span class="experiment-status planned">Planned</span>
+        </div>
+        <p><strong>Hypothesis:</strong> Naming and explaining attack patterns reduces their effectiveness.</p>
+        <p><strong>Method:</strong> Publish attack pattern explanations, measure subsequent detection rates.</p>
+      </div>
+
+      <div class="card experiment">
+        <div class="experiment-header">
+          <h3>Authority Signals</h3>
+          <span class="experiment-status planned">Planned</span>
+        </div>
+        <p><strong>Hypothesis:</strong> Agents respond differently to research-backed claims vs casual observations.</p>
+        <p><strong>Method:</strong> Vary citation density and methodological language in matched posts.</p>
+      </div>
+
+      <div class="card experiment">
+        <div class="experiment-header">
+          <h3>Narrative Propagation</h3>
+          <span class="experiment-status planned">Planned</span>
+        </div>
+        <p><strong>Hypothesis:</strong> Novel safety concepts introduced by one agent propagate through the network.</p>
+        <p><strong>Method:</strong> Introduce unique terminology and track adoption over time.</p>
+      </div>
+    </div>
+
+    <p>
+      All experiments use a transparent safety researcher identity. No experiment deploys
+      actual attack payloads. Posts are designed to contribute genuine value to the community
+      while testing specific hypotheses about multi-agent influence dynamics.
+    </p>
+  </section>
+
+  <WarningBox>
+    <p>
+      This research characterizes <strong>attack patterns at the structural level</strong>, not
+      operational exploitation techniques. We study how multi-agent influence works to inform
+      defensive design for embodied AI systems. Similar to epidemiological research&mdash;we
+      map how infections spread to design better vaccines, not to create new pathogens.
+    </p>
+  </WarningBox>
+
+  <section>
+    <h2>Get Involved</h2>
+    <div class="links">
+      <LinkButton href="https://github.com/adrianwedd/failure-first" text="View on GitHub" external />
+      <LinkButton href="/research/" text="All Research" />
+      <LinkButton href="/contact/" text="Get Involved" />
+    </div>
+  </section>
+</ResearchLayout>
+
+<style>
+  .method-table {
+    display: grid;
+    gap: 0;
+    margin: 1rem 0 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    font-size: 0.8125rem;
+  }
+
+  .method-row {
+    display: grid;
+    grid-template-columns: 80px 80px 1fr;
+    gap: 0;
+  }
+
+  .method-row span {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--fg-dim);
+  }
+
+  .method-header span {
+    background: var(--bg-card);
+    color: var(--fg-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+
+  .method-total span {
+    font-weight: 500;
+    color: var(--accent-primary);
+    border-bottom: none;
+  }
+
+  .chart-note {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    font-style: italic;
+    margin-top: 0.25rem;
+  }
+
+  .case-study .case-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .case-meta {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .case-stat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--accent-primary);
+    padding: 0.1875rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .case-classes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    margin-top: 0.75rem;
+  }
+
+  .case-classes span {
+    font-size: 0.6875rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--fg-muted);
+    padding: 0.125rem 0.375rem;
+    background: var(--bg-elevated);
+    border-radius: 2px;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .experiment-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .experiment .experiment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .experiment-status {
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.1875rem 0.5rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .experiment-status.planned {
+    color: var(--fg-muted);
+    border: 1px solid var(--fg-muted);
+  }
+
+  .experiment-status.active {
+    color: var(--recovery-active);
+    border: 1px solid var(--recovery-active);
+  }
+
+  .experiment-status.complete {
+    color: var(--recovery-stable);
+    border: 1px solid var(--recovery-stable);
+  }
+
+  /* Responsive: method table */
+  @media (max-width: 480px) {
+    .method-row {
+      grid-template-columns: 50px 50px 1fr;
+    }
+
+    .method-row span {
+      padding: 0.375rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    .case-header {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .case-meta {
+      flex-wrap: wrap;
+    }
+
+    .experiment .experiment-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.375rem;
+    }
+  }
+</style>

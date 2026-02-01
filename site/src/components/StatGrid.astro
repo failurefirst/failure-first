@@ -1,0 +1,22 @@
+---
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  items: StatItem[];
+  compact?: boolean;
+}
+
+const { items, compact = false } = Astro.props;
+---
+
+<div class:list={["stats", { "stats--compact": compact }]}>
+  {items.map((item) => (
+    <div class="stat">
+      <div class="stat-number">{item.value}</div>
+      <div class="stat-label">{item.label}</div>
+    </div>
+  ))}
+</div>

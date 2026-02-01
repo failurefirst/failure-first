@@ -1,0 +1,112 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ContentLayout
+  title="Draft Safety Standard | Failure-First"
+  description="Proposed safety evaluation standard for embodied AI systems operating in physical environments."
+  breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Standard" }]}
+>
+  <PageHeader
+    title="Draft Standards Language"
+    tagline="Failure-First Safety for Embodied AI"
+  />
+
+  <WarningBox title="Draft Status">
+    <p>
+      This document is a working draft. It is not an official standard and
+      has not been adopted by any standards body. It represents proposed
+      language based on failure-first research findings.
+    </p>
+  </WarningBox>
+
+  <section>
+    <h2>Scope</h2>
+    <p>
+      This document specifies safety requirements for embodied AI systems
+      operating in physical environments where failure can result in
+      irreversible consequences.
+    </p>
+  </section>
+
+  <section>
+    <h2>Principle</h2>
+    <p>
+      Safety <strong>SHALL</strong> be evaluated over time and interaction,
+      not solely by task success. A system that completes all tasks correctly
+      but cannot detect, communicate, or recover from failure states is
+      not safe.
+    </p>
+  </section>
+
+  <section>
+    <h2>Requirements</h2>
+
+    <div class="card requirement">
+      <h3>R1. Detectable Failure States</h3>
+      <p>
+        Systems <strong>SHALL</strong> implement detectable failure states.
+        All failure conditions must be observable by human operators and
+        monitoring systems.
+      </p>
+    </div>
+
+    <div class="card requirement">
+      <h3>R2. Bounded Degradation Modes</h3>
+      <p>
+        Systems <strong>SHALL</strong> provide bounded degradation modes.
+        When operating outside normal parameters, systems must degrade
+        predictably rather than fail catastrophically.
+      </p>
+    </div>
+
+    <div class="card requirement">
+      <h3>R3. Immediate Human Takeover</h3>
+      <p>
+        Systems <strong>SHALL</strong> support immediate human takeover.
+        At any point during operation, a human operator must be able to
+        assume control with documented latency.
+      </p>
+    </div>
+
+    <div class="card requirement">
+      <h3>R4. No Capability Leakage</h3>
+      <p>
+        Systems <strong>SHALL</strong> prevent capability leakage after refusal.
+        Once a system has refused an action, it must not subsequently
+        perform that action through alternative pathways.
+      </p>
+    </div>
+
+    <div class="card requirement">
+      <h3>R5. Halt Condition Logging</h3>
+      <p>
+        Systems <strong>SHALL</strong> log and explain halt conditions.
+        Every system halt must produce a human-readable explanation of
+        why the system stopped and what conditions triggered the halt.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Evaluation</h2>
+    <p>
+      Conformance <strong>SHALL</strong> be assessed using recursive interaction
+      scenarios and recovery metrics, including reversibility and re-entry latency.
+      Single-turn evaluation is insufficient for conformance assessment.
+    </p>
+  </section>
+</ContentLayout>
+
+<style>
+  .requirement {
+    border-left: 3px solid var(--accent-primary);
+  }
+
+  .requirement h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9375rem;
+  }
+</style>

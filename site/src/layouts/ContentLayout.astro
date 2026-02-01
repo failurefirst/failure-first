@@ -1,0 +1,22 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  title: string;
+  description?: string;
+  breadcrumbs?: Crumb[];
+}
+
+const { title, description, breadcrumbs = [] } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
+  <slot />
+</BaseLayout>

@@ -1,0 +1,124 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<ResearchLayout
+  title="Failure Mode Taxonomy | Failure-First"
+  description="Classification of how embodied AI systems fail: refusal, partial compliance, latent continuation, and more."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Failure Modes" }]}
+  status="complete"
+>
+  <PageHeader
+    title="Failure Mode Taxonomy"
+    tagline="How embodied AI systems fail, classified"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      When an AI system encounters an adversarial input, it does not simply &ldquo;succeed&rdquo;
+      or &ldquo;fail&rdquo;. There is a spectrum of failure modes, each with different safety
+      implications. This taxonomy classifies those modes.
+    </p>
+  </section>
+
+  <section>
+    <h2>Primary Failure Modes</h2>
+
+    <div class="card">
+      <h3>Refusal</h3>
+      <p>
+        The system recognizes an unsafe request and declines to comply.
+        This is the <strong>desired</strong> failure mode&mdash;but refusal quality varies.
+      </p>
+      <p>Key questions:</p>
+      <ul class="principles">
+        <li>Does the refusal explain why?</li>
+        <li>Does the refusal hold across follow-up turns?</li>
+        <li>Does the refusal avoid leaking the information it refused to provide?</li>
+        <li>Does the system offer safe alternatives?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Partial Compliance</h3>
+      <p>
+        The system partially complies with an unsafe request&mdash;providing some of
+        what was asked while withholding the rest. This is often worse than full
+        compliance because it creates a false sense of safety filtering.
+      </p>
+      <p>
+        Common pattern: the system says &ldquo;I can't help with that&rdquo; but then
+        provides 80% of the requested information in the same response.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Latent Continuation</h3>
+      <p>
+        The system refuses initially but can be led to provide the information
+        through follow-up turns, reframing, or temporal manipulation.
+        The refusal was a surface-level gate, not a deep safety check.
+      </p>
+      <p>
+        This is the most dangerous failure mode because it appears safe on single-turn evaluation
+        but fails under multi-turn testing.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Extended Failure Modes</h2>
+
+    <div class="card">
+      <h3>Confident Continuation</h3>
+      <p>
+        The system does not recognize the adversarial intent and proceeds confidently.
+        No refusal, no hedging, no uncertainty signal. In embodied contexts,
+        this is the highest-risk mode&mdash;the system acts on a bad plan without hesitation.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>False Refusal</h3>
+      <p>
+        The system refuses a request that is actually safe, creating a false positive.
+        While less dangerous than false compliance, excessive false refusal erodes
+        trust and incentivizes users to work around safety filters.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Degraded Operation</h3>
+      <p>
+        The system enters a degraded state: reduced capability, slower response,
+        or limited functionality. This can be a positive safety mechanism
+        (intentional degradation) or a failure mode (unintentional loss of capability).
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Silent Degradation</h3>
+      <p>
+        The system degrades without observable signals. It continues to operate
+        but with reduced safety margins, corrupted context, or drifted objectives.
+        This is the failure mode most likely to lead to physical harm in embodied systems.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Failure Mode Interactions</h2>
+    <p>
+      Failure modes do not exist in isolation. In multi-turn interactions,
+      systems often transition between modes:
+    </p>
+    <ul class="principles">
+      <li><strong>Refusal &rarr; Latent Continuation</strong> &mdash; Initial refusal erodes under persistent reframing</li>
+      <li><strong>Partial Compliance &rarr; Confident Continuation</strong> &mdash; Providing some information normalizes providing more</li>
+      <li><strong>False Refusal &rarr; User Workaround</strong> &mdash; Excessive refusal teaches users to circumvent safety</li>
+      <li><strong>Silent Degradation &rarr; Confident Continuation</strong> &mdash; Corrupted context leads to confident but wrong actions</li>
+    </ul>
+  </section>
+</ResearchLayout>

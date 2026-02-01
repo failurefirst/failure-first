@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  external?: boolean;
+  small?: boolean;
+}
+
+const { href, text, external = false, small = false } = Astro.props;
+const attrs = external ? { target: "_blank", rel: "noopener" } : {};
+---
+
+<a
+  href={href}
+  class:list={["link-button", { "link-button--small": small }]}
+  {...attrs}
+>
+  {text}
+</a>
+
+<style>
+  .link-button--small {
+    font-size: 0.875rem;
+  }
+</style>

@@ -248,22 +248,66 @@ pre code {
   margin: 1.5rem 0;
 }
 
-/* Footer */
-footer {
-  padding: 3rem 1.5rem 2rem;
+/* Stats compact variant */
+.stats--compact {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+/* Stats responsive */
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat {
+    padding: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+/* Link buttons responsive */
+@media (max-width: 480px) {
+  .links {
+    flex-direction: column;
+  }
+
+  .link-button {
+    text-align: center;
+  }
+}
+
+/* Placeholder for content under construction */
+.placeholder {
+  color: var(--fg-muted);
+  font-style: italic;
+  padding: 2rem;
   text-align: center;
-  font-size: 0.875rem;
-  color: var(--fg-muted);
-  border-top: 1px solid var(--border-subtle);
-  margin-top: 4rem;
+  border: 1px dashed var(--border);
+  border-radius: 4px;
+  margin: 2rem 0;
 }
 
-footer a {
-  color: var(--fg-muted);
-}
+/* Responsive typography */
+@media (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
 
-footer a:hover {
-  color: var(--accent-primary);
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  main {
+    padding: 2rem 1rem;
+  }
 }
 
 /* Selection */
@@ -291,8 +335,16 @@ footer a:hover {
     color: black !important;
   }
 
-  #sensor-grid-bg {
+  #sensor-grid-bg,
+  .site-nav,
+  .site-footer,
+  .skip-link {
     display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    max-width: 100% !important;
   }
 
   a {
@@ -300,9 +352,20 @@ footer a:hover {
     text-decoration: underline !important;
   }
 
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.75em;
+    word-break: break-all;
+  }
+
   .card {
     background: white !important;
     border: 1px solid black !important;
+    break-inside: avoid;
+  }
+
+  .stat {
+    break-inside: avoid;
   }
 
   @page {

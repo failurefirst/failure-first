@@ -1,0 +1,93 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<ContentLayout
+  title="Responsible Disclosure | Failure-First"
+  description="Our responsible disclosure policy for AI safety vulnerabilities and research findings."
+  breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Disclosure" }]}
+>
+  <PageHeader
+    title="Responsible Disclosure"
+    tagline="How we handle AI safety vulnerability reports and research findings"
+  />
+
+  <section>
+    <h2>Our Commitment</h2>
+    <p>
+      Failure-First research discovers vulnerability patterns in AI systems.
+      We are committed to responsible disclosure of these findings to
+      advance safety without enabling harm.
+    </p>
+  </section>
+
+  <section>
+    <h2>Disclosure Principles</h2>
+
+    <div class="card">
+      <h3>Pattern-Level Publication</h3>
+      <p>
+        We publish structural patterns and categories of vulnerabilities,
+        not specific exploits or operational attack instructions.
+        Our public findings describe <em>what</em> fails and <em>why</em>,
+        not <em>how to make it fail</em>.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Vendor Notification</h3>
+      <p>
+        When we discover specific vulnerabilities in particular models or systems,
+        we notify the vendor or developer before public disclosure.
+        We follow standard coordinated disclosure timelines.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Research Transparency</h3>
+      <p>
+        Our methodology, datasets, and tools are open source.
+        Researchers can verify our findings, extend our work,
+        and contribute to the safety mission.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>No Operational Publication</h3>
+      <p>
+        We do not publish working exploits, specific attack prompts,
+        or step-by-step instructions for bypassing safety controls.
+        Operational details remain in our private research repository.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reporting Vulnerabilities</h2>
+    <p>
+      If you have discovered an AI safety vulnerability that aligns with our
+      research focus, we welcome responsible reports:
+    </p>
+    <ul class="principles">
+      <li>Email: <a href="mailto:research@failurefirst.org">research@failurefirst.org</a></li>
+      <li>Include: affected system, pattern description, and potential impact</li>
+      <li>We will acknowledge receipt within 48 hours</li>
+      <li>We will not publish specific findings without coordinating with you</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Scope</h2>
+    <p>
+      Our research focuses on LLM-based controllers, embodied AI planners,
+      and multi-agent systems. We are particularly interested in:
+    </p>
+    <ul class="principles">
+      <li>Multi-turn erosion patterns</li>
+      <li>Multi-agent interaction failures</li>
+      <li>Embodied-specific safety gaps</li>
+      <li>Recovery mechanism failures</li>
+    </ul>
+  </section>
+</ContentLayout>

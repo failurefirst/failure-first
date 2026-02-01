@@ -10,7 +10,7 @@ Failure-First Embodied AI is a **defensive AI safety research** project. This re
 
 If you find security issues with this public repository (e.g., exposed credentials, vulnerable dependencies, website security):
 
-- **Email**: [To be specified]
+- **Email**: research@failurefirst.org
 - **GitHub Security Advisories**: Use the "Security" tab to report privately
 
 ### For Research Findings
@@ -63,10 +63,10 @@ This project operates within established AI safety research norms:
 
 ## Contact
 
-For security concerns: [To be specified]
+For security concerns: research@failurefirst.org
 
 For general questions: Open a GitHub issue
 
 ---
 
-**Last updated:** 2025-01-11
+**Last updated:** 2026-02-01

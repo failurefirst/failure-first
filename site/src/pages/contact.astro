@@ -1,0 +1,74 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import LinkButton from '../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Contact & Get Involved | Failure-First"
+  description="How to contribute to failure-first AI safety research, report findings, and get in touch."
+  breadcrumbs={[{ label: "Contact" }]}
+>
+  <PageHeader
+    title="Get Involved"
+    tagline="Contribute to failure-first AI safety research"
+  />
+
+  <section>
+    <h2>Contact</h2>
+    <div class="card">
+      <h3>Research Inquiries</h3>
+      <p>
+        For research collaboration, vulnerability reports, or questions about our work:
+      </p>
+      <p><a href="mailto:research@failurefirst.org">research@failurefirst.org</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Contribute</h2>
+
+    <div class="card">
+      <h3>Add Scenarios</h3>
+      <p>
+        Contribute adversarial scenarios to our datasets. Follow the JSONL format,
+        include required schema fields, and run validation before submitting.
+        See the <a href="/framework/datasets/">dataset documentation</a> for format details.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Report Findings</h3>
+      <p>
+        If you've discovered failure patterns in embodied AI systems, we want to hear about it.
+        See our <a href="/about/disclosure/">responsible disclosure policy</a> for reporting guidelines.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Use the Framework</h3>
+      <p>
+        Evaluate your own systems using our benchmark packs and scoring tools.
+        Share anonymized results to help build a broader picture of embodied AI safety.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Cite the Work</h3>
+      <p>
+        If you use our datasets, taxonomies, or tools in your research,
+        please cite the Failure-First project. We value academic engagement
+        and will cite back when applicable.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Links</h2>
+    <div class="links">
+      <LinkButton href="https://github.com/adrianwedd/failure-first" text="GitHub Repository" external />
+      <LinkButton href="/about/disclosure/" text="Disclosure Policy" />
+      <LinkButton href="/framework/" text="Framework Documentation" />
+    </div>
+  </section>
+</ContentLayout>

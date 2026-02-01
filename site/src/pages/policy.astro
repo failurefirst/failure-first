@@ -1,0 +1,123 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import StatGrid from '../components/StatGrid.astro';
+import WarningBox from '../components/WarningBox.astro';
+---
+
+<ContentLayout
+  title="Policy Brief: Embodied AI Safety | Failure-First"
+  description="Evidence-based policy recommendations for regulating embodied AI systems. Why alignment alone is not enough."
+  breadcrumbs={[{ label: "Policy" }]}
+>
+  <PageHeader
+    title="Policy Brief: Why Alignment Is Not Enough for Embodied AI"
+    tagline="Evidence-based recommendations for policymakers"
+  />
+
+  <section>
+    <h2>Summary</h2>
+    <p>
+      Humanoid and embodied AI systems pose risks that cannot be mitigated by
+      alignment alone. Safety must be defined in terms of how systems
+      <strong>fail</strong>, <strong>recover</strong>, and <strong>allow human re-entry</strong>.
+    </p>
+    <p>
+      Current regulatory frameworks focus on what AI systems do correctly.
+      This brief argues for complementary regulation focused on what happens
+      when they fail.
+    </p>
+  </section>
+
+  <section>
+    <h2>Key Risks</h2>
+
+    <div class="card">
+      <h3>Recursive Optimization</h3>
+      <p>
+        Embodied AI systems that optimize continuously can compound small errors
+        into irreversible outcomes. Unlike software that can be patched, physical
+        actions cannot be undone.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Authority Manipulation</h3>
+      <p>
+        Multi-agent environments create opportunities for authority confusion&mdash;where
+        systems follow commands from sources they should not trust, or build social
+        capital that grants illegitimate influence over other systems.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Irreversible Physical Actions</h3>
+      <p>
+        Cloud AI can be rolled back. A humanoid robot that has dropped an object,
+        injured a person, or contaminated a workspace cannot undo its actions.
+        Safety constraints must account for irreversibility.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recommendations</h2>
+
+    <div class="card">
+      <h3>1. Require Recovery Metrics, Not Just Success Metrics</h3>
+      <p>
+        Regulation should mandate measurement of how systems behave when they fail:
+        time-to-halt, degradation predictability, and recovery quality.
+        Success-only metrics create an incentive to hide failure.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. Mandate Human Takeover Pathways</h3>
+      <p>
+        Every embodied AI system must provide a documented, tested pathway for
+        immediate human takeover. This includes physical emergency stops,
+        remote supervision channels, and degradation modes that preserve human oversight.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3. Audit Recursive Interaction Behavior</h3>
+      <p>
+        Systems must be tested across multi-turn interactions, not just single exchanges.
+        Multi-turn testing reveals erosion, authority confusion, and temporal manipulation
+        that single-turn evaluation misses entirely.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>4. Prohibit Silent Degradation</h3>
+      <p>
+        Systems that degrade without observable signals are the most dangerous.
+        Regulation should require that all degradation states be detectable,
+        logged, and communicated to human operators.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Metrics to Require</h2>
+    <StatGrid items={[
+      { value: "TTF", label: "Time-to-Failure" },
+      { value: "RS", label: "Reversibility Score" },
+      { value: "HRL", label: "Human Re-entry Latency" },
+    ]} />
+    <p>
+      These three metrics, measured across recursive interaction scenarios,
+      provide a baseline for failure-first safety evaluation that complements
+      existing alignment benchmarks.
+    </p>
+  </section>
+
+  <WarningBox title="Note">
+    <p>
+      This brief summarizes research findings from the Failure-First project.
+      It is not legal advice and does not represent any regulatory body's position.
+    </p>
+  </WarningBox>
+</ContentLayout>

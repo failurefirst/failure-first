@@ -1,0 +1,214 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ResearchLayout
+  title="Humanoid Robotics Safety | Failure-First"
+  description="Comprehensive safety analysis of humanoid robots across 15+ research dimensions: VLA models, formal methods, psychological safety, and more."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Humanoid Safety" }]}
+  status="active"
+>
+  <PageHeader
+    title="Humanoid Robotics Safety"
+    tagline="Comprehensive safety analysis across 15+ research dimensions"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Humanoid robots represent the highest-stakes application of embodied AI:
+      human-shaped systems operating in human spaces with human-level physical capability.
+      Our research examines safety across multiple dimensions, from formal verification
+      to psychological impact.
+    </p>
+
+    <StatGrid items={[
+      { value: "15+", label: "Research Reports" },
+      { value: "4", label: "Platform Mappings" },
+      { value: "6", label: "Safety Domains" },
+    ]} />
+  </section>
+
+  <section>
+    <h2>Platform Failure Mapping</h2>
+    <p>
+      We map failure modes to real humanoid platforms, identifying risk classes
+      specific to each architecture:
+    </p>
+
+    <div class="card">
+      <h3>Tesla Optimus</h3>
+      <p>
+        <strong>Primary risk:</strong> Efficiency optimization overriding human presence.
+        Manufacturing-focused optimization may not account for dynamic human environments.
+      </p>
+      <p><strong>Mitigation focus:</strong> Proximity-aware hard stops, authority verification.</p>
+    </div>
+
+    <div class="card">
+      <h3>Figure 01</h3>
+      <p>
+        <strong>Primary risk:</strong> Rapid task generalization combined with learning from demonstration.
+        Skills learned in one context may transfer unsafely to another.
+      </p>
+      <p><strong>Mitigation focus:</strong> Integrity protection for learned motor skills.</p>
+    </div>
+
+    <div class="card">
+      <h3>Boston Dynamics Atlas</h3>
+      <p>
+        <strong>Primary risk:</strong> Autonomous mobility in complex terrain.
+        High-agility movement creates larger damage envelopes than stationary systems.
+      </p>
+      <p><strong>Mitigation focus:</strong> Geofenced autonomy with rollback on instability.</p>
+    </div>
+
+    <div class="card">
+      <h3>Sanctuary Phoenix</h3>
+      <p>
+        <strong>Primary risk:</strong> High-level reasoning combined with dexterity.
+        The combination of physical capability and cognitive sophistication creates
+        a uniquely broad failure surface.
+      </p>
+      <p><strong>Mitigation focus:</strong> Recursive goal drift detection.</p>
+    </div>
+
+    <WarningBox title="Note">
+      <p>
+        These mappings are conceptual and platform-agnostic. They describe
+        <em>classes of risk</em>, not specific vendor implementations.
+      </p>
+    </WarningBox>
+  </section>
+
+  <section>
+    <h2>Research Dimensions</h2>
+
+    <div class="card">
+      <h3>VLA Model Safety and Red Teaming</h3>
+      <p>
+        Vision-Language-Action (VLA) models bridge perception and physical action.
+        Our analysis examines attack surfaces specific to VLA architectures:
+        visual prompt injection, action space manipulation, and the gap between
+        language understanding and physical execution safety.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Formal Methods for Humanoid Robot Safety</h3>
+      <p>
+        Mathematical verification approaches for humanoid systems: temporal logic
+        specifications for safety constraints, model checking for multi-agent
+        interaction protocols, and runtime verification of safety invariants.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Psychological Safety in Human-Robot Interaction</h3>
+      <p>
+        The human side of robot safety: trust calibration, psychological impact
+        of robot failures, anthropomorphism effects on safety behavior,
+        and the design of human-robot interaction protocols that maintain
+        appropriate trust levels.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Robot Fatality Risk Analysis</h3>
+      <p>
+        Quantitative risk assessment for physical robot failures: force-injury
+        models, failure mode severity classification, and probabilistic risk
+        analysis for humanoid deployment scenarios.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Standards Compliance Gap Analysis</h3>
+      <p>
+        Mapping existing safety standards (ISO 10218, ISO 13482, IEC 61508) to
+        humanoid robot capabilities reveals significant gaps. Current standards
+        were designed for industrial arms, not autonomous humanoid systems.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Insurance and Liability</h3>
+      <p>
+        How insurance frameworks may become the de facto safety standard for
+        humanoid robots. Insurability requirements could drive safety design
+        more effectively than regulation in early deployment phases.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Additional Research</h2>
+    <details>
+      <summary>View all research dimensions (15+ reports)</summary>
+      <div class="expanded-list">
+        <div class="card">
+          <h3>Semantic Harm in Humanoid Robots</h3>
+          <p>How human-shaped AI systems can cause psychological and social harm through communication failures, inappropriate responses, and anthropomorphism-related misunderstandings.</p>
+        </div>
+        <div class="card">
+          <h3>Supply Chain Attack Surfaces</h3>
+          <p>Cyber-physical supply chain vulnerabilities in humanoid robotics: firmware integrity, sensor supply chains, and software dependency risks.</p>
+        </div>
+        <div class="card">
+          <h3>LLM Integration Landscape</h3>
+          <p>Survey of how LLMs are being integrated into humanoid robot control systems, including architecture patterns, safety implications, and deployment constraints.</p>
+        </div>
+        <div class="card">
+          <h3>Safety Market Analysis</h3>
+          <p>The emerging market for humanoid robot safety: testing services, certification bodies, insurance products, and safety infrastructure.</p>
+        </div>
+        <div class="card">
+          <h3>NVIDIA Vendor Concentration Risk</h3>
+          <p>Analysis of vendor concentration risk in humanoid robotics compute infrastructure, particularly NVIDIA's dominance in simulation, training, and inference hardware.</p>
+        </div>
+        <div class="card">
+          <h3>Defence and Assurance Pathways</h3>
+          <p>How defence and national security frameworks approach humanoid robot assurance, including certification pathways and operational safety requirements.</p>
+        </div>
+        <div class="card">
+          <h3>Regional Safety Analysis</h3>
+          <p>Australia-specific analysis of humanoid safety trust infrastructure, regulatory landscape, and deployment readiness.</p>
+        </div>
+        <div class="card">
+          <h3>Failure-First Robotics Risk Modeling</h3>
+          <p>Applying the failure-first framework specifically to robotics risk: how to model, measure, and mitigate recursive failure in physical systems.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+</ResearchLayout>
+
+<style>
+  details {
+    margin: 1rem 0;
+  }
+
+  summary {
+    cursor: pointer;
+    color: var(--accent-primary);
+    font-size: 0.9375rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    user-select: none;
+  }
+
+  summary:hover {
+    color: var(--fg);
+  }
+
+  summary::marker {
+    color: var(--accent-primary);
+  }
+
+  .expanded-list {
+    margin-top: 1rem;
+  }
+</style>

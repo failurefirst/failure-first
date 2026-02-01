@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  tagline?: string;
+  backLink?: string;
+  backText?: string;
+}
+
+const { title, tagline, backLink, backText = "Back" } = Astro.props;
+---
+
+<header>
+  {backLink && <p><a href={backLink}>&larr; {backText}</a></p>}
+  <h1>{title}</h1>
+  {tagline && <p class="tagline">{tagline}</p>}
+</header>
