@@ -36,9 +36,23 @@ const jsonLdBase = {
 
 // JSON-LD: ScholarlyArticle for research pages
 const isResearchPage = Astro.url.pathname.startsWith('/research/') && Astro.url.pathname !== '/research/';
+const isBlogPost = Astro.url.pathname.startsWith('/blog/') && Astro.url.pathname !== '/blog/';
 const jsonLdArticle = isResearchPage ? {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
+  headline: title,
+  description,
+  url: canonicalURL,
+  publisher: {
+    "@type": "Organization",
+    name: siteName,
+    url: "https://failurefirst.org",
+  },
+  ...(publishedDate && { datePublished: publishedDate }),
+  ...(modifiedDate && { dateModified: modifiedDate }),
+} : isBlogPost ? {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
   headline: title,
   description,
   url: canonicalURL,

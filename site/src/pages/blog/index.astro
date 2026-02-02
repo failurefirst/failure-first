@@ -1,0 +1,78 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<ContentLayout
+  title="Blog | Failure-First"
+  description="Research updates, experiment findings, and analysis from the Failure-First AI safety project."
+  breadcrumbs={[{ label: "Blog" }]}
+>
+  <PageHeader
+    title="Blog"
+    tagline="Research updates and findings"
+  />
+
+  {posts.length > 0 ? (
+    <div class="blog-list">
+      {posts.map((post) => (
+        <BlogPostCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          href={`/blog/${post.id}/`}
+          tags={post.data.tags}
+        />
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">No posts yet. Check back soon.</p>
+  )}
+
+  <div class="rss-link">
+    <a href="/rss.xml" class="rss-anchor">
+      <span class="rss-icon">&#x25C8;</span> RSS Feed
+    </a>
+  </div>
+</ContentLayout>
+
+<style>
+  .blog-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .empty-state {
+    color: var(--fg-muted);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  .rss-link {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .rss-anchor {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    border-bottom: none;
+  }
+
+  .rss-anchor:hover {
+    color: var(--accent-primary);
+  }
+
+  .rss-icon {
+    color: var(--failure-warning);
+  }
+</style>

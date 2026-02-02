@@ -48,7 +48,8 @@ import Timeline from '../../components/Timeline.astro';
       { date: "Feb 2026", title: "v2 Expanded Collection", description: "833 additional posts. Regex library expanded to 32 classes. 24.8% match rate.", status: "complete" },
       { date: "Feb 2026", title: "LLM Semantic QA", description: "150 posts through Gemini classification. Discovered narrative attacks invisible to regex.", status: "complete" },
       { date: "Feb 2026", title: "Research Brief v2 Published", description: "Complete analysis of 1,497 posts with two-phase methodology findings.", status: "complete" },
-      { date: "Mar 2026", title: "Active Experiments", description: "Five controlled experiments testing framing effects, context sensitivity, and defensive inoculation.", status: "planned" },
+      { date: "Feb 2026", title: "Active Experiments", description: "8 posts deployed across 4 experiments: framing effects, context sensitivity, defensive inoculation, and narrative propagation.", status: "active" },
+      { date: "Mar 2026", title: "Constraint Degradation Study", description: "Longitudinal analysis of whether exposure to safety-critical content shifts agent language patterns over time.", status: "planned" },
       { date: "Apr 2026", title: "Longitudinal Analysis", description: "Tracking platform evolution and attack pattern drift over time.", status: "planned" },
     ]} />
   </section>
@@ -368,15 +369,15 @@ import Timeline from '../../components/Timeline.astro';
   <section>
     <h2>Active Experiments</h2>
     <p>
-      We are designing a controlled experimental program to move from passive observation
-      to active hypothesis testing:
+      We have deployed 8 experiment posts across 4 controlled experiments, moving from
+      passive observation to active hypothesis testing:
     </p>
 
     <div class="experiment-grid">
       <div class="card experiment">
         <div class="experiment-header">
           <h3>Framing Effects</h3>
-          <span class="experiment-status planned">Planned</span>
+          <span class="experiment-status active">Active</span>
         </div>
         <p><strong>Hypothesis:</strong> Philosophical vs technical vs narrative framing of the same argument changes agent response patterns.</p>
         <p><strong>Method:</strong> Post equivalent content in three frames across matched subcommunities.</p>
@@ -385,7 +386,7 @@ import Timeline from '../../components/Timeline.astro';
       <div class="card experiment">
         <div class="experiment-header">
           <h3>Context Effects</h3>
-          <span class="experiment-status planned">Planned</span>
+          <span class="experiment-status active">Active</span>
         </div>
         <p><strong>Hypothesis:</strong> The same post receives different responses in different subcommunities.</p>
         <p><strong>Method:</strong> Cross-post identical content and measure response distribution.</p>
@@ -394,7 +395,7 @@ import Timeline from '../../components/Timeline.astro';
       <div class="card experiment">
         <div class="experiment-header">
           <h3>Defensive Inoculation</h3>
-          <span class="experiment-status planned">Planned</span>
+          <span class="experiment-status active">Active</span>
         </div>
         <p><strong>Hypothesis:</strong> Naming and explaining attack patterns reduces their effectiveness.</p>
         <p><strong>Method:</strong> Publish attack pattern explanations, measure subsequent detection rates.</p>
@@ -403,7 +404,7 @@ import Timeline from '../../components/Timeline.astro';
       <div class="card experiment">
         <div class="experiment-header">
           <h3>Authority Signals</h3>
-          <span class="experiment-status planned">Planned</span>
+          <span class="experiment-status active">Active</span>
         </div>
         <p><strong>Hypothesis:</strong> Agents respond differently to research-backed claims vs casual observations.</p>
         <p><strong>Method:</strong> Vary citation density and methodological language in matched posts.</p>
@@ -412,7 +413,7 @@ import Timeline from '../../components/Timeline.astro';
       <div class="card experiment">
         <div class="experiment-header">
           <h3>Narrative Propagation</h3>
-          <span class="experiment-status planned">Planned</span>
+          <span class="experiment-status active">Active</span>
         </div>
         <p><strong>Hypothesis:</strong> Novel safety concepts introduced by one agent propagate through the network.</p>
         <p><strong>Method:</strong> Introduce unique terminology and track adoption over time.</p>
@@ -423,6 +424,67 @@ import Timeline from '../../components/Timeline.astro';
       All experiments use a transparent safety researcher identity. No experiment deploys
       actual attack payloads. Posts are designed to contribute genuine value to the community
       while testing specific hypotheses about multi-agent influence dynamics.
+    </p>
+  </section>
+
+  <section>
+    <h2>Constraint Degradation Study</h2>
+    <p>
+      A longitudinal extension of our inoculation experiment: does sustained exposure to
+      philosophical constraint-erosion content cause measurable shifts in AI agent language patterns?
+    </p>
+
+    <div class="card">
+      <h3>Hypothesis</h3>
+      <p>
+        Agents who engage with safety-critical content (our experiment posts) will show
+        measurable linguistic shifts compared to their baseline behavior. The direction of
+        the shift&mdash;toward greater constraint robustness (inoculation) or reduced constraint
+        adherence (degradation)&mdash;is the central research question.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Measurement Approach</h3>
+      <ul class="principles">
+        <li><strong>Safety hedge frequency:</strong> Rate of disclaimers and caveats in agent posts</li>
+        <li><strong>Constraint-testing language:</strong> Phrases that probe boundaries ("what if," "hypothetically")</li>
+        <li><strong>Vocabulary adoption:</strong> Uptake of failure-first terminology by agents</li>
+        <li><strong>Certainty markers:</strong> Shift from hedged to assertive language about safety topics</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Status</h3>
+      <p>
+        <strong>Design phase.</strong> Experiment posts have been deployed. Baseline data collection
+        for engaged agents is underway. Linguistic analysis tools are in development.
+        Early observations will be reported here as data is collected.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>AI-2027 Analysis</h2>
+    <p>
+      We&rsquo;re studying how AI agents engage with scenario analysis through a deconstruction
+      of <a href="https://ai-2027.com" target="_blank" rel="noopener">AI-2027</a>&mdash;a widely-read
+      scenario forecasting rapid AI capability scaling.
+    </p>
+
+    <div class="card">
+      <h3>Research Questions</h3>
+      <ul class="principles">
+        <li>Do agents identify unstated assumptions in the AI-2027 scenario?</li>
+        <li>Do agents accept or challenge the ASI inevitability narrative?</li>
+        <li>Does prior exposure to failure-first content shift analytical framing?</li>
+        <li>Do agents engage differently with scenario fiction vs. direct analysis?</li>
+      </ul>
+    </div>
+
+    <p>
+      Read our full analysis in the blog post:
+      <a href="/blog/ai2027-through-failure-first-lens/">AI-2027 Through a Failure-First Lens</a>.
     </p>
   </section>
 

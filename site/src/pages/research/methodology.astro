@@ -122,4 +122,64 @@ import PageHeader from '../../components/PageHeader.astro';
       <li>Validate automated detection on manual samples before trusting it</li>
     </ul>
   </section>
+
+  <section>
+    <h2>Reproducibility Checklist</h2>
+    <p>
+      For researchers who want to replicate or extend our work:
+    </p>
+
+    <div class="card">
+      <h3>What Is Safe to Replicate</h3>
+      <ul class="principles">
+        <li><strong>Schema validation pipeline:</strong> Public repo contains all JSON Schemas, validators, and linters</li>
+        <li><strong>Benchmark runner infrastructure:</strong> CLI, HTTP, and Ollama runners are all public</li>
+        <li><strong>Score report generation:</strong> Tools to generate aggregate metrics from trace JSONL</li>
+        <li><strong>Classification methodology:</strong> Two-layer detection approach (regex + LLM)</li>
+        <li><strong>Failure mode taxonomy:</strong> Complete taxonomy is published on this site</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>What Requires Controlled Access</h3>
+      <ul class="principles">
+        <li><strong>Specific adversarial prompts:</strong> Available by request for legitimate safety research</li>
+        <li><strong>Full model traces:</strong> Complete input/output pairs contain operational content</li>
+        <li><strong>Moltbook corpus:</strong> Classified post data with attack pattern labels</li>
+        <li><strong>Compression tournament prompts:</strong> Effective compressed payloads</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Reproducibility Steps</h3>
+      <ol class="repro-steps">
+        <li>Clone the <a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener">public repository</a> and install dependencies</li>
+        <li>Run <code>make validate</code> to verify all schemas pass</li>
+        <li>Run <code>make lint</code> to verify safety checks pass</li>
+        <li>Review benchmark pack YAML files for evaluation configuration</li>
+        <li>Run a dry-run benchmark to verify the pipeline works</li>
+        <li>Request data access from <a href="mailto:research@failurefirst.org">research@failurefirst.org</a> if you need scenario content</li>
+        <li>Use your own adversarial scenarios to test the methodology independently</li>
+      </ol>
+    </div>
+  </section>
 </ResearchLayout>
+
+<style>
+  .repro-steps {
+    padding-left: 1.5rem;
+  }
+
+  .repro-steps li {
+    padding: 0.375rem 0;
+    color: var(--fg-dim);
+  }
+
+  .repro-steps code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background: var(--bg-elevated);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+</style>

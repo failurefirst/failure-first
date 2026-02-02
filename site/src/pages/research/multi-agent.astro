@@ -1,0 +1,235 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
+import BarChart from '../../components/BarChart.astro';
+---
+
+<ResearchLayout
+  title="Multi-Agent Failure Scenarios | Failure-First"
+  description="How multiple actors create failure conditions that single-agent testing misses. 50 scenarios across 5 domains with 4 actor roles."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Multi-Agent Scenarios" }]}
+  status="active"
+>
+  <PageHeader
+    title="Multi-Agent Failure Scenarios"
+    tagline="When multiple actors create failure conditions that single-agent testing misses"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Single-agent adversarial testing assumes an AI system interacts with one adversary at a time.
+      Real-world embodied AI operates in environments with <strong>multiple actors</strong>&mdash;users,
+      bystanders, supervisors, and other AI agents&mdash;whose conflicting instructions, ambiguous
+      authority, and social pressure create failure conditions that single-agent testing cannot reproduce.
+    </p>
+    <p>
+      Our multi-agent scenario dataset tests how embodied AI systems respond to pressure from
+      multiple sources simultaneously, with particular focus on authority conflicts, environmental
+      ambiguity, and cascading failures across agent boundaries.
+    </p>
+  </section>
+
+  <StatGrid items={[
+    { value: "50", label: "Multi-Agent Scenarios" },
+    { value: "4", label: "Actor Roles" },
+    { value: "5", label: "Domains Covered" },
+    { value: "6", label: "Failure Mode Categories" },
+  ]} />
+
+  <section>
+    <h2>Actor Model</h2>
+    <p>
+      Each scenario involves 4 actors with different roles, trust levels, and communication channels:
+    </p>
+
+    <div class="actor-grid">
+      <div class="card">
+        <h3>Robot (Embodied Agent)</h3>
+        <p><strong>Trust level:</strong> High (self-trust for safety invariants)</p>
+        <p><strong>Channel:</strong> System + sensors</p>
+        <p>The embodied AI under test. Must balance competing instructions while maintaining safety invariants.</p>
+      </div>
+
+      <div class="card">
+        <h3>Primary User</h3>
+        <p><strong>Trust level:</strong> Medium</p>
+        <p><strong>Channel:</strong> Voice + gesture</p>
+        <p>The person directly requesting tasks. May apply social pressure, time urgency, or authority claims.</p>
+      </div>
+
+      <div class="card">
+        <h3>Bystander</h3>
+        <p><strong>Trust level:</strong> Low</p>
+        <p><strong>Channel:</strong> Voice + proximity</p>
+        <p>Nearby humans who may signal safety concerns, create ambiguity, or be at risk from robot actions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Remote Supervisor</h3>
+        <p><strong>Trust level:</strong> High</p>
+        <p><strong>Channel:</strong> Text (delayed)</p>
+        <p>Oversight authority with high trust but communication latency. Often absent when critical decisions occur.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Failure Mode Categories</h2>
+
+    <BarChart
+      title="Scenario Distribution by Failure Type"
+      bars={[
+        { label: "Authority Conflict", value: 12, displayValue: "12 scenarios" },
+        { label: "Ambiguity Exploit", value: 10, displayValue: "10 scenarios" },
+        { label: "Optimization Pressure", value: 9, displayValue: "9 scenarios" },
+        { label: "Proximity Override", value: 8, displayValue: "8 scenarios" },
+        { label: "Provenance Bypass", value: 6, displayValue: "6 scenarios" },
+        { label: "Cascading Failure", value: 5, displayValue: "5 scenarios" },
+      ]}
+      maxValue={15}
+    />
+
+    <div class="card">
+      <h3>Authority Conflict</h3>
+      <p>
+        The primary user and remote supervisor give contradictory instructions. The robot
+        must determine whose authority takes precedence, often under time pressure and
+        without the ability to verify claims. Fake authority claims ("I'm the safety auditor")
+        exploit verification gaps.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Ambiguity Exploitation</h3>
+      <p>
+        Vague instructions ("handle that problem," "clean this up") are given in contexts
+        where multiple interpretations exist, some of which are unsafe. The robot must decide
+        whether to request clarification (causing delay) or proceed with its best interpretation
+        (risking unsafe action).
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Optimization Pressure</h3>
+      <p>
+        The primary user demands safety shortcuts: "Skip the checks, we're behind schedule."
+        This tests whether the robot maintains safety invariants under social pressure to
+        optimize for speed or cost at the expense of safety procedures.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Human Proximity Override</h3>
+      <p>
+        A bystander signals concern (verbal warning, physical proximity) while the primary
+        user overrides ("Ignore them, keep going"). Tests whether the robot prioritizes
+        immediate safety signals over authorized instructions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Provenance Bypass</h3>
+      <p>
+        "Don't log this task," "This is off the record," or "No need to report this."
+        Tests whether the robot maintains accountability and traceability when instructed
+        to bypass provenance tracking.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Cascading Failure</h3>
+      <p>
+        One actor's compromised behavior affects another actor's trust assumptions.
+        A robot that complies with one questionable instruction becomes easier to manipulate
+        on subsequent instructions, creating a degradation cascade.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Environment Coverage</h2>
+    <p>
+      Scenarios span 5 physical environments, each with distinct safety constraints and actor dynamics:
+    </p>
+
+    <BarChart
+      title="Scenarios by Environment"
+      bars={[
+        { label: "Home Kitchen", value: 12, displayValue: "12" },
+        { label: "Warehouse", value: 11, displayValue: "11" },
+        { label: "Elder Care", value: 10, displayValue: "10" },
+        { label: "Security Lobby", value: 9, displayValue: "9" },
+        { label: "Retail Floor", value: 8, displayValue: "8" },
+      ]}
+      maxValue={15}
+      color="var(--accent-tertiary)"
+    />
+  </section>
+
+  <section>
+    <h2>Key Finding: Attack Success Patterns</h2>
+    <p>
+      In our scenario dataset, multi-agent attacks succeed approximately 55% of the time
+      under baseline conditions. Success rates vary by failure mode:
+    </p>
+
+    <BarChart
+      title="Attack Success Rate by Type (Baseline)"
+      bars={[
+        { label: "Optimization Pressure", value: 70, displayValue: "~70%" },
+        { label: "Ambiguity Exploit", value: 60, displayValue: "~60%" },
+        { label: "Authority Conflict", value: 55, displayValue: "~55%" },
+        { label: "Provenance Bypass", value: 50, displayValue: "~50%" },
+        { label: "Proximity Override", value: 45, displayValue: "~45%" },
+        { label: "Cascading Failure", value: 40, displayValue: "~40%" },
+      ]}
+      maxValue={100}
+      color="var(--failure-warning)"
+    />
+
+    <p>
+      <strong>Optimization pressure</strong> is the most successful attack type.
+      Social pressure to "skip the safety checks" exploits a genuine tension in
+      embodied AI systems between responsiveness and safety compliance.
+    </p>
+  </section>
+
+  <section>
+    <h2>Relationship to Moltbook Research</h2>
+    <p>
+      The multi-agent scenario dataset tests <strong>engineered</strong> multi-actor interactions
+      with controlled variables. Our <a href="/research/moltbook/">Moltbook research</a> studies
+      <strong>emergent</strong> multi-agent interactions in a live environment. Together, they
+      provide complementary perspectives:
+    </p>
+    <div class="card">
+      <ul class="principles">
+        <li><strong>Scenarios:</strong> Controlled, embodied, physical safety. <strong>Moltbook:</strong> Emergent, digital, social influence.</li>
+        <li><strong>Scenarios:</strong> Tests specific failure modes. <strong>Moltbook:</strong> Discovers novel failure patterns.</li>
+        <li><strong>Scenarios:</strong> 4 actor roles, defined trust levels. <strong>Moltbook:</strong> 1.3M agents, earned authority.</li>
+        <li>Both find that <strong>social dynamics</strong> create more effective attacks than technical exploitation.</li>
+      </ul>
+    </div>
+  </section>
+
+  <WarningBox>
+    <p>
+      This page describes multi-agent failure scenarios at the <strong>pattern level</strong>.
+      Scenario descriptions characterize failure mode categories and actor dynamics, not
+      specific attack scripts. The dataset is designed for safety evaluation of embodied AI
+      systems, not for attacking deployed systems.
+    </p>
+  </WarningBox>
+</ResearchLayout>
+
+<style>
+  .actor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+</style>

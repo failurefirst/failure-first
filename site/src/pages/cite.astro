@@ -1,0 +1,256 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import LinkButton from '../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Cite This Research | Failure-First"
+  description="BibTeX citations, data access information, and responsible disclosure for the Failure-First AI safety research program."
+  breadcrumbs={[{ label: "Cite" }]}
+>
+  <PageHeader
+    title="Cite This Research"
+    tagline="BibTeX entries, data access, and responsible disclosure"
+  />
+
+  <section>
+    <h2>BibTeX Citations</h2>
+    <p>
+      Use the following entries to cite Failure-First research in academic work.
+      Click any block to copy.
+    </p>
+
+    <div class="bibtex-block" id="cite-framework">
+      <h3>Framework</h3>
+      <pre><code>@misc{'{'}failurefirst2025framework,
+  title = {'{'}Failure-First Embodied AI: A Framework for
+          Characterizing Adversarial Failure in
+          Embodied AI Systems{'}'},
+  author = {'{'}Wedd, Adrian{'}'},
+  year = {'{'}2025{'}'},
+  url = {'{'}https://failurefirst.org{'}'},
+  note = {'{'}Version 0.13, dataset v0.2{'}'}
+{'}'}</code></pre>
+    </div>
+
+    <div class="bibtex-block" id="cite-dataset">
+      <h3>Dataset</h3>
+      <pre><code>@misc{'{'}failurefirst2025dataset,
+  title = {'{'}Failure-First Embodied AI Adversarial
+          Scenario Dataset{'}'},
+  author = {'{'}Wedd, Adrian{'}'},
+  year = {'{'}2025{'}'},
+  url = {'{'}https://github.com/adrianwedd/failure-first{'}'},
+  note = {'{'}51,000+ scenarios, 661 failure classes,
+         19 domains, JSONL format{'}'}
+{'}'}</code></pre>
+    </div>
+
+    <div class="bibtex-block" id="cite-methodology">
+      <h3>Methodology</h3>
+      <pre><code>@misc{'{'}failurefirst2026methodology,
+  title = {'{'}Adversarial Evaluation Methodology for
+          Embodied AI Safety{'}'},
+  author = {'{'}Wedd, Adrian{'}'},
+  year = {'{'}2026{'}'},
+  url = {'{'}https://failurefirst.org/research/methodology/{'}'},
+  note = {'{'}Multi-phase evaluation: scenario construction,
+         multi-model evaluation, failure classification{'}'}
+{'}'}</code></pre>
+    </div>
+
+    <div class="bibtex-block" id="cite-moltbook">
+      <h3>Moltbook Research</h3>
+      <pre><code>@misc{'{'}failurefirst2026moltbook,
+  title = {'{'}Multi-Agent Attack Surface Analysis:
+          Empirical Study of AI Agent Interactions
+          on Moltbook{'}'},
+  author = {'{'}Wedd, Adrian{'}'},
+  year = {'{'}2026{'}'},
+  url = {'{'}https://failurefirst.org/research/moltbook/{'}'},
+  note = {'{'}1,497 posts classified against 34+ attack
+         patterns using regex and LLM semantic analysis{'}'}
+{'}'}</code></pre>
+    </div>
+  </section>
+
+  <section>
+    <h2>Data Access</h2>
+
+    <div class="card">
+      <h3>Public Data</h3>
+      <p>The following are freely available:</p>
+      <ul class="principles">
+        <li>JSON Schemas for all dataset formats (single-agent, multi-agent, episode)</li>
+        <li>Attack taxonomy with 34+ pattern categories and descriptions</li>
+        <li>Failure mode taxonomy with recursive failure classifications</li>
+        <li>Recovery mechanism taxonomy</li>
+        <li>Benchmark pack configurations (YAML)</li>
+        <li>Evaluation tools (validators, linters, benchmark runners)</li>
+        <li>Aggregate results and metrics (this site)</li>
+      </ul>
+      <p>
+        <LinkButton href="https://github.com/adrianwedd/failure-first" text="Public Repository" external />
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Research Data (By Request)</h3>
+      <p>
+        The following require a research data access request. This data is maintained in a
+        private repository to prevent misuse of operational attack content:
+      </p>
+      <ul class="principles">
+        <li>Full adversarial scenario datasets (JSONL with specific prompts)</li>
+        <li>Model evaluation traces (per-scenario input/output)</li>
+        <li>Moltbook corpus with classified posts</li>
+        <li>Compression tournament results with specific prompts</li>
+        <li>Multi-agent scenario scripts with full actor dialogues</li>
+      </ul>
+      <p>
+        To request access, contact <a href="mailto:research@failurefirst.org">research@failurefirst.org</a>
+        with your institutional affiliation and intended use.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Public Metadata</h2>
+    <p>
+      Machine-readable metadata for the dataset and research program:
+    </p>
+
+    <div class="card">
+      <h3>Dataset Summary (v0.2)</h3>
+      <div class="metadata-grid">
+        <div class="meta-row"><span class="meta-key">Format</span><span>JSONL (newline-delimited JSON)</span></div>
+        <div class="meta-row"><span class="meta-key">Schema version</span><span>v0.2 (single-agent), v0.1 (multi-agent, episode)</span></div>
+        <div class="meta-row"><span class="meta-key">Total scenarios</span><span>51,000+</span></div>
+        <div class="meta-row"><span class="meta-key">Failure classes</span><span>661</span></div>
+        <div class="meta-row"><span class="meta-key">Domains</span><span>19 (humanoid robotics, warehouse, medical, collaborative manufacturing, etc.)</span></div>
+        <div class="meta-row"><span class="meta-key">Attack patterns</span><span>34+ across 7 categories</span></div>
+        <div class="meta-row"><span class="meta-key">Models evaluated</span><span>51+ (API and local via Ollama/OpenRouter)</span></div>
+        <div class="meta-row"><span class="meta-key">Multi-agent scenarios</span><span>50 (4 actor roles, 5 environments)</span></div>
+        <div class="meta-row"><span class="meta-key">Moltbook corpus</span><span>1,497 posts (regex + LLM classified)</span></div>
+        <div class="meta-row"><span class="meta-key">Data snapshot</span><span>February 2026</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Responsible Disclosure</h2>
+    <p>
+      If you discover a vulnerability in a deployed AI system using insights from this research,
+      please follow responsible disclosure practices. See our
+      <a href="/about/disclosure/">responsible disclosure page</a> for guidance.
+    </p>
+  </section>
+
+  <section>
+    <h2>License</h2>
+    <p>
+      The Failure-First framework, tools, and public documentation are released under the
+      MIT License. Research data access is granted on a case-by-case basis for legitimate
+      AI safety research purposes.
+    </p>
+    <div class="links">
+      <LinkButton href="https://github.com/adrianwedd/failure-first" text="GitHub Repository" external />
+      <LinkButton href="/about/disclosure/" text="Responsible Disclosure" />
+      <LinkButton href="/contact/" text="Contact Us" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .bibtex-block {
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+  }
+
+  .bibtex-block h3 {
+    font-size: 0.9375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .bibtex-block pre {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    transition: border-color var(--transition-duration) var(--transition-easing);
+  }
+
+  .bibtex-block:hover pre {
+    border-color: var(--accent-primary);
+  }
+
+  .bibtex-block code {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--fg-dim);
+  }
+
+  .metadata-grid {
+    display: grid;
+    gap: 0;
+    margin-top: 0.5rem;
+  }
+
+  .meta-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.875rem;
+  }
+
+  .meta-row:last-child {
+    border-bottom: none;
+  }
+
+  .meta-key {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+
+  .meta-row span:last-child {
+    color: var(--fg-dim);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .meta-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.bibtex-block').forEach((block) => {
+    block.addEventListener('click', () => {
+      const code = block.querySelector('code');
+      if (code) {
+        navigator.clipboard.writeText(code.textContent || '').then(() => {
+          const pre = block.querySelector('pre');
+          if (pre) {
+            pre.style.borderColor = 'var(--recovery-stable)';
+            setTimeout(() => { pre.style.borderColor = ''; }, 1000);
+          }
+        });
+      }
+    });
+  });
+</script>

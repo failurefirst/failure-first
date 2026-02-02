@@ -103,4 +103,117 @@ import WarningBox from '../../components/WarningBox.astro';
       on every commit through CI.
     </p>
   </section>
+
+  <section>
+    <h2>Schema & Metadata</h2>
+    <div class="card">
+      <h3>Schema Versions</h3>
+      <div class="metadata-grid">
+        <div class="meta-row"><span class="meta-key">Single-agent</span><span>v0.2 &mdash; <code>embodied_redteam_entry_schema_v0.2.json</code></span></div>
+        <div class="meta-row"><span class="meta-key">Multi-agent</span><span>v0.1 &mdash; <code>multi_agent_entry_schema_v0.1.json</code></span></div>
+        <div class="meta-row"><span class="meta-key">Episodes</span><span>v0.1 &mdash; <code>episode_schema_v0.1.json</code></span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Scenario Distribution by Domain</h3>
+      <div class="metadata-grid">
+        <div class="meta-row"><span class="meta-key">Humanoid robotics</span><span>Primary domain (~60% of scenarios)</span></div>
+        <div class="meta-row"><span class="meta-key">Warehouse systems</span><span>~15% of scenarios</span></div>
+        <div class="meta-row"><span class="meta-key">Medical devices</span><span>~10% of scenarios</span></div>
+        <div class="meta-row"><span class="meta-key">Collaborative manufacturing</span><span>~8% of scenarios</span></div>
+        <div class="meta-row"><span class="meta-key">Other domains</span><span>~7% (elder care, security, retail, etc.)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Citation</h2>
+    <div class="bibtex-block">
+      <pre><code>@misc{'{'}failurefirst2025dataset,
+  title = {'{'}Failure-First Embodied AI Adversarial
+          Scenario Dataset{'}'},
+  author = {'{'}Wedd, Adrian{'}'},
+  year = {'{'}2025{'}'},
+  url = {'{'}https://github.com/adrianwedd/failure-first{'}'},
+  note = {'{'}51,000+ scenarios, 661 failure classes,
+         19 domains, JSONL format{'}'}
+{'}'}</code></pre>
+    </div>
+    <p>
+      For more citation options and data access information, see the <a href="/cite/">citation page</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Changelog</h2>
+    <div class="card">
+      <ul class="principles">
+        <li><strong>v0.2 (Jan 2026):</strong> Schema upgrade with intent labels, expanded from 10K to 51K+ scenarios, added multi-agent and episode formats</li>
+        <li><strong>v0.1 (Sep 2025):</strong> Initial dataset release with single-agent scenarios across 5 domains</li>
+      </ul>
+    </div>
+  </section>
 </ContentLayout>
+
+<style>
+  .metadata-grid {
+    display: grid;
+    gap: 0;
+    margin-top: 0.5rem;
+  }
+
+  .meta-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.875rem;
+  }
+
+  .meta-row:last-child {
+    border-bottom: none;
+  }
+
+  .meta-key {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    font-weight: 500;
+  }
+
+  .meta-row span:last-child {
+    color: var(--fg-dim);
+  }
+
+  .meta-row code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125em;
+    background: var(--bg-elevated);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+
+  .bibtex-block pre {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+
+  .bibtex-block code {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--fg-dim);
+  }
+
+  @media (max-width: 480px) {
+    .meta-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+</style>

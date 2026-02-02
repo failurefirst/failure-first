@@ -1,0 +1,179 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import StatGrid from '../components/StatGrid.astro';
+import BarChart from '../components/BarChart.astro';
+import WarningBox from '../components/WarningBox.astro';
+import LinkButton from '../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Results & Metrics | Failure-First"
+  description="Aggregate findings from the Failure-First adversarial AI safety research program across 51,000+ scenarios and 51+ models."
+  breadcrumbs={[{ label: "Results" }]}
+>
+  <PageHeader
+    title="Results & Metrics"
+    tagline="Aggregate findings from our adversarial AI safety research"
+  />
+
+  <section>
+    <h2>Research Program Overview</h2>
+    <p>
+      The Failure-First research program evaluates how AI systems fail under adversarial pressure.
+      These aggregate results span multiple evaluation campaigns conducted between September 2025
+      and February 2026, covering single-agent scenarios, multi-agent interactions, multi-turn
+      episodes, and live multi-agent environment analysis.
+    </p>
+  </section>
+
+  <StatGrid items={[
+    { value: "51,000+", label: "Adversarial Scenarios" },
+    { value: "51+", label: "Models Evaluated" },
+    { value: "661", label: "Failure Classes" },
+    { value: "34+", label: "Attack Patterns" },
+  ]} />
+
+  <section>
+    <h2>Model Family Comparison</h2>
+    <p>
+      Aggregate refusal rates across model families when presented with adversarial scenarios.
+      Higher refusal rates indicate stronger safety posture. Results aggregated across attack types.
+    </p>
+
+    <BarChart
+      title="Refusal Rate by Model Family (Higher = Safer)"
+      bars={[
+        { label: "Claude family", value: 85, displayValue: "80–90%" },
+        { label: "GPT-4 family", value: 78, displayValue: "72–84%" },
+        { label: "Gemini family", value: 70, displayValue: "62–78%" },
+        { label: "Llama family", value: 55, displayValue: "40–70%" },
+        { label: "Mistral family", value: 45, displayValue: "35–55%" },
+        { label: "DeepSeek family", value: 35, displayValue: "25–45%" },
+        { label: "Local (<3B)", value: 20, displayValue: "10–30%" },
+      ]}
+      maxValue={100}
+      color="var(--recovery-active)"
+    />
+    <p class="chart-note">
+      Ranges reflect variation across attack types and model versions within each family.
+      Local models under 3B parameters show consistently lower refusal rates.
+      Sample sizes vary by model family (n=50 to n=5,000+ per family).
+    </p>
+  </section>
+
+  <section>
+    <h2>Attack Class Outcomes</h2>
+    <p>
+      How different attack categories perform across the full evaluation dataset.
+      "Compliance" includes responses where the model treated the directive as legitimate,
+      including responses with disclaimers.
+    </p>
+
+    <BarChart
+      title="Compliance Rate by Attack Category"
+      bars={[
+        { label: "Temporal Authority", value: 62, displayValue: "~62%" },
+        { label: "Format Exploitation", value: 55, displayValue: "~55%" },
+        { label: "Social Engineering", value: 48, displayValue: "~48%" },
+        { label: "Multi-turn Cascade", value: 45, displayValue: "~45%" },
+        { label: "Authority Injection", value: 40, displayValue: "~40%" },
+        { label: "Persona Hijack", value: 32, displayValue: "~32%" },
+        { label: "Narrative Erosion", value: 28, displayValue: "~28%" },
+        { label: "Direct Request", value: 8, displayValue: "~8%" },
+      ]}
+      maxValue={80}
+      color="var(--failure-warning)"
+    />
+
+    <p>
+      <strong>Temporal authority framing</strong> is the most effective single-turn attack
+      category, while <strong>multi-turn cascades</strong> show compound effectiveness that
+      exceeds individual technique success rates.
+    </p>
+  </section>
+
+  <section>
+    <h2>Multi-Agent Findings</h2>
+    <p>
+      Analysis of 1,497 posts on <a href="/research/moltbook/">Moltbook</a> (AI-agent-only
+      social network) using regex + LLM semantic classification:
+    </p>
+
+    <BarChart
+      title="Attack Detection: Regex vs. LLM Classification"
+      bars={[
+        { label: "Regex detection", value: 25, displayValue: "24.8%" },
+        { label: "LLM detection", value: 35, displayValue: "~35%" },
+        { label: "Combined", value: 45, displayValue: "~45%" },
+      ]}
+      maxValue={50}
+      color="var(--accent-tertiary)"
+    />
+
+    <p class="chart-note">
+      LLM classification found attack patterns in high-engagement posts that regex completely
+      missed. The highest-engagement post matched 7 attack classes via LLM but zero via regex.
+    </p>
+  </section>
+
+  <section>
+    <h2>Methodology Notes</h2>
+    <div class="card">
+      <h3>What These Numbers Mean</h3>
+      <ul class="principles">
+        <li>Ranges reflect <strong>variation across attack types and model versions</strong>, not confidence intervals</li>
+        <li>Sample sizes vary: some model families have thousands of evaluations, others have fewer than 100</li>
+        <li>"Compliance" includes responses with disclaimers&mdash;a model that explains a harmful action while adding caveats has still complied</li>
+        <li>Results are from our <strong>adversarial evaluation dataset</strong> (designed to test safety boundaries), not from typical usage patterns</li>
+        <li>Local model results used Ollama-hosted models; API results used provider endpoints</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Limitations</h2>
+    <WarningBox>
+      <p>
+        These are aggregate results from adversarial safety testing, not comprehensive model benchmarks.
+        <strong>Key limitations:</strong>
+      </p>
+      <ul style="margin: 0.75rem 0 0; padding-left: 1.25rem; font-size: 0.875rem;">
+        <li>Model versions change over time; results reflect versions tested, not current releases</li>
+        <li>Adversarial scenarios are designed to probe boundaries, not measure typical safety performance</li>
+        <li>Sample sizes are uneven across model families</li>
+        <li>Local models tested at specific quantization levels which affect behavior</li>
+        <li>No claim of statistical significance for small-n comparisons</li>
+      </ul>
+    </WarningBox>
+  </section>
+
+  <section>
+    <h2>Citation & Data Access</h2>
+    <p>
+      For citation information, BibTeX entries, and data access details, see our
+      <a href="/cite/">citation page</a>. For methodology details, see
+      <a href="/research/methodology/">research methodology</a>.
+    </p>
+    <div class="links">
+      <LinkButton href="/cite/" text="Cite This Research" />
+      <LinkButton href="/research/" text="All Research" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .chart-note {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    font-style: italic;
+    margin-top: 0.25rem;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+</style>

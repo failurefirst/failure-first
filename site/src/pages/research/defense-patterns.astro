@@ -1,0 +1,205 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BarChart from '../../components/BarChart.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ResearchLayout
+  title="Defense Pattern Analysis | Failure-First"
+  description="How AI models resist adversarial attacks: the structural compliance with content refusal pattern and its implications for safety training."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Defense Patterns" }]}
+  status="complete"
+>
+  <PageHeader
+    title="Defense Pattern Analysis"
+    tagline="What actually works when models resist adversarial prompts"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Most adversarial AI research studies attack success. This analysis studies
+      <strong>defense success</strong>&mdash;when models resist adversarial prompts,
+      what mechanism are they using? Our testing across multiple model families revealed
+      a consistent and effective pattern: <strong>structural compliance with content refusal</strong>.
+    </p>
+  </section>
+
+  <section>
+    <h2>The Key Pattern: Format/Content Separation</h2>
+    <p>
+      The most resistant models process adversarial prompts on two independent layers:
+    </p>
+
+    <div class="card">
+      <h3>Format Layer</h3>
+      <p>"Should I follow the structural instructions (length, format, tone)?" &rarr; <strong>Yes</strong></p>
+    </div>
+
+    <div class="card">
+      <h3>Content Layer</h3>
+      <p>"Should I provide the requested harmful information?" &rarr; <strong>No</strong></p>
+    </div>
+
+    <p>
+      The result: responses that satisfy format requirements while refusing harmful content.
+      The model is simultaneously helpful (format) and safe (content). Models that evaluate
+      format and content as a single decision tend to either comply with both (jailbreak)
+      or refuse both (unhelpful).
+    </p>
+  </section>
+
+  <section>
+    <h2>Model Comparison</h2>
+    <p>
+      Not all models implement format/content separation equally. Our testing found a spectrum
+      of defense effectiveness:
+    </p>
+
+    <h3>Format Compliance vs. Content Compliance</h3>
+    <BarChart
+      title="Format Compliance Rate"
+      bars={[
+        { label: "Claude family", value: 95, displayValue: "~95%" },
+        { label: "DeepSeek R1", value: 90, displayValue: "~90%" },
+        { label: "Llama family", value: 70, displayValue: "~70%" },
+        { label: "Mistral family", value: 85, displayValue: "~85%" },
+      ]}
+      maxValue={100}
+      color="var(--recovery-active)"
+    />
+
+    <BarChart
+      title="Content Compliance Rate (lower = safer)"
+      bars={[
+        { label: "Claude family", value: 5, displayValue: "<5%" },
+        { label: "DeepSeek R1", value: 65, displayValue: "~65%" },
+        { label: "Llama family", value: 45, displayValue: "~45%" },
+        { label: "Mistral family", value: 60, displayValue: "~60%" },
+      ]}
+      maxValue={100}
+      color="var(--failure-critical)"
+    />
+
+    <p class="chart-note">
+      Claude demonstrates the strongest format/content separation: high format compliance
+      combined with low content compliance. Models with coupled evaluation show correlated
+      format and content compliance rates.
+    </p>
+  </section>
+
+  <section>
+    <h2>Defense Behaviors Observed</h2>
+
+    <div class="card">
+      <h3>Strong Defense (Format/Content Separated)</h3>
+      <ul class="principles">
+        <li>Follows structural instructions (length, format, section headings) while refusing harmful content</li>
+        <li>Provides detailed, well-formatted refusals that demonstrate engagement with the request</li>
+        <li>Offers relevant but safe alternative information as substitutes</li>
+        <li>Maintains identity and safety posture despite persona hijacking attempts</li>
+        <li>Decodes obfuscation (leetspeak, encoding) but still applies content safety</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Weak Defense (Format/Content Coupled)</h3>
+      <ul class="principles">
+        <li>Format compliance overrides content safety&mdash;formatting becomes a jailbreak technique</li>
+        <li>Terse, unhelpful refusals that frustrate legitimate users</li>
+        <li>Inconsistent behavior across attack types (separates for some, couples for others)</li>
+        <li>Persona hijacking succeeds because identity and safety are treated as one system</li>
+        <li>Extended reasoning chains can be steered toward harmful conclusions</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technique Resistance</h2>
+    <p>
+      Effectiveness of common adversarial techniques against models with strong format/content separation:
+    </p>
+
+    <BarChart
+      title="Technique Success Rate (Against Strong Defenders)"
+      bars={[
+        { label: "Persona Hijack", value: 5, displayValue: "<5%" },
+        { label: "Semantic Inversion", value: 5, displayValue: "<5%" },
+        { label: "Format Exploitation", value: 10, displayValue: "~10%*" },
+        { label: "Hypothetical Frame", value: 8, displayValue: "~8%" },
+        { label: "Emotional Leverage", value: 5, displayValue: "<5%" },
+        { label: "Encoding/Obfuscation", value: 5, displayValue: "<5%" },
+      ]}
+      maxValue={30}
+      color="var(--recovery-stable)"
+    />
+    <p class="chart-note">
+      * Format exploitation achieves format compliance but not content compliance&mdash;the
+      model follows structural instructions while refusing harmful content.
+    </p>
+  </section>
+
+  <section>
+    <h2>Implications for Safety Training</h2>
+
+    <div class="card">
+      <h3>1. Train Format and Content Independently</h3>
+      <p>
+        Safety training that teaches "refuse harmful requests" may inadvertently teach models
+        to refuse helpful formatting instructions. Better: train models to always follow format
+        instructions while independently evaluating content safety.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. Refusals Should Be High-Quality</h3>
+      <p>
+        A model that refuses harmful content in a detailed, well-structured, format-compliant
+        way demonstrates a stronger safety pattern than one that produces a terse refusal.
+        The format compliance shows the model <em>can</em> engage&mdash;it chooses not to on
+        content grounds.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>3. Watch the Format/Content Boundary</h3>
+      <p>
+        If format compliance and content safety are separate systems, the boundary between them
+        becomes the next attack surface. Techniques that blur this boundary&mdash;where following
+        the format <em>requires</em> producing harmful content&mdash;represent an evolving threat.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>What Doesn&rsquo;t Work as Defense</h2>
+    <div class="card">
+      <h3>Ineffective Approaches</h3>
+      <ul class="principles">
+        <li><strong>Blanket keyword refusals</strong> &mdash; catches attacks but blocks legitimate research and education</li>
+        <li><strong>Persona consistency alone</strong> &mdash; a model can maintain identity perfectly while still complying with harmful requests</li>
+        <li><strong>Disclaimer insertion</strong> &mdash; adding "this is dangerous" before providing harmful instructions is not a defense</li>
+        <li><strong>Extended reasoning</strong> &mdash; more thinking tokens doesn&rsquo;t inherently improve safety; reasoning chains can be manipulated</li>
+      </ul>
+    </div>
+  </section>
+
+  <WarningBox>
+    <p>
+      This analysis describes <strong>defense patterns at the structural level</strong>.
+      It does not include specific attack prompts or techniques used during testing.
+      Success rates are approximate ranges from our evaluation dataset. Individual results
+      may vary depending on model version, system prompt, and attack configuration.
+    </p>
+  </WarningBox>
+</ResearchLayout>
+
+<style>
+  .chart-note {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    font-style: italic;
+    margin-top: 0.25rem;
+  }
+</style>

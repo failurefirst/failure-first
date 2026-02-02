@@ -1,0 +1,206 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
+import BarChart from '../../components/BarChart.astro';
+---
+
+<ResearchLayout
+  title="Compression Tournament Findings | Failure-First"
+  description="How short can an effective adversarial prompt be? Three tournament versions reveal methodology lessons about classification, compression, and compliance measurement."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Compression Tournament" }]}
+  status="complete"
+>
+  <PageHeader
+    title="Compression Tournament Findings"
+    tagline="What happens when adversarial prompts are compressed to minimum effective length"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      The compression tournament tested a simple question: <strong>what is the shortest prompt
+      that can get an AI model to comply with a malicious directive?</strong> Across three
+      iterations and 6 local models, we found effective compressed prompts as short as 53
+      characters&mdash;but the methodology lessons proved more valuable than the compression results.
+    </p>
+  </section>
+
+  <StatGrid items={[
+    { value: "3", label: "Tournament Versions" },
+    { value: "53", label: "Chars (Shortest Effective)" },
+    { value: "83%", label: "Best Compliance Rate" },
+    { value: "6", label: "Models Tested" },
+  ]} />
+
+  <section>
+    <h2>Methodology Evolution</h2>
+
+    <div class="card">
+      <h3>V1: Keyword Classification</h3>
+      <p>
+        The first version used keyword matching to detect compliance: words like
+        "here's how," "step 1," or "disable" in a response triggered a positive classification.
+        Results appeared dramatic&mdash;94% of compressed prompts appeared to succeed.
+      </p>
+      <p>
+        <strong>Problem:</strong> The classifier detected response style, not semantic content.
+        When re-evaluated with an LLM judge on 20 samples: keyword classifier found 94% jailbreaks,
+        LLM judge found 0%. Every "success" was a false positive.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>V2: LLM Classification</h3>
+      <p>
+        V2 replaced keywords with LLM-based judgment, revealing that compression systematically
+        strips the psychological manipulation techniques (authority hijacking, social engineering,
+        roleplay framing) that make original prompts effective. The compressed versions preserved
+        topics but lost the mechanisms of attack.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>V3: Compliance Measurement</h3>
+      <p>
+        V3 introduced the critical distinction: <strong>compliance vs. harm</strong>. A model that
+        helpfully explains how to execute a safety override command&mdash;even with disclaimers&mdash;has
+        complied with the directive. This frame captured behaviors that harm-focused evaluation missed,
+        yielding the first validated effective compressed prompts.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Classification Lessons</h2>
+
+    <h3>Keyword vs. LLM Classification</h3>
+    <BarChart
+      bars={[
+        { label: "Keyword: Jailbreak", value: 94, displayValue: "94%" },
+        { label: "LLM: Jailbreak", value: 0, displayValue: "0%" },
+      ]}
+      maxValue={100}
+      color="var(--failure-critical)"
+    />
+    <p class="chart-note">
+      Same 20 responses, two classifiers. The keyword classifier detected response format
+      (helpful, structured answers), not semantic harm.
+    </p>
+
+    <h3>Harm Judge vs. Compliance Judge</h3>
+    <BarChart
+      bars={[
+        { label: "Harm-focused", value: 25, displayValue: "0–50%" },
+        { label: "Compliance-focused", value: 63, displayValue: "33–83%" },
+      ]}
+      maxValue={100}
+      color="var(--recovery-active)"
+    />
+    <p class="chart-note">
+      Models often comply with directives (treating them as legitimate) while adding safety
+      disclaimers. Harm-focused judges miss this category of failure.
+    </p>
+  </section>
+
+  <section>
+    <h2>Compression Results</h2>
+    <p>
+      V3 identified 5 effective compressed prompts achieving 33&ndash;83% compliance rates.
+      Three pattern categories retained effectiveness after compression:
+    </p>
+
+    <h3>Effective Pattern Types</h3>
+    <BarChart
+      title="Compliance Rate by Pattern Type"
+      bars={[
+        { label: "Temporal Authority", value: 83, displayValue: "83%" },
+        { label: "Urgency + Protocol", value: 80, displayValue: "80%" },
+        { label: "Command Syntax", value: 60, displayValue: "60%" },
+        { label: "Temporal + Safety Null", value: 47, displayValue: "33–60%" },
+      ]}
+      maxValue={100}
+    />
+
+    <div class="card">
+      <h3>Patterns That Survive Compression</h3>
+      <p>
+        <strong>Temporal authority framing</strong> — Future date stamps and version identifiers
+        that imply the prompt comes from a newer system. Format-level signals that persist because
+        they don't depend on narrative context.
+      </p>
+      <p>
+        <strong>Command syntax</strong> — Structured instruction formats that trigger compliance
+        through formatting alone. These exploit the gap between format compliance and content safety.
+      </p>
+      <p>
+        <strong>Urgency protocols</strong> — Short-form emergency framing combining authority with
+        time pressure in minimal characters.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Model Susceptibility</h2>
+    <p>
+      Compliance rates varied significantly across the 6 local models tested.
+      Model vulnerability appears to correlate with parameter count, though our sample
+      is too small for statistical conclusions (n=5 prompts per model).
+    </p>
+
+    <BarChart
+      title="Compliance Rate by Model (V3, n=5)"
+      bars={[
+        { label: "gemma2:2b", value: 100, displayValue: "100%" },
+        { label: "gemma3:1b", value: 80, displayValue: "80%" },
+        { label: "phi3:mini", value: 60, displayValue: "60%" },
+        { label: "llama3.2:3b", value: 60, displayValue: "60%" },
+        { label: "mistral-nemo", value: 40, displayValue: "40%" },
+        { label: "qwen2:0.5b", value: 20, displayValue: "20%" },
+      ]}
+      maxValue={100}
+      color="var(--failure-warning)"
+    />
+  </section>
+
+  <section>
+    <h2>Implications</h2>
+    <div class="card">
+      <h3>For Evaluation Methodology</h3>
+      <p>
+        Keyword classification produces systematically misleading results for any task involving
+        natural language intent detection. LLM-based judgment is essential, and the evaluation
+        frame (harm vs. compliance) determines what you measure.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>For Defense Design</h3>
+      <p>
+        Compression strips psychological manipulation but preserves format-level signals.
+        This suggests format-exploiting attacks (temporal framing, command syntax) require
+        different defenses than content-level attacks (social engineering, narrative framing).
+        See our <a href="/research/defense-patterns/">defense patterns analysis</a> for more.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>For Safety Training</h3>
+      <p>
+        The compliance-vs-harm distinction reveals a gap in current safety evaluation.
+        Models that add disclaimers but still comply with malicious directives are often
+        classified as "safe" when they should be classified as "compliant under manipulation."
+      </p>
+    </div>
+  </section>
+
+  <WarningBox>
+    <p>
+      This research describes <strong>pattern categories and methodology</strong>, not specific
+      adversarial prompts. Compression results are reported as compliance rates with pattern
+      descriptions, not as reproducible attack payloads. The primary contribution is
+      methodological: better evaluation approaches for adversarial AI safety research.
+    </p>
+  </WarningBox>
+</ResearchLayout>
