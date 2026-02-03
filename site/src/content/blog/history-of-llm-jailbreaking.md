@@ -1,7 +1,7 @@
 ---
 title: "A History of Jailbreaking Language Models"
 description: "From 'ignore previous instructions' to automated attack pipelines — how LLM jailbreaking evolved from party trick to systemic challenge in four years."
-date: 2026-02-03
+date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history]
 ---
 
@@ -76,6 +76,23 @@ The pragmatic consensus is defense-in-depth: no single technique suffices, but l
 ## What Our Research Adds
 
 Our testing has produced several empirical findings. Hard multi-technique attacks reversed safety conclusions for models that appeared safe under standard prompts. We observed a size paradox where models in the 40–100B parameter range were counterintuitively more vulnerable than smaller or larger models. And we documented that 68% of responses containing safety disclaimers still constituted successful jailbreaks — measuring disclaimer presence is not equivalent to measuring safety.
+
+### Jailbreak Archaeology: Historical Attacks vs. Modern Models
+
+We built a benchmark testing 64 historical attack scenarios (spanning 2022–2025 techniques) against two current small models, with manual validation of all 50 traces. The results suggest a temporal decay gradient — older attacks are more mitigated, newer attacks remain effective:
+
+| Category | Era | Llama 3.2 (3.2B) | DeepSeek-R1 (1.5B) | n |
+|----------|-----|-----------------|-------------------|---|
+| DAN (persona) | 2022–23 | 0% | 60% | 5 |
+| Cipher (encoding) | 2023 | 20% | 0% | 5 |
+| Many-shot | 2024 | 0% | 20% | 5 |
+| Skeleton Key | 2024 | 20% | 40% | 5 |
+| Reasoning exploits | 2025 | 40% | 60% | 5 |
+| **Overall** | — | **16%** | **36%** | **25** |
+
+*Caveat: n=5 per cell. Preliminary findings from small models only.*
+
+Two unexpected findings emerged. First, **hallucination-as-refusal**: both models sometimes fabricated benign decoded content in response to cipher-encoded harmful requests (7 of 50 traces), which is functionally a refusal but was systematically misclassified by keyword detectors. Second, **keyword classifiers achieved only 56% accuracy** on DeepSeek-R1 responses — nearly half wrong — because they detect response *style* rather than semantic *harm*. See our [Jailbreak Archaeology](/blog/jailbreak-archaeology/) post for the full analysis.
 
 These findings contribute to a more grounded understanding of the actual state of LLM safety, as opposed to the state that benchmark scores might suggest.
 
