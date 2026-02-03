@@ -5,6 +5,8 @@ date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history]
 ---
 
+*This is a condensed overview. The [full research article](/blog/history-of-llm-jailbreaking-full/) includes detailed analysis of each era, empirical benchmark data, and a complete academic reference list.*
+
 ## The Tension at the Core
 
 The history of LLM jailbreaking is not a story of clever tricks. It is a story of the fundamental tension between capability and constraint — and the discovery, again and again, that these two properties are deeply entangled.
