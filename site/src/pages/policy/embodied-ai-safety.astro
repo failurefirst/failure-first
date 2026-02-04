@@ -1,18 +1,23 @@
 ---
-import ContentLayout from '../layouts/ContentLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import StatGrid from '../components/StatGrid.astro';
-import WarningBox from '../components/WarningBox.astro';
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
 ---
 
 <ContentLayout
   title="Policy Brief: Embodied AI Safety | Failure-First"
   description="Evidence-based policy recommendations for regulating embodied AI systems. Why alignment alone is not enough."
-  breadcrumbs={[{ label: "Policy" }]}
+  breadcrumbs={[
+    { label: "Policy", href: "/policy/" },
+    { label: "Embodied AI Safety" },
+  ]}
 >
   <PageHeader
     title="Policy Brief: Why Alignment Is Not Enough for Embodied AI"
     tagline="Evidence-based recommendations for policymakers"
+    backLink="/policy/"
+    backText="All Policy Briefs"
   />
 
   <section>

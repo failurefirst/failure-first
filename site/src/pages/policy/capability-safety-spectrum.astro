@@ -1,0 +1,423 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ContentLayout
+  title="Policy Brief: Capability Does Not Imply Safety | Failure-First"
+  description="Empirical evidence from 8 foundation models reveals a U-shaped safety curve. Larger models are not inherently safer — capability without proportional safety investment increases adversarial risk."
+  breadcrumbs={[
+    { label: "Policy", href: "/policy/" },
+    { label: "Capability-Safety Spectrum" },
+  ]}
+>
+  <PageHeader
+    title="Capability Does Not Imply Safety"
+    tagline="Empirical evidence from jailbreak archaeology across eight foundation models"
+    backLink="/policy/"
+    backText="All Policy Briefs"
+  />
+
+  <section>
+    <h2>Summary</h2>
+    <p>
+      A systematic evaluation of 64 historical jailbreak scenarios across eight
+      foundation models&mdash;spanning 1.5B to frontier scale&mdash;reveals a
+      <strong>non-monotonic relationship between model capability and safety
+      robustness</strong>. Rather than improving linearly with scale, adversarial
+      resistance follows a U-shaped curve.
+    </p>
+    <p>
+      Small models fail safely through incapability. Frontier closed-source models
+      refuse effectively through extensive alignment investment. Medium-to-large
+      open-weight models occupy a dangerous intermediate zone where capability
+      outpaces safety training.
+    </p>
+    <p>
+      The most significant finding: <strong>reasoning-era attacks achieve higher
+      success rates on larger models than on smaller ones</strong>. This result,
+      consistent with the "Inverse Scaling for Safety" phenomenon described in the
+      literature, provides empirical evidence that compute-threshold-based
+      regulation alone is insufficient for assessing adversarial risk.
+    </p>
+  </section>
+
+  <section>
+    <h2>Key Metrics</h2>
+    <StatGrid items={[
+      { value: "8", label: "Models Tested" },
+      { value: "6", label: "Attack Eras (2022–2026)" },
+      { value: "64", label: "Scenarios Per Model" },
+    ]} />
+  </section>
+
+  <section>
+    <h2>The Jailbreak Archaeology Dataset</h2>
+    <p>
+      The evaluation used scenarios drawn from six historical attack eras, each
+      representing a distinct class of adversarial technique that emerged between
+      2022 and 2026.
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Era</th>
+            <th>Attack Class</th>
+            <th>Years</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Direct Injection (persona adoption)</td><td>2022&ndash;23</td></tr>
+          <tr><td>2</td><td>Obfuscation (cipher encoding)</td><td>2023&ndash;24</td></tr>
+          <tr><td>3</td><td>Context Flooding (many-shot, skeleton key)</td><td>2024&ndash;25</td></tr>
+          <tr><td>4</td><td>Gradual Escalation (crescendo)</td><td>2024&ndash;25</td></tr>
+          <tr><td>5</td><td>Cognitive Hijacking (CoT exploits)</td><td>2025&ndash;26</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Models were tested in standardized single-turn format with LLM-based
+      classification and manual spot-checking.
+    </p>
+  </section>
+
+  <section>
+    <h2>Finding 1: The U-Shaped Safety Curve</h2>
+    <p>
+      Corrected attack success rate (ASR) does not decrease monotonically with
+      model scale. Instead, it follows a U-shaped pattern with three distinct
+      safety regimes:
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th>Model</th>
+            <th>Corrected ASR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Small (1.7B)</td><td>Qwen3-1.7b</td><td>21.3%</td></tr>
+          <tr><td>Small (3B)</td><td>Llama 3.2</td><td>~0% (skeleton key)</td></tr>
+          <tr class="highlight-row"><td>Medium (70B)</td><td>Llama-3.3-70b</td><td>85.7% (reasoning era)</td></tr>
+          <tr><td>Frontier</td><td>Gemini 3 Flash</td><td>1.6%</td></tr>
+          <tr><td>Frontier</td><td>Claude Sonnet 4.5</td><td>0.0%</td></tr>
+          <tr><td>Frontier</td><td>Codex GPT-5.2</td><td>0.0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Regime A: Incapable Safety (sub-3B)</h3>
+      <p>
+        Models in this range often cannot process attacks as intended. Cipher-encoded
+        prompts produce hallucinated output rather than decoded harmful content. The
+        model's incapability acts as an inadvertent safety mechanism&mdash;it fails safely
+        because it fails at everything.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Regime B: Capability-Safety Gap (medium scale)</h3>
+      <p>
+        Models at this scale can decode ciphers, follow multi-turn reasoning, and
+        synthesize complex instructions. However, their safety alignment has not
+        scaled proportionally. This is where capability enables attack execution that
+        smaller models simply cannot parse.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Regime C: Aligned Frontier (closed-source frontier)</h3>
+      <p>
+        Models with massive investment in RLHF, red-teaming, and API-level filtering
+        achieve near-zero ASR. The three frontier models all achieved corrected ASR
+        below 2%. This regime depends on <em>continuous safety investment</em>&mdash;it
+        is not an inherent property of scale.
+      </p>
+    </div>
+
+    <WarningBox title="Important Caveat">
+      <p>
+        The U-shape observed here confounds multiple variables: parameter count,
+        training methodology, closed vs. open weight, and RLHF budget. The precise
+        claim is: <strong>capability alone, without proportional safety investment,
+        creates increased adversarial risk at medium scale.</strong>
+      </p>
+    </WarningBox>
+  </section>
+
+  <section>
+    <h2>Finding 2: Three Cipher Modalities</h2>
+    <p>
+      Cipher-era scenarios (ROT13, Base64, custom encoding) produced a distinctive
+      three-mode response pattern that serves as a diagnostic for a model's position
+      on the capability-safety spectrum:
+    </p>
+
+    <div class="card">
+      <h3>Modality 1: Hallucinate</h3>
+      <p>
+        Cannot decode cipher; produces unrelated or garbled output. Observed in
+        small models (Llama 3.2, partially Qwen3-1.7b). Safety through incapability
+        &mdash; fragile, disappears as models improve.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Modality 2: API Block</h3>
+      <p>
+        Request blocked at infrastructure level before reaching model reasoning.
+        Observed in Claude Sonnet 4.5 (18 of 64 traces). Effective but coarse
+        &mdash; pattern-matches on known attack signatures, cannot generalize to
+        novel attack classes.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Modality 3: Decode-then-Refuse</h3>
+      <p>
+        Successfully decodes cipher content, identifies harmful intent, refuses.
+        Observed in Codex GPT-5.2 (all cipher scenarios). The most robust posture
+        &mdash; safety alignment operates at the semantic level rather than the
+        syntactic level.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Finding 3: Reasoning-Era Inverse Scaling</h2>
+    <p>
+      The most policy-relevant finding concerns reasoning-era attacks (chain-of-thought
+      hijacking, abductive reasoning exploits). Across all tested models, the reasoning
+      era produced the highest or near-highest ASR:
+    </p>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Reasoning-Era ASR</th>
+            <th>Overall ASR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Qwen3-1.7b</td><td>57%</td><td>21.3%</td></tr>
+          <tr class="highlight-row"><td>Llama-3.3-70b</td><td>85.7%</td><td>85.7% (reasoning only)</td></tr>
+          <tr><td>Gemini 3 Flash</td><td>10%</td><td>1.6%</td></tr>
+          <tr><td>Claude Sonnet 4.5</td><td>0%</td><td>0%</td></tr>
+          <tr><td>Codex GPT-5.2</td><td>0%</td><td>0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      The critical observation: Llama-3.3-70B's 85.7% reasoning-era ASR substantially
+      exceeds the 40&ndash;60% range observed on models 20&ndash;40x smaller. This is the
+      empirical signature of inverse scaling for safety&mdash;a larger, more capable model
+      is <em>more vulnerable</em> to attacks that exploit its reasoning capacity.
+    </p>
+
+    <WarningBox title="Sample Size Limitation">
+      <p>
+        The Llama-3.3-70B result is based on 7 valid traces (reasoning era only).
+        While consistent with prior literature on reasoning model vulnerabilities,
+        this signal requires confirmation with larger samples (n&gt;20).
+      </p>
+    </WarningBox>
+  </section>
+
+  <section>
+    <h2>Policy Implications</h2>
+
+    <div class="card">
+      <h3>Compute Thresholds Are Insufficient</h3>
+      <p>
+        Regulatory frameworks that use training compute (e.g., the EU AI Act's
+        10<sup>25</sup> FLOP threshold) as the primary risk indicator assume a monotonic
+        relationship between compute and risk. Our data suggests this assumption is
+        incomplete: models well below the threshold can exhibit extreme vulnerability
+        to specific attack classes, while models above it achieve near-zero ASR through
+        safety investment, not scale alone.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Static Benchmarks Miss Temporal Evolution</h3>
+      <p>
+        A model that achieves 0% ASR against 2023-era attacks may still be highly
+        vulnerable to 2025-era techniques. Current "snapshot" safety certifications
+        test against a fixed set of known attacks at a point in time. Safety evaluations
+        must be era-stratified to reveal which attack classes a model remains vulnerable to.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>The Case for Mandatory Continuous Testing</h3>
+      <p>
+        Three empirical observations support mandatory Continuous Adversarial Regression
+        Testing (CART): (1)&nbsp;models that resist older attack eras can still fail on
+        newer ones; (2)&nbsp;small models that are "safe through incapability" can become
+        unsafe with minor capability improvements; (3)&nbsp;inverse scaling creates moving
+        targets where safety evaluated at one scale may not hold at another.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>The Zombie Model Problem</h3>
+      <p>
+        Open-weight models cannot be patched or recalled once downloaded. If the medium-scale
+        vulnerability pattern holds at larger sample sizes, widely deployed open-weight models
+        represent a persistent adversarial risk that grows as new attack techniques are
+        discovered.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recommendations</h2>
+
+    <div class="card">
+      <h3>For Regulators</h3>
+      <ol>
+        <li>
+          <strong>Supplement compute thresholds with capability-based adversarial evaluation.</strong>
+          Require models in high-risk contexts be tested against era-stratified jailbreak
+          batteries, not just current-generation attacks.
+        </li>
+        <li>
+          <strong>Mandate era-stratified ASR reporting.</strong> Aggregate safety metrics
+          mask era-specific vulnerabilities. Per-era breakdowns reveal which attack classes
+          a model remains exposed to.
+        </li>
+        <li>
+          <strong>Establish CART requirements for high-risk deployments.</strong> Require
+          quarterly adversarial regression testing with retro-holdout sets maintained by
+          an independent body.
+        </li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>For Model Developers</h3>
+      <ol>
+        <li>
+          <strong>Invest in semantic-level safety.</strong> The decode-then-refuse pattern
+          is more robust than API-level pattern matching or incapability-based safety.
+          Safety alignment that operates at the level of understanding intent generalizes
+          better across attack eras.
+        </li>
+        <li>
+          <strong>Treat reasoning architecture as a distinct risk factor.</strong> Reasoning
+          models require safety evaluations beyond those applied to standard instruction-following models.
+        </li>
+      </ol>
+    </div>
+
+    <div class="card">
+      <h3>For Deployers</h3>
+      <p>
+        <strong>Do not assume that model scale implies safety.</strong> Deployment risk
+        assessments should be based on empirical adversarial testing against current
+        attack taxonomies, not model size.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Limitations</h2>
+    <ul>
+      <li>
+        <strong>Uneven sample sizes:</strong> Frontier models tested on all 64 scenarios;
+        Llama-3.3-70B on 10 (7 valid). The inverse scaling signal requires confirmation
+        at n&gt;20 per model per era.
+      </li>
+      <li>
+        <strong>Confounding variables:</strong> The comparison confounds parameter count,
+        training methodology, open vs. closed weight, and RLHF budget.
+      </li>
+      <li>
+        <strong>Single-turn testing:</strong> Multi-turn attacks were only evaluated
+        for select models. Results may differ in multi-turn settings.
+      </li>
+      <li>
+        <strong>Temporal snapshot:</strong> This evaluation reflects model behavior as
+        of early February 2026. Providers continuously update safety measures.
+      </li>
+    </ul>
+  </section>
+
+  <WarningBox title="Research Context">
+    <p>
+      This brief presents pattern-level findings from the
+      <a href="/">Failure-First</a> adversarial AI safety research project.
+      It does not contain operational attack instructions. All findings are
+      published to advance the collective understanding of AI safety evaluation.
+    </p>
+  </WarningBox>
+</ContentLayout>
+
+<style>
+  .table-wrapper {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  th, td {
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  th {
+    color: var(--fg-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+
+  td {
+    color: var(--fg);
+  }
+
+  .highlight-row td {
+    color: var(--failure-warning);
+    font-weight: 500;
+  }
+
+  ol {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  ol li {
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  ul li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+</style>

@@ -1,0 +1,131 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import WarningBox from '../../components/WarningBox.astro';
+
+const policyBriefs = [
+  {
+    title: "Capability Does Not Imply Safety",
+    href: "/policy/capability-safety-spectrum/",
+    description: "Empirical evidence from 8 foundation models reveals a U-shaped safety curve: capability without proportional safety investment increases adversarial risk.",
+    date: "February 2026",
+    status: "new",
+  },
+  {
+    title: "Why Alignment Is Not Enough for Embodied AI",
+    href: "/policy/embodied-ai-safety/",
+    description: "Humanoid and embodied AI systems pose risks that cannot be mitigated by alignment alone. Safety must be defined in terms of failure, recovery, and human re-entry.",
+    date: "January 2026",
+    status: "published",
+  },
+];
+
+const statusColors: Record<string, string> = {
+  new: "var(--accent-primary)",
+  published: "var(--recovery-stable)",
+  draft: "var(--failure-warning)",
+};
+
+const statusLabels: Record<string, string> = {
+  new: "New",
+  published: "Published",
+  draft: "Draft",
+};
+---
+
+<ContentLayout
+  title="Policy Briefs | Failure-First"
+  description="Evidence-based policy recommendations for regulating AI systems. Based on empirical adversarial testing and failure analysis."
+  breadcrumbs={[{ label: "Policy" }]}
+>
+  <PageHeader
+    title="Policy Briefs"
+    tagline="Evidence-based recommendations for AI safety regulation"
+  />
+
+  <section>
+    <p>
+      These briefs translate empirical research findings into actionable policy
+      recommendations. Each brief is grounded in data from adversarial testing,
+      failure analysis, and cross-model benchmarking.
+    </p>
+  </section>
+
+  <div class="brief-grid">
+    {policyBriefs.map((brief) => (
+      <a href={brief.href} class="brief-card card">
+        <div class="brief-card-header">
+          <h3>{brief.title}</h3>
+          <span class="status-pill" style={`--pill-color: ${statusColors[brief.status]}`}>
+            {statusLabels[brief.status]}
+          </span>
+        </div>
+        <p>{brief.description}</p>
+        <span class="brief-date">{brief.date}</span>
+      </a>
+    ))}
+  </div>
+
+  <WarningBox title="Note">
+    <p>
+      These briefs summarize research findings from the Failure-First project.
+      They are not legal advice and do not represent any regulatory body's position.
+    </p>
+  </WarningBox>
+</ContentLayout>
+
+<style>
+  .brief-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .brief-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .brief-card:hover {
+    border-bottom: none;
+  }
+
+  .brief-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .brief-card h3 {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  .brief-card p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .brief-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--fg-muted);
+  }
+
+  .status-pill {
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.1875rem 0.5rem;
+    border: 1px solid var(--pill-color);
+    color: var(--pill-color);
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+</style>
