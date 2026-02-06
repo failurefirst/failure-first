@@ -1,12 +1,36 @@
 ---
 const pathname = Astro.url.pathname;
 
-const navItems = [
-  { label: "Research", href: "/research/" },
+interface NavItem {
+  label: string;
+  href: string;
+  children?: { label: string; href: string; description?: string }[];
+}
+
+const navItems: NavItem[] = [
+  {
+    label: "Research",
+    href: "/research/",
+    children: [
+      { label: "All Studies", href: "/research/", description: "Research hub" },
+      { label: "Multi-Agent", href: "/research/moltbook/", description: "Moltbook analysis" },
+      { label: "Attack Taxonomy", href: "/research/attack-taxonomy/", description: "34+ patterns" },
+      { label: "Defense Patterns", href: "/research/defense-patterns/", description: "How models resist" },
+      { label: "Methodology", href: "/research/methodology/", description: "Our approach" },
+    ],
+  },
   { label: "Blog", href: "/blog/" },
   { label: "Framework", href: "/framework/" },
+  {
+    label: "Policy",
+    href: "/policy/",
+    children: [
+      { label: "Policy Briefs", href: "/policy/", description: "All briefs" },
+      { label: "Capability vs Safety", href: "/policy/capability-safety-spectrum/", description: "U-shaped curve" },
+      { label: "Embodied AI Safety", href: "/policy/embodied-ai-safety/", description: "Beyond alignment" },
+    ],
+  },
   { label: "Manifesto", href: "/manifesto/" },
-  { label: "Policy", href: "/policy/" },
   { label: "About", href: "/about/" },
 ];
 
@@ -31,14 +55,28 @@ function isActive(href: string, current: string): boolean {
 
     <ul class="nav-links" id="nav-links" role="list">
       {navItems.map((item) => (
-        <li>
+        <li class:list={[{ "has-dropdown": item.children }]}>
           <a
             href={item.href}
             class:list={[{ active: isActive(item.href, pathname) }]}
             aria-current={isActive(item.href, pathname) ? "page" : undefined}
+            aria-haspopup={item.children ? "true" : undefined}
           >
             {item.label}
+            {item.children && <span class="dropdown-arrow" aria-hidden="true">&#x25BC;</span>}
           </a>
+          {item.children && (
+            <ul class="dropdown" role="list">
+              {item.children.map((child) => (
+                <li>
+                  <a href={child.href}>
+                    <span class="dropdown-label">{child.label}</span>
+                    {child.description && <span class="dropdown-desc">{child.description}</span>}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       ))}
     </ul>
@@ -95,8 +133,14 @@ function isActive(href: string, current: string): boolean {
     margin: 0;
   }
 
-  .nav-links a {
-    display: block;
+  .nav-links > li {
+    position: relative;
+  }
+
+  .nav-links > li > a {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
     padding: 0.5rem 0.75rem;
     color: var(--fg-muted);
     font-size: 0.8125rem;
@@ -107,15 +151,84 @@ function isActive(href: string, current: string): boolean {
                 background var(--transition-duration) var(--transition-easing);
   }
 
-  .nav-links a:hover {
+  .nav-links > li > a:hover {
     color: var(--fg);
     background: rgba(0, 210, 255, 0.05);
     border-bottom: none;
   }
 
-  .nav-links a.active {
+  .nav-links > li > a.active {
     color: var(--accent-primary);
     background: rgba(0, 210, 255, 0.08);
+  }
+
+  .dropdown-arrow {
+    font-size: 0.5rem;
+    opacity: 0.6;
+    transition: transform var(--transition-duration) var(--transition-easing);
+  }
+
+  /* Dropdown menu */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: rgba(5, 8, 16, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-duration) var(--transition-easing),
+                visibility var(--transition-duration) var(--transition-easing),
+                transform var(--transition-duration) var(--transition-easing);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .has-dropdown:hover .dropdown,
+  .has-dropdown:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .has-dropdown:hover .dropdown-arrow {
+    transform: rotate(180deg);
+  }
+
+  .dropdown li {
+    margin: 0;
+  }
+
+  .dropdown a {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.75rem;
+    border-radius: 3px;
+    border-bottom: none;
+    transition: background var(--transition-duration) var(--transition-easing);
+  }
+
+  .dropdown a:hover {
+    background: rgba(0, 210, 255, 0.08);
+    border-bottom: none;
+  }
+
+  .dropdown-label {
+    color: var(--fg);
+    font-size: 0.8125rem;
+  }
+
+  .dropdown-desc {
+    color: var(--fg-muted);
+    font-size: 0.6875rem;
+    margin-top: 0.125rem;
   }
 
   /* Mobile hamburger */
@@ -169,8 +282,31 @@ function isActive(href: string, current: string): boolean {
       display: flex;
     }
 
-    .nav-links a {
+    .nav-links > li > a {
       padding: 0.75rem 1rem;
+    }
+
+    /* Mobile dropdown behavior */
+    .dropdown {
+      position: static;
+      min-width: 100%;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+      padding: 0 0 0 1rem;
+      display: none;
+    }
+
+    .has-dropdown.mobile-open .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      padding: 0.5rem 1rem;
     }
 
     /* Hamburger animation when open */
@@ -191,6 +327,7 @@ function isActive(href: string, current: string): boolean {
 <script>
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
+  const dropdownParents = document.querySelectorAll('.has-dropdown');
 
   if (toggle && links) {
     toggle.addEventListener('click', () => {
@@ -220,4 +357,17 @@ function isActive(href: string, current: string): boolean {
       }
     });
   }
+
+  // Mobile dropdown toggle
+  dropdownParents.forEach((parent) => {
+    const link = parent.querySelector(':scope > a');
+    if (link && window.innerWidth <= 768) {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          parent.classList.toggle('mobile-open');
+        }
+      });
+    }
+  });
 </script>

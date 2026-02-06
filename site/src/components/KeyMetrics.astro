@@ -1,0 +1,112 @@
+---
+/**
+ * KeyMetrics: Reusable component displaying core research statistics
+ * Used on homepage and research landing to establish credibility
+ */
+interface Props {
+  compact?: boolean;
+  showLabels?: boolean;
+}
+
+const { compact = false, showLabels = true } = Astro.props;
+
+const metrics = [
+  { value: "102+", label: "Models Tested", icon: "cpu" },
+  { value: "19K+", label: "Prompt Corpus", icon: "file" },
+  { value: "150+", label: "Attack Techniques", icon: "target" },
+  { value: "15+", label: "Research Reports", icon: "doc" },
+];
+---
+
+<div class:list={["key-metrics", { "key-metrics--compact": compact }]}>
+  {metrics.map((metric) => (
+    <div class="metric">
+      <div class="metric-icon" aria-hidden="true">
+        {metric.icon === "cpu" && <span class="icon">&#x2B21;</span>}
+        {metric.icon === "file" && <span class="icon">&#x25A2;</span>}
+        {metric.icon === "target" && <span class="icon">&#x25CE;</span>}
+        {metric.icon === "doc" && <span class="icon">&#x25A3;</span>}
+      </div>
+      <div class="metric-value">{metric.value}</div>
+      {showLabels && <div class="metric-label">{metric.label}</div>}
+    </div>
+  ))}
+</div>
+
+<style>
+  .key-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .key-metrics--compact {
+    gap: 0.75rem;
+  }
+
+  .metric {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    transition: border-color var(--transition-duration) var(--transition-easing),
+                box-shadow var(--transition-duration) var(--transition-easing);
+  }
+
+  .metric:hover {
+    border-color: var(--border-emphasis);
+    box-shadow: 0 0 12px var(--glow);
+  }
+
+  .metric-icon {
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-icon .icon {
+    font-size: 1.25rem;
+    color: var(--accent-primary);
+    opacity: 0.7;
+  }
+
+  .metric-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    line-height: 1.2;
+  }
+
+  .key-metrics--compact .metric-value {
+    font-size: 1.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    margin-top: 0.375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 768px) {
+    .key-metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 400px) {
+    .metric {
+      padding: 1rem 0.75rem;
+    }
+
+    .metric-value {
+      font-size: 1.5rem;
+    }
+
+    .key-metrics--compact .metric-value {
+      font-size: 1.25rem;
+    }
+  }
+</style>

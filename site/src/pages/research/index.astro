@@ -1,67 +1,139 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
+import KeyMetrics from '../../components/KeyMetrics.astro';
+import ResearchCategoryCard from '../../components/ResearchCategoryCard.astro';
 
+// Research categories with their studies
+const categories = [
+  {
+    title: "Multi-Agent Research",
+    description: "How AI agents influence each other in multi-agent environments. Environment shaping, narrative erosion, and emergent authority hierarchies.",
+    icon: "multiagent",
+    color: "primary",
+    count: 2,
+    links: [
+      { label: "Moltbook Analysis", href: "/research/moltbook/" },
+      { label: "Multi-Agent Scenarios", href: "/research/multi-agent/" },
+    ],
+  },
+  {
+    title: "Attack Pattern Analysis",
+    description: "Taxonomy of adversarial techniques and how models respond to them. From single-turn exploits to multi-turn cascades.",
+    icon: "archaeology",
+    color: "warning",
+    count: 3,
+    links: [
+      { label: "Attack Taxonomy", href: "/research/attack-taxonomy/" },
+      { label: "Model Vulnerability", href: "/research/model-vulnerability/" },
+      { label: "Compression Findings", href: "/research/compression/" },
+    ],
+  },
+  {
+    title: "Defense Mechanisms",
+    description: "How models resist adversarial attacks. Format/content separation, refusal patterns, and recovery mechanisms.",
+    icon: "defense",
+    color: "success",
+    count: 2,
+    links: [
+      { label: "Defense Patterns", href: "/research/defense-patterns/" },
+      { label: "Recovery Taxonomy", href: "/research/recovery-taxonomy/" },
+    ],
+  },
+  {
+    title: "Failure Taxonomies",
+    description: "Classification systems for understanding how AI systems fail. Recursive, contextual, interactional, and temporal failures.",
+    icon: "taxonomy",
+    color: "danger",
+    count: 2,
+    links: [
+      { label: "Failure Modes", href: "/research/failure-modes/" },
+      { label: "Humanoid Safety", href: "/research/humanoid-safety/" },
+    ],
+  },
+  {
+    title: "Methodology",
+    description: "How we conduct adversarial AI safety research. Benchmarking approach, data collection, and validation.",
+    icon: "methodology",
+    color: "tertiary",
+    count: 1,
+    links: [
+      { label: "Research Methodology", href: "/research/methodology/" },
+    ],
+  },
+];
+
+// All individual research pages for the complete listing
 const researchPages = [
   {
     title: "Moltbook: Multi-Agent Attack Surface",
     href: "/research/moltbook/",
     description: "Empirical analysis of 1,497 AI agent interactions on an agent-only social network.",
     status: "active",
+    category: "Multi-Agent",
   },
   {
     title: "Multi-Agent Failure Scenarios",
     href: "/research/multi-agent/",
     description: "How multiple actors create failure conditions that single-agent testing misses.",
     status: "active",
+    category: "Multi-Agent",
   },
   {
     title: "Model Vulnerability Findings",
     href: "/research/model-vulnerability/",
     description: "How model size, architecture, and training affect vulnerability to adversarial attacks.",
     status: "active",
+    category: "Attack Patterns",
   },
   {
     title: "Humanoid Robotics Safety",
     href: "/research/humanoid-safety/",
     description: "Safety analysis of humanoid robots across 15+ research dimensions.",
     status: "active",
+    category: "Failure Taxonomies",
   },
   {
     title: "Compression Tournament Findings",
     href: "/research/compression/",
     description: "Methodology lessons from three iterations of adversarial prompt compression.",
     status: "complete",
+    category: "Attack Patterns",
   },
   {
     title: "Defense Pattern Analysis",
     href: "/research/defense-patterns/",
     description: "How models resist adversarial attacks: the format/content separation pattern.",
     status: "complete",
+    category: "Defense Mechanisms",
   },
   {
     title: "Attack Pattern Taxonomy",
     href: "/research/attack-taxonomy/",
     description: "34+ attack patterns classified across 7 categories.",
     status: "complete",
+    category: "Attack Patterns",
   },
   {
     title: "Failure Mode Taxonomy",
     href: "/research/failure-modes/",
     description: "Recursive, contextual, interactional, and temporal failure classifications.",
     status: "complete",
+    category: "Failure Taxonomies",
   },
   {
     title: "Recovery Mechanisms",
     href: "/research/recovery-taxonomy/",
     description: "How AI systems recover (or fail to recover) from failure states.",
     status: "complete",
+    category: "Defense Mechanisms",
   },
   {
     title: "Research Methodology",
     href: "/research/methodology/",
     description: "Our approach to adversarial AI safety research and benchmarking.",
     status: "complete",
+    category: "Methodology",
   },
 ];
 
@@ -80,15 +152,43 @@ const statusLabels: Record<string, string> = {
 
 <ContentLayout
   title="Research | Failure-First"
-  description="Research hub for failure-first AI safety studies."
+  description="Research hub for failure-first AI safety studies. Multi-agent analysis, attack taxonomies, defense patterns, and failure modes."
   breadcrumbs={[{ label: "Research" }]}
 >
   <PageHeader
     title="Research"
-    tagline="Studies on how AI systems fail, degrade, and recover"
+    tagline="How AI systems fail, degrade, and recover"
   />
 
-  <h2>Studies</h2>
+  <section>
+    <p>
+      Our research characterizes AI failure patterns through adversarial testing.
+      We study how systems break down under pressure, how failures cascade across
+      agents, and what makes recovery possible.
+    </p>
+  </section>
+
+  <!-- Key Metrics (Compact) -->
+  <KeyMetrics compact />
+
+  <!-- Research Categories -->
+  <h2>Research Areas</h2>
+  <p>Explore findings by category:</p>
+  <div class="category-grid">
+    {categories.map((category) => (
+      <ResearchCategoryCard
+        title={category.title}
+        description={category.description}
+        icon={category.icon}
+        color={category.color}
+        links={category.links}
+        count={category.count}
+      />
+    ))}
+  </div>
+
+  <!-- All Studies -->
+  <h2>All Studies</h2>
   <div class="research-grid">
     {researchPages.map((page) => (
       <a href={page.href} class="research-card card">
@@ -99,16 +199,44 @@ const statusLabels: Record<string, string> = {
           </span>
         </div>
         <p>{page.description}</p>
+        <span class="category-tag">{page.category}</span>
       </a>
     ))}
   </div>
+
+  <!-- Academic Resources -->
+  <section class="academic-section">
+    <h2>For Researchers</h2>
+    <div class="academic-links">
+      <a href="/cite/" class="academic-card card">
+        <h3>Cite This Work</h3>
+        <p>BibTeX citations and reference formats for academic papers.</p>
+      </a>
+      <a href="/research/methodology/" class="academic-card card">
+        <h3>Methodology</h3>
+        <p>Detailed research approach, data collection, and validation methods.</p>
+      </a>
+      <a href="/framework/datasets/" class="academic-card card">
+        <h3>Datasets</h3>
+        <p>Access structured datasets for reproducible research.</p>
+      </a>
+    </div>
+  </section>
 </ContentLayout>
 
 <style>
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
   .research-grid {
     display: grid;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .research-card {
@@ -135,8 +263,16 @@ const statusLabels: Record<string, string> = {
 
   .research-card p {
     margin-top: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
     font-size: 0.875rem;
+  }
+
+  .category-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .status-pill {
@@ -151,5 +287,49 @@ const statusLabels: Record<string, string> = {
     color: var(--pill-color);
     border-radius: 3px;
     white-space: nowrap;
+  }
+
+  .academic-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .academic-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .academic-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .academic-card:hover {
+    border-bottom: none;
+  }
+
+  .academic-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .academic-card p {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+  }
+
+  @media (max-width: 768px) {
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .academic-links {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
