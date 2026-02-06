@@ -5,7 +5,7 @@ date: 2026-02-06
 tags: [policy, research, synthesis, embodied-ai, safety-standards, multi-agent, jailbreaking]
 ---
 
-Between January and February 2026, we commissioned 12 deep research reports using Gemini Deep Research, each synthesizing 100–200+ sources on specific policy and technical domains in embodied AI safety. The corpus totals ~326KB and spans regulatory frameworks (EU AI Act, NIST AI RMF, ISO standards), assurance mechanisms (insurance, certification, red teaming), and technical architectures (VLA safety, multi-agent systems).
+Between January and February 2026, we commissioned 12 deep research reports, each synthesizing 100–200+ sources on specific policy and technical domains in embodied AI safety. The corpus totals ~326KB and spans regulatory frameworks (EU AI Act, NIST AI RMF, ISO standards), assurance mechanisms (insurance, certification, red teaming), and technical architectures (VLA safety, multi-agent systems).
 
 This synthesis identifies five cross-cutting insights that emerged independently across multiple reports — patterns that reveal structural vulnerabilities in how we're building and regulating embodied AI systems.
 
@@ -98,8 +98,8 @@ Reports 25, 26, and 32 converge on the same architectural principle:
 
 ## Known Limitations
 
-- Reports are Gemini-generated synthesis, not primary empirical research
-- Some claims lack specific citation granularity (Gemini Deep Research style)
+- Reports are AI-assisted synthesis, not primary empirical research
+- Some claims lack specific citation granularity
 - Several reports reference the same underlying sources (NIST AI RMF, EU AI Act text)
 - Policy landscape evolves rapidly; snapshot as of Feb 2026
 - No peer review or external validation of proposed frameworks (MASSS, HANSE)
@@ -116,22 +116,9 @@ Reports 25, 26, and 32 converge on the same architectural principle:
 | Insurance metrics (Report 28) | None | New territory; potential partnership pathway |
 | Standards submission pathway (Reports 23, 30) | None | MASSS provides ISO/NIST submission template |
 
-## Individual Report Links
+## Report Inventory
 
-All 12 reports are available in the research corpus:
-
-- [21: EU AI Act Embodied Compliance](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/21_eu_ai_act_embodied_compliance.md)
-- [22: NIST AI RMF Robotics Playbook](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/22_nist_ai_rmf_robotics_playbook.md)
-- [23: ISO Standards Gap Analysis](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/23_iso_standards_embodied_ai_gap.md)
-- [24: Post-Jailbreak Persistence Policy](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/24_post_jailbreak_persistence_policy.md)
-- [25: Inverse Scaling Safety Policy](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/25_inverse_scaling_safety_policy.md)
-- [26: Red Teaming Measurement Standards](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/26_red_teaming_measurement_standards.md)
-- [27: AUKUS Autonomous Systems Assurance](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/27_aukus_autonomous_systems_assurance.md)
-- [28: Insurance Humanoid Safety Requirements](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/28_insurance_humanoid_safety_requirements.md)
-- [29: Australian AI Safety Certification](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/29_australian_ai_safety_certification.md)
-- [30: Multi-Agent Safety Benchmark Standards (MASSS)](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/30_multi_agent_safety_benchmark_standards.md)
-- [31: Jailbreak Archaeology Policy Implications](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/31_jailbreak_archaeology_policy_implications.md)
-- [32: VLA Safety Certification Bridge (HANSE)](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/research/reports/32_vla_safety_certification_bridge.md)
+All 12 reports are referenced in the table above. Full reports will be published to the research section as they are finalized for public release.
 
 ## What This Means for Standards Bodies
 
