@@ -9,9 +9,19 @@ interface Props {
   type?: 'website' | 'article';
   publishedDate?: string;
   modifiedDate?: string;
+  keywords?: string;
+  noindex?: boolean;
 }
 
-const { title, description = "A research framework for characterizing how embodied AI systems fail", type, publishedDate, modifiedDate } = Astro.props;
+const { 
+  title, 
+  description = "A research framework for characterizing how embodied AI systems fail", 
+  type, 
+  publishedDate, 
+  modifiedDate,
+  keywords,
+  noindex
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,7 +30,15 @@ const { title, description = "A research framework for characterizing how embodi
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <SEOHead title={title} description={description} type={type} publishedDate={publishedDate} modifiedDate={modifiedDate} />
+    <SEOHead 
+      title={title} 
+      description={description} 
+      type={type} 
+      publishedDate={publishedDate} 
+      modifiedDate={modifiedDate}
+      keywords={keywords}
+      noindex={noindex}
+    />
     <link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml" />
 
     <!-- Google Analytics (GA4) -->

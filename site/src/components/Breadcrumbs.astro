@@ -9,6 +9,27 @@ interface Props {
 }
 
 const { items } = Astro.props;
+const siteUrl = 'https://failurefirst.org';
+
+// Build breadcrumb list for Schema.org
+const breadcrumbItems = [
+  { name: 'Home', url: siteUrl + '/' },
+  ...items.map((item, i) => ({
+    name: item.label,
+    url: item.href ? siteUrl + item.href : undefined
+  }))
+];
+
+const jsonLdBreadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': breadcrumbItems.map((item, i) => ({
+    '@type': 'ListItem',
+    'position': i + 1,
+    'name': item.name,
+    ...(item.url && { 'item': item.url })
+  }))
+};
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
@@ -25,6 +46,9 @@ const { items } = Astro.props;
     ))}
   </ol>
 </nav>
+
+<!-- BreadcrumbList Schema.org structured data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdBreadcrumb)} />
 
 <style>
   .breadcrumbs {

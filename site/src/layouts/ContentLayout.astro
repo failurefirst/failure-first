@@ -11,12 +11,34 @@ interface Props {
   title: string;
   description?: string;
   breadcrumbs?: Crumb[];
+  type?: 'website' | 'article';
+  publishedDate?: string;
+  modifiedDate?: string;
+  keywords?: string;
+  noindex?: boolean;
 }
 
-const { title, description, breadcrumbs = [] } = Astro.props;
+const { 
+  title, 
+  description, 
+  breadcrumbs = [],
+  type,
+  publishedDate,
+  modifiedDate,
+  keywords,
+  noindex
+} = Astro.props;
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout 
+  title={title} 
+  description={description}
+  type={type}
+  publishedDate={publishedDate}
+  modifiedDate={modifiedDate}
+  keywords={keywords}
+  noindex={noindex}
+>
   {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
   <slot />
 </BaseLayout>
