@@ -1,4 +1,52 @@
+# Failure-First Embodied AI - robots.txt
+# https://failurefirst.org
+
+# Default policy: allow all crawlers
 User-agent: *
 Allow: /
+Crawl-delay: 1
 
+# Sitemap location
 Sitemap: https://failurefirst.org/sitemap-index.xml
+
+# Block AI training crawlers (research content should not train commercial models)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+# Rate limit aggressive SEO bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10
+
+# Block problematic bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
