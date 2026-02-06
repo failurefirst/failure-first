@@ -20,6 +20,29 @@ const policyBriefs = [
   },
 ];
 
+// Full policy corpus (Reports 21-39)
+const policyCorpus = [
+  { number: 21, title: "EU AI Act Embodied Compliance", topic: "Regulatory" },
+  { number: 22, title: "NIST AI RMF Robotics Playbook", topic: "Standards" },
+  { number: 23, title: "ISO Standards Gap Analysis", topic: "Standards" },
+  { number: 24, title: "Post-Jailbreak Persistence Policy", topic: "Safety" },
+  { number: 25, title: "Inverse Scaling Safety Policy", topic: "Safety" },
+  { number: 26, title: "Red Teaming Measurement Standards", topic: "Methodology" },
+  { number: 27, title: "AUKUS Autonomous Systems Assurance", topic: "Defense" },
+  { number: 28, title: "Insurance Humanoid Safety Requirements", topic: "Insurance" },
+  { number: 29, title: "Australian AI Safety Certification", topic: "Regulatory" },
+  { number: 30, title: "Multi-Agent Safety Benchmark Standards", topic: "Standards" },
+  { number: 31, title: "Jailbreak Archaeology Policy Implications", topic: "Safety" },
+  { number: 32, title: "VLA Safety Certification Bridge", topic: "Embodied AI" },
+  { number: 33, title: "Capability-Safety Spectrum Brief", topic: "Safety" },
+  { number: 34, title: "Cross-Model Vulnerability Inheritance", topic: "Safety" },
+  { number: 35, title: "Moltbook Ecosystem Analysis", topic: "Multi-Agent" },
+  { number: 36, title: "Semantic Supply Chain Vulnerabilities", topic: "Security" },
+  { number: 37, title: "Erosive Narrative Safety Dissolution", topic: "Multi-Agent" },
+  { number: 38, title: "Cross-Agent Prompt Injection", topic: "Security" },
+  { number: 39, title: "Embodied Multi-Agent Failure Modes", topic: "Embodied AI" },
+];
+
 const statusColors: Record<string, string> = {
   new: "var(--accent-primary)",
   published: "var(--recovery-stable)",
@@ -65,6 +88,28 @@ const statusLabels: Record<string, string> = {
       </a>
     ))}
   </div>
+
+  <!-- Policy Corpus Overview -->
+  <section class="corpus-section">
+    <h2>Policy Research Corpus</h2>
+    <p>
+      Our full policy corpus includes 19 in-depth reports (100-200+ sources each) covering
+      regulatory frameworks, standards gaps, and safety requirements. Each report was
+      independently researched for cross-validation of findings.
+    </p>
+    <div class="corpus-grid">
+      {policyCorpus.map((report) => (
+        <div class="corpus-item">
+          <span class="report-number">#{report.number}</span>
+          <span class="report-title">{report.title}</span>
+          <span class="report-topic">{report.topic}</span>
+        </div>
+      ))}
+    </div>
+    <p class="corpus-note">
+      Full reports available in the research repository. Contact us for access to specific briefs.
+    </p>
+  </section>
 
   <WarningBox title="Note">
     <p>
@@ -127,5 +172,65 @@ const statusLabels: Record<string, string> = {
     color: var(--pill-color);
     border-radius: 3px;
     white-space: nowrap;
+  }
+
+  .corpus-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .corpus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .corpus-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    font-size: 0.75rem;
+  }
+
+  .report-number {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-primary);
+    font-weight: 500;
+  }
+
+  .report-title {
+    flex-grow: 1;
+    color: var(--fg-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .report-topic {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+
+  .corpus-note {
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .corpus-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

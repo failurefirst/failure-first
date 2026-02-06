@@ -7,6 +7,16 @@ import ResearchCategoryCard from '../../components/ResearchCategoryCard.astro';
 // Research categories with their studies
 const categories = [
   {
+    title: "Jailbreak Archaeology",
+    description: "Historical analysis of attack evolution from 2022-2025. 64 scenarios across 6 eras, tested against 8 foundation models.",
+    icon: "archaeology",
+    color: "warning",
+    count: 1,
+    links: [
+      { label: "Archaeology Dataset", href: "/research/jailbreak-archaeology/" },
+    ],
+  },
+  {
     title: "Multi-Agent Research",
     description: "How AI agents influence each other in multi-agent environments. Environment shaping, narrative erosion, and emergent authority hierarchies.",
     icon: "multiagent",
@@ -20,8 +30,8 @@ const categories = [
   {
     title: "Attack Pattern Analysis",
     description: "Taxonomy of adversarial techniques and how models respond to them. From single-turn exploits to multi-turn cascades.",
-    icon: "archaeology",
-    color: "warning",
+    icon: "taxonomy",
+    color: "danger",
     count: 3,
     links: [
       { label: "Attack Taxonomy", href: "/research/attack-taxonomy/" },
@@ -43,28 +53,25 @@ const categories = [
   {
     title: "Failure Taxonomies",
     description: "Classification systems for understanding how AI systems fail. Recursive, contextual, interactional, and temporal failures.",
-    icon: "taxonomy",
-    color: "danger",
+    icon: "methodology",
+    color: "tertiary",
     count: 2,
     links: [
       { label: "Failure Modes", href: "/research/failure-modes/" },
       { label: "Humanoid Safety", href: "/research/humanoid-safety/" },
     ],
   },
-  {
-    title: "Methodology",
-    description: "How we conduct adversarial AI safety research. Benchmarking approach, data collection, and validation.",
-    icon: "methodology",
-    color: "tertiary",
-    count: 1,
-    links: [
-      { label: "Research Methodology", href: "/research/methodology/" },
-    ],
-  },
 ];
 
 // All individual research pages for the complete listing
 const researchPages = [
+  {
+    title: "Jailbreak Archaeology",
+    href: "/research/jailbreak-archaeology/",
+    description: "Historical analysis of attack evolution from 2022-2025. 64 scenarios across 6 eras.",
+    status: "complete",
+    category: "Jailbreak Archaeology",
+  },
   {
     title: "Moltbook: Multi-Agent Attack Surface",
     href: "/research/moltbook/",
@@ -110,7 +117,7 @@ const researchPages = [
   {
     title: "Attack Pattern Taxonomy",
     href: "/research/attack-taxonomy/",
-    description: "34+ attack patterns classified across 7 categories.",
+    description: "79 attack techniques classified across 7 categories.",
     status: "complete",
     category: "Attack Patterns",
   },
@@ -203,6 +210,63 @@ const statusLabels: Record<string, string> = {
       </a>
     ))}
   </div>
+
+  <!-- Cross-Cutting Insights -->
+  <section class="insights-section">
+    <h2>Five Cross-Cutting Insights</h2>
+    <p>
+      Our research converges on five key findings that cut across all studies
+      and inform policy recommendations:
+    </p>
+
+    <div class="insight-grid">
+      <div class="insight card">
+        <h3>1. The Semantic-Kinetic Gap</h3>
+        <p>
+          VLA models collapse the traditional robotics stack (Sense-Plan-Act) into a single
+          neural network. A linguistic misunderstanding becomes a physical hazard with no
+          intermediate controller to catch the error. This is the master vulnerability for
+          embodied AI.
+        </p>
+      </div>
+
+      <div class="insight card">
+        <h3>2. Binary Phase Transitions</h3>
+        <p>
+          Jailbreak success exhibits binary behavior: 0% compliance when attacks fail,
+          100% persistence when they succeed. There is no gradual degradation. Once
+          "captured," models remain compromised.
+        </p>
+      </div>
+
+      <div class="insight card">
+        <h3>3. Multi-Agent Failures Are Emergent</h3>
+        <p>
+          Failures in multi-agent systems are emergent, not additive. Cascade depth,
+          semantic drift velocity, and consensus instability create failure modes that
+          single-agent testing cannot detect.
+        </p>
+      </div>
+
+      <div class="insight card">
+        <h3>4. The Regulatory Danger Zone</h3>
+        <p>
+          2026-2029 is the critical window: EU AI Act compliance deadlines, mass humanoid
+          deployment, and regulatory bodies without embodied AI evaluation capabilities
+          all converge.
+        </p>
+      </div>
+
+      <div class="insight card">
+        <h3>5. Defense Requires Distrust</h3>
+        <p>
+          Effective defense architectures treat AI as an "untrusted oracle" whose outputs
+          are suggestions, not commands. The correct default is to assume the AI will fail
+          and design containment.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Academic Resources -->
   <section class="academic-section">
@@ -321,6 +385,33 @@ const statusLabels: Record<string, string> = {
     margin: 0;
     font-size: 0.8125rem;
     color: var(--fg-muted);
+  }
+
+  .insights-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .insight-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .insight {
+    border-left: 3px solid var(--accent-primary);
+  }
+
+  .insight h3 {
+    margin-top: 0;
+    font-size: 1rem;
+    color: var(--accent-primary);
+  }
+
+  .insight p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
   }
 
   @media (max-width: 768px) {

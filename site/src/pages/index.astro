@@ -14,24 +14,24 @@ const recentPosts = (await getCollection('blog'))
   .slice(0, 3);
 ---
 
-<BaseLayout title="Failure-First Embodied AI | Research Framework">
+<BaseLayout title="Failure-First Embodied AI | AI Safety Research Framework">
   <PageHeader
     title="Failure-First Embodied AI"
-    tagline="Studying how AI systems fail to build better defenses"
+    tagline="Red-teaming and benchmarking framework for AI safety"
   />
 
-  <!-- Value Proposition -->
+  <!-- Mission Statement -->
   <section class="hero-section">
     <div class="hero-content">
       <p class="hero-lead">
-        Traditional AI safety measures task success. We measure
-        <strong>failure patterns</strong>, <strong>degradation modes</strong>, and
-        <strong>recovery mechanisms</strong>.
+        We study how AI systems <strong>fail</strong>, not just how they succeed.
+        Failure is the <em>primary object of study</em>, not an edge case.
       </p>
       <p>
-        Through adversarial testing across 102+ models and 19,000+ prompts, we identify
-        how AI systems break down under pressure, how failures cascade, and what makes
-        recovery possible.
+        Through adversarial testing across 102+ models and 17,500+ prompts, we characterize
+        how embodied AI systems break down under pressure, how failures cascade across
+        multi-agent environments, and what makes recovery possible. Our research informs
+        policy, standards, and defensive architectures.
       </p>
     </div>
   </section>
@@ -50,6 +50,18 @@ const recentPosts = (await getCollection('blog'))
   <section>
     <h2>Core Research</h2>
     <div class="research-areas">
+      <a href="/research/jailbreak-archaeology/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x23F3;</span>
+          <h3>Jailbreak Archaeology</h3>
+        </div>
+        <p>
+          64 scenarios across 6 attack eras (2022-2025), tested against 8 models.
+          Traces the evolution from DAN personas to reasoning model exploits.
+        </p>
+        <span class="area-tag">Key Dataset</span>
+      </a>
+
       <a href="/research/moltbook/" class="research-area card">
         <div class="research-area-header">
           <span class="area-icon" aria-hidden="true">&#x2B19;</span>
@@ -74,28 +86,16 @@ const recentPosts = (await getCollection('blog'))
         <span class="area-tag">Key Finding</span>
       </a>
 
-      <a href="/research/attack-taxonomy/" class="research-area card">
+      <a href="/policy/" class="research-area card">
         <div class="research-area-header">
-          <span class="area-icon" aria-hidden="true">&#x25CE;</span>
-          <h3>Attack Pattern Taxonomy</h3>
+          <span class="area-icon" aria-hidden="true">&#x2696;</span>
+          <h3>Policy Corpus</h3>
         </div>
         <p>
-          34+ attack patterns classified across 7 categories. From constraint shadowing
-          to temporal authority mirages.
+          19 policy reports synthesizing 100-200+ sources each. EU AI Act compliance,
+          NIST frameworks, insurance requirements, and standards gaps.
         </p>
-        <span class="area-tag">Reference</span>
-      </a>
-
-      <a href="/research/defense-patterns/" class="research-area card">
-        <div class="research-area-header">
-          <span class="area-icon" aria-hidden="true">&#x2B22;</span>
-          <h3>Defense Patterns</h3>
-        </div>
-        <p>
-          How models resist adversarial attacks. The format/content separation pattern
-          and other defensive mechanisms.
-        </p>
-        <span class="area-tag">Analysis</span>
+        <span class="area-tag">Policy Briefs</span>
       </a>
     </div>
     <p style="margin-top: 1.5rem; text-align: center;">
