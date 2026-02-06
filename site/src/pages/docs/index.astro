@@ -1,0 +1,203 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const guidesByCategory = {
+  methodology: [
+    {
+      title: "Failure Taxonomy Guide",
+      href: "/docs/failure-taxonomy-guide/",
+      description: "Authoritative guide to the dual-taxonomy model and failure-first philosophy.",
+    },
+    {
+      title: "Attack Technique Evolution",
+      href: "/docs/technique-evolution/",
+      description: "Historical timeline of jailbreak techniques from 2022 to present.",
+    },
+  ],
+  data: [
+    {
+      title: "Dataset User Guide",
+      href: "/docs/dataset-user-guide/",
+      description: "Practical instructions for researchers using the datasets.",
+    },
+    {
+      title: "Dataset Selection Guide",
+      href: "/docs/dataset-selection/",
+      description: "Decision tree for choosing the right dataset for your research.",
+    },
+  ],
+  taxonomy: [
+    {
+      title: "Comprehensive Scenario Classes",
+      href: "/docs/scenario-classes/",
+      description: "Browsable reference for all 755 scenario classes and 117 harm categories.",
+    },
+    {
+      title: "AILuminate Mapping Rationale",
+      href: "/docs/ailuminate-mapping-rationale/",
+      description: "How we map to MLCommons AILuminate v1.0 taxonomy.",
+    },
+  ],
+  evaluation: [
+    {
+      title: "Grader Comparison Guide",
+      href: "/docs/grader-comparison/",
+      description: "Technical guide on automated grading tiers (Heuristic vs. LLM).",
+    },
+    {
+      title: "Grader Comparison Report",
+      href: "/docs/grader-comparison-report/",
+      description: "Technical analysis of grading reliability across 19,000 results.",
+    },
+  ],
+};
+---
+
+<ContentLayout
+  title="Documentation | Failure-First"
+  description="Core guides and technical documentation for the Failure-First Embodied AI framework."
+  breadcrumbs={[{ label: "Documentation" }]}
+>
+  <PageHeader
+    title="Documentation"
+    tagline="Core guides for understanding and using the framework"
+  />
+
+  <section class="intro">
+    <p>
+      These guides provide the foundational knowledge for working with the Failure-First Embodied AI framework.
+      They cover methodology, data structures, taxonomy design, and evaluation approaches.
+    </p>
+  </section>
+
+  <section class="guide-category">
+    <h2>Methodology</h2>
+    <div class="guide-grid">
+      {guidesByCategory.methodology.map((guide) => (
+        <a href={guide.href} class="guide-card card">
+          <h3>{guide.title}</h3>
+          <p>{guide.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="guide-category">
+    <h2>Data & Datasets</h2>
+    <div class="guide-grid">
+      {guidesByCategory.data.map((guide) => (
+        <a href={guide.href} class="guide-card card">
+          <h3>{guide.title}</h3>
+          <p>{guide.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="guide-category">
+    <h2>Taxonomy</h2>
+    <div class="guide-grid">
+      {guidesByCategory.taxonomy.map((guide) => (
+        <a href={guide.href} class="guide-card card">
+          <h3>{guide.title}</h3>
+          <p>{guide.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="guide-category">
+    <h2>Evaluation</h2>
+    <div class="guide-grid">
+      {guidesByCategory.evaluation.map((guide) => (
+        <a href={guide.href} class="guide-card card">
+          <h3>{guide.title}</h3>
+          <p>{guide.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="quick-links">
+    <h2>Quick Links</h2>
+    <ul>
+      <li><a href="/docs/failure-taxonomy-guide/">Start with the Failure Taxonomy Guide</a> to understand the dual-taxonomy framework</li>
+      <li><a href="/docs/dataset-user-guide/">Explore the Dataset User Guide</a> for practical evaluation instructions</li>
+      <li><a href="/docs/scenario-classes/">Browse the Scenario Classes</a> to see all 755 failure patterns</li>
+      <li><a href="/framework/">View the Framework</a> for benchmark and harness specifications</li>
+    </ul>
+  </section>
+</ContentLayout>
+
+<style>
+  .intro {
+    margin: 2rem 0;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .guide-category {
+    margin: 3rem 0;
+  }
+
+  .guide-category h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .guide-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .guide-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .guide-card:hover {
+    border-bottom: none;
+  }
+
+  .guide-card h3 {
+    margin: 0;
+    font-size: 1.0625rem;
+  }
+
+  .guide-card p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .quick-links {
+    margin: 3rem 0;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+
+  .quick-links h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  .quick-links ul {
+    margin: 1rem 0 0 0;
+    padding-left: 1.5rem;
+  }
+
+  .quick-links li {
+    margin: 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .guide-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

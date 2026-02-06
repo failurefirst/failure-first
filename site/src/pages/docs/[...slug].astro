@@ -1,0 +1,298 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs');
+  return docs.map((doc) => ({
+    params: { slug: doc.id },
+    props: { doc },
+  }));
+}
+
+const { doc } = Astro.props;
+const { Content, headings } = await render(doc);
+
+const breadcrumbs = [
+  { label: 'Documentation', href: '/docs/' },
+  { label: doc.data.title },
+];
+
+// Get related docs for navigation
+const allDocs = await getCollection('docs');
+const relatedDocs = doc.data.related
+  .map((id) => allDocs.find((d) => d.id === id))
+  .filter(Boolean);
+---
+
+<ContentLayout
+  title={`${doc.data.title} | Documentation`}
+  description={doc.data.description}
+  breadcrumbs={breadcrumbs}
+>
+  <article class="doc-content">
+    <header class="doc-header">
+      <h1>{doc.data.title}</h1>
+      <p class="doc-description">{doc.data.description}</p>
+      <div class="doc-meta">
+        <span class="doc-category">{doc.data.category}</span>
+        <span class="doc-updated">
+          Last updated: {doc.data.last_updated.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })}
+        </span>
+      </div>
+    </header>
+
+    {doc.data.toc && headings.length > 0 && (
+      <aside class="table-of-contents">
+        <h2>Table of Contents</h2>
+        <nav>
+          <ul>
+            {headings
+              .filter((h) => h.depth <= 3)
+              .map((heading) => (
+                <li class={`toc-level-${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              ))}
+          </ul>
+        </nav>
+      </aside>
+    )}
+
+    <div class="doc-body">
+      <Content />
+    </div>
+
+    {relatedDocs.length > 0 && (
+      <aside class="related-docs">
+        <h2>Related Documentation</h2>
+        <ul>
+          {relatedDocs.map((related) => (
+            <li>
+              <a href={`/docs/${related.id}/`}>
+                <strong>{related.data.title}</strong>
+                <span>{related.data.description}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )}
+
+    <footer class="doc-footer">
+      <p>
+        <a href="/docs/">← Back to Documentation</a>
+      </p>
+      <p class="github-link">
+        Found an issue? <a href="https://github.com/adrianwedd/failure-first/issues" target="_blank">Report it on GitHub</a>
+      </p>
+    </footer>
+  </article>
+</ContentLayout>
+
+<style>
+  .doc-content {
+    max-width: 65ch;
+    margin: 0 auto;
+  }
+
+  .doc-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .doc-header h1 {
+    margin: 0 0 0.75rem 0;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .doc-description {
+    margin: 0 0 1rem 0;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+  }
+
+  .doc-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .doc-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--accent);
+    border-radius: 4px;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .table-of-contents {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+  }
+
+  .table-of-contents h2 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .table-of-contents nav ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .table-of-contents nav li {
+    margin: 0.25rem 0;
+  }
+
+  .table-of-contents .toc-level-2 {
+    padding-left: 0;
+  }
+
+  .table-of-contents .toc-level-3 {
+    padding-left: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .doc-body {
+    line-height: 1.7;
+  }
+
+  .doc-body :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .doc-body :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .doc-body :global(h4) {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.0625rem;
+  }
+
+  .doc-body :global(code) {
+    padding: 0.125rem 0.25rem;
+    background: var(--bg-secondary);
+    border-radius: 3px;
+    font-size: 0.875em;
+  }
+
+  .doc-body :global(pre) {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+
+  .doc-body :global(pre code) {
+    padding: 0;
+    background: none;
+  }
+
+  .doc-body :global(table) {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-collapse: collapse;
+  }
+
+  .doc-body :global(th),
+  .doc-body :global(td) {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .doc-body :global(th) {
+    background: var(--bg-secondary);
+    font-weight: 600;
+  }
+
+  .doc-body :global(blockquote) {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid var(--accent);
+    font-style: italic;
+  }
+
+  .related-docs {
+    margin: 3rem 0;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+  }
+
+  .related-docs h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+  }
+
+  .related-docs ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .related-docs li {
+    margin: 0.75rem 0;
+  }
+
+  .related-docs a {
+    display: block;
+    padding: 0.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .related-docs a:hover {
+    background: var(--bg);
+  }
+
+  .related-docs strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text);
+  }
+
+  .related-docs span {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .doc-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.875rem;
+  }
+
+  .doc-footer p {
+    margin: 0.5rem 0;
+  }
+
+  .github-link {
+    color: var(--text-secondary);
+  }
+</style>
