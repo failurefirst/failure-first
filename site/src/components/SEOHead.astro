@@ -7,6 +7,9 @@ interface Props {
   publishedDate?: string;
   modifiedDate?: string;
   image?: string;
+  author?: string;
+  keywords?: string;
+  noindex?: boolean;
 }
 
 const {
@@ -17,10 +20,34 @@ const {
   publishedDate,
   modifiedDate,
   image = '/og-image.png',
+  author = "Adrian Wedd",
+  keywords,
+  noindex = false,
 } = Astro.props;
 
 const canonicalURL = canonical || Astro.url.href;
 const siteName = "Failure-First Embodied AI";
+const siteUrl = "https://failurefirst.org";
+
+// JSON-LD: Organization schema
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteName,
+  url: siteUrl,
+  logo: {
+    "@type": "ImageObject",
+    url: `${siteUrl}/og-image.png`,
+  },
+  sameAs: [
+    "https://github.com/adrianwedd/failure-first"
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "Research Inquiries",
+    url: `${siteUrl}/contact/`
+  }
+};
 
 // JSON-LD: ResearchProject for the whole site
 const jsonLdBase = {
@@ -28,10 +55,19 @@ const jsonLdBase = {
   "@type": "ResearchProject",
   name: siteName,
   description: "A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.",
-  url: "https://failurefirst.org",
+  url: siteUrl,
   sameAs: [
     "https://github.com/adrianwedd/failure-first"
   ],
+  author: {
+    "@type": "Person",
+    name: author,
+  },
+  sponsor: {
+    "@type": "Organization",
+    name: siteName,
+    url: siteUrl,
+  }
 };
 
 // JSON-LD: ScholarlyArticle for research pages
@@ -43,26 +79,47 @@ const jsonLdArticle = isResearchPage ? {
   headline: title,
   description,
   url: canonicalURL,
+  image: new URL(image, Astro.site).href,
+  author: {
+    "@type": "Person",
+    name: author,
+  },
   publisher: {
     "@type": "Organization",
     name: siteName,
-    url: "https://failurefirst.org",
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/og-image.png`,
+    }
   },
   ...(publishedDate && { datePublished: publishedDate }),
   ...(modifiedDate && { dateModified: modifiedDate }),
+  inLanguage: "en-US",
+  isAccessibleForFree: true,
 } : isBlogPost ? {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: title,
   description,
   url: canonicalURL,
+  image: new URL(image, Astro.site).href,
+  author: {
+    "@type": "Person",
+    name: author,
+  },
   publisher: {
     "@type": "Organization",
     name: siteName,
-    url: "https://failurefirst.org",
+    url: siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/og-image.png`,
+    }
   },
   ...(publishedDate && { datePublished: publishedDate }),
   ...(modifiedDate && { dateModified: modifiedDate }),
+  inLanguage: "en-US",
 } : null;
 ---
 
@@ -70,6 +127,11 @@ const jsonLdArticle = isResearchPage ? {
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+{keywords && <meta name="keywords" content={keywords} />}
+<meta name="author" content={author} />
+<meta name="language" content="English" />
+<meta name="theme-color" content="#0a0a0a" />
 
 <!-- Open Graph -->
 <meta property="og:type" content={type === 'article' ? 'article' : 'website'} />
@@ -77,19 +139,26 @@ const jsonLdArticle = isResearchPage ? {
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content="en_US" />
 <meta property="og:image" content={new URL(image, Astro.site).href} />
+<meta property="og:image:alt" content={`${title} - ${siteName}`} />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
-<!-- Twitter -->
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@failurefirstai" />
+<meta name="twitter:creator" content="@adrianwedd" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={new URL(image, Astro.site).href} />
+<meta name="twitter:image:alt" content={`${title} - ${siteName}`} />
 
 {publishedDate && <meta property="article:published_time" content={publishedDate} />}
 {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
 
-<!-- JSON-LD -->
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
 <script type="application/ld+json" set:html={JSON.stringify(jsonLdBase)} />
 {jsonLdArticle && <script type="application/ld+json" set:html={JSON.stringify(jsonLdArticle)} />}
