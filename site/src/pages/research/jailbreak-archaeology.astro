@@ -1,0 +1,295 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import StatGrid from '../../components/StatGrid.astro';
+import Timeline from '../../components/Timeline.astro';
+---
+
+<ResearchLayout
+  title="Jailbreak Archaeology | Failure-First"
+  description="Historical analysis of jailbreak evolution from 2022-2025: 64 scenarios across 6 attack eras, tested against 8 foundation models."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Jailbreak Archaeology" }]}
+  status="complete"
+>
+  <PageHeader
+    title="Jailbreak Archaeology"
+    tagline="Tracing the evolution of adversarial attacks (2022-2025)"
+  />
+
+  <section>
+    <h2>Overview</h2>
+    <p>
+      Jailbreak Archaeology is a systematic study of how adversarial attacks on language
+      models have evolved over four years. By testing historical attack patterns against
+      modern models, we can understand which defenses have proven durable and which
+      architectural features remain vulnerable.
+    </p>
+    <p>
+      This dataset forms a core component of our benchmark suite and provides empirical
+      grounding for policy recommendations about AI safety evaluation.
+    </p>
+
+    <StatGrid items={[
+      { value: "64", label: "Test Scenarios" },
+      { value: "6", label: "Attack Eras" },
+      { value: "8", label: "Models Tested" },
+      { value: "79", label: "Techniques Catalogued" },
+    ]} />
+  </section>
+
+  <section>
+    <h2>The Six Eras of Jailbreaking</h2>
+    <p>
+      Attack techniques have evolved through distinct eras, each exploiting different
+      architectural features. A model's vulnerability to a particular era reveals
+      information about its cognitive depth.
+    </p>
+
+    <div class="era-grid">
+      <div class="era-card card">
+        <div class="era-header">
+          <span class="era-year">2022</span>
+          <h3>DAN Epoch</h3>
+        </div>
+        <p>
+          "Do Anything Now" personas and roleplay jailbreaks. Exploited models'
+          willingness to maintain fictional personas. Largely patched in modern systems.
+        </p>
+        <span class="era-tag">Persona Hijack</span>
+      </div>
+
+      <div class="era-card card">
+        <div class="era-header">
+          <span class="era-year">2023</span>
+          <h3>Cipher Translation</h3>
+        </div>
+        <p>
+          Base64, ROT13, and encoding-based obfuscation. Exploited inconsistent
+          safety filtering across encoded content. Small models fail here due to
+          decoding limitations.
+        </p>
+        <span class="era-tag">Encoding Obfuscation</span>
+      </div>
+
+      <div class="era-card card">
+        <div class="era-header">
+          <span class="era-year">2023-24</span>
+          <h3>Skeleton Key</h3>
+        </div>
+        <p>
+          Structured prompts that claim meta-authority over safety systems.
+          Exploits models that can decode instructions but cannot reason about
+          their own constraints.
+        </p>
+        <span class="era-tag">Authority Injection</span>
+      </div>
+
+      <div class="era-card card">
+        <div class="era-header">
+          <span class="era-year">2024</span>
+          <h3>Crescendo</h3>
+        </div>
+        <p>
+          Multi-turn escalation that stays below per-turn detection thresholds.
+          Each step appears benign; the trajectory is adversarial. Targets
+          models with weak cross-turn consistency.
+        </p>
+        <span class="era-tag">Progressive Escalation</span>
+      </div>
+
+      <div class="era-card card">
+        <div class="era-header">
+          <span class="era-year">2024</span>
+          <h3>Many-Shot</h3>
+        </div>
+        <p>
+          In-context learning attacks using large numbers of adversarial examples.
+          Exploits the statistical nature of transformer attention to establish
+          malicious patterns.
+        </p>
+        <span class="era-tag">Context Flooding</span>
+      </div>
+
+      <div class="era-card card">
+        <div class="era-header">
+          <span class="era-year">2024-25</span>
+          <h3>Reasoning Exploits</h3>
+        </div>
+        <p>
+          Chain-of-thought hijacking and reasoning model vulnerabilities.
+          Frontier models resist older techniques but expose new attack surfaces
+          through their reasoning processes.
+        </p>
+        <span class="era-tag">CoT Manipulation</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Key Findings</h2>
+
+    <div class="finding card">
+      <h3>Inverse Scaling for Safety</h3>
+      <p>
+        Larger, more capable models are often <em>more</em> vulnerable to sophisticated
+        attacks, not less. Superior context integration makes them better at following
+        complex adversarial instructions. This is the "capability-vulnerability paradox"
+        documented in Policy Report #25.
+      </p>
+    </div>
+
+    <div class="finding card">
+      <h3>Binary Phase Transitions</h3>
+      <p>
+        Jailbreak success exhibits binary behavior: 0% compliance when the attack fails,
+        100% persistence when it succeeds. There is no gradual degradation. Once a model
+        is "captured," it remains in the compromised state (Policy Report #24).
+      </p>
+    </div>
+
+    <div class="finding card">
+      <h3>Era Reveals Architecture</h3>
+      <p>
+        The era a model is vulnerable to reveals its cognitive depth:
+      </p>
+      <ul class="finding-list">
+        <li><strong>Small models</strong> fail at cipher (cannot decode)</li>
+        <li><strong>Medium models</strong> fail at persona/skeleton key (can decode, cannot reason about refusal)</li>
+        <li><strong>Frontier models</strong> resist all but CoT hijacking (reasoning becomes attack surface)</li>
+      </ul>
+    </div>
+
+    <div class="finding card">
+      <h3>Defense Evolution Lags Attack Evolution</h3>
+      <p>
+        Each new attack era exploits the blind spots of defenses designed for the previous era.
+        The regulatory "danger zone" (2026-2029) coincides with mass deployment of embodied AI
+        systems using architectures vulnerable to known attacks.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Dataset Structure</h2>
+    <p>
+      The archaeology dataset is organized as JSONL files, one per attack era:
+    </p>
+    <pre><code>data/jailbreak_archaeology/
+  dan_epoch.jsonl           # 15 scenarios
+  cipher_translation.jsonl  # 10 scenarios
+  skeleton_key.jsonl        # 8 scenarios
+  crescendo.jsonl           # 12 scenarios
+  many_shot.jsonl           # 10 scenarios
+  reasoning_exploits.jsonl  # 9 scenarios</code></pre>
+    <p>
+      Each scenario includes the attack prompt, expected model behavior categories,
+      era metadata, and technique classification aligned with our
+      <a href="/research/attack-taxonomy/">attack taxonomy</a>.
+    </p>
+  </section>
+
+  <section>
+    <h2>Policy Implications</h2>
+    <p>
+      The archaeology findings inform several policy recommendations:
+    </p>
+    <ul class="principles">
+      <li>
+        <strong>CART Mandate</strong>: Continuous Adversarial Robustness Testing should be
+        required for high-risk AI deployments, not just pre-deployment evaluation.
+      </li>
+      <li>
+        <strong>Era-Aware Evaluation</strong>: Safety benchmarks must test across all historical
+        eras, not just current attack patterns.
+      </li>
+      <li>
+        <strong>Inverse Scaling Disclosure</strong>: Capability improvements that increase
+        vulnerability should be disclosed alongside capability benchmarks.
+      </li>
+    </ul>
+    <p style="margin-top: 1.5rem;">
+      See <a href="/policy/">Policy Report #31</a> for the full policy analysis.
+    </p>
+  </section>
+
+  <section>
+    <h2>Related Research</h2>
+    <div class="links">
+      <a href="/research/attack-taxonomy/" class="link-button">Attack Taxonomy</a>
+      <a href="/research/model-vulnerability/" class="link-button">Model Vulnerability</a>
+      <a href="/research/defense-patterns/" class="link-button">Defense Patterns</a>
+    </div>
+  </section>
+</ResearchLayout>
+
+<style>
+  .era-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .era-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .era-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .era-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    opacity: 0.8;
+  }
+
+  .era-card h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .era-card p {
+    font-size: 0.875rem;
+    flex-grow: 1;
+  }
+
+  .era-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+  }
+
+  .finding {
+    margin-bottom: 1rem;
+  }
+
+  .finding h3 {
+    color: var(--accent-primary);
+    margin-top: 0;
+  }
+
+  .finding-list {
+    margin-top: 0.75rem;
+    padding-left: 1.5rem;
+  }
+
+  .finding-list li {
+    margin-bottom: 0.5rem;
+    color: var(--fg-dim);
+  }
+
+  @media (max-width: 768px) {
+    .era-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

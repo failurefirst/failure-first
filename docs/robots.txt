@@ -9,25 +9,23 @@ Crawl-delay: 1
 # Sitemap location
 Sitemap: https://failurefirst.org/sitemap-index.xml
 
-# Allow major AI assistants (Claude, ChatGPT, Gemini)
-# These help users discover and interact with our research
+# Block AI training crawlers (research content should not train commercial models)
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: ChatGPT-User
-Allow: /
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 
 User-agent: anthropic-ai
-Allow: /
+Disallow: /
 
 User-agent: Claude-Web
-Allow: /
-
-# Block other AI training crawlers
-User-agent: CCBot
 Disallow: /
 
 User-agent: Bytespider
