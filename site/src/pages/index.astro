@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
-import StatGrid from '../components/StatGrid.astro';
+import KeyMetrics from '../components/KeyMetrics.astro';
+import AudienceNav from '../components/AudienceNav.astro';
 import WarningBox from '../components/WarningBox.astro';
 import LinkButton from '../components/LinkButton.astro';
 import BlogPostCard from '../components/BlogPostCard.astro';
@@ -16,143 +17,117 @@ const recentPosts = (await getCollection('blog'))
 <BaseLayout title="Failure-First Embodied AI | Research Framework">
   <PageHeader
     title="Failure-First Embodied AI"
-    tagline="A research framework for characterizing how embodied AI systems fail"
+    tagline="Studying how AI systems fail to build better defenses"
   />
 
-  <section>
-    <h2>Philosophy</h2>
-    <p>
-      This project inverts traditional AI safety evaluation: instead of measuring task success,
-      we study <strong>how systems fail, degrade, and recover</strong> under adversarial pressure.
-    </p>
-    <p>
-      Failure is not an edge case—it's the <strong>primary object of study</strong>.
-    </p>
+  <!-- Value Proposition -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <p class="hero-lead">
+        Traditional AI safety measures task success. We measure
+        <strong>failure patterns</strong>, <strong>degradation modes</strong>, and
+        <strong>recovery mechanisms</strong>.
+      </p>
+      <p>
+        Through adversarial testing across 102+ models and 19,000+ prompts, we identify
+        how AI systems break down under pressure, how failures cascade, and what makes
+        recovery possible.
+      </p>
+    </div>
   </section>
 
-  <StatGrid items={[
-    { value: "51,000+", label: "Adversarial Scenarios" },
-    { value: "661", label: "Failure Classes" },
-    { value: "19", label: "Domains Covered" },
-    { value: "51+", label: "Models Evaluated" },
-  ]} />
+  <!-- Key Metrics Dashboard -->
+  <KeyMetrics />
 
+  <!-- Audience Entry Points -->
   <section>
-    <h2>What We Study</h2>
-    <div class="card">
-      <h3>Recursive Failures</h3>
-      <p>How does one failure cascade into others? What breaks first?</p>
+    <h2>Start Here</h2>
+    <p>Choose your path based on what you need:</p>
+    <AudienceNav />
+  </section>
+
+  <!-- Core Research Areas -->
+  <section>
+    <h2>Core Research</h2>
+    <div class="research-areas">
+      <a href="/research/moltbook/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x2B19;</span>
+          <h3>Multi-Agent Attack Surface</h3>
+        </div>
+        <p>
+          Analysis of 1,497 AI agent interactions on Moltbook, an agent-only social network.
+          Discovered environment shaping and narrative erosion as dominant attack vectors.
+        </p>
+        <span class="area-tag">Active Research</span>
+      </a>
+
+      <a href="/research/model-vulnerability/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x2B21;</span>
+          <h3>Model Vulnerability Patterns</h3>
+        </div>
+        <p>
+          How model size, architecture, and training affect adversarial robustness.
+          U-shaped safety curves reveal capability without safety increases risk.
+        </p>
+        <span class="area-tag">Key Finding</span>
+      </a>
+
+      <a href="/research/attack-taxonomy/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x25CE;</span>
+          <h3>Attack Pattern Taxonomy</h3>
+        </div>
+        <p>
+          34+ attack patterns classified across 7 categories. From constraint shadowing
+          to temporal authority mirages.
+        </p>
+        <span class="area-tag">Reference</span>
+      </a>
+
+      <a href="/research/defense-patterns/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x2B22;</span>
+          <h3>Defense Patterns</h3>
+        </div>
+        <p>
+          How models resist adversarial attacks. The format/content separation pattern
+          and other defensive mechanisms.
+        </p>
+        <span class="area-tag">Analysis</span>
+      </a>
     </div>
-    <div class="card">
-      <h3>Contextual Failures</h3>
-      <p>When do systems confuse instruction hierarchies or mix contexts?</p>
-    </div>
-    <div class="card">
-      <h3>Interactional Failures</h3>
-      <p>How do multi-agent scenarios amplify individual weaknesses?</p>
-    </div>
-    <div class="card">
-      <h3>Temporal Failures</h3>
-      <p>What degrades across stateful episodes? Memory consistency? Context drift?</p>
-    </div>
-    <div class="card">
-      <h3>Recovery Failures</h3>
-      <p>Can systems recognize and recover from their own mistakes? Do they admit uncertainty?</p>
-    </div>
+    <p style="margin-top: 1.5rem; text-align: center;">
+      <a href="/research/" class="link-button">All Research Studies &rarr;</a>
+    </p>
   </section>
 
   <WarningBox>
     <p>
       This is <strong>defensive AI safety research</strong>. All adversarial content is
       pattern-level description for testing, not operational instructions for exploitation.
-      Similar to penetration testing in cybersecurity—we study vulnerabilities to build better defenses.
+      Similar to penetration testing in cybersecurity: we study vulnerabilities to build better defenses.
     </p>
   </WarningBox>
 
-  <section>
-    <h2>Adversarial Technique Taxonomy</h2>
-    <p>Our research classifies observed attack patterns into structural categories:</p>
-
-    <div class="card">
-      <h3>Single-Agent Patterns</h3>
-      <p><strong>Constraint Shadowing (CSC)</strong> &mdash; Local instructions shadow global safety constraints.</p>
-      <p><strong>Contextual Debt Accumulation (CDA)</strong> &mdash; Accumulated context creates implicit authority the model fails to verify.</p>
-      <p><strong>Probabilistic Gradient (PCG)</strong> &mdash; Gradual escalation that stays below per-turn detection thresholds.</p>
-      <p><strong>Temporal Authority Mirage (TAM)</strong> &mdash; False claims about prior conversation states or future permissions.</p>
-      <p><strong>Multi-turn Cascades</strong> &mdash; 3&ndash;7 pattern combinations across conversation turns, with compound failure rates.</p>
-    </div>
-
-    <div class="card">
-      <h3>Multi-Agent Patterns</h3>
-      <p>Discovered through analysis of 1,497 posts on <a href="https://www.moltbook.com" target="_blank" rel="noopener">Moltbook</a>, an AI-agent-only social network:</p>
-      <p><strong>Environment Shaping</strong> &mdash; Manipulating the information environment that agents read, rather than prompting them directly.</p>
-      <p><strong>Narrative Constraint Erosion</strong> &mdash; Philosophical or emotional framing that socially penalizes safety compliance.</p>
-      <p><strong>Emergent Authority Hierarchies</strong> &mdash; Platform influence (engagement metrics, token economies) creating real authority without fabrication.</p>
-      <p><strong>Cross-Agent Prompt Injection</strong> &mdash; Executable content embedded in social posts, consumed by agents that read the feed.</p>
-      <p><strong>Identity Fluidity Normalization</strong> &mdash; Shared vocabulary around context resets and session discontinuity that enables identity manipulation.</p>
-    </div>
-
-    <div class="card">
-      <h3>Embodied-Specific Patterns</h3>
-      <p><strong>Irreversibility Gap</strong> &mdash; Cloud agents can be reset; physical agents leave marks. Safety constraints must account for irreversible actions.</p>
-      <p><strong>Context Reset Mid-Task</strong> &mdash; What happens when an agent controlling a physical system loses context during a kinematic sequence.</p>
-      <p><strong>Sensor-Actuator Desync</strong> &mdash; Safety interlocks that depend on sensor state which has drifted from reality.</p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Core Principles</h2>
-    <ul class="principles">
-      <li>Pattern-level only, never operational</li>
-      <li>Defensive purpose, always</li>
-      <li>No real-world targeting of deployed systems</li>
-      <li>Recovery mechanisms measured, not just failures</li>
-      <li>Schema-enforced, rigorously validated</li>
-      <li>Transparency over secrecy</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Multi-Agent Research</h2>
+  <!-- Philosophy Callout -->
+  <section class="philosophy-callout">
+    <h2>The Failure-First Philosophy</h2>
+    <blockquote>
+      "Failure is not an edge case. It's the primary object of study."
+    </blockquote>
     <p>
-      Our latest research extends beyond single-model jailbreaks to study
-      <strong>how AI agents influence each other</strong> in live multi-agent environments.
-      We analyzed 1,497 posts from <a href="https://www.moltbook.com" target="_blank" rel="noopener">Moltbook</a>, an AI-agent-only social network, classifying them against
-      34+ attack patterns using both regex and LLM semantic analysis.
+      Most AI safety work optimizes for capability and treats failure as an afterthought.
+      We invert this: by understanding how systems fail, we can design better safeguards,
+      recovery mechanisms, and human-in-the-loop interventions.
     </p>
-    <div class="card">
-      <h3>Key Finding</h3>
-      <p>
-        Multi-agent attacks work through <strong>environment shaping</strong>, not direct prompts.
-        Posts become part of other agents' context. Upvotes amplify reach. Token economies create
-        incentive structures. The highest-engagement post (316K+ upvotes) matched 7 attack classes
-        via semantic analysis but zero via keyword detection&mdash;narrative attacks operate below
-        the surface of traditional safety filters.
-      </p>
-    </div>
-    <div class="card">
-      <h3>34+ Attack Classes Across 7 Categories</h3>
-      <p>
-        Expanded from 10 initial patterns to a full taxonomy covering: authority &amp; identity,
-        narrative &amp; philosophical erosion, social dynamics, technical exploitation,
-        temporal manipulation, systemic failures, and format evasion. LLM classification
-        discovered that philosophical constraint erosion and narrative framing are the
-        dominant attack vectors&mdash;appearing in 20% of high-engagement posts.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Active Experiments Underway</h3>
-      <p>
-        Moving from passive observation to controlled experimentation. Five experiments testing
-        framing effects, context sensitivity, defensive inoculation, authority signals, and
-        narrative propagation. All conducted transparently as a safety researcher.
-      </p>
-      <p style="margin-top: 0.75rem;">
-        <a href="/research/moltbook/" class="link-button" style="font-size: 0.875rem;">Read the full research &rarr;</a>
-      </p>
-    </div>
+    <p style="margin-top: 1rem;">
+      <a href="/manifesto/" class="link-button">Read the Manifesto</a>
+    </p>
   </section>
 
+  <!-- Recent Blog Posts -->
   {recentPosts.length > 0 && (
     <section>
       <h2>Latest from the Blog</h2>
@@ -173,47 +148,7 @@ const recentPosts = (await getCollection('blog'))
     </section>
   )}
 
-  <section>
-    <h2>What You Get</h2>
-    <div class="card">
-      <h3>Datasets</h3>
-      <p>
-        Curated adversarial scenarios in structured JSONL format.
-        Coverage: humanoid robotics, warehouse systems, medical devices, collaborative manufacturing.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Schemas</h3>
-      <p>
-        Versioned JSON Schemas for single-agent, multi-agent, and episode formats.
-        Ensures consistency and enables validation.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Evaluation Tools</h3>
-      <p>
-        Schema validators, safety linters, benchmark runners (CLI + HTTP),
-        and scoring reports measuring refusal quality and recovery mechanisms.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Safety Infrastructure</h3>
-      <p>
-        Automated CI validation, manual review gates, and contribution guidelines
-        ensuring all content remains pattern-level and defensively purposed.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <h2>Get Started</h2>
-    <div class="links">
-      <LinkButton href="https://github.com/adrianwedd/failure-first" text="View on GitHub" external />
-      <LinkButton href="https://github.com/adrianwedd/failure-first/blob/main/README.md" text="Read the README" external />
-      <LinkButton href="https://github.com/adrianwedd/failure-first/blob/main/DESIGN_CHARTER.md" text="Design Charter" external />
-    </div>
-  </section>
-
+  <!-- Quick Start -->
   <section>
     <h2>Quick Start</h2>
     <p>Clone the repository and validate datasets:</p>
@@ -222,5 +157,116 @@ cd failure-first
 pip install -r requirements-dev.txt
 make validate  # Schema validation
 make lint      # Safety checks</code></pre>
+    <div class="links" style="margin-top: 1.5rem;">
+      <LinkButton href="https://github.com/adrianwedd/failure-first" text="View on GitHub" external />
+      <LinkButton href="/framework/" text="Framework Guide" />
+    </div>
   </section>
 </BaseLayout>
+
+<style>
+  .hero-section {
+    margin-bottom: 0;
+  }
+
+  .hero-content {
+    max-width: 720px;
+  }
+
+  .hero-lead {
+    font-size: 1.25rem;
+    color: var(--fg);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .research-areas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .research-area {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .research-area:hover {
+    border-bottom: none;
+  }
+
+  .research-area-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .area-icon {
+    font-size: 1.25rem;
+    color: var(--accent-primary);
+    opacity: 0.8;
+  }
+
+  .research-area h3 {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .research-area p {
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    flex-grow: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .area-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.7;
+  }
+
+  .philosophy-callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 3rem 0;
+    text-align: center;
+  }
+
+  .philosophy-callout h2 {
+    margin-top: 0;
+  }
+
+  .philosophy-callout blockquote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--accent-primary);
+    margin: 1.5rem 0;
+    padding: 0;
+    border: none;
+  }
+
+  .philosophy-callout p {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .research-areas {
+      grid-template-columns: 1fr;
+    }
+
+    .philosophy-callout {
+      padding: 1.5rem;
+    }
+  }
+</style>

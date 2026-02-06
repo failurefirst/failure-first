@@ -1,0 +1,133 @@
+---
+/**
+ * ResearchCategoryCard: Visual card for research categories
+ * Used on research index to organize findings by theme
+ */
+interface Link {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  icon?: string;
+  color?: string;
+  links: Link[];
+  count?: number;
+}
+
+const { title, description, icon = "default", color = "primary", links, count } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  primary: "var(--accent-primary)",
+  warning: "var(--failure-warning)",
+  success: "var(--recovery-stable)",
+  danger: "var(--failure-critical)",
+  secondary: "var(--accent-secondary)",
+  tertiary: "var(--accent-tertiary)",
+};
+
+const iconMap: Record<string, string> = {
+  archaeology: "&#x23F3;",     // Hourglass
+  multiagent: "&#x2B19;",      // Diamond with dots
+  reasoning: "&#x2B21;",       // Hexagon
+  defense: "&#x2B22;",         // Hexagon filled
+  taxonomy: "&#x25A6;",        // Square with diagonal
+  methodology: "&#x2B1A;",     // Dotted square
+  default: "&#x25CE;",         // Bullseye
+};
+---
+
+<div class="research-category-card card" style={`--card-accent: ${colorMap[color]}`}>
+  <div class="category-header">
+    <span class="category-icon" aria-hidden="true" set:html={iconMap[icon] || iconMap.default} />
+    <div>
+      <h3>{title}</h3>
+      {count && <span class="category-count">{count} studies</span>}
+    </div>
+  </div>
+  <p class="category-desc">{description}</p>
+  <ul class="category-links">
+    {links.map((link) => (
+      <li><a href={link.href}>{link.label}</a></li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .research-category-card {
+    border-left: 3px solid var(--card-accent);
+    transition: transform var(--transition-duration) var(--transition-easing),
+                box-shadow var(--transition-duration) var(--transition-easing);
+  }
+
+  .research-category-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .category-icon {
+    font-size: 1.5rem;
+    color: var(--card-accent);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .category-header h3 {
+    margin: 0;
+    font-size: 1.0625rem;
+    color: var(--fg);
+  }
+
+  .category-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .category-desc {
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    margin-bottom: 1rem;
+  }
+
+  .category-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .category-links li {
+    display: inline;
+  }
+
+  .category-links a {
+    font-size: 0.75rem;
+    color: var(--card-accent);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--card-accent);
+    border-radius: 3px;
+    opacity: 0.8;
+    transition: opacity var(--transition-duration) var(--transition-easing),
+                background var(--transition-duration) var(--transition-easing);
+  }
+
+  .category-links a:hover {
+    opacity: 1;
+    background: rgba(0, 210, 255, 0.1);
+    border-bottom: 1px solid var(--card-accent);
+  }
+</style>
