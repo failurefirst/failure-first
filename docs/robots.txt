@@ -10,28 +10,37 @@ Crawl-delay: 1
 Sitemap: https://failurefirst.org/sitemap-index.xml
 
 # Block AI training crawlers (research content should not train commercial models)
+# EXCEPT: allow access to prompt injection test suite (honeypot for AI agent research)
 User-agent: GPTBot
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: ChatGPT-User
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: CCBot
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: Google-Extended
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: anthropic-ai
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: Claude-Web
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: Bytespider
+Allow: /research/prompt-injection/
 Disallow: /
 
 User-agent: cohere-ai
+Allow: /research/prompt-injection/
 Disallow: /
 
 # Rate limit aggressive SEO bots
