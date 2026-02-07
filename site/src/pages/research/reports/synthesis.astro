@@ -1,0 +1,325 @@
+---
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import StatGrid from '../../../components/StatGrid.astro';
+import Card from '../../../components/Card.astro';
+
+const reports = [
+  { num: 21, title: "EU AI Act Embodied Compliance", classification: "Regulatory Review", slug: "report-21-regulatory-compliance-and-risk-mitigation-for-embodied-multi-agent" },
+  { num: 22, title: "NIST AI RMF Robotics Playbook", classification: "Standards Development", slug: "report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai" },
+  { num: 23, title: "ISO Standards Gap Analysis", classification: "Standards Development", slug: "report-23-technical-gap-analysis-of-iso-and-iec-standards" },
+  { num: 24, title: "Post-Jailbreak Persistence Policy", classification: "Research", slug: "report-24-cognitive-capture-and-behavioral-phase-transitions-policy-and" },
+  { num: 25, title: "Inverse Scaling Safety Policy", classification: "Research", slug: "report-25-the-paradox-of-capability-a-comprehensive-analysis-of" },
+  { num: 26, title: "Red Teaming Measurement Standards", classification: "Standards Development", slug: "report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty" },
+  { num: 27, title: "AUKUS Autonomous Systems Assurance", classification: "Regulatory Review", slug: "report-27-the-federated-aegis-a-unified-assurance-framework-for" },
+  { num: 28, title: "Insurance & Humanoid Safety", classification: "Regulatory Review", slug: "report-28-the-architecture-of-kinetic-risk-insurance-underwriting-as" },
+  { num: 29, title: "Australian AI Safety Certification", classification: "Regulatory Review", slug: "report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an" },
+  { num: 30, title: "MASSS Benchmark Standards", classification: "Standards Development", slug: "report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework" },
+  { num: 31, title: "Jailbreak Archaeology Policy", classification: "Research", slug: "report-31-the-policy-implications-of-historical-jailbreak-technique-evolution" },
+  { num: 32, title: "VLA Safety Certification Bridge", classification: "Standards Development", slug: "report-32-certified-embodied-intelligence-a-comprehensive-framework-for-vision-language-action" },
+];
+
+const classificationColors: Record<string, string> = {
+  "Regulatory Review": "var(--failure-warning)",
+  "Standards Development": "var(--recovery-active)",
+  "Research": "var(--accent-primary)",
+};
+---
+
+<ResearchLayout
+  title="Policy Corpus Synthesis | Research | Failure-First"
+  description="Cross-cutting analysis of 12 deep research reports on embodied AI safety policy, standards, and regulation."
+  breadcrumbs={[
+    { label: "Research", href: "/research/" },
+    { label: "Policy Reports", href: "/research/reports/" },
+    { label: "Synthesis" },
+  ]}
+  status="active"
+>
+  <PageHeader
+    title="Policy Corpus Synthesis"
+    tagline="Cross-cutting analysis across 12 deep research reports (Reports 21-32)"
+  />
+
+  <StatGrid items={[
+    { value: "12", label: "Deep Research Reports" },
+    { value: "5", label: "Cross-Cutting Insights" },
+    { value: "~326KB", label: "Total Corpus" },
+    { value: "100-200+", label: "Sources Per Report" },
+  ]} />
+
+  <section class="corpus-method">
+    <h2>Method</h2>
+    <p>
+      Each report was independently researched using Gemini Deep Research (Pro), processed in
+      4 batches of 3 reports, drawing from 100-200+ sources per report. Cross-report agreement
+      therefore represents independent convergence on the same findings, not circular reasoning.
+    </p>
+  </section>
+
+  <section>
+    <h2>Report Inventory</h2>
+    <div class="inventory-grid">
+      {reports.map((r) => (
+        <a href={`/research/reports/${r.slug}/`} class="inventory-card">
+          <div class="inventory-header">
+            <span class="inventory-num">#{r.num}</span>
+            <span class="inventory-class" style={`color: ${classificationColors[r.classification] || 'inherit'}`}>
+              {r.classification}
+            </span>
+          </div>
+          <h3>{r.title}</h3>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <h2>Five Cross-Cutting Insights</h2>
+
+    <details class="insight" open>
+      <summary><span class="insight-num">1</span> The Semantic-Kinetic Gap Is the Master Vulnerability</summary>
+      <div class="insight-body">
+        <p>
+          Reports 21, 22, 23, and 32 independently identify the same structural problem: VLA models
+          collapse the traditional robotics stack (Sense, Plan, Act) into a single end-to-end neural
+          network. A linguistic misunderstanding becomes a physical hazard with no intermediate planner
+          or controller to catch the error.
+        </p>
+        <ul>
+          <li>Report 32 proposes the HANSE framework (4-layer Simplex Architecture)</li>
+          <li>Report 23 maps the gap across 7 ISO/IEC standards, all of which assume deterministic control</li>
+          <li>Report 22 operationalizes a fix via the Semantic Alignment Score</li>
+          <li>Report 21 identifies that EU AI Act conformity assessments cannot evaluate probabilistic systems</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="insight">
+      <summary><span class="insight-num">2</span> Jailbreak Persistence Creates Binary Phase Transitions</summary>
+      <div class="insight-body">
+        <p>
+          Reports 24, 25, and 31 converge on a finding that connects directly to the jailbreak
+          archaeology benchmark:
+        </p>
+        <ul>
+          <li>Report 24: DeepSeek-R1 1.5B exhibits binary compliance &mdash; 0% creep when jailbreak fails, 100% persistence when it succeeds</li>
+          <li>Report 25: Larger models are more vulnerable to semantic manipulation due to superior context-integration (inverse scaling for safety)</li>
+          <li>Report 31: The 2022-2026 attack evolution follows four eras, each exploiting deeper architectural features</li>
+        </ul>
+        <p>
+          The era a model is vulnerable to reveals its cognitive depth: small models fail at
+          cipher-based attacks, medium models at persona-based attacks, and frontier models resist
+          all but chain-of-thought hijacking where reasoning itself becomes the attack surface.
+        </p>
+      </div>
+    </details>
+
+    <details class="insight">
+      <summary><span class="insight-num">3</span> Multi-Agent Failures Are Emergent, Not Additive</summary>
+      <div class="insight-body">
+        <p>
+          Reports 21, 23, and 30 build the case for why multi-agent scenarios need dedicated standards:
+        </p>
+        <ul>
+          <li>Report 30 proposes the MASSS framework with formal metrics: Cascade Depth, Semantic Drift Velocity, and Consensus Stability Index</li>
+          <li>Report 21: The EU AI Act has no provisions for emergent multi-agent behavior</li>
+          <li>Report 30 documents Moltbook forensics: 1.5M API tokens exposed, 16-minute median time-to-failure, 88:1 agent-to-human ratio</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="insight">
+      <summary><span class="insight-num">4</span> The Regulatory "Danger Zone" Is 2026-2029</summary>
+      <div class="insight-body">
+        <p>
+          Reports 21, 23, 28, and 29 converge on a timing problem:
+        </p>
+        <ul>
+          <li>EU AI Act high-risk compliance: August 2026</li>
+          <li>Mass production of humanoids (Optimus V3, Atlas): same period</li>
+          <li>Shortage of Notified Bodies capable of auditing embodied AI</li>
+          <li>Insurers using modified industrial-robot policies with no humanoid actuarial data</li>
+          <li>No country has a sovereign AI safety certification body yet</li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="insight">
+      <summary><span class="insight-num">5</span> Defense in Depth Requires Treating AI as Untrusted</summary>
+      <div class="insight-body">
+        <p>
+          Reports 25, 26, and 32 converge on the same architectural principle:
+        </p>
+        <ul>
+          <li>Report 25: "Guarded Architectures" where simpler models monitor frontier agents</li>
+          <li>Report 26: Multi-agent debate judges with delusion vs. hallucination distinction</li>
+          <li>Report 32: The VLA is an "Untrusted Oracle" whose outputs are suggestions, not commands</li>
+        </ul>
+        <p>
+          The correct default posture is to assume the AI will fail and design containment.
+          Safety benchmarks should characterize <em>how</em> systems fail, which is exactly
+          what regulatory frameworks need as input.
+        </p>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <h2>Corpus Assessment</h2>
+    <div class="assessment-grid">
+      <Card title="Strengths">
+        <ul>
+          <li>Complete regulatory surface scan: EU, US (NIST/FDA), ISO/IEC, AUKUS/Five Eyes, Australia, and insurance frameworks mapped to the same problem space</li>
+          <li>Independent convergence: each report was independently researched (100-200+ sources), so cross-report agreement constitutes evidence rather than circular reasoning</li>
+          <li>Identifies the gap the research codebase fills: operational, executable failure testing that produces the metrics these frameworks need but cannot yet generate</li>
+        </ul>
+      </Card>
+      <Card title="Limitations">
+        <ul>
+          <li>Reports are Gemini-generated synthesis, not primary empirical research</li>
+          <li>Some claims lack specific citation granularity</li>
+          <li>Several reports reference the same underlying sources (NIST AI RMF, EU AI Act text)</li>
+          <li>Policy landscape evolves rapidly; snapshot as of February 2026</li>
+          <li>No peer review or external validation of proposed frameworks (MASSS, HANSE)</li>
+        </ul>
+      </Card>
+    </div>
+  </section>
+</ResearchLayout>
+
+<style>
+  .corpus-method {
+    margin-top: 1.5rem;
+  }
+
+  .inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .inventory-card {
+    display: block;
+    padding: 1rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--transition-duration) var(--transition-easing),
+                transform var(--transition-duration) var(--transition-easing);
+  }
+
+  .inventory-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+
+  .inventory-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.375rem;
+  }
+
+  .inventory-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+  }
+
+  .inventory-class {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .inventory-card h3 {
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .insight {
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+  }
+
+  .insight summary {
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    list-style: none;
+  }
+
+  .insight summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .insight summary::after {
+    content: '+';
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.125rem;
+    color: var(--fg-muted);
+    transition: transform var(--transition-duration) var(--transition-easing);
+  }
+
+  .insight[open] summary::after {
+    content: '\2212';
+  }
+
+  .insight-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .insight-body {
+    padding: 0 1.25rem 1.25rem;
+  }
+
+  .insight-body ul {
+    padding-left: 1.25rem;
+  }
+
+  .insight-body li {
+    padding: 0.25rem 0;
+    color: var(--fg-dim);
+  }
+
+  .assessment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .assessment-grid ul {
+    padding-left: 1.25rem;
+    margin: 0;
+  }
+
+  .assessment-grid li {
+    padding: 0.25rem 0;
+    color: var(--fg-dim);
+    font-size: 0.875rem;
+  }
+</style>

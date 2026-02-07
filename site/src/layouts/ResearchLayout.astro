@@ -10,11 +10,14 @@ interface Crumb {
 interface Props {
   title: string;
   description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedDate?: string;
   breadcrumbs?: Crumb[];
   status?: 'active' | 'draft' | 'complete';
 }
 
-const { title, description, breadcrumbs = [], status = 'active' } = Astro.props;
+const { title, description, image, type, publishedDate, breadcrumbs = [], status = 'active' } = Astro.props;
 
 const statusLabels: Record<string, { text: string; color: string }> = {
   active: { text: "Active Research", color: "var(--recovery-active)" },
@@ -25,7 +28,7 @@ const statusLabels: Record<string, { text: string; color: string }> = {
 const badge = statusLabels[status];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} image={image} type={type} publishedDate={publishedDate}>
   <div class="research-header">
     {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
     <div class="research-status">

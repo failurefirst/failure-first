@@ -4,13 +4,14 @@ import ResearchLayout from './ResearchLayout.astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
   reportNumber?: number;
   classification?: string;
   date?: string;
   status?: 'active' | 'draft' | 'complete';
 }
 
-const { title, description, reportNumber, classification, date, status = 'draft' } = Astro.props;
+const { title, description, image, reportNumber, classification, date, status = 'draft' } = Astro.props;
 
 const breadcrumbs = [
   { label: "Research", href: "/research/" },
@@ -22,6 +23,9 @@ const breadcrumbs = [
 <ResearchLayout
   title={`${title} | Research | Failure-First`}
   description={description}
+  image={image}
+  type="article"
+  publishedDate={date}
   breadcrumbs={breadcrumbs}
   status={status}
 >
@@ -64,6 +68,9 @@ const breadcrumbs = [
   }
 
   .report-body :global(table) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     border-collapse: collapse;
     margin: 1.5rem 0;

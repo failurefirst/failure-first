@@ -43,6 +43,15 @@ const classificationColors: Record<string, string> = {
     tagline="19 reports across regulation, standards, research, and technical analysis"
   />
 
+  <a href="/research/reports/synthesis/" class="synthesis-banner">
+    <div class="synthesis-label">Synthesis</div>
+    <div class="synthesis-content">
+      <h3>Policy Corpus Synthesis</h3>
+      <p>Cross-cutting analysis across Reports 21-32: 5 converging insights from 12 independently researched reports.</p>
+    </div>
+    <span class="synthesis-arrow" aria-hidden="true">&rarr;</span>
+  </a>
+
   <section class="report-grid">
     {reports.map((r) => (
       <a href={`/research/reports/${r.slug}/`} class="report-card">
@@ -60,9 +69,63 @@ const classificationColors: Record<string, string> = {
 </ResearchLayout>
 
 <style>
+  .synthesis-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+    margin-top: 1.5rem;
+    border: 1px solid var(--accent-primary, #00d2ff);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(0, 210, 255, 0.04);
+    transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  }
+
+  .synthesis-banner:hover {
+    background: rgba(0, 210, 255, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .synthesis-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--bg, #050810);
+    background: var(--accent-primary, #00d2ff);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .synthesis-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .synthesis-content h3 {
+    font-size: 1rem;
+    margin: 0 0 0.25rem 0;
+  }
+
+  .synthesis-content p {
+    font-size: 0.8125rem;
+    margin: 0;
+    color: var(--fg-dim, #b0b8c5);
+  }
+
+  .synthesis-arrow {
+    font-size: 1.25rem;
+    color: var(--accent-primary, #00d2ff);
+    flex-shrink: 0;
+  }
+
   .report-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 1rem;
     margin-top: 2rem;
   }

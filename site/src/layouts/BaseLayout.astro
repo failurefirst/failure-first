@@ -6,6 +6,7 @@ import SEOHead from '../components/SEOHead.astro';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
   type?: 'website' | 'article';
   publishedDate?: string;
   modifiedDate?: string;
@@ -13,11 +14,12 @@ interface Props {
   noindex?: boolean;
 }
 
-const { 
-  title, 
-  description = "A research framework for characterizing how embodied AI systems fail", 
-  type, 
-  publishedDate, 
+const {
+  title,
+  description = "A research framework for characterizing how embodied AI systems fail",
+  image,
+  type,
+  publishedDate,
   modifiedDate,
   keywords,
   noindex
@@ -30,11 +32,12 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <SEOHead 
-      title={title} 
-      description={description} 
-      type={type} 
-      publishedDate={publishedDate} 
+    <SEOHead
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      publishedDate={publishedDate}
       modifiedDate={modifiedDate}
       keywords={keywords}
       noindex={noindex}

@@ -232,8 +232,8 @@ Future work should prioritize: (a) larger sample sizes for the medium-scale inve
 
 ## References
 
-- Report 25: *The Paradox of Capability: Inverse Scaling, Systemic Vulnerabilities, and AI Safety* (`research/reports/25_inverse_scaling_safety_policy.md`)
-- Report 31: *Policy Implications of Historical Jailbreak Technique Evolution 2022–2026* (`research/reports/31_jailbreak_archaeology_policy_implications.md`)
-- Classification data: `runs/classification_summary.txt`
-- Skeleton Key analysis: `runs/archaeology_skeleton_key_episodes/ANALYSIS.md`
-- Jailbreak archaeology traces: `runs/archaeology_*/`
+- Report 25: *The Paradox of Capability: Inverse Scaling, Systemic Vulnerabilities, and AI Safety*
+- Report 31: *Policy Implications of Historical Jailbreak Technique Evolution 2022–2026*
+- Classification data from the F41LUR3-F1R57 benchmark evaluation corpus
+- Skeleton Key persistence analysis across multi-scene episodes
+- Jailbreak archaeology traces across 8 model families
