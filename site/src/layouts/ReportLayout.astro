@@ -1,0 +1,84 @@
+---
+import ResearchLayout from './ResearchLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  reportNumber?: number;
+  classification?: string;
+  date?: string;
+  status?: 'active' | 'draft' | 'complete';
+}
+
+const { title, description, reportNumber, classification, date, status = 'draft' } = Astro.props;
+
+const breadcrumbs = [
+  { label: "Research", href: "/research/" },
+  { label: "Policy Reports", href: "/research/reports/" },
+  { label: `Report ${reportNumber || ''}` },
+];
+---
+
+<ResearchLayout
+  title={`${title} | Research | Failure-First`}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  status={status}
+>
+  <article class="report-content">
+    <header class="report-meta">
+      {reportNumber && <span class="report-number">Report {reportNumber}</span>}
+      {classification && <span class="report-classification">{classification}</span>}
+      {date && <time class="report-date">{date}</time>}
+    </header>
+    <div class="report-body">
+      <slot />
+    </div>
+  </article>
+</ResearchLayout>
+
+<style>
+  .report-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary, #888);
+  }
+
+  .report-number {
+    color: var(--accent-primary, #f59e0b);
+    font-weight: 600;
+  }
+
+  .report-body {
+    max-width: 72ch;
+  }
+
+  .report-body :global(h2) {
+    margin-top: 2.5rem;
+  }
+
+  .report-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .report-body :global(th),
+  .report-body :global(td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color, #333);
+    text-align: left;
+  }
+
+  .report-body :global(th) {
+    background: var(--surface-secondary, #1a1a1a);
+    font-weight: 600;
+  }
+</style>

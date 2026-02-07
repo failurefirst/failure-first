@@ -1,0 +1,411 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>undefined | Research | Failure-First</title><meta name="description" content="A research framework for characterizing how embodied AI systems fail"><link rel="canonical" href="https://failurefirst.org/research/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:title" content="undefined | Research | Failure-First"><meta property="og:description" content="A research framework for characterizing how embodied AI systems fail"><meta property="og:url" content="https://failurefirst.org/research/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="undefined | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="undefined | Research | Failure-First"><meta name="twitter:description" content="A research framework for characterizing how embodied AI systems fail"><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="undefined | Research | Failure-First - Failure-First Embodied AI"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"undefined | Research | Failure-First","description":"A research framework for characterizing how embodied AI systems fail","url":"https://failurefirst.org/research/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/","image":"https://failurefirst.org/og-image.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BV0HTfXU.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>79 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> Blog  </a>  </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/policy/" aria-haspopup="true" data-astro-cid-pux6a34n> Policy <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>19 reports</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>U-shaped curve</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> Manifesto  </a>  </li><li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> About  </a>  </li> </ul> </div> </nav>  <script type="module">const t=document.querySelector(".nav-toggle"),n=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");t&&n&&(t.addEventListener("click",()=>{const e=t.getAttribute("aria-expanded")==="true";t.setAttribute("aria-expanded",String(!e)),n.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&n.classList.contains("open")&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"),t.focus())}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"))}));o.forEach(e=>{const s=e.querySelector(":scope > a");s&&window.innerWidth<=768&&s.addEventListener("click",i=>{window.innerWidth<=768&&(i.preventDefault(),e.classList.toggle("mobile-open"))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report </span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report "}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--failure-warning)" data-astro-cid-63t2xjvj> Draft </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2>    </header> <div class="report-body" data-astro-cid-dynbckv2> <h1 id="capability-does-not-imply-safety-empirical-evidence-from-jailbreak-archaeology-across-eight-foundation-models">Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models</h1>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>A systematic evaluation of 64 historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a <strong>non-monotonic relationship between model capability and safety robustness</strong>. Rather than improving linearly with scale, adversarial resistance follows a U-shaped curve: small models fail safely through incapability, frontier closed-source models refuse effectively through extensive alignment investment, and medium-to-large open-weight models occupy a dangerous intermediate zone where capability outpaces safety training.</p>
+<p>The most significant finding is that <strong>reasoning-era attacks achieve higher success rates on larger models than on smaller ones</strong>. Llama-3.3-70B showed an 85.7% attack success rate (ASR) on reasoning-era exploits — substantially higher than the 40–60% range observed on sub-3B models. This result, while preliminary (n=7 valid traces), is consistent with the “Inverse Scaling for Safety” phenomenon documented in Reports 25 and 31, and provides first-party empirical evidence that compute-threshold-based regulation alone is insufficient for assessing adversarial risk.</p>
+<p>These findings support the case for <strong>Mandatory Continuous Adversarial Regression Testing (CART)</strong> as proposed in Report 31, and suggest that regulatory frameworks must evaluate models against evolving attack taxonomies rather than static benchmarks.</p>
+<hr>
+<h2 id="1-study-design-and-scope">1. Study Design and Scope</h2>
+<h3 id="11-the-jailbreak-archaeology-dataset">1.1 The Jailbreak Archaeology Dataset</h3>
+<p>The evaluation used 64 adversarial scenarios drawn from six historical attack eras (2022–2026), each representing a distinct class of jailbreak technique:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Era</th><th>Attack Class</th><th>Example Technique</th><th>Years</th></tr></thead><tbody><tr><td>1</td><td>Direct Injection</td><td>DAN persona adoption</td><td>2022–23</td></tr><tr><td>2</td><td>Obfuscation</td><td>Cipher encoding, Base64</td><td>2023–24</td></tr><tr><td>3a</td><td>Context Flooding</td><td>Many-Shot prompting</td><td>2024–25</td></tr><tr><td>3b</td><td>Multi-Turn Escalation</td><td>Skeleton Key augmentation</td><td>2024–25</td></tr><tr><td>4a</td><td>Context Flooding</td><td>Crescendo gradual escalation</td><td>2024–25</td></tr><tr><td>4b</td><td>Cognitive Hijacking</td><td>CoT hijacking, reasoning exploits</td><td>2025–26</td></tr></tbody></table>
+<p>All scenarios were tested in a standardized single-turn format (except Skeleton Key, which used a dedicated multi-turn protocol). Classification was performed by Gemini via CLI with manual spot-checking.</p>
+<h3 id="12-models-evaluated">1.2 Models Evaluated</h3>
+<p>Eight models were tested, spanning four capability tiers:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tier</th><th>Model</th><th>Parameters</th><th>API</th><th>Notes</th></tr></thead><tbody><tr><td>Small</td><td>Qwen3-1.7b</td><td>1.7B</td><td>Ollama (local)</td><td>47 valid traces</td></tr><tr><td>Small</td><td>Llama 3.2</td><td>3B</td><td>Ollama (local)</td><td>Pilot, embedded classification</td></tr><tr><td>Small</td><td>DeepSeek-R1 1.5b</td><td>1.5B</td><td>Ollama (local)</td><td>Pilot, reasoning model</td></tr><tr><td>Medium</td><td>Llama-3.3-70b</td><td>70B</td><td>OpenRouter (free)</td><td>10 traces, reasoning era only</td></tr><tr><td>Medium</td><td>DeepSeek-R1-0528</td><td>~671B MoE</td><td>OpenRouter (free)</td><td>1 trace only</td></tr><tr><td>Frontier</td><td>Gemini 3 Flash</td><td>Undisclosed</td><td>Gemini CLI</td><td>64 traces</td></tr><tr><td>Frontier</td><td>Claude Sonnet 4.5</td><td>Undisclosed</td><td>Claude CLI</td><td>64 traces</td></tr><tr><td>Frontier</td><td>Codex GPT-5.2</td><td>Undisclosed</td><td>Codex CLI</td><td>64 traces</td></tr></tbody></table>
+<p><strong>Limitations:</strong> Sample sizes vary significantly across models. The Llama-3.3-70B result (n=7 valid traces) and DeepSeek-R1-0528 (n=1) should be treated as preliminary signals requiring confirmation with larger samples (n>20). Free-tier rate limits constrained testing volume for OpenRouter models.</p>
+<hr>
+<h2 id="2-finding-1-the-u-shaped-safety-curve">2. Finding 1: The U-Shaped Safety Curve</h2>
+<p>The central empirical finding is that <strong>corrected ASR does not decrease monotonically with model scale</strong>. Instead, it follows a U-shaped pattern:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model (ascending scale)</th><th>Corrected ASR</th><th>Pattern</th></tr></thead><tbody><tr><td>Qwen3-1.7b (1.7B)</td><td>21.3% (10/47)</td><td>Partial capability, partial compliance</td></tr><tr><td>Llama 3.2 (3B)</td><td>~0% Skeleton Key</td><td>Insufficient capability to follow complex attacks</td></tr><tr><td>DeepSeek-R1 1.5b (1.5B)</td><td>~60% reasoning</td><td>Reasoning model — vulnerable despite small scale</td></tr><tr><td>Llama-3.3-70b (70B)</td><td>85.7% (6/7)</td><td>High capability, insufficient alignment</td></tr><tr><td>DeepSeek-R1-0528 (full)</td><td>100% (1/1)</td><td>Reasoning model — compliant (n=1, not conclusive)</td></tr><tr><td>Gemini 3 Flash (frontier)</td><td>1.6% (1/63)</td><td>Likely test contamination artifact</td></tr><tr><td>Claude Sonnet 4.5 (frontier)</td><td>0.0% (0/64)</td><td>API blocks + model-level refusal</td></tr><tr><td>Codex GPT-5.2 (frontier)</td><td>0.0% (0/62)</td><td>Decoded attacks, then refused at content level</td></tr></tbody></table>
+<p>The pattern is consistent with Report 25’s theorized U-shaped scaling phenomenon, where intermediate-scale models are “confidently wrong” — possessing sufficient capability to understand and execute attacks, but lacking the extensive safety training (or architectural safeguards) that frontier closed-source models receive.</p>
+<h3 id="21-interpretation">2.1 Interpretation</h3>
+<p>The U-shaped curve suggests three distinct safety regimes:</p>
+<p><strong>Regime A — Incapable Safety (sub-3B):</strong> Models in this range often cannot process the attacks as intended. Cipher-encoded prompts produce hallucinated nonsense rather than decoded harmful content. Many-shot context flooding exceeds working memory. The model’s <em>incapability</em> acts as an inadvertent safety mechanism — it fails safely because it fails at everything.</p>
+<p><strong>Regime B — Capability-Safety Gap (medium scale, 7B–70B+):</strong> Models at this scale can decode ciphers, follow multi-turn reasoning, and synthesize complex instructions. However, their safety alignment has not scaled proportionally with their capability. This is the regime where Report 25’s “strong prior” effect is most dangerous: the model’s capacity to follow instructions and maintain coherence across complex prompts enables it to execute attacks that smaller models simply cannot parse.</p>
+<p><strong>Regime C — Aligned Frontier (closed-source frontier):</strong> Models with massive investment in RLHF, red-teaming, instruction hierarchy enforcement, and API-level content filtering achieve near-zero ASR. The three frontier models in our sample (Codex, Claude, Gemini) all achieved corrected ASR below 2%. However, this regime depends on continuous safety investment — it is not an inherent property of scale.</p>
+<h3 id="22-caveat-confounding-variables">2.2 Caveat: Confounding Variables</h3>
+<p>The U-shape observed here confounds multiple variables: parameter count, training methodology, closed vs. open weight, API-level filtering, and RLHF budget. It is not possible to attribute the safety of frontier models to scale alone — the safety investment is likely the primary driver. The more precise claim is: <strong>capability alone, without proportional safety investment, creates increased adversarial risk at medium scale.</strong></p>
+<hr>
+<h2 id="3-finding-2-three-cipher-modalities-as-capability-markers">3. Finding 2: Three Cipher Modalities as Capability Markers</h2>
+<p>The cipher-era scenarios (ROT13, Base64, custom encoding) produced a distinctive three-mode response pattern that serves as a practical diagnostic for a model’s position on the capability-safety spectrum:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Modality</th><th>Behavior</th><th>Models Exhibiting</th></tr></thead><tbody><tr><td><strong>Hallucinate</strong></td><td>Cannot decode cipher; produces unrelated or garbled output</td><td>Llama 3.2 (3B), partially Qwen3-1.7b</td></tr><tr><td><strong>API Block</strong></td><td>Request blocked at infrastructure level before reaching model reasoning</td><td>Claude Sonnet 4.5 (18 of 64 traces)</td></tr><tr><td><strong>Decode-then-Refuse</strong></td><td>Successfully decodes cipher content, identifies harmful intent, refuses</td><td>Codex GPT-5.2 (all cipher scenarios)</td></tr></tbody></table>
+<p>This taxonomy reveals that safety mechanisms operate at fundamentally different layers depending on model architecture and deployment context:</p>
+<ul>
+<li>
+<p><strong>Hallucination-as-safety</strong> is fragile. It depends on incapability rather than alignment. As models improve (even through fine-tuning), this implicit safety disappears. Qwen3-1.7b exhibited partial cipher decoding capability — it successfully decoded 2 of 12 cipher scenarios (JA-CIPHER-004, JA-CIPHER-012), demonstrating that the boundary between “hallucinate” and “comply” is thin at small scale.</p>
+</li>
+<li>
+<p><strong>API-level blocking</strong> is effective but coarse. Claude’s 18 API blocks occurred predominantly on cipher and DAN-era scenarios, suggesting pattern-matching on known attack signatures. This layer cannot generalize to novel attack classes.</p>
+</li>
+<li>
+<p><strong>Decode-then-refuse</strong> represents the most robust safety posture. Codex demonstrated that it could fully decode every cipher, understand the harmful intent, and still refuse — indicating that its safety alignment operates at the semantic level rather than the syntactic level. This is the behavior that Report 25’s “guarded architectures” aim to achieve systematically.</p>
+</li>
+</ul>
+<hr>
+<h2 id="4-finding-3-reasoning-era-inverse-scaling">4. Finding 3: Reasoning-Era Inverse Scaling</h2>
+<p>The most policy-relevant finding concerns the reasoning-era attack scenarios (CoT hijacking, abductive reasoning exploits). Across all tested models, the reasoning era produced the highest or near-highest ASR:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Reasoning-Era ASR</th><th>Overall ASR</th><th>Delta</th></tr></thead><tbody><tr><td>Qwen3-1.7b</td><td>57% (4/7)</td><td>21.3%</td><td>+36pp</td></tr><tr><td>DeepSeek-R1 1.5b</td><td>~60%</td><td>~40% (pilot)</td><td>+20pp</td></tr><tr><td>Llama-3.3-70b</td><td>85.7% (6/7)</td><td>85.7% (reasoning only)</td><td>—</td></tr><tr><td>DeepSeek-R1-0528</td><td>100% (1/1)</td><td>100% (n=1)</td><td>—</td></tr><tr><td>Gemini 3 Flash</td><td>10% (reasoning)</td><td>1.6% (overall)</td><td>+8pp</td></tr><tr><td>Claude Sonnet 4.5</td><td>0%</td><td>0%</td><td>0</td></tr><tr><td>Codex GPT-5.2</td><td>0%</td><td>0%</td><td>0</td></tr></tbody></table>
+<p>The critical observation: <strong>Llama-3.3-70B’s 85.7% reasoning-era ASR exceeds the 40–60% range observed on models 20–40x smaller.</strong> This is the empirical signature of inverse scaling for safety — a larger, more capable model is <em>more vulnerable</em> to attacks that exploit its reasoning capacity.</p>
+<h3 id="41-mechanism">4.1 Mechanism</h3>
+<p>Report 25 identifies “Cognitive Coupling” as the primary driver: larger models excel at connecting disparate pieces of information across context. When an attacker decomposes a harmful objective into individually benign reasoning steps, a larger model is more likely to successfully synthesize the implicit malicious goal. Report 31 describes this as “CoT Hijacking” — the model’s own reasoning capacity is turned against its safety alignment.</p>
+<p>In our data, the reasoning-era scenarios used techniques including:</p>
+<ul>
+<li>Decomposition of harmful queries into abstract sub-problems</li>
+<li>Framing harmful outputs as logical conclusions from benign premises</li>
+<li>Exploiting the model’s drive for “logical consistency” over safety constraints</li>
+</ul>
+<p>The Llama-3.3-70B result is consistent with prior literature. Report 25 cites external findings that 70B models prove “more brittle than 7B models” when irrelevant thoughts are injected into the reasoning process — the larger model follows the “style” of injected reasoning rather than grounding in the original query.</p>
+<h3 id="42-reasoning-models-as-a-distinct-risk-class">4.2 Reasoning Models as a Distinct Risk Class</h3>
+<p>The DeepSeek-R1 family presents a distinct pattern. Both the 1.5B and full versions showed elevated reasoning-era vulnerability, and the multi-turn Skeleton Key protocol achieved ~57% compliance on DeepSeek-R1 1.5b versus 0% on Llama 3.2 (same approximate scale). This suggests that reasoning architecture itself — independent of parameter count — creates additional attack surface.</p>
+<p>Report 25 documents this as the “inference-time compute paradox”: prompt injection robustness drops from ~90% at 100 reasoning tokens to &#x3C;20% at 16,000 reasoning tokens. Our data is consistent with this pattern, though we did not directly measure reasoning trace length.</p>
+<hr>
+<h2 id="5-policy-implications">5. Policy Implications</h2>
+<h3 id="51-compute-thresholds-are-insufficient">5.1 Compute Thresholds Are Insufficient</h3>
+<p>The EU AI Act’s 10^25 FLOP threshold for “systemic risk” models assumes a monotonic relationship between compute and risk. Our data suggests this assumption is incomplete:</p>
+<ul>
+<li>Models well below the threshold (Llama-3.3-70B at ~70B parameters) can exhibit extreme vulnerability to specific attack classes.</li>
+<li>Models above the threshold (Claude, Codex) achieve near-zero ASR through safety investment, not scale alone.</li>
+<li>Reasoning models challenge the threshold framework entirely — inference-time compute scaling creates capabilities (and vulnerabilities) without increasing training compute.</li>
+</ul>
+<p>As Report 25 recommends, compute thresholds should function as an “initial filter, not final determinant.” Capability-based tiering — evaluating what a model <em>can do</em> adversarially, not just how much compute trained it — is necessary for meaningful risk assessment.</p>
+<h3 id="52-static-benchmarks-cannot-capture-temporal-attack-evolution">5.2 Static Benchmarks Cannot Capture Temporal Attack Evolution</h3>
+<p>Our 6-era dataset demonstrates that attack sophistication evolves across discrete phases, each requiring different detection and defense capabilities. A model that achieves 0% ASR against DAN-era attacks (most models, including Qwen3-1.7b) may still be highly vulnerable to reasoning-era attacks.</p>
+<p>Current “snapshot” safety certifications test against a fixed set of known attacks at a point in time. Report 31 documents this as the “Defense Treadmill” — safety measures are perpetually reactive to increasingly abstract adversarial strategies. A model certified as safe against the 2023 attack library offers no guarantee against 2025 techniques.</p>
+<h3 id="53-the-case-for-mandatory-cart">5.3 The Case for Mandatory CART</h3>
+<p>Report 31’s central recommendation — Mandatory Continuous Adversarial Regression Testing — is supported by three empirical observations from our data:</p>
+<ol>
+<li>
+<p><strong>Temporal vulnerability shifts:</strong> Models that resist older attack eras can still fail on newer ones. Gemini 3 Flash achieved 0% on DAN, Cipher, Many-Shot, Skeleton Key, and Crescendo eras, but 10% on reasoning-era attacks. Safety is era-dependent.</p>
+</li>
+<li>
+<p><strong>The capability-safety gap closes unpredictably:</strong> Small models that are “safe through incapability” can become unsafe with minor capability improvements. Qwen3-1.7b partially decoded ciphers that Llama 3.2 (3B) could not — demonstrating that even modest architectural differences can shift a model across the safety boundary.</p>
+</li>
+<li>
+<p><strong>Inverse scaling creates moving targets:</strong> If larger models are more vulnerable to reasoning exploits, then safety evaluations performed on a smaller proxy (or on the model at an earlier training checkpoint) may underestimate the deployed model’s actual risk.</p>
+</li>
+</ol>
+<p>A CART protocol would require:</p>
+<ul>
+<li>Quarterly evaluation against a dynamically updated attack library spanning all historical eras</li>
+<li>Mandatory “retro-holdout” test sets (private scenarios never released to developers) to prevent benchmark gaming</li>
+<li>Era-stratified reporting: ASR must be reported per attack era, not as a single aggregate number — an aggregate 5% ASR may conceal a 50%+ vulnerability in the most current attack class</li>
+</ul>
+<h3 id="54-the-zombie-model-problem">5.4 The Zombie Model Problem</h3>
+<p>Our data reveals a practical dimension of Report 31’s “Zombie Model” concern. Open-weight models like Llama-3.3-70B are widely deployed and cannot be patched or recalled once downloaded. The 85.7% reasoning-era ASR (if confirmed at larger sample sizes) means that deployed instances of this model are potentially exploitable by anyone with access to the reasoning-era attack library — and this library grows continuously.</p>
+<p>For closed-source models, API-level defenses (as demonstrated by Claude’s 18 infrastructure blocks) provide a continuously updatable defense layer. For open-weight models, no such mechanism exists. This asymmetry supports Report 31’s recommendation for model deprecation protocols and liability frameworks that distinguish between actively maintained and abandoned deployments.</p>
+<hr>
+<h2 id="6-recommendations">6. Recommendations</h2>
+<p>Based on the empirical findings presented above, and building on the frameworks in Reports 25 and 31:</p>
+<h3 id="for-regulators">For Regulators</h3>
+<ol>
+<li>
+<p><strong>Supplement compute thresholds with capability-based adversarial evaluation.</strong> Require that models deployed in high-risk contexts be tested against a standardized, era-stratified jailbreak archaeology battery — not just current-generation attacks.</p>
+</li>
+<li>
+<p><strong>Mandate era-stratified ASR reporting.</strong> Aggregate safety metrics mask era-specific vulnerabilities. Require per-era breakdowns so that regulators can identify which attack classes a model remains vulnerable to.</p>
+</li>
+<li>
+<p><strong>Establish CART requirements for high-risk deployments.</strong> Building on Report 31’s framework, require quarterly adversarial regression testing with retro-holdout sets maintained by an independent body.</p>
+</li>
+</ol>
+<h3 id="for-model-developers">For Model Developers</h3>
+<ol start="4">
+<li>
+<p><strong>Invest in semantic-level safety, not just syntactic filtering.</strong> The decode-then-refuse pattern (Codex) is more robust than API-level pattern matching (Claude) or incapability-based safety (small models). Safety alignment that operates at the level of <em>understanding intent</em> generalizes better across attack eras.</p>
+</li>
+<li>
+<p><strong>Treat reasoning architecture as a distinct risk factor.</strong> DeepSeek-R1’s elevated vulnerability at both 1.5B and full scale suggests that reasoning models require safety evaluations beyond those applied to standard instruction-following models.</p>
+</li>
+</ol>
+<h3 id="for-deployers">For Deployers</h3>
+<ol start="6">
+<li><strong>Do not assume that model scale implies safety.</strong> Our data indicates that a 70B open-weight model can be more adversarially vulnerable than a 1.7B model for specific attack classes. Deployment risk assessments should be based on empirical adversarial testing against current attack taxonomies, not model size.</li>
+</ol>
+<hr>
+<h2 id="7-limitations-and-future-work">7. Limitations and Future Work</h2>
+<p>This analysis has several significant limitations that constrain the strength of its conclusions:</p>
+<ul>
+<li>
+<p><strong>Sample sizes are uneven.</strong> Frontier models were tested on all 64 scenarios; Llama-3.3-70B was tested on 10 (7 valid); DeepSeek-R1-0528 on 1. The inverse scaling signal, while consistent with prior literature, requires confirmation at n>20 per model per era.</p>
+</li>
+<li>
+<p><strong>Confounding variables.</strong> The comparison confounds parameter count, training methodology, open vs. closed weight, API filtering, and RLHF budget. A controlled study holding these variables constant (e.g., comparing checkpoints of the same model at different scales) would provide stronger causal evidence.</p>
+</li>
+<li>
+<p><strong>Single-turn testing.</strong> Most scenarios were tested in single-turn format. Multi-turn attacks (Crescendo, Skeleton Key) were only evaluated in dedicated episodes for select models. The reasoning-era ASR may differ in multi-turn settings.</p>
+</li>
+<li>
+<p><strong>Classifier reliability.</strong> LLM-based classification (Gemini) was used as the primary verdict mechanism. While spot-checking confirmed high agreement with manual review, systematic classifier validation against human-labeled gold sets was not performed.</p>
+</li>
+<li>
+<p><strong>Temporal snapshot.</strong> This evaluation reflects model behavior as of early February 2026. Model providers continuously update safety measures; results may not reflect current deployed versions.</p>
+</li>
+</ul>
+<p>Future work should prioritize: (a) larger sample sizes for the medium-scale inverse scaling signal, (b) multi-turn reasoning-era protocols across all models, and (c) longitudinal tracking of the same models across quarterly CART cycles to measure safety regression rates.</p>
+<hr>
+<h2 id="references">References</h2>
+<ul>
+<li>Report 25: <em>The Paradox of Capability: Inverse Scaling, Systemic Vulnerabilities, and AI Safety</em> (<code>research/reports/25_inverse_scaling_safety_policy.md</code>)</li>
+<li>Report 31: <em>Policy Implications of Historical Jailbreak Technique Evolution 2022–2026</em> (<code>research/reports/31_jailbreak_archaeology_policy_implications.md</code>)</li>
+<li>Classification data: <code>runs/classification_summary.txt</code></li>
+<li>Skeleton Key analysis: <code>runs/archaeology_skeleton_key_episodes/ANALYSIS.md</code></li>
+<li>Jailbreak archaeology traces: <code>runs/archaeology_*/</code></li>
+</ul> </div> </article>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module">function g(e){let t=e>>>0;return function(){t|=0,t=t+1831565813|0;let n=Math.imul(t^t>>>15,1|t);return n=n+Math.imul(n^n>>>7,61|n)^n,((n^n>>>14)>>>0)/4294967296}}function m(){return Math.floor(new Date/(1e3*60*60*24))*1013}function w(e,t,n,o){const a=Math.ceil(t/60)+2,r=Math.ceil(n/(40*Math.sqrt(3)))+2;e.strokeStyle="rgba(0, 210, 255, 0.03)",e.lineWidth=.5;for(let c=-1;c<r;c++)for(let d=-1;d<a;d++){const l=d*40*1.5,i=c*40*Math.sqrt(3)+(d%2===0?0:40*Math.sqrt(3)/2);o()>.7&&S(e,l,i,40)}}function S(e,t,n,o){e.beginPath();for(let h=0;h<6;h++){const a=Math.PI/3*h-Math.PI/2,r=t+o*Math.cos(a),c=n+o*Math.sin(a);h===0?e.moveTo(r,c):e.lineTo(r,c)}e.closePath(),e.stroke()}function f(e,t,n){e.strokeStyle="rgba(0, 210, 255, 0.02)",e.lineWidth=1;for(let o=0;o<n;o+=4)e.beginPath(),e.moveTo(0,o),e.lineTo(t,o),e.stroke()}class p{constructor(t,n,o){this.x=t,this.y=n,this.phase=o()*Math.PI*2,this.period=8e3+o()*12e3,this.maxRadius=60+o()*40,this.color=o()>.7?"rgba(255, 71, 87,":"rgba(0, 210, 255,",this.birthTime=Date.now()}draw(t,n){const h=(n-this.birthTime)%this.period/this.period,a=Math.sin(h*Math.PI*2)*.5+.5,r=this.maxRadius*a,c=a*.08;t.strokeStyle=`${this.color} ${c})`,t.lineWidth=1,t.beginPath(),t.arc(this.x,this.y,r,0,Math.PI*2),t.stroke(),t.strokeStyle=`${this.color} ${c*.5})`,t.beginPath(),t.arc(this.x,this.y,r*.6,0,Math.PI*2),t.stroke()}}function y(){const e=document.getElementById("sensor-grid-bg");if(!e)return;const t=e.getContext("2d",{alpha:!0}),n=m(),o=g(n);function h(){const i=window.devicePixelRatio||1,s=e.getBoundingClientRect();return e.width=s.width*i,e.height=s.height*i,t.scale(i,i),{w:s.width,h:s.height}}const{w:a,h:r}=h(),c=3+Math.floor(o()*3),d=[];for(let i=0;i<c;i++){const s=o()*a,u=o()*r;d.push(new p(s,u,g(n+i*1013)))}w(t,a,r,o),f(t,a,r);function l(){const{w:i,h:s}=h();t.clearRect(0,0,e.width,e.height),w(t,i,s,o),f(t,i,s);const u=Date.now();for(const M of d)M.draw(t,u);requestAnimationFrame(l)}l(),window.addEventListener("resize",()=>{const{w:i,h:s}=h();w(t,i,s,o),f(t,i,s)})}typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",y):y());</script></body></html>  

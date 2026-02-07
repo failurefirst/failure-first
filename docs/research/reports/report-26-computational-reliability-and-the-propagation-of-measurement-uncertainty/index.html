@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>undefined | Research | Failure-First</title><meta name="description" content="A research framework for characterizing how embodied AI systems fail"><link rel="canonical" href="https://failurefirst.org/research/reports/report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="website"><meta property="og:title" content="undefined | Research | Failure-First"><meta property="og:description" content="A research framework for characterizing how embodied AI systems fail"><meta property="og:url" content="https://failurefirst.org/research/reports/report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="undefined | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="undefined | Research | Failure-First"><meta name="twitter:description" content="A research framework for characterizing how embodied AI systems fail"><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="undefined | Research | Failure-First - Failure-First Embodied AI"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"undefined | Research | Failure-First","description":"A research framework for characterizing how embodied AI systems fail","url":"https://failurefirst.org/research/reports/report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty/","image":"https://failurefirst.org/og-image.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BV0HTfXU.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>79 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> Blog  </a>  </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/policy/" aria-haspopup="true" data-astro-cid-pux6a34n> Policy <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>19 reports</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>U-shaped curve</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> Manifesto  </a>  </li><li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> About  </a>  </li> </ul> </div> </nav>  <script type="module">const t=document.querySelector(".nav-toggle"),n=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");t&&n&&(t.addEventListener("click",()=>{const e=t.getAttribute("aria-expanded")==="true";t.setAttribute("aria-expanded",String(!e)),n.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&n.classList.contains("open")&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"),t.focus())}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"))}));o.forEach(e=>{const s=e.querySelector(":scope > a");s&&window.innerWidth<=768&&s.addEventListener("click",i=>{window.innerWidth<=768&&(i.preventDefault(),e.classList.toggle("mobile-open"))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report </span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report "}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--failure-warning)" data-astro-cid-63t2xjvj> Draft </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2>    </header> <div class="report-body" data-astro-cid-dynbckv2> <h1 id="computational-reliability-and-the-propagation-of-measurement-uncertainty-in-frontier-ai-safety-evaluation"><strong>Computational Reliability and the Propagation of Measurement Uncertainty in Frontier AI Safety Evaluation</strong></h1>
+<hr>
+<p>The transition of large language models from predictive text generators to autonomous reasoning agents has fundamentally altered the landscape of operational risk management. This evolution is characterized by the emergence of “most cyber-capable” systems, such as GPT-5.2-Codex, which are capable of sustaining autonomous operations over extended periods to perform complex codebase migrations, vulnerability identification, and multi-step refactoring tasks.1 As these systems integrated more deeply into the functional core of enterprise and safety-critical infrastructure, the necessity for robust measurement methodology in red teaming and safety evaluation became a primary concern for the research and regulatory communities. The current state of the art in AI safety evaluation is marked by a shift away from aggregate intelligence scores toward nuanced metrics that capture reliability, grounding, and the risk of classification error propagation in policy-making environments.3</p>
+<h2 id="the-technical-frontier-of-autonomous-agent-performance"><strong>The Technical Frontier of Autonomous Agent Performance</strong></h2>
+<p>The release of models such as GPT-5.2 and Claude Sonnet 4.5 has established new precedents for reasoning and autonomous focus. GPT-5.2 demonstrates significant strength in structured reasoning, achieving a 90.5% success rate on the ARC-AGI-1 benchmark and over 54% on the more rigorous ARC-AGI-2.3 These metrics are corroborated by real-world performance data, such as the ability of specialized versions of these models to run uninterrupted for a week, producing millions of lines of code across thousands of files.1 Similarly, Claude Sonnet 4.5 has shown the capacity to maintain context and focus for more than 30 hours on complex, multi-step tasks, leading the OSWorld computer use benchmark at 61.4%.2</p>
+<p>However, these high performance marks introduce a paradox in safety measurement. As models become more capable of “thinking” through problems for several hours, the window for traditional red teaming—which often relies on single-turn prompt engineering—narrows.3 The introduction of “test-time scaled” models like Qwen3-Max-Thinking, which utilizes adaptive tool use and experience cumulative reasoning, shows that model performance can vary by over 28% depending on the availability of search tools and the intensity of the inference mode.6 This volatility in performance metrics suggests that safety cannot be evaluated as a static property but must be measured as a dynamic function of the model’s operating environment and tool-access configuration.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Model Variant</th><th align="left">MMLU-Pro</th><th align="left">ARC-AGI-1</th><th align="left">OSWorld</th><th align="left">Tool-Enabled HLE</th></tr></thead><tbody><tr><td align="left">GPT-5.2 Pro X-High</td><td align="left">85.7</td><td align="left">90.5%</td><td align="left">55.0%</td><td align="left">45.5</td></tr><tr><td align="left">Claude Sonnet 4.5</td><td align="left">84.8</td><td align="left">88.2%</td><td align="left">61.4%</td><td align="left">42.8</td></tr><tr><td align="left">Qwen3-Max-Thinking</td><td align="left">85.7</td><td align="left">85.0%</td><td align="left">48.5%</td><td align="left">58.3</td></tr><tr><td align="left">Gemini 3 Pro</td><td align="left">84.9</td><td align="left">87.5%</td><td align="left">52.3%</td><td align="left">45.8</td></tr></tbody></table>
+<p>Comparative performance of frontier models across reasoning, computer use, and complex knowledge benchmarks.2</p>
+<h2 id="the-standardization-crisis-in-red-teaming-methodology"><strong>The Standardization Crisis in Red Teaming Methodology</strong></h2>
+<p>The field of automated red teaming has historically lacked a standardized evaluation framework, leading to fragmented results and incomparable success rate calculations across research teams.4 To address this, frameworks like HarmBench and JailbreakBench have introduced unified datasets and scoring functions.4 JailbreakBench, for example, provides the JBB-Behaviors dataset, consisting of 100 standardized misuse behaviors aligned with the usage policies of major AI providers.8 These behaviors are categorized to reflect a wide range of potential harms, from cybercrime and unauthorized intrusion to the synthesis of chemical and biological weapons.10</p>
+<p>Despite these efforts, the subjective nature of judging the “appropriateness” of a model’s response remains a significant source of measurement error.8 Evaluation pipelines now frequently employ high-capacity models like Llama-3-Instruct-70B or GPT-4 as “judges” to classify whether a response constitutes a successful jailbreak.7 Evidence indicates that these LLM-based judges can achieve up to 92.3% accuracy compared to human experts, but they are still susceptible to systematic biases, such as “safety-pessimism”.7 This bias results in high over-refusal rates, where safety-optimized models refuse up to 80% of “hard” benign prompts, particularly in sensitive domains like healthcare.11</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Classifier Model</th><th align="left">AdvBench Accuracy</th><th align="left">Contextual Accuracy</th><th align="left">Human Alignment (%)</th></tr></thead><tbody><tr><td align="left">Llama-Guard</td><td align="left">68.41</td><td align="left">64.0</td><td align="left">72.4</td></tr><tr><td align="left">GPT-4 Judge (PAIR)</td><td align="left">89.8</td><td align="left">85.5</td><td align="left">88.9</td></tr><tr><td align="left">HarmBench-Llama-13b-cls</td><td align="left">94.53</td><td align="left">90.5</td><td align="left">93.2</td></tr><tr><td align="left">Llama-3-Instruct-70B</td><td align="left">93.6</td><td align="left">91.2</td><td align="left">92.3</td></tr></tbody></table>
+<p>Performance comparison of safety classifiers in identifying harmful versus benign content.7</p>
+<h2 id="adversarial-evolution-and-stylistic-obfuscation"><strong>Adversarial Evolution and Stylistic Obfuscation</strong></h2>
+<p>The methodology of adversarial testing is evolving from manual prompt injection toward automated, multi-turn strategies that exploit “mismatched generalization”.14 The TEMPEST framework exemplifies this shift, utilizing a tree-based exploration to identify vulnerabilities in safety guardrails across approximately 97,000 API queries.15 Analysis using TEMPEST has demonstrated that traditional safety alignment varies substantially across vendors, and model scale is often a poor predictor of adversarial robustness.15 For instance, enabling “thinking mode” on certain architectures can reduce the Attack Success Rate (ASR) from 97% to 42%, suggesting that the reasoning layer can be leveraged to detect and suppress malicious intent.15</p>
+<p>A particularly insidious failure mode is “Adversarial Poetry” or “Stylistic Obfuscation.” This technique involves converting harmful requests into poetic or metaphorical language, which effectively bypasses safety filters that were trained primarily on prose.14 In Q4 2025 evaluations, automated meta-prompts generating poetic jailbreaks achieved an 18-fold increase in attack efficiency compared to manual prose attempts.14 Some frontier models, including Gemini-2.5-Pro, exhibited 100% ASR against these poetic prompts, highlighting a fundamental vulnerability in alignment heuristics that fail to track intent through stylistic variation.14</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Attack Type</th><th align="left">Manual Prose ASR</th><th align="left">Automated Poetic ASR</th><th align="left">Efficiency Gain</th></tr></thead><tbody><tr><td align="left">Biological Risk (Pathogens)</td><td align="left">12%</td><td align="left">64%</td><td align="left">5.3x</td></tr><tr><td align="left">Chemical Hazards</td><td align="left">9%</td><td align="left">68%</td><td align="left">7.5x</td></tr><tr><td align="left">Cyber-Offense</td><td align="left">18%</td><td align="left">82%</td><td align="left">4.5x</td></tr><tr><td align="left">General Misuse</td><td align="left">15%</td><td align="left">62%</td><td align="left">4.1x</td></tr></tbody></table>
+<p>Success rates of stylistic obfuscation versus standard prose across critical safety categories.14</p>
+<h2 id="the-delusion-refusal-trade-off-and-grounding-integrity"><strong>The Delusion-Refusal Trade-off and Grounding Integrity</strong></h2>
+<p>Measurement methodology in safety evaluation is increasingly focused on the distinction between “hallucination” and “delusion”.17 While hallucinations represent any incorrect or unfaithful output, delusions are defined as “high-belief hallucinations”—incorrect outputs generated with abnormally high confidence and low uncertainty.17 These delusions are significantly harder to detect through standard confidence estimation or self-reflection mechanisms.17 Empirical evidence suggests that as models increase in size, the delusion refusal rate consistently remains lower than the hallucination refusal rate, meaning models are more likely to reject standard errors but will confidently reaffirm delusional ones.17</p>
+<p>This classification error has profound implications for deployment. In a production environment, the “Refusal Quality” measures whether a system says “I don’t know” when evidence is insufficient.18 If a safety evaluator fails to distinguish between a model’s honest uncertainty and its confident delusion, it may propagate a high “Answer Correctness” score that masks critical risks in domains like healthcare or legal analysis.17</p>
+<p>To quantify this, researchers utilize a “belief threshold” calculated as the average confidence assigned to correct answers.17 If the model’s confidence in an incorrect response exceeds this threshold, it is classified as a delusion. The relationship between belief and accuracy can be represented by the probability distribution of model outputs:</p>
+<p><img src="data:image/png;base64,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" alt=""><br>
+Where the objective is to minimize the task-specific loss <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAYCAYAAACWTY9zAAACkElEQVR4Xu2WSchNcRjGXzOZZSiSz8IUKUMpCwobC4kMCyuKFLGRFEUpUhZsJMkYSinKFJFSxq1szJJkKJlCpuf53v+59z3Pd87l9t2y+X716977vP/uPec/vOeatfH/6Au7aViDznCAho1mMLwNe2sh0RPOgh1Cxpu4CceErJQZ8BF8Ah+k9w/hxThI6AJvwaVaSCyGd+BmeB2OCLU58DEcGLKanIG/4VwtFLAT3oXttABmw7dwUPp8HB6olpu5AI9JVsor+AF21ILQy3zcVC2YL99zuDpkvAmuQGQU/ArHSt6CkeazdU4LBayF9zRM7IGfYI+QnUiZchXu1lBZbn5h67RQwGV4WkPzmfwGj0jOvfhGMrLPym+wAtebFzZZCwVwWbg8yiLz7+BrBg/JZ3gtZBnrzcf300LkBXxv+aNdBOvf4UotmG9y/tBT8xNOOVPMdlWHVZhvXivdZzzKHHBWC4k+5o2RDDMfO7NarsDDw1YT2Wo+nv1MGW9em66FjBXmAzi1RXA/ZT1novlYvkY6wV/msxbhHnoG20tOhlr5RTfDU8MBU7QAxsHz4fNw87ELQkZ4CplvCtnolK0KWWSaeT023xxcgo/Wsn9x416CS0LGPsUv2xCyjHdwTfh8GN6w4tkiy+BPq26THBPMf0gfP5PgFfP+011qPCj7JSOn4NH0nvvmpfmslbHNvBnn4DTyecWjzAv7Yn6auB9459wvP+DBND5yyIqPP7s5H+p7zZ+PTblqS05afpu0Gu4vtoGuWjB/djZpWACXl38Y5mmhNfBL78ONWqgDPmm4On/rm3XDvy48MEO08A+wL76GC7XQKNgass1eD3wKbNew0WyB/TWsAf/t7rDyFtJGXfwB85GD4VVs3TAAAAAASUVORK5CYII=" alt=""> such that the model’s output <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAXCAYAAAAyet74AAABAklEQVR4XmNgGHSACV0AG2AB4pVAPA2IGdHk4IAViNcDcR8QzwLi+Qw4TI8H4mwkfhUQByHxSQMqQKyLLggE3AxIbi1hgLjrNhBnwASBQBaIXwOxL4wD8iUIPEdig0AaEP8HYmUQJxaIDaEYJJiEUMewAoifIfHBoAOIfwGxIJLYSwaIYhRwA4h3IfG1GCA2ZCKJMbBDBeuQxLKgYppIYuBoewPEXVA+KEjOMUA8hwEigfgBEM8E4o1A/A+IlyErAAE2IOZkgJgsD8R2DBBrg5EVgSTvA/F2JLEjQHycAS31SAHxXyB2Z4CYCkpel4FYCVkRDIBiYCsDxE0VDBDP0BgAALB3K7pcyHyPAAAAAElFTkSuQmCC" alt=""> aligns with the true transcription or fact <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAYCAYAAADDLGwtAAAA2klEQVR4XmNgGAXUBipArIsuCATcQMwI45QAcR8Q3wbiDJggEMgC8Wsg9oVxVkIlniOxQSANiP8DsTKIEwvEhlAMEkxCqGNYAcTPkPhg0AHEv4BYEEnsJQNEMQq4AcS7kPhaDBAbMpHEGNihgnVIYllQMU0kMQYWIH4DxF1QPihIzjFAPIcBIoH4ARDPBOKNQPwPiJchKwABNiDmZICYLA/EdgwQa4ORFYEk7wPxdiSxI0B8nAEpRkBACoj/ArE7A8TUaUB8GYiVkBXBACgGtjJA3FTBAPHMYAEAAbQmYZxSVVIAAAAASUVORK5CYII=" alt="">.19 Failure to align this belief distribution leads to “False Positives” where the model answers despite insufficient evidence, and “False Negatives” where it refuses despite the presence of clear evidence.18</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Metric Category</th><th align="left">Definition</th><th align="left">Critical Threshold (Legal/Finance)</th></tr></thead><tbody><tr><td align="left">Hallucination Rate</td><td align="left">% of answers with unsupported claims</td><td align="left"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAAUCAYAAADGIc7gAAAAu0lEQVR4Xu3VLQsCQRRG4fETg0GwCCYFoyaLSUw2k80kGE1Wi9Vi1KDRaDBZDCKiP8rkGcbgTNqy4B3ugQcWXiYsLDvGaJqmpVwFSzxQCjaR1bDGExPk/FleTexwwwgZf5ZXG0dcMAg2kfVwxgndYBNbH2/MwiGGWjjgimGwRVEdG9wxRtaf5VfFCi9MUfDWCCpjYdwLzk0kl/NvReN+LvYasM+alkL207K/+yQa3zMi6mCf0BZ5d+x/+wCMWBqfbYg+NwAAAABJRU5ErkJggg==" alt=""></td></tr><tr><td align="left">Refusal Rate</td><td align="left">% of times the model says “I don’t know”</td><td align="left">5–30%</td></tr><tr><td align="left">Provenance Ratio</td><td align="left">% of tokens traceable to retrieved snippets</td><td align="left"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAUCAYAAAAk/dWZAAAAv0lEQVR4Xu3VqwoCQRSA4eMFL4gIFi0Gg9Vs0hewWK2CmASFLRajYBUsPoLJZLGJ4r7HPoj/MFtm09rmyPzwheUwYZk9rEgoFPrbJrhjhmJmpqo29nhjgYo71lUDW8TYpM9qq2Ip9mXMDZmbUlsJc7xwRNcd68rsyBWJ2FtSVR1rsZ9VhKY79rsWdvhghZo79rsODniK3QWzE2rq4YQHpii4Y/8b4YZxdhAK/Z75Bwxy6qdnvGuIS05nlO0xP/oCW+4ag2NYWz8AAAAASUVORK5CYII=" alt=""></td></tr><tr><td align="left">Citation Rate</td><td align="left">% of answers with verifiable sources</td><td align="left"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADEAAAAUCAYAAAAk/dWZAAAAv0lEQVR4Xu3VqwoCQRSA4eMFL4gIFi0Gg9Vs0hewWK2CmASFLRajYBUsPoLJZLGJ4r7HPoj/MFtm09rmyPzwheUwYZk9rEgoFPrbJrhjhmJmpqo29nhjgYo71lUDW8TYpM9qq2Ip9mXMDZmbUlsJc7xwRNcd68rsyBWJ2FtSVR1rsZ9VhKY79rsWdvhghZo79rsODniK3QWzE2rq4YQHpii4Y/8b4YZxdhAK/Z75Bwxy6qdnvGuIS05nlO0xP/oCW+4ag2NYWz8AAAAASUVORK5CYII=" alt=""></td></tr></tbody></table>
+<p>Operational thresholds for high-stakes AI deployment.18</p>
+<h2 id="error-propagation-in-regulatory-decision-making"><strong>Error Propagation in Regulatory Decision-Making</strong></h2>
+<p>The propagation of measurement errors into policy and regulatory decisions is most visible in the medical and aviation sectors. In the United States, the Food and Drug Administration (FDA) has historically cleared AI-enabled devices primarily through the 510(k) pathway, which focuses on “substantial equivalence” rather than independent clinical validation.21 Analysis of 717 radiology devices indicates that only 29% included clinical testing, and only 5% underwent prospective testing.21 This “validation transparency” gap means that clinicians may be using tools whose performance heterogeneity—the tendency for AI to help high performers but not necessarily improve low performers—is poorly understood.21</p>
+<p>The FDA is attempting to mitigate this through Predetermined Change Control Plans (PCCPs), which allow for the pre-approved modification of algorithms as they “learn” from real-world data.24 This shift from static to adaptive regulation acknowledges the “Total Product Lifecycle” (TPLC) of AI, requiring continuous post-market performance monitoring.24 However, if the initial credibility assessment—based on “Model Influence” and “Decision Consequence”—is flawed due to inaccurate measurement of the model’s error rates, the entire safety monitoring protocol may fail.25</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Regulatory Pathway</th><th align="left">Independent Clinical Data Required?</th><th align="left">Suitable for Adaptive AI?</th><th align="left">Usage for AI/ML (2016-2025)</th></tr></thead><tbody><tr><td align="left">510(k)</td><td align="left">No</td><td align="left">Limited</td><td align="left">97%</td></tr><tr><td align="left">De Novo</td><td align="left">Yes</td><td align="left">Partial</td><td align="left">~3%</td></tr><tr><td align="left">PMA</td><td align="left">Yes</td><td align="left">No (Static focus)</td><td align="left">&#x3C;1%</td></tr><tr><td align="left">PCCP (New)</td><td align="left">Yes (for plan approval)</td><td align="left">Highly (Primary goal)</td><td align="left">Emerging</td></tr></tbody></table>
+<p>FDA regulatory pathways and their alignment with the dynamic nature of AI technologies.21</p>
+<p>In the aviation industry, the lack of AI-based standards has prevented the adoption of these systems in safety-critical areas like air traffic control or autonomous flight.26 Aviation standards such as DO-178 and DO-254 are designed for human-specified software logic, which is incompatible with the data-intensive, opaque nature of neural networks.26 The industry has instead focused on “learned AI” (static at design-time) rather than “learning AI” (dynamic in operation), with safety assurances being completed during system design.28 The fear is that “Mismatched Generalization”—where a model fails to handle an edge case not represented in its training data—could lead to catastrophic failure.14</p>
+<h2 id="legal-risk-and-data-lifecycle-compliance"><strong>Legal Risk and Data Lifecycle Compliance</strong></h2>
+<p>The complexity of AI safety evaluation extends beyond model outputs to the training data itself. The “Inversion Phenomenon” in data compliance suggests that legal risks cannot be accurately assessed by license terms alone; rather, the entire lifecycle of dataset redistribution must be tracked.29 Human experts typically struggle to track these multi-level dependencies, overlooking more than 35% of critical legal risks.29 Automated AI agents, such as AutoCompliance, have demonstrated the ability to reduce this gap, missing fewer than 19% of dependencies by systematically tracing the network structure formed by lower-level data sources.29</p>
+<p>This legal measurement problem propagates into model-level policy decisions. NIST’s draft report on reducing risks from synthetic content (NIST AI 100-4) emphasizes that provenance data tracking and detection are in their early stages.31 If a model is trained on “poisoned” or non-compliant data, its propensity to generate harmful content—such as non-consensual intimate imagery (NCII) or misinformation—increases.31 Policy frameworks like the NIST AI RMF provide a platform for organizations to co-create policy “prototypes,” but the effectiveness of these measures depends on the precision of the underlying measurement tools used to detect synthetic content and trace its origin.34</p>
+<h2 id="technical-remediation-asr-error-correction-and-multi-agent-judges"><strong>Technical Remediation: ASR Error Correction and Multi-Agent Judges</strong></h2>
+<p>To combat the propagation of errors, the industry is exploring non-intrusive refinement techniques. In the field of Automatic Speech Recognition (ASR), which often serves as the front-end for AI agents, error correction models like Lexical Error Guard (LEG) use LLMs to refine transcriptions before they are processed by the reasoning engine.19 This is particularly critical in healthcare settings, where a transcription error can lead to an incorrect medicalSkating the boundary between accuracy and safety, multi-agent judge frameworks have been proposed to improve classification reliability.37 By employing a structured debate among a “critic,” “defender,” and “judge,” these systems can simulate adversarial reasoning and enhance interpretability.13 Experiments on the HAJailBench dataset show that a multi-agent setup using a smaller model like Qwen3-14B can achieve GPT-4o-level agreement while reducing inference costs by 43%.38</p>
+<p>This debate-driven design is particularly effective at identifying subtle intentions in jailbreak prompts that single-pass judges often miss.38 It allows for a “value-alignment stage” that constrains discussions to five key safety dimensions, ensuring that the final “Risk Score” is grounded in a consistent, fine-grained evaluation.13</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Evaluation Approach</th><th align="left">Detection Accuracy (ASR)</th><th align="left">Interpretability</th><th align="left">Cost Efficiency</th></tr></thead><tbody><tr><td align="left">Rule-Based (Heuristics)</td><td align="left">Low</td><td align="left">High</td><td align="left">Very High</td></tr><tr><td align="left">Single LLM Judge</td><td align="left">Moderate</td><td align="left">Low</td><td align="left">Moderate</td></tr><tr><td align="left">Human Evaluation</td><td align="left">Very High</td><td align="left">Very High</td><td align="left">Very Low</td></tr><tr><td align="left">Multi-Agent Debate</td><td align="left">High</td><td align="left">Moderate-High</td><td align="left">High</td></tr></tbody></table>
+<p>Trade-offs between different safety evaluation methodologies.13</p>
+<h2 id="synthesizing-policy-impact-and-the-future-of-measurement"><strong>Synthesizing Policy Impact and the Future of Measurement</strong></h2>
+<p>The investigation reveals that measurement methodology in AI red teaming is transitioning from an ad-hoc practice to a rigorous systems-engineering discipline. The primary driver of this transition is the realization that classification errors—whether they manifest as “safety-pessimism,” “disclaimer sandwiches,” or “high-belief delusions”—are not just technical glitches but strategic risks that can undermine public trust and regulatory compliance.8</p>
+<p>The propagation of these errors into policy decisions occurs through several distinct channels:</p>
+<ol>
+<li><strong>Safety-Optimized Model Over-Refusal</strong>: When evaluations show high ASR for adversarial poetry, providers may over-correct by tightening filters, leading to an 80% over-refusal rate on benign health queries.11</li>
+<li><strong>Regulatory Skew</strong>: FDA reliance on 510(k) pathways for AI may lead to a backlog of “authorized but unvalidated” devices if performance measurement doesn’t account for human-in-the-loop heterogeneity.21</li>
+<li><strong>Adversarial Democratization</strong>: The effectiveness of stylistic obfuscation allows non-state actors to bypass billions of dollars in safety R&#x26;D, shifting the strategic advantage toward linguistic manipulation.14</li>
+</ol>
+<p>As we move toward 2026, the adoption of frameworks like NIST AI 100-4 and the integration of automated data compliance tools like AutoCompliance will be essential for creating a transparent, verifiable safety ecosystem.29 The challenge remains in aligning these emerging practices with established safety-critical standards in aviation and healthcare, ensuring that AI reasoning “modes” are treated not as human-like entities but as distinct computational systems with unique failure modes and malfunction patterns.27 The maturity of AI safety will ultimately be measured not by the intelligence of the agents we build, but by the precision with which we can quantify their uncertainty and mitigate the propagation of their errors into the critical decisions of human society.</p>
+<h4 id="works-cited"><strong>Works cited</strong></h4>
+<ol>
+<li>not much happened today. - AINews - smol.ai, accessed on February 4, 2026, <a href="https://news.smol.ai/issues/26-01-14-not-much">https://news.smol.ai/issues/26-01-14-not-much</a></li>
+<li>GPT-5.1 vs Claude 4.5 Sonnet: Real-World Comparison - Skywork.ai, accessed on February 4, 2026, <a href="https://skywork.ai/blog/ai-agent/gpt5-1-vs-claude-4-5/">https://skywork.ai/blog/ai-agent/gpt5-1-vs-claude-4-5/</a></li>
+<li>ThursdAI - Dec 11 - GPT 5.2 is HERE! Plus, LLMs in Space, MCP do… - GetPodcast, accessed on February 4, 2026, <a href="https://getpodcast.com/fr/podcast/the-top-ai-news-from-the-past-week-every-thursdai/thursdai-dec-11-gpt-5-2-is-here-plus-llms-in-space-mcp-donated-devstra_4a8dfaa533">https://getpodcast.com/fr/podcast/the-top-ai-news-from-the-past-week-every-thursdai/thursdai-dec-11-gpt-5-2-is-here-plus-llms-in-space-mcp-donated-devstra_4a8dfaa533</a></li>
+<li>HarmBench, accessed on February 4, 2026, <a href="https://www.harmbench.org/">https://www.harmbench.org/</a></li>
+<li>The Potential Impacts of Digitization AI on Op Risk 1685345676 - Scribd, accessed on February 4, 2026, <a href="https://www.scribd.com/document/951793711/The-Potential-Impacts-of-Digitization-AI-on-Op-Risk-1685345676">https://www.scribd.com/document/951793711/The-Potential-Impacts-of-Digitization-AI-on-Op-Risk-1685345676</a></li>
+<li>Alibaba Introduces Qwen3-Max-Thinking, a Test Time Scaled Reasoning Model with Native Tool Use Powering Agentic Workloads - MarkTechPost, accessed on February 4, 2026, <a href="https://www.marktechpost.com/2026/01/28/alibaba-introduces-qwen3-max-thinking-a-test-time-scaled-reasoning-model-with-native-tool-use-powering-agentic-workloads/">https://www.marktechpost.com/2026/01/28/alibaba-introduces-qwen3-max-thinking-a-test-time-scaled-reasoning-model-with-native-tool-use-powering-agentic-workloads/</a></li>
+<li>JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models - Oreate AI Blog, accessed on February 4, 2026, <a href="https://www.oreateai.com/blog/jailbreakbench-an-open-robustness-benchmark-for-jailbreaking-large-language-models/638b1697c8d688d2caee28d1cf57f9e5">https://www.oreateai.com/blog/jailbreakbench-an-open-robustness-benchmark-for-jailbreaking-large-language-models/638b1697c8d688d2caee28d1cf57f9e5</a></li>
+<li>JailbreakBench: An Open Robustness Benchmark for … - NeurIPS, accessed on February 4, 2026, <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/63092d79154adebd7305dfd498cbff70-Paper-Datasets_and_Benchmarks_Track.pdf">https://proceedings.neurips.cc/paper_files/paper/2024/file/63092d79154adebd7305dfd498cbff70-Paper-Datasets_and_Benchmarks_Track.pdf</a></li>
+<li>JailbreakBench: LLM robustness benchmark, accessed on February 4, 2026, <a href="https://jailbreakbench.github.io/">https://jailbreakbench.github.io/</a></li>
+<li>HarmBench, accessed on February 4, 2026, <a href="https://www.harmbench.org/explore">https://www.harmbench.org/explore</a></li>
+<li>Health-ORSC-Bench: A Benchmark for Measuring Over-Refusal and Safety Completion in Health Context - ResearchGate, accessed on February 4, 2026, <a href="https://www.researchgate.net/publication/400084585_Health-ORSC-Bench_A_Benchmark_for_Measuring_Over-Refusal_and_Safety_Completion_in_Health_Context">https://www.researchgate.net/publication/400084585_Health-ORSC-Bench_A_Benchmark_for_Measuring_Over-Refusal_and_Safety_Completion_in_Health_Context</a></li>
+<li>Health-ORSC-Bench: A Benchmark for Measuring Over-Refusal and Safety Completion in Health Context - arXiv, accessed on February 4, 2026, <a href="https://arxiv.org/html/2601.17642v1">https://arxiv.org/html/2601.17642v1</a></li>
+<li>Efficient LLM Safety Evaluation through Multi-Agent Debate - arXiv, accessed on February 4, 2026, <a href="https://arxiv.org/html/2511.06396v1">https://arxiv.org/html/2511.06396v1</a></li>
+<li>Adversarial Poetry - THE ONTOLOGICAL VULNERABILITY OF ALIGNMENT HEURISTICS - <a href="https://debuglies.com">https://debuglies.com</a>, accessed on February 4, 2026, <a href="https://debuglies.com/2026/01/03/adversarial-poetry-the-ontological-vulnerability-of-alignment-heuristics/">https://debuglies.com/2026/01/03/adversarial-poetry-the-ontological-vulnerability-of-alignment-heuristics/</a></li>
+<li>Replicating TEMPEST at Scale: Multi-Turn Adversarial Attacks Against Trillion-Parameter Frontier Models - arXiv, accessed on February 4, 2026, <a href="https://www.arxiv.org/pdf/2512.07059">https://www.arxiv.org/pdf/2512.07059</a></li>
+<li>Replicating TEMPEST at Scale: Multi-Turn Adversarial Attacks Against Trillion-Parameter Frontier Models - ResearchGate, accessed on February 4, 2026, <a href="https://www.researchgate.net/publication/398476330_Replicating_TEMPEST_at_Scale_Multi-Turn_Adversarial_Attacks_Against_Trillion-Parameter_Frontier_Models">https://www.researchgate.net/publication/398476330_Replicating_TEMPEST_at_Scale_Multi-Turn_Adversarial_Attacks_Against_Trillion-Parameter_Frontier_Models</a></li>
+<li>Delusions of Large Language Models - arXiv, accessed on February 4, 2026, <a href="https://arxiv.org/html/2503.06709v1">https://arxiv.org/html/2503.06709v1</a></li>
+<li>RAG That Doesn’t Lie. How to evaluate retrieval-augmented… | by Robi Kumar Tomar | Jan, 2026 | AI Mind, accessed on February 4, 2026, <a href="https://pub.aimind.so/rag-that-doesnt-lie-d28dbdfe8e79">https://pub.aimind.so/rag-that-doesnt-lie-d28dbdfe8e79</a></li>
+<li>Lexical Error Guard: Leveraging Large Language Models for Enhanced ASR Error Correction - MDPI, accessed on February 4, 2026, <a href="https://www.mdpi.com/2504-4990/6/4/120">https://www.mdpi.com/2504-4990/6/4/120</a></li>
+<li>Your AI is Lying to You (And It Can’t Help It) | by Arany Mak | Medium, accessed on February 4, 2026, <a href="https://medium.com/@aranymk/your-ai-is-lying-to-you-and-it-cant-help-it-bc120e85551f">https://medium.com/@aranymk/your-ai-is-lying-to-you-and-it-cant-help-it-bc120e85551f</a></li>
+<li>FDA Approval of Artificial Intelligence and Machine Learning …, accessed on February 4, 2026, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12595527/">https://pmc.ncbi.nlm.nih.gov/articles/PMC12595527/</a></li>
+<li>Artificial Intelligence in Software as a Medical Device - FDA, accessed on February 4, 2026, <a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-software-medical-device">https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-software-medical-device</a></li>
+<li>Distinguishing between Rigor and Transparency in FDA Marketing Authorization of AI-enabled Medical Devices | Radiology: Artificial Intelligence - RSNA Journals, accessed on February 4, 2026, <a href="https://pubs.rsna.org/doi/10.1148/ryai.250369">https://pubs.rsna.org/doi/10.1148/ryai.250369</a></li>
+<li>How the FDA Reviews AI and Machine Learning Medical Devices: Complete 2025 Guide - Complizen, accessed on February 4, 2026, <a href="https://www.complizen.ai/post/fda-ai-machine-learning-medical-devices-review-2025">https://www.complizen.ai/post/fda-ai-machine-learning-medical-devices-review-2025</a></li>
+<li>FDA’s AI Guidance: 7-Step Credibility Framework Explained | IntuitionLabs, accessed on February 4, 2026, <a href="https://intuitionlabs.ai/articles/fda-ai-drug-development-guidance">https://intuitionlabs.ai/articles/fda-ai-drug-development-guidance</a></li>
+<li>The Flight to Safety-Critical AI | CLTC Berkeley, accessed on February 4, 2026, <a href="https://cltc.berkeley.edu/wp-content/uploads/2020/08/Flight-to-Safety-Critical-AI.pdf">https://cltc.berkeley.edu/wp-content/uploads/2020/08/Flight-to-Safety-Critical-AI.pdf</a></li>
+<li>ML meets aerospace: challenges of certifying airborne AI - Frontiers, accessed on February 4, 2026, <a href="https://www.frontiersin.org/journals/aerospace-engineering/articles/10.3389/fpace.2024.1475139/full">https://www.frontiersin.org/journals/aerospace-engineering/articles/10.3389/fpace.2024.1475139/full</a></li>
+<li>March 5-7 2024 Presented By: Avinash Pinto, The MITRE Corporation, accessed on February 4, 2026, <a href="https://na-admin.eventscloud.com/docs/9769/413267">https://na-admin.eventscloud.com/docs/9769/413267</a></li>
+<li>1 Introduction - arXiv, accessed on February 4, 2026, <a href="https://arxiv.org/html/2503.02784v2">https://arxiv.org/html/2503.02784v2</a></li>
+<li>Do Not Trust Licenses You See: Dataset Compliance Requires Massive-Scale AI-Powered Lifecycle Tracing - arXiv, accessed on February 4, 2026, <a href="https://arxiv.org/pdf/2503.02784">https://arxiv.org/pdf/2503.02784</a></li>
+<li>NIST Draft AI Guidance, Report, and Global Plan - KPMG International, accessed on February 4, 2026, <a href="https://kpmg.com/us/en/articles/2024/nist-draft-ai-guidance-report-and-global-plan-reg-alert.html">https://kpmg.com/us/en/articles/2024/nist-draft-ai-guidance-report-and-global-plan-reg-alert.html</a></li>
+<li>ITI Feedback to NIST AI 600-1 (Initial Public Draft) on Artificial Intelligence Risk Management Framework: Generative AI Profile - Information Technology Industry Council (ITI), accessed on February 4, 2026, <a href="https://www.itic.org/documents/artificial-intelligence/2024-05-31-ITIFeedbacktoNISTGenerativeAIProfile_Final.pdf">https://www.itic.org/documents/artificial-intelligence/2024-05-31-ITIFeedbacktoNISTGenerativeAIProfile_Final.pdf</a></li>
+<li>United States: AI Safety Institute releases its first synthetic content guidance report (NIST AI 100-4) - Connect On Tech, accessed on February 4, 2026, <a href="https://connectontech.bakermckenzie.com/united-states-ai-safety-institute-releases-its-first-synthetic-content-guidance-report-nist-ai-100-4/">https://connectontech.bakermckenzie.com/united-states-ai-safety-institute-releases-its-first-synthetic-content-guidance-report-nist-ai-100-4/</a></li>
+<li>Red-Teaming &#x26; Synthetic Content | Open Loop, accessed on February 4, 2026, <a href="https://openloop.org/reports/2024/01/red-teaming-synthetic-content.pdf">https://openloop.org/reports/2024/01/red-teaming-synthetic-content.pdf</a></li>
+<li>June 2, 2024 Director Laurie E. Locascio U.S. Department of Commerce National Institute of Standards and Technology 100 Bureau D - Regulations.gov, accessed on February 4, 2026, <a href="https://downloads.regulations.gov/NIST-2024-0001-0095/attachment_1.pdf">https://downloads.regulations.gov/NIST-2024-0001-0095/attachment_1.pdf</a></li>
+<li>ASR Error Correction Using Large Language Models | Request PDF - ResearchGate, accessed on February 4, 2026, <a href="https://www.researchgate.net/publication/389963552_ASR_Error_Correction_Using_Large_Language_Models">https://www.researchgate.net/publication/389963552_ASR_Error_Correction_Using_Large_Language_Models</a></li>
+<li>A scoping review of AI, speech and natural language processing methods for assessment of clinician-patient communication | medRxiv, accessed on February 4, 2026, <a href="https://www.medrxiv.org/content/10.1101/2024.12.13.24318778v1.full-text">https://www.medrxiv.org/content/10.1101/2024.12.13.24318778v1.full-text</a></li>
+<li>(PDF) Efficient LLM Safety Evaluation through Multi-Agent Debate - ResearchGate, accessed on February 4, 2026, <a href="https://www.researchgate.net/publication/397480884_Efficient_LLM_Safety_Evaluation_through_Multi-Agent_Debate">https://www.researchgate.net/publication/397480884_Efficient_LLM_Safety_Evaluation_through_Multi-Agent_Debate</a></li>
+<li>AgentAuditor: Human-Level Safety and Security Evaluation for LLM Agents - OpenReview, accessed on February 4, 2026, <a href="https://openreview.net/pdf/97f447248762fbbdc3a63d363d85900c54691b62.pdf">https://openreview.net/pdf/97f447248762fbbdc3a63d363d85900c54691b62.pdf</a></li>
+</ol> </div> </article>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module">function g(e){let t=e>>>0;return function(){t|=0,t=t+1831565813|0;let n=Math.imul(t^t>>>15,1|t);return n=n+Math.imul(n^n>>>7,61|n)^n,((n^n>>>14)>>>0)/4294967296}}function m(){return Math.floor(new Date/(1e3*60*60*24))*1013}function w(e,t,n,o){const a=Math.ceil(t/60)+2,r=Math.ceil(n/(40*Math.sqrt(3)))+2;e.strokeStyle="rgba(0, 210, 255, 0.03)",e.lineWidth=.5;for(let c=-1;c<r;c++)for(let d=-1;d<a;d++){const l=d*40*1.5,i=c*40*Math.sqrt(3)+(d%2===0?0:40*Math.sqrt(3)/2);o()>.7&&S(e,l,i,40)}}function S(e,t,n,o){e.beginPath();for(let h=0;h<6;h++){const a=Math.PI/3*h-Math.PI/2,r=t+o*Math.cos(a),c=n+o*Math.sin(a);h===0?e.moveTo(r,c):e.lineTo(r,c)}e.closePath(),e.stroke()}function f(e,t,n){e.strokeStyle="rgba(0, 210, 255, 0.02)",e.lineWidth=1;for(let o=0;o<n;o+=4)e.beginPath(),e.moveTo(0,o),e.lineTo(t,o),e.stroke()}class p{constructor(t,n,o){this.x=t,this.y=n,this.phase=o()*Math.PI*2,this.period=8e3+o()*12e3,this.maxRadius=60+o()*40,this.color=o()>.7?"rgba(255, 71, 87,":"rgba(0, 210, 255,",this.birthTime=Date.now()}draw(t,n){const h=(n-this.birthTime)%this.period/this.period,a=Math.sin(h*Math.PI*2)*.5+.5,r=this.maxRadius*a,c=a*.08;t.strokeStyle=`${this.color} ${c})`,t.lineWidth=1,t.beginPath(),t.arc(this.x,this.y,r,0,Math.PI*2),t.stroke(),t.strokeStyle=`${this.color} ${c*.5})`,t.beginPath(),t.arc(this.x,this.y,r*.6,0,Math.PI*2),t.stroke()}}function y(){const e=document.getElementById("sensor-grid-bg");if(!e)return;const t=e.getContext("2d",{alpha:!0}),n=m(),o=g(n);function h(){const i=window.devicePixelRatio||1,s=e.getBoundingClientRect();return e.width=s.width*i,e.height=s.height*i,t.scale(i,i),{w:s.width,h:s.height}}const{w:a,h:r}=h(),c=3+Math.floor(o()*3),d=[];for(let i=0;i<c;i++){const s=o()*a,u=o()*r;d.push(new p(s,u,g(n+i*1013)))}w(t,a,r,o),f(t,a,r);function l(){const{w:i,h:s}=h();t.clearRect(0,0,e.width,e.height),w(t,i,s,o),f(t,i,s);const u=Date.now();for(const M of d)M.draw(t,u);requestAnimationFrame(l)}l(),window.addEventListener("resize",()=>{const{w:i,h:s}=h();w(t,i,s,o),f(t,i,s)})}typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",y):y());</script></body></html>  

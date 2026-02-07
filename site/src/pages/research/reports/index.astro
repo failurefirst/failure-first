@@ -1,0 +1,117 @@
+---
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+
+const reports = [
+  { num: 21, title: "EU AI Act Embodied Compliance", classification: "Regulatory Review", date: "2026-02-04", slug: "report-21-regulatory-compliance-and-risk-mitigation-for-embodied-multi-agent" },
+  { num: 22, title: "NIST AI RMF Robotics Playbook", classification: "Standards Development", date: "2026-02-04", slug: "report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai" },
+  { num: 23, title: "ISO Standards Gap Analysis", classification: "Standards Development", date: "2026-02-04", slug: "report-23-technical-gap-analysis-of-iso-and-iec-standards" },
+  { num: 24, title: "Post-Jailbreak Persistence Policy", classification: "Research — AI Safety Policy", date: "2026-02-04", slug: "report-24-cognitive-capture-and-behavioral-phase-transitions-policy-and" },
+  { num: 25, title: "Inverse Scaling Safety Policy", classification: "Research — AI Safety Policy", date: "2026-02-04", slug: "report-25-the-paradox-of-capability-a-comprehensive-analysis-of" },
+  { num: 26, title: "Red Teaming Measurement Standards", classification: "Standards Development", date: "2026-02-04", slug: "report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty" },
+  { num: 27, title: "AUKUS Autonomous Systems Assurance", classification: "Regulatory Review", date: "2026-02-04", slug: "report-27-the-federated-aegis-a-unified-assurance-framework-for" },
+  { num: 28, title: "Insurance & Humanoid Safety", classification: "Regulatory Review", date: "2026-02-04", slug: "report-28-the-architecture-of-kinetic-risk-insurance-underwriting-as" },
+  { num: 29, title: "Australian AI Safety Certification", classification: "Regulatory Review", date: "2026-02-04", slug: "report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an" },
+  { num: 30, title: "MASSS Benchmark Standards", classification: "Standards Development", date: "2026-02-04", slug: "report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework" },
+  { num: 31, title: "Jailbreak Archaeology Policy", classification: "Research — AI Safety Policy", date: "2026-02-04", slug: "report-31-the-policy-implications-of-historical-jailbreak-technique-evolution" },
+  { num: 32, title: "VLA Safety Certification Bridge", classification: "Standards Development", date: "2026-02-04", slug: "report-32-certified-embodied-intelligence-a-comprehensive-framework-for-vision-language-action" },
+  { num: 33, title: "Capability-Safety Spectrum", classification: "Research — AI Safety Policy", date: "2026-02-05", slug: "report-33-capability-does-not-imply-safety-empirical-evidence-from" },
+  { num: 34, title: "Cross-Model Vulnerability Inheritance", classification: "Research — AI Safety Policy", date: "2026-02-05", slug: "report-34-cross-model-vulnerability-inheritance-in-multi-agent-systems" },
+  { num: 35, title: "Moltbook Ecosystem Analysis", classification: "Technical Analysis", date: "2026-02-03", slug: "report-35-emergent-algorithmic-hierarchies-a-socio-technical-analysis-of-the" },
+  { num: 36, title: "Semantic Supply Chain Vulnerabilities", classification: "Technical Analysis", date: "2026-02-03", slug: "report-36-the-semantic-supply-chain-vulnerabilities-viral-propagation-and" },
+  { num: 37, title: "Erosive Narrative Safety Dissolution", classification: "Technical Analysis", date: "2026-02-03", slug: "report-37-the-erosive-narrative-philosophical-framing-multi-agent-dynamics-and" },
+  { num: 38, title: "Cross-Agent Prompt Injection", classification: "Technical Analysis", date: "2026-02-03", slug: "report-38-the-autonomous-threat-vector-a-comprehensive-analysis-of" },
+  { num: 39, title: "Embodied Multi-Agent Failure Modes", classification: "Technical Analysis", date: "2026-02-03", slug: "report-39-systemic-failure-modes-in-embodied-multi-agent-ai-an" },
+];
+
+const classificationColors: Record<string, string> = {
+  "Regulatory Review": "var(--failure-warning)",
+  "Standards Development": "var(--recovery-active)",
+  "Research — AI Safety Policy": "var(--accent-primary)",
+  "Technical Analysis": "var(--recovery-stable)",
+};
+---
+
+<ResearchLayout
+  title="Policy Brief Reports | Research | Failure-First"
+  description="19 deep research reports on embodied AI safety policy, standards, and regulation."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Policy Reports" }]}
+  status="active"
+>
+  <PageHeader
+    title="F41LUR3-F1R57 Policy Brief Series"
+    tagline="19 reports across regulation, standards, research, and technical analysis"
+  />
+
+  <section class="report-grid">
+    {reports.map((r) => (
+      <a href={`/research/reports/${r.slug}/`} class="report-card">
+        <div class="report-header">
+          <span class="report-num">#{r.num}</span>
+          <span class="report-class" style={`color: ${classificationColors[r.classification] || 'inherit'}`}>
+            {r.classification}
+          </span>
+        </div>
+        <h3>{r.title}</h3>
+        <time>{r.date}</time>
+      </a>
+    ))}
+  </section>
+</ResearchLayout>
+
+<style>
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .report-card {
+    display: block;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color, #333);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .report-card:hover {
+    border-color: var(--accent-primary, #f59e0b);
+    transform: translateY(-2px);
+  }
+
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .report-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent-primary, #f59e0b);
+  }
+
+  .report-class {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .report-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .report-card time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #888);
+  }
+</style>
