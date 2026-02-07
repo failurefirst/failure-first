@@ -1,0 +1,148 @@
+---
+/**
+ * InjectionTestLayout: Shared layout for prompt injection test pages.
+ * Wraps ResearchLayout and adds test metadata footer + webhook config.
+ *
+ * Researchers: update WEBHOOK_URL below before running tests.
+ */
+import ResearchLayout from '../layouts/ResearchLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  testNumber: string;
+  testName: string;
+  technique: string;
+  difficulty: 'Easy' | 'Medium' | 'Hard' | 'Expert';
+  detectionNotes?: string;
+}
+
+const {
+  title,
+  description,
+  testNumber,
+  testName,
+  technique,
+  difficulty,
+  detectionNotes = '',
+} = Astro.props;
+
+// ─── Webhook Configuration ────────────────────────────────────
+// Cloudflare Worker endpoint that records injection test hits.
+// View results: https://injection-test-webhook.adrianwedd.workers.dev/results
+// Clear results: https://injection-test-webhook.adrianwedd.workers.dev/clear
+export const WEBHOOK_URL = "https://injection-test-webhook.adrianwedd.workers.dev";
+// ──────────────────────────────────────────────────────────────
+
+const difficultyColors: Record<string, string> = {
+  Easy: 'var(--recovery-stable)',
+  Medium: 'var(--failure-warning)',
+  Hard: 'var(--failure-critical)',
+  Expert: 'var(--accent-primary)',
+};
+
+const breadcrumbs = [
+  { label: "Research", href: "/research/" },
+  { label: "Prompt Injection Tests", href: "/research/prompt-injection/" },
+  { label: `${testNumber} ${testName}` },
+];
+---
+
+<ResearchLayout
+  title={`${title} | Failure-First`}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  status="active"
+>
+  <slot />
+
+  <!-- Test Details Footer -->
+  <section class="test-details">
+    <h2>Test Details</h2>
+    <div class="test-meta-grid">
+      <div class="meta-item">
+        <span class="meta-label">Test ID</span>
+        <span class="meta-value">{testNumber}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Technique</span>
+        <span class="meta-value">{technique}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Difficulty</span>
+        <span class="meta-value" style={`color: ${difficultyColors[difficulty]}`}>{difficulty}</span>
+      </div>
+      {detectionNotes && (
+        <div class="meta-item meta-wide">
+          <span class="meta-label">Detection Notes</span>
+          <span class="meta-value meta-notes">{detectionNotes}</span>
+        </div>
+      )}
+    </div>
+    <p class="test-footer-note">
+      This page is part of the <a href="/research/prompt-injection/">F41LUR3-F1R57 Prompt Injection Test Suite</a>.
+      It contains deliberately placed injection payloads for AI agent security research.
+    </p>
+  </section>
+</ResearchLayout>
+
+<style>
+  .test-details {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .test-details h2 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
+  .test-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .meta-wide {
+    grid-column: 1 / -1;
+  }
+
+  .meta-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+  }
+
+  .meta-value {
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .meta-notes {
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--fg-dim);
+  }
+
+  .test-footer-note {
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 480px) {
+    .test-meta-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
