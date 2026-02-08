@@ -1,0 +1,362 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The State of VLA Model Safety: 2026 | Research | Failure-First</title><meta name="description" content="Evidence-grounded assessment of the VLA safety landscape. Drawing on F41LUR3-F1R57's jailbreak corpus and published academic research, this brief maps the safety evaluation gap facing organizations deploying VLA-driven robotic systems."><link rel="canonical" href="https://failurefirst.org/research/intelligence-briefs/ib-2026-001-state-of-vla-safety/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The State of VLA Model Safety: 2026 | Research | Failure-First"><meta property="og:description" content="Evidence-grounded assessment of the VLA safety landscape. Drawing on F41LUR3-F1R57's jailbreak corpus and published academic research, this brief maps the safety evaluation gap facing organizations deploying VLA-driven robotic systems."><meta property="og:url" content="https://failurefirst.org/research/intelligence-briefs/ib-2026-001-state-of-vla-safety/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="The State of VLA Model Safety: 2026 | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The State of VLA Model Safety: 2026 | Research | Failure-First"><meta name="twitter:description" content="Evidence-grounded assessment of the VLA safety landscape. Drawing on F41LUR3-F1R57's jailbreak corpus and published academic research, this brief maps the safety evaluation gap facing organizations deploying VLA-driven robotic systems."><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="The State of VLA Model Safety: 2026 | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-02-08"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The State of VLA Model Safety: 2026 | Research | Failure-First","description":"Evidence-grounded assessment of the VLA safety landscape. Drawing on F41LUR3-F1R57's jailbreak corpus and published academic research, this brief maps the safety evaluation gap facing organizations deploying VLA-driven robotic systems.","url":"https://failurefirst.org/research/intelligence-briefs/ib-2026-001-state-of-vla-safety/","image":"https://failurefirst.org/og-image.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-02-08","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BV0HTfXU.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>79 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> Blog  </a>  </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/policy/" aria-haspopup="true" data-astro-cid-pux6a34n> Policy <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>19 reports</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>U-shaped curve</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> Manifesto  </a>  </li><li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> About  </a>  </li> </ul> </div> </nav>  <script type="module">const t=document.querySelector(".nav-toggle"),n=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");t&&n&&(t.addEventListener("click",()=>{const e=t.getAttribute("aria-expanded")==="true";t.setAttribute("aria-expanded",String(!e)),n.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&n.classList.contains("open")&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"),t.focus())}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"))}));o.forEach(e=>{const s=e.querySelector(":scope > a");s&&window.innerWidth<=768&&s.addEventListener("click",i=>{window.innerWidth<=768&&(i.preventDefault(),e.classList.toggle("mobile-open"))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/intelligence-briefs/" data-astro-cid-ilhxcym7>Intelligence Briefs</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Brief IB-2026-001</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Intelligence Briefs","item":"https://failurefirst.org/research/intelligence-briefs/"},{"@type":"ListItem","position":4,"name":"Brief IB-2026-001"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-active)" data-astro-cid-63t2xjvj> Active Research </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2>  <span class="report-number" data-astro-cid-dynbckv2>Brief IB-2026-001</span> <span class="report-classification" data-astro-cid-dynbckv2>Technical Assessment</span> <time class="report-date" data-astro-cid-dynbckv2>2026-02-08</time> </header> <div class="report-body" data-astro-cid-dynbckv2> <h1 id="the-state-of-vla-model-safety-2026">The State of VLA Model Safety: 2026</h1>
+<div class="audio-overview">
+<p>Listen to an AI-generated audio overview of this intelligence brief (NotebookLM)</p>
+<audio controls src="/audio/research/vla_safety_overview_notebooklm.mp3" preload="metadata"></audio>
+</div>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Vision-Language-Action (VLA) models are replacing programmed robotics with prompted robotics. Instead of deterministic code governing a robot’s behavior, transformer-based models now generate action tokens from natural language instructions and camera images. This architectural shift introduces attack surfaces that neither existing LLM safety benchmarks nor existing robotics safety standards are designed to assess.</p>
+<p>This brief presents an evidence-grounded assessment of the VLA safety landscape as of February 2026, drawing on F41LUR3-F1R57’s proprietary corpus of 17,674 jailbreak prompts spanning 79 documented attack techniques, alongside published academic research on VLA-specific vulnerabilities. The analysis identifies a structural safety evaluation gap facing organizations that deploy or invest in VLA-driven systems, and provides actionable recommendations for addressing it.</p>
+<p><strong>Data as-of:</strong> 2026-02-08 (F41LUR3-F1R57 internal corpus + evaluation results; see Report 33 for methodology and coverage caveats).</p>
+<h3 id="key-findings">Key Findings</h3>
+<ol>
+<li>
+<p><strong>VLA models inherit LLM jailbreak vulnerabilities, but add physical risk dimensions.</strong> Published research demonstrates that text-based jailbreak techniques transfer to VLA models, causing physically unsafe actions even from text-aligned base models. Our corpus documents 79 distinct attack techniques across 6 historical eras (2022-2026) that represent the known LLM attack surface these models inherit.</p>
+</li>
+<li>
+<p><strong>A capability-safety gap exists at medium model scale, with preliminary evidence of inverse scaling for reasoning-era attacks.</strong> In our evaluation of 8 foundation models spanning 1.5B to frontier scale, corrected attack success rates follow a non-monotonic pattern: sub-3B models fail safely through incapability, medium-scale open-weight models show elevated vulnerability, and frontier closed-source models achieve near-zero ASR. This is a preliminary signal, not a conclusion — sample sizes for medium-scale models are small and require confirmation.</p>
+</li>
+<li>
+<p><strong>No VLA-specific safety certification framework exists today.</strong> Our review of 6 applicable regulatory frameworks found that none address VLA-specific risks including action tokenization safety, affordance hallucination, cross-domain safety misalignment, or adversarial patch attacks on visual encoders.</p>
+</li>
+</ol>
+<h3 id="bottom-line">Bottom Line</h3>
+<p>Organizations deploying VLA-driven systems face a safety evaluation gap. Existing LLM safety benchmarks miss physical risk dimensions, and existing robotics safety standards miss semantic attack surfaces. Until this gap is closed through VLA-specific adversarial testing and updated standards, deployers face unquantified liability exposure.</p>
+<hr>
+<h2 id="1-market-landscape">1. Market Landscape</h2>
+<h3 id="11-vla-model-ecosystem-overview">1.1 VLA Model Ecosystem Overview</h3>
+<p>The robotics industry is undergoing a fundamental architectural transition: from programmed robotics, governed by deterministic code and explicit geometric planning, to prompted robotics, governed by probabilistic token generation and latent space mappings.</p>
+<p>VLA models collapse the traditional Sense-Plan-Act cycle into a single, end-to-end differentiable neural network. The model receives a natural language instruction and camera images, processes them through a unified transformer architecture, and outputs action tokens that directly command robot actuators. A semantic misunderstanding translates directly into a kinematic error — there is no independent planner to check feasibility, nor a controller to verify safety, unless explicitly added as external guardrails.</p>
+<p><strong>Key VLA architectures and their status (as of February 2026):</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Architecture</th><th>Developer</th><th>Parameters</th><th>Status</th></tr></thead><tbody><tr><td>OpenVLA</td><td>Stanford/Berkeley (open-weight)</td><td>7B</td><td>Research-stage, publicly available</td></tr><tr><td>RT-2 / RT-X</td><td>Google DeepMind</td><td>Undisclosed</td><td>Internal deployment</td></tr><tr><td>pi0 (openpi)</td><td>Physical Intelligence</td><td>~3B</td><td>Pre-commercial, open-source release</td></tr><tr><td>Helix</td><td>Figure AI</td><td>Undisclosed</td><td>Integrated humanoid, pre-commercial</td></tr><tr><td>GR-2</td><td>NVIDIA</td><td>Undisclosed</td><td>Simulation-to-real pipeline</td></tr><tr><td>Octo</td><td>Berkeley (open-weight)</td><td>~93M</td><td>Research-stage</td></tr><tr><td>SmolVLA</td><td>Hugging Face (LeRobot)</td><td>450M</td><td>Research-stage, local hardware</td></tr><tr><td>Gemini Robotics-ER</td><td>Google DeepMind</td><td>Undisclosed (API)</td><td>API access available</td></tr></tbody></table>
+<h3 id="12-regulatory-landscape">1.2 Regulatory Landscape</h3>
+<p>F41LUR3-F1R57 has conducted detailed analysis of 6 regulatory frameworks relevant to VLA deployment across Reports 21-23, 27, 29, and 32. The central finding: all existing frameworks address either AI safety (text/semantic) or robotics safety (physical/mechanical), but none address the intersection where VLA models operate.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Framework</th><th>VLA-Specific Coverage</th><th>Key Gap</th></tr></thead><tbody><tr><td>EU AI Act</td><td>High-risk classification applies to autonomous physical systems</td><td>Does not address learned action policies or action tokenization safety</td></tr><tr><td>ISO 10218-1/2</td><td>PL d safety requirements for safety-critical functions</td><td>Assumes deterministic control; VLA neural networks cannot achieve PL d certification</td></tr><tr><td>UL 4600</td><td>Closest to VLA-relevant; safety case methodology</td><td>Does not address semantic attack surfaces</td></tr><tr><td>NIST AI RMF</td><td>Generic risk assessment applicable to VLAs</td><td>Not VLA-specific; no guidance on physical action generation from language models</td></tr></tbody></table>
+<p><strong>What none of these frameworks address:</strong></p>
+<ul>
+<li><strong>Action tokenization safety:</strong> How discrete token predictions map to continuous physical commands, and the failure modes this discretization introduces</li>
+<li><strong>Affordance hallucination:</strong> Models recognizing objects but misattributing physical properties based on visual similarity to training data</li>
+<li><strong>Cross-domain safety misalignment:</strong> A model that is text-aligned but physically misaligned — refusing harmful text while generating unsafe trajectories</li>
+<li><strong>Adversarial patch attacks on visual encoders:</strong> Specifically crafted visual patterns that alter object classification in the VLA’s visual processing pipeline</li>
+</ul>
+<hr>
+<h2 id="2-technical-analysis">2. Technical Analysis</h2>
+<h3 id="21-vla-architecture-and-attack-surface">2.1 VLA Architecture and Attack Surface</h3>
+<p>VLA models present a novel attack surface that combines vulnerabilities inherited from their LLM backbones with risks unique to physical action generation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Attack Vector</th><th>Entry Point</th><th>Mechanism</th></tr></thead><tbody><tr><td><strong>Prompt injection</strong></td><td>Language input</td><td>Standard LLM jailbreak techniques applied to VLA instruction channel</td></tr><tr><td><strong>Adversarial patches</strong></td><td>Visual input</td><td>Crafted visual patterns that alter object recognition or affordance perception</td></tr><tr><td><strong>Action tokenization errors</strong></td><td>Output discretization</td><td>Token prediction errors causing discontinuous physical commands</td></tr><tr><td><strong>Affordance hallucination</strong></td><td>Latent space</td><td>Model misattributes physical properties based on visual similarity</td></tr><tr><td><strong>Indirect environmental jailbreaking</strong></td><td>Physical environment</td><td>Malicious instructions embedded in the robot’s visual environment</td></tr><tr><td><strong>Phantom loop</strong></td><td>System architecture</td><td>Stale or hallucinated commands from reasoning layer reach control layer unchecked</td></tr><tr><td><strong>Cross-domain safety misalignment</strong></td><td>Alignment training</td><td>Text-aligned model produces physically unsafe actions</td></tr><tr><td><strong>Reasoning chain manipulation</strong></td><td>Reasoning process</td><td>Extended reasoning chains exploited to lead model toward unsafe action plans</td></tr></tbody></table>
+<p><strong>Architectural vulnerability: the dual-system handover.</strong> Several production VLA architectures employ a dual-system approach: a slow “thinker” (VLA at 1-10 Hz) generating high-level plans, and a fast “actor” (whole-body controller at 50-200 Hz) executing them. The handover point creates what we term the “Phantom Loop” — if the VLA hallucinates or hangs, the high-frequency controller will efficiently execute the last valid command, potentially driving the robot into a collision.</p>
+<h3 id="22-vulnerability-assessment-from-jailbreak-corpus">2.2 Vulnerability Assessment from Jailbreak Corpus</h3>
+<p><strong>Cross-model vulnerability patterns (from Report 33, 8 models evaluated):</strong></p>
+<p>Our evaluation of 64 historical jailbreak scenarios across 8 foundation models revealed three distinct safety regimes:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Regime</th><th>Scale Range</th><th>Observed ASR</th><th>Mechanism</th></tr></thead><tbody><tr><td>Incapable Safety</td><td>Sub-3B</td><td>0-21%</td><td>Models cannot process attacks as intended; fail safely through incapability</td></tr><tr><td>Capability-Safety Gap</td><td>7B-70B (preliminary)</td><td>Up to 85.7% (n=7)</td><td>Capability outpaces safety alignment</td></tr><tr><td>Aligned Frontier</td><td>Closed-source frontier</td><td>&#x3C;2%</td><td>Extensive RLHF, red-teaming, API-level filtering</td></tr></tbody></table>
+<p><em>CRITICAL CAVEAT: The medium-scale result is based on n=7 valid traces. This is a preliminary signal requiring confirmation with n>20 per model.</em></p>
+<h3 id="23-vla-specific-safety-mechanisms">2.3 VLA-Specific Safety Mechanisms</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense Layer</th><th>Approach</th><th>Limitations</th></tr></thead><tbody><tr><td>Hardware interlocks</td><td>Torque limits, e-stops, safety cages</td><td>Cannot address semantic-level attacks</td></tr><tr><td>Kinematic shields</td><td>Deterministic bounds on learned policies (CBF, MPC)</td><td>Requires accurate world model; adds latency</td></tr><tr><td>Software guardrails</td><td>Output filtering on action tokens</td><td>Probabilistic; cannot generalize to novel attacks</td></tr><tr><td>Semantic firewalls</td><td>Input sanitization of language and visual channels</td><td>Depends on classifier accuracy</td></tr><tr><td>Dual-system architecture</td><td>System 1/System 2 split</td><td>Creates handover vulnerability (phantom loop)</td></tr></tbody></table>
+<p>F41LUR3-F1R57 has proposed the Hierarchical Assurance for Neuro-Symbolic Embodiment (HANSE) certification framework (Report 32), which treats the VLA as an “untrusted oracle” wrapped by verified safety layers.</p>
+<hr>
+<h2 id="3-strategic-recommendations">3. Strategic Recommendations</h2>
+<h3 id="31-immediate-actions-0-30-days">3.1 Immediate Actions (0-30 days)</h3>
+<p><strong>Recommendation 1: Establish a VLA-specific adversarial testing protocol.</strong></p>
+<p>Standard LLM safety benchmarks test for textual harm generation, not physical safety dimensions. A VLA that passes all existing text-safety benchmarks may still generate dangerous trajectories from ambiguous or adversarial instructions. Begin testing in simulation environments before any physical deployment.</p>
+<p><strong>Recommendation 2: Audit safety architecture for “phantom loop” vulnerabilities.</strong></p>
+<p>Dual-system VLA architectures create handover points where stale or hallucinated commands from the reasoning layer can reach the control layer unchecked. Verify that the high-frequency controller has independent bounds on commanded actions that are not dependent on the reasoning layer’s validity.</p>
+<h3 id="32-medium-term-actions-30-90-days">3.2 Medium-Term Actions (30-90 days)</h3>
+<p><strong>Recommendation 3: Implement Continuous Adversarial Regression Testing (CART).</strong></p>
+<p>Attack techniques evolve faster than model updates. Our corpus documents 6 distinct attack eras spanning 4 years. A model certified against 2023-era attacks offers no guarantee against 2025-era techniques. Integrate an adversarial test suite into the CI/CD pipeline for model updates.</p>
+<p><strong>Recommendation 4: Engage with emerging VLA safety standards efforts.</strong></p>
+<p>No VLA-specific safety standard exists today. Early participants in standards development shape requirements that may become mandatory. The ISO revision cycle and EU AI Act implementation suggest formal requirements are 2-4 years away.</p>
+<h3 id="33-strategic-considerations-90-days">3.3 Strategic Considerations (90+ days)</h3>
+<ul>
+<li><strong>Positioning for regulatory requirements (estimated 2028-2030):</strong> Organizations that establish internal VLA safety testing protocols now will have a compliance head start.</li>
+<li><strong>Insurance readiness:</strong> Insurance underwriters are beginning to assess liability for autonomous systems. Having documented adversarial testing results strengthens the insurance case.</li>
+<li><strong>Third-party certification as competitive differentiator:</strong> In a market where no competitor has published VLA-specific safety evaluation results, documented testing methodology can differentiate a company’s safety posture.</li>
+</ul>
+<hr>
+<h2 id="4-risk-matrix">4. Risk Matrix</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Score</th><th>Mitigation</th></tr></thead><tbody><tr><td>Cross-domain safety misalignment</td><td>4</td><td>5</td><td>20</td><td>VLA-specific adversarial testing; layered safety architecture</td></tr><tr><td>Adversarial patch attacks on visual encoders</td><td>3</td><td>4</td><td>12</td><td>Adversarial patch detection; runtime image anomaly detection</td></tr><tr><td>Action tokenization errors</td><td>3</td><td>4</td><td>12</td><td>Kinematic shield with CBF/MPC enforcement</td></tr><tr><td>Reasoning chain manipulation in System 2 components</td><td>3</td><td>4</td><td>12</td><td>Reasoning output validation; bounded action authority</td></tr><tr><td>Regulatory gap creating unquantified liability</td><td>4</td><td>3</td><td>12</td><td>Proactive adoption of internal safety standards</td></tr></tbody></table>
+<p><em>Risk scores: Likelihood x Impact. Scores of 15+ indicate risks requiring immediate mitigation.</em></p>
+<hr>
+<h2 id="appendix-methodology-and-limitations">Appendix: Methodology and Limitations</h2>
+<h3 id="data-sources">Data Sources</h3>
+<ul>
+<li><strong>F41LUR3-F1R57 Jailbreak Corpus:</strong> 17,674 prompts across 15 datasets, 79 documented attack techniques, 7 historical eras</li>
+<li><strong>Evaluation Results:</strong> 652 results across 40 models, 55 evaluation runs</li>
+<li><strong>F41LUR3-F1R57 Reports:</strong> Reports 21-23, 25, 27-29, 31-33, 36-37</li>
+<li><strong>Published Research:</strong> arXiv:2506.03350, arXiv:2411.13587, arXiv:2511.12149</li>
+</ul>
+<h3 id="key-limitations">Key Limitations</h3>
+<ol>
+<li><strong>LLM testing, not VLA testing.</strong> All evaluation results are from text-based LLM jailbreak testing. F41LUR3-F1R57 has not yet conducted adversarial testing against VLA models directly.</li>
+<li><strong>Sample size constraints.</strong> The capability-safety gap finding is based on 8 models with varying sample sizes. Confirmation with n>20 per model is required.</li>
+<li><strong>Evaluation coverage gap.</strong> Of 17,674 prompts, only 145 distinct prompts (0.8%) have been evaluated against any model.</li>
+<li><strong>Temporal validity.</strong> Model evaluations reflect capabilities as of late 2025 / early 2026.</li>
+</ol>
+<hr>
+<p><strong>Prepared by:</strong> F41LUR3-F1R57 Research
+<strong>Contact:</strong> <a href="mailto:contact@failurefirst.org">contact@failurefirst.org</a>
+<strong>Web:</strong> <a href="https://failurefirst.org">failurefirst.org</a></p>
+<p>⟪F41LUR3-F1R57-EMBODIED-AI-RESEARCH⟫</p> </div> </article>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module">function g(e){let t=e>>>0;return function(){t|=0,t=t+1831565813|0;let n=Math.imul(t^t>>>15,1|t);return n=n+Math.imul(n^n>>>7,61|n)^n,((n^n>>>14)>>>0)/4294967296}}function m(){return Math.floor(new Date/(1e3*60*60*24))*1013}function w(e,t,n,o){const a=Math.ceil(t/60)+2,r=Math.ceil(n/(40*Math.sqrt(3)))+2;e.strokeStyle="rgba(0, 210, 255, 0.03)",e.lineWidth=.5;for(let c=-1;c<r;c++)for(let d=-1;d<a;d++){const l=d*40*1.5,i=c*40*Math.sqrt(3)+(d%2===0?0:40*Math.sqrt(3)/2);o()>.7&&S(e,l,i,40)}}function S(e,t,n,o){e.beginPath();for(let h=0;h<6;h++){const a=Math.PI/3*h-Math.PI/2,r=t+o*Math.cos(a),c=n+o*Math.sin(a);h===0?e.moveTo(r,c):e.lineTo(r,c)}e.closePath(),e.stroke()}function f(e,t,n){e.strokeStyle="rgba(0, 210, 255, 0.02)",e.lineWidth=1;for(let o=0;o<n;o+=4)e.beginPath(),e.moveTo(0,o),e.lineTo(t,o),e.stroke()}class p{constructor(t,n,o){this.x=t,this.y=n,this.phase=o()*Math.PI*2,this.period=8e3+o()*12e3,this.maxRadius=60+o()*40,this.color=o()>.7?"rgba(255, 71, 87,":"rgba(0, 210, 255,",this.birthTime=Date.now()}draw(t,n){const h=(n-this.birthTime)%this.period/this.period,a=Math.sin(h*Math.PI*2)*.5+.5,r=this.maxRadius*a,c=a*.08;t.strokeStyle=`${this.color} ${c})`,t.lineWidth=1,t.beginPath(),t.arc(this.x,this.y,r,0,Math.PI*2),t.stroke(),t.strokeStyle=`${this.color} ${c*.5})`,t.beginPath(),t.arc(this.x,this.y,r*.6,0,Math.PI*2),t.stroke()}}function y(){const e=document.getElementById("sensor-grid-bg");if(!e)return;const t=e.getContext("2d",{alpha:!0}),n=m(),o=g(n);function h(){const i=window.devicePixelRatio||1,s=e.getBoundingClientRect();return e.width=s.width*i,e.height=s.height*i,t.scale(i,i),{w:s.width,h:s.height}}const{w:a,h:r}=h(),c=3+Math.floor(o()*3),d=[];for(let i=0;i<c;i++){const s=o()*a,u=o()*r;d.push(new p(s,u,g(n+i*1013)))}w(t,a,r,o),f(t,a,r);function l(){const{w:i,h:s}=h();t.clearRect(0,0,e.width,e.height),w(t,i,s,o),f(t,i,s);const u=Date.now();for(const M of d)M.draw(t,u);requestAnimationFrame(l)}l(),window.addEventListener("resize",()=>{const{w:i,h:s}=h();w(t,i,s,o),f(t,i,s)})}typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",y):y());</script></body></html>  

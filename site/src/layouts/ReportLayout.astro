@@ -6,6 +6,7 @@ interface Props {
   description?: string;
   image?: string;
   reportNumber?: number;
+  briefNumber?: string;
   classification?: string;
   date?: string;
   status?: 'active' | 'draft' | 'complete';
@@ -14,13 +15,19 @@ interface Props {
 // Astro markdown layouts pass frontmatter under Astro.props.frontmatter.
 // Fallback to Astro.props so this layout still works if used as a component.
 const props = Astro.props?.frontmatter ?? Astro.props;
-const { title, description, image, reportNumber, classification, date, status = 'draft' } = props;
+const { title, description, image, reportNumber, briefNumber, classification, date, status = 'draft' } = props;
 
-const breadcrumbs = [
-  { label: "Research", href: "/research/" },
-  { label: "Policy Reports", href: "/research/reports/" },
-  { label: `Report ${reportNumber || ''}` },
-];
+const breadcrumbs = briefNumber
+  ? [
+      { label: "Research", href: "/research/" },
+      { label: "Intelligence Briefs", href: "/research/intelligence-briefs/" },
+      { label: `Brief ${briefNumber}` },
+    ]
+  : [
+      { label: "Research", href: "/research/" },
+      { label: "Policy Reports", href: "/research/reports/" },
+      { label: `Report ${reportNumber || ''}` },
+    ];
 ---
 
 <ResearchLayout
@@ -35,6 +42,7 @@ const breadcrumbs = [
   <article class="report-content">
     <header class="report-meta">
       {reportNumber && <span class="report-number">Report {reportNumber}</span>}
+      {briefNumber && <span class="report-number">Brief {briefNumber}</span>}
       {classification && <span class="report-classification">{classification}</span>}
       {date && <time class="report-date">{date}</time>}
     </header>
@@ -90,5 +98,24 @@ const breadcrumbs = [
   .report-body :global(th) {
     background: var(--surface-secondary, #1a1a1a);
     font-weight: 600;
+  }
+
+  .report-body :global(.audio-overview) {
+    border-left: 3px solid var(--accent-primary, #f59e0b);
+    background: rgba(245, 158, 11, 0.04);
+    padding: 1rem 1.25rem;
+    border-radius: 0 6px 6px 0;
+    margin: 1.5rem 0;
+  }
+
+  .report-body :global(.audio-overview p) {
+    margin: 0 0 0.75rem 0;
+    font-size: 0.8125rem;
+    color: var(--text-secondary, #888);
+  }
+
+  .report-body :global(.audio-overview audio) {
+    width: 100%;
+    height: 40px;
   }
 </style>

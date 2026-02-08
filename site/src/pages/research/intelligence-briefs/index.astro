@@ -1,0 +1,104 @@
+---
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+
+const briefs = [
+  { id: "IB-2026-001", title: "The State of VLA Model Safety: 2026", classification: "Technical Assessment", date: "2026-02-08", slug: "ib-2026-001-state-of-vla-safety" },
+];
+
+const classificationColors: Record<string, string> = {
+  "Technical Assessment": "var(--recovery-active)",
+  "Strategic Advisory": "var(--accent-primary)",
+  "Threat Assessment": "var(--failure-warning)",
+};
+---
+
+<ResearchLayout
+  title="Intelligence Briefs | Research | Failure-First"
+  description="F41LUR3-F1R57 intelligence briefs: evidence-grounded assessments of emerging AI safety risks for commercial and policy decision-making."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Intelligence Briefs" }]}
+  status="active"
+>
+  <PageHeader
+    title="F41LUR3-F1R57 Intelligence Briefs"
+    tagline="Evidence-grounded assessments for commercial and policy decision-making"
+  />
+
+  <p>
+    Intelligence briefs synthesize F41LUR3-F1R57 research findings, corpus data, and published
+    academic work into actionable assessments for engineering leaders, CISOs, and investors
+    evaluating AI-driven systems.
+  </p>
+
+  <section class="brief-grid">
+    {briefs.map((b) => (
+      <a href={`/research/intelligence-briefs/${b.slug}/`} class="brief-card">
+        <div class="brief-header">
+          <span class="brief-id">{b.id}</span>
+          <span class="brief-class" style={`color: ${classificationColors[b.classification] || 'inherit'}`}>
+            {b.classification}
+          </span>
+        </div>
+        <h3>{b.title}</h3>
+        <time>{b.date}</time>
+      </a>
+    ))}
+  </section>
+</ResearchLayout>
+
+<style>
+  .brief-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .brief-card {
+    display: block;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color, #333);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .brief-card:hover {
+    border-color: var(--accent-primary, #f59e0b);
+    transform: translateY(-2px);
+  }
+
+  .brief-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .brief-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent-primary, #f59e0b);
+  }
+
+  .brief-class {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .brief-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .brief-card time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #888);
+  }
+</style>
