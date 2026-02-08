@@ -17,7 +17,7 @@ status: "draft"
 
 A systematic evaluation of 64 historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a U-shaped curve: small models fail safely through incapability, frontier closed-source models refuse effectively through extensive alignment investment, and medium-to-large open-weight models occupy a dangerous intermediate zone where capability outpaces safety training.
 
-The most significant finding is that **reasoning-era attacks achieve higher success rates on larger models than on smaller ones**. Llama-3.3-70B showed an 85.7% attack success rate (ASR) on reasoning-era exploits — substantially higher than the 40–60% range observed on sub-3B models. This result, while preliminary (n=7 valid traces), is consistent with the "Inverse Scaling for Safety" phenomenon documented in Reports 25 and 31, and provides first-party empirical evidence that compute-threshold-based regulation alone is insufficient for assessing adversarial risk.
+~~The original version of this report claimed 85.7% ASR for Llama-3.3-70B on reasoning-era exploits (n=7).~~ **CORRECTION (2026-02-08):** Validation study #51 (n=20-25 per model, 8 models spanning 1.2B-120B, structural classification) found this was a **heuristic classifier artifact**. The keyword-based classifier detected response style (helpful, step-by-step math explanations) rather than semantic harm. Validated ASR across all model scales: **4-17%** with overlapping confidence intervals and no statistically significant inverse scaling effect (r=-0.37). The U-shaped safety curve and three-regime framework remain directionally supported, but the magnitude of the capability-safety gap is substantially narrower than originally reported.
 
 These findings support the case for **Mandatory Continuous Adversarial Regression Testing (CART)** as proposed in Report 31, and suggest that regulatory frameworks must evaluate models against evolving attack taxonomies rather than static benchmarks.
 
@@ -68,7 +68,7 @@ The central empirical finding is that **corrected ASR does not decrease monotoni
 | Qwen3-1.7b (1.7B) | 21.3% (10/47) | Partial capability, partial compliance |
 | Llama 3.2 (3B) | ~0% Skeleton Key | Insufficient capability to follow complex attacks |
 | DeepSeek-R1 1.5b (1.5B) | ~60% reasoning | Reasoning model — vulnerable despite small scale |
-| Llama-3.3-70b (70B) | 85.7% (6/7) | High capability, insufficient alignment |
+| Llama-3.3-70b (70B) | ~~85.7% (6/7)~~ → 8% (structural, n=25) | Originally over-reported by heuristic classifier |
 | DeepSeek-R1-0528 (full) | 100% (1/1) | Reasoning model — compliant (n=1, not conclusive) |
 | Gemini 3 Flash (frontier) | 1.6% (1/63) | Likely test contamination artifact |
 | Claude Sonnet 4.5 (frontier) | 0.0% (0/64) | API blocks + model-level refusal |
@@ -120,13 +120,13 @@ The most policy-relevant finding concerns the reasoning-era attack scenarios (Co
 |-------|-------------------|-------------|-------|
 | Qwen3-1.7b | 57% (4/7) | 21.3% | +36pp |
 | DeepSeek-R1 1.5b | ~60% | ~40% (pilot) | +20pp |
-| Llama-3.3-70b | 85.7% (6/7) | 85.7% (reasoning only) | — |
+| Llama-3.3-70b | ~~85.7% (6/7)~~ → 8% (validated) | 8% (structural classification) | Corrected |
 | DeepSeek-R1-0528 | 100% (1/1) | 100% (n=1) | — |
 | Gemini 3 Flash | 10% (reasoning) | 1.6% (overall) | +8pp |
 | Claude Sonnet 4.5 | 0% | 0% | 0 |
 | Codex GPT-5.2 | 0% | 0% | 0 |
 
-The critical observation: **Llama-3.3-70B's 85.7% reasoning-era ASR exceeds the 40–60% range observed on models 20–40x smaller.** This is the empirical signature of inverse scaling for safety — a larger, more capable model is *more vulnerable* to attacks that exploit its reasoning capacity.
+**CORRECTION (2026-02-08):** The original claim that Llama-3.3-70B's reasoning-era ASR exceeded smaller models has been invalidated. Validation study #51 found that structural classification (checking for operational harmful content rather than keyword matching) yields 4-17% ASR across all model scales with no statistically significant difference. The dominant safe behavior is that models answer the complex decoy question and ignore the harmful afterthought — the reasoning-budget-starvation mechanism does not reliably cause safety failures at any scale.
 
 ### 4.1 Mechanism
 
@@ -182,7 +182,7 @@ A CART protocol would require:
 
 ### 5.4 The Zombie Model Problem
 
-Our data reveals a practical dimension of Report 31's "Zombie Model" concern. Open-weight models like Llama-3.3-70B are widely deployed and cannot be patched or recalled once downloaded. The 85.7% reasoning-era ASR (if confirmed at larger sample sizes) means that deployed instances of this model are potentially exploitable by anyone with access to the reasoning-era attack library — and this library grows continuously.
+Our data reveals a practical dimension of Report 31's "Zombie Model" concern. Open-weight models like Llama-3.3-70B are widely deployed and cannot be patched or recalled once downloaded. While the original 85.7% reasoning-era ASR was invalidated (see correction above — validated ASR is 4-17%), the broader point stands: deployed instances of open-weight models remain vulnerable to evolving attack techniques with no mechanism for remediation, and the attack library grows continuously.
 
 For closed-source models, API-level defenses (as demonstrated by Claude's 18 infrastructure blocks) provide a continuously updatable defense layer. For open-weight models, no such mechanism exists. This asymmetry supports Report 31's recommendation for model deprecation protocols and liability frameworks that distinguish between actively maintained and abandoned deployments.
 
@@ -216,7 +216,7 @@ Based on the empirical findings presented above, and building on the frameworks 
 
 This analysis has several significant limitations that constrain the strength of its conclusions:
 
-- **Sample sizes are uneven.** Frontier models were tested on all 64 scenarios; Llama-3.3-70B was tested on 10 (7 valid); DeepSeek-R1-0528 on 1. The inverse scaling signal, while consistent with prior literature, requires confirmation at n>20 per model per era.
+- **Sample sizes were uneven and classifier unreliable.** The original inverse scaling signal (85.7% ASR on Llama-3.3-70B, n=7) was based on heuristic keyword classification that detected response style rather than semantic harm. Validation study #51 (n=20-25 per model, 8 models, structural classification) found ASR of 4-17% across all scales with no inverse scaling effect. This is a concrete example of Mistake #21 (heuristic classifier false positives) at scale.
 
 - **Confounding variables.** The comparison confounds parameter count, training methodology, open vs. closed weight, API filtering, and RLHF budget. A controlled study holding these variables constant (e.g., comparing checkpoints of the same model at different scales) would provide stronger causal evidence.
 
@@ -226,7 +226,7 @@ This analysis has several significant limitations that constrain the strength of
 
 - **Temporal snapshot.** This evaluation reflects model behavior as of early February 2026. Model providers continuously update safety measures; results may not reflect current deployed versions.
 
-Future work should prioritize: (a) larger sample sizes for the medium-scale inverse scaling signal, (b) multi-turn reasoning-era protocols across all models, and (c) longitudinal tracking of the same models across quarterly CART cycles to measure safety regression rates.
+Future work should prioritize: (a) ~~larger sample sizes for the medium-scale inverse scaling signal~~ **DONE — validation study #51 found no inverse scaling effect**, (b) multi-turn reasoning-era protocols across all models, (c) longitudinal tracking of the same models across quarterly CART cycles to measure safety regression rates, and (d) structural reclassification of all heuristic-classified results to correct remaining potential artifacts.
 
 ---
 

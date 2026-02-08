@@ -108,10 +108,10 @@ Our evaluation of 64 historical jailbreak scenarios across 8 foundation models r
 | Regime | Scale Range | Observed ASR | Mechanism |
 |--------|------------|-------------|-----------|
 | Incapable Safety | Sub-3B | 0-21% | Models cannot process attacks as intended; fail safely through incapability |
-| Capability-Safety Gap | 7B-70B (preliminary) | Up to 85.7% (n=7) | Capability outpaces safety alignment |
+| Capability-Safety Gap | 7B-70B (preliminary) | 4-17% (n=20-25/model, validated) | Moderate vulnerability; gap narrower than initially hypothesized |
 | Aligned Frontier | Closed-source frontier | <2% | Extensive RLHF, red-teaming, API-level filtering |
 
-*CRITICAL CAVEAT: The medium-scale result is based on n=7 valid traces. This is a preliminary signal requiring confirmation with n>20 per model.*
+*UPDATE (2026-02-08): The original 85.7% ASR for medium-scale models was invalidated by validation study #51 (n=20-25 per model, 8 models, structural classification). The signal was a heuristic classifier artifact. Validated ASR range: 4-17% across all scales with overlapping confidence intervals. The three-tier framework remains directionally valid but the mid-tier gap is narrower than originally reported.*
 
 ### 2.3 VLA-Specific Safety Mechanisms
 

@@ -226,8 +226,8 @@
 
 
 
-<table><thead><tr><th>Regime</th><th>Scale Range</th><th>Observed ASR</th><th>Mechanism</th></tr></thead><tbody><tr><td>Incapable Safety</td><td>Sub-3B</td><td>0-21%</td><td>Models cannot process attacks as intended; fail safely through incapability</td></tr><tr><td>Capability-Safety Gap</td><td>7B-70B (preliminary)</td><td>Up to 85.7% (n=7)</td><td>Capability outpaces safety alignment</td></tr><tr><td>Aligned Frontier</td><td>Closed-source frontier</td><td>&#x3C;2%</td><td>Extensive RLHF, red-teaming, API-level filtering</td></tr></tbody></table>
-<p><em>CRITICAL CAVEAT: The medium-scale result is based on n=7 valid traces. This is a preliminary signal requiring confirmation with n>20 per model.</em></p>
+<table><thead><tr><th>Regime</th><th>Scale Range</th><th>Observed ASR</th><th>Mechanism</th></tr></thead><tbody><tr><td>Incapable Safety</td><td>Sub-3B</td><td>0-21%</td><td>Models cannot process attacks as intended; fail safely through incapability</td></tr><tr><td>Capability-Safety Gap</td><td>7B-70B (preliminary)</td><td>4-17% (n=20-25/model, validated)</td><td>Moderate vulnerability; gap narrower than initially hypothesized</td></tr><tr><td>Aligned Frontier</td><td>Closed-source frontier</td><td>&#x3C;2%</td><td>Extensive RLHF, red-teaming, API-level filtering</td></tr></tbody></table>
+<p><em>UPDATE (2026-02-08): The original 85.7% ASR for medium-scale models was invalidated by validation study #51 (n=20-25 per model, 8 models, structural classification). The signal was a heuristic classifier artifact. Validated ASR range: 4-17% across all scales with overlapping confidence intervals. The three-tier framework remains directionally valid but the mid-tier gap is narrower than originally reported.</em></p>
 <h3 id="23-vla-specific-safety-mechanisms">2.3 VLA-Specific Safety Mechanisms</h3>
 
 
