@@ -1,0 +1,104 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  status: 'available' | 'beta' | 'launching';
+  icon: string;
+  href: string;
+}
+
+const { title, description, status, icon, href } = Astro.props;
+
+const statusLabels = {
+  available: 'Available Now',
+  beta: 'Beta Access',
+  launching: 'Launching 2027'
+};
+
+const statusColors = {
+  available: 'var(--recovery-stable)',
+  beta: 'var(--accent-primary)',
+  launching: 'var(--failure-warning)'
+};
+---
+
+<a href={href} class="service-card">
+  <div class="service-icon" aria-hidden="true">{icon}</div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <div class="service-footer">
+    <span class="service-status" style={`color: ${statusColors[status]}`}>
+      {statusLabels[status]}
+    </span>
+    <span class="service-arrow" aria-hidden="true">→</span>
+  </div>
+</a>
+
+<style>
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-decoration: none;
+    border-bottom: none;
+    transition: border-color var(--transition-duration) var(--transition-easing),
+                box-shadow var(--transition-duration) var(--transition-easing);
+    height: 100%;
+  }
+
+  .service-card:hover {
+    border-color: var(--border-emphasis);
+    box-shadow: 0 0 20px var(--glow);
+    border-bottom: none;
+  }
+
+  .service-icon {
+    font-size: 1.5rem;
+    color: var(--accent-primary);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .service-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.125rem;
+    color: var(--fg);
+  }
+
+  .service-card p {
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    flex-grow: 1;
+    margin-bottom: 1rem;
+  }
+
+  .service-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  .service-status {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+
+  .service-arrow {
+    color: var(--accent-primary);
+    font-size: 1rem;
+    opacity: 0.7;
+    transition: transform var(--transition-duration) var(--transition-easing);
+  }
+
+  .service-card:hover .service-arrow {
+    transform: translateX(4px);
+  }
+</style>

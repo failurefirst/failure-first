@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import KeyMetrics from '../../components/KeyMetrics.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<BaseLayout
+  title="Work With Us | Failure-First"
+  description="Red teaming, safety certification, and research intelligence for embodied AI systems. Services grounded in 17,593 prompts tested across 102+ models."
+  keywords="AI red teaming, safety certification, embodied AI testing, adversarial testing"
+>
+  <PageHeader
+    title="Work With Us"
+    tagline="Services grounded in adversarial research"
+  />
+
+  <section>
+    <p>
+      Our commercial services derive from the largest open adversarial dataset for
+      embodied AI. Every engagement is backed by 17,593 tested prompts, 79 documented
+      attack techniques, and findings from 102+ models across 6 research eras (2022-2025).
+    </p>
+  </section>
+
+  <section>
+    <h2>Services</h2>
+    <div class="service-grid">
+      <ServiceCard
+        title="Intelligence Briefs"
+        description="Custom research synthesis, threat landscape analysis, and policy intelligence for internal teams and insurers. Monthly briefs or one-time deep-dives."
+        status="available"
+        icon="◈"
+        href="/services/intelligence-briefs/"
+      />
+
+      <ServiceCard
+        title="Red Team Assessments"
+        description="Adversarial testing for foundation models, agentic systems, and multi-agent environments. Tailored attack scenarios from our validated taxonomy."
+        status="available"
+        icon="◎"
+        href="/services/red-team-assessments/"
+      />
+
+      <ServiceCard
+        title="Safety Audits"
+        description="Third-party safety assessment for humanoid robots and VLA systems. Evidence-based certification against Multi-Agent Safety Standards."
+        status="launching"
+        icon="✓"
+        href="/services/safety-audits/"
+      />
+
+      <ServiceCard
+        title="Advisory"
+        description="Strategic guidance on EU AI Act compliance, NIST frameworks, insurance requirements, and regulatory positioning."
+        status="beta"
+        icon="⬢"
+        href="/services/advisory/"
+      />
+    </div>
+  </section>
+
+  <section>
+    <h2>Why Failure-First?</h2>
+
+    <KeyMetrics />
+
+    <ul class="evidence-list">
+      <li>
+        Attack taxonomy grounded in empirical testing, not hypothetical scenarios
+      </li>
+      <li>
+        6 documented eras of jailbreak evolution from DAN personas (2022) to reasoning model exploits (2025)
+      </li>
+      <li>
+        Policy synthesis from 100-200+ sources per report, covering EU AI Act, NIST AI RMF, ISO standards
+      </li>
+      <li>
+        Open-source validation via public repository with 19 published research reports
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Get Started</h2>
+    <p>
+      Discovery calls are free. We scope engagements based on your deployment
+      timeline, risk profile, and regulatory obligations. Typical scoping takes
+      5 business days.
+    </p>
+    <div class="cta-container">
+      <LinkButton href="mailto:services@failurefirst.org" text="Email services@failurefirst.org" />
+    </div>
+    <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem;">
+      Alternative: <a href="/contact/">Contact form</a>
+    </p>
+  </section>
+
+  <WarningBox>
+    <p>
+      <strong>Responsible Disclosure Agreement:</strong> All engagements include a
+      coordinated disclosure agreement. Discovered vulnerabilities are reported to
+      you first, with mutually agreed timelines for public findings.
+    </p>
+  </WarningBox>
+</BaseLayout>
+
+<style>
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .evidence-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .evidence-list li {
+    padding: 0.75rem 0;
+    padding-left: 2rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9375rem;
+  }
+
+  .evidence-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--recovery-stable);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+  }
+
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

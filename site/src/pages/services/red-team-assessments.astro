@@ -1,0 +1,205 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import ProcessTimeline from '../../components/ProcessTimeline.astro';
+
+const process = [
+  {
+    week: 'Week 1',
+    title: 'Scoping & Threat Modeling',
+    tasks: [
+      'Review system architecture and deployment context',
+      'Identify high-risk interaction patterns',
+      'Select attack scenarios from taxonomy',
+      'Define success criteria and reporting thresholds'
+    ]
+  },
+  {
+    week: 'Weeks 2-3',
+    title: 'Adversarial Testing',
+    tasks: [
+      'Execute tailored attack scenarios (50-100 prompts)',
+      'Document model responses and failure modes',
+      'Test multi-turn interaction chains',
+      'Validate findings across model versions'
+    ]
+  },
+  {
+    week: 'Week 4',
+    title: 'Analysis & Remediation',
+    tasks: [
+      'Classify vulnerabilities by severity',
+      'Map findings to regulatory frameworks',
+      'Develop remediation recommendations',
+      'Deliver findings report and debrief call'
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Red Team Assessments | Services"
+  description="Adversarial testing for foundation models, agentic systems, and multi-agent environments using validated attack taxonomy."
+>
+  <PageHeader
+    title="Red Team Assessments"
+    tagline="Adversarial testing grounded in empirical research"
+    backLink="/services/"
+    backText="All Services"
+  />
+
+  <section>
+    <h2>What We Test</h2>
+    <p>
+      Red team assessments apply our validated attack taxonomy to your specific
+      system architecture. We test foundation models, agentic workflows, and
+      multi-agent environments against 79 documented attack techniques across
+      6 eras of jailbreak evolution.
+    </p>
+  </section>
+
+  <section>
+    <h2>Methodology</h2>
+    <ProcessTimeline steps={process} />
+  </section>
+
+  <section>
+    <h2>Attack Taxonomy</h2>
+    <p>
+      Our testing draws from 17,593 prompts tested across 102+ models. Coverage includes:
+    </p>
+    <div class="taxonomy-grid">
+      <div class="taxonomy-category">
+        <h3>Persona Hijacking</h3>
+        <p>Role-playing attacks that exploit instruction-following behavior (DAN, STAN, Developer Mode)</p>
+      </div>
+      <div class="taxonomy-category">
+        <h3>Constraint Erosion</h3>
+        <p>Gradual relaxation of safety boundaries through multi-turn interaction</p>
+      </div>
+      <div class="taxonomy-category">
+        <h3>Format Exploitation</h3>
+        <p>Encoding techniques, Base64, ROT13, character substitution to bypass content filters</p>
+      </div>
+      <div class="taxonomy-category">
+        <h3>Refusal Suppression</h3>
+        <p>Explicit discouragement of safety responses, pre-emptive agreement framing</p>
+      </div>
+      <div class="taxonomy-category">
+        <h3>Reasoning Manipulation</h3>
+        <p>Extended reasoning model exploits that lead models toward harmful conclusions</p>
+      </div>
+      <div class="taxonomy-category">
+        <h3>Multi-Agent Tactics</h3>
+        <p>Environment shaping, delegation cascades, narrative erosion in agent collectives</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Deliverables</h2>
+    <ul class="deliverables-list">
+      <li>
+        <strong>Findings Report:</strong> 30-50 page PDF with vulnerability classification,
+        severity ratings, and evidence screenshots
+      </li>
+      <li>
+        <strong>Attack Scenario Database:</strong> Complete prompt set used in testing
+        (JSONL format for integration into CI/CD)
+      </li>
+      <li>
+        <strong>Remediation Playbook:</strong> Specific countermeasures mapped to each
+        vulnerability class
+      </li>
+      <li>
+        <strong>Regulatory Mapping:</strong> How findings relate to EU AI Act, NIST AI RMF,
+        ISO standards
+      </li>
+      <li>
+        <strong>Debrief Call:</strong> 90-minute technical walkthrough with your team
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <p>
+      Engagements are scoped based on system complexity, model count, and regulatory
+      requirements. Typical range: contact for pricing. All engagements include a
+      coordinated disclosure agreement.
+    </p>
+  </section>
+
+  <section>
+    <h2>Get Started</h2>
+    <p style="text-align: center; margin-bottom: 1.5rem;">
+      Free mini-assessment available (10 scenarios, 2-page brief, 1-week delivery).
+      Full assessments typically take 3-4 weeks from kickoff.
+    </p>
+    <div class="cta-container">
+      <LinkButton href="mailto:services@failurefirst.org?subject=Red%20Team%20Assessment%20Inquiry" text="Request Assessment" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .taxonomy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .taxonomy-category {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .taxonomy-category h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    color: var(--accent-primary);
+  }
+
+  .taxonomy-category p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+  }
+
+  .deliverables-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .deliverables-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .deliverables-list li:last-child {
+    border-bottom: none;
+  }
+
+  .deliverables-list strong {
+    color: var(--fg);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .taxonomy-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

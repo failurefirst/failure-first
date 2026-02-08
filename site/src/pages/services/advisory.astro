@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<BaseLayout
+  title="Advisory Services | Services"
+  description="Strategic guidance on EU AI Act compliance, NIST frameworks, insurance requirements, and regulatory positioning for embodied AI systems."
+>
+  <PageHeader
+    title="Advisory Services"
+    tagline="Strategic guidance for AI safety positioning"
+    backLink="/services/"
+    backText="All Services"
+  />
+
+  <WarningBox title="Beta Program">
+    <p>
+      Advisory services are currently offered on a limited basis. We work with 3-5
+      strategic clients at a time to ensure deep engagement quality.
+    </p>
+    <p style="margin-top: 0.75rem;">
+      <a href="mailto:services@failurefirst.org?subject=Advisory%20Services%20Inquiry">
+        Inquire about availability
+      </a>
+    </p>
+  </WarningBox>
+
+  <section>
+    <h2>What We Advise On</h2>
+    <p>
+      Strategic guidance for organizations navigating the intersection of AI safety,
+      regulatory compliance, and commercial deployment. We help translate research
+      findings into defensible safety postures and compliant system architectures.
+    </p>
+  </section>
+
+  <section>
+    <h2>Advisory Areas</h2>
+
+    <div class="advisory-area">
+      <h3>EU AI Act Compliance</h3>
+      <p>
+        Gap analysis between current testing practices and Article 9 requirements for
+        high-risk AI systems. Evidence package development for conformity assessments,
+        technical documentation templates, risk management system design.
+      </p>
+      <ul class="area-deliverables">
+        <li>Compliance gap report with remediation roadmap</li>
+        <li>Technical documentation templates for notified bodies</li>
+        <li>Risk management system architecture review</li>
+        <li>Ongoing regulatory intelligence on implementation guidance</li>
+      </ul>
+    </div>
+
+    <div class="advisory-area">
+      <h3>NIST AI RMF Implementation</h3>
+      <p>
+        Practical implementation of NIST AI Risk Management Framework functions (Govern,
+        Map, Measure, Manage) for embodied AI systems. Control selection, evidence
+        gathering strategies, and documentation for government procurement.
+      </p>
+      <ul class="area-deliverables">
+        <li>NIST AI RMF function mapping to system architecture</li>
+        <li>Control implementation guidance by risk category</li>
+        <li>Evidence collection playbook for measurement</li>
+        <li>Government procurement positioning strategy</li>
+      </ul>
+    </div>
+
+    <div class="advisory-area">
+      <h3>Insurance Requirements</h3>
+      <p>
+        Translation of research findings into insurer-legible risk metrics. Quantitative
+        evidence packages for underwriting, actuarial risk modeling support, and claims
+        defense documentation strategies.
+      </p>
+      <ul class="area-deliverables">
+        <li>Quantitative risk metrics dashboard for underwriters</li>
+        <li>Pre-incident evidence package preparation</li>
+        <li>Claims defense documentation protocols</li>
+        <li>Insurer presentation materials and technical Q&A prep</li>
+      </ul>
+    </div>
+
+    <div class="advisory-area">
+      <h3>Safety Standards Participation</h3>
+      <p>
+        Strategic positioning in emerging safety standards development (ISO, IEEE, BSI).
+        Comment drafting for regulatory consultations, consortium membership guidance,
+        and standards working group representation strategy.
+      </p>
+      <ul class="area-deliverables">
+        <li>Standards landscape analysis and participation roadmap</li>
+        <li>Comment drafting for regulatory consultations</li>
+        <li>Working group participation strategy</li>
+        <li>Industry coalition positioning advice</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Engagement Models</h2>
+
+    <div class="engagement-grid">
+      <div class="engagement-type">
+        <h3>Retained Advisory</h3>
+        <p>
+          Quarterly strategic planning sessions, ongoing regulatory intelligence, and
+          on-demand consultation for urgent positioning questions. 6-12 month retainer.
+        </p>
+        <p class="engagement-price">Contact for pricing</p>
+      </div>
+
+      <div class="engagement-type">
+        <h3>Project-Based</h3>
+        <p>
+          Specific deliverable-focused engagements (e.g., EU AI Act gap analysis,
+          NIST RMF implementation plan, insurer presentation deck). 4-8 week delivery.
+        </p>
+        <p class="engagement-price">Contact for pricing</p>
+      </div>
+
+      <div class="engagement-type">
+        <h3>Board Briefings</h3>
+        <p>
+          One-time executive briefings on AI safety landscape, regulatory developments,
+          or liability exposure. 60-90 minute presentation with Q&A, supporting materials.
+        </p>
+        <p class="engagement-price">Contact for pricing</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Who This Is For</h2>
+    <ul class="audience-list">
+      <li>CTOs and CPOs navigating regulatory requirements for first deployment</li>
+      <li>General Counsel teams building defensible safety documentation</li>
+      <li>Policy teams responding to government consultations on AI regulation</li>
+      <li>Risk management teams quantifying AI system liability exposure</li>
+      <li>Standards bodies seeking empirical grounding for safety requirements</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Get Started</h2>
+    <p style="text-align: center; margin-bottom: 1.5rem;">
+      Initial consultation is free. We scope advisory engagements based on your
+      regulatory timeline and internal capability gaps.
+    </p>
+    <div class="cta-container">
+      <LinkButton href="mailto:services@failurefirst.org?subject=Advisory%20Services%20Inquiry" text="Schedule Consultation" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .advisory-area {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .advisory-area h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.125rem;
+    color: var(--accent-primary);
+  }
+
+  .advisory-area > p {
+    margin-bottom: 1rem;
+    color: var(--fg-dim);
+  }
+
+  .area-deliverables {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 1rem;
+    border-left: 2px solid var(--border);
+  }
+
+  .area-deliverables li {
+    padding: 0.375rem 0;
+    padding-left: 0.75rem;
+    position: relative;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+  }
+
+  .area-deliverables li::before {
+    content: "→";
+    position: absolute;
+    left: -0.5rem;
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+  }
+
+  .engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .engagement-type {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .engagement-type h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1rem;
+    color: var(--fg);
+  }
+
+  .engagement-type > p {
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+    flex-grow: 1;
+  }
+
+  .engagement-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .audience-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .audience-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+  }
+
+  .audience-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .engagement-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

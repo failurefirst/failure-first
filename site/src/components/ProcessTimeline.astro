@@ -1,0 +1,125 @@
+---
+interface Step {
+  week: string;
+  title: string;
+  tasks: string[];
+}
+
+interface Props {
+  steps: Step[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="process-timeline">
+  {steps.map((step, index) => (
+    <div class="timeline-step">
+      <div class="step-marker">
+        <div class="step-number">{index + 1}</div>
+        {index < steps.length - 1 && <div class="step-line" aria-hidden="true"></div>}
+      </div>
+      <div class="step-content">
+        <div class="step-week">{step.week}</div>
+        <h3 class="step-title">{step.title}</h3>
+        <ul class="step-tasks">
+          {step.tasks.map((task) => (
+            <li>{task}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .process-timeline {
+    margin: 2rem 0;
+  }
+
+  .timeline-step {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .timeline-step:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  .step-marker {
+    flex-shrink: 0;
+    position: relative;
+    padding-top: 0.25rem;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    background: var(--bg);
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-line {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: calc(100% + 2rem);
+    background: var(--border);
+  }
+
+  .step-content {
+    flex-grow: 1;
+    padding-bottom: 0.5rem;
+  }
+
+  .step-week {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.25rem;
+  }
+
+  .step-title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--fg);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .step-tasks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .step-tasks li {
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+    padding: 0.25rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .step-tasks li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+  }
+</style>

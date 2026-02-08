@@ -1,0 +1,158 @@
+---
+interface Tier {
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  cta?: string;
+  ctaHref?: string;
+  highlight?: boolean;
+}
+
+interface Props {
+  tiers: Tier[];
+}
+
+const { tiers } = Astro.props;
+---
+
+<div class="pricing-table" role="table" aria-label="Pricing tiers">
+  {tiers.map((tier) => (
+    <div class:list={['pricing-tier', { 'pricing-tier--highlight': tier.highlight }]} role="row">
+      <div class="tier-header">
+        <h3 class="tier-name">{tier.name}</h3>
+        <div class="tier-price">{tier.price}</div>
+        <p class="tier-description">{tier.description}</p>
+      </div>
+
+      <ul class="tier-features" role="list">
+        {tier.features.map((feature) => (
+          <li>{feature}</li>
+        ))}
+      </ul>
+
+      {tier.cta && tier.ctaHref && (
+        <div class="tier-cta">
+          <a href={tier.ctaHref} class="link-button">
+            {tier.cta}
+          </a>
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
+<style>
+  .pricing-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .pricing-tier {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .pricing-tier--highlight {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 20px var(--glow);
+    position: relative;
+  }
+
+  .pricing-tier--highlight::before {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-primary);
+    color: var(--bg);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .tier-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .tier-name {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    color: var(--fg);
+  }
+
+  .tier-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.75rem;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .tier-description {
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    margin: 0;
+  }
+
+  .tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+  }
+
+  .tier-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .tier-features li:last-child {
+    border-bottom: none;
+  }
+
+  .tier-features li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .tier-cta {
+    margin-top: auto;
+  }
+
+  .tier-cta .link-button {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-table {
+      grid-template-columns: 1fr;
+    }
+
+    .pricing-tier--highlight::before {
+      top: 1rem;
+      left: 1rem;
+      transform: none;
+    }
+  }
+</style>

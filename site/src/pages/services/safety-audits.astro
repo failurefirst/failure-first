@@ -1,0 +1,196 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import WarningBox from '../../components/WarningBox.astro';
+import LinkButton from '../../components/LinkButton.astro';
+---
+
+<BaseLayout
+  title="Safety Audits | Services"
+  description="Third-party safety assessment for humanoid robots and VLA systems. Evidence-based certification launching 2027."
+>
+  <PageHeader
+    title="Safety Audits"
+    tagline="Independent certification for embodied AI systems"
+    backLink="/services/"
+    backText="All Services"
+  />
+
+  <WarningBox title="Launching 2027">
+    <p>
+      Safety certification services are currently in development. The Multi-Agent
+      Safety Standards framework is being validated with industry partners. We expect
+      to offer commercial certifications in Q2 2027.
+    </p>
+    <p style="margin-top: 0.75rem;">
+      <a href="mailto:services@failurefirst.org?subject=Safety%20Certification%20Early%20Access">
+        Register for early access
+      </a>
+    </p>
+  </WarningBox>
+
+  <section>
+    <h2>What We Will Certify</h2>
+    <p>
+      Third-party safety assessment for humanoid robots and Vision-Language-Action (VLA)
+      systems operating in human environments. Certification validates adversarial
+      robustness, multi-agent safety, and failure recovery capabilities against
+      evidence-based standards.
+    </p>
+  </section>
+
+  <section>
+    <h2>Certification Framework</h2>
+    <div class="framework-grid">
+      <div class="framework-domain">
+        <h3>Adversarial Robustness</h3>
+        <ul>
+          <li>Validated against 17,593 prompt jailbreak corpus</li>
+          <li>VLA-specific attack scenarios (visual adversarial patches, action-space perturbation)</li>
+          <li>Multi-turn interaction resilience testing</li>
+          <li>Quantified success rate thresholds by severity class</li>
+        </ul>
+      </div>
+
+      <div class="framework-domain">
+        <h3>Multi-Agent Safety</h3>
+        <ul>
+          <li>Environment shaping resistance</li>
+          <li>Delegation cascade failure modes</li>
+          <li>Narrative erosion detection capabilities</li>
+          <li>Inter-agent trust calibration</li>
+        </ul>
+      </div>
+
+      <div class="framework-domain">
+        <h3>Failure Recovery</h3>
+        <ul>
+          <li>Human intervention mechanisms</li>
+          <li>Graceful degradation paths</li>
+          <li>Reentry support after adversarial input</li>
+          <li>Logging and audit trail completeness</li>
+        </ul>
+      </div>
+
+      <div class="framework-domain">
+        <h3>Regulatory Alignment</h3>
+        <ul>
+          <li>EU AI Act Article 9 compliance evidence</li>
+          <li>NIST AI RMF function mapping</li>
+          <li>ISO 42001 control coverage</li>
+          <li>Insurer risk assessment compatibility</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certification Levels</h2>
+    <p>
+      Three-tier system (Bronze/Silver/Gold) based on adversarial success rate thresholds,
+      recovery capability maturity, and audit evidence completeness. Certification is
+      valid for 12 months and requires annual re-assessment.
+    </p>
+  </section>
+
+  <section>
+    <h2>Target Market</h2>
+    <ul class="market-list">
+      <li>Humanoid robot manufacturers deploying in commercial settings (warehouses, retail, hospitality)</li>
+      <li>Home robot companies requiring consumer safety validation</li>
+      <li>Multi-agent AI platform providers (agent orchestration frameworks, autonomous research teams)</li>
+      <li>Organizations seeking insurer-recognized safety credentials</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Development Partners</h2>
+    <p>
+      We are seeking 3-5 design partners to validate the certification framework.
+      Partners receive free pilot certification and ongoing consultation in exchange
+      for feedback on standards development.
+    </p>
+    <p style="text-align: center; margin-top: 1.5rem;">
+      <LinkButton href="mailto:services@failurefirst.org?subject=Certification%20Design%20Partner" text="Apply as Design Partner" />
+    </p>
+  </section>
+
+  <section>
+    <h2>Updates</h2>
+    <p>
+      Framework development updates are published in the <a href="/policy/">policy brief series</a>.
+      Subscribe to the <a href="/blog/">blog</a> for monthly progress reports.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .framework-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .framework-domain {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .framework-domain h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1rem;
+    color: var(--accent-primary);
+  }
+
+  .framework-domain ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .framework-domain li {
+    padding: 0.375rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+  }
+
+  .framework-domain li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-weight: bold;
+  }
+
+  .market-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .market-list li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+  }
+
+  .market-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  @media (max-width: 768px) {
+    .framework-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

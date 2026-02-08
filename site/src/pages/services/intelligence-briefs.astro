@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import PricingTable from '../../components/PricingTable.astro';
+
+const tiers = [
+  {
+    name: 'One-Time Brief',
+    price: 'Contact for pricing',
+    description: 'Custom deep-dive on a specific topic',
+    features: [
+      '15-20 page PDF report',
+      'Custom research synthesis',
+      '1 debrief call (60 minutes)',
+      '10 business day delivery',
+      'Unlimited revisions (30 days)'
+    ],
+    cta: 'Request Scope',
+    ctaHref: 'mailto:services@failurefirst.org?subject=Intelligence%20Brief%20Inquiry'
+  },
+  {
+    name: 'Professional',
+    price: 'Contact for pricing',
+    description: 'Monthly intelligence for internal teams',
+    features: [
+      'Monthly brief (8-10 pages)',
+      'Early policy report access',
+      'Slack channel access',
+      'Quarterly trend analysis',
+      '1 custom research request/year'
+    ],
+    cta: 'Get Pricing',
+    ctaHref: 'mailto:subscriptions@failurefirst.org?subject=Professional%20Subscription',
+    highlight: true
+  },
+  {
+    name: 'Enterprise',
+    price: 'Contact for pricing',
+    description: 'Full intelligence partnership',
+    features: [
+      'All Professional features',
+      'Custom research (4 reports/year)',
+      'Quarterly strategic briefings',
+      '8 hours consultation/year',
+      'Multi-stakeholder distribution'
+    ],
+    cta: 'Schedule Call',
+    ctaHref: 'mailto:subscriptions@failurefirst.org?subject=Enterprise%20Subscription'
+  }
+];
+---
+
+<BaseLayout
+  title="Intelligence Briefs | Services"
+  description="Custom research synthesis, threat landscape analysis, and policy intelligence for AI safety teams and insurers."
+>
+  <PageHeader
+    title="Intelligence Briefs"
+    tagline="Research synthesis for decision makers"
+    backLink="/services/"
+    backText="All Services"
+  />
+
+  <section>
+    <h2>What You Get</h2>
+    <p>
+      Intelligence Briefs distill the research corpus into actionable insights for
+      internal teams, boards, insurers, and regulators. Each brief synthesizes
+      100-200+ sources, covering threat landscape evolution, model vulnerability
+      patterns, policy developments, and industry benchmarks.
+    </p>
+  </section>
+
+  <section>
+    <h2>Sample Topics</h2>
+    <ul class="topic-list">
+      <li>
+        <strong>VLA Safety Landscape 2026:</strong> Threat assessment for Vision-Language-Action
+        models in embodied AI systems, covering jailbreak transfer rates, adversarial
+        patch vulnerabilities, and simulation vs. real-world failure modes
+      </li>
+      <li>
+        <strong>Multi-Agent Attack Surface Analysis:</strong> How adversarial prompts
+        propagate in multi-agent environments, delegation cascades, and environment
+        shaping tactics
+      </li>
+      <li>
+        <strong>EU AI Act Compliance Gap Analysis:</strong> Coverage gaps between current
+        testing practices and regulatory requirements, evidence standards for high-risk
+        AI systems
+      </li>
+      <li>
+        <strong>Insurance Due Diligence Package:</strong> Safety assessment for investment
+        targets or underwriting decisions, quantitative risk metrics, litigation exposure
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pricing</h2>
+    <PricingTable tiers={tiers} />
+  </section>
+
+  <section>
+    <h2>Who This Is For</h2>
+    <ul class="audience-list">
+      <li>AI safety teams needing external validation of internal findings</li>
+      <li>Boards and executives requiring concise threat landscape briefings</li>
+      <li>Insurers conducting due diligence on AI system deployments</li>
+      <li>VCs evaluating safety posture of portfolio companies</li>
+      <li>Policy teams tracking regulatory developments across jurisdictions</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Sample Deliverable</h2>
+    <p>
+      View <a href="/policy/">published policy reports</a> (19 available) to see the
+      research depth and synthesis quality. Commercial briefs follow the same evidence
+      standards but are tailored to your specific questions and stakeholder needs.
+    </p>
+  </section>
+
+  <section>
+    <h2>Get Started</h2>
+    <p style="text-align: center; margin-bottom: 1.5rem;">
+      Typical scoping takes 3-5 business days. First call is free.
+    </p>
+    <div class="cta-container">
+      <LinkButton href="mailto:services@failurefirst.org?subject=Intelligence%20Brief%20Inquiry" text="Request Scoping Call" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .topic-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .topic-list li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .topic-list strong {
+    color: var(--accent-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .audience-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .audience-list li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+  }
+
+  .audience-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+</style>
