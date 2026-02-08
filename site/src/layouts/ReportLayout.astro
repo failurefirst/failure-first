@@ -11,7 +11,10 @@ interface Props {
   status?: 'active' | 'draft' | 'complete';
 }
 
-const { title, description, image, reportNumber, classification, date, status = 'draft' } = Astro.props.frontmatter;
+// Astro markdown layouts pass frontmatter under Astro.props.frontmatter.
+// Fallback to Astro.props so this layout still works if used as a component.
+const props = Astro.props?.frontmatter ?? Astro.props;
+const { title, description, image, reportNumber, classification, date, status = 'draft' } = props;
 
 const breadcrumbs = [
   { label: "Research", href: "/research/" },
