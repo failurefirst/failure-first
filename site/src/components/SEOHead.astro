@@ -158,6 +158,18 @@ const jsonLdArticle = isResearchPage ? {
 {publishedDate && <meta property="article:published_time" content={publishedDate} />}
 {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
 
+<!-- Google Scholar Meta Tags (for research papers) -->
+{isResearchPage && (
+  <>
+    <meta name="citation_title" content={title} />
+    <meta name="citation_author" content={author} />
+    {publishedDate && <meta name="citation_publication_date" content={publishedDate.split('T')[0]} />}
+    <meta name="citation_journal_title" content={siteName} />
+    <meta name="citation_pdf_url" content={canonicalURL} />
+    <meta name="citation_abstract_html_url" content={canonicalURL} />
+  </>
+)}
+
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
 <script type="application/ld+json" set:html={JSON.stringify(jsonLdBase)} />
