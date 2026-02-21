@@ -1,0 +1,127 @@
+{
+  "name": "Agentic AI and the Cyber Arms Race",
+  "children": [
+    {
+      "name": "Core Concept",
+      "children": [
+        {
+          "name": "Agentic AI Paradigm Shift"
+        },
+        {
+          "name": "Task Automation and Human Augmentation"
+        },
+        {
+          "name": "Co-evolutionary Red vs Blue Dynamics"
+        }
+      ]
+    },
+    {
+      "name": "Technical Architecture",
+      "children": [
+        {
+          "name": "Centralized Reinforcement Learning Agent (CARL)",
+          "children": [
+            {
+              "name": "Large Reverse Engineering Model (LREM)"
+            },
+            {
+              "name": "Log Analysis Agent"
+            },
+            {
+              "name": "Networking and Traversal Agent"
+            },
+            {
+              "name": "Vulnerability Finder Agent"
+            }
+          ]
+        },
+        {
+          "name": "Multi-agent Orchestration Platforms (e.g., CrewAI)"
+        }
+      ]
+    },
+    {
+      "name": "Cyber Warfare Implications",
+      "children": [
+        {
+          "name": "Attacker Advantages",
+          "children": [
+            {
+              "name": "Automated Reconnaissance"
+            },
+            {
+              "name": "Rapid Exploit Generation"
+            },
+            {
+              "name": "Capability Democratization"
+            }
+          ]
+        },
+        {
+          "name": "Defender Challenges",
+          "children": [
+            {
+              "name": "Loss of Decision Speed Advantage"
+            },
+            {
+              "name": "High Cost of Defense Maintenance"
+            },
+            {
+              "name": "Adversarial AI Vulnerabilities"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Geopolitical Impact",
+      "children": [
+        {
+          "name": "Nuclear Proliferation Analogy",
+          "children": [
+            {
+              "name": "Lower Barriers to Entry"
+            },
+            {
+              "name": "Strategic Deterrence Shifting"
+            },
+            {
+              "name": "Horizontal vs Vertical Proliferation"
+            }
+          ]
+        },
+        {
+          "name": "Power Redistribution",
+          "children": [
+            {
+              "name": "Empowerment of Small/Non-state Actors"
+            },
+            {
+              "name": "Asymmetric Tactics"
+            },
+            {
+              "name": "Erosion of Traditional Power Segregation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Systemic Failure Modes",
+      "children": [
+        {
+          "name": "Adversarial Prompting and Injection"
+        },
+        {
+          "name": "Lack of Transparency and Verifiability"
+        },
+        {
+          "name": "Unpredictable Escalation without Treaties"
+        },
+        {
+          "name": "Structural Mismatch in Security Models"
+        }
+      ]
+    }
+  ]
+}

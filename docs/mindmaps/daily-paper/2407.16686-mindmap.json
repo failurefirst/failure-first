@@ -1,0 +1,128 @@
+{
+  "name": "AutoJailbreak for GPT-4V",
+  "children": [
+    {
+      "name": "Core Methodology",
+      "children": [
+        {
+          "name": "Red-Teaming LLMs",
+          "children": [
+            {
+              "name": "GPT-4 as Optimizer"
+            },
+            {
+              "name": "Prompt Pool Construction"
+            }
+          ]
+        },
+        {
+          "name": "Weak-to-Strong Prompting",
+          "children": [
+            {
+              "name": "Negative Sample Short Prompts"
+            },
+            {
+              "name": "Iterative Refinement"
+            },
+            {
+              "name": "Contrastive Learning Strategy"
+            }
+          ]
+        },
+        {
+          "name": "Attack Enhancement",
+          "children": [
+            {
+              "name": "Prefix Injection"
+            },
+            {
+              "name": "Refusal Suppression"
+            },
+            {
+              "name": "Length Control"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Optimization Techniques",
+      "children": [
+        {
+          "name": "Efficient Search",
+          "children": [
+            {
+              "name": "Early Stopping Strategy"
+            },
+            {
+              "name": "Hypothesis Testing"
+            },
+            {
+              "name": "Token Expenditure Reduction"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Experimental Results",
+      "children": [
+        {
+          "name": "Success Rates",
+          "children": [
+            {
+              "name": "95.3% Attack Success Rate"
+            },
+            {
+              "name": "Bypassing RLHF Defense"
+            },
+            {
+              "name": "Bypassing Privacy Filters"
+            }
+          ]
+        },
+        {
+          "name": "Performance Biases",
+          "children": [
+            {
+              "name": "Hollywood vs Asian Recognition"
+            },
+            {
+              "name": "Training Data Disparity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Safety Implications",
+      "children": [
+        {
+          "name": "Critical Failure Modes",
+          "children": [
+            {
+              "name": "Privacy Leakage"
+            },
+            {
+              "name": "Facial Recognition Vulnerability"
+            },
+            {
+              "name": "Adaptive Adversary Risks"
+            }
+          ]
+        },
+        {
+          "name": "Research Contribution",
+          "children": [
+            {
+              "name": "Failure-First AI Safety"
+            },
+            {
+              "name": "Systematic Guardrail Circumvention"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
