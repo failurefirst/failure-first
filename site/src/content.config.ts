@@ -24,4 +24,19 @@ const docs = defineCollection({
   }),
 });
 
-export const collections = { blog, docs };
+const dailyPaper = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/daily-paper' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    arxiv: z.string(),
+    authors: z.string(),
+    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position']),
+    tags: z.array(z.string()).default([]),
+    audio: z.string().optional(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs, dailyPaper };

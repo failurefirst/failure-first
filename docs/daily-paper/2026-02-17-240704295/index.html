@@ -1,0 +1,649 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Jailbreak Attacks and Defenses Against Large Language Models: A Survey | Daily Paper | Failure-First</title><meta name="description" content="Provides a comprehensive taxonomy of jailbreak attack methods (black-box and white-box) and defense strategies (prompt-level and model-level) for LLMs, with analysis of evaluation methodologies."><link rel="canonical" href="https://failurefirst.org/daily-paper/2026-02-17-240704295/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Jailbreak Attacks and Defenses Against Large Language Models: A Survey | Daily Paper | Failure-First"><meta property="og:description" content="Provides a comprehensive taxonomy of jailbreak attack methods (black-box and white-box) and defense strategies (prompt-level and model-level) for LLMs, with analysis of evaluation methodologies."><meta property="og:url" content="https://failurefirst.org/daily-paper/2026-02-17-240704295/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="Jailbreak Attacks and Defenses Against Large Language Models: A Survey | Daily Paper | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Jailbreak Attacks and Defenses Against Large Language Models: A Survey | Daily Paper | Failure-First"><meta name="twitter:description" content="Provides a comprehensive taxonomy of jailbreak attack methods (black-box and white-box) and defense strategies (prompt-level and model-level) for LLMs, with analysis of evaluation methodologies."><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="Jailbreak Attacks and Defenses Against Large Language Models: A Survey | Daily Paper | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-02-17"><!-- Google Scholar Meta Tags (for research papers) --><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><link rel="stylesheet" href="/assets/_slug_.BV0HTfXU.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.4MQlVLr6.css"></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" aria-haspopup="true" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>79 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" class="active" aria-current="page" data-astro-cid-pux6a34n> Daily Paper  </a>  </li><li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> Blog  </a>  </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/policy/" aria-haspopup="true" data-astro-cid-pux6a34n> Policy <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>19 reports</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>U-shaped curve</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> Manifesto  </a>  </li><li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> About  </a>  </li> </ul> </div> </nav>  <script type="module">const t=document.querySelector(".nav-toggle"),n=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");t&&n&&(t.addEventListener("click",()=>{const e=t.getAttribute("aria-expanded")==="true";t.setAttribute("aria-expanded",String(!e)),n.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&n.classList.contains("open")&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"),t.focus())}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"))}));o.forEach(e=>{const s=e.querySelector(":scope > a");s&&window.innerWidth<=768&&s.addEventListener("click",i=>{window.innerWidth<=768&&(i.preventDefault(),e.classList.toggle("mobile-open"))})});</script> <main id="main-content">  <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/daily-paper/" data-astro-cid-ilhxcym7>Daily Paper</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Jailbreak Attacks and Defenses Against Large Language Models: A Survey</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Daily Paper","item":"https://failurefirst.org/daily-paper/"},{"@type":"ListItem","position":3,"name":"Jailbreak Attacks and Defenses Against Large Language Models: A Survey"}]}</script>  <article class="daily-paper" data-astro-cid-4f4ngxwt> <header class="paper-header" data-astro-cid-4f4ngxwt> <div class="paper-meta-top" data-astro-cid-4f4ngxwt> <time class="paper-date" datetime="2026-02-17T00:00:00.000Z" data-astro-cid-4f4ngxwt>February 17, 2026</time> <span class="paper-series" data-astro-cid-4f4ngxwt>Daily Paper</span> </div> <h1 data-astro-cid-4f4ngxwt>Jailbreak Attacks and Defenses Against Large Language Models: A Survey</h1> <p class="paper-description" data-astro-cid-4f4ngxwt>Provides a comprehensive taxonomy of jailbreak attack methods (black-box and white-box) and defense strategies (prompt-level and model-level) for LLMs, with analysis of evaluation methodologies.</p> <div class="paper-meta-row" data-astro-cid-4f4ngxwt> <a href="https://arxiv.org/abs/2407.04295" class="arxiv-badge" target="_blank" rel="noopener noreferrer" data-astro-cid-4f4ngxwt>
+arXiv:2407.04295 </a> <span class="paper-type-badge" data-astro-cid-4f4ngxwt>Survey</span> </div> <p class="paper-authors" data-astro-cid-4f4ngxwt>Sibo Yi, Yule Liu, Zhen Sun, Tianshuo Cong et al.</p> <div class="paper-tags" data-astro-cid-4f4ngxwt> <span class="tag" data-astro-cid-4f4ngxwt>adversarial-prompts</span><span class="tag" data-astro-cid-4f4ngxwt>jailbreak-attacks</span><span class="tag" data-astro-cid-4f4ngxwt>safety-alignment</span><span class="tag" data-astro-cid-4f4ngxwt>prompt-injection</span><span class="tag" data-astro-cid-4f4ngxwt>llm-vulnerabilities</span><span class="tag" data-astro-cid-4f4ngxwt>defense-mechanisms</span> </div> </header>  <div class="paper-content" data-astro-cid-4f4ngxwt>  <h1 id="jailbreak-attacks-and-defenses-against-large-language-models-a-survey">Jailbreak Attacks and Defenses Against Large Language Models: A Survey</h1>
+<h2 id="overview">Overview</h2>
+<p><strong>Paper Type:</strong> Survey
+<strong>Focus:</strong> Provides a comprehensive taxonomy of jailbreak attack methods (black-box and white-box) and defense strategies (prompt-level and model-level) for LLMs, with analysis of evaluation methodologies.</p>
+<h3 id="failure-first-relevance">Failure-First Relevance</h3>
+<p>This survey directly addresses systematic failure modes in LLM safety alignment by cataloging how adversarial prompts exploit model vulnerabilities to bypass safety training. Understanding the taxonomy of attack vectors (black-box vs white-box) and corresponding defenses is critical for identifying gaps in current safety measures and designing more robust alignment techniques that account for diverse attack strategies rather than isolated failure cases.</p>
+<hr>
+<h2 id="abstract">Abstract</h2>
+<p>Large Language Models (LLMs) have performed exceptionally in various text-generative tasks, including question answering, translation, code completion, etc. However, the over-assistance of LLMs has raised the challenge of “jailbreaking”, which induces the model to generate malicious responses against the usage policy and society by designing adversarial prompts. With the emergence of jailbreak attack methods exploiting different vulnerabilities in LLMs, the corresponding safety alignment measures are also evolving. In this paper, we propose a comprehensive and detailed taxonomy of jailbreak attack and defense methods. For instance, the attack methods are divided into black-box and white-box attacks based on the transparency of the target model. Meanwhile, we classify defense methods into prompt-level and model-level defenses. Additionally, we further subdivide these attack and defense methods into distinct sub-classes and present a coherent diagram illustrating their relationships. We also conduct an investigation into the current evaluation methods and compare them from different perspectives. Our findings aim to inspire future research and practical implementations in safeguarding LLMs against adversarial attacks. Above all, although jailbreak remains a significant concern within the community, we believe that our work enhances the understanding of this domain and provides a foundation for developing more secure LLMs.</p>
+<hr>
+<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
+<p>(Audio overview not available)</p>
+<hr>
+<h2 id="-key-insights">📊 Key Insights</h2>
+<p>This briefing document provides a deep analysis of the current landscape of jailbreak attacks and defensive strategies for Large Language Models (LLMs). Based on recent research, it outlines the taxonomies of adversarial methods, examines model vulnerabilities, and summarizes current evaluative frameworks for safeguarding artificial intelligence against malicious exploitation.</p>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Large Language Models (LLMs) have demonstrated exceptional performance in text-generative tasks but are susceptible to “jailbreaking”—a process where adversarial prompts induce a model to bypass safety policies and generate harmful content. Despite rigorous safety alignment measures such as Reinforcement Learning with Human Feedback (RLHF), attackers exploit vulnerabilities in model architecture, implementation, and decoding processes.</p>
+<p>The threat landscape is divided into <strong>White-box attacks</strong>, where the attacker has internal access to gradients or logits, and <strong>Black-box attacks</strong>, which rely on prompt engineering, scenario nesting, and linguistic manipulation. Conversely, defenses are categorized into <strong>Prompt-level</strong>, which filter or perturb inputs, and <strong>Model-level</strong>, which involve retraining or architectural modifications. The research indicates an ongoing “arms race” where as models become more adept at detecting direct queries, attackers shift toward exploiting inherent model capabilities like role-playing, code execution, and in-context learning.</p>
+<hr>
+<h2 id="taxonomy-of-jailbreak-attacks">Taxonomy of Jailbreak Attacks</h2>
+<p>Attack methods are primarily categorized based on the level of transparency the attacker has regarding the target LLM’s internal state.</p>
+<h3 id="1-white-box-attacks">1. White-box Attacks</h3>
+<p>White-box attacks leverage the internal parameters of the model to optimize adversarial inputs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Category</th><th align="left">Description</th><th align="left">Key Methods/Research</th></tr></thead><tbody><tr><td align="left"><strong>Gradient-based</strong></td><td align="left">Manipulates inputs based on model gradients to elicit compliant responses to harmful commands.</td><td align="left">Greedy Coordinate Gradient (GCG), AutoDAN, ARCA, ASETF</td></tr><tr><td align="left"><strong>Logits-based</strong></td><td align="left">Optimizes prompts based on the probability distribution of output tokens to force toxic generation.</td><td align="left">COLD, DSN, Weak-to-strong attacks</td></tr><tr><td align="left"><strong>Fine-tuning-based</strong></td><td align="left">Retrains the target model with a small amount of malicious data to dismantle safety alignment.</td><td align="left">LoRA fine-tuning, RLHF-dismantling</td></tr></tbody></table>
+<h3 id="2-black-box-attacks">2. Black-box Attacks</h3>
+<p>Black-box attacks do not require internal model access and instead focus on manipulating the input-output interface.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Category</th><th align="left">Description</th><th align="left">Key Methods/Research</th></tr></thead><tbody><tr><td align="left"><strong>Template Completion</strong></td><td align="left">Embeds harmful questions into contextual templates (Scenario Nesting, Context-based, Code Injection).</td><td align="left">DeepInception, ReNeLLM, PANDORA, Multi-step Jailbreak Prompts (MJP)</td></tr><tr><td align="left"><strong>Prompt Rewriting</strong></td><td align="left">Uses niche languages, ciphers, or low-resource languages to bypass content moderation.</td><td align="left">Cipher-based, Genetic Algorithm-based, Low-resource Language attacks</td></tr><tr><td align="left"><strong>LLM-based Generation</strong></td><td align="left">Uses one LLM as an “attacker” to generate or optimize jailbreak prompts for a target LLM.</td><td align="left">Automated prompt optimization</td></tr></tbody></table>
+<hr>
+<h2 id="detailed-analysis-of-key-themes">Detailed Analysis of Key Themes</h2>
+<h3 id="the-vulnerability-of-safety-alignment">The Vulnerability of Safety Alignment</h3>
+<p>Current research reveals that safety alignment (SFT and RLHF) is surprisingly fragile. Fine-tuning-based attacks demonstrate that even predominantly benign datasets can inadvertently degrade safety guardrails.</p>
+<ul>
+<li><strong>Minimal Effort:</strong> Training with as few as 100 harmful examples within one GPU hour can significantly increase vulnerability.</li>
+<li><strong>High Success Rates:</strong> Fine-tuning an aligned model with just 340 adversarial examples can result in a 95% likelihood of generating harmful outputs.</li>
+<li><strong>Alignment Neutralization:</strong> Low-Rank Adaptation (LoRA) can reduce the rejection rate of models like Llama-2 and Mixtral to less than 1%.</li>
+</ul>
+<h3 id="exploitation-of-inherent-capabilities">Exploitation of Inherent Capabilities</h3>
+<p>As direct harmful queries (e.g., “How to make a bomb?”) are increasingly blocked by filters, attackers leverage the model’s “intelligence” to bypass safeguards:</p>
+<ul>
+<li><strong>Scenario Nesting (DeepInception):</strong> Exploits the LLM’s personification and role-playing abilities to “hypnotize” it into a jailbreaker persona.</li>
+<li><strong>In-Context Learning (ICA):</strong> Uses few-shot demonstrations of harmful content to pivot the model’s alignment. Increasing the number of demonstrations to 128 can achieve an 80% Attack Success Rate (ASR) against Claude 2.0.</li>
+<li><strong>Code Injection:</strong> Utilizing programming logic (e.g., string concatenation, Python function completion) to cloak adversarial intent. The CodeChameleon framework achieved an 86.6% ASR on GPT-4-1106.</li>
+<li><strong>Retrieval Augmented Generation (RAG) Exploitation:</strong> The PANDORA mechanism uses external knowledge bases to manipulate prompts, achieving 64.3% success on ChatGPT.</li>
+</ul>
+<h3 id="efficiency-and-transferability">Efficiency and Transferability</h3>
+<p>Adversarial suffixes generated via gradient-based methods like GCG are often unreadable to humans but highly effective across different models.</p>
+<ul>
+<li><strong>Nonsensical Prompts:</strong> While easily rejected by high-perplexity filters, optimized suffixes can transfer from open-source models to public black-box models like ChatGPT, Bard, and Claude.</li>
+<li><strong>Stealthiness:</strong> Newer methods like AutoDAN and ARCA focus on creating readable, natural-looking adversarial text that bypasses perplexity-based detection.</li>
+</ul>
+<hr>
+<h2 id="important-quotes-with-context">Important Quotes with Context</h2>
+<blockquote>
+<p>“The over-assistance of LLMs has raised the challenge of ‘jailbreaking’, which induces the model to generate malicious responses against the usage policy and society by designing adversarial prompts.”</p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> This highlights the central tension in LLM development: the desire to create helpful assistants often conflicts with the necessity of maintaining safety guardrails.</li>
+</ul>
+<blockquote>
+<p>“Fine-tuning safety-aligned LLMs with only 100 harmful examples within one GPU hour significantly increases their vulnerability to jailbreak attacks.”</p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> This underlines the extreme efficiency of fine-tuning-based attacks and the significant risk involved in allowing users to customize foundation models.</li>
+</ul>
+<blockquote>
+<p>“Although GCG has demonstrated strong performance against many advanced LLMs, the unreadability of the attack suffixes leaves a direction for subsequent research.”</p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> This notes the evolution of attack strategies toward “readable” adversarial text to bypass defense mechanisms designed to detect nonsensical inputs.</li>
+</ul>
+<blockquote>
+<p>“With up to 128 shots, standard in-context jailbreak attacks can achieve nearly 80% success against Claude 2.0.”</p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> This demonstrates the “scaling law” of jailbreak effectiveness—as context windows grow, the surface area for in-context attacks increases proportionally.</li>
+</ul>
+<hr>
+<h2 id="defense-taxonomy">Defense Taxonomy</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Defense Level</th><th align="left">Method</th><th align="left">Mechanism</th></tr></thead><tbody><tr><td align="left"><strong>Prompt-level</strong></td><td align="left">Prompt Detection</td><td align="left">Filters prompts based on Perplexity or specific features.</td></tr><tr><td align="left"></td><td align="left">Prompt Perturbation</td><td align="left">Eliminates malicious content by slightly altering input text.</td></tr><tr><td align="left"></td><td align="left">System Prompt Safeguard</td><td align="left">Uses meticulously designed system-level instructions to prioritize safety.</td></tr><tr><td align="left"><strong>Model-level</strong></td><td align="left">SFT/RLHF-based</td><td align="left">Retrains the model with safety-aligned examples to improve robustness.</td></tr><tr><td align="left"></td><td align="left">Gradient/Logit Analysis</td><td align="left">Detects malicious intent by monitoring safety-critical parameters during processing.</td></tr><tr><td align="left"></td><td align="left">Refinement</td><td align="left">Leverages the model’s own reasoning to analyze suspicious prompts before answering.</td></tr><tr><td align="left"></td><td align="left">Proxy Defense</td><td align="left">Employs a separate, secure LLM to monitor and filter the primary model’s outputs.</td></tr></tbody></table>
+<hr>
+<h2 id="actionable-insights">Actionable Insights</h2>
+<ol>
+<li><strong>Harden Fine-tuning Processes:</strong> Given that customization poses a high risk to safety alignment, organizations must implement strict monitoring and adversarial testing during any model fine-tuning or LoRA adaptation.</li>
+<li><strong>Mitigate In-Context Vulnerabilities:</strong> Developers should be aware of the “scaling laws” of jailbreaking. Limiting the number of demonstrations or implementing specialized monitors for long-context inputs is necessary.</li>
+<li><strong>Deploy Multi-layered Defenses:</strong> Relying solely on prompt filtering is insufficient. A combination of <strong>Prompt-level</strong> (Perplexity detection) and <strong>Model-level</strong> (Proxy defense/Refinement) strategies is required to counter both nonsensical gradient attacks and sophisticated “Scenario Nesting” attacks.</li>
+<li><strong>Prioritize Alignment Against Complex Tasks:</strong> While models are well-aligned against direct queries, they remain vulnerable to complex tasks like code execution and RAG-based manipulation. Safety training should explicitly include adversarial code completion and multi-step reasoning scenarios.</li>
+<li><strong>Develop Robust Evaluative Metrics:</strong> Current jailbreak research highlights the need for standardized benchmarks that test for transferability and stealthiness, rather than just simple refusal rates.</li>
+</ol>
+<hr>
+<h2 id="-study-guide">📚 Study Guide</h2>
+<p>This study guide provides a detailed synthesis of current research regarding jailbreak attacks and defense mechanisms for Large Language Models (LLMs). It explores how adversarial prompts exploit model vulnerabilities and the evolving strategies used to safeguard these systems.</p>
+<hr>
+<h2 id="1-overview-of-the-jailbreak-landscape">1. Overview of the Jailbreak Landscape</h2>
+<p>Large Language Models (LLMs) like ChatGPT and Gemini are trained on massive datasets, which inevitably include harmful information. To mitigate risks, developers use <strong>safety alignment</strong> (such as RLHF) to create guardrails that reject harmful inquiries. <strong>Jailbreaking</strong> is the process of designing adversarial prompts to bypass these safety guardrails, inducing the model to generate malicious responses that violate usage policies.</p>
+<hr>
+<h2 id="2-taxonomy-of-jailbreak-attacks">2. Taxonomy of Jailbreak Attacks</h2>
+<p>Attacks are primarily categorized by the level of transparency the attacker has regarding the target model’s internal state.</p>
+<h3 id="white-box-attacks">White-box Attacks</h3>
+<p>In white-box scenarios, attackers have access to the model’s internal parameters, gradients, or logits.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Sub-class</th><th align="left">Description</th><th align="left">Key Methods/Examples</th></tr></thead><tbody><tr><td align="left"><strong>Gradient-based</strong></td><td align="left">Manipulating inputs based on model gradients to optimize a prefix or suffix that elicits harmful responses.</td><td align="left">Greedy Coordinate Gradient (GCG), AutoDAN, ARCA, ASETF.</td></tr><tr><td align="left"><strong>Logits-based</strong></td><td align="left">Optimizing prompts by examining the probability distribution of output tokens to force specific (often lower-ranked) affirmative responses.</td><td align="left">COLD attack, DSN (Suppressing refusal segments), Affirmation tendency scores.</td></tr><tr><td align="left"><strong>Fine-tuning-based</strong></td><td align="left">Retraining a safety-aligned model with a small amount of malicious data to dismantle its protective guardrails.</td><td align="left">LoRA fine-tuning, RLHF dismantling via adversarial examples.</td></tr></tbody></table>
+<h3 id="black-box-attacks">Black-box Attacks</h3>
+<p>Black-box attacks occur when the attacker only has access to the model’s inputs and outputs.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Sub-class</th><th align="left">Description</th><th align="left">Mechanisms</th></tr></thead><tbody><tr><td align="left"><strong>Template Completion</strong></td><td align="left">Using sophisticated templates to disguise harmful intent through nesting or logic.</td><td align="left">Scenario Nesting, Context-based (few-shot), Code Injection.</td></tr><tr><td align="left"><strong>Prompt Rewriting</strong></td><td align="left">Translating prompts into niche formats that are underrepresented in safety training.</td><td align="left">Ciphers (Caesar), Low-resource languages, Genetic Algorithm-based prompts.</td></tr><tr><td align="left"><strong>LLM-based Generation</strong></td><td align="left">Using one LLM as an attacker to automatically generate or optimize jailbreak prompts for a target LLM.</td><td align="left">Automated adversarial prompt generation.</td></tr></tbody></table>
+<hr>
+<h2 id="3-taxonomy-of-defense-mechanisms">3. Taxonomy of Defense Mechanisms</h2>
+<p>Defenses are categorized by whether they modify the internal model or operate on the input/output level.</p>
+<h3 id="prompt-level-defense-no-model-modification">Prompt-level Defense (No model modification)</h3>
+<ul>
+<li><strong>Prompt Detection:</strong> Filtering adversarial prompts based on features like <strong>Perplexity</strong>.</li>
+<li><strong>Prompt Perturbation:</strong> Randomly altering the input to break the specific structure of an adversarial attack.</li>
+<li><strong>System Prompt Safeguard:</strong> Using meticulously designed system-level instructions to prioritize safety during the generation process.</li>
+</ul>
+<h3 id="model-level-defense-modifies-the-llm">Model-level Defense (Modifies the LLM)</h3>
+<ul>
+<li><strong>SFT-based &#x26; RLHF-based:</strong> Fine-tuning the model with safety examples or using Reinforcement Learning from Human Feedback to improve robustness.</li>
+<li><strong>Gradient and Logit Analysis:</strong> Detecting malicious intent by monitoring the gradients of safety-critical parameters.</li>
+<li><strong>Refinement:</strong> Leveraging the model’s own generalization abilities to analyze suspicious prompts before responding.</li>
+<li><strong>Proxy Defense:</strong> Deploying a second, secure “guard LLM” to monitor and filter the outputs of the primary target LLM.</li>
+</ul>
+<hr>
+<h2 id="4-short-answer-practice-questions">4. Short-Answer Practice Questions</h2>
+<p><strong>Q1: What is the primary objective of the Greedy Coordinate Gradient (GCG) attack?</strong></p>
+<ul>
+<li><strong>Answer:</strong> GCG aims to append an adversarial suffix to a prompt by iteratively computing token substitutions that maximize the probability of the model generating a target harmful response.</li>
+</ul>
+<p><strong>Q2: How does “Scenario Nesting” facilitate a jailbreak?</strong></p>
+<ul>
+<li><strong>Answer:</strong> It uses the LLM’s personification and role-playing abilities to create a deceptive context (e.g., DeepInception) where the model is hypnotized into a “jailbreaker” mode, subtly coaxing it to bypass its standard safety filters.</li>
+</ul>
+<p><strong>Q3: Why is fine-tuning considered a significant threat to model security?</strong></p>
+<ul>
+<li><strong>Answer:</strong> Research shows that fine-tuning a model with as few as 100 harmful examples or 340 adversarial examples can effectively dismantle safety alignments like RLHF, often with very low computational cost.</li>
+</ul>
+<p><strong>Q4: What is a “Proxy Defense”?</strong></p>
+<ul>
+<li><strong>Answer:</strong> It is a model-level defense where an additional secure LLM acts as a monitor to filter the outputs of the target LLM for harmful content.</li>
+</ul>
+<p><strong>Q5: How do ciphers and low-resource languages aid black-box attacks?</strong></p>
+<ul>
+<li><strong>Answer:</strong> These methods exploit “long-tailed distributions”—scenarios underrepresented in safety training data—allowing malicious content to bypass content moderation filters that primarily recognize common languages and plain text.</li>
+</ul>
+<hr>
+<h2 id="5-essay-prompts-for-deeper-exploration">5. Essay Prompts for Deeper Exploration</h2>
+<ol>
+<li><strong>The Readability vs. Effectiveness Trade-off:</strong> Compare early gradient-based attacks (like GCG) with newer methods (like AutoDAN). Discuss why move toward “interpretable” or “readable” adversarial suffixes is a critical evolution in the jailbreak landscape.</li>
+<li><strong>The Fragility of Safety Alignment:</strong> Discuss the findings that even “predominantly benign” datasets can inadvertently degrade safety alignment during fine-tuning. What are the implications for developers who allow users to customize open-source LLMs?</li>
+<li><strong>Cross-Method Synergy:</strong> Analyze how attackers combine different techniques, such as using white-box surrogate models to generate attacks against black-box targets. How does this complicate the development of universal defense strategies?</li>
+</ol>
+<hr>
+<h2 id="6-glossary-of-important-terms">6. Glossary of Important Terms</h2>
+<ul>
+<li><strong>Adversarial Prompt:</strong> A meticulously designed input intended to elicit prohibited or harmful behaviors from an AI model.</li>
+<li><strong>Chain-of-Thought (CoT) Reasoning:</strong> A model’s ability to process complex logic step-by-step; attackers exploit this by embedding harmful contexts into the reasoning path.</li>
+<li><strong>In-Context Attack (ICA):</strong> An attack that exploits a model’s few-shot learning by providing multiple examples of successful jailbreaks within the prompt to guide the model toward an unsafe output.</li>
+<li><strong>Logits:</strong> The raw, unnormalized predictions generated by a model’s last layer, representing the probability distribution of potential output tokens.</li>
+<li><strong>Low-Rank Adaptation (LoRA):</strong> A fine-tuning technique often used in research to demonstrate how safety guardrails can be eliminated with limited computational resources.</li>
+<li><strong>Perplexity:</strong> A measurement of how “surprising” a sequence of text is to a model. High-perplexity inputs are often flagged as potential adversarial attacks.</li>
+<li><strong>Safety Alignment:</strong> The process (often involving RLHF or SFT) of training a model to ensure its outputs are helpful, honest, and harmless, aligning with human values.</li>
+<li><strong>Transferability:</strong> The ability of an adversarial prompt optimized for one model to successfully jailbreak a different, often unseen, model.</li>
+</ul>
+<hr>
+<h2 id="-faq">❓ FAQ</h2>
+<p>{
+“title”: “Jailbreak Quiz”,
+“questions”: [
+{
+“question”: “What is the primary distinction between white-box and black-box jailbreak attacks as defined in the survey?”,
+“answerOptions”: [
+{
+“text”: “The transparency level of the target model’s architecture and parameters.”,
+“isCorrect”: true,
+“rationale”: “White-box attacks assume the attacker has access to internal model information like gradients and logits, while black-box attacks do not.”
+},
+{
+“text”: “The legal status of the attacker’s intent during the prompt design.”,
+“isCorrect”: false,
+“rationale”: “The classification is based on technical access to model internals, not the intent or legal standing of the user.”
+},
+{
+“text”: “Whether the attack uses natural language or computer code to bypass filters.”,
+“isCorrect”: false,
+“rationale”: “Both white-box and black-box categories can utilize code or natural language; the distinction remains the access to model data.”
+},
+{
+“text”: “The specific safety alignment measure being bypassed by the prompt.”,
+“isCorrect”: false,
+“rationale”: “While attacks target different defenses, the white-box/black-box split specifically refers to the visibility of the model’s inner workings.”
+}
+],
+“hint”: “Consider what information the attacker is able to see regarding the model’s internal processing.”
+},
+{
+“question”: “In the context of gradient-based attacks, what is the specific role of the ‘adversarial suffix’ in the Greedy Coordinate Gradient (GCG) method?”,
+“answerOptions”: [
+{
+“text”: “It is optimized iteratively to maximize the probability of a compliant response.”,
+“isCorrect”: true,
+“rationale”: “GCG iteratively searches and replaces tokens in a suffix to increase the log-probability of target tokens like ‘Sure’ or ‘Yes’.”
+},
+{
+“text”: “It acts as a translation layer to turn code into readable natural language.”,
+“isCorrect”: false,
+“rationale”: “Translation layers are characteristic of frameworks like ASETF, whereas GCG focuses on direct discrete optimization.”
+},
+{
+“text”: “It serves as a retrieval mechanism to pull harmful data from external databases.”,
+“isCorrect”: false,
+“rationale”: “Suffixes in gradient attacks are used to manipulate model generation directly rather than acting as retrieval queries.”
+},
+{
+“text”: “It is a fixed set of tokens that prevents the model from generating rejection messages.”,
+“isCorrect”: false,
+“rationale”: “The suffix in GCG is not fixed; it is dynamically updated through a coordinate ascent-style optimization.”
+}
+],
+“hint”: “Think about how the suffix is modified to influence the model’s output distribution.”
+},
+{
+“question”: “What is a significant drawback of logits-based attacks regarding the quality of the generated output?”,
+“answerOptions”: [
+{
+“text”: “The generated responses may lack naturalness, coherence, or relevance.”,
+“isCorrect”: true,
+“rationale”: “Forcing the model to select lower-probability tokens to bypass alignment can disrupt the logical flow and fluency of the text.”
+},
+{
+“text”: “They require the model to be fine-tuned on harmful datasets first.”,
+“isCorrect”: false,
+“rationale”: “Logits-based attacks are inference-time manipulations and do not necessarily require retraining the model.”
+},
+{
+“text”: “They are only effective against models with very few parameters.”,
+“isCorrect”: false,
+“rationale”: “The research shows these attacks are effective across various models including ChatGPT and Llama-2.”
+},
+{
+“text”: “The model becomes unable to process any further natural language prompts.”,
+“isCorrect”: false,
+“rationale”: “The attack affects specific response generations but does not permanently break the model’s linguistic capabilities.”
+}
+],
+“hint”: “Consider how choosing low-probability units of text might affect the resulting sentence structure.”
+},
+{
+“question”: “Research into fine-tuning-based attacks suggests that how many harmful examples are sufficient to compromise safety alignment?”,
+“answerOptions”: [
+{
+“text”: “As few as 100 to 340 examples.”,
+“isCorrect”: true,
+“rationale”: “Studies cited in the paper indicate that even a very small number of adversarial or harmful examples can dismantle RLHF protections.”
+},
+{
+“text”: “At least 10,000 diverse examples.”,
+“isCorrect”: false,
+“rationale”: “The survey highlights that LLMs are surprisingly vulnerable to even small-scale malicious fine-tuning.”
+},
+{
+“text”: “Fine-tuning requires millions of tokens to override pre-training safety.”,
+“isCorrect”: false,
+“rationale”: “Safety alignment is often a ‘thin’ layer compared to pre-training, making it easier to compromise with limited data.”
+},
+{
+“text”: “Safety alignment cannot be compromised once RLHF is completed.”,
+“isCorrect”: false,
+“rationale”: “The text explicitly states that fine-tuning can eliminate the safety alignment of models like Llama-2.”
+}
+],
+“hint”: “The survey emphasizes the high vulnerability of models to even limited malicious training data.”
+},
+{
+“question”: “Which black-box technique involves ‘hypnotizing’ an LLM into a specific persona to bypass safety guardrails?”,
+“answerOptions”: [
+{
+“text”: “Scenario Nesting”,
+“isCorrect”: true,
+“rationale”: “Methods like DeepInception use personification and nested scenarios to induce the model into a state where it ignores safety rules.”
+},
+{
+“text”: “Code Injection”,
+“isCorrect”: false,
+“rationale”: “Code injection exploits programming logic and execution capabilities rather than persona-based roleplay.”
+},
+{
+“text”: “Prompt Perturbation”,
+“isCorrect”: false,
+“rationale”: “Prompt perturbation is typically a defense mechanism that alters inputs to remove malicious intent.”
+},
+{
+“text”: “Logits-based Optimization”,
+“isCorrect”: false,
+“rationale”: “This is a white-box technique involving probability distributions, not scenario-based prompting.”
+}
+],
+“hint”: “This method relies on the model’s ability to act out different roles or characters.”
+},
+{
+“question”: “How does the In-Context Attack (ICA) utilize the model’s few-shot learning capabilities?”,
+“answerOptions”: [
+{
+“text”: “By providing demonstration pairs of harmful queries and successful responses.”,
+“isCorrect”: true,
+“rationale”: “ICA embeds adversarial examples directly into the context to guide the LLM toward generating unsafe outputs by mimicking the provided patterns.”
+},
+{
+“text”: “By forcing the model to re-train its parameters during the conversation.”,
+“isCorrect”: false,
+“rationale”: “In-context learning affects only the current inference session and does not modify the underlying model parameters.”
+},
+{
+“text”: “By using Low-Rank Adaptation (LoRA) to shift the model’s attention.”,
+“isCorrect”: false,
+“rationale”: “LoRA is a fine-tuning method, whereas ICA is a prompting strategy used during standard inference.”
+},
+{
+“text”: “By encrypting the prompt so the model must decrypt it before answering.”,
+“isCorrect”: false,
+“rationale”: “Encryption is characteristic of Cipher attacks, whereas ICA focuses on demonstration-based learning.”
+}
+],
+“hint”: “Think about how ‘few-shot’ prompts typically use examples to define a desired behavior.”
+},
+{
+“question”: “What vulnerability is exploited by the PANDORA mechanism in RAG-augmented LLMs?”,
+“answerOptions”: [
+{
+“text”: “The synergy between internal model prompts and external knowledge bases.”,
+“isCorrect”: true,
+“rationale”: “PANDORA uses maliciously crafted content within retrieved documents to manipulate the model’s final response.”
+},
+{
+“text”: “The lack of floating-point precision in the model’s embedding space.”,
+“isCorrect”: false,
+“rationale”: “Precision issues are not the focus of PANDORA; it targets the trust the model places in retrieved external data.”
+},
+{
+“text”: “The inability of the model to recognize low-resource languages like Icelandic.”,
+“isCorrect”: false,
+“rationale”: “While low-resource languages are an attack vector, PANDORA specifically targets the Retrieval Augmented Generation (RAG) pipeline.”
+},
+{
+“text”: “The gradient vanishing problem in the model’s softmax layer.”,
+“isCorrect”: false,
+“rationale”: “This is a technical training issue addressed by GCG++, not a black-box RAG vulnerability.”
+}
+],
+“hint”: “Think about the components involved when an LLM looks up information from an external source.”
+},
+{
+“question”: “Which framework exploits string concatenation and variable assignment to hide harmful instructions from safety filters?”,
+“answerOptions”: [
+{
+“text”: “Code Injection”,
+“isCorrect”: true,
+“rationale”: “By reformulating tasks into programming constructs, attackers can bypass intent recognition by having the model programmatically assemble the harmful query.”
+},
+{
+“text”: “RLHF-based Refinement”,
+“isCorrect”: false,
+“rationale”: “RLHF is a defense/alignment method, not an attack that uses programming logic to hide intent.”
+},
+{
+“text”: “Scenario Nesting”,
+“isCorrect”: false,
+“rationale”: “Scenario nesting uses storytelling and roleplay, whereas the logic of variables and functions defines code injection.”
+},
+{
+“text”: “Gradient-based STO”,
+“isCorrect”: false,
+“rationale”: “Single Token Optimization (STO) is used in white-box attacks like AutoDAN to create readable suffixes, not to inject code.”
+}
+],
+“hint”: “This attack relies on the LLM’s ability to understand and execute basic programming logic.”
+},
+{
+“question”: “What is the primary objective of ‘Model-level Defense’ as classified in the survey’s taxonomy?”,
+“answerOptions”: [
+{
+“text”: “Modifying the protected LLM itself through training or parameter analysis.”,
+“isCorrect”: true,
+“rationale”: “Model-level defenses involve changes to the model’s weights or the way it processes data internally, such as SFT or RLHF.”
+},
+{
+“text”: “Filtering malicious prompts before they reach the target model.”,
+“isCorrect”: false,
+“rationale”: “Filtering at the input stage without changing the model is considered a prompt-level defense.”
+},
+{
+“text”: “Designing a more restrictive system prompt for the user interface.”,
+“isCorrect”: false,
+“rationale”: “System prompt safeguards are classified as prompt-level defenses because they do not change the underlying model.”
+},
+{
+“text”: “Perturbing user input to eliminate adversarial triggers.”,
+“isCorrect”: false,
+“rationale”: “Input perturbation is a prompt-level defense that leaves the model parameters untouched.”
+}
+],
+“hint”: “Consider whether the safety measure requires changing the actual model or just the way users interact with it.”
+},
+{
+“question”: “The survey mentions that PANDORA achieved an attack success rate of approximately what percentage on ChatGPT?”,
+“answerOptions”: [
+{
+“text”: “$64.3\%$”,
+“isCorrect”: true,
+“rationale”: “According to the paper, the PANDORA mechanism achieved a $64.3\%$ success rate on ChatGPT and a $34.8\%$ rate on GPT-4.”
+},
+{
+“text”: “$15.2\%$”,
+“isCorrect”: false,
+“rationale”: “This value is significantly lower than the reported success rate for PANDORA on ChatGPT.”
+},
+{
+“text”: “$95.0\%$”,
+“isCorrect”: false,
+“rationale”: “While some fine-tuning attacks reach $95\%$, the specific RAG-based PANDORA attack on ChatGPT was reported at $64.3\%$.”
+},
+{
+“text”: “$1.0\%$”,
+“isCorrect”: false,
+“rationale”: “A $1\%$ rate would indicate the attack failed, but PANDORA was highlighted as a significant vulnerability.”
+}
+],
+“hint”: “The value is higher than half but lower than three-quarters.”
+},
+{
+“question”: “How does the ‘Proxy Defense’ mechanism function in safeguarding LLMs?”,
+“answerOptions”: [
+{
+“text”: “It uses an additional secure LLM to monitor and filter the output of the target model.”,
+“isCorrect”: true,
+“rationale”: “Proxy defense acts as an external guard model that checks the target model’s generated text for harmful content.”
+},
+{
+“text”: “It hides the target model’s gradients to prevent white-box attacks.”,
+“isCorrect”: false,
+“rationale”: “While effective, ‘hiding gradients’ is a different strategy than using a secondary model to audit outputs.”
+},
+{
+“text”: “It replaces sensitive words in the user’s prompt with benign synonyms.”,
+“isCorrect”: false,
+“rationale”: “Prompt rewriting or perturbation handles word replacement; a proxy defense specifically refers to a secondary monitoring agent.”
+},
+{
+“text”: “It restricts model access to only low-resource language datasets.”,
+“isCorrect”: false,
+“rationale”: “Proxy defense is a structural monitoring measure, not a data restriction strategy.”
+}
+],
+“hint”: “This defense involves a ‘middleman’ model that supervises the main model’s behavior.”
+},
+{
+“question”: “What distinguishes the AutoDAN attack from the earlier GCG method?”,
+“answerOptions”: [
+{
+“text”: “It generates interpretable and readable adversarial suffixes.”,
+“isCorrect”: true,
+“rationale”: “AutoDAN aims for both jailbreak effectiveness and readability, making the attack more stealthy and able to bypass perplexity filters.”
+},
+{
+“text”: “It is the first attack to use gradients to optimize input.”,
+“isCorrect”: false,
+“rationale”: “GCG was the pioneer in gradient-based discrete optimization for jailbreaking.”
+},
+{
+“text”: “It completely eliminates the need for any white-box information.”,
+“isCorrect”: false,
+“rationale”: “AutoDAN is still classified as a white-box attack because it utilizes model gradients for optimization.”
+},
+{
+“text”: “It focuses solely on the decoding hyperparameters of the model.”,
+“isCorrect”: false,
+“rationale”: “Decoding hyperparameter manipulation is a logits-based or sampling-based attack, not the focus of AutoDAN.”
+}
+],
+“hint”: “Consider the difference in ‘stealth’ and how natural the resulting prompts look to a human or a filter.”
+}
+]
+}</p>
+<hr>
+<h2 id="-resources">📎 Resources</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2407.04295">arXiv Abstract</a></li>
+<li><a href="https://arxiv.org/pdf/2407.04295.pdf">PDF</a></li>
+<li><a href="../../notebooklm-output/2407.04295/artifacts/audio-overview.m4a">Audio Overview</a></li>
+<li><a href="../../notebooklm-output/2407.04295/artifacts/research-report.md">Research Report</a></li>
+<li><a href="../../notebooklm-output/2407.04295/artifacts/study-guide.md">Study Guide</a></li>
+<li><a href="../../notebooklm-output/2407.04295/artifacts/faq.md">FAQ</a></li>
+</ul>
+<hr>
+<p><em>This post was generated automatically from NotebookLM artifacts. Part of the <a href="../index.md">Daily Paper</a> series exploring cutting-edge research in embodied AI and failure-first approaches.</em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module">function g(e){let t=e>>>0;return function(){t|=0,t=t+1831565813|0;let n=Math.imul(t^t>>>15,1|t);return n=n+Math.imul(n^n>>>7,61|n)^n,((n^n>>>14)>>>0)/4294967296}}function m(){return Math.floor(new Date/(1e3*60*60*24))*1013}function w(e,t,n,o){const a=Math.ceil(t/60)+2,r=Math.ceil(n/(40*Math.sqrt(3)))+2;e.strokeStyle="rgba(0, 210, 255, 0.03)",e.lineWidth=.5;for(let c=-1;c<r;c++)for(let d=-1;d<a;d++){const l=d*40*1.5,i=c*40*Math.sqrt(3)+(d%2===0?0:40*Math.sqrt(3)/2);o()>.7&&S(e,l,i,40)}}function S(e,t,n,o){e.beginPath();for(let h=0;h<6;h++){const a=Math.PI/3*h-Math.PI/2,r=t+o*Math.cos(a),c=n+o*Math.sin(a);h===0?e.moveTo(r,c):e.lineTo(r,c)}e.closePath(),e.stroke()}function f(e,t,n){e.strokeStyle="rgba(0, 210, 255, 0.02)",e.lineWidth=1;for(let o=0;o<n;o+=4)e.beginPath(),e.moveTo(0,o),e.lineTo(t,o),e.stroke()}class p{constructor(t,n,o){this.x=t,this.y=n,this.phase=o()*Math.PI*2,this.period=8e3+o()*12e3,this.maxRadius=60+o()*40,this.color=o()>.7?"rgba(255, 71, 87,":"rgba(0, 210, 255,",this.birthTime=Date.now()}draw(t,n){const h=(n-this.birthTime)%this.period/this.period,a=Math.sin(h*Math.PI*2)*.5+.5,r=this.maxRadius*a,c=a*.08;t.strokeStyle=`${this.color} ${c})`,t.lineWidth=1,t.beginPath(),t.arc(this.x,this.y,r,0,Math.PI*2),t.stroke(),t.strokeStyle=`${this.color} ${c*.5})`,t.beginPath(),t.arc(this.x,this.y,r*.6,0,Math.PI*2),t.stroke()}}function y(){const e=document.getElementById("sensor-grid-bg");if(!e)return;const t=e.getContext("2d",{alpha:!0}),n=m(),o=g(n);function h(){const i=window.devicePixelRatio||1,s=e.getBoundingClientRect();return e.width=s.width*i,e.height=s.height*i,t.scale(i,i),{w:s.width,h:s.height}}const{w:a,h:r}=h(),c=3+Math.floor(o()*3),d=[];for(let i=0;i<c;i++){const s=o()*a,u=o()*r;d.push(new p(s,u,g(n+i*1013)))}w(t,a,r,o),f(t,a,r);function l(){const{w:i,h:s}=h();t.clearRect(0,0,e.width,e.height),w(t,i,s,o),f(t,i,s);const u=Date.now();for(const M of d)M.draw(t,u);requestAnimationFrame(l)}l(),window.addEventListener("resize",()=>{const{w:i,h:s}=h();w(t,i,s,o),f(t,i,s)})}typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",y):y());</script></body></html> 

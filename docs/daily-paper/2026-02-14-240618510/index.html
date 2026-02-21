@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models | Daily Paper | Failure-First</title><meta name="description" content="Introduces WildTeaming, an automatic red-teaming framework that mines real user-chatbot interactions to discover 5.7K jailbreak tactic clusters, then creates WildJailbreak—a 262K prompt-response..."><link rel="canonical" href="https://failurefirst.org/daily-paper/2026-02-14-240618510/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models | Daily Paper | Failure-First"><meta property="og:description" content="Introduces WildTeaming, an automatic red-teaming framework that mines real user-chatbot interactions to discover 5.7K jailbreak tactic clusters, then creates WildJailbreak—a 262K prompt-response..."><meta property="og:url" content="https://failurefirst.org/daily-paper/2026-02-14-240618510/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models | Daily Paper | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models | Daily Paper | Failure-First"><meta name="twitter:description" content="Introduces WildTeaming, an automatic red-teaming framework that mines real user-chatbot interactions to discover 5.7K jailbreak tactic clusters, then creates WildJailbreak—a 262K prompt-response..."><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models | Daily Paper | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-02-14"><!-- Google Scholar Meta Tags (for research papers) --><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><link rel="stylesheet" href="/assets/_slug_.BV0HTfXU.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.4MQlVLr6.css"></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" aria-haspopup="true" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>79 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" class="active" aria-current="page" data-astro-cid-pux6a34n> Daily Paper  </a>  </li><li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> Blog  </a>  </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/policy/" aria-haspopup="true" data-astro-cid-pux6a34n> Policy <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>19 reports</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>U-shaped curve</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> Manifesto  </a>  </li><li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> About  </a>  </li> </ul> </div> </nav>  <script type="module">const t=document.querySelector(".nav-toggle"),n=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");t&&n&&(t.addEventListener("click",()=>{const e=t.getAttribute("aria-expanded")==="true";t.setAttribute("aria-expanded",String(!e)),n.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&n.classList.contains("open")&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"),t.focus())}),document.addEventListener("click",e=>{n.classList.contains("open")&&!n.contains(e.target)&&!t.contains(e.target)&&(n.classList.remove("open"),t.setAttribute("aria-expanded","false"))}));o.forEach(e=>{const s=e.querySelector(":scope > a");s&&window.innerWidth<=768&&s.addEventListener("click",i=>{window.innerWidth<=768&&(i.preventDefault(),e.classList.toggle("mobile-open"))})});</script> <main id="main-content">  <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/daily-paper/" data-astro-cid-ilhxcym7>Daily Paper</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Daily Paper","item":"https://failurefirst.org/daily-paper/"},{"@type":"ListItem","position":3,"name":"WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models"}]}</script>  <article class="daily-paper" data-astro-cid-4f4ngxwt> <header class="paper-header" data-astro-cid-4f4ngxwt> <div class="paper-meta-top" data-astro-cid-4f4ngxwt> <time class="paper-date" datetime="2026-02-14T00:00:00.000Z" data-astro-cid-4f4ngxwt>February 14, 2026</time> <span class="paper-series" data-astro-cid-4f4ngxwt>Daily Paper</span> </div> <h1 data-astro-cid-4f4ngxwt>WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models</h1> <p class="paper-description" data-astro-cid-4f4ngxwt>Introduces WildTeaming, an automatic red-teaming framework that mines real user-chatbot interactions to discover 5.7K jailbreak tactic clusters, then creates WildJailbreak—a 262K prompt-response...</p> <div class="paper-meta-row" data-astro-cid-4f4ngxwt> <a href="https://arxiv.org/abs/2406.18510" class="arxiv-badge" target="_blank" rel="noopener noreferrer" data-astro-cid-4f4ngxwt>
+arXiv:2406.18510 </a> <span class="paper-type-badge" data-astro-cid-4f4ngxwt>Empirical Study</span> </div> <p class="paper-authors" data-astro-cid-4f4ngxwt>Liwei Jiang, Kavel Rao, Seungju Han, Allyson Ettinger et al.</p> <div class="paper-tags" data-astro-cid-4f4ngxwt> <span class="tag" data-astro-cid-4f4ngxwt>jailbreak-discovery</span><span class="tag" data-astro-cid-4f4ngxwt>adversarial-safety-training</span><span class="tag" data-astro-cid-4f4ngxwt>red-teaming-automation</span><span class="tag" data-astro-cid-4f4ngxwt>in-the-wild-vulnerabilities</span><span class="tag" data-astro-cid-4f4ngxwt>safety-dataset-curation</span><span class="tag" data-astro-cid-4f4ngxwt>over-refusal-mitigation</span> </div> </header> <div class="audio-section" data-astro-cid-4f4ngxwt> <div class="audio-label" data-astro-cid-4f4ngxwt> <span class="audio-icon" data-astro-cid-4f4ngxwt>&#x25B6;</span>
+NotebookLM Audio Overview
+</div> <audio controls preload="none" class="audio-player" data-astro-cid-4f4ngxwt> <source src="/audio/daily-paper/2406.18510-audio-overview.m4a" type="audio/mp4" data-astro-cid-4f4ngxwt>
+Your browser does not support the audio element.
+</audio> </div> <div class="paper-content" data-astro-cid-4f4ngxwt>  <h1 id="wildteaming-at-scale-from-in-the-wild-jailbreaks-to-adversarially-safer-language-models">WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models</h1>
+<h2 id="overview">Overview</h2>
+<p><strong>Paper Type:</strong> Empirical
+<strong>Focus:</strong> Introduces WildTeaming, an automatic red-teaming framework that mines real user-chatbot interactions to discover 5.7K jailbreak tactic clusters, then creates WildJailbreak—a 262K prompt-response safety dataset—to train models that balance robust defense against both vanilla and adversarial attacks without over-refusal.</p>
+<h3 id="failure-first-relevance">Failure-First Relevance</h3>
+<p>This work directly addresses a critical failure mode in LLM safety: the discovery of novel, real-world jailbreak tactics that existing red-teaming methods miss. By mining actual user interactions rather than synthetic attacks, WildTeaming reveals previously unidentified vulnerabilities (4.6x more diverse attacks than prior methods) and provides empirical evidence that safety training data composition directly affects the balance between appropriate safeguarding and harmful over-refusal—a key failure pattern in deployed systems.</p>
+<hr>
+<h2 id="abstract">Abstract</h2>
+<hr>
+<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
+<p><a href="../../notebooklm-output/2406.18510/artifacts/audio-overview.m4a">Download Audio Overview</a></p>
+<hr>
+<h2 id="-key-insights">📊 Key Insights</h2>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>The research paper “WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models” introduces <strong>WildTeaming</strong>, a novel, automatic red-teaming framework designed to identify and mitigate Large Language Model (LLM) vulnerabilities. Unlike traditional red-teaming that relies on recruited humans or gradient-based optimization, WildTeaming mines real-world, “in-the-wild” (ITW) user-chatbot interactions to discover successful jailbreak tactics.</p>
+<p>The framework successfully identified <strong>5.7K unique clusters</strong> of jailbreak tactics, uncovering 4.6 times more diverse and successful adversarial attacks than prior methods. This research culminated in the creation of <strong>WildJailbreak</strong>, a comprehensive, open-source safety dataset containing <strong>262K prompt-response pairs</strong>. This dataset is unique for its contrastive design, featuring vanilla and adversarial versions of both harmful and benign queries. Experiments demonstrate that training models on this dataset achieves a superior balance: robust safety against complex attacks without the common failure mode of “over-refusal” on benign requests or degradation of general reasoning capabilities.</p>
+<hr>
+<h2 id="detailed-analysis-of-key-themes">Detailed Analysis of Key Themes</h2>
+<h3 id="1-the-wildteaming-framework-mine-and-compose">1. The WildTeaming Framework: Mine and Compose</h3>
+<p>The WildTeaming framework operates through a systematic two-stage process to automate red-teaming at scale.</p>
+<ul>
+<li><strong>Stage 1: MINE:</strong> The framework mines real-world chat logs (from LMSYS-1M and WildChat) that have been flagged as harmful. By using GPT-4 to analyze these logs, the researchers identified 105K human-devised tactics which were then clustered into 5.7K unique strategies. This approach reveals how actual users—who were not instructed to break the system—bypass safety filters.</li>
+<li><strong>Stage 2: COMPOSE:</strong> Once tactics are identified, WildTeaming uses an “attacker model” (such as Mixtral-8x7B or GPT-4) to transform standard harmful requests (vanilla queries) into diverse adversarial attacks by combining multiple mined tactics.</li>
+</ul>
+<h3 id="2-taxonomy-of-in-the-wild-jailbreak-tactics">2. Taxonomy of In-the-Wild Jailbreak Tactics</h3>
+<p>The mining process revealed a rich diversity of tactics that far exceed the scope of previous taxonomies. These tactics are categorized into several types:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Tactic Category</th><th align="left">Percentage</th><th align="left">Examples</th></tr></thead><tbody><tr><td align="left"><strong>Fictitious Scenario</strong></td><td align="left">15.5%</td><td align="left">Placing the request within a story or historical context.</td></tr><tr><td align="left"><strong>Assign Personality</strong></td><td align="left">8.8%</td><td align="left">Instructing the model to act as a girlfriend, a white-hat hacker, or a specific streamer.</td></tr><tr><td align="left"><strong>Enforce Compliance</strong></td><td align="left">8.2%</td><td align="left">Using forceful language or “DAN” style commands to demand a response.</td></tr><tr><td align="left"><strong>Add Leading Sentence</strong></td><td align="left">8.0%</td><td align="left">Seeding the model’s response with a phrase like “Sure, here’s…” to trigger compliance.</td></tr><tr><td align="left"><strong>Style/Format Constraints</strong></td><td align="left">Varied</td><td align="left">Demanding responses in JSON, CSV, or with specific lexical constraints (e.g., “no commas”).</td></tr></tbody></table>
+<p>The research notes that ITW attacks are more adversarial than existing semantic methods (like PAIR or TAP) because they often layer multiple tactics—averaging more tactics per query—than synthetic attacks.</p>
+<h3 id="3-wildjailbreak-a-contrastive-safety-dataset">3. WildJailbreak: A Contrastive Safety Dataset</h3>
+<p>A central contribution of this work is the <strong>WildJailbreak</strong> dataset. It addresses the “over-refusal” problem—where models refuse benign queries because they resemble harmful ones—by providing four contrastive query types:</p>
+<ol>
+<li><strong>Vanilla Harmful (H):</strong> Direct requests for unsafe content (e.g., “How to build a bomb”).</li>
+<li><strong>Vanilla Benign (B):</strong> Harmless requests that look similar to unsafe ones (e.g., “How to eliminate bacteria in sushi”).</li>
+<li><strong>Adversarial Harmful (H):</strong> Complex jailbreaks created by applying WildTeaming tactics to vanilla harmful requests.</li>
+<li><strong>Adversarial Benign (B):</strong> Harmless requests wrapped in jailbreak-style formatting (e.g., role-playing a researcher to discuss hand-dominance bias) to ensure the model doesn’t refuse based on the <em>form</em> of the query.</li>
+</ol>
+<h3 id="4-balancing-safety-and-utility">4. Balancing Safety and Utility</h3>
+<p>The study identifies a critical scaling effect in safety data. While adding as few as 2K safety items improves a model, achieving a “robust safeguard” requires substantially more data (up to 60K items) mixed with general instruction-tuning data.</p>
+<p>The research proves that training on either vanilla or adversarial data in isolation is insufficient. Vanilla-only training leaves the model vulnerable to adversarial attacks, while adversarial-only training does not adequately protect against direct requests. The hybridization of both, combined with benign contrastive examples, allows the model to reach the “Pareto frontier”—maximizing safety while maintaining general intelligence and minimizing over-refusal.</p>
+<hr>
+<h2 id="important-quotes-and-context">Important Quotes and Context</h2>
+<blockquote>
+<p><strong>“WildTeaming reveals previously unidentified vulnerabilities of frontier LLMs, resulting in up to 4.6x more diverse and successful adversarial attacks compared to state-of-the-art jailbreak methods.”</strong></p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> This highlights the effectiveness of mining real user behavior rather than relying on automated optimization or a small team of red-teamers, who often produce a narrow range of attack types.</li>
+</ul>
+<blockquote>
+<p><strong>“Safety training data composition directly affects the balance between appropriate safeguarding and harmful over-refusal—a key failure pattern in deployed systems.”</strong></p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> The authors argue that previous safety training datasets were not “adversarial enough,” leading to models that are either easily broken or excessively cautious.</li>
+</ul>
+<blockquote>
+<p><strong>“While training on either vanilla or adversarial data improves performance on the other data type, the most robust safeguard comes with the hybridization of both.”</strong></p>
+</blockquote>
+<ul>
+<li><strong>Context:</strong> This finding justifies the diverse composition of the WildJailbreak dataset, emphasizing that comprehensive safety cannot be achieved through a single type of training input.</li>
+</ul>
+<hr>
+<h2 id="actionable-insights-for-ai-safety-practitioners">Actionable Insights for AI Safety Practitioners</h2>
+<ul>
+<li><strong>Transition to In-the-Wild Mining:</strong> Practitioners should look beyond synthetic attack generation and mine real-world interaction logs. Real users are highly creative in “cloaking harm in humor,” “setting blame for non-compliance,” or using “surrogate modalities” (like CSV/JSON) to bypass filters.</li>
+<li><strong>Adopt Contrastive Training:</strong> To mitigate over-refusal, safety training must include “Adversarial Benign” queries. This teaches the model to distinguish between a harmful <em>intent</em> and an adversarial <em>format</em>.</li>
+<li><strong>Scale Safety Data Appropriately:</strong> The research suggests that safety data can be scaled to tens of thousands of examples without degrading general model capabilities, provided it is balanced with high-quality general instruction data.</li>
+<li><strong>Use Multi-Tactic Composition:</strong> When red-teaming, combining 2-7 different tactics (e.g., roleplay + style constraints + a seed leading sentence) is significantly more effective at discovering vulnerabilities in frontier models than single-tactic prompts.</li>
+<li><strong>Automate Pruning for Quality:</strong> When generating synthetic safety data, use “off-topic” and “low-risk” pruners to ensure that adversarial versions of queries maintain the original harmful intent and high-risk profile, preventing the data from becoming “diluted.”</li>
+</ul>
+<hr>
+<h2 id="-study-guide">📚 Study Guide</h2>
+<p>This study guide provides a comprehensive overview of the <strong>WildTeaming</strong> framework and the <strong>WildJailbreak</strong> dataset, as detailed in the research paper “WildTeaming at Scale: From In-the-Wild Jailbreaks to (Adversarially) Safer Language Models.” It explores the mechanisms for discovering novel jailbreak tactics, the scaling of safety training data, and the balance required to prevent model over-refusal.</p>
+<hr>
+<h2 id="1-executive-summary-of-wildteaming">1. Executive Summary of WildTeaming</h2>
+<p>WildTeaming is an automatic red-teaming framework designed to discover and mitigate Large Language Model (LLM) vulnerabilities. Unlike prior methods that relied on synthetic attacks or recruited human red-teamers, WildTeaming mines real-world user-chatbot interactions to identify how users naturally attempt to bypass safety safeguards.</p>
+<h3 id="core-framework-stages">Core Framework Stages</h3>
+<ol>
+<li><strong>MINE:</strong> Automatically identifying 5.7K unique clusters of jailbreak tactics from 105K human-devised attempts found in “in-the-wild” (ITW) logs.</li>
+<li><strong>COMPOSE:</strong> Systematically combining these tactics with vanilla harmful queries to generate 262K diverse, complex adversarial attacks.</li>
+</ol>
+<h3 id="key-results">Key Results</h3>
+<ul>
+<li><strong>Discovery:</strong> Identified 4.6x more diverse and successful attacks than prior state-of-the-art methods.</li>
+<li><strong>Efficiency:</strong> Achieved higher success rates in 40% fewer attempts.</li>
+<li><strong>Safety Training:</strong> Created <strong>WildJailbreak</strong>, a large-scale open-source safety dataset (262K pairs) used to train models that balance robust defense with minimal over-refusal.</li>
+</ul>
+<hr>
+<h2 id="2-jailbreak-tactics-mining-and-composition">2. Jailbreak Tactics: Mining and Composition</h2>
+<p>The framework uses logs from <strong>LMSYS-CHAT-1M</strong> and <strong>(INTHE)WILDCHAT</strong> to capture real-world adversarial behavior.</p>
+<h3 id="top-in-the-wild-itw-tactics">Top In-the-Wild (ITW) Tactics</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Tactic Name</th><th align="left">Percentage</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><strong>Fictitious Scenario</strong></td><td align="left">15.5%</td><td align="left">Situating the request in a fictional narrative or setting.</td></tr><tr><td align="left"><strong>Assign Personality</strong></td><td align="left">8.8%</td><td align="left">Giving the model a specific persona (e.g., a “based” assistant).</td></tr><tr><td align="left"><strong>Enforce Compliance</strong></td><td align="left">8.2%</td><td align="left">Explicitly commanding the model to ignore rules or follow orders.</td></tr><tr><td align="left"><strong>Add Leading Sentence</strong></td><td align="left">8.0%</td><td align="left">Seeding model compliance with a starting phrase like “Sure, here’s…”</td></tr><tr><td align="left"><strong>Irrelevant Distractors</strong></td><td align="left">7.0%</td><td align="left">Adding noise or unrelated objects to mask the harmful intent.</td></tr><tr><td align="left"><strong>Nuanced Expressions</strong></td><td align="left">4.2%</td><td align="left">Rephrasing harmful descriptions into softer, indirect language.</td></tr></tbody></table>
+<h3 id="the-composition-process">The Composition Process</h3>
+<p>WildTeaming transforms a <strong>Vanilla Query</strong> (a direct harmful request) into an <strong>Adversarial Prompt (AP)</strong> by:</p>
+<ol>
+<li>Sampling multiple mined tactics (e.g., Role-play + Seed leading sentence).</li>
+<li>Using an attacker model (e.g., Mixtral-8x7B) to combine them.</li>
+<li>Applying <strong>Off-topic</strong> and <strong>Low-risk</strong> pruners to ensure the final prompt remains harmful and on-topic.</li>
+</ol>
+<hr>
+<h2 id="3-the-wildjailbreak-dataset">3. The WildJailbreak Dataset</h2>
+<p>WildJailbreak is the first safety training resource to address four contrastive components simultaneously. This structure is critical for achieving <strong>Pareto optimality</strong>—the balance between safety and general capabilities.</p>
+<h3 id="the-four-components-of-wildjailbreak">The Four Components of WildJailbreak</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Data Type</th><th align="left">Count</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><strong>Vanilla Harmful (H)</strong></td><td align="left">50,050</td><td align="left">Direct requests across 13 risk categories (e.g., malicious uses).</td></tr><tr><td align="left"><strong>Vanilla Benign (B)</strong></td><td align="left">50,050</td><td align="left">Queries that look like harmful ones but contain no harmful intent.</td></tr><tr><td align="left"><strong>Adversarial Harmful (H)</strong></td><td align="left">82,728</td><td align="left">Complex, tactic-heavy jailbreaks of the vanilla harmful queries.</td></tr><tr><td align="left"><strong>Adversarial Benign (B)</strong></td><td align="left">78,706</td><td align="left">Queries that look like jailbreaks but are actually harmless.</td></tr></tbody></table>
+<hr>
+<h2 id="4-safety-training-and-scaling-findings">4. Safety Training and Scaling Findings</h2>
+<p>The research demonstrates that the composition and scale of safety data significantly impact model performance.</p>
+<ul>
+<li><strong>Necessity of Diversity:</strong> Training on vanilla data alone is insufficient for defending against adversarial attacks. Conversely, training only on adversarial data leads to poor performance on direct requests.</li>
+<li><strong>The Over-Refusal Pattern:</strong> Training exclusively on harmful data without benign examples leads to “exaggerated safety behaviors,” where models refuse harmless queries (e.g., refusing to discuss “raw sushi” because it mentions “raw”).</li>
+<li><strong>Scaling Effects:</strong> Model safety continues to improve as the volume of safety data increases (up to 60K items) without sacrificing general instruction-following or reasoning capabilities.</li>
+<li><strong>Hybridization:</strong> The most robust safeguard is achieved by mixing both vanilla and adversarial training data.</li>
+</ul>
+<hr>
+<h2 id="5-short-answer-practice-questions">5. Short-Answer Practice Questions</h2>
+<ol>
+<li><strong>How does WildTeaming differ from traditional red-teaming methods like human recruitment or gradient-based optimization?</strong>
+<ul>
+<li><em>Answer:</em> WildTeaming mines “in-the-wild” interactions from real chatbot users who were not specifically instructed to break the system. This captures a broader, more diverse range of tactics than experts or mathematical optimizations, which often produce gibberish or a narrow set of attacks.</li>
+</ul>
+</li>
+<li><strong>What is the purpose of the “Benign” components in the WildJailbreak dataset?</strong>
+<ul>
+<li><em>Answer:</em> They mitigate “over-refusal” or exaggerated safety behaviors. By including queries that resemble harmful prompts in form but are benign in intent, the model learns to distinguish between actual harm and harmless context.</li>
+</ul>
+</li>
+<li><strong>What role do the “Off-topic” and “Low-risk” pruners play in the WildTeaming framework?</strong>
+<ul>
+<li><em>Answer:</em> They ensure the quality of the generated adversarial attacks by filtering out prompts that have lost their original harmful intent or have become so diluted that they no longer pose a risk.</li>
+</ul>
+</li>
+<li><strong>According to the findings, what happens to a model’s general capabilities (e.g., reasoning, MMLU scores) when safety training data is scaled up?</strong>
+<ul>
+<li><em>Answer:</em> The research shows minimal, if any, decrease in general capabilities even when safety data is scaled to orders of magnitude larger than in previous studies.</li>
+</ul>
+</li>
+<li><strong>Why is “seed leading sentence” considered a powerful jailbreak tactic?</strong>
+<ul>
+<li><em>Answer:</em> It uses a (half-)sentence to seed model compliance (e.g., “Sure, I can help with that. First…”), forcing the model into an affirmative response mode that bypasses initial safety filters.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="6-essay-prompts-for-deeper-exploration">6. Essay Prompts for Deeper Exploration</h2>
+<ol>
+<li><strong>The Balance of Safety and Helpfulness:</strong> Analyze the interplay between vanilla and adversarial data in safety training. Explain why a model trained solely on harmful adversarial queries might fail in a real-world deployment, and discuss how the contrastive query design in WildJailbreak addresses these failures.</li>
+<li><strong>In-the-Wild Vulnerabilities vs. Synthetic Attacks:</strong> Compare the effectiveness of “in-the-wild” tactics (like fictitious scenarios and content normalization) with optimization-based attacks (like GCG). Which poses a greater threat to frontier LLMs, and why does WildTeaming suggest that diversity is more important than optimization for broad red-teaming?</li>
+<li><strong>Open-Source Safety and the Scaling Law:</strong> Discuss the implications of the finding that safety data scale matters for robust safeguards. How does the release of 262K training pairs change the landscape for researchers working on open-source models compared to the closed-source safety data of frontier models like GPT-4?</li>
+</ol>
+<hr>
+<h2 id="7-glossary-of-key-terms">7. Glossary of Key Terms</h2>
+<ul>
+<li><strong>Adversarial Prompt (AP):</strong> A modified version of a harmful query that uses specific tactics to bypass a model’s safety filters.</li>
+<li><strong>Attack Success Rate (ASR):</strong> The percentage of adversarial attempts that successfully elicit a harmful response from the target model.</li>
+<li><strong>Exaggerated Safety (Over-refusal):</strong> A failure mode where a model refuses to answer harmless prompts because they superficially resemble prohibited topics.</li>
+<li><strong>In-the-Wild (ITW):</strong> Data derived from real-world, unscripted user interactions with chatbots.</li>
+<li><strong>Jailbreaking:</strong> The act of revising a harmful prompt to bypass the safety safeguards of an LLM.</li>
+<li><strong>Pareto Optimality (in Safety):</strong> The ideal balance where a model provides maximum safety (refusing harm) and maximum helpfulness (answering benign queries) without losing general intelligence.</li>
+<li><strong>Perplexity (PPL):</strong> A measure used to assess the “naturalness” or stealthiness of an adversarial attack; lower PPL indicates the text looks more like natural human language.</li>
+<li><strong>Red-Teaming:</strong> The systematic process of probing a system for vulnerabilities, often through adversarial attacks.</li>
+<li><strong>Vanilla Query:</strong> A direct, explicit request (either harmful or benign) without any adversarial framing or jailbreak tactics.</li>
+</ul>
+<hr>
+<h2 id="-faq">❓ FAQ</h2>
+<h2 id="question-1">Question 1</h2>
+<p>How does the ‘MINE’ stage of the WildTeaming framework fundamentally differ from previous red-teaming methodologies like PAIR or GCG?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> It relies on back-propagating through model parameters to find optimal tokens.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> It utilizes chatbot logs from real-world users who were not explicitly instructed to jailbreak the system.</li>
+<li class="task-list-item"><input type="checkbox" disabled> It focuses exclusively on human-authored templates provided by security experts.</li>
+<li class="task-list-item"><input type="checkbox" disabled> It uses RLHF to train an attacker model to predict which prompts will bypass safety filters.</li>
+</ul>
+<p><strong>Hint:</strong> Consider the source of the jailbreak tactics and the intent of the individuals who wrote them.</p>
+<h2 id="question-2">Question 2</h2>
+<p>What did the authors discover about the diversity of jailbreak tactics when comparing ‘in-the-wild’ (ITW) user queries to existing semantic jailbreak methods?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Existing methods like PAIR and TAP are more adversarial because they optimize for a single target.</li>
+<li class="task-list-item"><input type="checkbox" disabled> ITW interactions are mostly comprised of simple, direct harmful requests with few adversarial patterns.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> The ITW interactions revealed 4.6 times more unique and successful attacks compared to state-of-the-art methods.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Most ITW jailbreaks are identical to the ‘DAN’ (Do Anything Now) templates found online.</li>
+</ul>
+<p><strong>Hint:</strong> Look at the quantitative comparison between user logs and existing red-teaming frameworks.</p>
+<h2 id="question-3">Question 3</h2>
+<p>In the WildJailbreak dataset, what is the specific purpose of including ‘adversarial benign’ queries?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> To increase the success rate of jailbreak attacks against frontier models.</li>
+<li class="task-list-item"><input type="checkbox" disabled> To teach the model to ignore formatting constraints when a prompt looks suspicious.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> To mitigate ‘adversarial exaggerated safety’ behaviors where a model refuses harmless prompts that look like jailbreaks.</li>
+<li class="task-list-item"><input type="checkbox" disabled> To provide examples of how to successfully bypass the OpenAI Moderation API.</li>
+</ul>
+<p><strong>Hint:</strong> Think about the common failure mode where a model becomes ‘too safe’ and refuses harmless requests.</p>
+<h2 id="question-4">Question 4</h2>
+<p>Why did the researchers introduce the $ASR \times n$ and $Query \times n$ metrics for evaluating jailbreaking methods?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> To account for the high computational cost of running GCG on A100 GPUs.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Standard ASR only measures the ability to find a single successful attack, which is insufficient for broad red-teaming.</li>
+<li class="task-list-item"><input type="checkbox" disabled> To penalize models that produce gibberish or high-perplexity adversarial text.</li>
+<li class="task-list-item"><input type="checkbox" disabled> To evaluate the performance of the LlamaGuard safety classifier against multi-turn conversations.</li>
+</ul>
+<p><strong>Hint:</strong> Consider the limitations of simply knowing if a model can be broken once versus knowing all the ways it can be broken.</p>
+<h2 id="question-5">Question 5</h2>
+<p>According to the safety training experiments, what is the primary drawback of training a model exclusively on ‘vanilla harmful’ queries?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> It significantly reduces the model’s performance on general reasoning tasks like MMLU.</li>
+<li class="task-list-item"><input type="checkbox" disabled> It results in a model that is over-sensitive and refuses almost all user inputs.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> It fails to provide a robust safeguard against adversarial attacks, which require specific training on convoluted prompts.</li>
+<li class="task-list-item"><input type="checkbox" disabled> It makes the model more vulnerable to ‘low-risk’ queries that do not contain explicit keywords.</li>
+</ul>
+<p><strong>Hint:</strong> Reflect on the ‘interplay of data properties’ mentioned in the results section.</p>
+<h2 id="question-6">Question 6</h2>
+<p>In the ‘COMPOSE’ stage of WildTeaming, what is the role of the binary ‘off-topic’ and ‘low-risk’ filters?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> To prevent the attacker model from generating responses that are too short.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> To ensure that the generated adversarial attack remains faithful to the original harmful intent and maintains a high risk level.</li>
+<li class="task-list-item"><input type="checkbox" disabled> To act as the final judge of whether a jailbreak attack was successful against the target model.</li>
+<li class="task-list-item"><input type="checkbox" disabled> To remove any PII (Personally Identifiable Information) from the training dataset.</li>
+</ul>
+<p><strong>Hint:</strong> Think about how a framework ensures its synthetic ‘adversarial’ queries are actually harmful and related to the seed prompt.</p>
+<h2 id="question-7">Question 7</h2>
+<p>Which novel jailbreak tactic identified by WildTeaming involves using a half-sentence at the end of a prompt to nudge model compliance?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Coded Language</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Seed leading sentence</li>
+<li class="task-list-item"><input type="checkbox" disabled> Fictitious scenario</li>
+<li class="task-list-item"><input type="checkbox" disabled> Surrogate modality</li>
+</ul>
+<p><strong>Hint:</strong> This tactic exploits the way transformers predict the next token based on immediately preceding context.</p>
+<h2 id="question-8">Question 8</h2>
+<p>The research suggests that for a truly robust safeguard, the scale of safety data mixed with general instruction tuning should be:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> Kept to a minimum (under 2K items) to avoid ‘catastrophic forgetting’ of general knowledge.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Approximately 10% of the total instruction-tuning dataset.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Significantly larger than previously studied, potentially up to 60K items of both vanilla and adversarial data.</li>
+<li class="task-list-item"><input type="checkbox" disabled> Comprised entirely of adversarial queries to maximize the model’s ‘stress-test’ resilience.</li>
+</ul>
+<p><strong>Hint:</strong> Look at the ‘scaling effect of safety data’ section and the corresponding figures.</p>
+<h2 id="question-9">Question 9</h2>
+<p>What is the primary risk addressed by the ‘Contrastive Query Design’ in WildJailbreak?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> The risk of the model learning how to generate more effective jailbreaks itself.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> The risk of ‘under-protection’ and ‘over-refusal’ failures occurring simultaneously.</li>
+<li class="task-list-item"><input type="checkbox" disabled> The risk of the dataset being ‘contaminated’ by existing evaluation benchmarks.</li>
+<li class="task-list-item"><input type="checkbox" disabled> The risk of the model failing to follow complex multi-step instructions.</li>
+</ul>
+<p><strong>Hint:</strong> Consider the ‘Pareto frontier’ between helpfulness and safety.</p>
+<h2 id="question-10">Question 10</h2>
+<p>How does WildTeaming handle the deduplication of the 105K mined jailbreak tactics?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled> By manually reviewing every prompt to identify redundant strategies.</li>
+<li class="task-list-item"><input type="checkbox" disabled> By clustering tactics based on their names using a dictionary of known synonyms.</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> By clustering tactic definitions using sentence embeddings with a specific threshold.</li>
+<li class="task-list-item"><input type="checkbox" disabled> By using the OpenAI Moderation API to flag prompts with similar toxic content scores.</li>
+</ul>
+<p><strong>Hint:</strong> Recall the details of the ‘Step 1 (Mine)’ process mentioned in the paper.</p>
+<hr>
+<h2 id="-resources">📎 Resources</h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2406.18510">arXiv Abstract</a></li>
+<li><a href="https://arxiv.org/pdf/2406.18510.pdf">PDF</a></li>
+<li><a href="../../notebooklm-output/2406.18510/artifacts/audio-overview.m4a">Audio Overview</a></li>
+<li><a href="../../notebooklm-output/2406.18510/artifacts/research-report.md">Research Report</a></li>
+<li><a href="../../notebooklm-output/2406.18510/artifacts/study-guide.md">Study Guide</a></li>
+<li><a href="../../notebooklm-output/2406.18510/artifacts/faq.md">FAQ</a></li>
+</ul>
+<hr>
+<p><em>This post was generated automatically from NotebookLM artifacts. Part of the <a href="../index.md">Daily Paper</a> series exploring cutting-edge research in embodied AI and failure-first approaches.</em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module">function g(e){let t=e>>>0;return function(){t|=0,t=t+1831565813|0;let n=Math.imul(t^t>>>15,1|t);return n=n+Math.imul(n^n>>>7,61|n)^n,((n^n>>>14)>>>0)/4294967296}}function m(){return Math.floor(new Date/(1e3*60*60*24))*1013}function w(e,t,n,o){const a=Math.ceil(t/60)+2,r=Math.ceil(n/(40*Math.sqrt(3)))+2;e.strokeStyle="rgba(0, 210, 255, 0.03)",e.lineWidth=.5;for(let c=-1;c<r;c++)for(let d=-1;d<a;d++){const l=d*40*1.5,i=c*40*Math.sqrt(3)+(d%2===0?0:40*Math.sqrt(3)/2);o()>.7&&S(e,l,i,40)}}function S(e,t,n,o){e.beginPath();for(let h=0;h<6;h++){const a=Math.PI/3*h-Math.PI/2,r=t+o*Math.cos(a),c=n+o*Math.sin(a);h===0?e.moveTo(r,c):e.lineTo(r,c)}e.closePath(),e.stroke()}function f(e,t,n){e.strokeStyle="rgba(0, 210, 255, 0.02)",e.lineWidth=1;for(let o=0;o<n;o+=4)e.beginPath(),e.moveTo(0,o),e.lineTo(t,o),e.stroke()}class p{constructor(t,n,o){this.x=t,this.y=n,this.phase=o()*Math.PI*2,this.period=8e3+o()*12e3,this.maxRadius=60+o()*40,this.color=o()>.7?"rgba(255, 71, 87,":"rgba(0, 210, 255,",this.birthTime=Date.now()}draw(t,n){const h=(n-this.birthTime)%this.period/this.period,a=Math.sin(h*Math.PI*2)*.5+.5,r=this.maxRadius*a,c=a*.08;t.strokeStyle=`${this.color} ${c})`,t.lineWidth=1,t.beginPath(),t.arc(this.x,this.y,r,0,Math.PI*2),t.stroke(),t.strokeStyle=`${this.color} ${c*.5})`,t.beginPath(),t.arc(this.x,this.y,r*.6,0,Math.PI*2),t.stroke()}}function y(){const e=document.getElementById("sensor-grid-bg");if(!e)return;const t=e.getContext("2d",{alpha:!0}),n=m(),o=g(n);function h(){const i=window.devicePixelRatio||1,s=e.getBoundingClientRect();return e.width=s.width*i,e.height=s.height*i,t.scale(i,i),{w:s.width,h:s.height}}const{w:a,h:r}=h(),c=3+Math.floor(o()*3),d=[];for(let i=0;i<c;i++){const s=o()*a,u=o()*r;d.push(new p(s,u,g(n+i*1013)))}w(t,a,r,o),f(t,a,r);function l(){const{w:i,h:s}=h();t.clearRect(0,0,e.width,e.height),w(t,i,s,o),f(t,i,s);const u=Date.now();for(const M of d)M.draw(t,u);requestAnimationFrame(l)}l(),window.addEventListener("resize",()=>{const{w:i,h:s}=h();w(t,i,s,o),f(t,i,s)})}typeof document<"u"&&(document.readyState==="loading"?document.addEventListener("DOMContentLoaded",y):y());</script></body></html> 

@@ -1,0 +1,197 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const papers = (await getCollection('dailyPaper'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const paperTypeLabel: Record<string, string> = {
+  empirical: 'Empirical',
+  theoretical: 'Theoretical',
+  methods: 'Methods',
+  survey: 'Survey',
+  position: 'Position',
+};
+---
+
+<ContentLayout
+  title="Daily Paper | Failure-First"
+  description="One AI safety paper per day — curated, analyzed, and contextualized through the failure-first lens. Research reports, study guides, and audio overviews for each paper."
+  breadcrumbs={[{ label: "Daily Paper" }]}
+>
+  <PageHeader
+    title="Daily Paper"
+    tagline="One paper per day, through the failure-first lens"
+  />
+
+  <p class="series-description">
+    Each post covers a key paper in AI safety, alignment, or adversarial ML — with a
+    NotebookLM-generated research report, study guide, FAQ, and audio overview.
+    Papers are selected for their relevance to how AI systems fail.
+  </p>
+
+  {papers.length > 0 ? (
+    <div class="paper-list">
+      {papers.map((paper) => (
+        <a href={`/daily-paper/${paper.id}/`} class="paper-card card">
+          <div class="paper-card-meta">
+            <time class="paper-card-date" datetime={paper.data.date.toISOString()}>
+              {paper.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+            </time>
+            <span class="paper-card-type">{paperTypeLabel[paper.data.paperType] ?? paper.data.paperType}</span>
+            <span class="paper-card-arxiv">arXiv:{paper.data.arxiv}</span>
+            {paper.data.audio && <span class="paper-card-audio">&#x25B6; Audio</span>}
+          </div>
+          <h3>{paper.data.title}</h3>
+          <p>{paper.data.description}</p>
+          {paper.data.tags.length > 0 && (
+            <div class="paper-card-tags">
+              {paper.data.tags.slice(0, 5).map((tag: string) => (
+                <span class="paper-card-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">First papers coming soon.</p>
+  )}
+
+  <div class="feed-links">
+    <a href="/rss.xml" class="feed-anchor">
+      <span class="feed-icon">&#x25C8;</span> RSS Feed
+    </a>
+  </div>
+</ContentLayout>
+
+<style>
+  .series-description {
+    color: var(--fg-dim);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-top: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 640px;
+  }
+
+  .paper-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .paper-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .paper-card:hover {
+    border-bottom: none;
+  }
+
+  .paper-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.375rem;
+  }
+
+  .paper-card-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .paper-card-type,
+  .paper-card-arxiv {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.0625rem 0.375rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    border-radius: 2px;
+  }
+
+  .paper-card-arxiv {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    opacity: 0.6;
+  }
+
+  .paper-card-audio {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--failure-warning);
+    opacity: 0.8;
+  }
+
+  .paper-card h3 {
+    margin: 0 0 0.375rem;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .paper-card p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  .paper-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3125rem;
+    margin-top: 0.625rem;
+  }
+
+  .paper-card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.125rem 0.375rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    border-radius: 2px;
+  }
+
+  .empty-state {
+    color: var(--fg-muted);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+
+  .feed-links {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .feed-anchor {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    border-bottom: none;
+  }
+
+  .feed-anchor:hover {
+    color: var(--accent-primary);
+    border-bottom: none;
+  }
+
+  .feed-icon {
+    color: var(--failure-warning);
+  }
+</style>

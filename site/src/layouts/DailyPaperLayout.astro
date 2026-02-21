@@ -1,0 +1,348 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  arxiv: string;
+  authors: string;
+  paperType: string;
+  tags: string[];
+  audio?: string;
+}
+
+const { title, description, date, arxiv, authors, paperType, tags, audio } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const authorList = authors.split(',').map((a: string) => a.trim());
+const displayAuthors = authorList.length > 4
+  ? `${authorList.slice(0, 4).join(', ')} et al.`
+  : authorList.join(', ');
+
+const paperTypeLabel: Record<string, string> = {
+  empirical: 'Empirical Study',
+  theoretical: 'Theoretical',
+  methods: 'Methods',
+  survey: 'Survey',
+  position: 'Position Paper',
+};
+---
+
+<BaseLayout
+  title={`${title} | Daily Paper | Failure-First`}
+  description={description}
+  type="article"
+  publishedDate={date.toISOString().split('T')[0]}
+>
+  <Breadcrumbs items={[
+    { label: "Daily Paper", href: "/daily-paper/" },
+    { label: title },
+  ]} />
+
+  <article class="daily-paper">
+    <header class="paper-header">
+      <div class="paper-meta-top">
+        <time class="paper-date" datetime={date.toISOString()}>{formattedDate}</time>
+        <span class="paper-series">Daily Paper</span>
+      </div>
+
+      <h1>{title}</h1>
+      <p class="paper-description">{description}</p>
+
+      <div class="paper-meta-row">
+        <a
+          href={`https://arxiv.org/abs/${arxiv}`}
+          class="arxiv-badge"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          arXiv:{arxiv}
+        </a>
+        <span class="paper-type-badge">{paperTypeLabel[paperType] ?? paperType}</span>
+      </div>
+
+      <p class="paper-authors">{displayAuthors}</p>
+
+      {tags.length > 0 && (
+        <div class="paper-tags">
+          {tags.map((tag: string) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    {audio && (
+      <div class="audio-section">
+        <div class="audio-label">
+          <span class="audio-icon">&#x25B6;</span>
+          NotebookLM Audio Overview
+        </div>
+        <audio controls preload="none" class="audio-player">
+          <source src={audio} type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    )}
+
+    <div class="paper-content">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .daily-paper {
+    max-width: 100%;
+  }
+
+  .paper-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .paper-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .paper-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .paper-series {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-primary);
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--accent-primary);
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  .paper-header h1 {
+    font-size: 1.875rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .paper-description {
+    font-size: 1.0625rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .paper-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.625rem;
+    flex-wrap: wrap;
+  }
+
+  .arxiv-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    padding: 0.1875rem 0.5rem;
+    border-radius: 3px;
+    border-bottom: 1px solid var(--accent-primary);
+    opacity: 0.85;
+    transition: opacity 0.15s ease;
+  }
+
+  .arxiv-badge:hover {
+    opacity: 1;
+    border-bottom: 1px solid var(--accent-primary);
+  }
+
+  .paper-type-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg-muted);
+    border: 1px solid var(--border);
+    padding: 0.1875rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .paper-authors {
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    line-height: 1.4;
+    margin-bottom: 0.875rem;
+  }
+
+  .paper-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.125rem 0.4375rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    border-radius: 2px;
+  }
+
+  /* Audio player */
+  .audio-section {
+    margin-bottom: 2rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    background: var(--bg-elevated);
+  }
+
+  .audio-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    margin-bottom: 0.625rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .audio-icon {
+    color: var(--accent-primary);
+    font-size: 0.5rem;
+  }
+
+  .audio-player {
+    width: 100%;
+    height: 36px;
+    accent-color: var(--accent-primary);
+  }
+
+  /* Content */
+  .paper-content {
+    line-height: 1.7;
+  }
+
+  .paper-content :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .paper-content :global(h3) {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .paper-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .paper-content :global(ul),
+  .paper-content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .paper-content :global(li) {
+    margin-bottom: 0.375rem;
+    color: var(--fg-dim);
+  }
+
+  .paper-content :global(strong) {
+    color: var(--fg);
+  }
+
+  .paper-content :global(a) {
+    color: var(--accent-primary);
+  }
+
+  .paper-content :global(blockquote) {
+    border-left: 3px solid var(--border-emphasis);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--fg-dim);
+    font-style: italic;
+  }
+
+  .paper-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .paper-content :global(th),
+  .paper-content :global(td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-subtle);
+    text-align: left;
+  }
+
+  .paper-content :global(th) {
+    background: var(--bg-elevated);
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg-muted);
+  }
+
+  .paper-content :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background: var(--bg-elevated);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+
+  .paper-content :global(pre) {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .paper-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  /* Hide the H1 from the markdown body — we render it in the header */
+  .paper-content :global(h1:first-child) {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .paper-header h1 {
+      font-size: 1.375rem;
+    }
+  }
+</style>
