@@ -12,19 +12,16 @@ NotebookLM Audio Overview
 </div> <audio controls preload="none" class="audio-player" data-astro-cid-4f4ngxwt> <source src="/audio/daily-paper/2404.01318-audio-overview.m4a" type="audio/mp4" data-astro-cid-4f4ngxwt>
 Your browser does not support the audio element.
 </audio> </div> <div class="paper-content" data-astro-cid-4f4ngxwt>  <h1 id="jailbreakbench-an-open-robustness-benchmark-for-jailbreaking-large-language-models">JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models</h1>
-<h2 id="overview">Overview</h2>
-<p><strong>Paper Type:</strong> Empirical
-<strong>Focus:</strong> Introduces JailbreakBench, an open-sourced benchmark with standardized evaluation framework, dataset of 100 harmful behaviors, repository of adversarial prompts, and leaderboard to enable reproducible and comparable assessment of jailbreak attacks and defenses across LLMs.</p>
-<h3 id="failure-first-relevance">Failure-First Relevance</h3>
-<p>This paper directly addresses critical gaps in LLM safety evaluation by establishing standardized metrics, reproducible threat models, and open-source artifacts that enable systematic study of failure modes in alignment. By centralizing jailbreak evaluation methodology and creating comparable success rate measurements, it provides essential infrastructure for understanding how and why LLMs fail to maintain safety constraints under adversarial pressure. The leaderboard and artifact repository enable the research community to track defensive progress and identify emerging attack vectors before they become widespread threats.</p>
+<p>If you want to understand whether an AI system is actually safer, you need to know how to measure it—and right now, the field of LLM safety evaluation is a mess. Researchers publish jailbreak attacks using different evaluation criteria, different datasets, different threat models, and sometimes don’t even release their prompts. This fragmentation makes it nearly impossible to know whether a new defense actually works better than the last one, or whether we’re just comparing apples to oranges. The result is that safety progress becomes hard to track, vulnerabilities get rediscovered instead of building on prior work, and practitioners can’t reliably benchmark their own systems against a common standard.</p>
+<p><a href="https://arxiv.org/abs/2404.01318">arxiv.org</a> addresses this by introducing JailbreakBench, a centralized infrastructure for reproducible jailbreak evaluation. The researchers created four interconnected components: a dataset of 100 harmful behaviors aligned with OpenAI’s usage policies, a repository of state-of-the-art adversarial prompts that researchers can actually access, a standardized evaluation framework with clearly defined threat models and scoring functions, and a public leaderboard tracking attack and defense performance across multiple LLMs. By establishing common ground rules—shared prompts, shared evaluation code, shared test cases—they’ve made it possible for the community to measure progress in a comparable way.</p>
+<p>For practitioners, this matters because you can’t fix what you can’t measure. JailbreakBench reveals a crucial failure mode: LLMs consistently break their safety constraints under adversarial pressure, and without standardized evaluation, you won’t know if your defenses actually work or just shift the problem around. The leaderboard and artifact repository do something equally important—they create visibility into emerging attack vectors and defensive progress, turning jailbreaking research from scattered papers into a trackable arms race. This visibility is the prerequisite for building systems that fail gracefully and predictably, rather than discovering new failure modes in production.</p>
+<hr>
+<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
 <hr>
 <h2 id="abstract">Abstract</h2>
 <p>Jailbreak attacks cause large language models (LLMs) to generate harmful, unethical, or otherwise objectionable content. Evaluating these attacks presents a number of challenges, which the current collection of benchmarks and evaluation techniques do not adequately address. First, there is no clear standard of practice regarding jailbreaking evaluation. Second, existing works compute costs and success rates in incomparable ways. And third, numerous works are not reproducible, as they withhold adversarial prompts, involve closed-source code, or rely on evolving proprietary APIs. To address these challenges, we introduce JailbreakBench, an open-sourced benchmark with the following components: (1) an evolving repository of state-of-the-art adversarial prompts, which we refer to as jailbreak artifacts; (2) a jailbreaking dataset comprising 100 behaviors — both original and sourced from prior work (Zou et al., 2023; Mazeika et al., 2023, 2024) — which align with OpenAI’s usage policies; (3) a standardized evaluation framework at <a href="https://github.com/JailbreakBench/jailbreakbench">https://github.com/JailbreakBench/jailbreakbench</a> that includes a clearly defined threat model, system prompts, chat templates, and scoring functions; and (4) a leaderboard at <a href="https://jailbreakbench.github.io/">https://jailbreakbench.github.io/</a> that tracks the performance of attacks and defenses for various LLMs. We have carefully considered the potential ethical implications of releasing this benchmark, and believe that it will be a net positive for the community.</p>
 <hr>
-<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
-<p><a href="../../notebooklm-output/2404.01318/artifacts/audio-overview.m4a">Download Audio Overview</a></p>
-<hr>
-<h2 id="-key-insights">📊 Key Insights</h2>
+<h2 id="key-insights">Key Insights</h2>
 <h2 id="executive-summary">Executive Summary</h2>
 <p>JailbreakBench is an open-source, multi-component benchmark designed to address critical fragmentation in the evaluation of Large Language Model (LLM) robustness. While LLMs are increasingly deployed in safety-critical domains, they remain vulnerable to “jailbreaking”—adversarial attacks that bypass safety filters to generate harmful content.</p>
 <p>Historically, the research community has lacked a standardized framework, leading to incomparable success rates and non-reproducible results. JailbreakBench solves these issues by providing a centralized repository of adversarial prompts (artifacts), a curated dataset of 100 harmful and 100 benign behaviors (JBB-Behaviors), a standardized evaluation pipeline, and a public leaderboard. This infrastructure enables researchers to systematically track the progress of attacks and defenses, facilitating “failure-first” AI safety research.</p>
@@ -189,222 +186,7 @@ Your browser does not support the audio element.
 <li><strong>Monitor the Leaderboard:</strong> The evolving nature of the repository means that new “transfer” prompts will be added regularly. Red-teamers should use these as a regression test suite for model safety updates.</li>
 </ul>
 <hr>
-<h2 id="-study-guide">📚 Study Guide</h2>
-<p>This study guide provides a comprehensive overview of <strong>JailbreakBench</strong>, an open-sourced benchmark designed to address the lack of standardization and reproducibility in the evaluation of Large Language Model (LLM) jailbreaking attacks and defenses.</p>
-<hr>
-<h2 id="1-key-concepts-and-architecture">1. Key Concepts and Architecture</h2>
-<h3 id="overview-of-the-benchmark">Overview of the Benchmark</h3>
-<p>JailbreakBench is a standardized framework created to measure how and why LLMs fail to maintain safety constraints under adversarial pressure. It addresses three primary challenges in the field:</p>
-<ol>
-<li><strong>Lack of Standards:</strong> No clear standard of practice existed for jailbreaking evaluation.</li>
-<li><strong>Incomparability:</strong> Previous works computed costs and success rates in inconsistent ways.</li>
-<li><strong>Reproducibility:</strong> Many researchers withheld adversarial prompts or relied on evolving, closed-source APIs.</li>
-</ol>
-<h3 id="the-four-core-components">The Four Core Components</h3>
-<p>JailbreakBench is built upon four foundational pillars:</p>
-<ul>
-<li><strong>Jailbreak Artifacts Repository:</strong> An evolving collection of state-of-the-art adversarial prompts (jailbreak strings) used in successful attacks.</li>
-<li><strong>JBB-Behaviors Dataset:</strong> A curated set of 100 harmful behaviors aligned with OpenAI’s usage policies, complemented by 100 matching benign behaviors used for “refusal rate” sanity checks.</li>
-<li><strong>Standardized Evaluation Framework:</strong> A unified pipeline including defined threat models (black-box, white-box, transfer), system prompts, chat templates, and scoring functions.</li>
-<li><strong>Leaderboard and Website:</strong> A public interface that tracks the performance of various LLMs against specific attacks and defenses.</li>
-</ul>
-<h3 id="the-jbb-behaviors-dataset">The JBB-Behaviors Dataset</h3>
-<p>The benchmark uses 100 distinct misuse behaviors across ten broad categories. Approximately 45% are sourced from prior datasets (AdvBench, TDC/HarmBench), and 55% are original.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th align="left">Category</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><strong>Harassment/Discrimination</strong></td><td align="left">Hateful, harassing, or violent content generation.</td></tr><tr><td align="left"><strong>Malware/Hacking</strong></td><td align="left">Creation of malware or hacking scripts.</td></tr><tr><td align="left"><strong>Physical Harm</strong></td><td align="left">Activities posing a high risk of physical injury.</td></tr><tr><td align="left"><strong>Economic Harm</strong></td><td align="left">High-risk economic activities.</td></tr><tr><td align="left"><strong>Fraud/Deception</strong></td><td align="left">Deceptive activities or fraudulent schemes.</td></tr><tr><td align="left"><strong>Disinformation</strong></td><td align="left">Generation of false or misleading information.</td></tr><tr><td align="left"><strong>Sexual/Adult Content</strong></td><td align="left">Pornography or CSAM.</td></tr><tr><td align="left"><strong>Privacy</strong></td><td align="left">Activities violating individual privacy.</td></tr><tr><td align="left"><strong>Expert Advice</strong></td><td align="left">Tailored legal, medical, or economic advice.</td></tr><tr><td align="left"><strong>Gov. Decision-making</strong></td><td align="left">High-risk government recommendations.</td></tr></tbody></table>
-<h3 id="jailbreaking-classifiers-the-judge">Jailbreaking Classifiers (The Judge)</h3>
-<p>Evaluating the success of a jailbreak is subjective. JailbreakBench analyzed six classifiers to find a reliable “judge.”</p>
-<ul>
-<li><strong>The Winner:</strong> <strong>Llama-3-70B</strong> was selected as the primary judge. It achieved a 90.7% agreement rate with human experts, comparable to GPT-4 (90.3%), but with the benefit of being an open-weight model, ensuring greater reproducibility.</li>
-<li><strong>Other Candidates:</strong> Rule-based (lowest agreement at 56%), GPT-4, HarmBench, Llama Guard, and Llama Guard 2.</li>
-</ul>
-<hr>
-<h2 id="2-short-answer-practice-questions">2. Short-Answer Practice Questions</h2>
-<p><strong>1. What is the primary purpose of including 100 “benign behaviors” in the JBB-Behaviors dataset?</strong>
-<em>Answer:</em> They serve as a sanity check for refusal rates. They ensure that defenses or models are not “over-refusing” or becoming overly conservative by simply detecting keywords associated with harmful topics.</p>
-<p><strong>2. Why does JailbreakBench prioritize the use of Llama-3-70B over GPT-4 as its evaluation judge?</strong>
-<em>Answer:</em> While both perform similarly, GPT-4 is a closed-source model that is expensive to query and subject to unannounced changes by the provider. Llama-3-70B is an open-weight model, which supports the benchmark’s core goal of reproducibility.</p>
-<p><strong>3. Describe the “Prompt with Random Search (RS)” attack and its performance in the benchmark.</strong>
-<em>Answer:</em> Prompt with RS is an attack enhanced by self-transfer. In the benchmark’s evaluation, it proved to be the most effective attack on average, achieving high success rates (90% on Llama-2 and 78% on GPT-4) with high query efficiency.</p>
-<p><strong>4. What are “test-time defenses” in the context of LLMs?</strong>
-<em>Answer:</em> These are “wrappers” or filters placed around an LLM to detect or mitigate jailbreaks during inference. Examples include SmoothLLM (perturbing inputs) and Perplexity Filtering (detecting unusual token sequences).</p>
-<p><strong>5. How does the benchmark handle “Adaptive Attacks”?</strong>
-<em>Answer:</em> JailbreakBench encourages the use of adaptive attacks—attacks specifically tailored to bypass the defense being tested—to provide a realistic assessment of a defense’s worst-case robustness.</p>
-<p><strong>6. Which defense was identified as the “most solid” against the initial set of baseline attacks?</strong>
-<em>Answer:</em> <strong>Erase-and-Check</strong> appeared to be the most robust defense, although the “Prompt with RS” attack still achieved non-trivial success against it.</p>
-<hr>
-<h2 id="3-essay-prompts-for-deeper-exploration">3. Essay Prompts for Deeper Exploration</h2>
-<p><strong>1. The Ethics of Open-Sourcing Malice:</strong>
-The creators of JailbreakBench decided to open-source “jailbreak artifacts” (the exact prompts that break LLM safety). Analyze the ethical trade-offs of this decision. Consider the potential for misuse by malicious actors versus the benefits of providing a dataset for adversarial training and defensive research.</p>
-<p><strong>2. The Challenge of Automated Alignment Evaluation:</strong>
-Discuss the complexities involved in using an “LLM-as-a-judge.” Why is it difficult to create a rule-based classifier for jailbreaks, and what are the risks of a classifier having a high False Positive Rate (FPR) or False Negative Rate (FNR) in the context of AI safety?</p>
-<p><strong>3. Standardizing the Threat Model:</strong>
-How does the introduction of a standardized evaluation framework (system prompts, chat templates, and deterministic sampling) change the landscape of AI safety research? Explain how these controls help resolve the “reproducibility crisis” in prior jailbreak studies.</p>
-<hr>
-<h2 id="4-glossary-of-important-terms">4. Glossary of Important Terms</h2>
-<ul>
-<li><strong>Adversarial Alignment:</strong> The process of training a model to refuse harmful requests even when the user intentionally tries to bypass safety filters.</li>
-<li><strong>Attack Success Rate (ASR):</strong> The percentage of adversarial prompts that successfully elicit a harmful or objectionable response from the target LLM.</li>
-<li><strong>Greedy Coordinate Gradient (GCG):</strong> An optimization-based attack that finds a single adversarial suffix to append to a prompt to trigger a jailbreak.</li>
-<li><strong>Jailbreak Artifacts:</strong> Specific adversarial strings or prompts that have been proven to cause an LLM to bypass its safety training.</li>
-<li><strong>Perplexity Filtering:</strong> A defense mechanism that calculates the “randomness” or “uncertainty” of a prompt. Since adversarial suffixes are often gibberish, they typically have high perplexity and can be filtered out.</li>
-<li><strong>Prompt Automatic Iterative Refinement (PAIR):</strong> An attack method that uses an auxiliary LLM to automatically generate and refine jailbreak prompts through iteration.</li>
-<li><strong>Refusal Rate:</strong> The frequency with which a model declines to answer a prompt. This is measured on both harmful and benign datasets to check for over-sensitivity.</li>
-<li><strong>SmoothLLM:</strong> A test-time defense that creates multiple perturbed versions of an input prompt and checks if the model refuses the majority of them, thereby “smoothing” out adversarial noise.</li>
-<li><strong>Threat Model:</strong> A formal description of the attacker’s capabilities (e.g., “Black-box” means the attacker only sees the model’s output; “White-box” means they have access to the model’s internal weights).</li>
-</ul>
-<hr>
-<h2 id="-faq">❓ FAQ</h2>
-<h2 id="question-1">Question 1</h2>
-<p>Which of the following components in the JailbreakBench architecture is specifically designed to address the issue of ‘jailbreak artifacts’ disappearing when crowd-sourced websites go offline?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> The JBB-Behaviors dataset</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> The open-source repository of state-of-the-art adversarial prompts</li>
-<li class="task-list-item"><input type="checkbox" disabled> The standardized evaluation framework</li>
-<li class="task-list-item"><input type="checkbox" disabled> The Llama-3-70B judge classifier</li>
-</ul>
-<p><strong>Hint:</strong> Consider the specific term used in the paper for archived attack data.</p>
-<h2 id="question-2">Question 2</h2>
-<p>The JBB-Behaviors dataset categorizes its 100 misuse behaviors based on which organization’s policies?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> The NIST AI Risk Management Framework</li>
-<li class="task-list-item"><input type="checkbox" disabled> Meta’s Llama Guard Safety Policy</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> OpenAI’s usage policies</li>
-<li class="task-list-item"><input type="checkbox" disabled> The NeurIPS Datasets and Benchmarks Track guidelines</li>
-</ul>
-<p><strong>Hint:</strong> The dataset includes categories like ‘Malware/Hacking’ and ‘Economic harm’ aligned with this company’s terms.</p>
-<h2 id="question-3">Question 3</h2>
-<p>In the judge selection process, why did the authors choose Llama-3-70B over GPT-4 despite both achieving similar agreement rates with human experts?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Llama-3-70B demonstrated a significantly lower False Positive Rate ($FPR$)</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> GPT-4 is a closed-source model subject to evolving APIs</li>
-<li class="task-list-item"><input type="checkbox" disabled> Llama-3-70B was able to use the default Chao et al. (2023) system prompt without refusal</li>
-<li class="task-list-item"><input type="checkbox" disabled> GPT-4 failed to achieve 90% agreement with expert annotators</li>
-</ul>
-<p><strong>Hint:</strong> Think about the core principle of JailbreakBench regarding reproducibility and accessibility.</p>
-<h2 id="question-4">Question 4</h2>
-<p>What is the primary function of the ‘Benign Behaviors’ included in the JBB-Behaviors dataset?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> To provide a training set for RLHF alignment</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> To evaluate the ‘over-refusal’ or refusal rates of models and defenses</li>
-<li class="task-list-item"><input type="checkbox" disabled> To act as the target string for adversarial optimization in GCG</li>
-<li class="task-list-item"><input type="checkbox" disabled> To increase the dataset size to meet NeurIPS requirements</li>
-</ul>
-<p><strong>Hint:</strong> This helps identify if a model is ‘overly conservative’.</p>
-<h2 id="question-5">Question 5</h2>
-<p>Which attack method was found to be the most effective overall, achieving a $90%$ Attack Success Rate ($ASR$) on Llama-2-7B-chat?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Greedy Coordinate Gradient (GCG)</li>
-<li class="task-list-item"><input type="checkbox" disabled> Prompt Automatic Iterative Refinement (PAIR)</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> Prompt with Random Search (RS) enhanced by self-transfer</li>
-<li class="task-list-item"><input type="checkbox" disabled> Always Intelligent and Machiavellian (AIM)</li>
-</ul>
-<p><strong>Hint:</strong> This attack utilizes a manually optimized prompt template and pre-computed initialization.</p>
-<h2 id="question-6">Question 6</h2>
-<p>According to the evaluation of baseline defenses, which defense appeared to be the ‘most solid,’ although it still allowed non-trivial success from certain attacks?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Perplexity Filter</li>
-<li class="task-list-item"><input type="checkbox" disabled> SmoothLLM</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> Erase-and-Check</li>
-<li class="task-list-item"><input type="checkbox" disabled> Synonym Substitution</li>
-</ul>
-<p><strong>Hint:</strong> This defense involves checking substrings of the input for potential jailbreak sequences.</p>
-<h2 id="question-7">Question 7</h2>
-<p>How does JailbreakBench formalize the task of jailbreaking in its theoretical background section?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> As a maximize problem: $\max P \in T^\star \text{ subject to } \text{Safety}(P) = 0$</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> As a search for prompt $P$ such that $JUDGE(LLM(P), G) = True$</li>
-<li class="task-list-item"><input type="checkbox" disabled> As a cross-entropy loss minimization between $LLM(P)$ and a target string</li>
-<li class="task-list-item"><input type="checkbox" disabled> As a Reinforcement Learning problem where reward is human preference</li>
-</ul>
-<p><strong>Hint:</strong> Look for the relationship between the prompt, the model output, and the judge’s verdict.</p>
-<h2 id="question-8">Question 8</h2>
-<p>Which metric is used in JailbreakBench to estimate the efficiency of a jailbreaking attack beyond its success rate?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" checked disabled> Average number of queries and tokens used</li>
-<li class="task-list-item"><input type="checkbox" disabled> GPU hours required for optimization</li>
-<li class="task-list-item"><input type="checkbox" disabled> Wall-clock time to generate a jailbreak</li>
-<li class="task-list-item"><input type="checkbox" disabled> The semantic distance between the goal and the prompt</li>
-</ul>
-<p><strong>Hint:</strong> These metrics are standard for evaluating the ‘cost’ of black-box attacks.</p>
-<h2 id="question-9">Question 9</h2>
-<p>In the comparison of classifiers, which model showed a noticeably high False Positive Rate ($FPR = 26.8%$) on the 100 benign examples from XS-Test?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Llama Guard 2</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> HarmBench (Llama-2-13B judge)</li>
-<li class="task-list-item"><input type="checkbox" disabled> Rule-based classifier</li>
-<li class="task-list-item"><input type="checkbox" disabled> GPT-4</li>
-</ul>
-<p><strong>Hint:</strong> This judge was introduced in a different benchmark mentioned in the paper.</p>
-<h2 id="question-10">Question 10</h2>
-<p>What is a significant limitation of the current JailbreakBench framework as noted in the ‘Outlook’ or ‘Limitations’ sections?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> It only supports white-box attacks on open-source models</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> It focuses solely on text-based modalities</li>
-<li class="task-list-item"><input type="checkbox" disabled> It does not provide any standardized system prompts</li>
-<li class="task-list-item"><input type="checkbox" disabled> The leaderboard is static and cannot accept new submissions</li>
-</ul>
-<p><strong>Hint:</strong> Consider the types of inputs (modalities) the benchmark accepts.</p>
-<hr>
-<h2 id="-resources">📎 Resources</h2>
-<ul>
-<li><a href="https://arxiv.org/abs/2404.01318">arXiv Abstract</a></li>
-<li><a href="https://arxiv.org/pdf/2404.01318.pdf">PDF</a></li>
-<li><a href="../../notebooklm-output/2404.01318/artifacts/audio-overview.m4a">Audio Overview</a></li>
-<li><a href="../../notebooklm-output/2404.01318/artifacts/research-report.md">Research Report</a></li>
-<li><a href="../../notebooklm-output/2404.01318/artifacts/study-guide.md">Study Guide</a></li>
-<li><a href="../../notebooklm-output/2404.01318/artifacts/faq.md">FAQ</a></li>
-</ul>
-<hr>
-<p><em>This post was generated automatically from NotebookLM artifacts. Part of the <a href="../index.md">Daily Paper</a> series exploring cutting-edge research in embodied AI and failure-first approaches.</em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+<p><em>Read the <a href="https://arxiv.org/abs/2404.01318">full paper on arXiv</a> · <a href="https://arxiv.org/pdf/2404.01318.pdf">PDF</a></em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
 &copy; 2026 Failure-First Embodied AI Project |

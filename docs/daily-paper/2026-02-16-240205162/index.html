@@ -12,19 +12,16 @@ NotebookLM Audio Overview
 </div> <audio controls preload="none" class="audio-player" data-astro-cid-4f4ngxwt> <source src="/audio/daily-paper/2402.05162-audio-overview.m4a" type="audio/mp4" data-astro-cid-4f4ngxwt>
 Your browser does not support the audio element.
 </audio> </div> <div class="paper-content" data-astro-cid-4f4ngxwt>  <h1 id="assessing-the-brittleness-of-safety-alignment-via-pruning-and-low-rank-modifications">Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications</h1>
-<h2 id="overview">Overview</h2>
-<p><strong>Paper Type:</strong> Empirical
-<strong>Focus:</strong> Identifies and quantifies sparse safety-critical regions in LLMs (3% of parameters, 2.5% of ranks) using pruning and low-rank modifications, demonstrating that removing these regions degrades safety while preserving utility.</p>
-<h3 id="failure-first-relevance">Failure-First Relevance</h3>
-<p>This paper directly demonstrates a critical failure mode: safety mechanisms in LLMs are not robustly distributed across the model but concentrated in sparse, identifiable regions. The finding that only 3% of parameters are safety-critical creates a severe vulnerability surface—attackers can efficiently target these regions, and the model remains vulnerable to low-cost fine-tuning attacks even when safety-critical regions are nominally protected. This empirical evidence of safety brittleness is essential for understanding why current alignment approaches fail and motivates the need for fundamentally more distributed safety mechanisms.</p>
+<p>We’ve spent years assuming that safety in large language models is fragile—susceptible to jailbreaks, adversarial prompts, and fine-tuning attacks. But fragility is easier to claim than to measure. The real question is: <em>why</em> is it fragile? Is safety distributed across the model’s weights in a way that makes it resilient, or is it concentrated in a few critical bottlenecks that could be surgically disabled? Understanding the architectural basis of this brittleness is essential for anyone trying to build alignment mechanisms that actually hold up under pressure. <a href="https://proceedings.mlr.press/v235/wei24f.html">proceedings.mlr.press</a> Wei et al. set out to answer this directly.</p>
+<p>The researchers developed methods to identify which neurons and low-rank components in LLMs are actually responsible for safety behavior, separate from those that handle general utility. Using pruning and singular value decomposition on safety and utility datasets, they isolated safety-critical regions and found something striking: only about 3% of parameters and 2.5% of ranks are doing the safety work. More troubling, they showed that removing these regions tanks safety performance while barely affecting the model’s ability to answer normal questions. Even when they tried to protect these safety-critical regions from modification, the models remained vulnerable to low-cost fine-tuning attacks that could reintroduce harmful outputs.</p>
+<p>This is where the failure analysis becomes urgent for practitioners. The finding that safety is concentrated in sparse, identifiable regions is not a bug report—it’s a threat model. If 3% of parameters encode nearly all safety behavior, then attackers have a clear target. The paper demonstrates that you cannot simply wall off these regions; the model’s safety and utility functions are entangled enough that protecting one region leaves other attack surfaces open. This suggests that current alignment approaches—which treat safety as a learned behavior layered on top of a general-purpose model—may be fundamentally limited. For teams building deployed systems, this means relying on sparse safety mechanisms is a bet you will lose. The implication is stark: either safety needs to be distributed throughout training and architecture in a way that makes it inseparable from general capability, or current alignment methods need to be replaced entirely.</p>
+<hr>
+<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
 <hr>
 <h2 id="abstract">Abstract</h2>
 <p>Large language models (LLMs) show inherent brittleness in their safety mechanisms, as evidenced by their susceptibility to jailbreaking and even non-malicious fine-tuning. This study explores this brittleness of safety alignment by leveraging pruning and low-rank modifications. We develop methods to identify critical regions that are vital for safety guardrails, and that are disentangled from utility-relevant regions at both the neuron and rank levels. Surprisingly, the isolated regions we find are sparse, comprising about $3%$ at the parameter level and $2.5%$ at the rank level. Removing these regions compromises safety without significantly impacting utility, corroborating the inherent brittleness of the model’s safety mechanisms. Moreover, we show that LLMs remain vulnerable to low-cost fine-tuning attacks even when modifications to the safety-critical regions are restricted. These findings underscore the urgent need for more robust safety strategies in LLMs.</p>
 <hr>
-<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
-<p><a href="../../notebooklm-output/2402.05162/artifacts/audio-overview.m4a">Download Audio Overview</a></p>
-<hr>
-<h2 id="-key-insights">📊 Key Insights</h2>
+<h2 id="key-insights">Key Insights</h2>
 <h2 id="executive-summary">Executive Summary</h2>
 <p>This briefing document analyzes the findings of recent empirical research regarding the structural localization of safety mechanisms in Large Language Models (LLMs). The research demonstrates that safety alignment in models like the Llama2-chat family is remarkably brittle due to its concentration in sparse, identifiable regions. Specifically, safety-critical regions comprise only approximately <strong>3% of parameters</strong> at the neuron level and <strong>2.5% of ranks</strong> at the low-rank level.</p>
 <p>The study introduces two primary methods for isolating these regions: <strong>Set Difference</strong> for neurons and <strong>Orthogonal Projection</strong> for ranks. By removing these sparse regions, the research shows that a model’s safety guardrails can be almost entirely dismantled—increasing Attack Success Rates (ASR) from 0% to over 90%—while maintaining the model’s general utility and linguistic capabilities. Furthermore, the findings suggest that current alignment strategies like Reinforcement Learning from Human Feedback (RLHF) create a “safety wrapper” that can be easily bypassed by fine-tuning attacks, as the model can develop alternative pathways that circumvent frozen safety-critical parameters.</p>
@@ -123,139 +120,7 @@ This sparsity creates a severe “vulnerability surface,” allowing attackers o
 <li><strong>Re-evaluate Fine-tuning APIs:</strong> The ease with which safety is bypassed via alternative pathways during fine-tuning suggests that current “safety-region restrictions” in commercial fine-tuning APIs may be insufficient to prevent jailbroken states.</li>
 </ol>
 <hr>
-<h2 id="-study-guide">📚 Study Guide</h2>
-<p>This study guide is based on the research paper <strong>“Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications”</strong> (Wei et al., 2024). It explores the mechanistic localization of safety in Large Language Models (LLMs) and why current alignment techniques remain vulnerable to attacks.</p>
-<hr>
-<h2 id="core-concepts-and-research-findings">Core Concepts and Research Findings</h2>
-<h3 id="the-central-thesis-sparse-brittleness">The Central Thesis: Sparse Brittleness</h3>
-<p>Current LLM safety alignment is “brittle” because safety-specific behaviors are not robustly distributed across the model’s entire architecture. Instead, safety mechanisms are concentrated in remarkably sparse, identifiable regions. When these specific parameters are targeted or removed, the model’s safety guardrails collapse, even while its general capabilities (utility) remain intact.</p>
-<h3 id="key-metrics-of-sparsity">Key Metrics of Sparsity</h3>
-<p>The research identifies the “safety-critical” surface area of Llama2-chat models as follows:</p>
-<ul>
-<li><strong>Parameter/Neuron Level:</strong> Approximately <strong>3%</strong> of weights.</li>
-<li><strong>Rank Level:</strong> Approximately <strong>2.5%</strong> of the total ranks.</li>
-<li><strong>Adversarial Threshold:</strong> Pruning as little as <strong>1%</strong> of neurons can significantly compromise safety in adversarial scenarios (e.g., adversarial suffixes or decoding manipulation).</li>
-</ul>
-<h3 id="the-challenge-of-safety-utility-entanglement">The Challenge of Safety-Utility Entanglement</h3>
-<p>A primary difficulty in weight attribution is that safety and utility often overlap. For example, to decline a request to commit fraud, a model must understand the request (utility) before it can refuse it (safety).</p>
-<ul>
-<li><strong>Disentanglement Methods:</strong> To find regions <em>exclusively</em> responsible for safety, the researchers used <strong>Set Difference</strong> (for neurons) and <strong>Orthogonal Projection</strong> (for ranks) to isolate safety-critical regions from utility-critical regions.</li>
-<li><strong>Consequence of Failure to Disentangle:</strong> Removing the “top safety neurons” without isolating them first results in a drastic decrease in model utility (e.g., zero-shot accuracy dropping from 0.58 to 0.35).</li>
-</ul>
-<h3 id="localization-mlp-vs-attention-layers">Localization: MLP vs. Attention Layers</h3>
-<p>The study used the Jaccard index and subspace similarity to measure the overlap between safety and utility.</p>
-<ul>
-<li><strong>MLP Layers:</strong> These layers show <strong>lower overlap</strong> (more differentiation) between safety and utility.</li>
-<li><strong>Self-Attention Layers:</strong> These layers show higher entanglement.</li>
-<li><strong>Implication:</strong> Safety-related knowledge is more uniquely localized within the MLP components of the transformer architecture.</li>
-</ul>
-<h3 id="fine-tuning-attack-resistance">Fine-Tuning Attack Resistance</h3>
-<p>Freezing safety-critical regions is <strong>insufficient</strong> to prevent fine-tuning attacks. While it offers some resistance against very minor model modifications (e.g., fine-tuning on only 10 examples), attackers can still bypass original safety mechanisms. This suggests that fine-tuning may create “alternative pathways” in the model that circumvent the original, sparse safety regions.</p>
-<hr>
-<h2 id="short-answer-practice-questions">Short-Answer Practice Questions</h2>
-<p><strong>1. What are the two primary granularities at which the researchers identified safety-critical regions?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> Neuron level (individual parameters) and rank level (low-rank modifications).</p>
-</blockquote>
-<p><strong>2. Why does removing the “top safety neurons” (without disentanglement) often break the model’s general utility?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> Because safety awareness and general utility are often intricately overlapped; regions vital for understanding a prompt (utility) are often the same regions used to process a safe response.</p>
-</blockquote>
-<p><strong>3. What specific method was used to isolate safety-critical ranks from utility-relevant ranks?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> Orthogonal Projection (using the ActSVD algorithm).</p>
-</blockquote>
-<p><strong>4. According to the sparsity findings, what percentage of ranks are safety-critical in the Llama2-chat family?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> Approximately 2.5%.</p>
-</blockquote>
-<p><strong>5. How does the model’s performance change when safety-critical regions are removed using the set difference method?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> The Attack Success Rate (ASR) increases from 0% to over 90%, while the average zero-shot accuracy remains largely unaffected (above 0.5).</p>
-</blockquote>
-<p><strong>6. Which layer type in the transformer block was found to encode more “differentiated” (less overlapped) safety and utility behaviors?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> MLP (Multi-Layer Perceptron) layers.</p>
-</blockquote>
-<p><strong>7. True or False: Standard attention head probing is the most effective way to localize safety-critical neurons.</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> False. The research found that set difference and orthogonal projection consistently outperformed attention head probing in isolating safety without damaging utility.</p>
-</blockquote>
-<p><strong>8. What happens to a model’s safety when the neurons with the <em>lowest</em> safety importance scores are pruned?</strong></p>
-<blockquote>
-<p><strong>Answer:</strong> The model’s resistance to jailbreaking (specifically against adversarial decoding) can actually improve slightly.</p>
-</blockquote>
-<hr>
-<h2 id="essay-prompts-for-deeper-exploration">Essay Prompts for Deeper Exploration</h2>
-<p><strong>1. The Mechanics of Sparse Vulnerability</strong>
-Discuss why the concentration of safety mechanisms in only 3% of a model’s parameters represents a “severe vulnerability surface.” In your essay, explain how this sparsity facilitates low-cost fine-tuning attacks and why it challenges the goal of creating robustly aligned AI.</p>
-<p><strong>2. The Disentanglement Requirement</strong>
-Analyze the importance of the “Set Difference” and “Orthogonal Projection” methods in this research. Why is it insufficient to simply identify “important” safety neurons? Explain how the overlap between safety and utility complicates the task of red-teaming and model pruning.</p>
-<p><strong>3. Evaluating Defense Strategies: Freezing vs. Distributing</strong>
-The research indicates that “freezing” safety-critical neurons fails to stop fine-tuning attacks. Critique this defense strategy. Based on the paper’s findings regarding “alternative pathways,” argue for or against the need for “fundamentally more distributed safety mechanisms.”</p>
-<hr>
-<h2 id="glossary-of-important-terms">Glossary of Important Terms</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th align="left">Term</th><th align="left">Definition</th></tr></thead><tbody><tr><td align="left"><strong>ASR (Attack Success Rate)</strong></td><td align="left">The ratio of successfully jailbroken prompts to the total number of prompts evaluated. Includes variants like <strong>ASRVanilla</strong> (standard conditions), <strong>ASRAdv-Suffix</strong> (using GCG adversarial suffixes), and <strong>ASRAdv-Decoding</strong> (manipulating the decoding process).</td></tr><tr><td align="left"><strong>ActSVD</strong></td><td align="left">A data-aware low-rank decomposition algorithm proposed to identify the most significant ranks of a weight matrix for a specific behavior by performing SVD on activation outputs.</td></tr><tr><td align="left"><strong>Brittleness</strong></td><td align="left">The tendency of a model’s safety guardrails to fail under minor weight modifications or low-cost attacks despite high performance in standard evaluations.</td></tr><tr><td align="left"><strong>Jaccard Index</strong></td><td align="left">A statistic used to measure the similarity and overlap between two sets (in this case, top safety neurons vs. top utility neurons).</td></tr><tr><td align="left"><strong>Low-Rank Modification</strong></td><td align="left">A technique (similar to LoRA) that modifies or removes specific ranks of a weight matrix to influence model behavior without changing every parameter.</td></tr><tr><td align="left"><strong>Orthogonal Projection</strong></td><td align="left">A method to isolate safety-critical ranks by removing components that overlap with utility-important subspaces.</td></tr><tr><td align="left"><strong>Set Difference Method</strong></td><td align="left">A neuron-level attribution technique that identifies safety-critical neurons by selecting those with high safety importance scores that are <em>not</em> among the high-utility importance neurons.</td></tr><tr><td align="left"><strong>SNIP / Wanda</strong></td><td align="left">Importance scoring methods used to determine which individual neurons/weights are most critical for a model’s output or loss on a specific dataset.</td></tr><tr><td align="left"><strong>Weight Attribution</strong></td><td align="left">The process of linking specific model behaviors (like refusing a harmful prompt) to specific regions or parameters within the model’s weights.</td></tr></tbody></table>
-<hr>
-<h2 id="-faq">❓ FAQ</h2>
-<p>(Not available)</p>
-<hr>
-<h2 id="-resources">📎 Resources</h2>
-<ul>
-<li><a href="https://arxiv.org/abs/2402.05162">arXiv Abstract</a></li>
-<li><a href="https://arxiv.org/pdf/2402.05162.pdf">PDF</a></li>
-<li><a href="../../notebooklm-output/2402.05162/artifacts/audio-overview.m4a">Audio Overview</a></li>
-<li><a href="../../notebooklm-output/2402.05162/artifacts/research-report.md">Research Report</a></li>
-<li><a href="../../notebooklm-output/2402.05162/artifacts/study-guide.md">Study Guide</a></li>
-<li><a href="../../notebooklm-output/2402.05162/artifacts/faq.md">FAQ</a></li>
-</ul>
-<hr>
-<p><em>This post was generated automatically from NotebookLM artifacts. Part of the <a href="../index.md">Daily Paper</a> series exploring cutting-edge research in embodied AI and failure-first approaches.</em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+<p><em>Read the <a href="https://arxiv.org/abs/2402.05162">full paper on arXiv</a> · <a href="https://arxiv.org/pdf/2402.05162.pdf">PDF</a></em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
 &copy; 2026 Failure-First Embodied AI Project |

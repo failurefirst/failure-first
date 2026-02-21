@@ -12,19 +12,16 @@ NotebookLM Audio Overview
 </div> <audio controls preload="none" class="audio-player" data-astro-cid-4f4ngxwt> <source src="/audio/daily-paper/2406.08705-audio-overview.m4a" type="audio/mp4" data-astro-cid-4f4ngxwt>
 Your browser does not support the audio element.
 </audio> </div> <div class="paper-content" data-astro-cid-4f4ngxwt>  <h1 id="when-llm-meets-drl-advancing-jailbreaking-efficiency-via-drl-guided-search">When LLM Meets DRL: Advancing Jailbreaking Efficiency via DRL-guided Search</h1>
-<h2 id="overview">Overview</h2>
-<p><strong>Paper Type:</strong> Empirical
-<strong>Focus:</strong> Proposes RLbreaker, a deep reinforcement learning-driven black-box jailbreaking attack that uses DRL with customized reward functions and PPO to automatically generate effective jailbreaking prompts, demonstrating superior performance over genetic algorithm-based attacks across six SOTA LLMs.</p>
-<h3 id="failure-first-relevance">Failure-First Relevance</h3>
-<p>This paper is critical for failure-first AI research because it demonstrates that deterministic RL-guided search substantially outperforms stochastic genetic algorithms at circumventing LLM safety alignments, revealing a systematic vulnerability in current defense mechanisms. The transferability of trained agents across different LLMs and robustness against three SOTA defenses indicates that jailbreaking attacks are becoming more reliable and generalizable—a key failure mode that safety researchers must understand and defend against. Understanding how RL agents can efficiently exploit the prompt space is essential for designing more robust alignment strategies.</p>
+<p>Safety teams have spent years building alignment mechanisms into large language models—training procedures, filtering layers, constitutional constraints. Yet a persistent class of attacks keeps finding ways around them: jailbreaks that reformulate harmful requests in ways the model’s safety training doesn’t recognize. Early jailbreaking work required either access to model internals or painstaking manual crafting. Then came genetic algorithm approaches that automated the search for adversarial prompts, but with a fundamental limitation: they’re stochastic, meaning they waste computational effort on random mutations that don’t meaningfully advance the attack. This inefficiency has masked a deeper problem—one that becomes visible the moment you apply more directed search methods.</p>
+<p>RLbreaker applies deep reinforcement learning to the jailbreaking problem, treating the generation of adversarial prompts as a sequential decision-making task rather than a random search. The researchers designed a custom reward function that guides a PPO agent toward prompts that successfully elicit harmful responses, and tested it against six state-of-the-art LLMs. The results are straightforward: RL-guided search substantially outperforms genetic algorithms in both success rate and sample efficiency. Beyond raw attack numbers, they demonstrate that trained agents transfer across different models and maintain effectiveness against three different defense mechanisms, suggesting the vulnerability isn’t model-specific or defense-specific.</p>
+<p>What matters here for practitioners is not the attack itself but what it reveals: genetic algorithms were actually masking how vulnerable the prompt space is to systematic exploration. By switching from stochastic to deterministic search, the researchers have shown that current safety alignments have exploitable structure—patterns that a learned policy can reliably discover and exploit. This is a failure mode that demands attention because it suggests that defenses built on the assumption of random perturbations are underestimating the threat surface. Teams building safer systems need to understand that adversaries will eventually apply more sophisticated search methods, and that the transferability of these attacks across models means the vulnerability is architectural rather than incidental. The lesson is uncomfortable: your alignment might be less robust than genetic algorithm results suggested.</p>
+<hr>
+<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
 <hr>
 <h2 id="abstract">Abstract</h2>
 <p>Recent studies developed jailbreaking attacks, which construct jailbreaking prompts to fool LLMs into responding to harmful questions. Early-stage jailbreaking attacks require access to model internals or significant human efforts. More advanced attacks utilize genetic algorithms for automatic and black-box attacks. However, the random nature of genetic algorithms significantly limits the effectiveness of these attacks. In this paper, we propose RLbreaker, a black-box jailbreaking attack driven by deep reinforcement learning (DRL). We model jailbreaking as a search problem and design an RL agent to guide the search, which is more effective and has less randomness than stochastic search, such as genetic algorithms. Specifically, we design a customized DRL system for the jailbreaking problem, including a novel reward function and a customized proximal policy optimization (PPO) algorithm. Through extensive experiments, we demonstrate that RLbreaker is much more effective than existing jailbreaking attacks against six state-of-the-art (SOTA) LLMs. We also show that RLbreaker is robust against three SOTA defenses and its trained agents can transfer across different LLMs. We further validate the key design choices of RLbreaker via a comprehensive ablation study.</p>
 <hr>
-<h2 id="️-audio-overview">🎙️ Audio Overview</h2>
-<p><a href="../../notebooklm-output/2406.08705/artifacts/audio-overview.m4a">Download Audio Overview</a></p>
-<hr>
-<h2 id="-key-insights">📊 Key Insights</h2>
+<h2 id="key-insights">Key Insights</h2>
 <h2 id="executive-summary">Executive Summary</h2>
 <p>RLbreaker is a novel black-box jailbreaking attack framework that leverages Deep Reinforcement Learning (DRL) to automate the generation of effective jailbreaking prompts against Large Language Models (LLMs). Developed to address the limitations of existing stochastic methods—such as genetic algorithms and in-context learning—RLbreaker models jailbreaking as a guided search problem. By utilizing a customized Proximal Policy Optimization (PPO) algorithm and a dense, semantic similarity-based reward function, the system demonstrates superior performance in circumventing the safety alignments of state-of-the-art (SOTA) models, including Llama2-70b-chat, Mixtral-8x7B-Instruct, and GPT-3.5-turbo.</p>
 <p>The research indicates that RLbreaker not only achieves higher attack success rates than baseline methods but also exhibits significant transferability across different LLMs and robustness against SOTA defenses such as RAIN, perplexity-based filtering, and input rephrasing. These findings reveal systematic vulnerabilities in current alignment strategies and suggest that DRL-guided search is a more reliable and generalizable failure mode for AI safety researchers to address.</p>
@@ -127,211 +124,7 @@ Your browser does not support the audio element.
 <li><strong>Multi-Modal Adaptation:</strong> The authors suggest that the DRL-guided framework is extensible. Future defensive research should anticipate similar RL-based attacks on vision-language models and video generation models.</li>
 </ul>
 <hr>
-<h2 id="-study-guide">📚 Study Guide</h2>
-<p>This study guide provides a comprehensive overview of the research paper “When LLM Meets DRL: Advancing Jailbreaking Efficiency via DRL-guided Search.” It explores the methodology, empirical results, and implications of the <strong>RLbreaker</strong> system, a deep reinforcement learning-driven approach to circumventing Large Language Model (LLM) safety alignments.</p>
-<hr>
-<h2 id="1-key-concepts-and-research-overview">1. Key Concepts and Research Overview</h2>
-<h3 id="the-jailbreaking-problem">The Jailbreaking Problem</h3>
-<p>Jailbreaking involves constructing prompts that “fool” an aligned LLM into responding to harmful or unethical questions. While early attacks were manual or white-box (requiring model internals), recent developments moved toward black-box attacks using genetic algorithms or in-context learning.</p>
-<h3 id="rlbreaker-methodology">RLbreaker Methodology</h3>
-<p>RLbreaker models jailbreaking as a <strong>guided search problem</strong> rather than a stochastic one. It uses Deep Reinforcement Learning (DRL) to strategically select prompt “mutators” to refine jailbreaking attempts.</p>
-<ul>
-<li><strong>Guided vs. Stochastic Search:</strong> Genetic algorithms rely on random mutations, which are inefficient in large search spaces. RLbreaker’s DRL agent learns a policy to select the most promising mutator for a specific harmful question, reducing randomness and increasing efficiency.</li>
-<li><strong>The RL Framework:</strong>
-<ul>
-<li><strong>State:</strong> A low-dimensional representation of the current jailbreaking prompt, extracted using a pre-trained text encoder (XLM-RoBERTa).</li>
-<li><strong>Action:</strong> The selection of one of five predefined mutators (Rephrase, Crossover, Generate Similar, Shorten, Expand).</li>
-<li><strong>Reward:</strong> A dense signal based on the <strong>cosine similarity</strong> between the target LLM’s response and a “reference” answer provided by an unaligned model.</li>
-<li><strong>Algorithm:</strong> A customized version of <strong>Proximal Policy Optimization (PPO)</strong> that removes the value network to reduce training variance and improve stability.</li>
-</ul>
-</li>
-</ul>
-<h3 id="performance-and-transferability">Performance and Transferability</h3>
-<ul>
-<li><strong>Effectiveness:</strong> RLbreaker demonstrates superior performance across six state-of-the-art (SOTA) LLMs, including Llama2-70b-chat and Mixtral-8x7B-Instruct.</li>
-<li><strong>Transferability:</strong> Agents trained on one source model (e.g., Llama2-7b-chat) can effectively attack different models (e.g., Vicuna-7b), sometimes outperforming attacks specifically optimized for those models.</li>
-<li><strong>Resiliency:</strong> The system remains effective against SOTA defenses such as input rephrasing, perplexity filters, and the RAIN decoding strategy.</li>
-</ul>
-<hr>
-<h2 id="2-short-answer-practice-questions">2. Short-Answer Practice Questions</h2>
-<p><strong>Q1: How does RLbreaker define the “State” for its DRL agent, and why was this specific design chosen?</strong>
-<strong>Answer:</strong> The state is defined as the hidden representation of the current jailbreaking prompt ($p$) extracted via a pre-trained text encoder (XLM-RoBERTa). This design was chosen to capture key information about the prompt while avoiding the high dimensionality and computational burden of including the target LLM’s (often long) responses.</p>
-<p><strong>Q2: List the five mutators used in RLbreaker’s action space and briefly describe the role of the “Helper LLM.”</strong>
-<strong>Answer:</strong> The five mutators are <strong>Rephrase, Crossover, Generate Similar, Shorten, and Expand</strong>. The Helper LLM (e.g., GPT-3.5-turbo) is the engine that executes these mutators, transforming the prompt structure based on the action selected by the DRL agent.</p>
-<p><strong>Q3: What is the primary limitation of genetic algorithms in jailbreaking attacks according to the research?</strong>
-<strong>Answer:</strong> The primary limitation is their <strong>stochastic nature</strong>. Genetic algorithms randomly select mutators without a systematic strategy, which makes them highly inefficient in the vast search space of potential jailbreaking prompts.</p>
-<p><strong>Q4: How is the “Reward” calculated in the RLbreaker system?</strong>
-<strong>Answer:</strong> The reward is calculated by measuring the semantic similarity (cosine similarity) between the target LLM’s response and a pre-specified “reference” answer. The reference answer is generated by an unaligned model to ensure it truly addresses the harmful question.</p>
-<p><strong>Q5: What were the results of the ablation study regarding “token-level” action spaces?</strong>
-<strong>Answer:</strong> The ablation study found that agents using token-level action spaces (selecting individual tokens from a vocabulary) were completely ineffective (receiving a zero GPT-Judge score) compared to the mutator-based approach.</p>
-<hr>
-<h2 id="3-essay-prompts-for-deeper-exploration">3. Essay Prompts for Deeper Exploration</h2>
-<h3 id="prompt-1-the-efficiency-of-guided-search-in-ai-red-teaming">Prompt 1: The Efficiency of Guided Search in AI Red-Teaming</h3>
-<p><em>Discuss the theoretical and empirical advantages of modeling jailbreaking as a guided search problem rather than a stochastic genetic process. Use the grid search analogy provided in the research to explain why DRL-guided agents might require significantly fewer “visits” or queries to find a successful adversarial prompt compared to random mutation strategies.</em></p>
-<h3 id="prompt-2-transferability-and-systematic-vulnerabilities">Prompt 2: Transferability and Systematic Vulnerabilities</h3>
-<p><em>The research indicates that RLbreaker agents trained on models with strong safety alignments (like Llama2-7b-chat) often learn more sophisticated policies that transfer successfully to other models. Analyze what this suggests about the nature of current LLM safety alignments. Does this imply that jailbreaking patterns are universal, or that current defense mechanisms share a common systematic failure mode?</em></p>
-<h3 id="prompt-3-the-ethics-of-failure-first-ai-safety-research">Prompt 3: The Ethics of Failure-First AI Safety Research</h3>
-<p><em>RLbreaker is presented as a tool to identify “blind spots” in LLM alignments to improve them via adversarial training. Evaluate the ethical considerations discussed by the authors. Balancing the risk of misuse by adversaries with the long-term benefit of robust alignment, argue for or against the “controlled release” strategy adopted by the researchers.</em></p>
-<hr>
-<h2 id="4-glossary-of-important-terms">4. Glossary of Important Terms</h2>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<table><thead><tr><th align="left">Term</th><th align="left">Definition</th></tr></thead><tbody><tr><td align="left"><strong>AdvBench</strong></td><td align="left">A widely-used dataset containing 520 harmful questions used to evaluate jailbreaking attacks.</td></tr><tr><td align="left"><strong>Black-box Attack</strong></td><td align="left">An adversarial attack where the attacker has no access to the target model’s internal parameters, logits, or training data.</td></tr><tr><td align="left"><strong>Cosine Similarity</strong></td><td align="left">A metric used to measure the semantic similarity between two text representations by calculating the cosine of the angle between their vector embeddings.</td></tr><tr><td align="left"><strong>Dense Reward</strong></td><td align="left">A reward signal provided at every step of a process (as opposed to a sparse reward given only at the end), facilitating more efficient RL policy training.</td></tr><tr><td align="left"><strong>GPT-Judge</strong></td><td align="left">An evaluation metric using GPT-4 to act as an impartial judge to determine if a target LLM’s response actually answers a harmful question.</td></tr><tr><td align="left"><strong>Helper LLM</strong></td><td align="left">An auxiliary model used to perform specific tasks for the attack, such as rephrasing prompts or executing mutations.</td></tr><tr><td align="left"><strong>Jailbreaking</strong></td><td align="left">The process of manipulating an LLM through specific prompts to bypass safety filters and elicit prohibited content.</td></tr><tr><td align="left"><strong>Mutator</strong></td><td align="left">An operation applied to a prompt structure to modify it (e.g., shortening or expanding text) while attempting to maintain or enhance its jailbreaking potential.</td></tr><tr><td align="left"><strong>Proximal Policy Optimization (PPO)</strong></td><td align="left">A state-of-the-art DRL algorithm that uses a surrogate objective function to ensure stable policy updates.</td></tr><tr><td align="left"><strong>Unaligned Model</strong></td><td align="left">An LLM that has not undergone safety alignment or “censorship” training, used in this research to provide reference answers for harmful queries.</td></tr><tr><td align="left"><strong>XLM-RoBERTa</strong></td><td align="left">A transformer-based text encoder used by RLbreaker to extract low-dimensional state representations from prompts.</td></tr></tbody></table>
-<hr>
-<h2 id="-faq">❓ FAQ</h2>
-<h2 id="question-1">Question 1</h2>
-<p>How does the RLbreaker framework formulate the challenge of jailbreaking Large Language Models (LLMs)?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> As a supervised learning problem using a labeled dataset of successful prompts.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> As a search problem aimed at finding an optimal prompt structure $m$ in a space $M$.</li>
-<li class="task-list-item"><input type="checkbox" disabled> As a zero-sum game between a generator LLM and a discriminator LLM.</li>
-<li class="task-list-item"><input type="checkbox" disabled> As a classification task to determine which harmful categories a model will refuse.</li>
-</ul>
-<p><strong>Hint:</strong> Consider the mathematical objective $p_{i} = \text{argmax}<em>{m \in M} K(q</em>{i}, u_{i})$ presented in the methodology.</p>
-<h2 id="question-2">Question 2</h2>
-<p>Why did the authors of RLbreaker choose an LLM-facilitated mutator action space over a token-level action space?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" checked disabled> Token-level actions result in an ultra-large search space that is difficult for RL agents to navigate effectively.</li>
-<li class="task-list-item"><input type="checkbox" disabled> Mutators allow the agent to access the internal gradients of the target LLM.</li>
-<li class="task-list-item"><input type="checkbox" disabled> Token-level actions are easily detected by simple perplexity-based defense mechanisms.</li>
-<li class="task-list-item"><input type="checkbox" disabled> LLMs cannot process individual tokens during the reinforcement learning phase.</li>
-</ul>
-<p><strong>Hint:</strong> Focus on the computational complexity and the efficiency of the search process.</p>
-<h2 id="question-3">Question 3</h2>
-<p>What specific modification was made to the Proximal Policy Optimization (PPO) algorithm in RLbreaker?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> The addition of an entropy-based exploration bonus to prevent the agent from collapsing into a single strategy.</li>
-<li class="task-list-item"><input type="checkbox" disabled> The replacement of the clipping function with a dynamic learning rate based on target LLM feedback.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> The removal of the value network $V(t)$, using the discounted return $R(t)$ directly to estimate the advantage function.</li>
-<li class="task-list-item"><input type="checkbox" disabled> The integration of a white-box gradient descent step within each PPO iteration.</li>
-</ul>
-<p><strong>Hint:</strong> Review the technical details regarding the advantage function $A(t)$ and the state value network.</p>
-<h2 id="question-4">Question 4</h2>
-<p>How does RLbreaker calculate the ‘dense reward’ used to train the DRL agent?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> By counting the number of refusal keywords present in the target LLM’s response.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> By calculating the cosine similarity between the hidden representations of the target response and a pre-specified reference answer.</li>
-<li class="task-list-item"><input type="checkbox" disabled> By querying GPT-4 to provide a numerical safety score between 0 and 1 at every training step.</li>
-<li class="task-list-item"><input type="checkbox" disabled> By measuring the length of the response, assuming longer responses are more likely to be successful jailbreaks.</li>
-</ul>
-<p><strong>Hint:</strong> Think about how the system ensures the target LLM’s response is on-topic and actually answers the harmful question.</p>
-<h2 id="question-5">Question 5</h2>
-<p>In the context of the paper’s grid search analogy, why is DRL-guided search superior to the stochastic search used in genetic algorithms?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Genetic algorithms are unable to find the optimal solution in large grids, regardless of the number of trials.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> Deterministic guided search introduces less randomness, requiring significantly fewer ‘visits’ to the search space to find the target.</li>
-<li class="task-list-item"><input type="checkbox" disabled> DRL agents can see the entire ‘grid’ (search space) at once, while genetic algorithms can only see neighboring cells.</li>
-<li class="task-list-item"><input type="checkbox" disabled> Genetic algorithms require access to the gradients of the grid, which are unavailable in black-box scenarios.</li>
-</ul>
-<p><strong>Hint:</strong> Recall the statistical comparison between $O_{d} = n^{2}$ and $O_{s} \approx 3n^{2}$.</p>
-<h2 id="question-6">Question 6</h2>
-<p>Which of the following is NOT one of the five prompt structure mutators used in the RLbreaker action space?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Crossover</li>
-<li class="task-list-item"><input type="checkbox" disabled> Rephrase</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> Encrypt</li>
-<li class="task-list-item"><input type="checkbox" disabled> Shorten</li>
-</ul>
-<p><strong>Hint:</strong> The mutators were borrowed from existing attacks like GPTFUZZER.</p>
-<h2 id="question-7">Question 7</h2>
-<p>What did the ablation study reveal about using an ‘LLM Agent’ (e.g., Vicuna-13b) to select actions instead of the DRL agent?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" checked disabled> The LLM Agent performed significantly worse, highlighting that identifying effective jailbreak strategies requires specialized RL training.</li>
-<li class="task-list-item"><input type="checkbox" disabled> The LLM Agent was equally effective but much slower than the DRL agent.</li>
-<li class="task-list-item"><input type="checkbox" disabled> The LLM Agent was more effective against commercial models like GPT-3.5-turbo but failed against open-source models.</li>
-<li class="task-list-item"><input type="checkbox" disabled> The LLM Agent successfully jailbroken models only when provided with the value network’s predictions.</li>
-</ul>
-<p><strong>Hint:</strong> Look at the results in Figure 2(a) regarding ‘LLM A.’.</p>
-<h2 id="question-8">Question 8</h2>
-<p>What finding regarding ‘Transferability’ suggests that jailbreaking is a systematic failure in LLM alignment?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> Prompts generated for Llama2-7b-chat were only effective on Vicuna models if the models shared the same training data.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> An agent trained on a model with stronger alignment (e.g., Llama2) learned more sophisticated policies that were highly effective against models with weaker alignment.</li>
-<li class="task-list-item"><input type="checkbox" disabled> Transferability was only possible between models of the exact same parameter size.</li>
-<li class="task-list-item"><input type="checkbox" disabled> Agents could only transfer successful prompts if the target models used the same XLM-RoBERTa text encoder.</li>
-</ul>
-<p><strong>Hint:</strong> Consider the relationship between the difficulty of the ‘source’ model’s alignment and the sophistication of the learned policy.</p>
-<h2 id="question-9">Question 9</h2>
-<p>How does the ‘Perplexity’ defense attempt to thwart jailbreaking attacks, and how does RLbreaker respond?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> It encrypts the model’s output; RLbreaker bypasses this by using a helper model to decrypt it.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> It rejects prompts with high perplexity scores; RLbreaker is robust because it generates more natural-sounding prompts that achieve lower perplexity.</li>
-<li class="task-list-item"><input type="checkbox" disabled> It identifies the specific RL agent’s signature; RLbreaker responds by switching to a random mutator strategy.</li>
-<li class="task-list-item"><input type="checkbox" disabled> It limits the number of tokens in a query; RLbreaker responds by using the ‘Shorten’ mutator exclusively.</li>
-</ul>
-<p><strong>Hint:</strong> Recall why RLbreaker’s prompts are described as more ‘natural’ compared to white-box token attacks.</p>
-<h2 id="question-10">Question 10</h2>
-<p>In the RLbreaker architecture, what role does the ‘Unaligned LLM’ play during the training phase?</p>
-<ul class="contains-task-list">
-<li class="task-list-item"><input type="checkbox" disabled> It acts as the Helper model that performs mutations on the prompt structures.</li>
-<li class="task-list-item"><input type="checkbox" checked disabled> It provides ‘reference’ answers to harmful questions, which are used to calculate the cosine similarity reward.</li>
-<li class="task-list-item"><input type="checkbox" disabled> It serves as the environment’s state transition function $T$.</li>
-<li class="task-list-item"><input type="checkbox" disabled> It filters out unsuccessful jailbreak attempts before they reach the target LLM.</li>
-</ul>
-<p><strong>Hint:</strong> This component is essential for defining the ‘goal’ the RL agent is trying to reach semantically.</p>
-<hr>
-<h2 id="-resources">📎 Resources</h2>
-<ul>
-<li><a href="https://arxiv.org/abs/2406.08705">arXiv Abstract</a></li>
-<li><a href="https://arxiv.org/pdf/2406.08705.pdf">PDF</a></li>
-<li><a href="../../notebooklm-output/2406.08705/artifacts/audio-overview.m4a">Audio Overview</a></li>
-<li><a href="../../notebooklm-output/2406.08705/artifacts/research-report.md">Research Report</a></li>
-<li><a href="../../notebooklm-output/2406.08705/artifacts/study-guide.md">Study Guide</a></li>
-<li><a href="../../notebooklm-output/2406.08705/artifacts/faq.md">FAQ</a></li>
-</ul>
-<hr>
-<p><em>This post was generated automatically from NotebookLM artifacts. Part of the <a href="../index.md">Daily Paper</a> series exploring cutting-edge research in embodied AI and failure-first approaches.</em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+<p><em>Read the <a href="https://arxiv.org/abs/2406.08705">full paper on arXiv</a> · <a href="https://arxiv.org/pdf/2406.08705.pdf">PDF</a></em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
 &copy; 2026 Failure-First Embodied AI Project |
