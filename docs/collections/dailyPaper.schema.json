@@ -52,6 +52,9 @@
         "audio": {
           "type": "string"
         },
+        "image": {
+          "type": "string"
+        },
         "draft": {
           "type": "boolean",
           "default": false
