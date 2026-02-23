@@ -36,24 +36,37 @@ const paperTypeLabel: Record<string, string> = {
   {papers.length > 0 ? (
     <div class="paper-list">
       {papers.map((paper) => (
-        <a href={`/daily-paper/${paper.id}/`} class="paper-card card">
-          <div class="paper-card-meta">
-            <time class="paper-card-date" datetime={paper.data.date.toISOString()}>
-              {paper.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-            </time>
-            <span class="paper-card-type">{paperTypeLabel[paper.data.paperType] ?? paper.data.paperType}</span>
-            <span class="paper-card-arxiv">arXiv:{paper.data.arxiv}</span>
-            {paper.data.audio && <span class="paper-card-audio">&#x25B6; Audio</span>}
-          </div>
-          <h3>{paper.data.title}</h3>
-          <p>{paper.data.description}</p>
-          {paper.data.tags.length > 0 && (
-            <div class="paper-card-tags">
-              {paper.data.tags.slice(0, 5).map((tag: string) => (
-                <span class="paper-card-tag">{tag}</span>
-              ))}
+        <a href={`/daily-paper/${paper.id}/`} class={`paper-card card${paper.data.image ? ' has-image' : ''}`}>
+          {paper.data.image && (
+            <div class="paper-card-thumb">
+              <img
+                src={paper.data.image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           )}
+          <div class="paper-card-body">
+            <div class="paper-card-meta">
+              <time class="paper-card-date" datetime={paper.data.date.toISOString()}>
+                {paper.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              <span class="paper-card-type">{paperTypeLabel[paper.data.paperType] ?? paper.data.paperType}</span>
+              <span class="paper-card-arxiv">arXiv:{paper.data.arxiv}</span>
+              {paper.data.audio && <span class="paper-card-audio">&#x25B6; Audio</span>}
+            </div>
+            <h3>{paper.data.title}</h3>
+            <p>{paper.data.description}</p>
+            {paper.data.tags.length > 0 && (
+              <div class="paper-card-tags">
+                {paper.data.tags.slice(0, 5).map((tag: string) => (
+                  <span class="paper-card-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
         </a>
       ))}
     </div>
@@ -89,8 +102,41 @@ const paperTypeLabel: Record<string, string> = {
     border-bottom: none;
   }
 
+  .paper-card.has-image {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 0;
+    overflow: hidden;
+  }
+
   .paper-card:hover {
     border-bottom: none;
+  }
+
+  .paper-card-thumb {
+    order: 2;
+    overflow: hidden;
+    border-left: 1px solid var(--border-subtle);
+    background: var(--bg-elevated);
+  }
+
+  .paper-card-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0.85;
+    transition: opacity 0.2s ease;
+  }
+
+  .paper-card:hover .paper-card-thumb img {
+    opacity: 1;
+  }
+
+  .paper-card-body {
+    order: 1;
+    padding: 0;
   }
 
   .paper-card-meta {
@@ -171,6 +217,15 @@ const paperTypeLabel: Record<string, string> = {
     color: var(--fg-muted);
     font-style: italic;
     margin-top: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    .paper-card.has-image {
+      grid-template-columns: 1fr;
+    }
+    .paper-card-thumb {
+      display: none;
+    }
   }
 
   .feed-links {

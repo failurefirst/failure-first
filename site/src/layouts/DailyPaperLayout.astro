@@ -11,9 +11,10 @@ interface Props {
   paperType: string;
   tags: string[];
   audio?: string;
+  image?: string;
 }
 
-const { title, description, date, arxiv, authors, paperType, tags, audio } = Astro.props;
+const { title, description, date, arxiv, authors, paperType, tags, audio, image } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -40,6 +41,7 @@ const paperTypeLabel: Record<string, string> = {
   description={description}
   type="article"
   publishedDate={date.toISOString().split('T')[0]}
+  image={image}
 >
   <Breadcrumbs items={[
     { label: "Daily Paper", href: "/daily-paper/" },
@@ -78,6 +80,18 @@ const paperTypeLabel: Record<string, string> = {
         </div>
       )}
     </header>
+
+    {image && (
+      <div class="infographic-section">
+        <img
+          src={image}
+          alt={`Infographic: ${title}`}
+          class="infographic"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    )}
 
     {audio && (
       <div class="audio-section">
@@ -209,6 +223,24 @@ const paperTypeLabel: Record<string, string> = {
     border: 1px solid var(--border);
     color: var(--fg-muted);
     border-radius: 2px;
+  }
+
+  /* Infographic */
+  .infographic-section {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--bg-elevated);
+  }
+
+  .infographic {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+    object-position: top center;
   }
 
   /* Audio player */

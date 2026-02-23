@@ -35,6 +35,7 @@ const dailyPaper = defineCollection({
     paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position']),
     tags: z.array(z.string()).default([]),
     audio: z.string().optional(),
+    image: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
