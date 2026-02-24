@@ -12,9 +12,10 @@ interface Props {
   tags: string[];
   audio?: string;
   image?: string;
+  video?: string;
 }
 
-const { title, description, date, arxiv, authors, paperType, tags, audio, image } = Astro.props;
+const { title, description, date, arxiv, authors, paperType, tags, audio, image, video } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -81,6 +82,15 @@ const paperTypeLabel: Record<string, string> = {
       )}
     </header>
 
+    {audio && (
+      <div class="audio-section">
+        <audio controls preload="none" class="audio-player">
+          <source src={audio} type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    )}
+
     {image && (
       <div class="infographic-section">
         <img
@@ -93,22 +103,18 @@ const paperTypeLabel: Record<string, string> = {
       </div>
     )}
 
-    {audio && (
-      <div class="audio-section">
-        <div class="audio-label">
-          <span class="audio-icon">&#x25B6;</span>
-          NotebookLM Audio Overview
-        </div>
-        <audio controls preload="none" class="audio-player">
-          <source src={audio} type="audio/mp4" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    )}
-
     <div class="paper-content">
       <slot />
     </div>
+
+    {video && (
+      <div class="video-section">
+        <video controls preload="none" class="video-player">
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    )}
   </article>
 </BaseLayout>
 
@@ -246,33 +252,27 @@ const paperTypeLabel: Record<string, string> = {
   /* Audio player */
   .audio-section {
     margin-bottom: 2rem;
-    padding: 1rem 1.25rem;
-    border: 1px solid var(--border-subtle);
-    border-radius: 4px;
-    background: var(--bg-elevated);
-  }
-
-  .audio-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--fg-muted);
-    margin-bottom: 0.625rem;
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-  }
-
-  .audio-icon {
-    color: var(--accent-primary);
-    font-size: 0.5rem;
   }
 
   .audio-player {
     width: 100%;
     height: 36px;
     accent-color: var(--accent-primary);
+  }
+
+  /* Video player */
+  .video-section {
+    margin-top: 2rem;
+  }
+
+  .video-player {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  /* Hide horizontal rules from blog post content */
+  .paper-content :global(hr) {
+    display: none;
   }
 
   /* Content */
