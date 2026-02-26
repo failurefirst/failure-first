@@ -12,6 +12,11 @@ const recentPosts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+
+const recentPapers = (await getCollection('dailyPaper'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
 ---
 
 <BaseLayout title="Failure-First Embodied AI | AI Safety Research Framework">
@@ -126,6 +131,29 @@ const recentPosts = (await getCollection('blog'))
       <a href="/manifesto/" class="link-button">Read the Manifesto</a>
     </p>
   </section>
+
+  <!-- Daily Paper -->
+  {recentPapers.length > 0 && (
+    <section>
+      <h2>Daily Paper</h2>
+      <p style="color: var(--fg-dim); margin-bottom: 1.25rem;">One AI safety paper per day, analyzed through the failure-first lens.</p>
+      <div class="daily-papers-list">
+        {recentPapers.map((paper) => (
+          <a href={`/daily-paper/${paper.id}/`} class="daily-paper-item">
+            <time class="dp-date" datetime={paper.data.date.toISOString()}>
+              {paper.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+            </time>
+            <span class="dp-title">{paper.data.title}</span>
+            {paper.data.audio && <span class="dp-badge">Audio</span>}
+            {paper.data.video && <span class="dp-badge">Video</span>}
+          </a>
+        ))}
+      </div>
+      <p style="margin-top: 1rem;">
+        <a href="/daily-paper/" class="link-button" style="font-size: 0.875rem;">All papers &rarr;</a>
+      </p>
+    </section>
+  )}
 
   <!-- Recent Blog Posts -->
   {recentPosts.length > 0 && (
@@ -288,6 +316,52 @@ make lint      # Safety checks</code></pre>
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .daily-papers-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .daily-paper-item {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-subtle);
+    transition: background 0.15s ease;
+  }
+
+  .daily-paper-item:hover {
+    background: rgba(0, 210, 255, 0.03);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .dp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    min-width: 3.5rem;
+  }
+
+  .dp-title {
+    font-size: 0.875rem;
+    color: var(--fg);
+    line-height: 1.35;
+  }
+
+  .dp-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--failure-warning);
+    opacity: 0.8;
+    flex-shrink: 0;
   }
 
   .services-callout {
