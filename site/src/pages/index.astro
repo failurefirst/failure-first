@@ -148,6 +148,36 @@ const recentPosts = (await getCollection('blog'))
     </section>
   )}
 
+  <!-- Work With Us -->
+  <section class="services-callout">
+    <h2>Work With Us</h2>
+    <p>
+      Our commercial services are grounded in this research. Every engagement draws on
+      17,500+ adversarial prompts, 79 attack techniques, and evaluation data across 102+ models.
+    </p>
+    <div class="services-grid">
+      <a href="/services/red-team-assessments/" class="service-link card">
+        <h3>Red-Team Assessments</h3>
+        <p>Adversarial testing of your AI systems against documented attack patterns.</p>
+      </a>
+      <a href="/services/safety-audits/" class="service-link card">
+        <h3>Safety Audits</h3>
+        <p>Compliance evaluation against emerging standards and regulatory frameworks.</p>
+      </a>
+      <a href="/services/advisory/" class="service-link card">
+        <h3>Advisory</h3>
+        <p>Strategic guidance on safety architecture for embodied and agentic AI.</p>
+      </a>
+      <a href="/services/intelligence-briefs/" class="service-link card">
+        <h3>Intelligence Briefs</h3>
+        <p>Ongoing threat landscape monitoring and vulnerability intelligence.</p>
+      </a>
+    </div>
+    <p style="margin-top: 1.5rem; text-align: center;">
+      <a href="/services/" class="link-button">All Services &rarr;</a>
+    </p>
+  </section>
+
   <!-- Quick Start -->
   <section>
     <h2>Quick Start</h2>
@@ -260,12 +290,58 @@ make lint      # Safety checks</code></pre>
     margin-right: auto;
   }
 
+  .services-callout {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 3rem 0;
+  }
+
+  .services-callout h2 {
+    margin-top: 0;
+  }
+
+  .services-callout > p {
+    max-width: 640px;
+    color: var(--fg-dim);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .service-link {
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .service-link:hover {
+    border-bottom: none;
+  }
+
+  .service-link h3 {
+    margin: 0 0 0.375rem;
+    font-size: 0.9375rem;
+  }
+
+  .service-link p {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+  }
+
   @media (max-width: 768px) {
-    .research-areas {
+    .research-areas,
+    .services-grid {
       grid-template-columns: 1fr;
     }
 
-    .philosophy-callout {
+    .philosophy-callout,
+    .services-callout {
       padding: 1.5rem;
     }
   }

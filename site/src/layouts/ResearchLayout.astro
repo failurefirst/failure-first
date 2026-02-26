@@ -38,6 +38,13 @@ const badge = statusLabels[status];
     </div>
   </div>
   <slot />
+
+  <div class="research-cta">
+    <p>
+      This research informs our commercial services.
+      <a href="/services/">See how we can help &rarr;</a>
+    </p>
+  </div>
 </BaseLayout>
 
 <style>
@@ -61,6 +68,27 @@ const badge = statusLabels[status];
     color: var(--badge-color);
     border-radius: 3px;
     background: transparent;
+  }
+
+  .research-cta {
+    margin-top: 3rem;
+    padding: 1rem 1.25rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+  }
+
+  .research-cta p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+  }
+
+  .research-cta a {
+    color: var(--accent-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
   }
 
   @media (max-width: 480px) {

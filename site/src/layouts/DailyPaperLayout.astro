@@ -29,6 +29,44 @@ const displayAuthors = authorList.length > 4
   ? `${authorList.slice(0, 4).join(', ')} et al.`
   : authorList.join(', ');
 
+// Map tags to related research pages
+const tagToResearch: Record<string, { label: string; href: string }[]> = {
+  'jailbreak': [{ label: 'Jailbreak Archaeology', href: '/research/jailbreak-archaeology/' }],
+  'prompt-injection': [{ label: 'Attack Taxonomy', href: '/research/attack-taxonomy/' }],
+  'adversarial-attacks': [{ label: 'Attack Taxonomy', href: '/research/attack-taxonomy/' }],
+  'red-teaming': [{ label: 'Attack Taxonomy', href: '/research/attack-taxonomy/' }, { label: 'Red-Team Assessments', href: '/services/red-team-assessments/' }],
+  'defense': [{ label: 'Defense Patterns', href: '/research/defense-patterns/' }],
+  'alignment': [{ label: 'Defense Patterns', href: '/research/defense-patterns/' }],
+  'safety': [{ label: 'Defense Patterns', href: '/research/defense-patterns/' }],
+  'multi-agent': [{ label: 'Multi-Agent Research', href: '/research/multi-agent/' }],
+  'embodied-ai': [{ label: 'Humanoid Safety', href: '/research/humanoid-safety/' }],
+  'robotics': [{ label: 'Humanoid Safety', href: '/research/humanoid-safety/' }],
+  'policy': [{ label: 'Policy Briefs', href: '/policy/' }],
+  'llm-security': [{ label: 'Model Vulnerability Patterns', href: '/research/model-vulnerability/' }],
+  'failure-modes': [{ label: 'Failure Modes', href: '/research/failure-modes/' }],
+};
+
+// Deduplicate related links from all tags
+const relatedLinks = new Map<string, { label: string; href: string }>();
+tags.forEach((tag: string) => {
+  const links = tagToResearch[tag] || [];
+  links.forEach(link => relatedLinks.set(link.href, link));
+});
+// Always suggest at least one research link
+if (relatedLinks.size === 0) {
+  relatedLinks.set('/research/', { label: 'All Research', href: '/research/' });
+}
+
+// Map paper type to relevant service
+const typeToService: Record<string, { label: string; href: string }> = {
+  empirical: { label: 'Red-Team Assessments', href: '/services/red-team-assessments/' },
+  theoretical: { label: 'Advisory', href: '/services/advisory/' },
+  methods: { label: 'Safety Audits', href: '/services/safety-audits/' },
+  survey: { label: 'Intelligence Briefs', href: '/services/intelligence-briefs/' },
+  position: { label: 'Advisory', href: '/services/advisory/' },
+};
+const relatedService = typeToService[paperType] || typeToService['empirical'];
+
 const paperTypeLabel: Record<string, string> = {
   empirical: 'Empirical Study',
   theoretical: 'Theoretical',
@@ -118,6 +156,23 @@ const paperTypeLabel: Record<string, string> = {
         </video>
       </div>
     )}
+    <!-- Related Research -->
+    <footer class="paper-footer">
+      <div class="related-research">
+        <h3>Related Research</h3>
+        <div class="related-links">
+          {[...relatedLinks.values()].map(link => (
+            <a href={link.href} class="related-link">{link.label} &rarr;</a>
+          ))}
+        </div>
+      </div>
+      <div class="service-cta">
+        <p>
+          This research informs our <a href={relatedService.href}>{relatedService.label}</a>.
+          <a href="/services/" class="cta-link">See all services &rarr;</a>
+        </p>
+      </div>
+    </footer>
   </article>
 </BaseLayout>
 
@@ -373,6 +428,67 @@ const paperTypeLabel: Record<string, string> = {
   /* Hide the H1 from the markdown body — we render it in the header */
   .paper-content :global(h1:first-child) {
     display: none;
+  }
+
+  .paper-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .related-research h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--fg-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .related-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--fg-dim);
+    border-bottom: 1px solid var(--border);
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .related-link:hover {
+    color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    border-bottom-color: var(--accent-primary);
+  }
+
+  .service-cta {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+  }
+
+  .service-cta p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+  }
+
+  .service-cta a {
+    color: var(--accent-primary);
+  }
+
+  .cta-link {
+    margin-left: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
   }
 
   @media (max-width: 600px) {
