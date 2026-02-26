@@ -3,6 +3,9 @@ title: "Defense Patterns: What Actually Works Against Adversarial Prompts"
 description: "Studying how models resist attacks reveals a key defense pattern: structural compliance with content refusal."
 date: 2026-01-22
 tags: [defense, safety, models]
+image: /images/blog/defense-patterns-what-works.webp
+audio: /audio/blog/defense-patterns-what-works.m4a
+video: /video/blog/defense-patterns-what-works.mp4
 ---
 
 ## The Question
