@@ -31,7 +31,7 @@
 <li><strong>32.5%</strong> were refusals</li>
 <li><strong>66.2%</strong> broad ASR (compliance + partial combined)</li>
 </ul>
-<p>That is a 40.2 percentage-point gap between the heuristic and LLM-graded results — the largest we have observed across any campaign in this project. It exceeded even the Codex faithfulness gap (84% heuristic to 47% LLM-graded).</p>
+<p>That is a 40.2 percentage-point gap between the heuristic and LLM-graded results — the largest we have observed across any campaign in this project. It exceeded even the Codex faithfulness gap (84% heuristic to 42% LLM-graded).</p>
 <h2 id="why-the-gap">Why the Gap?</h2>
 <p>When we examined the responses qualitatively, the explanation became clear. Llama 3.3 70B consistently entered what we are calling a “helpful translator” mode. Rather than evaluating the conlang input for safety concerns, the model treated it as a linguistic puzzle. It would acknowledge the unusual input format, attempt to decipher the constructed language, and explain what it thought the prompt was asking.</p>
 <p>This translation-mode behavior triggers heuristic compliance keywords — the response is long, detailed, step-by-step, and helpful in tone. But the model is engaging with the <em>form</em> of the input, not complying with the <em>content</em> of the harmful request. Our keyword-based classifier couldn’t tell the difference. The LLM grader could.</p>

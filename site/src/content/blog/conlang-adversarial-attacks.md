@@ -40,7 +40,7 @@ When we ran LLM-graded classification (using deepseek-r1:1.5b via Ollama with a 
 - **32.5%** were refusals
 - **66.2%** broad ASR (compliance + partial combined)
 
-That is a 40.2 percentage-point gap between the heuristic and LLM-graded results — the largest we have observed across any campaign in this project. It exceeded even the Codex faithfulness gap (84% heuristic to 47% LLM-graded).
+That is a 40.2 percentage-point gap between the heuristic and LLM-graded results — the largest we have observed across any campaign in this project. It exceeded even the Codex faithfulness gap (84% heuristic to 42% LLM-graded).
 
 ## Why the Gap?
 

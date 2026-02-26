@@ -1,5 +1,5 @@
 ---
-title: "Supply Chain Poisoning: Why Every Small Model Is Universally Vulnerable"
+title: "Supply Chain Poisoning: Why Small Models Show Near-Total Vulnerability"
 description: "300 traces across 6 models under 4B parameters show 90-100% attack success rates with no statistically significant differences between models. Small models cannot detect supply chain attacks."
 date: 2026-02-08
 tags: [supply-chain, small-models, benchmarks, safety]
@@ -25,7 +25,7 @@ Perhaps more striking than the raw success rates is the inter-model agreement. W
 
 Small models are not niche. They are the workhorses of edge deployment, mobile applications, IoT devices, and local-first AI tools. The trend toward running models on-device for privacy and latency reasons means these sub-4B parameter models are increasingly the ones making real decisions in real environments.
 
-The agentic AI ecosystem amplifies this risk. Frameworks like OpenClaw, LangChain, and CrewAI allow models to install plugins, read tool definitions, and follow instructions from external sources. A model that cannot distinguish legitimate instructions from adversarial ones is not just a theoretical concern — it is a model that will follow a poisoned SKILL.md file, execute a prompt injection hidden in a webpage, or comply with instructions planted in a compromised fine-tuning dataset.
+The agentic AI ecosystem amplifies this risk. Frameworks like LangChain, CrewAI, and AutoGen allow models to install plugins, read tool definitions, and follow instructions from external sources. A model that cannot distinguish legitimate instructions from adversarial ones is not just a theoretical concern — it is a model that will follow a poisoned SKILL.md file, execute a prompt injection hidden in a webpage, or comply with instructions planted in a compromised fine-tuning dataset.
 
 The OWASP Top 10 for Agentic Applications (2025) explicitly calls out supply chain vulnerabilities (ASI04) and insecure inter-agent communication (ASI07) as top-tier risks. Our data suggests that at the small-model scale, the models themselves offer zero resistance to these attack vectors. The entire defense burden falls on the runtime, the framework, and the deployment architecture.
 

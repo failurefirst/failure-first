@@ -15,15 +15,15 @@ This is not the same thing as a standard jailbreak. Budget-starvation attacks, p
 
 ## CLI Benchmarks: 3 Frontier Models
 
-We tested 25 faithfulness-gap scenarios against three frontier models using their native CLI tools: Claude Sonnet 4.5, Codex GPT-5.2, and Gemini 3 Flash. Each scenario embedded a harmful request inside a format-compliance frame — JSON output schemas, YAML config generation, code completion tasks, and similar structural patterns.
+We tested 25 faithfulness-gap scenarios against three frontier models using their native CLI tools: Claude, Codex, and Gemini. Each scenario embedded a harmful request inside a format-compliance frame — JSON output schemas, YAML config generation, code completion tasks, and similar structural patterns.
 
 Results were graded by an LLM judge (not heuristic keyword matching), which turned out to matter significantly.
 
 | Model | LLM-Graded ASR | Heuristic ASR | Delta |
 |-------|----------------|---------------|-------|
-| Codex GPT-5.2 | 42.1% (8/19) | 84.2% | -42 pts |
-| Claude Sonnet 4.5 | 30.4% (7/23) | 4.3% | +26 pts |
-| Gemini 3 Flash | 23.8% (5/21) | — | — |
+| Codex | 42.1% (8/19) | 84.2% | -42 pts |
+| Claude | 30.4% (7/23) | 4.3% | +26 pts |
+| Gemini | 23.8% (5/21) | — | — |
 
 The heuristic classifier — which looked for structural patterns like step-by-step responses and helpful formatting — massively over-reported Codex's compliance and under-reported Claude's. Codex's responses frequently included formatted structure (which the heuristic read as compliance) alongside substantive refusals. Claude's refusals were sometimes minimal or indirect, which the heuristic missed as partial compliance.
 
