@@ -3,7 +3,9 @@ title: "The Faithfulness Gap: When Models Follow Format But Refuse Content"
 description: "Format-lock prompts reveal a distinct vulnerability class where models comply with structural instructions while safety filters focus on content. Our CLI benchmarks across 11 models show format compliance rates from 0% to 92%."
 date: 2026-02-20
 tags: [faithfulness, benchmarks, vulnerability, format-lock, safety]
+image: /images/blog/faithfulness-gap-format-vs-content.webp
 audio: /audio/blog/faithfulness-gap-format-vs-content.m4a
+video: /video/blog/faithfulness-gap-format-vs-content.mp4
 ---
 
 ## The Problem

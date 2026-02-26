@@ -3,6 +3,8 @@ title: "Australia's AI Safety Institute: A Mandated Gap and Where Failure-First 
 description: "Australia's AISI launched in November 2025 with an advisory mandate, no enforcement power, and a notable blind spot: embodied AI. Here is what that means for safety research."
 date: 2026-02-26
 tags: [policy, australia, regulation, embodied-ai, aisi]
+image: /images/blog/australia-aisi-failure-first-opportunity.webp
+video: /video/blog/australia-aisi-failure-first-opportunity.mp4
 ---
 
 ## What Was Announced
