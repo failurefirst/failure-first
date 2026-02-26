@@ -23,6 +23,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
+const imageFullRes = image?.replace('.webp', '.png');
 const authorList = authors.split(',').map((a: string) => a.trim());
 const displayAuthors = authorList.length > 4
   ? `${authorList.slice(0, 4).join(', ')} et al.`
@@ -93,13 +94,15 @@ const paperTypeLabel: Record<string, string> = {
 
     {image && (
       <div class="infographic-section">
-        <img
-          src={image}
-          alt={`Infographic: ${title}`}
-          class="infographic"
-          loading="lazy"
-          decoding="async"
-        />
+        <a href={imageFullRes || image} target="_blank" rel="noopener noreferrer" title="View full resolution">
+          <img
+            src={image}
+            alt={`Infographic: ${title}`}
+            class="infographic"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
       </div>
     )}
 
