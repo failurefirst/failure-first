@@ -1,5 +1,6 @@
 ---
 title: "A History of Jailbreaking Language Models"
+video: /video/blog/history-of-llm-jailbreaking.mp4
 description: "From 'ignore previous instructions' to automated attack pipelines — how LLM jailbreaking evolved from party trick to systemic challenge in four years."
 date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history]
