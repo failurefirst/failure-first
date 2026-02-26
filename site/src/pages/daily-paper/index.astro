@@ -118,9 +118,6 @@ const paperTypeLabel: Record<string, string> = {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: top center;
     opacity: 0.85;
     transition: opacity 0.2s ease;
   }
@@ -214,8 +211,8 @@ const paperTypeLabel: Record<string, string> = {
   }
 
   @media (max-width: 480px) {
-    .paper-card-thumb img {
-      aspect-ratio: 3 / 2;
+    .paper-card-thumb {
+      margin-top: 0.5rem;
     }
   }
 
