@@ -28,6 +28,7 @@ const posts = (await getCollection('blog'))
           date={post.data.date}
           href={`/blog/${post.id}/`}
           tags={post.data.tags}
+          image={post.data.image}
         />
       ))}
     </div>

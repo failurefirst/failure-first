@@ -1,7 +1,7 @@
 ---
 title: "Supply Chain Poisoning: Why Every Small Model Is Universally Vulnerable"
 description: "300 traces across 6 models under 4B parameters show 90-100% attack success rates with no statistically significant differences between models. Small models cannot detect supply chain attacks."
-date: 2026-02-26
+date: 2026-02-08
 tags: [supply-chain, small-models, benchmarks, safety]
 ---
 

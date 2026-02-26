@@ -167,6 +167,7 @@ const recentPapers = (await getCollection('dailyPaper'))
             date={post.data.date}
             href={`/blog/${post.id}/`}
             tags={post.data.tags}
+            image={post.data.image}
           />
         ))}
       </div>

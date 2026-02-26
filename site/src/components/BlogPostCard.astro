@@ -5,9 +5,10 @@ interface Props {
   date: Date;
   href: string;
   tags?: string[];
+  image?: string;
 }
 
-const { title, description, date, href, tags = [] } = Astro.props;
+const { title, description, date, href, tags = [], image } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -25,6 +26,19 @@ const formattedDate = date.toLocaleDateString('en-US', {
       {tags.map((tag) => (
         <span class="blog-card-tag">{tag}</span>
       ))}
+    </div>
+  )}
+  {image && (
+    <div class="blog-card-thumb">
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width="800"
+        height="450"
+        decoding="async"
+      />
     </div>
   )}
 </a>
@@ -77,5 +91,16 @@ const formattedDate = date.toLocaleDateString('en-US', {
     border: 1px solid var(--border);
     color: var(--fg-muted);
     border-radius: 2px;
+  }
+
+  .blog-card-thumb {
+    margin-top: 0.75rem;
+  }
+
+  .blog-card-thumb img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    border: 1px solid var(--border-subtle);
   }
 </style>
