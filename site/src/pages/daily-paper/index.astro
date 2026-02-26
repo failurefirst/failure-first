@@ -45,6 +45,7 @@ const paperTypeLabel: Record<string, string> = {
               <span class="paper-card-type">{paperTypeLabel[paper.data.paperType] ?? paper.data.paperType}</span>
               <span class="paper-card-arxiv">arXiv:{paper.data.arxiv}</span>
               {paper.data.audio && <span class="paper-card-audio">&#x25B6; Audio</span>}
+              {paper.data.video && <span class="paper-card-video">&#x25B6; Video</span>}
             </div>
             <h3>{paper.data.title}</h3>
             <p>{paper.data.description}</p>
@@ -164,13 +165,21 @@ const paperTypeLabel: Record<string, string> = {
     opacity: 0.6;
   }
 
-  .paper-card-audio {
+  .paper-card-audio,
+  .paper-card-video {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--failure-warning);
     opacity: 0.8;
+  }
+
+  .paper-card-audio {
+    color: var(--failure-warning);
+  }
+
+  .paper-card-video {
+    color: var(--accent-primary);
   }
 
   .paper-card h3 {
