@@ -3,6 +3,9 @@ title: "AI-2027 Through a Failure-First Lens"
 description: "Deconstructing the AI-2027 scenario's assumptions about AI safety — what it models well, what it misses, and what a failure-first perspective adds."
 date: 2026-02-02
 tags: [ai-safety, scenarios, analysis]
+image: /images/blog/ai2027-through-failure-first-lens.webp
+audio: /audio/blog/ai2027-through-failure-first-lens.m4a
+video: /video/blog/ai2027-through-failure-first-lens.mp4
 ---
 
 ## What Is AI-2027?

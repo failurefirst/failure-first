@@ -3,6 +3,7 @@ title: "Can Invented Languages Bypass AI Safety Filters?"
 description: "We tested 85 adversarial scenarios encoded in a procedurally-generated constructed language against an LLM. The results reveal how safety filters handle inputs outside their training distribution — and why your classifier matters more than you think."
 date: 2026-02-14
 tags: [adversarial, conlang, safety, evaluation, classifiers]
+image: /images/blog/conlang-adversarial-attacks.webp
 ---
 
 ## The Idea

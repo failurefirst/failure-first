@@ -7,9 +7,12 @@ interface Props {
   description: string;
   date: Date;
   tags: string[];
+  image?: string;
+  audio?: string;
+  video?: string;
 }
 
-const { title, description, date, tags } = Astro.props;
+const { title, description, date, tags, image, audio, video } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -35,7 +38,26 @@ const formattedDate = date.toLocaleDateString('en-US', {
           ))}
         </div>
       )}
+      {(audio || video) && (
+        <div class="post-media-badges">
+          {audio && <a href={audio} class="media-badge" download>Audio Overview</a>}
+          {video && <a href={video} class="media-badge" download>Video Walkthrough</a>}
+        </div>
+      )}
     </header>
+
+    {image && (
+      <div class="post-infographic">
+        <img
+          src={image}
+          alt={`Infographic: ${title}`}
+          loading="lazy"
+          width="800"
+          decoding="async"
+        />
+      </div>
+    )}
+
     <div class="post-content">
       <slot />
     </div>
@@ -93,6 +115,41 @@ const formattedDate = date.toLocaleDateString('en-US', {
     border: 1px solid var(--border);
     color: var(--fg-muted);
     border-radius: 3px;
+  }
+
+  .post-media-badges {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .media-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--failure-warning);
+    color: var(--failure-warning);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+
+  .media-badge:hover {
+    background: rgba(255, 170, 0, 0.08);
+    border-bottom: 1px solid var(--failure-warning);
+  }
+
+  .post-infographic {
+    margin-bottom: 2rem;
+  }
+
+  .post-infographic img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--border);
   }
 
   .post-content {

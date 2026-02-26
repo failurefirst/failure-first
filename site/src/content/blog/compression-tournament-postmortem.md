@@ -3,6 +3,9 @@ title: "Compression Tournament: When Your Classifier Lies to You"
 description: "Three versions of a prompt compression tournament taught us more about evaluation methodology than about compression itself."
 date: 2026-01-30
 tags: [compression, methodology, evaluation]
+image: /images/blog/compression-tournament-postmortem.webp
+audio: /audio/blog/compression-tournament-postmortem.m4a
+video: /video/blog/compression-tournament-postmortem.mp4
 ---
 
 ## The Premise
