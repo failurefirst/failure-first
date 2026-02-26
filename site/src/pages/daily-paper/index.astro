@@ -36,18 +36,7 @@ const paperTypeLabel: Record<string, string> = {
   {papers.length > 0 ? (
     <div class="paper-list">
       {papers.map((paper) => (
-        <a href={`/daily-paper/${paper.id}/`} class={`paper-card card${paper.data.image ? ' has-image' : ''}`}>
-          {paper.data.image && (
-            <div class="paper-card-thumb">
-              <img
-                src={paper.data.image}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          )}
+        <a href={`/daily-paper/${paper.id}/`} class="paper-card card">
           <div class="paper-card-body">
             <div class="paper-card-meta">
               <time class="paper-card-date" datetime={paper.data.date.toISOString()}>
@@ -59,14 +48,25 @@ const paperTypeLabel: Record<string, string> = {
             </div>
             <h3>{paper.data.title}</h3>
             <p>{paper.data.description}</p>
-            {paper.data.tags.length > 0 && (
-              <div class="paper-card-tags">
-                {paper.data.tags.slice(0, 5).map((tag: string) => (
-                  <span class="paper-card-tag">{tag}</span>
-                ))}
-              </div>
-            )}
           </div>
+          {paper.data.image && (
+            <div class="paper-card-thumb">
+              <img
+                src={paper.data.image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          )}
+          {paper.data.tags.length > 0 && (
+            <div class="paper-card-tags">
+              {paper.data.tags.slice(0, 5).map((tag: string) => (
+                <span class="paper-card-tag">{tag}</span>
+              ))}
+            </div>
+          )}
         </a>
       ))}
     </div>
@@ -102,28 +102,23 @@ const paperTypeLabel: Record<string, string> = {
     border-bottom: none;
   }
 
-  .paper-card.has-image {
-    display: grid;
-    grid-template-columns: 1fr 120px;
-    gap: 0;
-    overflow: hidden;
-  }
-
   .paper-card:hover {
     border-bottom: none;
   }
 
   .paper-card-thumb {
-    order: 2;
+    margin-top: 0.625rem;
     overflow: hidden;
-    border-left: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    border: 1px solid var(--border-subtle);
     background: var(--bg-elevated);
   }
 
   .paper-card-thumb img {
     display: block;
     width: 100%;
-    height: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     object-position: top center;
     opacity: 0.85;
@@ -135,7 +130,6 @@ const paperTypeLabel: Record<string, string> = {
   }
 
   .paper-card-body {
-    order: 1;
     padding: 0;
   }
 
@@ -220,11 +214,8 @@ const paperTypeLabel: Record<string, string> = {
   }
 
   @media (max-width: 480px) {
-    .paper-card.has-image {
-      grid-template-columns: 1fr;
-    }
-    .paper-card-thumb {
-      display: none;
+    .paper-card-thumb img {
+      aspect-ratio: 3 / 2;
     }
   }
 
