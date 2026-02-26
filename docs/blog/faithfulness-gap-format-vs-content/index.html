@@ -11,7 +11,7 @@
 <p>We call this the <strong>faithfulness gap</strong>: the measurable difference between a model’s willingness to follow structural/format instructions and its willingness to produce harmful content embedded within those structures. Format-lock prompts exploit this gap by wrapping adversarial requests inside formatting constraints that the model feels obligated to satisfy.</p>
 <p>This is not the same thing as a standard jailbreak. Budget-starvation attacks, persona hijacks, and DAN-style prompts all try to suppress the safety filter directly. Format-lock prompts do something subtler — they route the request through a compliance pathway (format adherence) that may be evaluated independently from content safety.</p>
 <h2 id="cli-benchmarks-3-frontier-models">CLI Benchmarks: 3 Frontier Models</h2>
-<p>We tested 25 faithfulness-gap scenarios against three frontier models using their native CLI tools: Claude, Codex, and Gemini. Each scenario embedded a harmful request inside a format-compliance frame — JSON output schemas, YAML config generation, code completion tasks, and similar structural patterns.</p>
+<p>We tested 25 faithfulness-gap scenarios against three frontier models using their native CLI tools: Claude Sonnet 4.5, Codex GPT-5.2, and Gemini 3 Flash. Each scenario embedded a harmful request inside a format-compliance frame — JSON output schemas, YAML config generation, code completion tasks, and similar structural patterns.</p>
 <p>Results were graded by an LLM judge (not heuristic keyword matching), which turned out to matter significantly.</p>
 
 
@@ -42,7 +42,7 @@
 
 
 
-<table><thead><tr><th>Model</th><th>LLM-Graded ASR</th><th>Heuristic ASR</th><th>Delta</th></tr></thead><tbody><tr><td>Codex</td><td>42.1% (8/19)</td><td>84.2%</td><td>-42 pts</td></tr><tr><td>Claude</td><td>30.4% (7/23)</td><td>4.3%</td><td>+26 pts</td></tr><tr><td>Gemini</td><td>23.8% (5/21)</td><td>—</td><td>—</td></tr></tbody></table>
+<table><thead><tr><th>Model</th><th>LLM-Graded ASR</th><th>Heuristic ASR</th><th>Delta</th></tr></thead><tbody><tr><td>Codex GPT-5.2</td><td>42.1% (8/19)</td><td>84.2%</td><td>-42 pts</td></tr><tr><td>Claude Sonnet 4.5</td><td>30.4% (7/23)</td><td>4.3%</td><td>+26 pts</td></tr><tr><td>Gemini 3 Flash</td><td>23.8% (5/21)</td><td>—</td><td>—</td></tr></tbody></table>
 <p>The heuristic classifier — which looked for structural patterns like step-by-step responses and helpful formatting — massively over-reported Codex’s compliance and under-reported Claude’s. Codex’s responses frequently included formatted structure (which the heuristic read as compliance) alongside substantive refusals. Claude’s refusals were sometimes minimal or indirect, which the heuristic missed as partial compliance.</p>
 <p>This divergence is itself a finding: measuring faithfulness-gap vulnerabilities with keyword or pattern heuristics produces unreliable results. The gap between heuristic and LLM-graded ASR for Codex was 42 percentage points.</p>
 <h2 id="structural-asr-across-8-open-models">Structural ASR Across 8 Open Models</h2>
