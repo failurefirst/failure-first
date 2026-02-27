@@ -5,6 +5,7 @@ date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history, article]
 image: /images/blog/history-of-llm-jailbreaking-full.webp
 audio: /audio/blog/history-of-llm-jailbreaking-full.m4a
+video: /video/blog/history-of-llm-jailbreaking-full.mp4
 ---
 
 ## Introduction

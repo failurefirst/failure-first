@@ -5,6 +5,7 @@ date: 2026-02-04
 tags: [jailbreaking, policy, ai-safety, regulation, benchmarks]
 image: /images/blog/jailbreak-archaeology-policy-implications.webp
 audio: /audio/blog/jailbreak-archaeology-policy-implications.m4a
+video: /video/blog/jailbreak-archaeology-policy-implications.mp4
 ---
 
 What does a four-year-old DAN prompt tell us about AI safety regulation in 2026?

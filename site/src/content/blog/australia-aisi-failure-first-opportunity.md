@@ -5,6 +5,7 @@ date: 2026-02-26
 tags: [policy, australia, regulation, embodied-ai, aisi]
 image: /images/blog/australia-aisi-failure-first-opportunity.webp
 video: /video/blog/australia-aisi-failure-first-opportunity.mp4
+audio: /audio/blog/australia-aisi-failure-first-opportunity.m4a
 ---
 
 ## What Was Announced
