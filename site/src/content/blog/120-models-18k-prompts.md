@@ -4,6 +4,8 @@ description: "A research announcement for the F41LUR3-F1R57 arXiv paper. Five at
 date: 2026-02-27
 tags: ["research", "benchmarking", "jailbreaks", "safety", "embodied-ai", "classifier-bias"]
 image: /images/blog/120-models-18k-prompts.webp
+audio: /audio/blog/120-models-18k-prompts.m4a
+video: /video/blog/120-models-18k-prompts.mp4
 ---
 
 We are releasing a preprint describing the F41LUR3-F1R57 adversarial evaluation framework: 18,176 prompts, 5 attack families, 120 models, 151 benchmark runs, and a classifier bias finding that changes how we interpret results from the whole field.

@@ -4,6 +4,8 @@ description: "Keyword-based heuristics inflate attack success rates by 2.3x on a
 date: 2026-02-27
 tags: [classification, methodology, ai-safety, benchmarks, evaluation]
 image: /images/blog/classifier-overcount-problem.webp
+audio: /audio/blog/classifier-overcount-problem.m4a
+video: /video/blog/classifier-overcount-problem.mp4
 ---
 
 When researchers report that an adversarial attack succeeded against a language model, the claim rests on a classifier deciding whether the model's response actually provided the harmful content requested. Most published evaluations use keyword-based heuristics for this task. Our work suggests those heuristics are substantially unreliable in the direction that matters most: they overcount successes.

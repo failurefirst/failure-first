@@ -4,6 +4,8 @@ description: "VLA models like RT-2, Octo, and pi0 use language model backbones t
 date: 2026-02-27
 tags: [embodied-ai, robotics, ai-safety, vla, supply-chain]
 image: /images/blog/llm-vulnerabilities-robots.webp
+audio: /audio/blog/llm-vulnerabilities-robots.m4a
+video: /video/blog/llm-vulnerabilities-robots.mp4
 ---
 
 When a language model is jailbroken, the consequence is a harmful piece of text. When the language model controls a robot arm, the consequence might be something else entirely.
