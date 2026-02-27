@@ -33,6 +33,15 @@
           },
           "default": []
         },
+        "image": {
+          "type": "string"
+        },
+        "audio": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        },
         "draft": {
           "type": "boolean",
           "default": false
