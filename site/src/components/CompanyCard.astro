@@ -1,0 +1,221 @@
+---
+interface Props {
+  name: string;
+  country: string;
+  stage: string;
+  robot?: string;
+  companyType?: string;
+  humanoidType?: string;
+  useCases?: string;
+  aiStack?: string;
+  safetyNotes?: string;
+  partners?: string;
+  salesTier?: string;
+  founded?: string;
+}
+
+const {
+  name,
+  country,
+  stage,
+  robot,
+  companyType,
+  humanoidType,
+  useCases,
+  aiStack,
+  safetyNotes,
+  partners,
+  salesTier,
+  founded,
+} = Astro.props;
+
+const stageColors: Record<string, string> = {
+  'Commercial': '#22c55e',
+  'Limited Deployment': '#84cc16',
+  'Pilot': '#eab308',
+  'Prototype': '#f97316',
+  'Concept': '#94a3b8',
+  'Discontinued': '#ef4444',
+};
+
+const tierLabels: Record<string, string> = {
+  'A': 'Tier A',
+  'B': 'Tier B',
+};
+---
+
+<div class="company-card" data-stage={stage} data-country={country} data-tier={salesTier || 'none'}>
+  <div class="card-header">
+    <div class="card-title-row">
+      <h3 class="card-name">{name}</h3>
+      {salesTier && (
+        <span class={`tier-badge tier-${salesTier.toLowerCase()}`}>
+          {tierLabels[salesTier]}
+        </span>
+      )}
+    </div>
+    <div class="card-meta">
+      <span class="card-country">{country}</span>
+      {founded && <span class="card-founded">Est. {founded}</span>}
+      {companyType && companyType !== 'Unknown' && (
+        <span class="card-type">{companyType}</span>
+      )}
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-badges">
+      <span class="stage-badge" style={`--stage-color: ${stageColors[stage] || '#94a3b8'}`}>
+        {stage}
+      </span>
+      {humanoidType && humanoidType !== 'Unknown' && (
+        <span class="type-badge">{humanoidType}</span>
+      )}
+    </div>
+
+    {robot && (
+      <div class="card-field">
+        <span class="field-label">Robot</span>
+        <span class="field-value">{robot}</span>
+      </div>
+    )}
+
+    {useCases && (
+      <div class="card-field">
+        <span class="field-label">Use Cases</span>
+        <span class="field-value">{useCases}</span>
+      </div>
+    )}
+
+    {aiStack && (
+      <div class="card-field">
+        <span class="field-label">AI Stack</span>
+        <span class="field-value">{aiStack}</span>
+      </div>
+    )}
+
+    {partners && (
+      <div class="card-field">
+        <span class="field-label">Partners</span>
+        <span class="field-value">{partners}</span>
+      </div>
+    )}
+
+    {safetyNotes && (
+      <div class="card-field safety-field">
+        <span class="field-label">Safety</span>
+        <span class="field-value">{safetyNotes}</span>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .company-card {
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .company-card:hover {
+    border-color: var(--color-accent, #f97316);
+    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.1);
+  }
+
+  .card-header {
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+    padding-bottom: 0.75rem;
+  }
+
+  .card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text, #e2e8f0);
+  }
+
+  .tier-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .tier-a { background: #f97316; color: #000; }
+  .tier-b { background: #3b82f6; color: #fff; }
+
+  .card-meta {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--color-muted, #94a3b8);
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .stage-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--stage-color) 20%, transparent);
+    color: var(--stage-color);
+    border: 1px solid color-mix(in srgb, var(--stage-color) 40%, transparent);
+  }
+
+  .type-badge {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--color-muted, #94a3b8);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+  }
+
+  .card-field {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .field-label {
+    font-weight: 600;
+    color: var(--color-muted, #94a3b8);
+    margin-right: 0.35rem;
+  }
+
+  .field-label::after {
+    content: ':';
+  }
+
+  .field-value {
+    color: var(--color-text-secondary, #cbd5e1);
+  }
+
+  .safety-field .field-value {
+    color: #22c55e;
+  }
+</style>

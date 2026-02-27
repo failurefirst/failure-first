@@ -1,0 +1,319 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import CompanyCard from '../../components/CompanyCard.astro';
+import companies from '../../data/companies.json';
+
+// Stats
+const totalCompanies = companies.length;
+const stages = companies.reduce((acc: Record<string, number>, c: any) => {
+  acc[c.stage] = (acc[c.stage] || 0) + 1;
+  return acc;
+}, {});
+const countries = [...new Set(companies.map((c: any) => c.country))].length;
+const tierA = companies.filter((c: any) => c.salesTier === 'A').length;
+const tierB = companies.filter((c: any) => c.salesTier === 'B').length;
+
+// JSON-LD structured data (ItemList of Organizations)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Humanoid Robotics Company Directory",
+  "description": `Directory of ${totalCompanies} humanoid robotics companies tracked by the Failure-First research framework`,
+  "numberOfItems": totalCompanies,
+  "itemListElement": companies.map((c: any, i: number) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Organization",
+      "name": c.name,
+      ...(c.country && c.country !== "Unknown" ? {
+        "address": { "@type": "PostalAddress", "addressCountry": c.country }
+      } : {}),
+      ...(c.founded ? { "foundingDate": c.founded } : {}),
+      ...(c.robot ? { "description": `${c.stage} humanoid robotics company. Robot: ${c.robot}` } : { "description": `${c.stage} humanoid robotics company` }),
+    }
+  }))
+};
+---
+
+<ContentLayout title="Humanoid Robotics Company Directory | Failure-First" description={`Directory of ${totalCompanies} humanoid robotics companies tracked by the Failure-First research framework. Filterable by stage, country, and safety posture.`}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <PageHeader
+    title="Humanoid Robotics Directory"
+    tagline="Companies building the robots that need safety testing"
+  />
+
+  <section class="directory-intro">
+    <p>
+      We track {totalCompanies} companies across {countries} countries building humanoid and embodied
+      AI systems. This directory is derived from our research database and updated as new information
+      becomes available. Companies are categorized by deployment stage, geography, and — where applicable —
+      their relevance to our adversarial testing work.
+    </p>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="stats-bar">
+    <div class="stat">
+      <span class="stat-value">{totalCompanies}</span>
+      <span class="stat-label">Companies</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{stages['Commercial'] || 0}</span>
+      <span class="stat-label">Commercial</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{stages['Pilot'] || 0}</span>
+      <span class="stat-label">Pilot</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{stages['Prototype'] || 0}</span>
+      <span class="stat-label">Prototype</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{countries}</span>
+      <span class="stat-label">Countries</span>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters" id="filters">
+    <div class="filter-group">
+      <label for="stage-filter">Stage</label>
+      <select id="stage-filter">
+        <option value="all">All Stages</option>
+        <option value="Commercial">Commercial</option>
+        <option value="Limited Deployment">Limited Deployment</option>
+        <option value="Pilot">Pilot</option>
+        <option value="Prototype">Prototype</option>
+        <option value="Concept">Concept</option>
+        <option value="Discontinued">Discontinued</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="country-filter">Country</label>
+      <select id="country-filter">
+        <option value="all">All Countries</option>
+        <option value="United States">United States</option>
+        <option value="China">China</option>
+        <option value="Japan">Japan</option>
+        <option value="South Korea">South Korea</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Germany">Germany</option>
+        <option value="Canada">Canada</option>
+        <option value="France">France</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="tier-filter">Sales Tier</label>
+      <select id="tier-filter">
+        <option value="all">All</option>
+        <option value="A">Tier A</option>
+        <option value="B">Tier B</option>
+        <option value="none">Untiered</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="search-filter">Search</label>
+      <input type="text" id="search-filter" placeholder="Company name..." />
+    </div>
+    <div class="filter-count">
+      <span id="visible-count">{totalCompanies}</span> / {totalCompanies} shown
+    </div>
+  </section>
+
+  <!-- Company grid -->
+  <section class="company-grid" id="company-grid">
+    {companies.map((company: any) => (
+      <CompanyCard
+        name={company.name}
+        country={company.country}
+        stage={company.stage}
+        robot={company.robot}
+        companyType={company.companyType}
+        humanoidType={company.humanoidType}
+        useCases={company.useCases}
+        aiStack={company.aiStack}
+        safetyNotes={company.safetyNotes}
+        partners={company.partners}
+        salesTier={company.salesTier}
+        founded={company.founded}
+      />
+    ))}
+  </section>
+
+  <section class="directory-footer">
+    <p>
+      Data sourced from public information. Last updated February 2026.
+      <a href="/contact/">Contact us</a> with corrections or additions.
+    </p>
+  </section>
+</ContentLayout>
+
+<script>
+  const stageFilter = document.getElementById('stage-filter') as HTMLSelectElement;
+  const countryFilter = document.getElementById('country-filter') as HTMLSelectElement;
+  const tierFilter = document.getElementById('tier-filter') as HTMLSelectElement;
+  const searchFilter = document.getElementById('search-filter') as HTMLInputElement;
+  const visibleCount = document.getElementById('visible-count') as HTMLSpanElement;
+  const cards = document.querySelectorAll('.company-card') as NodeListOf<HTMLElement>;
+
+  const majorCountries = ['United States', 'China', 'Japan', 'South Korea', 'United Kingdom', 'Germany', 'Canada', 'France'];
+
+  function applyFilters() {
+    const stage = stageFilter.value;
+    const country = countryFilter.value;
+    const tier = tierFilter.value;
+    const search = searchFilter.value.toLowerCase().trim();
+    let count = 0;
+
+    cards.forEach(card => {
+      const cardStage = card.dataset.stage || '';
+      const cardCountry = card.dataset.country || '';
+      const cardTier = card.dataset.tier || 'none';
+      const cardName = (card.querySelector('.card-name')?.textContent || '').toLowerCase();
+
+      let visible = true;
+
+      if (stage !== 'all' && cardStage !== stage) visible = false;
+      if (country === 'other' && majorCountries.includes(cardCountry)) visible = false;
+      if (country !== 'all' && country !== 'other' && cardCountry !== country) visible = false;
+      if (tier !== 'all' && cardTier !== tier) visible = false;
+      if (search && !cardName.includes(search)) visible = false;
+
+      card.style.display = visible ? '' : 'none';
+      if (visible) count++;
+    });
+
+    visibleCount.textContent = String(count);
+  }
+
+  stageFilter.addEventListener('change', applyFilters);
+  countryFilter.addEventListener('change', applyFilters);
+  tierFilter.addEventListener('change', applyFilters);
+  searchFilter.addEventListener('input', applyFilters);
+</script>
+
+<style>
+  .directory-intro {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.6;
+  }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.25rem;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-accent, #f97316);
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--color-muted, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filters {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .filter-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-muted, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-group select,
+  .filter-group input {
+    background: var(--color-bg, #0f0f1a);
+    color: var(--color-text, #e2e8f0);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 4px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    min-width: 140px;
+  }
+
+  .filter-count {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--color-muted, #94a3b8);
+    align-self: center;
+  }
+
+  .company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .directory-footer {
+    text-align: center;
+    color: var(--color-muted, #94a3b8);
+    font-size: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border, #2a2a4a);
+  }
+
+  .directory-footer a {
+    color: var(--color-accent, #f97316);
+  }
+
+  @media (max-width: 768px) {
+    .stats-bar {
+      gap: 1rem;
+    }
+
+    .company-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filters {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .filter-count {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+</style>

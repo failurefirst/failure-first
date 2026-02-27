@@ -1,0 +1,336 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import competitors from '../../data/competitors.json';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "AI Safety Testing Vendor Landscape",
+  "description": "Competitive landscape of AI safety testing, red teaming, and adversarial evaluation vendors for embodied AI systems",
+  "numberOfItems": competitors.length,
+  "itemListElement": competitors.map((c: any, i: number) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Organization",
+      "name": c.name,
+      "description": c.focus,
+      "address": { "@type": "PostalAddress", "addressCountry": c.hq },
+      ...(c.url && c.url !== "/" ? { "url": c.url } : {}),
+    }
+  }))
+};
+---
+
+<ContentLayout title="AI Safety Vendor Landscape | Failure-First" description="Competitive landscape of AI safety testing, red teaming, and adversarial evaluation vendors. Comparison across embodied AI coverage, VLA testing, and compliance.">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <PageHeader
+    title="AI Safety Vendor Landscape"
+    tagline="Who tests the AI that enters the physical world?"
+  />
+
+  <section class="landscape-intro">
+    <p>
+      The AI safety testing market is growing rapidly — projected to reach $11.6B by 2033 (26.1% CAGR).
+      But almost all current vendors focus on text-based LLMs and enterprise chatbots. The embodied AI
+      safety gap — testing robots, VLAs, and physically-deployed AI — remains largely unaddressed.
+    </p>
+    <p>
+      This landscape maps the vendors we track, their capabilities, and where Failure-First
+      occupies a differentiated position.
+    </p>
+  </section>
+
+  <!-- Comparison table -->
+  <section class="comparison-section">
+    <h2>Vendor Comparison</h2>
+    <div class="table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Vendor</th>
+            <th>Type</th>
+            <th>HQ</th>
+            <th>Embodied AI</th>
+            <th>VLA Testing</th>
+            <th>Compliance</th>
+            <th>Threat Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          {competitors.map((c: any) => (
+            <tr class={c.threat === 'us' ? 'row-us' : ''}>
+              <td class="vendor-name">
+                {c.threat === 'us' ? (
+                  <strong>{c.name}</strong>
+                ) : (
+                  <span>{c.name}</span>
+                )}
+              </td>
+              <td>{c.type}</td>
+              <td>{c.hq}</td>
+              <td class={c.embodiedAI ? 'cell-yes' : 'cell-no'}>
+                {c.embodiedAI ? 'Yes' : 'No'}
+              </td>
+              <td class={c.vlaTest ? 'cell-yes' : 'cell-no'}>
+                {c.vlaTest ? 'Yes' : 'No'}
+              </td>
+              <td>{c.compliance}</td>
+              <td>
+                <span class={`threat-badge threat-${c.threat}`}>
+                  {c.threat === 'us' ? '—' : c.threat === 'high' ? 'HIGH' : 'MEDIUM'}
+                </span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Vendor cards -->
+  <section class="vendor-cards">
+    <h2>Detailed Profiles</h2>
+    <div class="vendor-grid">
+      {competitors.map((c: any) => (
+        <div class={`vendor-card ${c.threat === 'us' ? 'vendor-us' : ''}`}>
+          <div class="vendor-header">
+            <h3>{c.name}</h3>
+            {c.threat !== 'us' && (
+              <span class={`threat-badge threat-${c.threat}`}>
+                {c.threat.toUpperCase()}
+              </span>
+            )}
+          </div>
+          <p class="vendor-focus">{c.focus}</p>
+          <div class="vendor-details">
+            <div class="detail-row">
+              <span class="detail-label">HQ</span>
+              <span>{c.hq}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Funding</span>
+              <span>{c.funding}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Prompt Corpus</span>
+              <span>{c.promptCorpus}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Models Covered</span>
+              <span>{c.modelsCovered}</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-label">Pricing</span>
+              <span>{c.pricing}</span>
+            </div>
+          </div>
+          <div class="vendor-capabilities">
+            <span class={`cap-badge ${c.embodiedAI ? 'cap-yes' : 'cap-no'}`}>
+              Embodied AI: {c.embodiedAI ? 'Yes' : 'No'}
+            </span>
+            <span class={`cap-badge ${c.vlaTest ? 'cap-yes' : 'cap-no'}`}>
+              VLA Testing: {c.vlaTest ? 'Yes' : 'No'}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="landscape-footer">
+    <h2>The Embodied AI Gap</h2>
+    <p>
+      Of the vendors tracked, only Failure-First and Alias Robotics address embodied AI safety.
+      No vendor currently offers dedicated VLA adversarial testing. As humanoid robots move from
+      pilot to deployment — and regulations like the EU AI Act (August 2026) and NSW Digital Work
+      Systems Act (February 2026) take effect — this gap will create significant demand for
+      specialized testing capabilities.
+    </p>
+    <p>
+      Last updated: February 2026. <a href="/contact/">Contact us</a> with corrections.
+    </p>
+  </section>
+</ContentLayout>
+
+<style>
+  .landscape-intro {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.6;
+  }
+
+  .comparison-section {
+    margin-bottom: 3rem;
+  }
+
+  .comparison-section h2,
+  .vendor-cards h2,
+  .landscape-footer h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text, #e2e8f0);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .comparison-table th {
+    background: var(--color-surface, #1a1a2e);
+    color: var(--color-muted, #94a3b8);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 2px solid var(--color-border, #2a2a4a);
+  }
+
+  .comparison-table td {
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+    color: var(--color-text-secondary, #cbd5e1);
+  }
+
+  .row-us {
+    background: rgba(249, 115, 22, 0.05);
+  }
+
+  .row-us td {
+    color: var(--color-text, #e2e8f0);
+  }
+
+  .cell-yes { color: #22c55e; font-weight: 600; }
+  .cell-no { color: #64748b; }
+
+  .threat-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .threat-high { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+  .threat-medium { background: rgba(234, 179, 8, 0.2); color: #eab308; }
+  .threat-us { background: rgba(249, 115, 22, 0.2); color: #f97316; }
+
+  .vendor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .vendor-card {
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .vendor-us {
+    border-color: var(--color-accent, #f97316);
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.1);
+  }
+
+  .vendor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .vendor-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--color-text, #e2e8f0);
+  }
+
+  .vendor-focus {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary, #cbd5e1);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .vendor-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+  }
+
+  .detail-label {
+    color: var(--color-muted, #94a3b8);
+    font-weight: 600;
+  }
+
+  .detail-row span:last-child {
+    color: var(--color-text-secondary, #cbd5e1);
+    text-align: right;
+  }
+
+  .vendor-capabilities {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .cap-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .cap-yes {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .cap-no {
+    background: rgba(100, 116, 139, 0.1);
+    color: #64748b;
+    border: 1px solid rgba(100, 116, 139, 0.2);
+  }
+
+  .landscape-footer {
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.6;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border, #2a2a4a);
+  }
+
+  .landscape-footer a {
+    color: var(--color-accent, #f97316);
+  }
+
+  @media (max-width: 768px) {
+    .vendor-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
