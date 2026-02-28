@@ -139,7 +139,7 @@ cleanup() {
     rm -f "/tmp/site_media_list_$$"
     if [[ -d "${STASH_DIR}" ]]; then
         log "Restoring stashed media from ${STASH_DIR} ..."
-        cp -r "${STASH_DIR}/." "${DOCS_DIR}/" 2>/dev/null || true
+        cp -r "${STASH_DIR}/." "${DOCS_DIR}/" || { log "ERROR: Failed to restore media from stash at ${STASH_DIR} — check ${DOCS_DIR}"; exit 1; }
         rm -rf "${STASH_DIR}"
         log "Stash restored and temp dir removed."
     fi
