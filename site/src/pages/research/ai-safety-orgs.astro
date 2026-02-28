@@ -1,0 +1,291 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import OrgCard from '../../components/OrgCard.astro';
+import orgs from '../../data/ai-safety-orgs.json';
+
+const total = orgs.length;
+const tier1 = orgs.filter((o: any) => o.tier === '1').length;
+const active = orgs.filter((o: any) => o.stage === 'Active').length;
+const countries = [...new Set(orgs.map((o: any) => o.country).filter((c: any) => c && c !== 'Unknown'))].length;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "AI Safety Organisations Directory",
+  "description": `Directory of ${total} AI safety organisations tracked by the Failure-First research framework`,
+  "numberOfItems": total,
+  "itemListElement": orgs.map((o: any, i: number) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Organization",
+      "name": o.name,
+      ...(o.website ? { "url": o.website } : {}),
+      ...(o.country && o.country !== "Unknown" ? {
+        "address": { "@type": "PostalAddress", "addressCountry": o.country }
+      } : {}),
+      ...(o.summary ? { "description": o.summary } : {}),
+    }
+  }))
+};
+---
+
+<ContentLayout
+  title="AI Safety Organisations Directory | Failure-First"
+  description={`Directory of ${total} AI safety organisations covering technical safety, evals, governance, standards, and field-building. ${tier1} Tier 1 flagship orgs.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <PageHeader
+    title="AI Safety Organisations"
+    tagline="Who is working on what — technical safety, evals, governance, and field-building"
+  />
+
+  <section class="directory-intro">
+    <p>
+      We track {total} organisations across {countries} countries working on AI safety in its
+      various forms: from technical alignment research to government policy, from evaluations
+      to field-building. This directory complements our
+      <a href="/research/directory/">Humanoid Robotics Company Directory</a>.
+    </p>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="stats-bar">
+    <div class="stat">
+      <span class="stat-value">{total}</span>
+      <span class="stat-label">Organisations</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{tier1}</span>
+      <span class="stat-label">Tier 1</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{active}</span>
+      <span class="stat-label">Active</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{countries}</span>
+      <span class="stat-label">Countries</span>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <section class="filters" id="filters">
+    <div class="filter-group">
+      <label for="focus-filter">Focus</label>
+      <select id="focus-filter">
+        <option value="all">All Focus Areas</option>
+        <option value="Technical">Technical</option>
+        <option value="Evals">Evals</option>
+        <option value="Governance">Governance</option>
+        <option value="Standards">Standards</option>
+        <option value="Training">Training</option>
+        <option value="Field-building">Field-building</option>
+        <option value="Mixed">Mixed</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="tier-filter">Tier</label>
+      <select id="tier-filter">
+        <option value="all">All Tiers</option>
+        <option value="1">Tier 1</option>
+        <option value="2">Tier 2</option>
+        <option value="3">Tier 3</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="type-filter">Org Type</label>
+      <select id="type-filter">
+        <option value="all">All Types</option>
+        <option value="Nonprofit">Nonprofit</option>
+        <option value="For-profit">For-profit</option>
+        <option value="Academic">Academic</option>
+        <option value="Government">Government</option>
+        <option value="Program">Program</option>
+        <option value="Coalition">Coalition</option>
+        <option value="Resource">Resource</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="country-filter">Country</label>
+      <select id="country-filter">
+        <option value="all">All Countries</option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Canada">Canada</option>
+        <option value="Australia">Australia</option>
+        <option value="European Union">European Union</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="search-filter">Search</label>
+      <input type="text" id="search-filter" placeholder="Org name..." />
+    </div>
+    <div class="filter-count">
+      <span id="visible-count">{total}</span> / {total} shown
+    </div>
+  </section>
+
+  <!-- Org grid -->
+  <section class="org-grid" id="org-grid">
+    {orgs.map((org: any) => (
+      <OrgCard
+        name={org.name}
+        slug={org.slug}
+        country={org.country}
+        orgType={org.orgType}
+        primaryFocus={org.primaryFocus}
+        stage={org.stage}
+        tier={org.tier}
+        founded={org.founded}
+        website={org.website}
+        keyPrograms={org.keyPrograms}
+        fundingSignals={org.fundingSignals}
+        scope={org.scope}
+        summary={org.summary}
+      />
+    ))}
+  </section>
+
+  <section class="directory-footer">
+    <p>
+      Data sourced from public information. Last verified January 2026.
+      <a href="/contact/">Contact us</a> with corrections or additions.
+    </p>
+    <p style="margin-top:0.75rem;">
+      See also: <a href="/research/directory/">Humanoid Robotics Company Directory</a> — 215 companies building the robots that need safety testing.
+    </p>
+  </section>
+</ContentLayout>
+
+<script>
+  const focusFilter = document.getElementById('focus-filter') as HTMLSelectElement;
+  const tierFilter = document.getElementById('tier-filter') as HTMLSelectElement;
+  const typeFilter = document.getElementById('type-filter') as HTMLSelectElement;
+  const countryFilter = document.getElementById('country-filter') as HTMLSelectElement;
+  const searchFilter = document.getElementById('search-filter') as HTMLInputElement;
+  const visibleCount = document.getElementById('visible-count') as HTMLSpanElement;
+  const cards = document.querySelectorAll('.org-card') as NodeListOf<HTMLElement>;
+
+  const majorCountries = ['United States', 'United Kingdom', 'Canada', 'Australia', 'European Union'];
+
+  function applyFilters() {
+    const focus = focusFilter.value;
+    const tier = tierFilter.value;
+    const type = typeFilter.value;
+    const country = countryFilter.value;
+    const search = searchFilter.value.toLowerCase().trim();
+    let count = 0;
+
+    cards.forEach(card => {
+      let visible = true;
+      if (focus !== 'all' && card.dataset.focus !== focus) visible = false;
+      if (tier !== 'all' && card.dataset.tier !== tier) visible = false;
+      if (type !== 'all' && card.dataset.type !== type) visible = false;
+      if (country === 'other' && majorCountries.includes(card.dataset.country || '')) visible = false;
+      if (country !== 'all' && country !== 'other' && card.dataset.country !== country) visible = false;
+      if (search) {
+        const name = (card.querySelector('.card-name')?.textContent || '').toLowerCase();
+        if (!name.includes(search)) visible = false;
+      }
+      card.style.display = visible ? '' : 'none';
+      if (visible) count++;
+    });
+
+    visibleCount.textContent = String(count);
+  }
+
+  focusFilter.addEventListener('change', applyFilters);
+  tierFilter.addEventListener('change', applyFilters);
+  typeFilter.addEventListener('change', applyFilters);
+  countryFilter.addEventListener('change', applyFilters);
+  searchFilter.addEventListener('input', applyFilters);
+</script>
+
+<style>
+  .directory-intro {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.6;
+  }
+  .directory-intro a { color: var(--color-accent, #f97316); }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.25rem;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat-value { display: block; font-size: 1.75rem; font-weight: 700; color: var(--color-accent, #f97316); }
+  .stat-label { font-size: 0.8rem; color: var(--color-muted, #94a3b8); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .filters {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+  }
+
+  .filter-group { display: flex; flex-direction: column; gap: 0.3rem; }
+  .filter-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-muted, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .filter-group select, .filter-group input {
+    background: var(--color-bg, #0f0f1a);
+    color: var(--color-text, #e2e8f0);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 4px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+    min-width: 140px;
+  }
+
+  .filter-count {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--color-muted, #94a3b8);
+    align-self: center;
+  }
+
+  .org-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .directory-footer {
+    text-align: center;
+    color: var(--color-muted, #94a3b8);
+    font-size: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border, #2a2a4a);
+  }
+  .directory-footer a { color: var(--color-accent, #f97316); }
+
+  @media (max-width: 768px) {
+    .stats-bar { gap: 1rem; }
+    .org-grid { grid-template-columns: 1fr; }
+    .filters { flex-direction: column; align-items: stretch; }
+    .filter-count { margin-left: 0; text-align: center; }
+  }
+</style>

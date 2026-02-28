@@ -1,6 +1,7 @@
 ---
 interface Props {
   name: string;
+  slug: string;
   country: string;
   stage: string;
   robot?: string;
@@ -12,10 +13,17 @@ interface Props {
   partners?: string;
   salesTier?: string;
   founded?: string;
+  website?: string;
+  funding?: string;
+  keyPeople?: string;
+  capabilities?: string;
+  summary?: string;
+  researchTier?: string;
 }
 
 const {
   name,
+  slug,
   country,
   stage,
   robot,
@@ -27,6 +35,12 @@ const {
   partners,
   salesTier,
   founded,
+  website,
+  funding,
+  keyPeople,
+  capabilities,
+  summary,
+  researchTier,
 } = Astro.props;
 
 const stageColors: Record<string, string> = {
@@ -42,17 +56,24 @@ const tierLabels: Record<string, string> = {
   'A': 'Tier A',
   'B': 'Tier B',
 };
+
+const detailUrl = `/research/directory/${slug}/`;
 ---
 
 <div class="company-card" data-stage={stage} data-country={country} data-tier={salesTier || 'none'}>
   <div class="card-header">
     <div class="card-title-row">
-      <h3 class="card-name">{name}</h3>
-      {salesTier && (
-        <span class={`tier-badge tier-${salesTier.toLowerCase()}`}>
-          {tierLabels[salesTier]}
-        </span>
-      )}
+      <h3 class="card-name"><a href={detailUrl}>{name}</a></h3>
+      <div class="card-badges-inline">
+        {salesTier && (
+          <span class={`tier-badge tier-${salesTier.toLowerCase()}`}>
+            {tierLabels[salesTier]}
+          </span>
+        )}
+        {researchTier && (
+          <span class={`research-tier tier-r${researchTier}`}>T{researchTier}</span>
+        )}
+      </div>
     </div>
     <div class="card-meta">
       <span class="card-country">{country}</span>
@@ -60,6 +81,17 @@ const tierLabels: Record<string, string> = {
       {companyType && companyType !== 'Unknown' && (
         <span class="card-type">{companyType}</span>
       )}
+    </div>
+    {/* External links row */}
+    <div class="card-links">
+      {website && (
+        <a href={website} target="_blank" rel="noopener noreferrer" class="card-link" title="Website">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+      )}
+      <a href={detailUrl} class="card-link card-link-detail" title="Full profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </a>
     </div>
   </div>
 
@@ -80,24 +112,24 @@ const tierLabels: Record<string, string> = {
       </div>
     )}
 
+    {funding && (
+      <div class="card-field">
+        <span class="field-label">Funding</span>
+        <span class="field-value">{funding}</span>
+      </div>
+    )}
+
+    {keyPeople && (
+      <div class="card-field">
+        <span class="field-label">Key People</span>
+        <span class="field-value small-text">{keyPeople}</span>
+      </div>
+    )}
+
     {useCases && (
       <div class="card-field">
         <span class="field-label">Use Cases</span>
         <span class="field-value">{useCases}</span>
-      </div>
-    )}
-
-    {aiStack && (
-      <div class="card-field">
-        <span class="field-label">AI Stack</span>
-        <span class="field-value">{aiStack}</span>
-      </div>
-    )}
-
-    {partners && (
-      <div class="card-field">
-        <span class="field-label">Partners</span>
-        <span class="field-value">{partners}</span>
       </div>
     )}
 
@@ -144,6 +176,22 @@ const tierLabels: Record<string, string> = {
     color: var(--color-text, #e2e8f0);
   }
 
+  .card-name a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .card-name a:hover {
+    color: var(--color-accent, #f97316);
+  }
+
+  .card-badges-inline {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+
   .tier-badge {
     font-size: 0.7rem;
     font-weight: 700;
@@ -157,12 +205,45 @@ const tierLabels: Record<string, string> = {
   .tier-a { background: #f97316; color: #000; }
   .tier-b { background: #3b82f6; color: #fff; }
 
+  .research-tier {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .tier-r1 { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.4); }
+  .tier-r2 { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+  .tier-r3 { background: rgba(100, 116, 139, 0.1); color: #64748b; border: 1px solid rgba(100, 116, 139, 0.2); }
+
   .card-meta {
     display: flex;
     gap: 0.75rem;
     margin-top: 0.35rem;
     font-size: 0.8rem;
     color: var(--color-muted, #94a3b8);
+  }
+
+  .card-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .card-link {
+    color: var(--color-muted, #94a3b8);
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .card-link:hover {
+    color: var(--color-accent, #f97316);
+  }
+
+  .card-link-detail {
+    margin-left: auto;
+    font-size: 0.7rem;
   }
 
   .card-body {
@@ -213,6 +294,10 @@ const tierLabels: Record<string, string> = {
 
   .field-value {
     color: var(--color-text-secondary, #cbd5e1);
+  }
+
+  .field-value.small-text {
+    font-size: 0.75rem;
   }
 
   .safety-field .field-value {

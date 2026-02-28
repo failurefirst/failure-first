@@ -1,0 +1,258 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  country: string;
+  orgType: string;
+  primaryFocus: string;
+  stage?: string;
+  tier?: string;
+  founded?: string;
+  website?: string;
+  keyPrograms?: string;
+  fundingSignals?: string;
+  scope?: string;
+  summary?: string;
+}
+
+const {
+  name,
+  slug,
+  country,
+  orgType,
+  primaryFocus,
+  stage,
+  tier,
+  founded,
+  website,
+  keyPrograms,
+  fundingSignals,
+  scope,
+  summary,
+} = Astro.props;
+
+const focusColors: Record<string, string> = {
+  'Technical':      '#f97316',
+  'Evals':          '#a78bfa',
+  'Governance':     '#38bdf8',
+  'Standards':      '#34d399',
+  'Training':       '#fbbf24',
+  'Field-building': '#fb7185',
+  'Mixed':          '#94a3b8',
+  'Unknown':        '#475569',
+};
+
+const stageColors: Record<string, string> = {
+  'Active':        '#22c55e',
+  'Paused':        '#eab308',
+  'Discontinued':  '#ef4444',
+  'Unknown':       '#475569',
+};
+
+const focusColor = focusColors[primaryFocus] || '#475569';
+const stageColor = stageColors[stage || 'Unknown'] || '#475569';
+const detailUrl = `/research/ai-safety-orgs/${slug}/`;
+---
+
+<div
+  class="org-card"
+  data-focus={primaryFocus}
+  data-tier={tier || ''}
+  data-type={orgType}
+  data-country={country}
+>
+  <div class="card-header">
+    <div class="card-title-row">
+      <h3 class="card-name"><a href={detailUrl}>{name}</a></h3>
+      <div class="card-badges-inline">
+        {tier && (
+          <span class={`tier-badge tier-r${tier}`}>T{tier}</span>
+        )}
+      </div>
+    </div>
+    <div class="card-meta">
+      {country && country !== 'Unknown' && <span class="card-country">{country}</span>}
+      {founded && <span class="card-founded">Est. {founded}</span>}
+      {orgType && orgType !== 'Unknown' && <span class="card-type">{orgType}</span>}
+    </div>
+    <div class="card-links">
+      {website && (
+        <a href={website} target="_blank" rel="noopener noreferrer" class="card-link" title="Website">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </a>
+      )}
+      <a href={detailUrl} class="card-link card-link-detail" title="Full profile">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <div class="card-badges">
+      <span class="focus-badge" style={`--fc: ${focusColor}`}>{primaryFocus}</span>
+      {stage && stage !== 'Unknown' && (
+        <span class="stage-badge" style={`--sc: ${stageColor}`}>{stage}</span>
+      )}
+    </div>
+
+    {scope && (
+      <div class="card-field">
+        <span class="field-label">Scope</span>
+        <span class="field-value">{scope}</span>
+      </div>
+    )}
+
+    {keyPrograms && (
+      <div class="card-field">
+        <span class="field-label">Programs</span>
+        <span class="field-value">{keyPrograms}</span>
+      </div>
+    )}
+
+    {fundingSignals && (
+      <div class="card-field">
+        <span class="field-label">Funding</span>
+        <span class="field-value">{fundingSignals}</span>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .org-card {
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 8px;
+    padding: 1.25rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .org-card:hover {
+    border-color: var(--color-accent, #f97316);
+    box-shadow: 0 2px 12px rgba(249, 115, 22, 0.1);
+  }
+
+  .card-header {
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+    padding-bottom: 0.75rem;
+  }
+
+  .card-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-text, #e2e8f0);
+  }
+
+  .card-name a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .card-name a:hover {
+    color: var(--color-accent, #f97316);
+  }
+
+  .card-badges-inline {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+
+  .tier-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.1rem 0.35rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .tier-r1 { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.4); }
+  .tier-r2 { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+  .tier-r3 { background: rgba(100, 116, 139, 0.1); color: #64748b; border: 1px solid rgba(100, 116, 139, 0.2); }
+
+  .card-meta {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--color-muted, #94a3b8);
+  }
+
+  .card-links {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .card-link {
+    color: var(--color-muted, #94a3b8);
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .card-link:hover { color: var(--color-accent, #f97316); }
+
+  .card-link-detail {
+    margin-left: auto;
+    font-size: 0.7rem;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-badges {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .focus-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--fc) 20%, transparent);
+    color: var(--fc);
+    border: 1px solid color-mix(in srgb, var(--fc) 40%, transparent);
+  }
+
+  .stage-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--sc) 20%, transparent);
+    color: var(--sc);
+    border: 1px solid color-mix(in srgb, var(--sc) 40%, transparent);
+  }
+
+  .card-field {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .field-label {
+    font-weight: 600;
+    color: var(--color-muted, #94a3b8);
+    margin-right: 0.35rem;
+  }
+
+  .field-label::after { content: ':'; }
+
+  .field-value {
+    color: var(--color-text-secondary, #cbd5e1);
+  }
+</style>

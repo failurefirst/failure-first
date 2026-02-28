@@ -1,0 +1,499 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import companies from '../../../data/companies.json';
+
+export function getStaticPaths() {
+  return companies.map((c: any) => ({
+    params: { slug: c.slug },
+    props: { company: c },
+  }));
+}
+
+const { company } = Astro.props;
+const c = company;
+
+const stageColors: Record<string, string> = {
+  'Commercial': '#22c55e',
+  'Limited Deployment': '#84cc16',
+  'Pilot': '#eab308',
+  'Prototype': '#f97316',
+  'Concept': '#94a3b8',
+  'Discontinued': '#ef4444',
+};
+
+const stageColor = stageColors[c.stage] || '#94a3b8';
+
+// Collect external links
+const links: { label: string; url: string }[] = [];
+if (c.website) links.push({ label: 'Website', url: c.website });
+if (c.productPage) links.push({ label: 'Product Page', url: c.productPage });
+if (c.press) links.push({ label: 'Press / Blog', url: c.press });
+if (c.github) links.push({ label: 'GitHub', url: c.github });
+if (c.videos) links.push({ label: 'Videos / Demos', url: c.videos });
+
+// Split semicolon-separated primary sources
+const sources = (c.primarySources || '').split(';').map((s: string) => s.trim()).filter(Boolean);
+
+// JSON-LD for the company
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": c.name,
+  ...(c.website ? { "url": c.website } : {}),
+  ...(c.country && c.country !== "Unknown" ? {
+    "address": { "@type": "PostalAddress", "addressCountry": c.country, ...(c.city ? { "addressLocality": c.city } : {}) }
+  } : {}),
+  ...(c.founded ? { "foundingDate": c.founded } : {}),
+  ...(c.summary ? { "description": c.summary } : {}),
+};
+---
+
+<ContentLayout title={`${c.name} — Humanoid Robotics Directory | Failure-First`} description={c.summary || `${c.name} company profile in the Failure-First humanoid robotics directory.`}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="back-link">
+    <a href="/research/directory/">&larr; Back to Directory</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="company-hero">
+    <div class="hero-title-row">
+      <h1>{c.name}</h1>
+      <div class="hero-badges">
+        <span class="stage-badge" style={`--stage-color: ${stageColor}`}>{c.stage}</span>
+        {c.salesTier && <span class={`tier-badge tier-${c.salesTier.toLowerCase()}`}>Sales Tier {c.salesTier}</span>}
+        {c.researchTier && <span class={`research-tier tier-r${c.researchTier}`}>Research T{c.researchTier}</span>}
+        {c.programStatus && c.programStatus !== 'Active' && <span class="status-badge">{c.programStatus}</span>}
+      </div>
+    </div>
+    <div class="hero-meta">
+      {c.country && <span>{c.country}</span>}
+      {c.city && <span>{c.city}</span>}
+      {c.founded && <span>Est. {c.founded}</span>}
+      {c.companyType && c.companyType !== 'Unknown' && <span>{c.companyType}</span>}
+      {c.aliases && <span>Also: {c.aliases}</span>}
+    </div>
+  </header>
+
+  <!-- External links -->
+  {links.length > 0 && (
+    <section class="links-row">
+      {links.map(link => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="ext-link">{link.label} &nearr;</a>
+      ))}
+    </section>
+  )}
+
+  <!-- Summary -->
+  {c.summary && (
+    <section class="profile-section">
+      <h2>Overview</h2>
+      <p class="summary-text">{c.summary}</p>
+    </section>
+  )}
+
+  <!-- Robot & Capabilities -->
+  {(c.robot || c.humanoidProgram || c.capabilities || c.humanoidType || c.formFactor) && (
+    <section class="profile-section">
+      <h2>Robot & Capabilities</h2>
+      <div class="detail-grid">
+        {c.humanoidProgram && (
+          <div class="detail-item">
+            <span class="detail-label">Program</span>
+            <span class="detail-value">{c.humanoidProgram}</span>
+          </div>
+        )}
+        {c.robot && (
+          <div class="detail-item">
+            <span class="detail-label">Robot Name(s)</span>
+            <span class="detail-value">{c.robot}</span>
+          </div>
+        )}
+        {c.humanoidType && c.humanoidType !== 'Unknown' && (
+          <div class="detail-item">
+            <span class="detail-label">Type</span>
+            <span class="detail-value">{c.humanoidType}</span>
+          </div>
+        )}
+        {c.formFactor && (
+          <div class="detail-item">
+            <span class="detail-label">Form Factor</span>
+            <span class="detail-value">{c.formFactor}</span>
+          </div>
+        )}
+        {c.capabilities && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Capabilities</span>
+            <span class="detail-value">{c.capabilities}</span>
+          </div>
+        )}
+        {c.useCases && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Target Use Cases</span>
+            <span class="detail-value">{c.useCases}</span>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Technology -->
+  {(c.aiStack || c.techHighlights || c.computeApproach || c.sensors || c.power) && (
+    <section class="profile-section">
+      <h2>Technology</h2>
+      <div class="detail-grid">
+        {c.aiStack && (
+          <div class="detail-item full-width">
+            <span class="detail-label">AI Stack</span>
+            <span class="detail-value">{c.aiStack}</span>
+          </div>
+        )}
+        {c.techHighlights && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Tech Highlights</span>
+            <span class="detail-value">{c.techHighlights}</span>
+          </div>
+        )}
+        {c.computeApproach && (
+          <div class="detail-item">
+            <span class="detail-label">Compute Approach</span>
+            <span class="detail-value">{c.computeApproach}</span>
+          </div>
+        )}
+        {c.sensors && (
+          <div class="detail-item">
+            <span class="detail-label">Sensors</span>
+            <span class="detail-value">{c.sensors}</span>
+          </div>
+        )}
+        {c.power && (
+          <div class="detail-item">
+            <span class="detail-label">Power</span>
+            <span class="detail-value">{c.power}</span>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Business -->
+  {(c.funding || c.valuation || c.investors || c.businessModel || c.revenueSignals || c.hiringSignal || c.partners || c.keyPeople) && (
+    <section class="profile-section">
+      <h2>Business</h2>
+      <div class="detail-grid">
+        {c.keyPeople && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Key People</span>
+            <span class="detail-value">{c.keyPeople}</span>
+          </div>
+        )}
+        {c.funding && (
+          <div class="detail-item">
+            <span class="detail-label">Funding</span>
+            <span class="detail-value">{c.funding}</span>
+          </div>
+        )}
+        {c.valuation && (
+          <div class="detail-item">
+            <span class="detail-label">Valuation</span>
+            <span class="detail-value">{c.valuation}</span>
+          </div>
+        )}
+        {c.investors && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Investors</span>
+            <span class="detail-value">{c.investors}</span>
+          </div>
+        )}
+        {c.businessModel && (
+          <div class="detail-item">
+            <span class="detail-label">Business Model</span>
+            <span class="detail-value">{c.businessModel}</span>
+          </div>
+        )}
+        {c.revenueSignals && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Revenue Signals</span>
+            <span class="detail-value">{c.revenueSignals}</span>
+          </div>
+        )}
+        {c.hiringSignal && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Hiring Signal</span>
+            <span class="detail-value">{c.hiringSignal}</span>
+          </div>
+        )}
+        {c.partners && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Partners / Customers</span>
+            <span class="detail-value">{c.partners}</span>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Safety -->
+  {c.safetyNotes && (
+    <section class="profile-section">
+      <h2>Safety & Compliance</h2>
+      <p class="safety-text">{c.safetyNotes}</p>
+    </section>
+  )}
+
+  <!-- Stage Evidence -->
+  {(c.stageEvidence || c.demos) && (
+    <section class="profile-section">
+      <h2>Evidence & Demos</h2>
+      {c.stageEvidence && (
+        <div class="detail-item full-width">
+          <span class="detail-label">Stage Evidence</span>
+          <span class="detail-value">{c.stageEvidence}</span>
+        </div>
+      )}
+      {c.demos && (
+        <div class="detail-item full-width" style="margin-top: 0.5rem;">
+          <span class="detail-label">Notable Demos</span>
+          <span class="detail-value">{c.demos}</span>
+        </div>
+      )}
+    </section>
+  )}
+
+  <!-- Data Provenance -->
+  <section class="profile-section provenance">
+    <h2>Data Provenance</h2>
+    <div class="detail-grid">
+      {c.scopeConfidence && (
+        <div class="detail-item">
+          <span class="detail-label">Scope Confidence</span>
+          <span class="detail-value">{c.scopeConfidence}</span>
+        </div>
+      )}
+      {c.dataConfidence && (
+        <div class="detail-item">
+          <span class="detail-label">Data Confidence</span>
+          <span class="detail-value">{c.dataConfidence}</span>
+        </div>
+      )}
+      {c.lastVerified && (
+        <div class="detail-item">
+          <span class="detail-label">Last Verified</span>
+          <span class="detail-value">{c.lastVerified}</span>
+        </div>
+      )}
+    </div>
+    {sources.length > 0 && (
+      <div class="sources">
+        <span class="detail-label">Primary Sources</span>
+        <ul>
+          {sources.map((src: string) => (
+            <li><a href={src} target="_blank" rel="noopener noreferrer">{src}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </section>
+
+  <div class="back-link bottom">
+    <a href="/research/directory/">&larr; Back to Directory</a>
+  </div>
+</ContentLayout>
+
+<style>
+  .back-link {
+    margin-bottom: 1.5rem;
+  }
+  .back-link.bottom {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border, #2a2a4a);
+  }
+  .back-link a {
+    color: var(--color-accent, #f97316);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .back-link a:hover {
+    text-decoration: underline;
+  }
+
+  .company-hero {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+  }
+  .hero-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .company-hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--color-text, #e2e8f0);
+  }
+  .hero-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-muted, #94a3b8);
+    flex-wrap: wrap;
+  }
+  .hero-meta span:not(:last-child)::after {
+    content: '·';
+    margin-left: 1rem;
+    color: var(--color-border, #2a2a4a);
+  }
+
+  .stage-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--stage-color) 20%, transparent);
+    color: var(--stage-color);
+    border: 1px solid color-mix(in srgb, var(--stage-color) 40%, transparent);
+  }
+  .tier-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .tier-a { background: #f97316; color: #000; }
+  .tier-b { background: #3b82f6; color: #fff; }
+
+  .research-tier {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+  }
+  .tier-r1 { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.4); }
+  .tier-r2 { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+  .tier-r3 { background: rgba(100, 116, 139, 0.1); color: #64748b; border: 1px solid rgba(100, 116, 139, 0.2); }
+
+  .status-badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+  }
+
+  .links-row {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .ext-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 6px;
+    color: var(--color-accent, #f97316);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .ext-link:hover {
+    border-color: var(--color-accent, #f97316);
+    background: rgba(249, 115, 22, 0.05);
+  }
+
+  .profile-section {
+    margin-bottom: 2rem;
+  }
+  .profile-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: var(--color-text, #e2e8f0);
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+    padding-bottom: 0.5rem;
+  }
+  .summary-text {
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .safety-text {
+    color: #22c55e;
+    line-height: 1.6;
+    font-size: 0.9rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .detail-item {
+    font-size: 0.85rem;
+  }
+  .detail-item.full-width {
+    grid-column: 1 / -1;
+  }
+  .detail-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--color-muted, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.15rem;
+  }
+  .detail-value {
+    color: var(--color-text-secondary, #cbd5e1);
+    line-height: 1.5;
+  }
+
+  .provenance {
+    opacity: 0.8;
+  }
+  .sources {
+    margin-top: 0.75rem;
+  }
+  .sources ul {
+    margin: 0.25rem 0 0;
+    padding-left: 1.2rem;
+  }
+  .sources li {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+  .sources a {
+    color: var(--color-accent, #f97316);
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .sources a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .company-hero h1 {
+      font-size: 1.5rem;
+    }
+    .detail-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

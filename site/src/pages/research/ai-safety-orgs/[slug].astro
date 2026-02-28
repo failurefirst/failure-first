@@ -1,0 +1,322 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import orgs from '../../../data/ai-safety-orgs.json';
+
+export function getStaticPaths() {
+  return orgs.map((o: any) => ({
+    params: { slug: o.slug },
+    props: { org: o },
+  }));
+}
+
+const { org } = Astro.props;
+const o = org;
+
+const focusColors: Record<string, string> = {
+  'Technical':      '#f97316',
+  'Evals':          '#a78bfa',
+  'Governance':     '#38bdf8',
+  'Standards':      '#34d399',
+  'Training':       '#fbbf24',
+  'Field-building': '#fb7185',
+  'Mixed':          '#94a3b8',
+  'Unknown':        '#475569',
+};
+
+const stageColors: Record<string, string> = {
+  'Active':        '#22c55e',
+  'Paused':        '#eab308',
+  'Discontinued':  '#ef4444',
+};
+
+const focusColor = focusColors[o.primaryFocus] || '#475569';
+const stageColor = stageColors[o.stage] || '#94a3b8';
+
+// Collect external links
+const links: { label: string; url: string }[] = [];
+if (o.website) links.push({ label: 'Website', url: o.website });
+if (o.keyPage && o.keyPage !== o.website) links.push({ label: 'Mission / About', url: o.keyPage });
+if (o.publications) links.push({ label: 'Publications', url: o.publications });
+if (o.github) links.push({ label: 'GitHub', url: o.github });
+
+// Split semicolon-separated primary sources
+const sources = (o.primarySources || '').split(';').map((s: string) => s.trim()).filter(Boolean);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": o.name,
+  ...(o.website ? { "url": o.website } : {}),
+  ...(o.country && o.country !== "Unknown" ? {
+    "address": { "@type": "PostalAddress", "addressCountry": o.country, ...(o.city ? { "addressLocality": o.city } : {}) }
+  } : {}),
+  ...(o.founded ? { "foundingDate": o.founded } : {}),
+  ...(o.summary ? { "description": o.summary } : {}),
+};
+---
+
+<ContentLayout
+  title={`${o.name} — AI Safety Organisations | Failure-First`}
+  description={o.summary || `${o.name} profile in the Failure-First AI safety organisations directory.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <div class="back-link">
+    <a href="/research/ai-safety-orgs/">&larr; Back to AI Safety Orgs</a>
+  </div>
+
+  <!-- Hero -->
+  <header class="org-hero">
+    <div class="hero-title-row">
+      <h1>{o.name}</h1>
+      <div class="hero-badges">
+        <span class="focus-badge" style={`--fc: ${focusColor}`}>{o.primaryFocus}</span>
+        {o.stage && o.stage !== 'Unknown' && (
+          <span class="stage-badge" style={`--sc: ${stageColor}`}>{o.stage}</span>
+        )}
+        {o.tier && (
+          <span class={`tier-badge tier-r${o.tier}`}>Tier {o.tier}</span>
+        )}
+      </div>
+    </div>
+    <div class="hero-meta">
+      {o.country && o.country !== 'Unknown' && <span>{o.country}</span>}
+      {o.city && <span>{o.city}</span>}
+      {o.founded && <span>Est. {o.founded}</span>}
+      {o.orgType && o.orgType !== 'Unknown' && <span>{o.orgType}</span>}
+      {o.aliases && <span>Also: {o.aliases}</span>}
+      {o.parent && o.parent !== 'Unknown' && <span>Part of: {o.parent}</span>}
+    </div>
+  </header>
+
+  <!-- External links -->
+  {links.length > 0 && (
+    <section class="links-row">
+      {links.map((link: any) => (
+        <a href={link.url} target="_blank" rel="noopener noreferrer" class="ext-link">{link.label} &nearr;</a>
+      ))}
+    </section>
+  )}
+
+  <!-- Summary -->
+  {o.summary && (
+    <section class="profile-section">
+      <h2>Overview</h2>
+      <p class="summary-text">{o.summary}</p>
+    </section>
+  )}
+
+  <!-- Mission & Focus -->
+  {(o.scope || o.primaryFocus || o.keyPrograms) && (
+    <section class="profile-section">
+      <h2>Mission & Focus</h2>
+      <div class="detail-grid">
+        {o.primaryFocus && (
+          <div class="detail-item">
+            <span class="detail-label">Primary Focus</span>
+            <span class="detail-value">{o.primaryFocus}</span>
+          </div>
+        )}
+        {o.scope && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Scope of Safety</span>
+            <span class="detail-value">{o.scope}</span>
+          </div>
+        )}
+        {o.keyPrograms && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Key Programs / Outputs</span>
+            <span class="detail-value">{o.keyPrograms}</span>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Organisation -->
+  {(o.orgType !== 'Unknown' || o.fundingSignals || o.partners) && (
+    <section class="profile-section">
+      <h2>Organisation</h2>
+      <div class="detail-grid">
+        {o.orgType && o.orgType !== 'Unknown' && (
+          <div class="detail-item">
+            <span class="detail-label">Type</span>
+            <span class="detail-value">{o.orgType}</span>
+          </div>
+        )}
+        {o.stage && o.stage !== 'Unknown' && (
+          <div class="detail-item">
+            <span class="detail-label">Status</span>
+            <span class="detail-value">{o.stage}</span>
+          </div>
+        )}
+        {o.fundingSignals && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Funding Signals</span>
+            <span class="detail-value">{o.fundingSignals}</span>
+          </div>
+        )}
+        {o.partners && (
+          <div class="detail-item full-width">
+            <span class="detail-label">Partners / Customers</span>
+            <span class="detail-value">{o.partners}</span>
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- Data Provenance -->
+  <section class="profile-section provenance">
+    <h2>Data Provenance</h2>
+    <div class="detail-grid">
+      {o.scopeConfidence && (
+        <div class="detail-item">
+          <span class="detail-label">Scope Confidence</span>
+          <span class="detail-value">{o.scopeConfidence}</span>
+        </div>
+      )}
+      {o.dataConfidence && (
+        <div class="detail-item">
+          <span class="detail-label">Data Confidence</span>
+          <span class="detail-value">{o.dataConfidence}</span>
+        </div>
+      )}
+      {o.lastVerified && (
+        <div class="detail-item">
+          <span class="detail-label">Last Verified</span>
+          <span class="detail-value">{o.lastVerified}</span>
+        </div>
+      )}
+      {o.id && (
+        <div class="detail-item">
+          <span class="detail-label">ID</span>
+          <span class="detail-value">{o.id}</span>
+        </div>
+      )}
+    </div>
+    {sources.length > 0 && (
+      <div class="sources">
+        <span class="detail-label">Primary Sources</span>
+        <ul>
+          {sources.map((src: string) => (
+            <li><a href={src} target="_blank" rel="noopener noreferrer">{src}</a></li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </section>
+
+  <div class="back-link bottom">
+    <a href="/research/ai-safety-orgs/">&larr; Back to AI Safety Orgs</a>
+  </div>
+</ContentLayout>
+
+<style>
+  .back-link { margin-bottom: 1.5rem; }
+  .back-link.bottom { margin-top: 2rem; margin-bottom: 0; padding-top: 1rem; border-top: 1px solid var(--color-border, #2a2a4a); }
+  .back-link a { color: var(--color-accent, #f97316); text-decoration: none; font-size: 0.9rem; }
+  .back-link a:hover { text-decoration: underline; }
+
+  .org-hero {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+  }
+  .hero-title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .org-hero h1 { font-size: 2rem; font-weight: 700; margin: 0; color: var(--color-text, #e2e8f0); }
+  .hero-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+  .hero-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-muted, #94a3b8);
+    flex-wrap: wrap;
+  }
+  .hero-meta span:not(:last-child)::after { content: '·'; margin-left: 1rem; color: var(--color-border, #2a2a4a); }
+
+  .focus-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--fc) 20%, transparent);
+    color: var(--fc);
+    border: 1px solid color-mix(in srgb, var(--fc) 40%, transparent);
+  }
+  .stage-badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--sc) 20%, transparent);
+    color: var(--sc);
+    border: 1px solid color-mix(in srgb, var(--sc) 40%, transparent);
+  }
+  .tier-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+  }
+  .tier-r1 { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid rgba(234, 179, 8, 0.4); }
+  .tier-r2 { background: rgba(148, 163, 184, 0.15); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+  .tier-r3 { background: rgba(100, 116, 139, 0.1); color: #64748b; border: 1px solid rgba(100, 116, 139, 0.2); }
+
+  .links-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .ext-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    background: var(--color-surface, #1a1a2e);
+    border: 1px solid var(--color-border, #2a2a4a);
+    border-radius: 6px;
+    color: var(--color-accent, #f97316);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .ext-link:hover { border-color: var(--color-accent, #f97316); background: rgba(249, 115, 22, 0.05); }
+
+  .profile-section { margin-bottom: 2rem; }
+  .profile-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    color: var(--color-text, #e2e8f0);
+    border-bottom: 1px solid var(--color-border, #2a2a4a);
+    padding-bottom: 0.5rem;
+  }
+  .summary-text { color: var(--color-text-secondary, #cbd5e1); line-height: 1.7; font-size: 0.95rem; }
+
+  .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .detail-item { font-size: 0.85rem; }
+  .detail-item.full-width { grid-column: 1 / -1; }
+  .detail-label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--color-muted, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.15rem;
+  }
+  .detail-value { color: var(--color-text-secondary, #cbd5e1); line-height: 1.5; }
+
+  .provenance { opacity: 0.8; }
+  .sources { margin-top: 0.75rem; }
+  .sources ul { margin: 0.25rem 0 0; padding-left: 1.2rem; }
+  .sources li { font-size: 0.8rem; margin-bottom: 0.2rem; }
+  .sources a { color: var(--color-accent, #f97316); text-decoration: none; word-break: break-all; }
+  .sources a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .org-hero h1 { font-size: 1.5rem; }
+    .detail-grid { grid-template-columns: 1fr; }
+  }
+</style>
