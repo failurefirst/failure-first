@@ -35,7 +35,7 @@ const dailyPaper = defineCollection({
     date: z.coerce.date(),
     arxiv: z.string(),
     authors: z.string(),
-    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position']),
+    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position', 'application']),
     tags: z.array(z.string()).default([]),
     audio: z.string().optional(),
     video: z.string().optional(),
