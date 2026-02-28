@@ -34,10 +34,10 @@ const stageColor = stageColors[o.stage] || '#94a3b8';
 
 // Collect external links
 const links: { label: string; url: string }[] = [];
-if (o.website) links.push({ label: 'Website', url: o.website });
-if (o.keyPage && o.keyPage !== o.website) links.push({ label: 'Mission / About', url: o.keyPage });
-if (o.publications) links.push({ label: 'Publications', url: o.publications });
-if (o.github) links.push({ label: 'GitHub', url: o.github });
+if (o.website && o.website !== 'Unknown') links.push({ label: 'Website', url: o.website });
+if (o.keyPage && o.keyPage !== 'Unknown' && o.keyPage !== o.website) links.push({ label: 'Mission / About', url: o.keyPage });
+if (o.publications && o.publications !== 'Unknown') links.push({ label: 'Publications', url: o.publications });
+if (o.github && o.github !== 'Unknown') links.push({ label: 'GitHub', url: o.github });
 
 // Split semicolon-separated primary sources
 const sources = (o.primarySources || '').split(';').map((s: string) => s.trim()).filter(Boolean);
