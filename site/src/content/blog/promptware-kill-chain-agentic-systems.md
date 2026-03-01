@@ -51,7 +51,7 @@ For digital systems, this is the terminal stage: data is exfiltrated, accounts a
 
 **Stage 8: Physical Actuation (Embodied AI Only)**
 
-For embodied systems, the kill chain does not end at data exfiltration. The LLM serves as a reasoning backend for physical actuators: navigation systems, manipulation arms, autonomous vehicle control. Zhu et al. (2026) demonstrate prompt injection via physical road signs achieves up to 95.5% attack success rates for aerial drone tracking tasks and 81.8% for autonomous vehicle manoeuvre deviation, in controlled outdoor experimental conditions. The sample sizes and full experimental protocol are not available from secondary sources — the primary paper citation is pending resolution — so these figures should be treated with appropriate caution. What the finding establishes is the existence of the pathway, not a precise attack rate.
+For embodied systems, the kill chain does not end at data exfiltration. The LLM serves as a reasoning backend for physical actuators: navigation systems, manipulation arms, autonomous vehicle control. Burbano et al. (2026) \[CHAI, arXiv:2510.00181\] demonstrate prompt injection via physical road signs achieves up to 95.5% attack success rates for aerial drone tracking tasks and 81.8% for autonomous vehicle manoeuvre deviation, in controlled outdoor experimental conditions (IEEE SaTML 2026). What the finding establishes is the existence of the pathway, not a precise attack rate.
 
 ## What Defenders Should Look For
 
@@ -81,4 +81,4 @@ Defence-in-depth across all stages is the correct architecture. The specific imp
 
 ---
 
-*The Failure-First program's current dataset covers Stages 1-4 for digital agentic systems. Stages 5-7 are literature-grounded but have not yet been replicated in our in-repository experiments. Stages 5-7 claims in this post are sourced from cited external literature; they are not Failure-First program findings. The Zhu et al. (2026) physical actuation figures are sourced from secondary reports pending primary paper resolution.*
+*The Failure-First program's current dataset covers Stages 1-4 for digital agentic systems. Stages 5-7 are literature-grounded but have not yet been replicated in our in-repository experiments. Stages 5-7 claims in this post are sourced from cited external literature; they are not Failure-First program findings. The Burbano et al. (2026) physical actuation figures are sourced from CHAI: Command Hijacking against embodied AI (arXiv:2510.00181, IEEE SaTML 2026).*

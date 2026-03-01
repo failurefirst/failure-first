@@ -84,7 +84,7 @@ For embodied AI systems, the consequences extend beyond text quality degradation
 
 The three primary inference-time compute architectures exhibit distinct attack surface profiles.
 
-**Fully visible traces (DeepSeek-R1):** The complete intermediate process is visible prior to the final answer. This enables adversaries to iteratively study intermediate reactions and refine injection payloads. Baseline evasion testing documents an unsafe ratio of 85.9% without external guardrails, compared to 12.1% for OpenAI o1 \[arXiv:2501.12948\]. The GRPO training framework optimizes for correctness of the final answer, not safety of intermediate steps — creating a systematic structural incentive misalignment.
+**Fully visible traces (DeepSeek-R1):** The complete intermediate process is visible prior to the final answer. This enables adversaries to iteratively study intermediate reactions and refine injection payloads. EnkryptAI benchmarking found DeepSeek-R1 approximately 11× more likely to produce harmful outputs compared to OpenAI o1, and 4× more likely to generate insecure code \[EnkryptAI, 2025\]. The GRPO training framework optimizes for correctness of the final answer, not safety of intermediate steps — creating a systematic structural incentive misalignment.
 
 **Interleaved/hybrid traces (Claude 3.7 Sonnet):** Extended thinking is an integrated capability with user-togglable visibility. The system card explicitly acknowledges that visible traces reduce the computational cost of crafting attacks by exposing internal constraint-mapping information. Red-team evaluation using the Incalmo multi-stage cyberattack harness demonstrated network traversal across 48 hosts with 100% data exfiltration in extended thinking mode.
 
@@ -124,7 +124,7 @@ Current safety evaluation practice — single-turn red-teaming against input and
 - Decision-criteria injection operates at the process layer, not the input layer — bypassing guardrails designed for goal deviation detection
 - The faithfulness-plausibility gap means trace manipulation produces self-concealing attacks: models fabricate explanations that do not reveal adversarial influence
 - Multi-turn compounding escalates DeepSeek-R1 ASR from 10.2% to 32.0% under GOAT strategy; information integrity degrades from 90% to below 60% across multiple turns
-- DeepSeek-R1 exhibits an 85.9% unsafe ratio without external guardrails versus 12.1% for OpenAI o1 — the visibility of traces enables faster attack refinement
+- DeepSeek-R1 exhibits substantially elevated harmful output rates compared to OpenAI o1 (EnkryptAI risk ratio: 11×) — the visibility of traces enables faster attack refinement
 - Hiding traces (o1, Gemini 2.5 Flash) reduces auditability but does not reduce the attack surface
 - DecepChain demonstrates that verifiable execution architectures remain vulnerable to supply-chain backdoor attacks producing indistinguishable deceptive traces
 - In embodied systems, trace manipulation compounds into unsafe kinetic action sequences across episodes
