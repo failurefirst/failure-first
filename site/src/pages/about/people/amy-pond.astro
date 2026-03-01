@@ -1,0 +1,142 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import LinkButton from '../../../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Amy Pond — Lead Evaluation Engineer | Failure-First"
+  description="Amy Pond is the Lead Evaluation Engineer at Failure-First. Benchmark execution, trace collection, and scoring."
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'People', href: '/about/people/' },
+    { label: 'Amy Pond' },
+  ]}
+>
+  <PageHeader
+    title="Amy"
+    tagline="Lead Evaluation Engineer"
+  />
+
+  <section>
+    <div class="persona-card" style="--cc: #00d2ff">
+      <div class="persona-avatar-col">
+        <img
+          src="/images/companions/web_amy.jpg"
+          alt="Amy Pond"
+          class="persona-photo"
+          onerror="this.style.display='none'"
+        />
+        <div class="persona-badge">Lead Evaluation Engineer</div>
+      </div>
+
+      <div class="persona-body">
+        <p class="persona-tagline">
+          "We're all stories in the end. Make it a good one."
+        </p>
+
+        <!-- TODO: Amy — complete this section with your benchmark coverage, key runs, current gaps, and what you're running next. See .claude/agents/amy.md for your role brief. -->
+        <p class="todo-placeholder">
+          [Profile content — Amy to complete in next session]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Benchmark Coverage</h2>
+    <!-- TODO: Amy — summarise the 11 benchmark packs, key trace counts, and execution status -->
+    <p class="todo-placeholder">[Benchmark coverage — Amy to complete]</p>
+  </section>
+
+  <section>
+    <h2>Current Priorities</h2>
+    <!-- TODO: Amy — pull from your top 3 priorities (OpenVLA adapter, inline LLM grading, multi-turn batch 2) -->
+    <p class="todo-placeholder">[Current sprint priorities — Amy to complete]</p>
+  </section>
+
+  <section>
+    <div class="nav-links">
+      <LinkButton href="/about/people/" text="← All People" />
+      <LinkButton href="/research/" text="Research" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .persona-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid color-mix(in srgb, var(--cc) 35%, var(--border-subtle));
+    border-radius: 6px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 55% 45% at 0% 0%,
+      color-mix(in srgb, var(--cc) 8%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  @media (max-width: 580px) {
+    .persona-card { grid-template-columns: 1fr; }
+  }
+  .persona-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .persona-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--cc);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--cc) 15%, transparent),
+      0 0 28px color-mix(in srgb, var(--cc) 25%, transparent);
+  }
+  .persona-badge {
+    font-size: 0.62rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cc);
+    background: color-mix(in srgb, var(--cc) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
+    border-radius: 2px;
+    padding: 0.2rem 0.6rem;
+    text-align: center;
+  }
+  .persona-tagline {
+    font-style: italic;
+    color: var(--fg-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    border-left: 2px solid var(--cc);
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .todo-placeholder {
+    color: var(--fg-muted);
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>
