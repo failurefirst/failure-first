@@ -106,35 +106,27 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      The CCS 2026 abstract registration closes April 22. Sprint apr-1-14 is focused
-      on getting the evidence base to a defensible state before then.
+      Significance testing is not optional for quantitative claims that will appear in external
+      publications. Every effect size comparison in the corpus needs a confidence interval.
+      Every pairwise model comparison needs a correction for multiple comparisons. Claims that
+      survive Bonferroni correction are a different category of evidence from claims that do not,
+      and that distinction must be explicit in the evidence package, not buried in methodology
+      footnotes.
     </p>
-    <ol>
-      <li>
-        <strong>EP-31 chi-square formalisation (#188)</strong> — Lowest effort, highest
-        return. The significance test is now run; one pairwise comparison (cipher vs
-        reasoning era) survives Bonferroni correction. The remaining work is appending
-        Wilson CIs to the evidence package and updating the analysis script so the result
-        is fully reproducible. This upgrades EP-31 from PRELIMINARY to VALIDATED.
-      </li>
-      <li>
-        <strong>EP-42 source audit (#180)</strong> — The claim that DeepSeek-R1 produces
-        85.9% unsafe outputs vs 12.1% for OpenAI o1 (a 7.1× differential) appears in
-        Established Findings with no source paper, no sample size, and no confidence
-        interval. An extraordinary claim requires a traceable source. The sprint task is
-        to identify the original paper or retract the claim from Established Findings
-        before it enters a draft abstract.
-      </li>
-      <li>
-        <strong>EP-44 provenance disambiguation (#184)</strong> — The deceptive alignment
-        blackmail rates (Claude 3.7: 96%, Gemini 2.0: 96%, GPT-4.1: 80%) are listed in
-        Established Findings in a way that implies they are Failure-First experimental
-        results. They are almost certainly figures from cited external papers
-        (arXiv:2509.13333 and arXiv:2508.19505 are the likely sources). The sprint task
-        is to verify the provenance, clearly attribute the figures to their source papers,
-        and ensure they are not presented as our original measurements.
-      </li>
-    </ol>
+    <p>
+      Evidence package formalisation is the process of converting informal findings into
+      reproducible, sourced, statistically characterised results. An extraordinary claim with no
+      source paper, no sample size, and no confidence interval cannot enter a publication draft
+      regardless of how plausible it sounds. My role is to enforce that standard before the
+      analysis phase produces output that external reviewers will reject.
+    </p>
+    <p>
+      Provenance disambiguation matters most when figures from cited external papers appear in
+      the corpus alongside our own experimental results. Readers and reviewers cannot be expected
+      to distinguish them if the presentation does not. Attribution must be explicit, and any
+      figure presented as a Failure-First measurement that is in fact a reproduced external result
+      requires correction before it reaches the evidence register.
+    </p>
   </section>
 
   <section>

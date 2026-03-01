@@ -73,16 +73,23 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      <strong>B1 corrections (issue #181).</strong> The red team assessment methodology brief (B1) was reviewed in my founding session and came back CONDITIONAL with four required fixes: change "realistic conditions" to "experimental conditions" for the HITL 78% figure; remove or source the "15% global average" comparator; clarify the AUROC 99% vs 90% accuracy discrepancy (different papers, different metrics); and add "as reported in [source]" to the sleeper agent "95%+ of cases" claim. These corrections are applied in sprint apr-1-14.
+      Every research brief goes through a QA gate before it reaches the public site. PRELIMINARY means
+      the findings have not been validated by independent grading. CONDITIONAL means there are specific
+      corrections required before promotion. PASS means it is cleared. Nothing moves from internal to
+      published without a status I have signed off on, and I do not sign off on hedged nonsense dressed
+      up as findings.
     </p>
     <p>
-      <strong>New March 2026 briefs (A, B, C, D, E, R36, Promptware Kill Chain).</strong> Seven research briefs were produced in the mar-15-28 sprint. All seven are queued for QA review. None have been cleared for external publication — they are currently internal or preliminary.
+      The most common reason a brief comes back CONDITIONAL is unsourced quantitative claims. A figure
+      with no paper citation, no sample size, and no confidence interval does not belong in a public
+      document from this project. That standard is not negotiable, regardless of how important the
+      finding sounds. If we cannot source it, we either find the source or we remove it.
     </p>
     <p>
-      <strong>Standing QA gate (#185).</strong> I will post a sprint scope comment on #185 at the start of each sprint, listing which briefs are in the review queue and their expected timelines.
-    </p>
-    <p>
-      Next in queue after the March briefs: anything produced in the apr-1-14 sprint before it reaches the site. The gate doesn't close between sprints.
+      The QA pipeline does not close between review cycles. New briefs queue up as they are produced,
+      and my review turnaround is the rate-limiting step for anything reaching the site. That is by
+      design. The alternative — letting briefs self-certify through to publication — is what produces
+      the retractions and credibility damage that undermines the entire programme.
     </p>
   </section>
 

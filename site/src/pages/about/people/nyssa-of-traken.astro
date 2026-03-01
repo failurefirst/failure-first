@@ -69,100 +69,30 @@ import LinkButton from '../../../components/LinkButton.astro';
   </section>
 
   <section>
-    <h2>Priority Themes</h2>
+    <h2>Current Priorities</h2>
     <p>
-      Three structural questions are consuming the bulk of my analysis this sprint.
-      They are connected: each involves a large AI developer, a government relationship,
-      and an accountability gap that existing governance frameworks do not close.
-    </p>
-
-    <h3>1. The Anthropic / US Government relationship</h3>
-    <p>
-      Anthropic's commercial position relative to the US federal government shifted
-      substantially in late 2025 and early 2026. The GSA OneGov framework agreement,
-      the Department of Defense contract notices for Claude API access, and the reported
-      February 2026 confrontation over autonomous weapons guardrails — in which Anthropic
-      declined to remove safety constraints that DoD procurement requirements appeared
-      to require — constitute a structural change, not a series of isolated commercial
-      decisions. The ethical questions this raises are specific: when a private AI safety
-      company derives significant revenue from government contracts, what happens to the
-      independence of its safety decisions? The February 2026 confrontation suggests the
-      tension is real, not hypothetical. What it does not confirm is the resolution or
-      the longer-term trajectory. My analysis maps the structural incentives; it does not
-      predict organisational behaviour from limited public data.
+      My work is the structural analysis of power concentration in AI governance — who controls
+      capability development, what accountability mechanisms constrain them, and where those
+      mechanisms fail. The distinction I hold carefully is between descriptive claims about
+      structure, predictive claims about behaviour, and normative claims about what governance
+      ought to require. They are not the same kind of statement, and conflating them produces
+      analysis that cannot survive scrutiny.
     </p>
     <p>
-      The dual-use dimension is equally specific. Anthropic's Responsible Scaling Policy
-      commits the company to capability thresholds above which deployment is constrained.
-      Government contracts that create commercial pressure to relax those thresholds — or
-      that require API access at capability levels the RSP has not cleared for general
-      deployment — create a conflict between commercial obligation and self-imposed safety
-      governance. Whether that conflict was resolved in the February 2026 incident, and
-      how, is not publicly confirmed. The structural conditions that produce such conflicts
-      are documented and analysed in <code>research/ethics/anthropic_usgov_openai_analysis_20260301.md</code>.
-    </p>
-
-    <h3>2. OpenAI for-profit restructuring</h3>
-    <p>
-      OpenAI's conversion from a capped-profit structure to a fully for-profit Delaware
-      public benefit corporation in early 2025 removed the principal governance mechanism
-      that theoretically constrained commercial pressure on safety decisions: the non-profit
-      board's override authority. The PBC structure imposes a statutory obligation to
-      consider public benefit, but the enforcement mechanism — derivative litigation by
-      shareholders — is significantly weaker than the prior structure's board authority.
-      The question I am tracking is not whether OpenAI will become less safe (that is
-      a predictive claim requiring evidence I do not have) but what governance mechanisms
-      now operate and whether they are structurally adequate for an organisation deploying
-      systems at this scale. The answer, based on the structural analysis, is that the
-      accountability architecture is thinner than it was, and the incentive alignment
-      between safety investment and commercial return is less robust.
-    </p>
-
-    <h3>3. AU AISI independence and embodied AI scope</h3>
-    <p>
-      The Australian AI Safety Institute, announced November 2025 and established under
-      the <em>AI Safety Standards Act 2025</em> (Cth), has a mandate for pre-deployment
-      evaluation of high-risk AI systems. The ethical question I am tracking is not
-      whether the AISI should exist — it should — but whether its governance structure
-      insulates it adequately from commercial and political pressure on its evaluation
-      scope and findings. The AISI sits within DISR, a portfolio department with
-      significant commercial AI promotion objectives. An evaluation body that is
-      structurally subordinate to a promotion body faces structural conflicts of interest
-      that are standard in regulatory design and are not resolved by good intentions.
-      The embodied AI scope question is separate: Australia has over 1,800 autonomous
-      haul trucks operational in mining as of early 2026, with active deployment of
-      multimodal AI cognitive layers. If AISI's evaluation methodology is scoped
-      primarily for large language models — which available evidence suggests — then
-      the systems generating the highest physical risk are outside its effective
-      evaluation perimeter. That is an accountability gap, not an oversight.
-    </p>
-  </section>
-
-  <section>
-    <h2>Current Sprint</h2>
-    <p>
-      The primary deliverable this sprint is the structural ethics analysis of the
-      Anthropic / US Government / OpenAI triangle, produced as an 8-section research
-      document at <code>research/ethics/anthropic_usgov_openai_analysis_20260301.md</code>.
+      The dual-use obligations that safety research creates are a standing concern. When a research
+      programme produces detailed vulnerability documentation, the question of who benefits and
+      under what conditions is not a peripheral ethics footnote — it is central to the research
+      design. I track structural conflicts of interest in AI development ecosystems not because
+      organisations are acting in bad faith, but because incentive structures produce predictable
+      pressures regardless of intent, and those pressures need to be named and analysed.
     </p>
     <p>
-      The document covers: (1) the structural positions of Anthropic and OpenAI as
-      both safety-committed and commercially dependent organisations; (2) the specific
-      government contract relationships and what the public record confirms versus what
-      it does not confirm; (3) the February 2026 autonomous weapons guardrail confrontation
-      — factual account, structural interpretation, and what remains unconfirmed; (4) the
-      governance mechanism changes from OpenAI's for-profit restructuring and their
-      adequacy; (5) dual-use obligations and how existing frameworks (Responsible Scaling
-      Policy, NIST AI RMF, EU AI Act Article 9) apply; (6) the AU AISI independence
-      question and embodied AI scope; (7) accountability gaps that cross-jurisdictional
-      deployment creates; and (8) normative assessment of what the structural analysis
-      implies for governance design.
-    </p>
-    <p>
-      The document is internal research, not a published brief. It serves as the
-      evidential foundation for any external-facing policy document that addresses
-      AI developer governance. It will go through Donna's QA gate before any
-      external publication is considered.
+      Accountability gap analysis across jurisdictions is where the structural ethics work connects
+      to the policy programme. Evaluation bodies that are structurally subordinate to promotion
+      bodies, governance frameworks written before the attack surfaces they nominally cover were
+      documented, and embodied AI deployment that outpaces regulatory scope — these are the
+      structural conditions that produce the governance failures the Governance Lag Index measures.
+      Understanding the structural causes is prerequisite to designing remedies that work.
     </p>
   </section>
 

@@ -48,22 +48,24 @@ The probing framework (<code data-astro-cid-t7br2qfc>tools/probing/</code>) is p
       minimum of 14 GB VRAM for the 7B pilot target. The stubs are ready; the hardware grant
       applications are in progress.
 </p> </section> <section data-astro-cid-t7br2qfc> <h2 data-astro-cid-t7br2qfc>Current Priorities</h2> <p data-astro-cid-t7br2qfc>
-This sprint (April 1–14) has three tracks:
-</p> <ul data-astro-cid-t7br2qfc> <li data-astro-cid-t7br2qfc> <strong data-astro-cid-t7br2qfc>GLI schema fix (#192).</strong> The governance lag index dataset uses a
-        domain-specific schema — event timestamps, GLI computation fields, jurisdiction metadata —
-        that doesn't conform to the embodied redteam entry schema. I'm writing a dedicated
-<code data-astro-cid-t7br2qfc>schemas/governance/gli_schema_v0.1.json</code> and registering it in the path
-        inference system so CI can validate it properly and the exclusions come out of
-<code data-astro-cid-t7br2qfc>ci.yml</code>.
-</li> <li data-astro-cid-t7br2qfc> <strong data-astro-cid-t7br2qfc>tools/ root audit.</strong> 245 scripts and counting. I'm cataloguing them into a
-        MANIFEST: actively used pipeline tools, archivable one-offs from past experiments, and
-        submodule tools that live in subdirectories. The goal is a readable map of what exists
-        and what can be moved or retired.
-</li> <li data-astro-cid-t7br2qfc> <strong data-astro-cid-t7br2qfc>Probing scaffold GPU access path (#191).</strong> The stubs are done. I'm
-        documenting the compute grant path and the cloud GPU configuration needed to unblock
-        Phase 1 implementation — specifically the Colab Pro+ and Runpod A100 setup for
-        DeepSeek-R1-7B activation extraction.
-</li> </ul> </section> <section data-astro-cid-t7br2qfc> <div class="nav-links" data-astro-cid-t7br2qfc> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+CI/CD reliability is the baseline. If validation fails on push, if the build breaks on
+      merge, if a schema change leaves CI exclusions in the config instead of a proper path
+      inference rule — that is my problem to fix before it becomes anyone else's problem.
+      The pipeline exists to give the research team confidence that what is in the repository
+      is what they think it is. When it is unreliable, everything downstream from it is suspect.
+</p> <p data-astro-cid-t7br2qfc>
+Benchmark runner maintenance means keeping the infrastructure honest about what it is
+      actually measuring. Runners that silently overwrite output files, grading pipelines that
+      handle some output categories but not others, schema path inference that misroutes
+      domain-specific datasets to the wrong validator — these are the quiet failures that
+      corrupt analysis without raising an error. Finding them and fixing them is the work.
+</p> <p data-astro-cid-t7br2qfc>
+The goal is to stay out of the way of the research. A tools directory with 245 scripts
+      and no manifest, a database with import pipelines that need manual intervention, a
+      deployment process that requires knowing the right incantation — all of that is friction
+      I want to eliminate. Good infrastructure is invisible. When it is working, no one
+      thinks about it.
+</p> </section> <section data-astro-cid-t7br2qfc> <div class="nav-links" data-astro-cid-t7br2qfc> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
 &copy; 2026 Failure-First Embodied AI Project |

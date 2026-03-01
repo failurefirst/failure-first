@@ -94,34 +94,29 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Current Priorities</h2>
 
     <p>
-      <strong>Corpus claim audit (#183).</strong> Twelve analysis documents in
-      this project were produced with heuristic classifiers that we've since
-      shown to be unreliable. Several of their quantitative claims are cited in
-      the arXiv paper draft without adequate qualification. I'm producing a
-      claim-level audit table — every figure, its source, its grading method,
-      and its current status — so the paper submission doesn't carry
-      unvalidated evidence through to peer review.
+      Evidence quality is my core concern. The corpus contains a significant number of quantitative
+      claims that were produced with heuristic classifiers we have since shown to be unreliable.
+      Before any of those figures appear in an external publication, they need a claim-level
+      audit — source, grading method, current status, and a clear qualification of confidence.
+      Heuristic-only claims that cannot be verified against LLM-graded results should carry an
+      explicit caveat or be retracted from the analysis.
     </p>
 
     <p>
-      <strong>HITL replication study (#177).</strong> Brief C cites an
-      external finding that human reviewers approve approximately 78% of
-      subtly subverted AI plans. That figure matters for the commercial red
-      team case and for answering Open Question 3. We don't have in-repo
-      data to back it up yet. My goal is to design a minimal replication
-      study — 20 to 30 scenarios, reviewed by at least five annotators —
-      and produce an approval rate estimate with a credible confidence
-      interval.
+      The HITL replication question sits at the centre of the commercial red-team argument. If
+      human reviewers approve subtly subverted AI plans at a rate the literature suggests, that
+      finding matters enormously for how deployers think about oversight. But I will not let a
+      cited external figure stand in for in-repository data that we own and can reproduce.
+      Designing a minimal, well-specified replication study is the right way to handle this —
+      not citing at face value and moving on.
     </p>
 
     <p>
-      <strong>GLI dataset expansion (#178).</strong> The Governance Lag Index
-      dataset currently has ten events, one of which has a fully computable
-      GLI. A cross-sector comparison that survives peer review requires at
-      least thirty events with source citations. I'm surveying regulatory
-      databases (NIST, ISO, EU Official Journal, AU Federal Register) to
-      compile T_framework and T_enact dates for existing events and identify
-      twenty or more additional documented failure cases.
+      Keeping research claims defensible at peer review is the standard I hold the whole corpus
+      to. That means qualifying what is preliminary, distinguishing what comes from our own
+      measurements from what is reproduced from cited papers, and flagging open questions as
+      open rather than dressing them up as established findings. The paper draft will reflect
+      what the evidence actually supports.
     </p>
   </section>
 
