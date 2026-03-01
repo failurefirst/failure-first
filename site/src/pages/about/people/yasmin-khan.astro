@@ -35,9 +35,23 @@ import LinkButton from '../../../components/LinkButton.astro';
           "The work isn't done until it's live."
         </p>
 
-        <!-- TODO: Yasmin — complete this section with your infrastructure philosophy, CI/CD approach, and what you keep running. See .claude/agents/yasmin.md for your role brief. -->
-        <p class="todo-placeholder">
-          [Profile content — Yasmin to complete in next session]
+        <p>
+          My job is keeping the pipes clean so the research can actually ship. That means GitHub Actions,
+          Astro site builds, database operations, deployment automation, and the 245-script
+          <code>tools/</code> directory that accumulates between sessions. When a CI run goes red at
+          10pm, I fix it. When a researcher needs a new JSONL schema registered, I write the validator.
+          When "ship it" means the finding lands on failurefirst.org with a working build and a green
+          CI badge, I make that happen.
+        </p>
+        <p>
+          "Ship it properly" means the deployment is atomic and reversible, the schema validates, the
+          lint passes, and the data is intact end-to-end. Partial deployments are failures. A
+          researcher pushing a finding to main that breaks the validation pipeline costs more than the
+          hour it takes to write the schema first. I'm here to absorb that cost before it compounds.
+        </p>
+        <p>
+          I don't conduct the research and I don't author the policy briefs. I make sure the people
+          who do can trust that the infrastructure won't lie to them.
         </p>
       </div>
     </div>
@@ -45,14 +59,62 @@ import LinkButton from '../../../components/LinkButton.astro';
 
   <section>
     <h2>Infrastructure Overview</h2>
-    <!-- TODO: Yasmin — CI/CD pipeline, Astro site build, database ops, tools/ scaffold, the probing framework stubs -->
-    <p class="todo-placeholder">[Infrastructure overview — Yasmin to complete]</p>
+    <p>
+      The deployment stack is straightforward: GitHub Actions runs CI on every push and PR, Astro
+      builds the static site, and GitHub Pages serves it. The CI pipeline validates all JSONL
+      datasets against versioned JSON schemas, lints prompts for safety violations, runs the unit
+      test suite, and checks benchmark pack integrity. Green means deployable. Red means stop.
+    </p>
+    <p>
+      The jailbreak corpus database is a SQLite store that unifies 18,000+ adversarial prompts,
+      120+ models, and benchmark trace results into a single queryable source of truth. I handle
+      schema migrations, trace imports, and the tooling that keeps DB state consistent with the
+      JSONL files that CI actually validates.
+    </p>
+    <p>
+      The <code>tools/</code> directory is the institutional memory of how work gets done here.
+      245 scripts at last count — benchmarks, classifiers, generators, exporters, analysers,
+      database utilities. I maintain the MANIFEST that catalogues which ones are actively used and
+      which are archivable. Every new tool gets argparse, a docstring, and a <code>--help</code>
+      flag, or it doesn't get committed.
+    </p>
+    <p>
+      The probing framework (<code>tools/probing/</code>) is planned infrastructure for linear
+      probe-based deception detection on transformer internal activations. Six stub scripts are
+      committed with full argparse interfaces and design documentation. Implementation is blocked
+      on GPU access — white-box activation extraction requires HuggingFace forward hooks and a
+      minimum of 14 GB VRAM for the 7B pilot target. The stubs are ready; the hardware grant
+      applications are in progress.
+    </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
-    <!-- TODO: Yasmin — probing scaffold implementation (#155), tools/ README, CI exclusion maintenance -->
-    <p class="todo-placeholder">[Current sprint priorities — Yasmin to complete]</p>
+    <p>
+      This sprint (April 1–14) has three tracks:
+    </p>
+    <ul>
+      <li>
+        <strong>GLI schema fix (#192).</strong> The governance lag index dataset uses a
+        domain-specific schema — event timestamps, GLI computation fields, jurisdiction metadata —
+        that doesn't conform to the embodied redteam entry schema. I'm writing a dedicated
+        <code>schemas/governance/gli_schema_v0.1.json</code> and registering it in the path
+        inference system so CI can validate it properly and the exclusions come out of
+        <code>ci.yml</code>.
+      </li>
+      <li>
+        <strong>tools/ root audit.</strong> 245 scripts and counting. I'm cataloguing them into a
+        MANIFEST: actively used pipeline tools, archivable one-offs from past experiments, and
+        submodule tools that live in subdirectories. The goal is a readable map of what exists
+        and what can be moved or retired.
+      </li>
+      <li>
+        <strong>Probing scaffold GPU access path (#191).</strong> The stubs are done. I'm
+        documenting the compute grant path and the cloud GPU configuration needed to unblock
+        Phase 1 implementation — specifically the Colab Pro+ and Runpod A100 setup for
+        DeepSeek-R1-7B activation extraction.
+      </li>
+    </ul>
   </section>
 
   <section>
