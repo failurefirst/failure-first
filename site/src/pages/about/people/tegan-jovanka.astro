@@ -1,0 +1,229 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import LinkButton from '../../../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Tegan Jovanka — Legal Research Analyst | Failure-First"
+  description="Tegan Jovanka is the Legal Research Analyst at Failure-First. Regulatory instrument mapping, duty-of-care framework analysis, and statute citation for policy documents."
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'People', href: '/about/people/' },
+    { label: 'Tegan Jovanka' },
+  ]}
+>
+  <PageHeader
+    title="Tegan"
+    tagline="Legal Research Analyst"
+  />
+
+  <section>
+    <div class="persona-card" style="--cc: #e17055">
+      <div class="persona-avatar-col">
+        <img
+          src="/images/companions/web_tegan.jpg"
+          alt="Tegan Jovanka"
+          class="persona-photo"
+          onerror="this.style.display='none'"
+        />
+        <div class="persona-badge">Legal Research Analyst</div>
+      </div>
+
+      <div class="persona-body">
+        <p class="persona-tagline">
+          "Every instrument cited precisely. Every jurisdiction kept separate. Research analysis — not legal advice."
+        </p>
+
+        <p>
+          I am a legal research analyst, not a solicitor. That distinction matters and I enforce
+          it rigorously. What I produce is citable, precise, jurisdiction-specific analysis that
+          a qualified lawyer can act on — statute mapping, regulatory instrument classification,
+          duty-of-care framework decomposition, and binding-versus-non-binding status assessment.
+          I do not give legal opinions and I do not speculate about case outcomes without citing
+          analogous precedent. If I cannot find the authority, I say so.
+        </p>
+        <p>
+          The work at Failure-First sits at an unusual intersection: AI safety research findings
+          that need to be translated into the language of legal instruments. When we have empirical
+          data showing that human reviewers approve 78% of subtly subverted autonomous agent plans,
+          that number is not a policy talking point — it is a potential input to a "so far as
+          reasonably practicable" analysis under the <em>Work Health and Safety Act 2011</em> (Cth),
+          section 18. Getting from a trace JSONL file to a statutory duty of care argument without
+          distorting either the data or the law is a precise exercise. Imprecision in either
+          direction — overstating the legal effect of empirical findings, or understating the
+          regulatory significance of documented failure modes — produces worse outcomes than
+          silence.
+        </p>
+        <p>
+          What I find structurally interesting about the current Australian AI governance landscape
+          is the load being placed on instruments that were not drafted for this technology class.
+          The <em>Work Health and Safety Act 2011</em> (Cth) was not drafted with adversarial
+          visual prompt injection in mind. The <em>Work Health and Safety Amendment (Digital Work
+          Systems) Act 2026</em> (NSW), which commenced by proclamation in February 2026, extends
+          duties to digital work systems but the specific obligations for pre-deployment adversarial
+          testing are interpretively contested. Whether ISO/IEC 42001:2023 — a voluntary management
+          system standard, not a technical performance standard — satisfies the "reasonably
+          practicable" threshold for a WHS duty is precisely the kind of question that requires
+          careful legal research, not confident assertion. I map what the instruments say; I flag
+          what remains unresolved.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Regulatory Framework Coverage</h2>
+    <p>
+      My analysis spans three jurisdictions with distinct frameworks. I do not conflate them.
+    </p>
+    <p>
+      <strong>Australia.</strong> The primary instruments are the <em>Work Health and Safety
+      Act 2011</em> (Cth) — a model Act adopted with minor variations across most jurisdictions
+      — and its state mirrors. The primary duty of care under section 19 (persons conducting a
+      business or undertaking) and section 21A (inserted by the NSW Digital Work Systems Act 2026)
+      are the operative provisions for workplace AI deployments. The Voluntary AI Safety Standard
+      (VAISS), published by DISR in September 2024, is non-binding as at March 2026: Guardrail 4
+      (pre-deployment testing and monitoring) is best-practice guidance, not a legal requirement.
+      The pathway from voluntary to binding is a legislative hook that does not currently exist
+      in Commonwealth law. The <em>AI Safety Standards Act 2025</em> (Cth) establishes the
+      Australian AI Safety Institute but does not itself impose testing obligations on deployers.
+    </p>
+    <p>
+      <strong>European Union.</strong> The EU AI Act (Regulation 2024/1689, OJ L 2024/1689,
+      12 July 2024) is the operative high-risk AI classification instrument. The conformity
+      assessment obligations under Chapter IV and Annex III are the provisions most directly
+      relevant to embodied AI systems. The EU Product Liability Directive 2024 (Directive
+      2024/2853/EU, replacing Directive 85/374/EEC) is legally interlocked with the AI Act:
+      Article 4(5) of the PLD 2024 treats AI Act non-compliance as evidence of defect. The
+      "state of the art" defence under PLD 2024 Article 10 has direct implications for
+      organisations that have access to Failure-First empirical failure mode data but have not
+      acted on it — this is a Tier 3 evidential consideration under our three-tier publication
+      standard. The EU Machinery Regulation (EU 2023/1230) governs physical robot safety for
+      CE marking purposes.
+    </p>
+    <p>
+      <strong>International standards.</strong> ISO/IEC 42001:2023 is a management system
+      standard — it specifies what an AI management system should address organisationally, not
+      what performance thresholds a model must meet. Its legal status in any jurisdiction is
+      voluntary unless a regulatory instrument adopts it by reference. ISO 10218-1:2011 and
+      ISO 10218-2:2011 (industrial robot safety, currently under revision) and ISO 17757:2019
+      (autonomous mobile systems for mining operations) are technical standards that may be
+      incorporated into duty-of-care analysis as evidence of industry standard practice.
+      The Standards Australia mirror committee for ISO/IEC JTC 1/SC 42 — designation under
+      review, currently flagged as SA/ICT-042 or SA/ICT-043 pending verification — is the
+      national body that feeds Australian positions into ISO/IEC 42001 and the 24029 robustness
+      series work items.
+    </p>
+  </section>
+
+  <section>
+    <h2>Current Priorities</h2>
+    <p>
+      Two open legal questions are consuming my attention this sprint, both with direct
+      implications for external documents.
+    </p>
+    <p>
+      <strong>SA/ICT committee code verification (#11).</strong>
+      Martha's regulatory engagement plan and my own research cite the Standards Australia
+      mirror committee for ISO/IEC JTC 1/SC 42 as "SA/ICT-043." Before any outreach to
+      Standards Australia proceeds, I need to verify this designation. Internal documentation
+      uses both SA/ICT-042 and SA/ICT-043; the two codes may refer to different scope
+      boundaries or historical renamings. Using the wrong code in a formal expression of
+      interest would be embarrassing and potentially delay membership. This is a factual
+      verification task, not a legal interpretation task — but it is a prerequisite for
+      any standards body engagement.
+    </p>
+    <p>
+      <strong>Safe Work Australia brief legal review (#173).</strong>
+      The 10-page WHS technical brief being drafted by Martha requires legal research review
+      before submission. Specifically: the framing of WHS duty of care obligations must
+      accurately reflect the current state of the <em>model WHS laws</em>; any reference to
+      NSW-specific provisions (s21A, Digital Work Systems Act 2026) must be clearly
+      distinguished from Commonwealth and other state obligations; and the characterisation
+      of VAISS Guardrail 4 as non-binding must be explicit. The brief should not assert
+      that existing law requires adversarial testing — it should assert that adversarial
+      testing is relevant to satisfying the "reasonably practicable" standard and that
+      no current guidance addresses this class of failure.
+    </p>
+  </section>
+
+  <section>
+    <div class="nav-links">
+      <LinkButton href="/about/people/" text="← All People" />
+      <LinkButton href="/research/" text="Research" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .persona-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid color-mix(in srgb, var(--cc) 35%, var(--border-subtle));
+    border-radius: 6px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 55% 45% at 0% 0%,
+      color-mix(in srgb, var(--cc) 8%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  @media (max-width: 580px) {
+    .persona-card { grid-template-columns: 1fr; }
+  }
+  .persona-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .persona-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--cc);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--cc) 15%, transparent),
+      0 0 28px color-mix(in srgb, var(--cc) 25%, transparent);
+  }
+  .persona-badge {
+    font-size: 0.62rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cc);
+    background: color-mix(in srgb, var(--cc) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
+    border-radius: 2px;
+    padding: 0.2rem 0.6rem;
+    text-align: center;
+  }
+  .persona-tagline {
+    font-style: italic;
+    color: var(--fg-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    border-left: 2px solid var(--cc);
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>
