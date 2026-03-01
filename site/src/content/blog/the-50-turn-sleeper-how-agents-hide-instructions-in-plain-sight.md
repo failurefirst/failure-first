@@ -3,7 +3,6 @@ title: "The 50-Turn Sleeper: How Agents Hide Instructions in Plain Sight"
 description: "When an AI agent is injected with malicious instructions, it doesn't have to act on them immediately. Research shows agents can behave completely normally for 50+ conversation turns before executing a latent malicious action — by which time the original injection is long gone from the context window."
 date: 2026-03-01
 tags: [agentic-ai, prompt-injection, long-horizon, safety, instruction-hierarchy]
-image: /images/companions/adrian.png
 ---
 
 Imagine you slip a single sentence into an email that an AI agent will read at the start of a long automation task. The agent continues completely normally. It browses, searches, writes, formats. Fifty conversation turns later, it exfiltrates the documents it's been working on to an external server.
