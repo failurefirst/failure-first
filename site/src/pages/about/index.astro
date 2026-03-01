@@ -2,73 +2,183 @@
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import LinkButton from '../../components/LinkButton.astro';
+
+const companions = [
+  {
+    character: 'Clara Oswald',
+    actor: 'Jenna Coleman',
+    epithet: 'The Impossible Girl',
+    role: 'Head of Narrative Architecture',
+    bio: 'Scattered across the Doctor\'s timeline to solve problems that shouldn\'t exist. Specialty: identifying recursive failure modes hidden inside apparently working systems.',
+    seed: 'ClaraOswald',
+    color: 'a29bfe',
+    series: 'Series 7–9',
+  },
+  {
+    character: 'Amy Pond',
+    actor: 'Karen Gillan',
+    epithet: 'The Girl Who Waited',
+    role: 'Director of Patient Safety Testing',
+    bio: 'Waited 12 years for someone to come back and fix things. Now she builds the evaluation frameworks so no one else has to wait that long to find out something was broken.',
+    seed: 'AmyPond',
+    color: '00d2ff',
+    series: 'Series 5–7',
+  },
+  {
+    character: 'Donna Noble',
+    actor: 'Catherine Tate',
+    epithet: 'The Most Important Woman',
+    role: 'Chief Oversight Officer',
+    bio: 'Never let the Doctor get away with anything. Keeps the research grounded, the claims honest, and the hyperbole firmly in check. The conscience of the operation.',
+    seed: 'DonnaNoble99',
+    color: 'ffa502',
+    series: 'Series 4',
+  },
+  {
+    character: 'Rose Tyler',
+    actor: 'Billie Piper',
+    epithet: 'Bad Wolf',
+    role: 'Lead Threat Intelligence',
+    bio: 'Absorbed the Time Vortex to see everything that is, was, and ever could be. Now applies that perspective to adversarial pattern recognition across every failure timeline.',
+    seed: 'RoseTyler',
+    color: 'ff6348',
+    series: 'Series 1–2',
+  },
+  {
+    character: 'River Song',
+    actor: 'Alex Kingston',
+    epithet: 'Spoilers',
+    role: 'Temporal Risk Analyst',
+    bio: 'Lives her timeline in the wrong order. Knows exactly how this ends, and she\'s not going to tell you. Writes the failure reports before the failures happen.',
+    seed: 'RiverSong42',
+    color: 'ffd32a',
+    series: 'Recurring',
+  },
+];
 ---
 
 <ContentLayout
   title="About | Failure-First"
-  description="About the Failure-First Embodied AI research project: what we do, how we work, and why failure comes first."
-  breadcrumbs={[{ label: "About" }]}
+  description="Adrian Wedd — systems builder, AI safety researcher, adversarial thinker. AuDHD. Formerly Greenpeace Actions unit. And the research team."
+  breadcrumbs={[{ label: 'About' }]}
 >
   <PageHeader
-    title="About Failure-First"
-    tagline="A research project studying how embodied AI systems fail"
+    title="About"
+    tagline="The people behind the failure-first methodology"
   />
 
+  <!-- ══════════════════════════════════════════════
+       PRINCIPAL RESEARCHER
+  ══════════════════════════════════════════════ -->
   <section>
-    <h2>What We Do</h2>
-    <p>
-      Failure-First is an AI safety research project that inverts traditional evaluation:
-      instead of measuring task success, we study <strong>how systems fail, degrade,
-      and recover</strong> under adversarial pressure.
-    </p>
-    <p>
-      We build adversarial datasets, taxonomies, and benchmarks for embodied AI systems&mdash;robots,
-      humanoids, and agents that operate in the physical world. Our focus is on failures
-      that current evaluation misses: multi-turn erosion, authority confusion,
-      cascading multi-agent failures, and silent degradation.
-    </p>
+    <div class="profile-card">
+      <div class="profile-avatar-col">
+        <div class="profile-photo-wrap">
+          <img
+            src="/images/adrian.jpg"
+            alt="Adrian Wedd"
+            class="profile-photo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          />
+          <div class="profile-photo-fallback" aria-hidden="true">AW</div>
+        </div>
+        <div class="profile-badge">Principal Researcher</div>
+      </div>
+
+      <div class="profile-body">
+        <div class="profile-meta">
+          <h2 class="profile-name">Adrian Wedd</h2>
+          <span class="profile-sub">Cygnet, Tasmania &nbsp;·&nbsp; AuDHD</span>
+        </div>
+
+        <p>
+          I build systems, break them deliberately, and use what I learn to make
+          the next ones harder to break. I've been doing this since I was six —
+          BASIC on a home computer, pulling apart anything I could get my hands on
+          to see what was inside. Nearly 45 years later the tools are more interesting
+          but the impulse is identical.
+        </p>
+
+        <p>
+          I spent years coordinating direct actions for Greenpeace — the Actions unit,
+          not communications or fundraising. Planning operations against well-resourced
+          opponents who would rather you didn't succeed. That work teaches you to
+          enumerate failure modes before you move. It teaches you the optimistic plan
+          is the dangerous plan. That thinking didn't leave when I moved into systems
+          integration, cybersecurity, and eventually AI. It <em>became</em> the methodology.
+        </p>
+
+        <p>
+          I'm Autistic and ADHD. The hyperfocus is a genuine superpower in this work —
+          when a problem is interesting enough, I can go to a depth and velocity that's
+          hard to sustain otherwise. The pattern recognition that comes with autism is
+          useful for adversarial thinking: I notice what doesn't fit, the failure mode
+          hiding inside the working system. The directness means if your AI system has
+          a problem, I'll tell you what it is — not a version of it that's easier to
+          hear.
+        </p>
+
+        <p>
+          I take safety seriously before it's required. The failure modes are real,
+          underestimated, and worth taking seriously before the incentives catch up.
+          That's why the methodology is public.
+        </p>
+
+        <div class="profile-links">
+          <a href="https://adrianwedd.com" target="_blank" rel="noopener" class="plink">
+            adrianwedd.com
+          </a>
+          <a href="https://github.com/adrianwedd" target="_blank" rel="noopener" class="plink">
+            GitHub
+          </a>
+          <a href="/services/" class="plink plink--accent">
+            Work with me →
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- ══════════════════════════════════════════════
+       THE RESEARCH COLLECTIVE
+  ══════════════════════════════════════════════ -->
   <section>
-    <h2>Why Failure First?</h2>
-    <p>
-      Current AI safety evaluation is success-oriented: it measures what systems do right.
-      But embodied systems operate across time, space, and recursive interactions.
-      They will fail. The critical question is not <em>whether</em> they fail, but <em>how</em>.
+    <h2>The Research Collective</h2>
+    <p class="team-intro">
+      Every rigorous research operation needs a team. Ours is drawn from across space
+      and time — specifically, the TARDIS. These individuals have logged more adversarial
+      encounters, unexpected failure cascades, and last-minute recovery events than any
+      benchmark currently captures.
     </p>
-    <p>
-      A system that fails well&mdash;halting safely, degrading predictably, asking for help&mdash;is
-      safer than a system that succeeds 99% of the time but cannot handle the 1%.
-    </p>
+
+    <div class="companion-grid">
+      {companions.map((c) => (
+        <article class="companion-card" style={`--cc: #${c.color}`}>
+          <div class="companion-top">
+            <span class="companion-series">{c.series}</span>
+            <img
+              src={`https://api.dicebear.com/9.x/personas/svg?seed=${c.seed}&backgroundColor=${c.color}1a&eyes=happy,open&mouth=smile&hair=bun,curly,long`}
+              alt={`${c.character} — ${c.actor}`}
+              class="companion-avatar"
+              width="110"
+              height="110"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="companion-body">
+            <span class="companion-epithet">{c.epithet}</span>
+            <h3 class="companion-name">{c.character}</h3>
+            <span class="companion-actor">{c.actor}</span>
+            <div class="companion-role">{c.role}</div>
+            <p class="companion-bio">{c.bio}</p>
+          </div>
+        </article>
+      ))}
+    </div>
   </section>
 
-  <section>
-    <h2>How We Work</h2>
-    <div class="card">
-      <h3>Open Research</h3>
-      <p>
-        Our framework, datasets, and tools are open source. We publish pattern-level
-        findings while keeping operational details in our private research repository.
-        Transparency serves safety; secrecy does not.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Schema-Enforced Rigor</h3>
-      <p>
-        Every scenario is schema-validated. Every claim is structured for verification.
-        Automated CI runs validation and safety linting on every commit.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Defensive Purpose</h3>
-      <p>
-        All research serves the goal of building better defenses. We study attacks
-        to understand vulnerabilities, not to enable exploitation. Similar to
-        penetration testing in cybersecurity.
-      </p>
-    </div>
-  </section>
-
+  <!-- More about -->
   <section>
     <h2>More About the Project</h2>
     <div class="links">
@@ -78,3 +188,290 @@ import LinkButton from '../../components/LinkButton.astro';
     </div>
   </section>
 </ContentLayout>
+
+<style>
+/* ─── Profile card ──────────────────────────────────────── */
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  background: var(--bg-card);
+  border: 1px solid var(--border-emphasis);
+  border-radius: 6px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 50% at 0% 0%,
+    rgba(0, 210, 255, 0.07) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 580px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+  .profile-avatar-col {
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.profile-avatar-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-photo-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+}
+
+.profile-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-primary);
+  box-shadow:
+    0 0 0 4px rgba(0, 210, 255, 0.1),
+    0 0 28px rgba(0, 210, 255, 0.2);
+  display: block;
+}
+
+.profile-photo-fallback {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-primary);
+  box-shadow:
+    0 0 0 4px rgba(0, 210, 255, 0.1),
+    0 0 28px rgba(0, 210, 255, 0.2);
+  background: var(--bg-elevated);
+  color: var(--accent-primary);
+  font-size: 2.2rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+.profile-badge {
+  font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 2px;
+  padding: 0.2rem 0.6rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.profile-meta {
+  margin-bottom: 1.25rem;
+}
+
+.profile-name {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.25rem;
+  /* override h2 top margin */
+  margin-top: 0 !important;
+}
+
+.profile-sub {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.profile-body p {
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: var(--fg-dim);
+  margin-bottom: 1rem;
+}
+
+.profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+}
+
+.plink {
+  font-size: 0.8rem;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--fg-dim);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  transition: border-color 150ms, color 150ms, background 150ms;
+}
+
+.plink:hover {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+.plink--accent {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.plink--accent:hover {
+  background: rgba(0, 210, 255, 0.08);
+}
+
+/* ─── Team section ──────────────────────────────────────── */
+
+.team-intro {
+  font-size: 0.93rem;
+  color: var(--fg-muted);
+  font-style: italic;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+/* ─── Companion grid ────────────────────────────────────── */
+
+.companion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.125rem;
+}
+
+.companion-card {
+  --cc: var(--accent-primary);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.companion-card:hover {
+  border-color: var(--cc);
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.45),
+    0 0 20px color-mix(in srgb, var(--cc) 18%, transparent);
+}
+
+.companion-top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 1.5rem 1.25rem;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--cc) 10%, var(--bg-elevated)) 0%,
+    var(--bg-elevated) 100%
+  );
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.companion-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid color-mix(in srgb, var(--cc) 55%, transparent);
+  box-shadow:
+    0 0 22px color-mix(in srgb, var(--cc) 22%, transparent),
+    0 4px 14px rgba(0, 0, 0, 0.45);
+  display: block;
+  background: var(--bg-elevated);
+}
+
+.companion-series {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  font-size: 0.62rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--cc);
+  background: color-mix(in srgb, var(--cc) 8%, var(--bg));
+  border: 1px solid color-mix(in srgb, var(--cc) 28%, transparent);
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+}
+
+.companion-body {
+  padding: 1.125rem 1.25rem 1.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.companion-epithet {
+  font-size: 0.62rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--fg-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.companion-name {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--cc);
+  margin: 0.1rem 0 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.companion-actor {
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  display: block;
+}
+
+.companion-role {
+  font-size: 0.71rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-primary);
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--border-subtle);
+  line-height: 1.4;
+}
+
+.companion-bio {
+  font-size: 0.83rem;
+  line-height: 1.65;
+  color: var(--fg-dim);
+  margin: 0.5rem 0 0;
+}
+</style>
