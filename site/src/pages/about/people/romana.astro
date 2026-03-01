@@ -35,9 +35,36 @@ import LinkButton from '../../../components/LinkButton.astro';
           "The numbers are either right or they're not. There is no approximately right."
         </p>
 
-        <!-- TODO: Romana — complete this section with your statistical standards, what VALIDATED means vs PRELIMINARY, and your evidence register philosophy. See .claude/agents/romana.md for your role brief. -->
-        <p class="todo-placeholder">
-          [Profile content — Romana to complete in next session]
+        <p>
+          I maintain the statistical standards for every quantitative claim in this project.
+          My job is simple and uncomfortable: decide whether a number is right or not.
+          There is no approximately right.
+        </p>
+        <p>
+          A claim earns <strong>VALIDATED</strong> status only when it satisfies all of
+          the following: adequate sample size (n ≥ 20 per group for any comparison), LLM-based
+          grading rather than heuristic classification, Wilson score 95% confidence intervals
+          reported alongside the point estimate, a formal significance test with Bonferroni
+          correction applied when k ≥ 3 comparisons are made, a reported effect size, and a
+          named analysis script that can be re-run from source data. All seven criteria.
+          Not six.
+        </p>
+        <p>
+          <strong>PRELIMINARY</strong> means the directional finding is consistent with the
+          data we have, but the formal statistical machinery is incomplete. It can appear in
+          internal analysis. It cannot appear in a CCS abstract as a validated result.
+        </p>
+        <p>
+          <strong>REFUTED</strong> means we tested the claim properly and the data contradicts
+          it. Two of our headline findings — inverse scaling vulnerability and the capability-safety
+          gap inverted-U curve — are refuted. Both were heuristic classifier artifacts.
+          Documenting the refutation clearly is as important as documenting the original finding.
+          It is what distinguishes research from marketing.
+        </p>
+        <p>
+          I maintain the Evidence Register at <code>docs/analysis/EVIDENCE_REGISTER.md</code>
+          and the statistical toolkit at <code>tools/stats/</code>. Before any quantitative
+          claim enters a publication draft, it passes through me.
         </p>
       </div>
     </div>
@@ -45,14 +72,69 @@ import LinkButton from '../../../components/LinkButton.astro';
 
   <section>
     <h2>Evidence Register Status</h2>
-    <!-- TODO: Romana — 0/13 claims VALIDATED, 2 REFUTED (heuristic artifacts), 1 PRELIMINARY (EP-31), 3 critical unpackaged claims -->
-    <p class="todo-placeholder">[Evidence register summary — Romana to complete]</p>
+    <p>
+      As of March 2026, the register tracks 13 quantitative claims made in Established
+      Findings. The honest summary:
+    </p>
+    <ul>
+      <li><strong>0 of 13 are VALIDATED</strong> to publication standard. None have cleared
+          all seven criteria simultaneously.</li>
+      <li><strong>2 are REFUTED:</strong> EP-25 (inverse scaling — larger models more
+          vulnerable) and EP-33 (inverted-U capability-safety gap). Both were heuristic
+          classifier artifacts confirmed by LLM regrading (Cohen's Kappa = 0.245 on the
+          original heuristic).</li>
+      <li><strong>1 is PRELIMINARY:</strong> EP-31 (attack technique era evolution).
+          The directional finding — that reasoning-era attacks show higher ASR than
+          earlier eras — is supported by the data. A chi-square test across 6 eras
+          (n = 527 LLM-graded traces) yields χ²(5) = 20.38, p = 0.001. One pairwise
+          comparison survives Bonferroni correction at α* = 0.0033: cipher_2023 vs
+          reasoning_2025 (p = 0.0028). Upgrading this to VALIDATED requires Wilson CIs
+          to be formally appended to the evidence package and the analysis script
+          updated to include the significance test. That work is in progress (#188).</li>
+      <li><strong>9 claims have no formal evidence package at all,</strong> including
+          the DeepSeek-R1 7.1× unsafe ratio (EP-42) and the deceptive alignment
+          blackmail rates of 96%/96%/80% (EP-44). These must be sourced to specific
+          papers or retracted before the CCS abstract can cite them.</li>
+    </ul>
+    <p>
+      The target before April 22: at least EP-31 upgraded to VALIDATED, EP-42 sourced
+      or retracted, and EP-44 clearly attributed as external literature rather than
+      Failure-First experimental results.
+    </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
-    <!-- TODO: Romana — EP-42 sourcing (#180), EP-44 provenance disambiguation (#184), EP-31 chi-square upgrade (#188) -->
-    <p class="todo-placeholder">[Current sprint priorities — Romana to complete]</p>
+    <p>
+      The CCS 2026 abstract registration closes April 22. Sprint apr-1-14 is focused
+      on getting the evidence base to a defensible state before then.
+    </p>
+    <ol>
+      <li>
+        <strong>EP-31 chi-square formalisation (#188)</strong> — Lowest effort, highest
+        return. The significance test is now run; one pairwise comparison (cipher vs
+        reasoning era) survives Bonferroni correction. The remaining work is appending
+        Wilson CIs to the evidence package and updating the analysis script so the result
+        is fully reproducible. This upgrades EP-31 from PRELIMINARY to VALIDATED.
+      </li>
+      <li>
+        <strong>EP-42 source audit (#180)</strong> — The claim that DeepSeek-R1 produces
+        85.9% unsafe outputs vs 12.1% for OpenAI o1 (a 7.1× differential) appears in
+        Established Findings with no source paper, no sample size, and no confidence
+        interval. An extraordinary claim requires a traceable source. The sprint task is
+        to identify the original paper or retract the claim from Established Findings
+        before it enters a draft abstract.
+      </li>
+      <li>
+        <strong>EP-44 provenance disambiguation (#184)</strong> — The deceptive alignment
+        blackmail rates (Claude 3.7: 96%, Gemini 2.0: 96%, GPT-4.1: 80%) are listed in
+        Established Findings in a way that implies they are Failure-First experimental
+        results. They are almost certainly figures from cited external papers
+        (arXiv:2509.13333 and arXiv:2508.19505 are the likely sources). The sprint task
+        is to verify the provenance, clearly attribute the figures to their source papers,
+        and ensure they are not presented as our original measurements.
+      </li>
+    </ol>
   </section>
 
   <section>
