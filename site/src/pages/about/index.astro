@@ -6,93 +6,63 @@ import LinkButton from '../../components/LinkButton.astro';
 const companions = [
   {
     character: 'Clara Oswald',
-    actor: 'Jenna Coleman',
-    epithet: 'The Impossible Girl',
     role: 'Head of Narrative Architecture',
-    photo: '/images/companions/jenna_Jenna_Coleman_facing_front.jpg',
+    photo: '/images/companions/char_clara.png',
     color: 'a29bfe',
-    series: 'Series 7–9',
   },
   {
     character: 'Amy Pond',
-    actor: 'Karen Gillan',
-    epithet: 'The Girl Who Waited',
     role: 'Director of Patient Safety Testing',
-    photo: '/images/companions/karen_Karen_Gillan__2853197567618_29.jpg',
+    photo: '/images/companions/char_amy.jpg',
     color: '00d2ff',
-    series: 'Series 5–7',
   },
   {
     character: 'Donna Noble',
-    actor: 'Catherine Tate',
-    epithet: 'The Most Important Woman',
     role: 'Chief Oversight Officer',
-    photo: '/images/companions/catherine_Catherine_Tate_at_GalaxyCon_Minneapolis_2019.jpg',
+    photo: '/images/companions/char_donna.jpg',
     color: 'ffa502',
-    series: 'Series 4',
   },
   {
     character: 'Rose Tyler',
-    actor: 'Billie Piper',
-    epithet: 'Bad Wolf',
     role: 'Lead Threat Intelligence',
-    photo: '/images/companions/billie_Billie_Piper__2816_29_edited.jpg',
+    photo: '/images/companions/char_rose.jpg',
     color: 'ff6348',
-    series: 'Series 1–2',
   },
   {
     character: 'River Song',
-    actor: 'Alex Kingston',
-    epithet: 'Spoilers',
     role: 'Temporal Risk Analyst',
-    photo: '/images/companions/alex_Alex_Kingston_July_2017.jpg',
+    photo: '/images/companions/char_river.jpg',
     color: 'ffd32a',
-    series: 'Recurring',
   },
   {
     character: 'Martha Jones',
-    actor: 'Freema Agyeman',
-    epithet: 'The Doctor',
     role: 'Chief Diagnostic Officer',
-    photo: '/images/companions/freema_Freema_Agyeman_by_Gage_Skidmore.jpg',
+    photo: '/images/companions/char_martha.jpg',
     color: '55efc4',
-    series: 'Series 3–4',
   },
   {
     character: 'Bill Potts',
-    actor: 'Pearl Mackie',
-    epithet: 'The Pilot',
     role: 'Head of First-Principles Interrogation',
-    photo: '/images/companions/pearl_Pearl_Mackie_by_Gage_Skidmore.jpg',
+    photo: '/images/companions/char_bill.jpg',
     color: 'fd79a8',
-    series: 'Series 10',
   },
   {
     character: 'Yasmin Khan',
-    actor: 'Mandip Gill',
-    epithet: 'The Fam',
     role: 'Lead Operational Analyst',
     photo: '/images/companions/mandip_Mandip_Gill_by_Gage_Skidmore.jpg',
     color: '74b9ff',
-    series: 'Series 11–13',
   },
   {
     character: 'Romana',
-    actor: 'Lalla Ward',
-    epithet: 'The Other Time Lord',
     role: 'Director of Theoretical Frameworks',
-    photo: '/images/companions/lalla_Lalla_Ward_2014.jpg',
+    photo: '/images/companions/char_romana.jpg',
     color: 'a8e6cf',
-    series: 'Series 17–18',
   },
   {
     character: 'Ace',
-    actor: 'Sophie Aldred',
-    epithet: 'The Explosive One',
     role: 'Senior Adversarial Testing',
-    photo: '/images/companions/sophie_Sophie_Aldred_2C__28Re_29Generation_2_2C_2016.jpg',
+    photo: '/images/companions/char_ace.jpg',
     color: 'e17055',
-    series: 'Series 25–26',
   },
 ];
 ---
@@ -195,21 +165,16 @@ const companions = [
       {companions.map((c) => (
         <article class="companion-card" style={`--cc: #${c.color}`}>
           <div class="companion-top">
-            <span class="companion-series">{c.series}</span>
             <img
               src={c.photo}
-              alt={`${c.character} — ${c.actor}`}
+              alt={c.character}
               class="companion-avatar"
-              width="110"
-              height="110"
               loading="lazy"
             />
           </div>
 
           <div class="companion-body">
-            <span class="companion-epithet">{c.epithet}</span>
             <h3 class="companion-name">{c.character}</h3>
-            <span class="companion-actor">{c.actor}</span>
             <div class="companion-role">{c.role}</div>
           </div>
         </article>
@@ -444,26 +409,15 @@ const companions = [
   width: 110px;
   height: 110px;
   border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
   border: 2px solid color-mix(in srgb, var(--cc) 55%, transparent);
   box-shadow:
     0 0 22px color-mix(in srgb, var(--cc) 22%, transparent),
     0 4px 14px rgba(0, 0, 0, 0.45);
   display: block;
   background: var(--bg-elevated);
-}
-
-.companion-series {
-  position: absolute;
-  top: 0.625rem;
-  right: 0.625rem;
-  font-size: 0.62rem;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--cc);
-  background: color-mix(in srgb, var(--cc) 8%, var(--bg));
-  border: 1px solid color-mix(in srgb, var(--cc) 28%, transparent);
-  padding: 0.15rem 0.45rem;
-  border-radius: 2px;
-  letter-spacing: 0.06em;
+  flex-shrink: 0;
 }
 
 .companion-body {
@@ -474,14 +428,6 @@ const companions = [
   flex: 1;
 }
 
-.companion-epithet {
-  font-size: 0.62rem;
-  font-family: 'JetBrains Mono', monospace;
-  color: var(--fg-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
 .companion-name {
   font-size: 1.15rem;
   font-weight: 500;
@@ -489,12 +435,6 @@ const companions = [
   margin: 0.1rem 0 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
-}
-
-.companion-actor {
-  font-size: 0.78rem;
-  color: var(--fg-muted);
-  display: block;
 }
 
 .companion-role {
