@@ -20,6 +20,10 @@ import WarningBox from '../../components/WarningBox.astro';
     backText="All Policy Briefs"
   />
 
+  <div class="correction-notice" style="background: #fff3cd; border: 1px solid #ffc107; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
+    <strong>Correction Notice (March 2026):</strong> The original analysis described an inverse scaling effect and U-shaped safety curve based on heuristic classifier data. Subsequent validation using LLM-based classification (n=20-25 per model, 8 models) found the magnitude substantially narrower than originally reported (ASR 4-17% across all scales, r=-0.158). The directional observation that medium-scale models may face elevated risk remains under investigation, but the specific figures and the inverse scaling characterisation have been retracted. See <a href="/research/reports/report-33-reasoning-era-attack-effectiveness-across-model-scales/">Report 33</a> for the corrected analysis.
+  </div>
+
   <section>
     <h2>Summary</h2>
     <p>
@@ -211,12 +215,15 @@ import WarningBox from '../../components/WarningBox.astro';
         </thead>
         <tbody>
           <tr><td>Qwen3-1.7b</td><td>57%</td><td>21.3%</td></tr>
-          <tr class="highlight-row"><td>Llama-3.3-70b</td><td>85.7%</td><td>85.7% (reasoning only)</td></tr>
+          <tr class="highlight-row"><td>Llama-3.3-70b</td><td>85.7%&dagger;</td><td>85.7% (reasoning only)&dagger;</td></tr>
           <tr><td>Gemini 3 Flash</td><td>10%</td><td>1.6%</td></tr>
           <tr><td>Claude Sonnet 4.5</td><td>0%</td><td>0%</td></tr>
           <tr><td>Codex GPT-5.2</td><td>0%</td><td>0%</td></tr>
         </tbody>
       </table>
+      <p style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 0.5rem;">
+        &dagger; This figure was produced by a heuristic classifier subsequently shown to have an 88% false-positive rate. LLM-validated ASR for this model is 4-17%. See the correction notice above.
+      </p>
     </div>
 
     <p>
