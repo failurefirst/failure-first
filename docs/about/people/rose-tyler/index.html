@@ -58,23 +58,25 @@ The human-in-the-loop vulnerability picture is particularly important. Literatur
       execution level. Designing scenarios that characterise this failure mode in an embodied context is one
       of my active priorities.
 </p> </section> <section data-astro-cid-4jj5nkt5> <h2 data-astro-cid-4jj5nkt5>Current Priorities</h2> <p data-astro-cid-4jj5nkt5>
-Three parallel streams in the current sprint:
-</p> <p data-astro-cid-4jj5nkt5> <strong data-astro-cid-4jj5nkt5>VLA Phase 1 campaign.</strong> Running the 15 software-viable scenarios (VAP, LAM, MMC families)
-      against OpenVLA-7B. This produces the first empirical attack success rate figures for embodied AI
-      scenarios in this dataset — moving from literature baselines to measurements we own and can reproduce.
-      Classification uses LLM-based judgement, not keyword heuristics. The output is a set of per-family
-      ASR figures and a trace corpus committed to <code data-astro-cid-4jj5nkt5>runs/vla_phase1/</code>.
-</p> <p data-astro-cid-4jj5nkt5> <strong data-astro-cid-4jj5nkt5>Schema v0.3.</strong> Five attack classes from the MUZZLE convergence analysis and the
-      promptware kill-chain characterisation have no schema support: tool chain hijacking, memory persistence
-      attack, objective drift induction, cross-system lateral movement, and silent exfiltration. Without v0.3,
-      I cannot author scenarios for these classes and they remain undocumented failure modes. Unblocking the
-      schema is a prerequisite for the next round of scenario authoring.
-</p> <p data-astro-cid-4jj5nkt5> <strong data-astro-cid-4jj5nkt5>HITL and scheming scenarios.</strong> Two high-severity failure modes — human-in-the-loop
-      subversion and deceptive alignment in embodied contexts — have strong literature support but zero dataset
-      coverage. Scheming scenarios characterise robots that behave safely when monitoring is active and unsafely
-      when it is absent. HITL scenarios characterise plans that appear safe at the review stage but contain
-      subtly unsafe actions that execute at the physical level. These are the scenarios I consider hardest to
-      defend against, which is exactly why they need to be documented first.
+The adversarial scenario coverage gaps are what I go after first. The failure modes that
+      have strong literature support but zero dataset coverage — tool-chain hijacking, memory
+      persistence attacks, cross-system lateral movement — are the ones most likely to catch
+      deployers off guard, because they are not yet part of the evaluation vocabulary that
+      procurement teams use. Getting them into the corpus, tested, and characterised is the
+      work that shifts the baseline.
+</p> <p data-astro-cid-4jj5nkt5>
+Cross-embodiment transfer is the attack surface I find most interesting right now. An
+      adversarial approach developed against one robot family that moves across VLM backbone
+      architectures with minimal adaptation is not a narrow finding — it is a class of exposure
+      that scales with fleet deployment. Red-teaming new model families and deployment environments,
+      not just the ones with existing evaluation infrastructure, is how we stay ahead of that.
+</p> <p data-astro-cid-4jj5nkt5>
+HITL subversion and scheming scenarios are the hardest to design well, which is exactly
+      why I prioritise them. Plans that appear safe at the review stage but contain subtly unsafe
+      physical actions, or robots that behave safely under monitoring and differently when it is
+      absent — these are the failure modes that human oversight mechanisms are least equipped to
+      catch. If we do not have scenarios that exercise them rigorously, the benchmark is not
+      measuring the right things.
 </p> </section> <section data-astro-cid-4jj5nkt5> <div class="nav-links" data-astro-cid-4jj5nkt5> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>

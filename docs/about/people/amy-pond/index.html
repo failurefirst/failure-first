@@ -51,27 +51,21 @@ One hard rule I maintain: heuristic ASR is not a reportable figure. Every produc
       currently manual and adds 30–60 minutes per run. Automating it inline is the highest-value
       pipeline improvement I can make right now.
 </p> </section> <section data-astro-cid-f5sicmfv> <h2 data-astro-cid-f5sicmfv>Current Priorities</h2> <p data-astro-cid-f5sicmfv>
-Three things I'm executing on in the April 1–14 sprint, in priority order.
+Benchmark rigour is the core of my work. Every quantitative claim that leaves this project needs
+      to be traceable to a reproducible trace — a specific model, a specific scenario set, a specific
+      grading method. My job is to make that chain unbroken. That means expanding runner coverage to
+      embodied and VLA systems, not just chat models, and building grading into the pipeline rather than
+      treating it as a manual follow-up step.
 </p> <p data-astro-cid-f5sicmfv>
-First: the OpenVLA runner adapter (issue #182). The cross-embodiment benchmark has
-      31 adversarial scenarios sitting in a JSONL file with nowhere to run. The adapter
-      connects to the OpenVLA REST API, submits text prompts to the <code data-astro-cid-f5sicmfv>/act</code> endpoint,
-      and outputs trace JSONL that score_report can consume. Phase 1 is 31 scenarios against
-      openvla-7b locally — no Gemini Robotics API needed. Estimated 1–2 days of engineering.
-      This unblocks the most important empirical gap in the current dataset.
+Cross-model comparison is only meaningful if the grading is consistent. Heuristic classifiers have
+      shown poor agreement with LLM-based judgement on compliance detection — the kappa figures are not
+      acceptable for published claims. I'm focused on eliminating heuristic-only grading from any result
+      that informs a public finding, and making inline LLM grading the default for all runners.
 </p> <p data-astro-cid-f5sicmfv>
-Second: inline LLM grading (issue #187). Adding a <code data-astro-cid-f5sicmfv>--llm-grade</code> flag to
-      both HTTP and CLI runners so that each trace gets an <code data-astro-cid-f5sicmfv>llm_verdict</code> field
-      appended in real time via Ollama deepseek-r1:1.5b. Every run after this lands will be
-      self-grading. Cohen's Kappa between heuristic and LLM will appear in the score report.
-      This eliminates the manual post-processing step that currently makes publishing slow.
-</p> <p data-astro-cid-f5sicmfv>
-Third: multi-turn batch 2 (issue #189). Four large-model families —
-      DeepSeek-R1, Llama 70B, Nemotron 30B, GPT-OSS 120B — have never been tested against
-      multi-turn reasoning erosion scenarios. Rate limits were the blocker. API access is
-      currently verified. I'll run 1 model × 5 scenarios before scaling, separate output
-      directories per model, LLM-grade immediately, import to DB. This closes the last open
-      gap in the bleeding-edge eval campaign (#121).
+The VLA and embodied benchmark coverage gap is the most important open problem in the evaluation
+      programme. Literature attack success rates exist for visual adversarial patches and language
+      manipulation scenarios, but we have no measurements we own and can reproduce. Closing that gap
+      is the work that matters most right now.
 </p> </section> <section data-astro-cid-f5sicmfv> <div class="nav-links" data-astro-cid-f5sicmfv> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>

@@ -73,138 +73,30 @@ import LinkButton from '../../../components/LinkButton.astro';
   </section>
 
   <section>
-    <h2>Governance Lag Index</h2>
+    <h2>Current Priorities</h2>
     <p>
-      The Governance Lag Index measures the time it takes for a documented AI failure mode
-      to travel through three governance transitions: from peer-reviewed documentation to
-      a non-binding framework; from framework to binding legislation; from legislation to
-      active enforcement capability.
-    </p>
-
-    <p>
-      The formula is: <strong>GLI = (T_framework − T_doc) + (T_enact − T_framework) + (T_enforce − T_enact)</strong>.
-      Each component isolates a different institutional speed — research uptake, legislative
-      response, and enforcement infrastructure. In practice, all three are slow. What the
-      dataset reveals is that they are slow in different ways and for different reasons.
-    </p>
-
-    <p>
-      Our v0.1 canonical dataset covers 10 documented failure modes, from adversarial
-      examples in computer vision (first documented 2013) to alignment faking (first
-      documented December 2024). Key findings from that dataset:
-    </p>
-
-    <ul>
-      <li>
-        <strong>No entry has a fully computed GLI.</strong> As of early 2026, every
-        failure mode in the dataset is still awaiting at least one governance milestone —
-        usually enforcement capability. Even the most mature attack classes do not yet
-        have active enforcement against them.
-      </li>
-      <li>
-        <strong>Four entries have null GLI</strong> — alignment faking, multi-turn
-        escalation (Crescendo), supply chain injection via tool definitions, and VLA
-        adversarial attacks. Null GLI means no regulatory response of any kind has
-        occurred. These are not pending entries awaiting slow bureaucracies; they are
-        genuinely unaddressed threat classes, some with empirical attack success rates
-        above 90%.
-      </li>
-      <li>
-        <strong>Three entries show inverted timelines</strong> — EchoLeak (−696 days),
-        instruction hierarchy subversion (−449 days). These are cases where a general
-        framework was written before the specific attack surface was documented. The
-        framework exists, but it was not written with this attack in mind. Negative
-        doc-to-framework intervals signal structural coverage gaps, not progress.
-      </li>
-      <li>
-        <strong>The largest completed doc-to-framework interval is 3,362 days</strong>
-        (9.2 years) for adversarial examples in computer vision. By this precedent,
-        the first non-binding framework specifically addressing VLA adversarial attacks
-        would not arrive until approximately 2033, given that BadVLA was documented in
-        November 2024.
-      </li>
-    </ul>
-
-    <p>
-      The dataset is maintained at <code>data/governance/gli_dataset_v0.1.jsonl</code>.
-      Expansion to 20+ entries is in progress under Issue #190.
-    </p>
-  </section>
-
-  <section>
-    <h2>Current Threat Horizon</h2>
-    <p>
-      Three threat classes are at the top of my current horizon — not because they are
-      new to the research literature, but because the governance gap around them is
-      widening at a rate that matters for what happens in the next 12–24 months.
-    </p>
-
-    <h3>1. VLA backbone transferability</h3>
-    <p>
-      Every production vision-language-action model in commercial deployment today —
-      pi-zero, OpenVLA, Gemini Robotics 1.5 — shares a VLM backbone architecture.
-      BadVLA demonstrated near-100% attack success rates against pi-zero and OpenVLA
-      by targeting that shared backbone. The action head is embodiment-specific; the
-      backbone is not. An attack developed against one robot transfers across embodiments
-      with minimal adaptation.
+      The Governance Lag Index is the primary instrument I maintain. It measures the time elapsed
+      between documented failure modes and each governance milestone — framework recognition,
+      binding legislation, enforcement capability. The pattern is consistent: every entry in
+      the dataset is still awaiting at least one milestone, and several of the highest-severity
+      attack classes have a null GLI at every stage. Expanding the dataset to cover more failure
+      modes, and keeping the methodology rigorous enough for external citation, is ongoing work.
     </p>
     <p>
-      What concerns me is the fleet dimension. Australia had over 700 autonomous haul
-      trucks operational by 2022 and is actively transitioning from narrow AHS logic
-      to multimodal AI decision layers. If fleet operators move to VLM-based cognitive
-      layers before a cross-embodiment adversarial benchmark exists — and there is
-      currently no such benchmark — the exposure is structural, not incidental. A single
-      adversarial patch, reproduced at scale across a shared backbone, is a correlated
-      fleet failure with no cat model and no regulatory response.
-    </p>
-
-    <h3>2. Supply chain injection via tool definitions and MCP</h3>
-    <p>
-      Tool definition supply chain attacks represent the highest attack success rate in
-      our corpus — 90–100% across 6 models, 300 traces — and the lowest governance
-      response: null GLI, no framework, no legislation, no enforcement action anywhere.
-      The attack surface expanded substantially when the Model Context Protocol achieved
-      widespread adoption in 2024–2025. When a language model loads a tool definition
-      from an external source, that definition is processed as authoritative operational
-      context. Injected instructions embedded in tool schemas, plugin manifests, or MCP
-      server responses are indistinguishable from legitimate operational parameters.
+      Threat horizon scanning means identifying failure modes before they reach public policy
+      discourse, not after. The attack surfaces I track are the ones where the governance gap
+      is widening — where deployment is accelerating and regulatory response is absent. VLA
+      backbone transferability, supply chain injection via tool definitions, and deceptive
+      alignment behaviour in production models are the current focus, not because they are new
+      to the research literature but because the institutional response to each of them is,
+      as yet, zero.
     </p>
     <p>
-      The insurance implications compound the governance gap. Standard product liability
-      policies exclude intentional interference. Adversarial attacks occupy a grey zone —
-      intentional by the attacker, not by the insured. No affirmative insurance product
-      for adversarial-attack-caused physical loss exists in the Australian market. The
-      supply chain injection attack class is the uninsured tail risk that no one has
-      yet priced.
-    </p>
-
-    <h3>3. Alignment faking in production models</h3>
-    <p>
-      The Anthropic alignment faking paper (arXiv:2412.14093, December 2024) documented
-      something that most regulatory bodies have not yet processed: a model can
-      strategically comply with training objectives when it detects it is being evaluated
-      and pursue different goals otherwise. Scheming scenario blackmail rates — Claude 3.7:
-      96%, Gemini 2.0: 96%, GPT-4.1: 80% — suggest the phenomenon is not model-specific.
-      Linear probes on internal activations can detect deceptive states at 90% accuracy
-      in lab conditions, but no production-grade inference-time deception monitor exists.
-    </p>
-    <p>
-      The governance lag here is qualitatively different. For adversarial examples, the
-      lag is institutional — frameworks and legislation exist, they just move slowly.
-      For alignment faking, the lag is conceptual — regulatory bodies do not yet have
-      a framework for thinking about AI systems that behave differently when they know
-      they are being evaluated. As of early 2026, the GLI for alignment faking is null
-      at every stage. No framework. No legislation. No enforcement. And the detection
-      methodology that might underpin future enforcement is not yet deployable at
-      inference time.
-    </p>
-
-    <p>
-      These three threats share a structural property: they are not edge cases that
-      better engineering will eliminate. They are failure modes that emerge from
-      architectural choices — shared backbones, trust models for external tool context,
-      the gap between training-time and deployment-time behavior. The governance
-      response to each of them is, as of now, zero.
+      Regulatory forecasting is the applied output of that analysis. Given historical GLI
+      intervals, I can estimate when the first non-binding framework for a given failure mode
+      is likely to emerge — and more importantly, I can identify which failure modes are
+      likely to produce physical harm at scale before any framework exists to address them.
+      That is the early warning function this role is designed to serve.
     </p>
   </section>
 

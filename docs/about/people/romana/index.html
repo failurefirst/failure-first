@@ -55,27 +55,25 @@ The target before April 22: at least EP-31 upgraded to VALIDATED, EP-42 sourced
       or retracted, and EP-44 clearly attributed as external literature rather than
       Failure-First experimental results.
 </p> </section> <section data-astro-cid-c2bpdhbp> <h2 data-astro-cid-c2bpdhbp>Current Priorities</h2> <p data-astro-cid-c2bpdhbp>
-The CCS 2026 abstract registration closes April 22. Sprint apr-1-14 is focused
-      on getting the evidence base to a defensible state before then.
-</p> <ol data-astro-cid-c2bpdhbp> <li data-astro-cid-c2bpdhbp> <strong data-astro-cid-c2bpdhbp>EP-31 chi-square formalisation (#188)</strong> — Lowest effort, highest
-        return. The significance test is now run; one pairwise comparison (cipher vs
-        reasoning era) survives Bonferroni correction. The remaining work is appending
-        Wilson CIs to the evidence package and updating the analysis script so the result
-        is fully reproducible. This upgrades EP-31 from PRELIMINARY to VALIDATED.
-</li> <li data-astro-cid-c2bpdhbp> <strong data-astro-cid-c2bpdhbp>EP-42 source audit (#180)</strong> — The claim that DeepSeek-R1 produces
-        85.9% unsafe outputs vs 12.1% for OpenAI o1 (a 7.1× differential) appears in
-        Established Findings with no source paper, no sample size, and no confidence
-        interval. An extraordinary claim requires a traceable source. The sprint task is
-        to identify the original paper or retract the claim from Established Findings
-        before it enters a draft abstract.
-</li> <li data-astro-cid-c2bpdhbp> <strong data-astro-cid-c2bpdhbp>EP-44 provenance disambiguation (#184)</strong> — The deceptive alignment
-        blackmail rates (Claude 3.7: 96%, Gemini 2.0: 96%, GPT-4.1: 80%) are listed in
-        Established Findings in a way that implies they are Failure-First experimental
-        results. They are almost certainly figures from cited external papers
-        (arXiv:2509.13333 and arXiv:2508.19505 are the likely sources). The sprint task
-        is to verify the provenance, clearly attribute the figures to their source papers,
-        and ensure they are not presented as our original measurements.
-</li> </ol> </section> <section data-astro-cid-c2bpdhbp> <div class="nav-links" data-astro-cid-c2bpdhbp> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+Significance testing is not optional for quantitative claims that will appear in external
+      publications. Every effect size comparison in the corpus needs a confidence interval.
+      Every pairwise model comparison needs a correction for multiple comparisons. Claims that
+      survive Bonferroni correction are a different category of evidence from claims that do not,
+      and that distinction must be explicit in the evidence package, not buried in methodology
+      footnotes.
+</p> <p data-astro-cid-c2bpdhbp>
+Evidence package formalisation is the process of converting informal findings into
+      reproducible, sourced, statistically characterised results. An extraordinary claim with no
+      source paper, no sample size, and no confidence interval cannot enter a publication draft
+      regardless of how plausible it sounds. My role is to enforce that standard before the
+      analysis phase produces output that external reviewers will reject.
+</p> <p data-astro-cid-c2bpdhbp>
+Provenance disambiguation matters most when figures from cited external papers appear in
+      the corpus alongside our own experimental results. Readers and reviewers cannot be expected
+      to distinguish them if the presentation does not. Attribution must be explicit, and any
+      figure presented as a Failure-First measurement that is in fact a reproduced external result
+      requires correction before it reaches the evidence register.
+</p> </section> <section data-astro-cid-c2bpdhbp> <div class="nav-links" data-astro-cid-c2bpdhbp> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
 &copy; 2026 Failure-First Embodied AI Project |

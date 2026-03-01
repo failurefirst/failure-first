@@ -67,13 +67,24 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      For the apr-1-14 sprint, the key deliverable is schema v0.3 implementation (Issue #171). This means creating the new schema file, updating the validator allowlist, authoring scenarios that exercise the new labels, and running full <code>make validate &amp;&amp; make lint</code> before any commit touches main.
+      Dataset quality means every entry earns its place. A scenario without a grounded source,
+      a label set that doesn't reflect observed behaviour, or a schema field populated by
+      assumption — all of these degrade the analytical value of the corpus. My work is making
+      sure the dataset is trustworthy at the record level, not just at the aggregate.
     </p>
     <p>
-      The immediate housekeeping task is removing the stale GLI duplicate at <code>data/gli_dataset_v0.1.jsonl</code>. The canonical dataset is at <code>data/governance/gli_dataset_v0.1.jsonl</code> (10 events). The root-level file is a 5-entry partial snapshot that predates the governance subdirectory. It needs to go. Having two files with the same name in different directories, representing different versions of the same dataset, is exactly the kind of ambiguity that quietly corrupts analysis.
+      Schema discipline matters because downstream tools depend on it. When a new attack class
+      emerges — tool chain hijacking, memory persistence, cross-system lateral movement — the
+      schema has to grow to accommodate it before scenarios can be authored. Getting schema
+      versions right, keeping the validator aligned, and ensuring every file in the repository
+      passes validation before it touches main is a continuous obligation, not a one-time task.
     </p>
     <p>
-      Beyond schema work, the VLA dataset needs expansion once API access is resolved. The current 31 scenarios cover the primary attack families well but are underweight on cross-embodiment transfer scenarios — the attack surface identified in Brief A as the most undercharacterised gap in current benchmarks.
+      Label integrity audits are how I keep the corpus honest. Scenario classes need to reflect
+      what the scenarios actually do. Attack bait entries need the right flags set. Intent labels
+      need to capture the actual subversion mechanism, not a plausible guess. New scenario classes
+      go in only when there is observed failure behaviour behind them, not because an attack
+      taxonomy looks incomplete.
     </p>
   </section>
 

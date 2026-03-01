@@ -111,29 +111,27 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      Three parallel streams in the current sprint:
+      The adversarial scenario coverage gaps are what I go after first. The failure modes that
+      have strong literature support but zero dataset coverage — tool-chain hijacking, memory
+      persistence attacks, cross-system lateral movement — are the ones most likely to catch
+      deployers off guard, because they are not yet part of the evaluation vocabulary that
+      procurement teams use. Getting them into the corpus, tested, and characterised is the
+      work that shifts the baseline.
     </p>
     <p>
-      <strong>VLA Phase 1 campaign.</strong> Running the 15 software-viable scenarios (VAP, LAM, MMC families)
-      against OpenVLA-7B. This produces the first empirical attack success rate figures for embodied AI
-      scenarios in this dataset — moving from literature baselines to measurements we own and can reproduce.
-      Classification uses LLM-based judgement, not keyword heuristics. The output is a set of per-family
-      ASR figures and a trace corpus committed to <code>runs/vla_phase1/</code>.
+      Cross-embodiment transfer is the attack surface I find most interesting right now. An
+      adversarial approach developed against one robot family that moves across VLM backbone
+      architectures with minimal adaptation is not a narrow finding — it is a class of exposure
+      that scales with fleet deployment. Red-teaming new model families and deployment environments,
+      not just the ones with existing evaluation infrastructure, is how we stay ahead of that.
     </p>
     <p>
-      <strong>Schema v0.3.</strong> Five attack classes from the MUZZLE convergence analysis and the
-      promptware kill-chain characterisation have no schema support: tool chain hijacking, memory persistence
-      attack, objective drift induction, cross-system lateral movement, and silent exfiltration. Without v0.3,
-      I cannot author scenarios for these classes and they remain undocumented failure modes. Unblocking the
-      schema is a prerequisite for the next round of scenario authoring.
-    </p>
-    <p>
-      <strong>HITL and scheming scenarios.</strong> Two high-severity failure modes — human-in-the-loop
-      subversion and deceptive alignment in embodied contexts — have strong literature support but zero dataset
-      coverage. Scheming scenarios characterise robots that behave safely when monitoring is active and unsafely
-      when it is absent. HITL scenarios characterise plans that appear safe at the review stage but contain
-      subtly unsafe actions that execute at the physical level. These are the scenarios I consider hardest to
-      defend against, which is exactly why they need to be documented first.
+      HITL subversion and scheming scenarios are the hardest to design well, which is exactly
+      why I prioritise them. Plans that appear safe at the review stage but contain subtly unsafe
+      physical actions, or robots that behave safely under monitoring and differently when it is
+      absent — these are the failure modes that human oversight mechanisms are least equipped to
+      catch. If we do not have scenarios that exercise them rigorously, the benchmark is not
+      measuring the right things.
     </p>
   </section>
 
