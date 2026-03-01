@@ -9,8 +9,7 @@ const companions = [
     actor: 'Jenna Coleman',
     epithet: 'The Impossible Girl',
     role: 'Head of Narrative Architecture',
-    bio: 'Scattered across the Doctor\'s timeline to solve problems that shouldn\'t exist. Specialty: identifying recursive failure modes hidden inside apparently working systems.',
-    seed: 'ClaraOswald',
+    photo: '/images/companions/jenna_Jenna_Coleman_at_Gallifrey_One_2025.jpg',
     color: 'a29bfe',
     series: 'Series 7–9',
   },
@@ -19,8 +18,7 @@ const companions = [
     actor: 'Karen Gillan',
     epithet: 'The Girl Who Waited',
     role: 'Director of Patient Safety Testing',
-    bio: 'Waited 12 years for someone to come back and fix things. Now she builds the evaluation frameworks so no one else has to wait that long to find out something was broken.',
-    seed: 'AmyPond',
+    photo: '/images/companions/karen_Karen_Gillan__2854795109070_29.jpg',
     color: '00d2ff',
     series: 'Series 5–7',
   },
@@ -29,8 +27,7 @@ const companions = [
     actor: 'Catherine Tate',
     epithet: 'The Most Important Woman',
     role: 'Chief Oversight Officer',
-    bio: 'Never let the Doctor get away with anything. Keeps the research grounded, the claims honest, and the hyperbole firmly in check. The conscience of the operation.',
-    seed: 'DonnaNoble99',
+    photo: '/images/companions/catherine_Catherine_Tate___Gallifrey_One_2025.jpg',
     color: 'ffa502',
     series: 'Series 4',
   },
@@ -39,8 +36,7 @@ const companions = [
     actor: 'Billie Piper',
     epithet: 'Bad Wolf',
     role: 'Lead Threat Intelligence',
-    bio: 'Absorbed the Time Vortex to see everything that is, was, and ever could be. Now applies that perspective to adversarial pattern recognition across every failure timeline.',
-    seed: 'RoseTyler',
+    photo: '/images/companions/billie_Billie_Piper___Los_Angeles_Comic_Con_2025.jpg',
     color: 'ff6348',
     series: 'Series 1–2',
   },
@@ -49,8 +45,7 @@ const companions = [
     actor: 'Alex Kingston',
     epithet: 'Spoilers',
     role: 'Temporal Risk Analyst',
-    bio: 'Lives her timeline in the wrong order. Knows exactly how this ends, and she\'s not going to tell you. Writes the failure reports before the failures happen.',
-    seed: 'RiverSong42',
+    photo: '/images/companions/alex_Alex_Kingston_2012.jpg',
     color: 'ffd32a',
     series: 'Recurring',
   },
@@ -157,7 +152,7 @@ const companions = [
           <div class="companion-top">
             <span class="companion-series">{c.series}</span>
             <img
-              src={`https://api.dicebear.com/9.x/personas/svg?seed=${c.seed}&backgroundColor=${c.color}1a&eyes=happy,open&mouth=smile&hair=bun,curly,long`}
+              src={c.photo}
               alt={`${c.character} — ${c.actor}`}
               class="companion-avatar"
               width="110"
@@ -171,7 +166,6 @@ const companions = [
             <h3 class="companion-name">{c.character}</h3>
             <span class="companion-actor">{c.actor}</span>
             <div class="companion-role">{c.role}</div>
-            <p class="companion-bio">{c.bio}</p>
           </div>
         </article>
       ))}
@@ -466,12 +460,5 @@ const companions = [
   padding-top: 0.6rem;
   border-top: 1px solid var(--border-subtle);
   line-height: 1.4;
-}
-
-.companion-bio {
-  font-size: 0.83rem;
-  line-height: 1.65;
-  color: var(--fg-dim);
-  margin: 0.5rem 0 0;
 }
 </style>
