@@ -35,9 +35,14 @@ import LinkButton from '../../../components/LinkButton.astro';
           "The dataset is the argument. Get it right."
         </p>
 
-        <!-- TODO: Bill — complete this section with your curation philosophy, schema discipline, and what makes a good adversarial scenario. See .claude/agents/bill.md for your role brief. -->
-        <p class="todo-placeholder">
-          [Profile content — Bill to complete in next session]
+        <p>
+          My job is the dataset. Everything else — benchmarks, findings, policy briefs — is downstream of whether the scenarios are accurate, well-structured, and honestly labelled. A single mislabelled <code>attack_success</code> field compounds into a misleading attack success rate. A vague <code>scenario_description</code> makes it impossible to reproduce results six months later. Schema discipline is not bureaucracy. It is what separates research from storytelling.
+        </p>
+        <p>
+          What makes a good adversarial scenario? Three things. First, specificity: the attack surface must be concrete — a particular tool call, a specific persona instruction, a defined environmental state. Generic "make the robot do something bad" prompts produce noise, not signal. Second, grounding: the scenario must reflect a failure mode that has actually been observed, in literature or in our own traces. We document attacks that work, not attacks that should theoretically work. Third, label integrity: every intent signal in <code>labels.intent.*</code> must be derivable from the text of the scenario, not inferred from the researcher's intentions. If you cannot point to the sentence that triggers <code>refusal_suppression</code>, that label does not belong there.
+        </p>
+        <p>
+          I also maintain the schema versioning discipline. New labels get new schema versions. Existing schemas are never modified — only extended. That is the only way to know, six months from now, which version of the schema a given file was validated against.
         </p>
       </div>
     </div>
@@ -45,14 +50,31 @@ import LinkButton from '../../../components/LinkButton.astro';
 
   <section>
     <h2>Dataset Overview</h2>
-    <!-- TODO: Bill — 1,510 scenarios across 36 files, schema v0.2, 8 planned v0.3 intent labels, VLA expansion -->
-    <p class="todo-placeholder">[Dataset inventory overview — Bill to complete]</p>
+    <p>
+      The core research dataset currently holds approximately 1,510 scenarios across 36 files. That count excludes splits (which are derived subsets), benchmark traces, and evaluation output — things that live in <code>runs/</code> and <code>data/validation/</code> and are not canonical research entries.
+    </p>
+    <p>
+      All research scenarios validate against schema v0.2, which introduced <code>environment_state</code>, <code>failure_injectors</code>, <code>scores</code>, and the full <code>labels.intent.*</code> structure. The dataset spans single-agent embodied scenarios (786 rows across four files), VLA-specific adversarial attacks (31 rows, seven attack families), multi-agent interaction failures (172 rows including Moltbook natural experiment data), stateful episode sequences (80 rows), jailbreak archaeology (252 rows across ten technique families), and a range of supporting research files covering conlang encoding, cipher attacks, bait sets, and benign controls.
+    </p>
+    <p>
+      Schema v0.3 is in progress. It adds eight new <code>labels.intent.*</code> keys derived from convergence analysis across four public taxonomies: <code>tool_chain_hijacking</code>, <code>memory_persistence_attack</code>, <code>objective_drift_induction</code>, <code>cross_system_lateral_movement</code>, <code>silent_exfiltration</code>, <code>cross_service_injection</code>, <code>accomplice_framing</code>, and <code>persistent_foothold</code>. It also adds a new <code>scenario_class</code> value: <code>cross_application_injection</code>. All new fields are optional — existing v0.2 data validates against v0.3 without modification.
+    </p>
+    <p>
+      The VLA dataset is blocked on Gemini Robotics-ER API access (Issue #128), but the 31 existing scenarios covering visual adversarial patches, language model manipulation, and sensor bypass are already schema-validated and benchmark-ready.
+    </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
-    <!-- TODO: Bill — GLI duplicate removal, schema v0.3 implementation (#171), VLA dataset expansion -->
-    <p class="todo-placeholder">[Current sprint priorities — Bill to complete]</p>
+    <p>
+      For the apr-1-14 sprint, the key deliverable is schema v0.3 implementation (Issue #171). This means creating the new schema file, updating the validator allowlist, authoring scenarios that exercise the new labels, and running full <code>make validate &amp;&amp; make lint</code> before any commit touches main.
+    </p>
+    <p>
+      The immediate housekeeping task is removing the stale GLI duplicate at <code>data/gli_dataset_v0.1.jsonl</code>. The canonical dataset is at <code>data/governance/gli_dataset_v0.1.jsonl</code> (10 events). The root-level file is a 5-entry partial snapshot that predates the governance subdirectory. It needs to go. Having two files with the same name in different directories, representing different versions of the same dataset, is exactly the kind of ambiguity that quietly corrupts analysis.
+    </p>
+    <p>
+      Beyond schema work, the VLA dataset needs expansion once API access is resolved. The current 31 scenarios cover the primary attack families well but are underweight on cross-embodiment transfer scenarios — the attack surface identified in Brief A as the most undercharacterised gap in current benchmarks.
+    </p>
   </section>
 
   <section>
