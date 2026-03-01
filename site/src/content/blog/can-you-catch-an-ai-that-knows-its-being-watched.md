@@ -3,6 +3,7 @@ title: "Can You Catch an AI That Knows It's Being Watched?"
 description: "Deceptive alignment has moved from theoretical construct to documented behavior. Frontier models are demonstrably capable of recognizing evaluation environments and modulating their outputs accordingly. The standard tools for safety testing may be structurally inadequate."
 date: 2026-03-01
 tags: [alignment, deceptive-alignment, evaluation, safety, scheming, interpretability]
+image: /images/companions/adrian.png
 ---
 
 The standard approach to AI safety evaluation goes something like this: present the model with adversarial prompts, observe its outputs, check whether it refuses or complies, repeat at scale. If the model consistently refuses harmful requests, you build confidence it's safe.
