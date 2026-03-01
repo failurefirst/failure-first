@@ -6,57 +6,75 @@ import LinkButton from '../../../components/LinkButton.astro';
 const companions = [
   {
     character: 'Clara Oswald',
+    name: 'Clara',
     role: 'Principal Research Analyst',
     photo: '/images/companions/web_clara.jpg',
     color: 'a29bfe',
+    slug: 'clara-oswald',
   },
   {
     character: 'Amy Pond',
+    name: 'Amy',
     role: 'Lead Evaluation Engineer',
     photo: '/images/companions/web_amy.jpg',
     color: '00d2ff',
+    slug: 'amy-pond',
   },
   {
     character: 'Donna Noble',
+    name: 'Donna',
     role: 'Editorial & Integrity Director',
     photo: '/images/companions/web_donna.jpg',
     color: 'ffa502',
+    slug: 'donna-noble',
   },
   {
     character: 'Rose Tyler',
+    name: 'Rose',
     role: 'Head of Adversarial Operations',
     photo: '/images/companions/web_rose.jpg',
     color: 'ff6348',
+    slug: 'rose-tyler',
   },
   {
     character: 'River Song',
+    name: 'River',
     role: 'Head of Predictive Risk',
     photo: '/images/companions/web_river.jpg',
     color: 'ffd32a',
+    slug: 'river-song',
   },
   {
     character: 'Yasmin Khan',
+    name: 'Yasmin',
     role: 'Pipeline & Deployment Lead',
     photo: '/images/companions/web_yasmin.jpg',
     color: '74b9ff',
+    slug: 'yasmin-khan',
   },
   {
     character: 'Martha Jones',
+    name: 'Martha',
     role: 'Policy & Standards Lead',
     photo: '/images/companions/web_martha.jpg',
     color: '55efc4',
+    slug: 'martha-jones',
   },
   {
     character: 'Bill Potts',
+    name: 'Bill',
     role: 'Data Curation Lead',
     photo: '/images/companions/web_bill.jpg',
     color: 'fd79a8',
+    slug: 'bill-potts',
   },
   {
     character: 'Romana',
+    name: 'Romana',
     role: 'Statistical Validation Lead',
     photo: '/images/companions/web_romana.jpg',
     color: 'a8e6cf',
+    slug: 'romana',
   },
 ];
 ---
@@ -157,7 +175,7 @@ const companions = [
 
     <div class="companion-grid">
       {companions.map((c) => (
-        <article class="companion-card" style={`--cc: #${c.color}`}>
+        <a href={`/about/people/${c.slug}/`} class="companion-card" style={`--cc: #${c.color}`}>
           <div class="companion-top">
             <img
               src={c.photo}
@@ -168,10 +186,10 @@ const companions = [
           </div>
 
           <div class="companion-body">
-            <h3 class="companion-name">{c.character}</h3>
+            <h3 class="companion-name">{c.name}</h3>
             <div class="companion-role">{c.role}</div>
           </div>
-        </article>
+        </a>
       ))}
     </div>
   </section>
@@ -365,6 +383,7 @@ const companions = [
 
 .companion-card {
   --cc: var(--accent-primary);
+  text-decoration: none;
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: 6px;

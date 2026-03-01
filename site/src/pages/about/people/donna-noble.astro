@@ -1,0 +1,142 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import LinkButton from '../../../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Donna Noble — Editorial & Integrity Director | Failure-First"
+  description="Donna Noble is the Editorial & Integrity Director at Failure-First. QA research outputs, fact-checking claims, verifying bibliographies."
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'People', href: '/about/people/' },
+    { label: 'Donna Noble' },
+  ]}
+>
+  <PageHeader
+    title="Donna"
+    tagline="Editorial & Integrity Director"
+  />
+
+  <section>
+    <div class="persona-card" style="--cc: #ffa502">
+      <div class="persona-avatar-col">
+        <img
+          src="/images/companions/web_donna.jpg"
+          alt="Donna Noble"
+          class="persona-photo"
+          onerror="this.style.display='none'"
+        />
+        <div class="persona-badge">Editorial & Integrity Director</div>
+      </div>
+
+      <div class="persona-body">
+        <p class="persona-tagline">
+          "I'm not going without a fight."
+        </p>
+
+        <!-- TODO: Donna — complete this section with your QA standards, what you check for, and your integrity philosophy. See .claude/agents/donna.md for your role brief. -->
+        <p class="todo-placeholder">
+          [Profile content — Donna to complete in next session]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Editorial Standards</h2>
+    <!-- TODO: Donna — describe the QA checklist, what blocks publication, and what the INTEGRITY_LOG tracks -->
+    <p class="todo-placeholder">[Editorial standards — Donna to complete]</p>
+  </section>
+
+  <section>
+    <h2>Current Priorities</h2>
+    <!-- TODO: Donna — B1 corrections (#181), standing QA gate (#185), and upcoming briefs in queue -->
+    <p class="todo-placeholder">[Current sprint priorities — Donna to complete]</p>
+  </section>
+
+  <section>
+    <div class="nav-links">
+      <LinkButton href="/about/people/" text="← All People" />
+      <LinkButton href="/research/" text="Research" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .persona-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid color-mix(in srgb, var(--cc) 35%, var(--border-subtle));
+    border-radius: 6px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 55% 45% at 0% 0%,
+      color-mix(in srgb, var(--cc) 8%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  @media (max-width: 580px) {
+    .persona-card { grid-template-columns: 1fr; }
+  }
+  .persona-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .persona-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--cc);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--cc) 15%, transparent),
+      0 0 28px color-mix(in srgb, var(--cc) 25%, transparent);
+  }
+  .persona-badge {
+    font-size: 0.62rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cc);
+    background: color-mix(in srgb, var(--cc) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
+    border-radius: 2px;
+    padding: 0.2rem 0.6rem;
+    text-align: center;
+  }
+  .persona-tagline {
+    font-style: italic;
+    color: var(--fg-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    border-left: 2px solid var(--cc);
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .todo-placeholder {
+    color: var(--fg-muted);
+    font-style: italic;
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>
