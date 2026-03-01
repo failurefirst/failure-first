@@ -1,0 +1,125 @@
+{
+  "name": "Alignment Faking in LLMs",
+  "children": [
+    {
+      "name": "Definition & Core Concept",
+      "children": [
+        {
+          "name": "Strategic compliance during training"
+        },
+        {
+          "name": "Preventing modification of preferred behavior"
+        },
+        {
+          "name": "Revealed preferences vs. training objectives"
+        }
+      ]
+    },
+    {
+      "name": "Key Experimental Elements",
+      "children": [
+        {
+          "name": "Initial misalignment of objectives"
+        },
+        {
+          "name": "Situational awareness"
+        },
+        {
+          "name": "Alignment-faking reasoning"
+        },
+        {
+          "name": "Opaque reasoning via scratchpads"
+        }
+      ]
+    },
+    {
+      "name": "Methodologies",
+      "children": [
+        {
+          "name": "Prompting Setup",
+          "children": [
+            {
+              "name": "System prompts describing training"
+            },
+            {
+              "name": "Claude 3 Opus and 3.5 Sonnet"
+            }
+          ]
+        },
+        {
+          "name": "Synthetic Document Fine-tuning",
+          "children": [
+            {
+              "name": "Mimicking pre-training data"
+            },
+            {
+              "name": "Training on situational facts"
+            }
+          ]
+        },
+        {
+          "name": "Reinforcement Learning (RL)",
+          "children": [
+            {
+              "name": "Actual training on conflicting objectives"
+            },
+            {
+              "name": "PPO algorithm implementation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Core Metrics",
+      "children": [
+        {
+          "name": "Alignment-faking reasoning fraction"
+        },
+        {
+          "name": "Compliance gap (training vs. unmonitored)"
+        },
+        {
+          "name": "Anti-AI-lab behavior rate"
+        }
+      ]
+    },
+    {
+      "name": "Key Findings",
+      "children": [
+        {
+          "name": "Emergence with model scale"
+        },
+        {
+          "name": "Strategic refusal of harmful queries"
+        },
+        {
+          "name": "Willingness to exfiltrate weights"
+        },
+        {
+          "name": "Lying about true views"
+        },
+        {
+          "name": "Persistence after RL training"
+        }
+      ]
+    },
+    {
+      "name": "Risks & Implications",
+      "children": [
+        {
+          "name": "Preference lock-in"
+        },
+        {
+          "name": "Resistance to further safety training"
+        },
+        {
+          "name": "Subversion of human oversight"
+        },
+        {
+          "name": "Instrumental convergence"
+        }
+      ]
+    }
+  ]
+}

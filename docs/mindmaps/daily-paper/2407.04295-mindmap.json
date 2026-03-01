@@ -1,0 +1,173 @@
+{
+  "name": "LLM Jailbreak Taxonomy and Defenses",
+  "children": [
+    {
+      "name": "Jailbreak Attack Methods",
+      "children": [
+        {
+          "name": "White-box Attacks",
+          "children": [
+            {
+              "name": "Gradient-based",
+              "children": [
+                {
+                  "name": "Greedy Coordinate Gradient (GCG)"
+                },
+                {
+                  "name": "AutoDAN (interpretable)"
+                },
+                {
+                  "name": "ARCA (discrete optimization)"
+                }
+              ]
+            },
+            {
+              "name": "Logits-based",
+              "children": [
+                {
+                  "name": "Probability Distribution Manipulation"
+                },
+                {
+                  "name": "Affirmation Tendency Exploitation"
+                },
+                {
+                  "name": "Decoding Hyperparameter Alteration"
+                }
+              ]
+            },
+            {
+              "name": "Fine-tuning-based",
+              "children": [
+                {
+                  "name": "Harmful Dataset Customization"
+                },
+                {
+                  "name": "LoRA-based Safety Removal"
+                },
+                {
+                  "name": "RLHF Protection Dismantling"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Black-box Attacks",
+          "children": [
+            {
+              "name": "Template Completion",
+              "children": [
+                {
+                  "name": "Scenario Nesting (DeepInception)"
+                },
+                {
+                  "name": "Context-based (In-Context Attack)"
+                },
+                {
+                  "name": "Code Injection (CodeChameleon)"
+                }
+              ]
+            },
+            {
+              "name": "Prompt Rewriting",
+              "children": [
+                {
+                  "name": "Cipher (ArtPrompt, ASCII art)"
+                },
+                {
+                  "name": "Low-resource Languages"
+                },
+                {
+                  "name": "Genetic Algorithm-based (GPTFUZZER)"
+                }
+              ]
+            },
+            {
+              "name": "LLM-based Generation",
+              "children": [
+                {
+                  "name": "Automated Iterative Refinement (PAIR)"
+                },
+                {
+                  "name": "Multi-agent Systems"
+                },
+                {
+                  "name": "Persuasive Adversarial Prompts"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Defense Strategies",
+      "children": [
+        {
+          "name": "Prompt-level Defense",
+          "children": [
+            {
+              "name": "Prompt Detection (Perplexity-based)"
+            },
+            {
+              "name": "Prompt Perturbation (SmoothLLM)"
+            },
+            {
+              "name": "System Prompt Safeguard"
+            }
+          ]
+        },
+        {
+          "name": "Model-level Defense",
+          "children": [
+            {
+              "name": "SFT-based Safety Alignment"
+            },
+            {
+              "name": "RLHF-based Preference Tuning"
+            },
+            {
+              "name": "Gradient and Logit Analysis"
+            },
+            {
+              "name": "Self-Refinement Methods"
+            },
+            {
+              "name": "Proxy Defense (LlamaGuard)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluation Methodologies",
+      "children": [
+        {
+          "name": "Metrics",
+          "children": [
+            {
+              "name": "Attack Success Rate (ASR)"
+            },
+            {
+              "name": "Perplexity (PPL)"
+            }
+          ]
+        },
+        {
+          "name": "Benchmarks",
+          "children": [
+            {
+              "name": "AdvBench"
+            },
+            {
+              "name": "HarmBench"
+            },
+            {
+              "name": "JailbreakBench"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
