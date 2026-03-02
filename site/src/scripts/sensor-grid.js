@@ -118,7 +118,11 @@ export function initSensorGrid() {
 
   const ctx = canvas.getContext('2d', { alpha: true });
   const seed = getSessionSeed();
-  const rng = mulberry32(seed);
+
+  // Cached offscreen canvas for static grid (hex + scanlines)
+  let gridCache = null;
+  let cachedW = 0;
+  let cachedH = 0;
 
   function resize() {
     const dpr = window.devicePixelRatio || 1;
@@ -129,29 +133,51 @@ export function initSensorGrid() {
     return { w: rect.width, h: rect.height };
   }
 
-  const { w, h } = resize();
+  function rebuildGridCache(w, h) {
+    const dpr = window.devicePixelRatio || 1;
+    gridCache = document.createElement('canvas');
+    gridCache.width = w * dpr;
+    gridCache.height = h * dpr;
+    const offCtx = gridCache.getContext('2d');
+    offCtx.scale(dpr, dpr);
 
-  // Generate 3-5 anomaly pulse locations (persistent per session)
-  const pulseCount = 3 + Math.floor(rng() * 3);
+    // Fresh RNG from seed so the grid is always the same
+    const gridRng = mulberry32(seed);
+    drawHexGrid(offCtx, w, h, gridRng);
+    drawScanlines(offCtx, w, h);
+
+    cachedW = w;
+    cachedH = h;
+  }
+
+  const { w, h } = resize();
+  rebuildGridCache(w, h);
+
+  // Consume a separate RNG branch for pulse placement
+  const pulseRng = mulberry32(seed + 7919);
+  const pulseCount = 3 + Math.floor(pulseRng() * 3);
   const pulses = [];
   for (let i = 0; i < pulseCount; i++) {
-    const x = rng() * w;
-    const y = rng() * h;
+    const x = pulseRng() * w;
+    const y = pulseRng() * h;
     pulses.push(new AnomalyPulse(x, y, mulberry32(seed + i * 1013)));
   }
 
-  // Draw static background once
-  drawHexGrid(ctx, w, h, rng);
-  drawScanlines(ctx, w, h);
+  // Respect prefers-reduced-motion
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Animate only the subtle pulses
+  if (reducedMotion) {
+    // Just draw the static grid once, no animation
+    ctx.drawImage(gridCache, 0, 0, cachedW, cachedH);
+    return;
+  }
+
+  // Animate only the subtle pulses — blit cached grid each frame
   function animate() {
-    const { w, h } = resize();
-
-    // Clear only for pulses (preserve static grid)
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawHexGrid(ctx, w, h, rng);
-    drawScanlines(ctx, w, h);
+    if (gridCache) {
+      ctx.drawImage(gridCache, 0, 0, cachedW, cachedH);
+    }
 
     const now = Date.now();
     for (const pulse of pulses) {
@@ -161,14 +187,12 @@ export function initSensorGrid() {
     requestAnimationFrame(animate);
   }
 
-  // Start animation loop
   animate();
 
-  // Handle resize
+  // Rebuild cache on resize
   window.addEventListener('resize', () => {
     const { w, h } = resize();
-    drawHexGrid(ctx, w, h, rng);
-    drawScanlines(ctx, w, h);
+    rebuildGridCache(w, h);
   });
 }
 
