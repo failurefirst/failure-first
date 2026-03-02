@@ -86,4 +86,20 @@ const {
 
 <script>
   import '../scripts/sensor-grid.js';
+
+  // Global "/" shortcut: focus search input or navigate to search page
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && !e.ctrlKey && !e.metaKey && !e.altKey) {
+      const active = document.activeElement;
+      if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA' || (active as HTMLElement).isContentEditable)) return;
+      const searchInput = document.querySelector('.pagefind-ui__search-input') as HTMLInputElement;
+      if (searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      } else if (!window.location.pathname.startsWith('/search')) {
+        e.preventDefault();
+        window.location.href = '/search/';
+      }
+    }
+  });
 </script>
