@@ -5,11 +5,12 @@ import StatGrid from '../components/StatGrid.astro';
 import BarChart from '../components/BarChart.astro';
 import WarningBox from '../components/WarningBox.astro';
 import LinkButton from '../components/LinkButton.astro';
+import { stats } from '../data/stats';
 ---
 
 <ContentLayout
   title="Results & Metrics | Failure-First"
-  description="Aggregate findings from the Failure-First adversarial AI safety research program across 18,176+ scenarios and 120 models."
+  description={`Aggregate findings from the Failure-First adversarial AI safety research program across ${stats.promptsPlus} scenarios and ${stats.modelsDisplay} models.`}
   breadcrumbs={[{ label: "Results" }]}
 >
   <PageHeader
@@ -28,9 +29,9 @@ import LinkButton from '../components/LinkButton.astro';
   </section>
 
   <StatGrid items={[
-    { value: "18,176+", label: "Adversarial Scenarios" },
-    { value: "120", label: "Models Evaluated" },
-    { value: "661", label: "Failure Classes" },
+    { value: stats.promptsPlus, label: "Adversarial Scenarios" },
+    { value: stats.modelsDisplay, label: "Models Evaluated" },
+    { value: String(stats.failureClasses), label: "Failure Classes" },
     { value: "34+", label: "Attack Patterns" },
   ]} />
 

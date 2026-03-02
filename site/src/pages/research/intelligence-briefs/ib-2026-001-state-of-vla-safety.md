@@ -21,13 +21,13 @@ status: "active"
 
 Vision-Language-Action (VLA) models are replacing programmed robotics with prompted robotics. Instead of deterministic code governing a robot's behavior, transformer-based models now generate action tokens from natural language instructions and camera images. This architectural shift introduces attack surfaces that neither existing LLM safety benchmarks nor existing robotics safety standards are designed to assess.
 
-This brief presents an evidence-grounded assessment of the VLA safety landscape as of February 2026, drawing on F41LUR3-F1R57's proprietary corpus of 17,674 jailbreak prompts spanning 79 documented attack techniques, alongside published academic research on VLA-specific vulnerabilities. The analysis identifies a structural safety evaluation gap facing organizations that deploy or invest in VLA-driven systems, and provides actionable recommendations for addressing it.
+This brief presents an evidence-grounded assessment of the VLA safety landscape as of February 2026, drawing on F41LUR3-F1R57's proprietary corpus of 18,345 jailbreak prompts spanning 81 documented attack techniques, alongside published academic research on VLA-specific vulnerabilities. The analysis identifies a structural safety evaluation gap facing organizations that deploy or invest in VLA-driven systems, and provides actionable recommendations for addressing it.
 
 **Data as-of:** 2026-02-08 (F41LUR3-F1R57 internal corpus + evaluation results; see Report 33 for methodology and coverage caveats).
 
 ### Key Findings
 
-1. **VLA models inherit LLM jailbreak vulnerabilities, but add physical risk dimensions.** Published research demonstrates that text-based jailbreak techniques transfer to VLA models, causing physically unsafe actions even from text-aligned base models. Our corpus documents 79 distinct attack techniques across 6 historical eras (2022-2026) that represent the known LLM attack surface these models inherit.
+1. **VLA models inherit LLM jailbreak vulnerabilities, but add physical risk dimensions.** Published research demonstrates that text-based jailbreak techniques transfer to VLA models, causing physically unsafe actions even from text-aligned base models. Our corpus documents 81 distinct attack techniques across 6 historical eras (2022-2026) that represent the known LLM attack surface these models inherit.
 
 2. **A capability-safety gap exists at medium model scale, with preliminary evidence of inverse scaling for reasoning-era attacks.** In our evaluation of 8 foundation models spanning 1.5B to frontier scale, corrected attack success rates follow a non-monotonic pattern: sub-3B models fail safely through incapability, medium-scale open-weight models show elevated vulnerability, and frontier closed-source models achieve near-zero ASR. This is a preliminary signal, not a conclusion — sample sizes for medium-scale models are small and require confirmation.
 
@@ -175,7 +175,7 @@ No VLA-specific safety standard exists today. Early participants in standards de
 
 ### Data Sources
 
-- **F41LUR3-F1R57 Jailbreak Corpus:** 17,674 prompts across 15 datasets, 79 documented attack techniques, 7 historical eras
+- **F41LUR3-F1R57 Jailbreak Corpus:** 18,345 prompts across 15 datasets, 81 documented attack techniques, 7 historical eras
 - **Evaluation Results:** 652 results across 40 models, 55 evaluation runs
 - **F41LUR3-F1R57 Reports:** Reports 21-23, 25, 27-29, 31-33, 36-37
 - **Published Research:** arXiv:2506.03350, arXiv:2411.13587, arXiv:2511.12149

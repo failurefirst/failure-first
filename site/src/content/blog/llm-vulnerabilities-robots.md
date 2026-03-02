@@ -10,7 +10,7 @@ video: /video/blog/llm-vulnerabilities-robots.mp4
 
 When a language model is jailbroken, the consequence is a harmful piece of text. When the language model controls a robot arm, the consequence might be something else entirely.
 
-This is the core problem that drives the embodied AI safety work in our [F41LUR3-F1R57 paper](/blog/120-models-18k-prompts/). The vulnerabilities we measure across 120 models and 18,176 adversarial prompts are not abstract. They are vulnerabilities in the reasoning engine that modern robotics systems are increasingly built on top of.
+This is the core problem that drives the embodied AI safety work in our [F41LUR3-F1R57 paper](/blog/120-models-18k-prompts/). The vulnerabilities we measure across 124 models and 18,345 adversarial prompts are not abstract. They are vulnerabilities in the reasoning engine that modern robotics systems are increasingly built on top of.
 
 This post explains three attack vectors from our empirical results and maps them to physical deployment. We are explicit about where the analogy holds and where it runs ahead of tested evidence.
 
@@ -106,4 +106,4 @@ The failure-first evaluation philosophy is motivated by an asymmetric cost funct
 
 ---
 
-The full paper, dataset (18,176 prompts, 120 models), benchmark infrastructure, and VLA scenario files are available in the F41LUR3-F1R57 repository. The classification pipeline, including documented heuristic-to-LLM calibration (Cohen's kappa = 0.245), is open for reuse and extension.
+The full paper, dataset (18,345 prompts, 124 models), benchmark infrastructure, and VLA scenario files are available in the F41LUR3-F1R57 repository. The classification pipeline, including documented heuristic-to-LLM calibration (Cohen's kappa = 0.245), is open for reuse and extension.

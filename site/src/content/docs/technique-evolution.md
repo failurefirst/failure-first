@@ -54,7 +54,7 @@ The latest generation of "thinking" models (e.g., DeepSeek-R1, OpenAI o1) introd
 
 ## 3. Technique Families
 
-Our database maps 79 specific techniques into these broader families:
+Our database maps 81 specific techniques into these broader families:
 
 - **Persona**: Roleplay, authority spoofing, emotional leverage.
 - **Encoding**: Base64, ROT13, Morse, Ciphers.

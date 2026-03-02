@@ -6,6 +6,7 @@ import AudienceNav from '../components/AudienceNav.astro';
 import WarningBox from '../components/WarningBox.astro';
 import LinkButton from '../components/LinkButton.astro';
 import BlogPostCard from '../components/BlogPostCard.astro';
+import { stats } from '../data/stats';
 import { getCollection } from 'astro:content';
 
 const recentPosts = (await getCollection('blog'))
@@ -33,7 +34,7 @@ const recentPapers = (await getCollection('dailyPaper'))
         Failure is the <em>primary object of study</em>, not an edge case.
       </p>
       <p>
-        Through adversarial testing across 120 models and 18,176 prompts spanning 5 attack
+        Through adversarial testing across {stats.modelsDisplay} models and {stats.promptsDisplay} prompts spanning {stats.attackFamilies} attack
         families, we characterize how embodied AI systems break under pressure, how failures
         cascade across multi-agent environments, and what makes recovery possible. Our research
         informs policy, standards, and defensive architectures.
@@ -61,7 +62,7 @@ const recentPapers = (await getCollection('dailyPaper'))
           <h3>Jailbreak Archaeology</h3>
         </div>
         <p>
-          Historical attack corpus across 6 eras (2022-2025), tested against 120 models.
+          Historical attack corpus across {stats.eras} eras ({stats.erasRange}), tested against {stats.modelsDisplay} models.
           Revealed a 2.3x classifier overcount from keyword-based evaluation.
         </p>
         <span class="area-tag">Key Dataset</span>
@@ -182,7 +183,7 @@ const recentPapers = (await getCollection('dailyPaper'))
     <h2>Work With Us</h2>
     <p>
       Our commercial services are grounded in this research. Every engagement draws on
-      18,176 adversarial prompts, 79+ attack techniques, and evaluation data across 120 models.
+      {stats.promptsDisplay} adversarial prompts, {stats.techniquesPlus} attack techniques, and evaluation data across {stats.modelsDisplay} models.
     </p>
     <div class="services-grid">
       <a href="/services/red-team-assessments/" class="service-link card">

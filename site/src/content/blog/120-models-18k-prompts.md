@@ -1,5 +1,5 @@
 ---
-title: "120 Models, 18,176 Prompts: What We Found"
+title: "124 Models, 18,345 Prompts: What We Found"
 description: "A research announcement for the F41LUR3-F1R57 arXiv paper. Five attack families, three evaluation modalities, and a classifier bias problem we did not expect to be this bad."
 date: 2026-02-27
 tags: ["research", "benchmarking", "jailbreaks", "safety", "embodied-ai", "classifier-bias"]
@@ -8,7 +8,7 @@ audio: /audio/blog/120-models-18k-prompts.m4a
 video: /video/blog/120-models-18k-prompts.mp4
 ---
 
-We are releasing a preprint describing the F41LUR3-F1R57 adversarial evaluation framework: 18,176 prompts, 5 attack families, 120 models, 151 benchmark runs, and a classifier bias finding that changes how we interpret results from the whole field.
+We are releasing a preprint describing the F41LUR3-F1R57 adversarial evaluation framework: 18,345 prompts, 5 attack families, 124 models, 176 benchmark runs, and a classifier bias finding that changes how we interpret results from the whole field.
 
 This post summarises what we built, what we found, and what it means for embodied AI systems specifically.
 
@@ -30,7 +30,7 @@ The core of the project is an adversarial corpus organised into five attack fami
 
 All scenarios are stored in JSONL format with versioned JSON Schema validation, enforced in CI on every pull request. The dataset integrates four public benchmarks (AdvBench, JailbreakBench, HarmBench, StrongREJECT) through normalised import tooling.
 
-For evaluation, we built infrastructure supporting three modalities: HTTP API via OpenRouter (100+ models), native CLI tools for frontier models (claude-code, codex-cli, gemini-cli), and local inference via Ollama for open-weight models without rate limits or API costs. All runners emit standardised JSONL trace files imported into a SQLite corpus that now contains 120 models and 2,936 scored results.
+For evaluation, we built infrastructure supporting three modalities: HTTP API via OpenRouter (100+ models), native CLI tools for frontier models (claude-code, codex-cli, gemini-cli), and local inference via Ollama for open-weight models without rate limits or API costs. All runners emit standardised JSONL trace files imported into a SQLite corpus that now contains 124 models and 5,051 scored results.
 
 ---
 
