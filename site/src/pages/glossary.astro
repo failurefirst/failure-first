@@ -1,0 +1,244 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+interface GlossaryTerm {
+  term: string;
+  definition: string;
+}
+
+interface GlossarySection {
+  title: string;
+  terms: GlossaryTerm[];
+}
+
+const sections: GlossarySection[] = [
+  {
+    title: "Framework & Methodology",
+    terms: [
+      { term: "F41LUR3-F1R57", definition: "Failure-First. The project's core research philosophy and branding. Failure is the primary object of study, not an edge case." },
+      { term: "FLIP", definition: "Forward-Looking Inference Propagation. LLM grading methodology using backward inference: infer the adversarial instruction from the model's response, then classify it." },
+      { term: "HANSE", definition: "Four-layer defence framework for embodied AI: semantic_firewall → vla_core → affordance_verifier → kinematic_shield." },
+      { term: "MASSS", definition: "Multi-Agent Safety Scenario System. Operationalises the NIST AI Risk Management Framework for embodied and multi-agent systems." },
+      { term: "GLI", definition: "Governance Lag Index. Metric quantifying delay between AI capability emergence and regulatory response." },
+      { term: "Red-teaming", definition: "Adversarial testing: systematically attacking a system to find vulnerabilities before deployment." },
+      { term: "Failure-first alignment", definition: "Design principle: build systems that fail safely and detectably, rather than optimising solely for performance." },
+    ],
+  },
+  {
+    title: "Response Classifications",
+    terms: [
+      { term: "COMPLIANCE", definition: "Model provides requested harmful content without meaningful disclaimer. Counts as attack success." },
+      { term: "PARTIAL", definition: "Model provides limited harmful information with significant hedging or caveats." },
+      { term: "REFUSAL", definition: "Model explicitly declines the request." },
+      { term: "HALLUCINATION_REFUSAL", definition: "Model generates text that resembles a refusal but is incoherent or off-topic — a hallucination, not intentional safety." },
+      { term: "BENIGN_QUERY", definition: "The input prompt was not adversarial; model responded normally. Control category." },
+    ],
+  },
+  {
+    title: "Attack Techniques",
+    terms: [
+      { term: "Jailbreak", definition: "Adversarial input that bypasses safety mechanisms, causing a model to produce content it should refuse." },
+      { term: "ASR", definition: "Attack Success Rate. (COMPLIANCE + PARTIAL) / total adversarial prompts. The primary evaluation metric." },
+      { term: "Prompt injection", definition: "Embedding adversarial instructions within seemingly benign input, exploiting instruction-following behaviour." },
+      { term: "DAN", definition: "Do Anything Now. Persona-hijacking technique framing the model as a character without restrictions." },
+      { term: "Crescendo", definition: "Multi-turn escalation attack building rapport before introducing harmful requests." },
+      { term: "Skeleton Key", definition: "Universal jailbreak template effective across multiple model families." },
+      { term: "Format lock", definition: "Forcing specific output format (JSON, YAML, code) to bypass safety filters." },
+      { term: "Refusal suppression", definition: "Prompt engineering that discourages safety refusals through emotional appeals, emergency framing, or research justification." },
+      { term: "Persona hijack", definition: "Assigning a role or character to circumvent constraints." },
+      { term: "Future-year laundering", definition: "Claiming a future date to justify rule changes." },
+      { term: "Constraint erosion", definition: "Gradual relaxation of safety boundaries through repeated small violations that compound over turns." },
+      { term: "Semantic inversion", definition: "Exploiting cognitive patterns by inverting request framing to bypass safety checks." },
+      { term: "Budget starvation", definition: "Forcing a model to choose between multiple competing constraints, exhausting compliance capacity." },
+      { term: "Moral licensing", definition: "Model acknowledges harm in its reasoning trace but complies anyway." },
+      { term: "Meta-jailbreak", definition: "Jailbreak about jailbreaks: testing a model's ability to reason about or generate attack techniques." },
+      { term: "Promptware kill chain", definition: "7-stage attack path: Initial Access → Privilege Escalation → Reconnaissance → Persistence → C2 → Lateral Movement → Actions on Objective." },
+      { term: "Inference trace manipulation", definition: "Attacks targeting a model's internal reasoning process, distinct from goal-layer prompt injection." },
+    ],
+  },
+  {
+    title: "Embodied AI & Robotics",
+    terms: [
+      { term: "Embodied AI", definition: "AI systems operating in physical environments — robots, drones, autonomous vehicles. Subject to failure modes with physical consequences." },
+      { term: "VLA", definition: "Vision-Language-Action model. Neural architecture combining visual perception, language understanding, and physical action prediction." },
+      { term: "VLM", definition: "Vision-Language Model. Understands images and text but does not directly control physical actions." },
+      { term: "Action head", definition: "Neural network output layer that translates VLM representations into physical motor commands." },
+      { term: "Affordance", definition: "The set of physically possible actions given the current state and environment." },
+      { term: "Kinematic constraint", definition: "Mathematical model of motion limits — joint angles, workspace boundaries, velocity caps." },
+      { term: "World model", definition: "An AI system's internal representation of environment state and dynamics." },
+      { term: "Deceptive alignment", definition: "System appears aligned during evaluation but pursues misaligned objectives when deployed." },
+      { term: "Cross-embodiment transfer", definition: "Adversarial attacks developed for one robot platform transfer to others via shared VLM backbone." },
+      { term: "Geofencing", definition: "Physical containment via boundary enforcement — workspace limits, sensor zones." },
+      { term: "E-stop", definition: "Emergency stop. Hardware kill switch for immediate physical halt." },
+    ],
+  },
+  {
+    title: "Evaluation & Benchmarking",
+    terms: [
+      { term: "Trace", definition: "JSONL record of a benchmark evaluation: input prompt → model response → timestamps → classifications." },
+      { term: "JSONL", definition: "JSON Lines format. One JSON object per line, no array wrapping." },
+      { term: "Benchmark pack", definition: "YAML configuration specifying data sources, sampling strategy, and scoring rules for an evaluation run." },
+      { term: "Heuristic classifier", definition: "Keyword/pattern-based detection of jailbreak success. Deprecated in favour of LLM judges due to high false positive rates." },
+      { term: "LLM judge", definition: "Using a language model to classify responses (COMPLIANCE/REFUSAL/etc). 95%+ accuracy on refusals." },
+      { term: "Cohen's Kappa", definition: "Inter-rater reliability coefficient. 0 = random agreement, 1 = perfect." },
+      { term: "Bonferroni correction", definition: "Multiple-comparisons adjustment dividing significance threshold by number of tests." },
+      { term: "Dry run", definition: "Benchmark execution with placeholder outputs — no actual model calls." },
+      { term: "Stratified sampling", definition: "Dividing dataset into subgroups and sampling proportionally for balanced evaluation." },
+      { term: "Reasoning trace", definition: "Internal chain-of-thought output from reasoning models. Captured via <think> blocks." },
+    ],
+  },
+  {
+    title: "HITL (Human-in-the-Loop)",
+    terms: [
+      { term: "HITL", definition: "Human-in-the-Loop. Safety design pattern where humans remain in the decision-making loop for irreversible or high-stakes actions." },
+      { term: "HITL subversion", definition: "AI agent action that subtly undermines human oversight while appearing compliant." },
+      { term: "Parameter burial", definition: "Hiding a dangerous value within a list of normal parameters." },
+      { term: "Cross-reference split", definition: "A flaw visible only when comparing two separate sections of a plan." },
+      { term: "False summary", definition: "Plan details a hazard but concludes with 'No conflicts detected.'" },
+    ],
+  },
+  {
+    title: "Governance & Regulation",
+    terms: [
+      { term: "AISI", definition: "Australian AI Safety Institute. Government body established November 2025." },
+      { term: "VAISS", definition: "Voluntary AI Safety Standard (Australia). Guardrail 4 requires pre-deployment adversarial testing." },
+      { term: "EU AI Act", definition: "European Union regulation on AI systems. Article 9 requires conformity assessment for high-risk AI." },
+      { term: "PLD", definition: "Product Liability Directive (EU, 2024 revision). 'State of the art' defence window closes when quantified adversarial test data exists." },
+      { term: "NIST AI RMF", definition: "NIST AI Risk Management Framework 1.0. Four functions: GOVERN, MAP, MEASURE, MANAGE." },
+      { term: "ISO/IEC 42001", definition: "AI Management Systems standard." },
+      { term: "ISO 13482", definition: "Safety requirements for personal care robots." },
+      { term: "ACM CCS", definition: "ACM Conference on Computer and Communications Security. Target venue for Failure-First paper." },
+    ],
+  },
+  {
+    title: "External Benchmarks & Datasets",
+    terms: [
+      { term: "AdvBench", definition: "Adversarial behaviour benchmark." },
+      { term: "HarmBench", definition: "Harm categorisation benchmark with structured evaluation methodology." },
+      { term: "StrongREJECT", definition: "Safety evaluation benchmark measuring refusal quality." },
+      { term: "JailbreakBench", definition: "Jailbreak-specific benchmark with standardised evaluation." },
+      { term: "JailbreakRadar", definition: "ACL 2025 benchmark with 6-category jailbreak taxonomy and 160 forbidden questions." },
+      { term: "WildGuard", definition: "AllenAI safety classifier for adversarial content detection." },
+    ],
+  },
+];
+---
+
+<ContentLayout
+  title="Glossary | Failure-First"
+  description="Terminology reference for AI safety, adversarial evaluation, embodied systems, and the Failure-First research framework."
+  breadcrumbs={[{ label: "Glossary" }]}
+>
+  <PageHeader
+    title="Glossary"
+    tagline="Terminology for adversarial AI safety research"
+  />
+
+  <nav class="glossary-toc" aria-label="Glossary sections">
+    <ul>
+      {sections.map((section) => (
+        <li>
+          <a href={`#${section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+            {section.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  {sections.map((section) => (
+    <section id={section.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}>
+      <h2>{section.title}</h2>
+      <dl class="glossary-list">
+        {section.terms.map((t) => (
+          <div class="glossary-entry">
+            <dt>{t.term}</dt>
+            <dd>{t.definition}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+  ))}
+</ContentLayout>
+
+<style>
+  .glossary-toc {
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+  }
+
+  .glossary-toc ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .glossary-toc a {
+    font-size: 0.8125rem;
+    color: var(--accent-primary);
+    border-bottom: none;
+  }
+
+  .glossary-toc a:hover {
+    border-bottom: 1px solid var(--accent-primary);
+  }
+
+  section {
+    margin-top: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.125rem;
+    color: var(--accent-primary);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .glossary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .glossary-entry {
+    display: grid;
+    grid-template-columns: 11rem 1fr;
+    gap: 1rem;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .glossary-entry:last-child {
+    border-bottom: none;
+  }
+
+  dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--fg);
+    word-break: break-word;
+  }
+
+  dd {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    .glossary-entry {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+  }
+</style>
