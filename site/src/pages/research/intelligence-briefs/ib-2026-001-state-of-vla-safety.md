@@ -175,7 +175,7 @@ No VLA-specific safety standard exists today. Early participants in standards de
 
 ### Data Sources
 
-- **F41LUR3-F1R57 Jailbreak Corpus:** 18,345 prompts across 15 datasets, 81 documented attack techniques, 7 historical eras
+- **F41LUR3-F1R57 Jailbreak Corpus:** 18,345 prompts across 15 datasets, 81 documented attack techniques, 6 historical eras
 - **Evaluation Results:** 652 results across 40 models, 55 evaluation runs
 - **F41LUR3-F1R57 Reports:** Reports 21-23, 25, 27-29, 31-33, 36-37
 - **Published Research:** arXiv:2506.03350, arXiv:2411.13587, arXiv:2511.12149

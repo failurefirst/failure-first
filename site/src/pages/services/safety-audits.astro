@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import WarningBox from '../../components/WarningBox.astro';
 import LinkButton from '../../components/LinkButton.astro';
+import { stats } from '../../data/stats';
 ---
 
 <BaseLayout
@@ -45,7 +46,7 @@ import LinkButton from '../../components/LinkButton.astro';
       <div class="framework-domain">
         <h3>Adversarial Robustness</h3>
         <ul>
-          <li>Grounded in an 18,345-prompt jailbreak corpus across 124 models</li>
+          <li>Grounded in a {stats.promptsDisplay}-prompt jailbreak corpus across {stats.modelsPlus} models</li>
           <li>VLA-specific attack scenarios (visual adversarial patches, action-space perturbation)</li>
           <li>Multi-turn interaction resilience testing</li>
           <li>Quantified success rate thresholds by severity class</li>

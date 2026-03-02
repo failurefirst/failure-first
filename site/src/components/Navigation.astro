@@ -376,15 +376,26 @@ function isActive(href: string, current: string): boolean {
     });
   }
 
-  // Mobile dropdown toggle — always attach listener, check width inside handler
+  // Mobile dropdown toggle — first tap opens dropdown, second tap navigates
   dropdownParents.forEach((parent) => {
     const link = parent.querySelector(':scope > a');
     if (link) {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
-          e.preventDefault();
-          parent.classList.toggle('mobile-open');
-          link.setAttribute('aria-expanded', String(parent.classList.contains('mobile-open')));
+          if (!parent.classList.contains('mobile-open')) {
+            e.preventDefault();
+            // Close other open dropdowns
+            dropdownParents.forEach((p) => {
+              if (p !== parent) {
+                p.classList.remove('mobile-open');
+                const otherLink = p.querySelector(':scope > a');
+                if (otherLink) otherLink.setAttribute('aria-expanded', 'false');
+              }
+            });
+            parent.classList.add('mobile-open');
+            link.setAttribute('aria-expanded', 'true');
+          }
+          // Second tap: allow default navigation to parent href
         }
       });
     }
