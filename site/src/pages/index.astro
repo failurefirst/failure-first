@@ -20,7 +20,10 @@ const recentPapers = (await getCollection('dailyPaper'))
   .slice(0, 5);
 ---
 
-<BaseLayout title="Failure-First Embodied AI | AI Safety Research Framework">
+<BaseLayout
+  title="Failure-First Embodied AI | AI Safety Research Framework"
+  description={`Adversarial red-teaming and benchmarking framework for embodied AI safety. ${stats.promptsDisplay} prompts, ${stats.modelsPlus} models, ${stats.techniquesPlus} attack techniques.`}
+>
   <PageHeader
     title="Failure-First Embodied AI"
     tagline="Red-teaming and benchmarking framework for AI safety"

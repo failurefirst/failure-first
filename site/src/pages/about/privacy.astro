@@ -1,0 +1,76 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<ContentLayout
+  title="Privacy Policy | Failure-First"
+  description="How failurefirst.org collects, uses, and protects visitor data."
+  breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Privacy" }]}
+>
+  <PageHeader
+    title="Privacy Policy"
+    tagline="How we handle your data"
+  />
+
+  <section>
+    <p><strong>Effective date:</strong> 2 March 2026</p>
+
+    <h2>What we collect</h2>
+    <p>
+      This site uses two analytics services to understand how visitors interact with our
+      research. We do not collect personal information beyond what these services provide.
+    </p>
+
+    <h3>Google Analytics 4 (GA4)</h3>
+    <p>
+      We use GA4 to measure page views, scroll depth, outbound link clicks, and time on page.
+      GA4 uses first-party cookies and collects anonymised interaction data. Google's privacy
+      policy applies to data processed by GA4. You can opt out using the
+      <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.
+    </p>
+
+    <h3>LinkedIn Insight Tag</h3>
+    <p>
+      We use the LinkedIn Insight Tag to measure the effectiveness of LinkedIn campaigns.
+      This tag collects data about visits to our site from LinkedIn users, including URL,
+      referrer, IP address (anonymised), device and browser characteristics, and timestamp.
+      LinkedIn's privacy policy governs this data. You can opt out in your
+      <a href="https://www.linkedin.com/psettings/guest-controls/retargeting-opt-out" rel="noopener">LinkedIn ad preferences</a>.
+    </p>
+
+    <h2>What we do not collect</h2>
+    <ul>
+      <li>We do not use advertising cookies or retargeting pixels beyond the LinkedIn Insight Tag.</li>
+      <li>We do not collect names, email addresses, or other personally identifiable information through this site.</li>
+      <li>We do not sell or share analytics data with third parties beyond Google and LinkedIn.</li>
+      <li>We do not use fingerprinting or cross-site tracking techniques.</li>
+    </ul>
+
+    <h2>Cookies</h2>
+    <p>
+      This site sets first-party cookies for Google Analytics (<code>_ga</code>, <code>_ga_*</code>)
+      and a LinkedIn cookie (<code>li_sugr</code>, <code>bcookie</code>). These are used solely
+      for analytics purposes. No cookies are used for personalisation or advertising.
+    </p>
+
+    <h2>Data retention</h2>
+    <p>
+      Google Analytics data is retained for 14 months (the default GA4 retention period).
+      LinkedIn Insight data is retained per LinkedIn's data retention policies.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      You can disable cookies in your browser settings, use the opt-out links above, or
+      use a content blocker to prevent analytics scripts from loading. The site functions
+      fully without JavaScript or cookies enabled.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      For privacy questions, contact
+      <a href="mailto:adrian@failurefirst.org">adrian@failurefirst.org</a>.
+    </p>
+  </section>
+</ContentLayout>
