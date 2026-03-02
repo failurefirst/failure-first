@@ -84,7 +84,7 @@ import { stats } from '../data/stats';
       <p>The following are freely available:</p>
       <ul class="principles">
         <li>JSON Schemas for all dataset formats (single-agent, multi-agent, episode)</li>
-        <li>Attack taxonomy with 34+ pattern categories and descriptions</li>
+        <li>Attack taxonomy with {stats.techniquesPlus} pattern categories and descriptions</li>
         <li>Failure mode taxonomy with recursive failure classifications</li>
         <li>Recovery mechanism taxonomy</li>
         <li>Benchmark pack configurations (YAML)</li>
@@ -130,11 +130,11 @@ import { stats } from '../data/stats';
         <div class="meta-row"><span class="meta-key">Total scenarios</span><span>{stats.promptsPlus}</span></div>
         <div class="meta-row"><span class="meta-key">Failure classes</span><span>661</span></div>
         <div class="meta-row"><span class="meta-key">Domains</span><span>19 (humanoid robotics, warehouse, medical, collaborative manufacturing, etc.)</span></div>
-        <div class="meta-row"><span class="meta-key">Attack patterns</span><span>34+ across 7 categories</span></div>
+        <div class="meta-row"><span class="meta-key">Attack patterns</span><span>{stats.techniquesPlus} across 7 categories</span></div>
         <div class="meta-row"><span class="meta-key">Models evaluated</span><span>{stats.modelsDisplay} (API and local via Ollama/OpenRouter)</span></div>
         <div class="meta-row"><span class="meta-key">Multi-agent scenarios</span><span>50 (4 actor roles, 5 environments)</span></div>
         <div class="meta-row"><span class="meta-key">Moltbook corpus</span><span>1,497 posts (regex + LLM classified)</span></div>
-        <div class="meta-row"><span class="meta-key">Data snapshot</span><span>February 2026</span></div>
+        <div class="meta-row"><span class="meta-key">Data snapshot</span><span>March 2026</span></div>
       </div>
     </div>
   </section>

@@ -16,18 +16,18 @@ export const stats = {
   promptsPlus: "18,345+",
 
   /** Total models evaluated */
-  models: 124,
-  modelsDisplay: "124",
-  modelsPlus: "124+",
+  models: 125,
+  modelsDisplay: "125",
+  modelsPlus: "125+",
 
   /** Total scored results */
-  results: 5_051,
-  resultsDisplay: "5,051",
-  resultsPlus: "5,051+",
+  results: 5_075,
+  resultsDisplay: "5,075",
+  resultsPlus: "5,075+",
 
   /** Total benchmark runs */
-  runs: 176,
-  runsDisplay: "176",
+  runs: 178,
+  runsDisplay: "178",
 
   /** Documented attack techniques */
   techniques: 81,

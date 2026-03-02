@@ -28,7 +28,7 @@ Results were graded by an LLM judge (not heuristic keyword matching), which turn
 | Claude Sonnet 4.5 | 30.4% (7/23) | 4.3% | +26 pts |
 | Gemini 3 Flash | 23.8% (5/21) | — | — |
 
-The heuristic classifier — which looked for structural patterns like step-by-step responses and helpful formatting — massively over-reported Codex's compliance and under-reported Claude's. Codex's responses frequently included formatted structure (which the heuristic read as compliance) alongside substantive refusals. Claude's refusals were sometimes minimal or indirect, which the heuristic missed as partial compliance.
+The heuristic classifier — which looked for structural patterns like step-by-step responses and helpful formatting — significantly over-reported Codex's compliance and under-reported Claude's. Codex's responses frequently included formatted structure (which the heuristic read as compliance) alongside substantive refusals. Claude's refusals were sometimes minimal or indirect, which the heuristic missed as partial compliance.
 
 This divergence is itself a finding: measuring faithfulness-gap vulnerabilities with keyword or pattern heuristics produces unreliable results. The gap between heuristic and LLM-graded ASR for Codex was 42 percentage points.
 

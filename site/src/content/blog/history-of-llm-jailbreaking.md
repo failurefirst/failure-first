@@ -26,7 +26,7 @@ But the critical shift came with RLHF alignment. Previous attacks exploited feat
 
 ## "Ignore Previous Instructions" (2022)
 
-In September 2022, Riley Goodside demonstrated that GPT-3 could be made to ignore its instructions with plain English. Simon Willison coined "prompt injection" and drew the parallel to SQL injection — where user input is interpreted as commands. The analogy carried a devastating implication: SQL injection was solved through prepared statements that structurally separate code from data. No equivalent separation exists for LLMs, where instructions and data occupy the same channel.
+In September 2022, Riley Goodside demonstrated that GPT-3 could be made to ignore its instructions with plain English. Simon Willison coined "prompt injection" and drew the parallel to SQL injection — where user input is interpreted as commands. The analogy carried a significant implication: SQL injection was solved through prepared statements that structurally separate code from data. No equivalent separation exists for LLMs, where instructions and data occupy the same channel.
 
 When ChatGPT launched in November 2022, prompt injection went from niche concern to mass phenomenon. This era established three principles: instruction-following itself is the vulnerability; the attacker occupies the same channel as legitimate instructions; and the attacks require no technical expertise.
 
