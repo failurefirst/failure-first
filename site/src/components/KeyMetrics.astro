@@ -3,6 +3,8 @@
  * KeyMetrics: Reusable component displaying core research statistics
  * Used on homepage and research landing to establish credibility
  */
+import { stats } from '../data/stats';
+
 interface Props {
   compact?: boolean;
   showLabels?: boolean;
@@ -11,9 +13,9 @@ interface Props {
 const { compact = false, showLabels = true } = Astro.props;
 
 const metrics = [
-  { value: "18,176", label: "Adversarial Prompts", icon: "file" },
-  { value: "120", label: "Models Evaluated", icon: "cpu" },
-  { value: "79+", label: "Attack Techniques", icon: "target" },
+  { value: stats.promptsDisplay, label: "Adversarial Prompts", icon: "file" },
+  { value: stats.modelsDisplay, label: "Models Evaluated", icon: "cpu" },
+  { value: stats.techniquesPlus, label: "Attack Techniques", icon: "target" },
   { value: "26", label: "Policy Reports", icon: "doc" },
 ];
 ---

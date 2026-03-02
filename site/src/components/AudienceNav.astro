@@ -3,6 +3,7 @@
  * AudienceNav: Entry points for different audiences
  * Provides tailored navigation for policymakers, researchers, and industry
  */
+import { stats } from '../data/stats';
 
 const audiences = [
   {
@@ -27,7 +28,7 @@ const audiences = [
       { label: "Jailbreak Archaeology", href: "/research/jailbreak-archaeology/" },
       { label: "Cite This Work", href: "/cite/" },
     ],
-    highlight: "18,176 prompts, 120 models",
+    highlight: `${stats.promptsDisplay} prompts, ${stats.modelsDisplay} models`,
   },
   {
     id: "industry",

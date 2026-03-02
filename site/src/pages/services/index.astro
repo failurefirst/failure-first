@@ -5,11 +5,12 @@ import ServiceCard from '../../components/ServiceCard.astro';
 import KeyMetrics from '../../components/KeyMetrics.astro';
 import LinkButton from '../../components/LinkButton.astro';
 import WarningBox from '../../components/WarningBox.astro';
+import { stats } from '../../data/stats';
 ---
 
 <BaseLayout
   title="Work With Us | Failure-First"
-  description="Red teaming, safety certification, and research intelligence for embodied AI systems. Services grounded in 18,176-prompt jailbreak corpus and evaluation results across 120 models."
+  description={`Red teaming, safety certification, and research intelligence for embodied AI systems. Services grounded in ${stats.promptsDisplay}-prompt jailbreak corpus and evaluation results across ${stats.modelsDisplay} models.`}
   keywords="AI red teaming, safety certification, embodied AI testing, adversarial testing"
 >
   <PageHeader
@@ -20,8 +21,8 @@ import WarningBox from '../../components/WarningBox.astro';
   <section>
     <p>
       Our commercial services derive from the largest open adversarial dataset for
-      embodied AI. Every engagement is backed by a 18,176-prompt jailbreak corpus, 79 documented
-      attack techniques, and evaluation results across 120 models spanning 6 research eras (2022-2025).
+      embodied AI. Every engagement is backed by a {stats.promptsDisplay}-prompt jailbreak corpus, {stats.techniquesDisplay} documented
+      attack techniques, and evaluation results across {stats.modelsDisplay} models spanning {stats.eras} research eras ({stats.erasRange}).
     </p>
   </section>
 

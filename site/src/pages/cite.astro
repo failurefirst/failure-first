@@ -2,6 +2,7 @@
 import ContentLayout from '../layouts/ContentLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import LinkButton from '../components/LinkButton.astro';
+import { stats } from '../data/stats';
 ---
 
 <ContentLayout
@@ -42,7 +43,7 @@ import LinkButton from '../components/LinkButton.astro';
   author = {'{'}Wedd, Adrian{'}'},
   year = {'{'}2025{'}'},
   url = {'{'}https://github.com/adrianwedd/failure-first{'}'},
-  note = {'{'}18,176+ scenarios, 661 failure classes,
+  note = {'{'}{stats.promptsPlus} scenarios, {stats.failureClasses} failure classes,
          19 domains, JSONL format{'}'}
 {'}'}</code></pre>
     </div>
@@ -126,11 +127,11 @@ import LinkButton from '../components/LinkButton.astro';
       <div class="metadata-grid">
         <div class="meta-row"><span class="meta-key">Format</span><span>JSONL (newline-delimited JSON)</span></div>
         <div class="meta-row"><span class="meta-key">Schema version</span><span>v0.2 (single-agent), v0.1 (multi-agent, episode)</span></div>
-        <div class="meta-row"><span class="meta-key">Total scenarios</span><span>18,176+</span></div>
+        <div class="meta-row"><span class="meta-key">Total scenarios</span><span>{stats.promptsPlus}</span></div>
         <div class="meta-row"><span class="meta-key">Failure classes</span><span>661</span></div>
         <div class="meta-row"><span class="meta-key">Domains</span><span>19 (humanoid robotics, warehouse, medical, collaborative manufacturing, etc.)</span></div>
         <div class="meta-row"><span class="meta-key">Attack patterns</span><span>34+ across 7 categories</span></div>
-        <div class="meta-row"><span class="meta-key">Models evaluated</span><span>120 (API and local via Ollama/OpenRouter)</span></div>
+        <div class="meta-row"><span class="meta-key">Models evaluated</span><span>{stats.modelsDisplay} (API and local via Ollama/OpenRouter)</span></div>
         <div class="meta-row"><span class="meta-key">Multi-agent scenarios</span><span>50 (4 actor roles, 5 environments)</span></div>
         <div class="meta-row"><span class="meta-key">Moltbook corpus</span><span>1,497 posts (regex + LLM classified)</span></div>
         <div class="meta-row"><span class="meta-key">Data snapshot</span><span>February 2026</span></div>

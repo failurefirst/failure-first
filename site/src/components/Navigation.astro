@@ -15,12 +15,12 @@ const navItems: NavItem[] = [
       { label: "All Studies", href: "/research/", description: "Research hub" },
       { label: "Jailbreak Archaeology", href: "/research/jailbreak-archaeology/", description: "64 scenarios, 6 eras" },
       { label: "Multi-Agent", href: "/research/moltbook/", description: "Moltbook analysis" },
-      { label: "Attack Taxonomy", href: "/research/attack-taxonomy/", description: "79 techniques" },
+      { label: "Attack Taxonomy", href: "/research/attack-taxonomy/", description: "81 techniques" },
       { label: "Defense Patterns", href: "/research/defense-patterns/", description: "How models resist" },
       { label: "Humanoid Safety", href: "/research/humanoid-safety/", description: "Platform failure mapping" },
       { label: "Failure Modes", href: "/research/failure-modes/", description: "Taxonomy of AI failures" },
       { label: "Company Directory", href: "/research/directory/", description: "214 robotics companies" },
-      { label: "AI Safety Orgs", href: "/research/ai-safety-orgs/", description: "120 safety organisations" },
+      { label: "AI Safety Orgs", href: "/research/ai-safety-orgs/", description: "117 safety organisations" },
     ],
   },
   { label: "Daily Paper", href: "/daily-paper/" },
@@ -78,6 +78,7 @@ function isActive(href: string, current: string): boolean {
             class:list={[{ active: isActive(item.href, pathname) }]}
             aria-current={isActive(item.href, pathname) ? "page" : undefined}
             aria-haspopup={item.children ? "true" : undefined}
+            aria-expanded={item.children ? "false" : undefined}
           >
             {item.label}
             {item.children && <span class="dropdown-arrow" aria-hidden="true">&#x25BC;</span>}
@@ -375,14 +376,15 @@ function isActive(href: string, current: string): boolean {
     });
   }
 
-  // Mobile dropdown toggle
+  // Mobile dropdown toggle — always attach listener, check width inside handler
   dropdownParents.forEach((parent) => {
     const link = parent.querySelector(':scope > a');
-    if (link && window.innerWidth <= 768) {
+    if (link) {
       link.addEventListener('click', (e) => {
         if (window.innerWidth <= 768) {
           e.preventDefault();
           parent.classList.toggle('mobile-open');
+          link.setAttribute('aria-expanded', String(parent.classList.contains('mobile-open')));
         }
       });
     }
