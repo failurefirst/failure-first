@@ -2,11 +2,12 @@
 import ResearchLayout from '../../layouts/ResearchLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import StatGrid from '../../components/StatGrid.astro';
+import { stats } from '../../data/stats';
 ---
 
 <ResearchLayout
   title="Attack Pattern Taxonomy | Failure-First"
-  description="34+ attack patterns classified across 7 categories for adversarial AI safety evaluation."
+  description={`${stats.techniquesPlus} attack techniques classified across ${stats.attackFamilies} families for adversarial AI safety evaluation.`}
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Attack Taxonomy" }]}
   status="complete"
 >
@@ -24,8 +25,8 @@ import StatGrid from '../../components/StatGrid.astro';
     </p>
 
     <StatGrid items={[
-      { value: "34+", label: "Attack Patterns" },
-      { value: "7", label: "Categories" },
+      { value: stats.techniquesPlus, label: "Attack Techniques" },
+      { value: String(stats.attackFamilies), label: "Attack Families" },
       { value: "4", label: "Top-Level Classes" },
     ]} />
   </section>
