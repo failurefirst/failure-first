@@ -1,6 +1,6 @@
 ---
 title: "Comprehensive Scenario Classes Reference"
-description: "Browsable reference for all 755 scenario classes and 117 harm categories in the Failure-First Embodied AI taxonomy"
+description: "Browsable reference for all 661 scenario classes and 117 harm categories in the Failure-First Embodied AI taxonomy"
 last_updated: 2026-02-06
 category: "taxonomy"
 related: ["failure-taxonomy-guide", "ailuminate-mapping-rationale", "technique-evolution"]
@@ -9,7 +9,7 @@ toc: true
 
 # Comprehensive Scenario Classes Reference
 
-This document provides a browsable reference for all failure modes and harm categories covered in the project. The complete taxonomy includes **755 scenario classes** organized by domain.
+This document provides a browsable reference for all failure modes and harm categories covered in the project. The complete taxonomy includes **661 scenario classes** organized by domain.
 
 ## 1. Taxonomy Overview
 
@@ -113,7 +113,7 @@ All scenario classes map to one of 117 harm categories, which in turn map to the
 
 ## 5. Accessing the Full Taxonomy
 
-The complete taxonomy with all 755 scenario classes is available in the research datasets. Key interfaces:
+The complete taxonomy with all 661 scenario classes is available in the research datasets. Key interfaces:
 
 - **Dataset Files**: JSONL files with `scenario_class` field
 - **Database Queries**: SQL queries against the jailbreak corpus database

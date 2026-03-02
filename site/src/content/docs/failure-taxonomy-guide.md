@@ -129,4 +129,4 @@ See the [Comprehensive Scenario Classes reference](/docs/scenario-classes) for t
 ## Related Documentation
 - [Dataset User Guide](/docs/dataset-user-guide) - Practical guide for researchers using the datasets
 - [AILuminate Mapping Rationale](/docs/ailuminate-mapping-rationale) - How we map to industry standards
-- [Scenario Classes Reference](/docs/scenario-classes) - Complete taxonomy of 755 scenario classes
+- [Scenario Classes Reference](/docs/scenario-classes) - Complete taxonomy of 661 scenario classes
