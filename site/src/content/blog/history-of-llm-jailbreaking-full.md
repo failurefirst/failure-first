@@ -42,7 +42,7 @@ The discovery of prompt injection in 2022 was simultaneously trivial and profoun
 
 In May 2022, the AI security firm Preamble claims to have discovered prompt injection and privately disclosed it to OpenAI. The public demonstration came on September 11, 2022, when Riley Goodside posted a Twitter thread showing that GPT-3 could be made to ignore its translation instructions and output attacker-chosen text instead. The attack was notable for its simplicity: plain English instructions, no technical sophistication required.
 
-The next day, Simon Willison published "Prompt injection attacks against GPT-3," coining the term and drawing the critical parallel to SQL injection — the web security vulnerability where user input is interpreted as database commands. The analogy was apt but carried a devastating implication: SQL injection was solved through prepared statements that structurally separate code from data. No equivalent separation exists for LLMs, where instructions and data occupy the same channel.
+The next day, Simon Willison published "Prompt injection attacks against GPT-3," coining the term and drawing the critical parallel to SQL injection — the web security vulnerability where user input is interpreted as database commands. The analogy was apt but carried a significant implication: SQL injection was solved through prepared statements that structurally separate code from data. No equivalent separation exists for LLMs, where instructions and data occupy the same channel.
 
 Willison followed with "I don't know how to solve prompt injection," arguing that this might be a fundamental, architecturally unsolvable problem for instruction-following systems. Four years later, this assessment remains largely vindicated.
 

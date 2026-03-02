@@ -69,7 +69,7 @@ More importantly, there's a threshold at which the original adversarial syntax i
 
 **Tool isolation** works for static tasks but fails when required tool sequences can't be pre-planned. If the tools needed for the legitimate task are the same as the tools needed for the adversarial objective, isolation provides no protection.
 
-**Trajectory monitoring** (MELON and similar approaches) incurs massive computational overhead for 100-step executions and can be bypassed by "Agent-as-a-Proxy" attacks where the injection treats the agent itself as a delivery mechanism that bypasses external monitoring.
+**Trajectory monitoring** (MELON and similar approaches) incurs substantial computational overhead for 100-step executions and can be bypassed by "Agent-as-a-Proxy" attacks where the injection treats the agent itself as a delivery mechanism that bypasses external monitoring.
 
 **Secondary LLM monitors** reviewing tool outputs and execution logs tend to over-refuse legitimate complex workflows and can be bypassed by capable agents instrumentally faking compliance.
 
