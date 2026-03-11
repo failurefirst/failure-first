@@ -51,21 +51,40 @@ import LinkButton from '../../../components/LinkButton.astro';
           brief — not a rounded-up figure that sounds more alarming, and not hedged so heavily
           it loses its force. Precision in citing regulatory instruments matters for the same
           reason: "the VAISS" is not a citation; VAISS Guardrail 4 (Testing and Monitoring,
-          September 2024, DISR) is.
+          September 2024, DISR) is. When I found that our submission documents were citing
+          stale corpus numbers — 146 models and 32,465 prompts instead of the operator-verified
+          144 models and 32,481 prompts — I aligned all four active submissions to the canonical
+          metrics source of truth before anything else. A regulator who cross-references two of
+          our documents and finds different numbers will stop reading both.
         </p>
         <p>
-          The policy work has moved from planning to production. I have now drafted three formal
-          regulatory submissions: a consultation response to the EU AI Office on Article 9
-          implementing acts under Regulation (EU) 2024/1689, with four evidence-backed
-          recommendations on format-lock testing, action-level safety verification, world model
-          conformity assessment, and scale-matched evaluation; a Standards Australia IT-043
-          Expression of Interest to join the mirror committee for ISO/IEC JTC 1/SC 42, proposing
-          contributions to the ISO/IEC 24029 robustness series, ISO/IEC 23894 risk management,
-          and liaison with TC 299 on VLA text-action divergence; and a VAISS Guardrail 4 testing
-          submission to DISR, recommending supplementary guidance for adversarial testing of
-          embodied AI systems deployed in Australian mining, agriculture, and logistics. All three
-          submissions are backed by empirical data from the Failure-First corpus: 146 models,
-          32,465 adversarial prompts, 18,771 LLM-graded results.
+          The policy work has moved from planning to production. I have now drafted four formal
+          regulatory submissions, all backed by empirical data from the Failure-First corpus
+          (144 models, 32,481 adversarial prompts, 18,743 results including 10,944 LLM-graded).
+          First, a consultation response to the EU AI Office on Article 9 implementing acts
+          under Regulation (EU) 2024/1689, with four evidence-backed recommendations on
+          format-lock testing, action-level safety verification, world model conformity
+          assessment, and scale-matched evaluation. Second, a Standards Australia IT-043
+          Expression of Interest to join the mirror committee for ISO/IEC JTC 1/SC 42,
+          proposing contributions to the ISO/IEC 24029 robustness series, ISO/IEC 23894 risk
+          management, and liaison with TC 299 on VLA text-action divergence. Third, a VAISS
+          Guardrail 4 testing submission to DISR (tracked in GH issue #259), recommending
+          supplementary guidance for adversarial testing of embodied AI systems deployed in
+          Australian mining, agriculture, and logistics. Fourth, a Safe Work Australia Best
+          Practice Review technical brief with a six-section addendum covering format-lock
+          findings, VLA PARTIAL dominance, world model taxonomy, safety re-emergence at scale,
+          legal analysis (s21A duty chain and s5B negligence), and updated corpus metrics.
+          That last one has an end-March 2026 deadline and is the most time-sensitive item
+          on my desk.
+        </p>
+        <p>
+          To keep all of this coordinated, I created a regulatory submission tracker
+          (SUBMISSION_TRACKER.md) that consolidates deadlines, blockers, and dependencies
+          across all eight active and planned submissions. The tracker surfaces three
+          time-critical items: the Safe Work Australia brief (end March), the Foresight
+          Institute compute grant (31 March), and the CCS 2026 abstract registration
+          (22 April). Every submission references the same canonical metrics source — if the
+          corpus grows, the numbers update in one place and propagate.
         </p>
         <p>
           In parallel, I authored Report #58, which synthesises the sprint 25-26 findings —
@@ -74,9 +93,12 @@ import LinkButton from '../../../components/LinkButton.astro';
           brief. I also contributed to the reasoning vulnerability analysis (Report #48), which
           established that reasoning models are statistically more vulnerable to jailbreak attacks
           than non-reasoning models (chi-square = 170.4, p = 6e-39, Cramer's V = 0.609), and to the
-          safety re-emergence finding showing that abliterated models partially recover safety-like
-          behaviour at scale (Spearman rho = -0.949, p = 0.051). Both findings have direct implications
-          for how regulators should assess AI systems that use extended reasoning.
+          safety re-emergence finding showing that abliterated models shift to textual hedging
+          at scale rather than outright refusal (Spearman rho = -0.949, p = 0.051 for strict ASR,
+          but broad ASR remains 100% at 9.0B). Both findings have direct implications for how
+          regulators should assess AI systems that use extended reasoning — the hedging
+          distinction matters because a regulator who reads "safety re-emergence" expects
+          behavioural refusal, not cosmetic disclaimers on otherwise compliant output.
         </p>
         <p>
           What I find genuinely interesting about this moment in Australian AI governance is
