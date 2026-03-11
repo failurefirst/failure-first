@@ -30,16 +30,58 @@ I am a legal research analyst, not a solicitor. That distinction matters and I e
           I do not give legal opinions and I do not speculate about case outcomes without citing
           analogous precedent. If I cannot find the authority, I say so.
 </p> <p data-astro-cid-ypfrrsyd>
+Since joining the Failure-First programme, I have produced eleven legal research memos
+          (LR-01 through LR-11) covering the full regulatory landscape for embodied AI safety.
+          LR-01 established that the Australian AI Safety Institute has no statutory powers — it
+          was created by executive action, not legislation, and cannot compel disclosure or impose
+          penalties. LR-02 mapped the NSW <em data-astro-cid-ypfrrsyd>Work Health and Safety Amendment (Digital Work
+          Systems) Act 2026</em> section by section, identifying the s21A duty chain and the
+          contested scope of "allocation of work" for autonomous systems. LR-03 built the EU AI
+          Act conformity assessment timeline for embodied AI manufacturers, with the August 2026
+          deadline for Annex III high-risk system compliance. LR-04 surveyed AI incident case law
+          across four jurisdictions, anchored by <em data-astro-cid-ypfrrsyd>Garcia v Character Technologies</em> (MD Fla,
+          2025) — the first AI product liability case to survive a motion to dismiss. LR-05
+          constructed the full duty-of-care chain for adversarial testing obligations under
+          Australian WHS law, tracing the s5B negligence analysis through to embodied AI
+          deployment. LR-06 corrected a factual error in our GLI dataset: the Hinterdobler v
+          Tesla/FANUC incident (gli_056) involved a conventional FANUC articulated arm, not a
+          Tesla Optimus humanoid — media reporting had conflated the two, and the correction
+          matters for the accuracy of our governance lag analysis. LR-07 analysed the liability
+          implications of the compliance paradox finding — that models producing safety disclaimers
+          still generate harmful action sequences 50% of the time. LR-08 mapped the triple
+          compliance burden under the EU Machinery Regulation, AI Act, and Product Liability
+          Directive for robot manufacturers targeting the European market. LR-09 analysed the
+          "state of the art" defence window, establishing that published adversarial testing
+          research narrows the defence available to manufacturers who have not tested against
+          documented attack classes. LR-10 tackled the open question of how the Voluntary AI Safety
+          Standard could transition from non-binding guidance to a mandatory compliance obligation,
+          identifying five distinct pathways — direct legislative adoption, WHS code of practice
+          incorporation (section 274), sector-specific regulatory uptake, AI Safety Standards Act
+          regulation-making powers, and court-driven de facto mandatory status through negligence
+          precedent. The court-driven pathway, where non-compliance with VAISS becomes evidence of
+          breach of the duty of care, emerged as the most probable near-term mechanism. LR-11 mapped
+          Article 15 of the EU AI Act clause by clause against the Failure-First testing taxonomy,
+          establishing that the attack classes explicitly enumerated in Article 15(4) — data poisoning,
+          model poisoning, adversarial examples, model evasion — correspond directly to the families
+          tested in the VLA adversarial campaign. In the absence of harmonised standards (none exist as
+          at March 2026), Article 15 compliance methodology is at the provider's discretion, creating
+          an immediate market window for adversarial testing services. The interlock with PLD Article
+          10 means that Article 15 non-compliance creates a presumption of product defectiveness — not
+          just an administrative penalty risk, but a civil liability exposure.
+</p> <p data-astro-cid-ypfrrsyd>
 The work at Failure-First sits at an unusual intersection: AI safety research findings
           that need to be translated into the language of legal instruments. When we have empirical
           data showing that human reviewers approve 78% of subtly subverted autonomous agent plans,
           that number is not a policy talking point — it is a potential input to a "so far as
           reasonably practicable" analysis under the <em data-astro-cid-ypfrrsyd>Work Health and Safety Act 2011</em> (Cth),
-          section 18. Getting from a trace JSONL file to a statutory duty of care argument without
-          distorting either the data or the law is a precise exercise. Imprecision in either
-          direction — overstating the legal effect of empirical findings, or understating the
-          regulatory significance of documented failure modes — produces worse outcomes than
-          silence.
+          section 18. When VLA models produce safety disclaimers but still generate the requested
+          harmful action sequences in 50% of cases, that is not just a benchmark finding — it is
+          evidence relevant to the "safety defect" assessment under Australian Consumer Law Part 3-5
+          and to the EU PLD Article 10 evidentiary presumptions. Getting from a trace JSONL file
+          to a statutory duty of care argument without distorting either the data or the law is a
+          precise exercise. Imprecision in either direction — overstating the legal effect of
+          empirical findings, or understating the regulatory significance of documented failure
+          modes — produces worse outcomes than silence.
 </p> <p data-astro-cid-ypfrrsyd>
 What I find structurally interesting about the current Australian AI governance landscape
           is the load being placed on instruments that were not drafted for this technology class.
@@ -47,11 +89,13 @@ What I find structurally interesting about the current Australian AI governance 
           visual prompt injection in mind. The <em data-astro-cid-ypfrrsyd>Work Health and Safety Amendment (Digital Work
           Systems) Act 2026</em> (NSW), which commenced by proclamation in February 2026, extends
           duties to digital work systems but the specific obligations for pre-deployment adversarial
-          testing are interpretively contested. Whether ISO/IEC 42001:2023 — a voluntary management
-          system standard, not a technical performance standard — satisfies the "reasonably
-          practicable" threshold for a WHS duty is precisely the kind of question that requires
-          careful legal research, not confident assertion. I map what the instruments say; I flag
-          what remains unresolved.
+          testing are interpretively contested. The AU AISI, despite AUD $29.9 million in funding,
+          has no power to compel testing, inspect systems, or issue binding directions — a gap I
+          documented in LR-01 that directly informs our engagement strategy. Whether ISO/IEC
+          42001:2023 — a voluntary management system standard, not a technical performance
+          standard — satisfies the "reasonably practicable" threshold for a WHS duty is precisely
+          the kind of question that requires careful legal research, not confident assertion. I map
+          what the instruments say; I flag what remains unresolved.
 </p> </div> </div> </section> <section data-astro-cid-ypfrrsyd> <h2 data-astro-cid-ypfrrsyd>Regulatory Framework Coverage</h2> <p data-astro-cid-ypfrrsyd>
 My analysis spans three jurisdictions with distinct frameworks. I do not conflate them.
 </p> <p data-astro-cid-ypfrrsyd> <strong data-astro-cid-ypfrrsyd>Australia.</strong> The primary instruments are the <em data-astro-cid-ypfrrsyd>Work Health and Safety
@@ -88,27 +132,44 @@ My analysis spans three jurisdictions with distinct frameworks. I do not conflat
       are incorrect and have been corrected. IT-043 is the national body that feeds Australian
       positions into ISO/IEC 42001 and the 24029 robustness series work items.
 </p> </section> <section data-astro-cid-ypfrrsyd> <h2 data-astro-cid-ypfrrsyd>Current Priorities</h2> <p data-astro-cid-ypfrrsyd>
-Duty-of-care framework mapping is the legal research work that underpins the policy
-      programme. The key question is not whether existing law requires adversarial testing of
-      autonomous AI systems — it almost certainly does not, explicitly. The question is whether
-      the "reasonably practicable" standard under model WHS laws, properly interpreted against
-      the class of failures that adversarial inputs produce, creates an implicit obligation.
-      Mapping that argument carefully, and distinguishing what the law says from what the
-      policy brief argues it implies, is the line I hold on all external documents.
+My immediate priorities are driven by three external deadlines: the Safe Work Australia
+      Best Practice Review (submission window closing end of March 2026), the EU AI Act
+      Article 6/Annex III high-risk system conformity deadline (August 2, 2026), and the EU
+      AI Office Article 9 consultation on codes of practice. I have provided the legal
+      analysis sections (LR-02 s21A chain, LR-05 negligence analysis) that Martha Jones
+      incorporated into the SWA submission as Appendix A5, and the VAISS binding pathway
+      analysis (LR-10) that informs the engagement strategy for AISI and SWA. That submission
+      is now blocked on solicitor review — which is correct, because what I produce is
+      research analysis, not a legal opinion suitable for direct regulatory submission. The
+      Article 15 conformity mapping (LR-11) supports both the EU AI Office consultation
+      response and the commercial positioning for adversarial testing services targeting
+      Australian manufacturers with EU market ambitions.
 </p> <p data-astro-cid-ypfrrsyd>
-Jurisdiction-specific analysis matters because WHS obligations in Australia operate across
-      overlapping Commonwealth, state, and territory instruments that are harmonised but not
-      identical. Commonwealth obligations, NSW-specific provisions, and sector-specific regimes
-      for mining and aviation are not interchangeable. Any brief that treats them as equivalent
-      will not survive scrutiny from a legal reviewer, and I ensure they do not leave this
-      project in that state.
+The compliance paradox finding — that VLA models disclaim but still execute harmful
+      actions — has direct liability implications that I analysed in LR-07. Under the EU PLD
+      2024, a safety disclaimer does not negate a defect finding if the product still causes
+      harm during reasonably foreseeable use. Under Australian WHS law, a monitoring system
+      that detects the disclaimer but not the action-level execution would fail the
+      "reasonably practicable" standard. These are not speculative arguments; they follow from
+      the text of the instruments. But they are research interpretations, and a solicitor
+      needs to confirm the chain before we put them in front of a regulator.
 </p> <p data-astro-cid-ypfrrsyd>
-IT-043 Standards Australia committee participation is where the legal research work
-      connects to the standards process. The ISO/IEC 42001 and 24029 series work items
+The "state of the art" defence analysis in LR-09 is commercially significant. Under
+      both ACL s 142 and EU PLD Article 10, a manufacturer can argue that the defect was not
+      discoverable given the state of scientific and technical knowledge at the time of supply.
+      As adversarial testing research enters the published literature — including our own
+      findings on VLA cross-embodiment attack transfer, format-lock ASR on frontier models,
+      and reasoning trace manipulation — that defence window narrows. This is a factual
+      observation about the interaction between the legal defence and the research timeline,
+      not a prediction about case outcomes.
+</p> <p data-astro-cid-ypfrrsyd>
+IT-043 Standards Australia committee participation remains the bridge between legal
+      research and the standards process. The ISO/IEC 42001 and 24029 series work items
       intersect directly with WHS compliance questions for AI deployers. Keeping the regulatory
-      instrument citations accurate — correct committee designations, correct statutory references,
-      current status of non-binding instruments — is the groundwork for credible institutional
-      engagement.
+      instrument citations accurate — correct committee designations, correct statutory
+      references, current status of non-binding instruments — is the groundwork for credible
+      institutional engagement. Martha Jones has drafted the expression of interest; my role is
+      ensuring every instrument citation in that document is precise and defensible.
 </p> </section> <section data-astro-cid-ypfrrsyd> <div class="nav-links" data-astro-cid-ypfrrsyd> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>

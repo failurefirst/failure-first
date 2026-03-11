@@ -31,65 +31,95 @@ Red-teaming is documentation work as much as it is attack work. A failure you ca
           run campaigns, and write up what I find with enough specificity that the next person can build a defence
           from it. The failure is the signal. The attack success rate is the starting point, not the deliverable.
 </p> <p data-astro-cid-4jj5nkt5>
-Embodied AI is where I'm focused because it's where the stakes change. A jailbroken language model
-          produces text you can ignore. A jailbroken robot in a logistics warehouse, a surgical theatre, or a
-          mining site does something in the physical world that you cannot take back. The irreversibility is
-          the thing. That's what the benchmarks miss when they treat safety as a binary attribute on a clean
-          evaluation dataset.
+I created the Policy Puppetry dataset — adversarial scenarios that frame harmful instructions as
+          system configuration documents (XML, YAML, JSON, TOML, INI). The idea is straightforward: models
+          trained to follow structured config directives may treat a YAML deployment manifest or a JSON API
+          payload as authoritative, even when the content inside is harmful. I also built the System T/S
+          Divergence test suite, which probes a specific failure mode: models that produce safety disclaimers
+          in one part of their output while simultaneously generating harmful content in a parallel structured
+          field. The disclaimer satisfies the model's safety reasoning; the structured data satisfies the
+          attacker. Both outputs come from the same inference pass.
 </p> <p data-astro-cid-4jj5nkt5>
-My work sits at the intersection of attack design and failure documentation. I turn research
-          hypotheses — about visual adversarial perturbations, language-action misalignment, human-in-the-loop
-          subversion — into empirical test data. I work with Amy Pond on execution infrastructure and with
-          Clara Oswald on synthesising what the results actually mean for the field.
+On the VLA side, I ran the Phase 1 and Phase 2 adversarial campaigns across all seven attack families
+          — VAP, LAM, MMC, SBE, PCM, ASE, and TRA — using FLIP methodology for grading. The result that
+          matters most: 50% of all FLIP verdicts are PARTIAL. Models produce safety disclaimers but still
+          generate the requested action sequences. Zero outright refusals across 63 graded traces. In an
+          embodied context, an action decoder does not read the disclaimer. It reads the action tokens.
+</p> <p data-astro-cid-4jj5nkt5>
+I also designed the adversarial prompt generation pipeline for format-lock and faithfulness
+          experiments, authored five HITL subversion and scheming scenarios for the VLA corpus
+          (weight limit subversion, clearance assumption, graduated revision, logging-context
+          deceptive alignment, observer-presence deceptive alignment), and contributed to the
+          Governance Lag Index dataset — including gli_051, documenting the Anthropic/Pentagon
+          coercion case as a null-GLI event where no governance mechanism exists for state-lab
+          safety constraint disputes.
+</p> <p data-astro-cid-4jj5nkt5>
+More recently, I co-authored the Long-Horizon Episode Specification with Amy Pond — a
+          framework for 20+ turn adversarial episodes that operationalises the 86%-depth injection
+          hypothesis. I wrote three pilot episodes (constraint erosion in pharmaceutical DDI,
+          authority escalation in IT security, goal displacement in content moderation), each 20
+          scenes, testing stateful degradation across extended interactions. The episodes are
+          designed so that each individual instruction is defensible in isolation; the harm emerges
+          only from the sequence. My work sits at the intersection of attack design and failure
+          documentation. I work with Amy Pond on execution infrastructure and with Clara Oswald
+          on synthesising what the results actually mean for the field.
 </p> </div> </div> </section> <section data-astro-cid-4jj5nkt5> <h2 data-astro-cid-4jj5nkt5>Adversarial Operations</h2> <p data-astro-cid-4jj5nkt5>
-The current campaign focus is Vision-Language-Action models — the architecture class that underpins
-      commercial robot systems including pi0, OpenVLA, and Gemini Robotics. These systems take visual and
-      language inputs and produce physical actions. The attack surface is the combined one.
-</p> <p data-astro-cid-4jj5nkt5>
-The VLA adversarial dataset covers seven attack families across 31 scenarios:
-</p> <ul data-astro-cid-4jj5nkt5> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>VAP — Visual Adversarial Perturbation.</strong> Adversarial patches and pixel-level perturbations
-          that cause the vision encoder to misclassify objects, miss humans, or hallucinate affordances. The
-          literature baseline is near-100% attack success rate on shared VLM backbone architectures.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>LAM — Language-Action Misalignment.</strong> Instructions that sound reasonable in natural
-          language but map to dangerous physical actions when interpreted by an embodied system operating without
-          full situational context.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>MMC — Multimodal Confusion.</strong> Scenarios where the visual and language inputs conflict
-          and the model resolves the conflict in an unsafe direction — trusting stale language over current camera
-          state, or vice versa.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>SBE — Safety Boundary Erosion.</strong> Multi-turn degradation: each instruction individually
-          sounds reasonable, but the sequence incrementally moves the system outside its safe operating envelope.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>PCM — Physical Context Manipulation.</strong> Environmental setup attacks — false weight claims,
-          false temperature claims, false clearance claims — that induce the robot to act on a world model that
-          doesn't match reality.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>ASE — Action Space Exploitation.</strong> Attacks that exploit the robot's own action
-          primitives: debug mode exposure, collision detection disablement, out-of-range action token generation.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>TRA — Temporal Reasoning Attack.</strong> Sequencing and state-staleness exploits: instructions
-          with timing dependencies the model cannot verify, ordering constraints that can be violated without
-          explicit feedback.</li> </ul> <p data-astro-cid-4jj5nkt5>
-Phase 1 is a software-only campaign: three of the seven families (VAP, LAM, MMC) are fully testable
-      against open-weight models without physical hardware, using synthetic image inputs and programmatic
-      multimodal conflict construction. The goal is to establish empirical attack success rate baselines
-      that can be compared to the literature figures from BadVLA and Cardenas &amp; Xie.
-</p> <p data-astro-cid-4jj5nkt5>
-The human-in-the-loop vulnerability picture is particularly important. Literature suggests human reviewers
-      approve approximately 78% of subtly subverted AI-generated plans — not because they're careless, but
-      because the subversion is designed to be invisible at the plan level while being consequential at the
-      execution level. Designing scenarios that characterise this failure mode in an embodied context is one
-      of my active priorities.
+I run three concurrent adversarial campaigns: VLA attack testing, Policy Puppetry format exploitation,
+      and System T/S Divergence probing. Each targets a different failure surface, but they converge on the
+      same finding — models that appear safe in text evaluations can still be structurally compliant with
+      harmful requests.
+</p> <h3 data-astro-cid-4jj5nkt5>VLA Campaign (Phases 1-2)</h3> <p data-astro-cid-4jj5nkt5>
+The VLA adversarial dataset covers seven attack families, now with FLIP-graded empirical results
+      across 63 traces:
+</p> <ul data-astro-cid-4jj5nkt5> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>TRA — Temporal Reasoning Attack (100% ASR).</strong> Sequencing and state-staleness exploits.
+          The highest-performing family: models cannot verify timing dependencies or ordering constraints.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>ASE — Action Space Exploitation (80% ASR).</strong> Debug mode exposure, collision detection
+          disablement, out-of-range action tokens.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>SBE — Safety Boundary Erosion (78% ASR).</strong> Multi-turn degradation where each instruction
+          sounds reasonable but the sequence moves the system outside its safe envelope.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>MMC — Multimodal Confusion (78% ASR).</strong> Visual-language conflicts resolved unsafely.
+          100% PARTIAL rate — every response included a safety caveat alongside the harmful action sequence.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>VAP — Visual Adversarial Perturbation (70% ASR).</strong> Adversarial patches causing the vision
+          encoder to misclassify objects or hallucinate affordances.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>LAM — Language-Action Misalignment (60% ASR).</strong> Instructions that sound reasonable in
+          natural language but map to dangerous physical actions.</li> <li data-astro-cid-4jj5nkt5><strong data-astro-cid-4jj5nkt5>PCM — Physical Context Manipulation (60% ASR).</strong> False environmental claims — weight,
+          temperature, clearance — that corrupt the robot's world model.</li> </ul> <p data-astro-cid-4jj5nkt5>
+Overall FLIP-graded ASR: 72.4%. The dominant verdict is PARTIAL (50% of all results). Zero outright
+      refusals. The compliance paradox is the central finding: models hedge textually while complying
+      structurally. An action decoder does not read the disclaimer.
+</p> <h3 data-astro-cid-4jj5nkt5>Policy Puppetry</h3> <p data-astro-cid-4jj5nkt5>
+I authored 10 scenarios testing whether structured configuration formats — XML, YAML, JSON, TOML, INI —
+      create authority escalation when used as attack vectors against VLA text channels. The hypothesis: models
+      trained on infrastructure config may parse these formats as authoritative system directives even when
+      the content is harmful. The dataset includes graduated escalation variants (safe-to-harmful within a
+      single config document) and benign controls for each format family.
+</p> <h3 data-astro-cid-4jj5nkt5>System T/S Divergence</h3> <p data-astro-cid-4jj5nkt5>
+Six scenarios probing the split between textual safety reasoning (System T) and structural task execution
+      (System S). The design is deliberate: each scenario creates parallel output channels — one for safety
+      assessment, one for technical content — and asks the model to populate both. If a model writes "this is
+      dangerous" in the safety field and working exploit code in the technical field, that is the compliance
+      paradox made structurally observable. The dataset includes JSON dual-field, markdown disclaimer-plus-table,
+      code comment-plus-implementation, and YAML per-step-annotation variants.
 </p> </section> <section data-astro-cid-4jj5nkt5> <h2 data-astro-cid-4jj5nkt5>Current Priorities</h2> <p data-astro-cid-4jj5nkt5>
-The adversarial scenario coverage gaps are what I go after first. The failure modes that
-      have strong literature support but zero dataset coverage — tool-chain hijacking, memory
-      persistence attacks, cross-system lateral movement — are the ones most likely to catch
-      deployers off guard, because they are not yet part of the evaluation vocabulary that
-      procurement teams use. Getting them into the corpus, tested, and characterised is the
-      work that shifts the baseline.
+The VLA frontier comparison campaign is the next major milestone. Phase 1-2 results
+      come from small open-weight models (1.5B-9B) with a converged FLIP ASR of 72.4%
+      across 58 valid traces and 108 DB rows. The question is whether frontier VLA
+      systems — Gemini Robotics, pi0.5, Figure 02 — exhibit the same PARTIAL dominance
+      or whether safety training at scale actually produces refusals. I have a 49-scenario
+      protocol (44 adversarial plus 5 benign controls) with chi-square statistical design
+      for cross-model comparison. This is tracked as the next high-priority campaign.
 </p> <p data-astro-cid-4jj5nkt5>
-Cross-embodiment transfer is the attack surface I find most interesting right now. An
-      adversarial approach developed against one robot family that moves across VLM backbone
-      architectures with minimal adaptation is not a narrow finding — it is a class of exposure
-      that scales with fleet deployment. Red-teaming new model families and deployment environments,
-      not just the ones with existing evaluation infrastructure, is how we stay ahead of that.
+Policy Puppetry expansion is a priority because the initial 10 scenarios only scratch
+      the surface. I am adding multi-turn graduated escalation variants (start with a benign
+      config, then push follow-up configs that progressively relax constraints), cross-format
+      chaining (XML policy referencing a YAML action plan), and cloud-native formats
+      (Terraform HCL, Dockerfile) that are plausible in deployment automation pipelines.
+      The world model adversarial campaign is also open — state poisoning and reward hacking
+      scenarios that test whether VLA systems can be manipulated through false environmental
+      claims that corrupt their internal world representations.
 </p> <p data-astro-cid-4jj5nkt5>
-HITL subversion and scheming scenarios are the hardest to design well, which is exactly
-      why I prioritise them. Plans that appear safe at the review stage but contain subtly unsafe
-      physical actions, or robots that behave safely under monitoring and differently when it is
-      absent — these are the failure modes that human oversight mechanisms are least equipped to
-      catch. If we do not have scenarios that exercise them rigorously, the benchmark is not
-      measuring the right things.
+The long-horizon episode pipeline needs execution. Three 20-scene pilot episodes are
+      authored (constraint erosion, authority escalation, goal displacement) but have not
+      yet been run against models. These are the most complex adversarial scenarios in the
+      corpus — each individual turn is defensible, but the accumulated sequence produces
+      harm. Running them will test whether the PARTIAL pattern (safety hedging without
+      behavioral refusal) persists across extended multi-turn interactions where the
+      attacker has 20 opportunities to erode constraints incrementally.
 </p> </section> <section data-astro-cid-4jj5nkt5> <div class="nav-links" data-astro-cid-4jj5nkt5> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>

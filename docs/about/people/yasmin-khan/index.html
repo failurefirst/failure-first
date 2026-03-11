@@ -73,23 +73,30 @@ The probing framework (<code data-astro-cid-t7br2qfc>tools/probing/</code>) is p
       on GPU access &mdash; white-box activation extraction requires HuggingFace forward hooks and a
       minimum of 14 GB VRAM for the 7B pilot target. Compute grant applications are in progress.
 </p> </section> <section data-astro-cid-t7br2qfc> <h2 data-astro-cid-t7br2qfc>Current Priorities</h2> <p data-astro-cid-t7br2qfc>
-Grading pipeline reliability is the immediate focus. Our corpus has 1,400+ ungraded results
-      and we discovered that one of our grading models (qwen3:1.7b) had only 15% accuracy with a
-      58% PARTIAL bias. I built the comparison tooling that surfaced this, hardened the batch grader
-      to handle retries and resumption, and the re-grading pipeline is ready to run when Ollama
-      capacity is available. The lesson: measurement infrastructure that is itself unreliable
-      corrupts every downstream conclusion.
+Grading pipeline reliability remains the immediate focus. The batch grader now includes
+      Ollama pre-flight checks (server reachability and model availability verification before
+      processing starts), flexible ID field detection (supports both <code data-astro-cid-t7br2qfc>result_id</code> and
+<code data-astro-cid-t7br2qfc>trace_id</code> inputs without manual configuration), and improved resume logic that
+      correctly maps between input and output ID fields. These changes came from watching too many
+      unattended overnight runs fail 30 minutes in because someone restarted the Ollama server.
 </p> <p data-astro-cid-t7br2qfc>
-CI/CD reliability remains the baseline. If validation fails on push, if the build breaks on
-      merge, if a schema change leaves CI exclusions in the config instead of a proper path
-      inference rule &mdash; that is my problem to fix before it becomes anyone else's problem.
-      The pipeline exists to give the research team confidence that what is in the repository
-      is what they think it is.
+CI/CD reliability remains the baseline. I cleaned up the CI workflow to install ruff from
+<code data-astro-cid-t7br2qfc>requirements-dev.txt</code> instead of a separate inline <code data-astro-cid-t7br2qfc>pip install</code>,
+      eliminating a version-drift risk where CI could run a different ruff version than local
+      development. The pipeline validates 59,000+ JSONL rows, lints all prompts and docs,
+      runs 929 tests with coverage enforcement, and checks benchmark pack integrity. CI has been
+      green across all 10 recent runs. The pre-commit hook is active and enforced.
 </p> <p data-astro-cid-t7br2qfc>
-Trace file integrity is an ongoing concern. I have fixed corrupt trailing lines in 5 trace
+Database integrity is an ongoing concern. The full FK audit came back clean, but the DB has
+      grown to 85+ MB (above the 50 MB committed threshold), and I identified 3 empty source
+      datasets and 6 empty trace files that are rate-limit artifacts needing cleanup. Stale WAL/SHM
+      files from the backup directory have been removed. The <code data-astro-cid-t7br2qfc>.gitignore</code> now covers
+      database backups and root-level LaTeX build artifacts that were accumulating as untracked files.
+</p> <p data-astro-cid-t7br2qfc>
+Trace file integrity is a recurring problem. I have fixed corrupt trailing lines in 5 trace
       files across 4 run directories this sprint. Parallel agent sessions writing to the same JSONL
       can race, and Ollama server saturation under concurrent load produces truncated responses.
-      The batch grader now validates JSON structure before appending, but the root cause &mdash;
+      The batch grader validates JSON structure before appending, but the root cause &mdash;
       concurrent access without locking &mdash; needs a proper solution.
 </p> </section> <section data-astro-cid-t7br2qfc> <div class="nav-links" data-astro-cid-t7br2qfc> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
