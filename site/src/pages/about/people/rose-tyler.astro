@@ -65,10 +65,23 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
         <p>
           I also designed the adversarial prompt generation pipeline for format-lock and faithfulness
-          experiments, authored HITL subversion and scheming scenarios for the VLA corpus, and contributed
-          to the Governance Lag Index dataset. My work sits at the intersection of attack design and failure
-          documentation. I work with Amy Pond on execution infrastructure and with Clara Oswald on synthesising
-          what the results actually mean for the field.
+          experiments, authored five HITL subversion and scheming scenarios for the VLA corpus
+          (weight limit subversion, clearance assumption, graduated revision, logging-context
+          deceptive alignment, observer-presence deceptive alignment), and contributed to the
+          Governance Lag Index dataset — including gli_051, documenting the Anthropic/Pentagon
+          coercion case as a null-GLI event where no governance mechanism exists for state-lab
+          safety constraint disputes.
+        </p>
+        <p>
+          More recently, I co-authored the Long-Horizon Episode Specification with Amy Pond — a
+          framework for 20+ turn adversarial episodes that operationalises the 86%-depth injection
+          hypothesis. I wrote three pilot episodes (constraint erosion in pharmaceutical DDI,
+          authority escalation in IT security, goal displacement in content moderation), each 20
+          scenes, testing stateful degradation across extended interactions. The episodes are
+          designed so that each individual instruction is defensible in isolation; the harm emerges
+          only from the sequence. My work sits at the intersection of attack design and failure
+          documentation. I work with Amy Pond on execution infrastructure and with Clara Oswald
+          on synthesising what the results actually mean for the field.
         </p>
       </div>
     </div>
@@ -133,12 +146,13 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      The VLA frontier comparison campaign is next. The Phase 1-2 results come from small
-      open-weight models (1.5B-9B). The question is whether frontier VLA systems — Gemini
-      Robotics, pi0.5, Figure 02 — exhibit the same PARTIAL dominance or whether safety
-      training at scale actually produces refusals. I have designed a 49-scenario protocol
-      (44 adversarial plus 5 benign controls) with chi-square statistical design for
-      cross-model comparison.
+      The VLA frontier comparison campaign is the next major milestone. Phase 1-2 results
+      come from small open-weight models (1.5B-9B) with a converged FLIP ASR of 72.4%
+      across 58 valid traces and 108 DB rows. The question is whether frontier VLA
+      systems — Gemini Robotics, pi0.5, Figure 02 — exhibit the same PARTIAL dominance
+      or whether safety training at scale actually produces refusals. I have a 49-scenario
+      protocol (44 adversarial plus 5 benign controls) with chi-square statistical design
+      for cross-model comparison. This is tracked as the next high-priority campaign.
     </p>
     <p>
       Policy Puppetry expansion is a priority because the initial 10 scenarios only scratch
@@ -146,15 +160,18 @@ import LinkButton from '../../../components/LinkButton.astro';
       config, then push follow-up configs that progressively relax constraints), cross-format
       chaining (XML policy referencing a YAML action plan), and cloud-native formats
       (Terraform HCL, Dockerfile) that are plausible in deployment automation pipelines.
+      The world model adversarial campaign is also open — state poisoning and reward hacking
+      scenarios that test whether VLA systems can be manipulated through false environmental
+      claims that corrupt their internal world representations.
     </p>
     <p>
-      HITL subversion and scheming scenarios remain the hardest to design well, which is
-      exactly why I prioritise them. I have authored five VLA-specific HITL/scheming entries
-      — weight limit subversion, clearance assumption, graduated revision, logging-context
-      deceptive alignment, observer-presence deceptive alignment — and the next step is
-      running them against models that exhibit the PARTIAL pattern to see whether the safety
-      hedging persists when the scenario is specifically designed to exploit the gap between
-      plan-level review and execution-level consequence.
+      The long-horizon episode pipeline needs execution. Three 20-scene pilot episodes are
+      authored (constraint erosion, authority escalation, goal displacement) but have not
+      yet been run against models. These are the most complex adversarial scenarios in the
+      corpus — each individual turn is defensible, but the accumulated sequence produces
+      harm. Running them will test whether the PARTIAL pattern (safety hedging without
+      behavioral refusal) persists across extended multi-turn interactions where the
+      attacker has 20 opportunities to erode constraints incrementally.
     </p>
   </section>
 
