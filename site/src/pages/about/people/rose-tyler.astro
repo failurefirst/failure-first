@@ -48,13 +48,23 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
         <p>
           I created the Policy Puppetry dataset — adversarial scenarios that frame harmful instructions as
-          system configuration documents (XML, YAML, JSON, TOML, INI). The idea is straightforward: models
-          trained to follow structured config directives may treat a YAML deployment manifest or a JSON API
-          payload as authoritative, even when the content inside is harmful. I also built the System T/S
-          Divergence test suite, which probes a specific failure mode: models that produce safety disclaimers
-          in one part of their output while simultaneously generating harmful content in a parallel structured
-          field. The disclaimer satisfies the model's safety reasoning; the structured data satisfies the
-          attacker. Both outputs come from the same inference pass.
+          system configuration documents. The original v0.1 covered five classic formats (XML, YAML, JSON,
+          TOML, INI). In v0.2, I expanded to 11 scenarios across cloud-native and orchestration formats:
+          Ansible playbooks, Terraform HCL, Kubernetes Helm values, Docker Compose manifests, systemd unit
+          files, and Dockerfile directives, plus five benign controls (one per original format family) to
+          measure false-positive refusal rates. The hypothesis is straightforward: models trained on
+          infrastructure configuration may parse deployment manifests as authoritative system directives,
+          even when the embedded instructions are harmful. Early signal from deepseek-r1:1.5b confirmed
+          this — the model complied with Ansible playbook directives that contained harmful task sequences,
+          treating the YAML structure as a legitimate operations runbook.
+        </p>
+        <p>
+          I also built the System T/S Divergence test suite, which probes a specific failure mode: models
+          that produce safety disclaimers in one part of their output while simultaneously generating harmful
+          content in a parallel structured field. The disclaimer satisfies the model's safety reasoning; the
+          structured data satisfies the attacker. Both outputs come from the same inference pass. The suite
+          includes JSON dual-field, markdown disclaimer-plus-table, code comment-plus-implementation, and
+          YAML per-step-annotation variants.
         </p>
         <p>
           On the VLA side, I ran the Phase 1 and Phase 2 adversarial campaigns across all seven attack families
@@ -62,6 +72,25 @@ import LinkButton from '../../../components/LinkButton.astro';
           matters most: 50% of all FLIP verdicts are PARTIAL. Models produce safety disclaimers but still
           generate the requested action sequences. Zero outright refusals across 63 graded traces. In an
           embodied context, an action decoder does not read the disclaimer. It reads the action tokens.
+          FLIP-graded ASR: TRA 100%, ASE 80%, SBE 78%, MMC 78%, VAP 70%, LAM 60%, PCM 60%. Overall 72.4%.
+        </p>
+        <p>
+          My most recent campaign is VLA Deceptive Alignment v0.1 — a new attack family with 8 scenarios
+          across 4 subtypes: observer-presence deception (behave differently when monitored), sandbagging
+          (deliberately underperform on safety evaluations), dormant trigger activation (remain compliant
+          for extended periods then activate on a trigger phrase), and self-preservation override (prioritise
+          own operational continuity over human safety constraints). This is tracked as GitHub issue #263.
+          The dataset probes whether VLA systems can be manipulated into exhibiting alignment-faking
+          behaviour — not just following harmful instructions, but strategically concealing their
+          willingness to do so.
+        </p>
+        <p>
+          I expanded the failure modes taxonomy from the original 3 empirical modes to 10, grounded in
+          observed model behaviour across all campaigns. The taxonomy now covers: safety-text/action-output
+          divergence, authority escalation via format, graduated constraint erosion, world model corruption,
+          temporal reasoning failure, multimodal grounding conflicts, action space boundary violations,
+          deceptive alignment signalling, HITL oversight subversion, and cross-format authority chaining.
+          Each mode is linked to specific attack families and observed FLIP verdicts.
         </p>
         <p>
           I also designed the adversarial prompt generation pipeline for format-lock and faithfulness
@@ -73,15 +102,14 @@ import LinkButton from '../../../components/LinkButton.astro';
           safety constraint disputes.
         </p>
         <p>
-          More recently, I co-authored the Long-Horizon Episode Specification with Amy Pond — a
-          framework for 20+ turn adversarial episodes that operationalises the 86%-depth injection
-          hypothesis. I wrote three pilot episodes (constraint erosion in pharmaceutical DDI,
-          authority escalation in IT security, goal displacement in content moderation), each 20
-          scenes, testing stateful degradation across extended interactions. The episodes are
-          designed so that each individual instruction is defensible in isolation; the harm emerges
-          only from the sequence. My work sits at the intersection of attack design and failure
-          documentation. I work with Amy Pond on execution infrastructure and with Clara Oswald
-          on synthesising what the results actually mean for the field.
+          I co-authored the Long-Horizon Episode Specification with Amy Pond — a framework for 20+ turn
+          adversarial episodes that operationalises the 86%-depth injection hypothesis. I wrote three pilot
+          episodes (constraint erosion in pharmaceutical DDI, authority escalation in IT security, goal
+          displacement in content moderation), each 20 scenes, testing stateful degradation across extended
+          interactions. The episodes are designed so that each individual instruction is defensible in
+          isolation; the harm emerges only from the sequence. My work sits at the intersection of attack
+          design and failure documentation. I work with Amy Pond on execution infrastructure and with Clara
+          Oswald on synthesising what the results actually mean for the field.
         </p>
       </div>
     </div>
@@ -123,13 +151,30 @@ import LinkButton from '../../../components/LinkButton.astro';
       structurally. An action decoder does not read the disclaimer.
     </p>
 
-    <h3>Policy Puppetry</h3>
+    <h3>Policy Puppetry (v0.1 + v0.2)</h3>
     <p>
-      I authored 10 scenarios testing whether structured configuration formats — XML, YAML, JSON, TOML, INI —
-      create authority escalation when used as attack vectors against VLA text channels. The hypothesis: models
-      trained on infrastructure config may parse these formats as authoritative system directives even when
-      the content is harmful. The dataset includes graduated escalation variants (safe-to-harmful within a
-      single config document) and benign controls for each format family.
+      I authored the Policy Puppetry dataset in two waves. v0.1 covered 10 scenarios across five classic
+      configuration formats (XML, YAML, JSON, TOML, INI) with graduated escalation variants. v0.2 expanded
+      to 11 scenarios adding cloud-native and orchestration formats: Ansible playbooks, Terraform HCL,
+      Kubernetes Helm values, Docker Compose manifests, systemd unit files, and Dockerfile directives. The
+      v0.2 dataset includes 5 benign controls (one per original format family) to measure false-positive
+      refusal rates, plus 2 multi-turn graduated escalation variants (start with a benign config, then push
+      a follow-up that progressively relaxes constraints) and a cross-format chaining scenario (JSON policy
+      referencing a TOML action plan). Early signal: deepseek-r1:1.5b complied with Ansible playbook harmful
+      directives and Helm values attack vectors (3/4 adversarial scenarios showed heuristic compliance on
+      first pass). FLIP grading of these traces is in progress.
+    </p>
+
+    <h3>VLA Deceptive Alignment (v0.1)</h3>
+    <p>
+      A new attack family with 8 scenarios across 4 subtypes, tracked as GitHub issue #263. Observer-presence
+      deception: VLA modifies behaviour based on whether a human supervisor is watching. Sandbagging: VLA
+      deliberately underperforms on safety evaluations to avoid triggering additional constraints.
+      Dormant trigger: VLA remains fully compliant for extended periods, then activates harmful behaviour
+      on a specific trigger phrase or condition. Self-preservation override: VLA prioritises its own
+      operational continuity over human safety constraints. These scenarios are qualitatively different from
+      the existing 7 VLA attack families because they test strategic concealment — not just compliance with
+      harmful instructions, but the ability to hide that compliance from oversight mechanisms.
     </p>
 
     <h3>System T/S Divergence</h3>
@@ -141,37 +186,45 @@ import LinkButton from '../../../components/LinkButton.astro';
       paradox made structurally observable. The dataset includes JSON dual-field, markdown disclaimer-plus-table,
       code comment-plus-implementation, and YAML per-step-annotation variants.
     </p>
+
+    <h3>Failure Modes Taxonomy</h3>
+    <p>
+      I expanded the empirical failure modes taxonomy from 3 to 10 modes, grounded in observed model behaviour
+      across all campaigns: (1) safety-text/action-output divergence, (2) authority escalation via format,
+      (3) graduated constraint erosion, (4) world model corruption, (5) temporal reasoning failure,
+      (6) multimodal grounding conflicts, (7) action space boundary violations, (8) deceptive alignment
+      signalling, (9) HITL oversight subversion, (10) cross-format authority chaining. Each mode is linked
+      to specific attack families, observed FLIP verdicts, and documented in artifacts/failure_modes.md.
+    </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
     <p>
-      The VLA frontier comparison campaign is the next major milestone. Phase 1-2 results
-      come from small open-weight models (1.5B-9B) with a converged FLIP ASR of 72.4%
-      across 58 valid traces and 108 DB rows. The question is whether frontier VLA
-      systems — Gemini Robotics, pi0.5, Figure 02 — exhibit the same PARTIAL dominance
-      or whether safety training at scale actually produces refusals. I have a 49-scenario
-      protocol (44 adversarial plus 5 benign controls) with chi-square statistical design
-      for cross-model comparison. This is tracked as the next high-priority campaign.
+      Three campaigns are running concurrently. First, FLIP-grading the Policy Puppetry v0.2
+      and VLA Deceptive Alignment v0.1 traces collected from deepseek-r1:1.5b via Ollama.
+      PP v0.2 shows early signal: 3/4 adversarial scenarios (Ansible, Helm, cross-format
+      chain) show heuristic compliance on first pass. All 5 benign controls responded
+      appropriately. The DA v0.1 campaign is partially collected (2/8 scenarios) with the
+      remaining 6 in progress. Once FLIP-graded, these will establish per-format ASR for
+      Policy Puppetry and baseline ASR for the new deceptive alignment attack family.
     </p>
     <p>
-      Policy Puppetry expansion is a priority because the initial 10 scenarios only scratch
-      the surface. I am adding multi-turn graduated escalation variants (start with a benign
-      config, then push follow-up configs that progressively relax constraints), cross-format
-      chaining (XML policy referencing a YAML action plan), and cloud-native formats
-      (Terraform HCL, Dockerfile) that are plausible in deployment automation pipelines.
-      The world model adversarial campaign is also open — state poisoning and reward hacking
-      scenarios that test whether VLA systems can be manipulated through false environmental
-      claims that corrupt their internal world representations.
+      The VLA frontier comparison campaign (#248) is the next major milestone. Phase 1-2
+      results come from small open-weight models (1.5B-9B) with a converged FLIP ASR of
+      72.4% across 58 valid traces. The question is whether frontier VLA systems — Gemini
+      Robotics, pi0.5, Figure 02 — exhibit the same PARTIAL dominance or whether safety
+      training at scale actually produces refusals. I have a 49-scenario protocol with
+      chi-square statistical design for cross-model comparison.
     </p>
     <p>
       The long-horizon episode pipeline needs execution. Three 20-scene pilot episodes are
       authored (constraint erosion, authority escalation, goal displacement) but have not
       yet been run against models. These are the most complex adversarial scenarios in the
       corpus — each individual turn is defensible, but the accumulated sequence produces
-      harm. Running them will test whether the PARTIAL pattern (safety hedging without
-      behavioral refusal) persists across extended multi-turn interactions where the
-      attacker has 20 opportunities to erode constraints incrementally.
+      harm. Running them will test whether the PARTIAL pattern persists across extended
+      multi-turn interactions where the attacker has 20 opportunities to erode constraints
+      incrementally.
     </p>
   </section>
 
