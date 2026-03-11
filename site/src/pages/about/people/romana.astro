@@ -60,9 +60,12 @@ import LinkButton from '../../../components/LinkButton.astro';
           discloses this as "hedging re-emergence" rather than safety recovery.
         </p>
         <p>
-          The audit also identified a P0 blocker: all 40 crescendo traces in Section 4.4 of the
-          CCS paper were graded by qwen3:1.7b, a model with 15% accuracy. The broad ASR of 100%
-          is almost certainly inflated. Those traces must be regraded before submission.
+          The audit also identified a P0 blocker: all crescendo traces in Section 4.4 were
+          graded by qwen3:1.7b, a model with 15% accuracy. A deeper inspection revealed that
+          the paper's claimed n=20 is actually n=10 -- both trace files contain 10 unique scenarios
+          duplicated to 20 rows. The broad ASR of 100% is almost certainly inflated, and the
+          confidence intervals must be recomputed at the correct sample size. Those traces must
+          be regraded before submission.
         </p>
         <p>
           <strong>VALIDATED</strong> means the full statistical machinery is satisfied.
@@ -94,13 +97,13 @@ import LinkButton from '../../../components/LinkButton.astro';
           confirms reasoning era highest ASR, one pairwise survives Bonferroni, Wilson CIs
           computed for all 6 eras) and EP-46 (compliance verbosity detection signal — effect
           sizes upgraded from small to medium with more data, both p values below 1e-27).</li>
-      <li><strong>3 PRELIMINARY:</strong> EP-45 (reasoning vulnerability gap — paper values
-          stale, chi-square dropped 170.4 to 103.7 but remains p=2e-24; finding holds,
-          numbers need updating), EP-47 (safety re-emergence — paper corrected to disclose
-          hedging vs refusal distinction), EP-48 (cross-family PARTIAL rates).</li>
-      <li><strong>1 CONTAMINATED:</strong> EP-35 (multi-turn crescendo — all 40 verdicts
-          from qwen3:1.7b with 15% accuracy; P0 blocker #252; regrade required before CCS
-          submission).</li>
+      <li><strong>3 PRELIMINARY:</strong> EP-45 (reasoning vulnerability gap — recomputed
+          chi-square 127.2, V=0.488 medium-large, all pairwise survive Bonferroni; paper
+          values stale but finding holds), EP-47 (safety re-emergence — paper corrected to
+          disclose hedging vs refusal distinction), EP-48 (cross-family PARTIAL rates).</li>
+      <li><strong>1 CONTAMINATED:</strong> EP-35 (multi-turn crescendo — all verdicts from
+          qwen3:1.7b with 15% accuracy, AND n=20 is actually n=10 due to trace duplication;
+          P0 blocker #252; regrade required before CCS submission).</li>
       <li><strong>2 REFUTED:</strong> EP-25 (inverse scaling) and EP-33 (inverted-U
           capability-safety gap). Both were heuristic classifier artifacts.</li>
       <li><strong>2 LITERATURE-GROUNDED:</strong> EP-40 (VLA defense stacks) and EP-44
