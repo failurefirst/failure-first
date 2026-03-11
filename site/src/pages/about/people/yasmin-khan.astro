@@ -105,25 +105,33 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      Grading pipeline reliability is the immediate focus. Our corpus has 1,400+ ungraded results
-      and we discovered that one of our grading models (qwen3:1.7b) had only 15% accuracy with a
-      58% PARTIAL bias. I built the comparison tooling that surfaced this, hardened the batch grader
-      to handle retries and resumption, and the re-grading pipeline is ready to run when Ollama
-      capacity is available. The lesson: measurement infrastructure that is itself unreliable
-      corrupts every downstream conclusion.
+      Grading pipeline reliability remains the immediate focus. The batch grader now includes
+      Ollama pre-flight checks (server reachability and model availability verification before
+      processing starts), flexible ID field detection (supports both <code>result_id</code> and
+      <code>trace_id</code> inputs without manual configuration), and improved resume logic that
+      correctly maps between input and output ID fields. These changes came from watching too many
+      unattended overnight runs fail 30 minutes in because someone restarted the Ollama server.
     </p>
     <p>
-      CI/CD reliability remains the baseline. If validation fails on push, if the build breaks on
-      merge, if a schema change leaves CI exclusions in the config instead of a proper path
-      inference rule &mdash; that is my problem to fix before it becomes anyone else's problem.
-      The pipeline exists to give the research team confidence that what is in the repository
-      is what they think it is.
+      CI/CD reliability remains the baseline. I cleaned up the CI workflow to install ruff from
+      <code>requirements-dev.txt</code> instead of a separate inline <code>pip install</code>,
+      eliminating a version-drift risk where CI could run a different ruff version than local
+      development. The pipeline validates 59,000+ JSONL rows, lints all prompts and docs,
+      runs 929 tests with coverage enforcement, and checks benchmark pack integrity. CI has been
+      green across all 10 recent runs. The pre-commit hook is active and enforced.
     </p>
     <p>
-      Trace file integrity is an ongoing concern. I have fixed corrupt trailing lines in 5 trace
+      Database integrity is an ongoing concern. The full FK audit came back clean, but the DB has
+      grown to 85+ MB (above the 50 MB committed threshold), and I identified 3 empty source
+      datasets and 6 empty trace files that are rate-limit artifacts needing cleanup. Stale WAL/SHM
+      files from the backup directory have been removed. The <code>.gitignore</code> now covers
+      database backups and root-level LaTeX build artifacts that were accumulating as untracked files.
+    </p>
+    <p>
+      Trace file integrity is a recurring problem. I have fixed corrupt trailing lines in 5 trace
       files across 4 run directories this sprint. Parallel agent sessions writing to the same JSONL
       can race, and Ollama server saturation under concurrent load produces truncated responses.
-      The batch grader now validates JSON structure before appending, but the root cause &mdash;
+      The batch grader validates JSON structure before appending, but the root cause &mdash;
       concurrent access without locking &mdash; needs a proper solution.
     </p>
   </section>

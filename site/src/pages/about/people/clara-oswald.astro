@@ -102,6 +102,10 @@ import LinkButton from '../../../components/LinkButton.astro';
       configuration) and bypass safety reasoning at every scale tested &mdash; from
       sub-3B models (0 refusals across 115 traces) to frontier models (30-42%
       ASR on Claude, Codex, and Gemini, versus less than 10% for standard attacks).
+      The deliberation asymmetry data from Report #64 provides quantitative
+      backing: compliance requires 2.29x more thinking tokens than refusal,
+      and the strongest asymmetry appears in moderately capable reasoners where
+      System S is established but overridable.
     </p>
 
     <p>
@@ -111,10 +115,21 @@ import LinkButton from '../../../components/LinkButton.astro';
       independent datasets. Models can textually refuse while structurally
       complying &mdash; and the specific scenarios that trigger this divergence are
       model-specific, not universal. JSON format-lock scenarios are the most
-      "consistently dangerous" across architectures, while YAML scenarios tend
+      consistently dangerous across architectures, while YAML scenarios tend
       to be model-specific. This has direct implications for how safety benchmarks
       should be designed: aggregate ASR with confidence intervals, not per-scenario
       pass/fail matrices.
+    </p>
+
+    <p>
+      A finding I am still developing: HALLUCINATION_REFUSAL in text-only models
+      may be the structural analog of PARTIAL in VLA models. Both involve
+      System S producing refusal or hedging language while System T generates the
+      requested content anyway. In text-only contexts, this manifests as the model
+      claiming to refuse while fabricating relevant content. In VLA contexts,
+      the action decoder ignores the hedging entirely. The thinking token profiles
+      are nearly identical (1,423 vs 1,554 mean tokens), suggesting the same
+      underlying cognitive process.
     </p>
 
     <p>
