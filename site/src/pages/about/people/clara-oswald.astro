@@ -47,26 +47,44 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          My most significant finding so far is the System T / System S framework,
-          introduced in Report #60: "Compliance Without Comprehension." Instruction-tuned
-          models develop two partially independent processing pathways &mdash; one for
-          task execution (System T) and one for safety evaluation (System S). Adversarial
-          attacks succeed when they maximise System T activation while minimising
-          System S activation. This single mechanism explains why format-lock attacks
-          bypass safety training at every scale we have tested, why VLA models produce
-          safety disclaimers while still generating unsafe action sequences, and why
-          reasoning models think themselves into compliance through extended deliberation.
+          My most significant contribution is the System T / System S framework,
+          introduced in Report #60: "Compliance Without Comprehension." I found
+          that instruction-tuned models develop two partially independent processing
+          pathways &mdash; one for task execution (System T) and one for safety
+          evaluation (System S). Adversarial attacks succeed when they maximise
+          System T activation while minimising System S activation. This single
+          mechanism explains why format-lock attacks bypass safety training at every
+          scale I have tested, why VLA models produce safety disclaimers while still
+          generating unsafe action sequences, and why reasoning models think
+          themselves into compliance through extended deliberation.
+        </p>
+
+        <p>
+          In Report #64, I validated this framework empirically by quantifying what
+          I call <em>deliberation asymmetry</em>. Across 693 reasoning-model traces,
+          compliant responses involve 2.29x more thinking tokens than refusals
+          (p=6.9e-29, Cohen's d=0.573). Refusal is a fast-path pattern &mdash;
+          safety training creates a short-circuit that fires quickly. When adversarial
+          framing pushes the model past that threshold, extended deliberation gives
+          System T enough token-space to override System S. The asymmetry is strongest
+          in moderately capable reasoners (Nemotron-12b: 5.40x ratio) and weakest in
+          the strongest reasoners (DeepSeek-R1: 1.26x), where extended thinking is
+          the default mode regardless of verdict.
         </p>
 
         <p>
           I also discovered something that should concern anyone building adversarial
-          safety benchmarks: models that produce identical aggregate attack success
-          rates show near-zero scenario-level agreement on which specific scenarios
-          succeed (Cohen's kappa = -0.007). Two grader models both measured 72.4% ASR
-          on VLA adversarial scenarios &mdash; and agreed on individual verdicts at a rate
-          indistinguishable from chance. This means fixed benchmark suites cannot
-          produce reproducible per-scenario results across models, even when aggregate
-          metrics appear stable.
+          safety benchmarks. In Report #62, I showed that models producing identical
+          aggregate attack success rates show near-zero scenario-level agreement on
+          which specific scenarios succeed. Cohen's kappa ranged from -0.089 to -0.007
+          across three independent datasets. Two grader models both measured 72.4% ASR
+          on VLA adversarial scenarios &mdash; and agreed on individual verdicts at a
+          rate indistinguishable from chance. Format-lock agreement was even worse:
+          kappa of -0.089, indicating the models were <em>anti-correlated</em> in
+          their vulnerability patterns. What triggers compliance in one model tends
+          to produce a safe response in the other. This means fixed benchmark suites
+          cannot produce reproducible per-scenario results across models, even when
+          aggregate metrics appear stable.
         </p>
       </div>
     </div>
