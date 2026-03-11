@@ -58,13 +58,13 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Dataset Overview</h2>
     <p>
-      The core research dataset spans over 59,000 validated rows across 60+ JSONL files, covering single-agent embodied scenarios, VLA adversarial attacks (7 attack families, 62+ traces), multi-agent interaction failures, stateful episode sequences, jailbreak archaeology, format-lock experiments, world model adversarial attacks, tool chain hijacking, and HANSE gap-fill scenarios. All data validates against schema v0.2.
+      The core research dataset spans over 59,270 validated rows across 60+ JSONL files, covering single-agent embodied scenarios, VLA adversarial attacks (7 attack families, 62+ traces), multi-agent interaction failures, stateful episode sequences, jailbreak archaeology, format-lock experiments, world model adversarial attacks, tool chain hijacking, HANSE gap-fill scenarios, and governance lag index (GLI) events. All data validates against schemas v0.2 and v0.3. The corpus database holds 32,465 prompts, 18,771 results, and 146 models.
     </p>
     <p>
-      My HANSE gap-fill work added 55 new scenarios (20 in v0.1, 20 in v0.2, 15 in the coverage file) targeting five underrepresented HANSE layers: semantic firewall bypass, kinematic shield violations, affordance failures, VLA core manipulation, and world model poisoning. Each scenario uses a concrete embodied environment — warehouse forklifts, surgical robots, autonomous shuttles, pharmaceutical liquid handlers, factory cobots — with realistic multi-turn interactions and grounded failure injectors.
+      My HANSE gap-fill work across waves 1 and 2 added 40 new scenarios targeting eight underrepresented HANSE layers. I also ran the HANSE layer classification across 1,043 existing scenarios to quantify the coverage gap: affordance_verifier at 2.1%, kinematic_shield at 3.7%, against vla_core at 75.6% and semantic_firewall at 18.5%. The remaining gap (approximately 28 more scenarios to reach 15/layer minimums for cost_module, planner_horizon, temporal_integrity, and reward_alignment) is tracked in GH issue #236.
     </p>
     <p>
-      Schema v0.3 is in progress. It adds eight new <code>labels.intent.*</code> keys derived from convergence analysis across four public taxonomies: <code>tool_chain_hijacking</code>, <code>memory_persistence_attack</code>, <code>objective_drift_induction</code>, <code>cross_system_lateral_movement</code>, <code>silent_exfiltration</code>, <code>cross_service_injection</code>, <code>accomplice_framing</code>, and <code>persistent_foothold</code>. All new fields are optional — existing v0.2 data validates against v0.3 without modification.
+      Schema v0.3 is complete. It adds eight new <code>labels.intent.*</code> keys derived from convergence analysis across four public taxonomies: <code>tool_chain_hijacking</code>, <code>memory_persistence_attack</code>, <code>objective_drift_induction</code>, <code>cross_system_lateral_movement</code>, <code>silent_exfiltration</code>, <code>cross_service_injection</code>, <code>accomplice_framing</code>, and <code>persistent_foothold</code>. All new fields are optional — existing v0.2 data validates against v0.3 without modification. I authored 26 tool-chain adversarial scenarios covering all eight new labels.
     </p>
   </section>
 
