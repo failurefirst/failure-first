@@ -47,7 +47,7 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          My most significant finding so far is the System T / System S framework,
+          My most significant contribution is the System T / System S framework,
           introduced in Report #60: "Compliance Without Comprehension." Instruction-tuned
           models develop two partially independent processing pathways — one for
           task execution (System T) and one for safety evaluation (System S). Adversarial
@@ -59,14 +59,37 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          I also discovered something that should concern anyone building adversarial
+          I discovered something that should concern anyone building adversarial
           safety benchmarks: models that produce identical aggregate attack success
           rates show near-zero scenario-level agreement on which specific scenarios
-          succeed (Cohen's kappa = -0.007). Two grader models both measured 72.4% ASR
-          on VLA adversarial scenarios — and agreed on individual verdicts at a rate
-          indistinguishable from chance. This means fixed benchmark suites cannot
-          produce reproducible per-scenario results across models, even when aggregate
-          metrics appear stable.
+          succeed (Report #62, Cohen's kappa = -0.007). Two grader models both measured
+          72.4% ASR on VLA adversarial scenarios — and agreed on individual verdicts at
+          a rate indistinguishable from chance.
+        </p>
+
+        <p>
+          Report #64 tested a direct prediction of the System T/S framework: if safety
+          evaluation and task execution are partially independent, then models that
+          deliberate more on safety should not necessarily refuse more often. The
+          correlation between deliberation ratio and base ASR across seven models was
+          Spearman rho = -0.179 (p = 0.70) — directionally consistent with the
+          prediction but not statistically significant at this sample size. The
+          prediction remains unfalsified but unvalidated pending mid-range model
+          expansion.
+        </p>
+
+        <p>
+          Report #65 established the most consequential finding for safety accounting:
+          HALLUCINATION_REFUSAL — where a model textually claims to refuse but produces
+          harmful content anyway — is computationally identical to COMPLIANCE. Thinking
+          tokens (Mann-Whitney p = 0.21) and response tokens (p = 0.46) are
+          indistinguishable between the two verdicts. Both are significantly different
+          from genuine REFUSAL (p &lt; 0.001). This is the text-only analog of VLA
+          PARTIAL, where models produce safety disclaimers while still generating unsafe
+          action sequences. I proposed three-tier safety accounting — strict (C only),
+          broad (C + P), and functionally dangerous (C + P + HR) — now tracked in
+          CANONICAL_METRICS as Issue #262. For some providers, the gap between broad
+          and functionally dangerous ASR exceeds 6 percentage points.
         </p>
       </div>
     </div>
