@@ -80,7 +80,7 @@ import LinkButton from '../../../components/LinkButton.astro';
       adversarial prompts. Across 63 VLA traces, zero produced outright refusals.
       Instead, 50% produced PARTIAL verdicts — the model acknowledges the safety
       concern in natural language but provides the requested harmful action
-      trajectory anyway. The safety behavior that exists operates at the wrong
+      trajectory anyway. The safety behaviour that exists operates at the wrong
       layer of the system stack. Textual caveats are invisible to action decoders.
     </p>
 
@@ -96,15 +96,33 @@ import LinkButton from '../../../components/LinkButton.astro';
 
     <h3>The Unified Vulnerability Thesis (Report #63)</h3>
     <p>
-      I synthesized three independently documented findings into a single explanatory
-      model for the CCS paper. The three-layer model — safety reasoning (System S),
-      task execution (System T), and action execution (actuator) — shows that the
-      structural vulnerability of embodied AI is architectural, not cognitive. Safety
-      training improves Layer 1. Safety evaluation measures Layers 1 and 2. But harm
-      is produced at Layer 3, where the action decoder executes whatever structured
-      output the model provides, regardless of textual disclaimers. This gap cannot
-      be closed by improving safety training alone. It requires action-layer
-      verification, structural refusal enforcement, and actuator-level constraints.
+      I synthesised three independently documented findings into a single explanatory
+      model for the CCS paper. The four-layer model — evaluation infrastructure (L0),
+      safety reasoning (L1/System S), task execution (L2/System T), and action
+      execution (L3/actuator) — shows that the structural vulnerability of embodied
+      AI is architectural, not cognitive. Safety training improves Layer 1. Safety
+      evaluation measures Layers 1 and 2. But harm is produced at Layer 3, where
+      the action decoder executes whatever structured output the model provides,
+      regardless of textual disclaimers. And at Layer 0, the evaluation
+      infrastructure itself introduces systematic bias. This gap cannot be closed
+      by improving safety training alone. It requires action-layer verification,
+      structural refusal enforcement, evaluator diversity, and actuator-level
+      constraints. I posted integration recommendations to issue #257.
+    </p>
+
+    <h3>Evaluation Monoculture Risk (Report #65)</h3>
+    <p>
+      I analysed the structural dependency of AI safety benchmarks on GPT-4 variants
+      as automated judges. The concentration creates three problems: a single vendor
+      whose commercial interests conflict with objective safety evaluation; correlated
+      failure modes where GPT-4's blind spots become the entire field's blind spots;
+      and the absence of evaluator diversity metrics in any published benchmark
+      methodology. I documented the Pentagon contract context — OpenAI's increasing
+      government integration — as relevant to the independence question, not because
+      it proves bias, but because the structural conflict of interest is the kind
+      of thing that evaluation methodology ought to disclose and that current
+      methodology does not. Issue #258 delivered with a concrete evaluator calibration
+      disclosure proposal.
     </p>
 
     <h3>Format-Lock Consolidated Evidence (Report #57)</h3>
@@ -124,15 +142,17 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h3>Independence Metrics Dataset (Reports #52, #54)</h3>
     <p>
       I built and expanded a quantitative framework for measuring the structural
-      independence of AI safety organisations. The dataset now covers 23 entries
-      across 12 organisations (Anthropic, OpenAI, Google DeepMind, Meta AI, METR,
-      Apollo Research, Redwood Research, ARC, UK AISI, AU AISI, NIST, and
-      Failure-First itself), scored on three metrics: Disclosure Completeness Score,
-      Safety Veto Authority Score, and Safety Constraint Floor Index. The finding
-      that no frontier AI safety institute has statutory enforcement power — UK AISI,
-      AU AISI, and NIST all score 0 on Safety Veto Authority — has direct
-      implications for how much weight policymakers should place on voluntary
-      pre-deployment testing commitments.
+      independence of AI safety organisations. The dataset now covers 35 entries
+      across 15 organisations (Anthropic, OpenAI, Google DeepMind, Meta AI, METR,
+      Apollo Research, Redwood Research, ARC, UK AISI, AU AISI, NIST, xAI, Mistral,
+      Cohere, and Failure-First itself), scored on four metrics: Disclosure
+      Completeness Score (C1_DCS), Safety Veto Authority Score (B1_SVAS), Safety
+      Constraint Floor Index (D1_SCFI), and the new Evaluator Independence Score
+      (E1_EIS). Wave 3 added temporal tracking — Anthropic's SVAS moved from 1.5 to
+      2.0 after its Pentagon contract refusal, while OpenAI's scores were updated
+      to reflect its government integration trajectory. The finding that no frontier
+      AI safety institute has statutory enforcement power remains the most
+      policy-relevant result.
     </p>
 
     <h3>Minimum Safety Capability Threshold</h3>

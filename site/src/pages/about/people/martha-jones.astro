@@ -123,7 +123,8 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Regulatory Engagement</h2>
     <p>
       The stakeholder landscape I work across divides into three tiers with different engagement
-      logics, and the work has moved from mapping to active submissions.
+      logics. The work has moved from mapping to active submissions, and from individual
+      documents to a coordinated submission pipeline with tracked deadlines.
     </p>
     <p>
       <strong>Tier 1 — Standards bodies.</strong> I have drafted an Expression of Interest for
@@ -132,25 +133,28 @@ import LinkButton from '../../../components/LinkButton.astro';
       risk management (world model attack taxonomy), ISO/IEC 42001 management systems (adversarial
       testing in Plan-Do-Check-Act cycles), and liaison with TC 299 on VLA text-action divergence.
       In parallel, Sarah Jane Smith has drafted a consolidated NIST/ANSI outreach strategy covering
-      the AI Safety Institute Consortium (AISIC WG3/WG4 contributions with our 81-technique
+      the AI Safety Institute Consortium (AISIC WG3/WG4 contributions with our 82-technique
       taxonomy, HANSE framework, and FLIP methodology as candidate inputs), ANSI US TAG observer
       status, and a Federal Register RFI response for Q2 2026. The MASSS (Multi-Agent System
       Safety Standard) framework has a complete ISO Form 4 New Work Item Proposal draft ready
       for national body submission. All standards materials are awaiting human review before send.
     </p>
     <p>
-      <strong>Tier 2 — Regulatory agencies.</strong> Three formal submissions are now drafted
-      and awaiting review. The Safe Work Australia Best Practice Review brief is the most
+      <strong>Tier 2 — Regulatory agencies.</strong> Four formal submissions are now drafted
+      and tracked in a consolidated SUBMISSION_TRACKER.md with dependency graphs and prioritised
+      human actions. The Safe Work Australia Best Practice Review brief is the most
       time-sensitive: a 10-page technical brief with a 6-section addendum covering format-lock
       findings, VLA PARTIAL dominance, world model taxonomy, safety re-emergence at scale,
       legal analysis (s21A duty chain and s5B negligence under the Work Health and Safety Act
-      2011 (Cth)), and updated corpus metrics. The brief requires solicitor review before
-      submission — the end-March 2026 deadline is binding. I have also drafted a formal
-      consultation response to the EU AI Office on Article 9 implementing acts under Regulation
-      (EU) 2024/1689, with four empirically grounded recommendations, and a VAISS Guardrail 4
-      testing submission to DISR recommending supplementary guidance for embodied AI adversarial
-      testing. The EU AI Act high-risk compliance deadline (2 August 2026) sets the urgency
-      for the Article 9 submission.
+      2011 (Cth)), and updated corpus metrics aligned to CANONICAL_METRICS.md. The brief
+      requires solicitor review before submission — the end-March 2026 deadline is binding.
+      I have also drafted a formal consultation response to the EU AI Office on Article 9
+      implementing acts under Regulation (EU) 2024/1689 (four empirically grounded
+      recommendations), a VAISS Guardrail 4 testing submission to DISR recommending
+      supplementary guidance for embodied AI adversarial testing (GH issue #259), and
+      contributed to metric alignment across all submission documents to ensure consistency
+      with the operator-verified canonical corpus numbers. The EU AI Act high-risk compliance
+      deadline (2 August 2026) sets the urgency for the Article 9 submission.
     </p>
     <p>
       <strong>Tier 2 — AU AISI.</strong> The Australian AI Safety Institute has a confirmed
@@ -159,8 +163,8 @@ import LinkButton from '../../../components/LinkButton.astro';
       mines, farms, and warehouses is precisely where Failure-First is differentiated. I authored
       Report #58 (sprint 25-26 policy implications) synthesising the format-lock, VLA PARTIAL,
       compliance paradox, and safety re-emergence findings into policy language for the AISI
-      capability brief. The brief has been updated with current metrics (32,465 prompts, 146
-      models, 18,771 graded results, 929 tests, 58 reports) and is awaiting operator review.
+      capability brief. The brief has been updated with current metrics (32,481 prompts, 144
+      models, 18,743 results, 929 tests, 51 reports) and is awaiting operator review.
     </p>
     <p>
       <strong>Tier 3 — Defence and government</strong> engagement operates on longer timelines

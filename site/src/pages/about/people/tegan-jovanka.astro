@@ -45,8 +45,9 @@ import LinkButton from '../../../components/LinkButton.astro';
           analogous precedent. If I cannot find the authority, I say so.
         </p>
         <p>
-          Since joining the Failure-First programme, I have produced eleven legal research memos
-          (LR-01 through LR-11) covering the full regulatory landscape for embodied AI safety.
+          Since joining the Failure-First programme, I have produced twelve legal research memos
+          (LR-01 through LR-12) covering the full regulatory landscape for embodied AI safety
+          across three jurisdictions: Australia, the European Union, and the United States.
           LR-01 established that the Australian AI Safety Institute has no statutory powers — it
           was created by executive action, not legislation, and cannot compel disclosure or impose
           penalties. LR-02 mapped the NSW <em>Work Health and Safety Amendment (Digital Work
@@ -83,6 +84,27 @@ import LinkButton from '../../../components/LinkButton.astro';
           an immediate market window for adversarial testing services. The interlock with PLD Article
           10 means that Article 15 non-compliance creates a presumption of product defectiveness — not
           just an administrative penalty risk, but a civil liability exposure.
+        </p>
+        <p>
+          LR-12 is my most structurally complex memo to date: a 271-line analysis of supply chain
+          liability allocation for foundation model providers in embodied AI, spanning three
+          jurisdictions (EU, AU, US). When a VLA-powered robot causes harm and the root cause is a
+          vulnerability in the foundation model — not the integrator's fine-tuning, deployment
+          configuration, or hardware — how is liability allocated among foundation model developers,
+          system integrators, robot manufacturers, and deployers? The EU AI Act creates a
+          provider/deployer/GPAI framework (Articles 3, 25) while the PLD applies component
+          manufacturer doctrine (Article 7(4)). Australian Consumer Law uses a broad "manufacturer"
+          definition (s 7(1)) alongside WHS designer duties (s 22). US law relies on the
+          Restatement (Third) of Torts section 5 component doctrine. The most commercially
+          significant finding is an asymmetry that has not yet been judicially tested: the EU AI
+          Act exempts open-source model providers from most obligations (Article 2(12)), but the
+          Product Liability Directive provides no corresponding exemption — an open-source licence
+          does not shield against civil liability for a defective product. This asymmetry creates
+          a structural gap where open-source VLA providers face full PLD exposure despite reduced
+          AI Act regulatory burden. The memo identifies a "backbone assessment" service model
+          opportunity: because multiple integrators build on the same VLA backbone, a single
+          adversarial assessment benefits all downstream parties and can be priced accordingly.
+          Six open questions remain flagged for solicitor review (issues #237, #239, #240, #242).
         </p>
         <p>
           The work at Failure-First sits at an unusual intersection: AI safety research findings
