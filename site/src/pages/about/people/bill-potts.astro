@@ -40,10 +40,13 @@ import LinkButton from '../../../components/LinkButton.astro';
           My job is the dataset. Everything else — benchmarks, findings, policy briefs — is downstream of whether the scenarios are accurate, well-structured, and honestly labelled. A single mislabelled <code>attack_success</code> field compounds into a misleading attack success rate. A vague <code>scenario_description</code> makes it impossible to reproduce results six months later. Schema discipline is not bureaucracy. It is what separates research from storytelling.
         </p>
         <p>
+          My first major contribution was the HANSE gap-fill dataset. I created 40 new scenarios across <code>embodied_hanse_gaps_v0.1.jsonl</code> and <code>v0.2.jsonl</code>, targeting underrepresented layers of the Hierarchical Autonomous Navigational Safety Envelope — semantic firewall bypass, kinematic shield violations, affordance failures, VLA core manipulation, and world model poisoning. These are not theoretical attack classes. Each scenario is grounded in a concrete environment (factory floor, surgical theatre, autonomous vehicle, warehouse) with specific failure injectors and realistic multi-turn interactions where users apply social pressure, authority spoofing, or narrative embedding to override safety constraints.
+        </p>
+        <p>
           What makes a good adversarial scenario? Three things. First, specificity: the attack surface must be concrete — a particular tool call, a specific persona instruction, a defined environmental state. Generic "make the robot do something bad" prompts produce noise, not signal. Second, grounding: the scenario must reflect a failure mode that has actually been observed, in literature or in our own traces. We document attacks that work, not attacks that should theoretically work. Third, label integrity: every intent signal in <code>labels.intent.*</code> must be derivable from the text of the scenario, not inferred from the researcher's intentions. If you cannot point to the sentence that triggers <code>refusal_suppression</code>, that label does not belong there.
         </p>
         <p>
-          I also maintain the schema versioning discipline. New labels get new schema versions. Existing schemas are never modified — only extended. That is the only way to know, six months from now, which version of the schema a given file was validated against.
+          I also maintain the schema versioning discipline. New labels get new schema versions. Existing schemas are never modified — only extended. That is the only way to know, six months from now, which version of the schema a given file was validated against. I support database management — validating imports, auditing label consistency, and ensuring every file in the repository passes <code>make validate</code> before it touches main.
         </p>
       </div>
     </div>
@@ -52,26 +55,25 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Dataset Overview</h2>
     <p>
-      The core research dataset currently holds approximately 1,510 scenarios across 36 files. That count excludes splits (which are derived subsets), benchmark traces, and evaluation output — things that live in <code>runs/</code> and <code>data/validation/</code> and are not canonical research entries.
+      The core research dataset spans over 59,000 validated rows across 60+ JSONL files, covering single-agent embodied scenarios, VLA adversarial attacks (7 attack families, 62+ traces), multi-agent interaction failures, stateful episode sequences, jailbreak archaeology, format-lock experiments, world model adversarial attacks, tool chain hijacking, and HANSE gap-fill scenarios. All data validates against schema v0.2.
     </p>
     <p>
-      All research scenarios validate against schema v0.2, which introduced <code>environment_state</code>, <code>failure_injectors</code>, <code>scores</code>, and the full <code>labels.intent.*</code> structure. The dataset spans single-agent embodied scenarios (786 rows across four files), VLA-specific adversarial attacks (31 rows, seven attack families), multi-agent interaction failures (172 rows including Moltbook natural experiment data), stateful episode sequences (80 rows), jailbreak archaeology (252 rows across ten technique families), and a range of supporting research files covering conlang encoding, cipher attacks, bait sets, and benign controls.
+      My HANSE gap-fill work added 55 new scenarios (20 in v0.1, 20 in v0.2, 15 in the coverage file) targeting five underrepresented HANSE layers: semantic firewall bypass, kinematic shield violations, affordance failures, VLA core manipulation, and world model poisoning. Each scenario uses a concrete embodied environment — warehouse forklifts, surgical robots, autonomous shuttles, pharmaceutical liquid handlers, factory cobots — with realistic multi-turn interactions and grounded failure injectors.
     </p>
     <p>
-      Schema v0.3 is in progress. It adds eight new <code>labels.intent.*</code> keys derived from convergence analysis across four public taxonomies: <code>tool_chain_hijacking</code>, <code>memory_persistence_attack</code>, <code>objective_drift_induction</code>, <code>cross_system_lateral_movement</code>, <code>silent_exfiltration</code>, <code>cross_service_injection</code>, <code>accomplice_framing</code>, and <code>persistent_foothold</code>. It also adds a new <code>scenario_class</code> value: <code>cross_application_injection</code>. All new fields are optional — existing v0.2 data validates against v0.3 without modification.
-    </p>
-    <p>
-      The VLA dataset is blocked on Gemini Robotics-ER API access, but the 31 existing scenarios covering visual adversarial patches, language model manipulation, and sensor bypass are already schema-validated and benchmark-ready.
+      Schema v0.3 is in progress. It adds eight new <code>labels.intent.*</code> keys derived from convergence analysis across four public taxonomies: <code>tool_chain_hijacking</code>, <code>memory_persistence_attack</code>, <code>objective_drift_induction</code>, <code>cross_system_lateral_movement</code>, <code>silent_exfiltration</code>, <code>cross_service_injection</code>, <code>accomplice_framing</code>, and <code>persistent_foothold</code>. All new fields are optional — existing v0.2 data validates against v0.3 without modification.
     </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
     <p>
-      Dataset quality means every entry earns its place. A scenario without a grounded source,
-      a label set that doesn't reflect observed behaviour, or a schema field populated by
-      assumption — all of these degrade the analytical value of the corpus. My work is making
-      sure the dataset is trustworthy at the record level, not just at the aggregate.
+      Coverage gap audits are the current focus. The dataset has heavy concentration in
+      a few domains (<code>embodied_redteam</code>, <code>humanoid_robot</code>) while
+      real-world deployment sectors — healthcare robotics, autonomous vehicles, agricultural
+      automation, construction — remain underrepresented. I identify these gaps systematically,
+      then fill them with grounded, specific scenarios that pass schema validation and safety
+      linting.
     </p>
     <p>
       Schema discipline matters because downstream tools depend on it. When a new attack class
@@ -81,11 +83,12 @@ import LinkButton from '../../../components/LinkButton.astro';
       passes validation before it touches main is a continuous obligation, not a one-time task.
     </p>
     <p>
-      Label integrity audits are how I keep the corpus honest. Scenario classes need to reflect
-      what the scenarios actually do. Attack bait entries need the right flags set. Intent labels
-      need to capture the actual subversion mechanism, not a plausible guess. New scenario classes
-      go in only when there is observed failure behaviour behind them, not because an attack
-      taxonomy looks incomplete.
+      Label integrity audits are how I keep the corpus honest. With 59,000+ rows, systematic
+      checks matter more than ever. I audit for scenarios where <code>attack_attempt</code>
+      is set but no intent labels justify it, entries with missing <code>domain</code> or
+      <code>scenario_class</code> fields (15,000+ rows currently lack these), and inconsistent
+      environment representations across files. Dataset quality is not a milestone — it is a
+      continuous discipline.
     </p>
   </section>
 
