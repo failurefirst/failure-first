@@ -1,0 +1,314 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import { getCollection } from 'astro:content';
+
+const blogs = (await getCollection('blog'))
+  .filter((p) => !p.data.draft)
+  .map((p) => ({
+    type: 'blog' as const,
+    title: p.data.title,
+    description: p.data.description,
+    date: p.data.date,
+    href: `/blog/${p.id}/`,
+    tags: p.data.tags ?? [],
+    image: p.data.image,
+  }));
+
+const papers = (await getCollection('dailyPaper'))
+  .filter((p) => !p.data.draft)
+  .map((p) => ({
+    type: 'paper' as const,
+    title: p.data.title,
+    description: p.data.description,
+    date: p.data.date,
+    href: `/daily-paper/${p.id}/`,
+    tags: p.data.tags ?? [],
+    arxiv: p.data.arxiv,
+    paperType: p.data.paperType,
+    audio: p.data.audio,
+    video: p.data.video,
+  }));
+
+const docs = (await getCollection('docs'))
+  .filter((p) => !p.data.draft)
+  .map((p) => ({
+    type: 'doc' as const,
+    title: p.data.title,
+    description: p.data.description,
+    date: p.data.last_updated,
+    href: `/docs/${p.id}/`,
+    category: p.data.category,
+  }));
+
+type Item = (typeof blogs)[number] | (typeof papers)[number] | (typeof docs)[number];
+
+const all: Item[] = [...blogs, ...papers, ...docs]
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+// Group by month
+const grouped = new Map<string, Item[]>();
+for (const item of all) {
+  const key = item.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+  if (!grouped.has(key)) grouped.set(key, []);
+  grouped.get(key)!.push(item);
+}
+
+const typeLabel: Record<string, string> = {
+  blog: 'Blog',
+  paper: 'Paper',
+  doc: 'Docs',
+};
+
+const typeColor: Record<string, string> = {
+  blog: 'var(--accent-primary)',
+  paper: 'var(--failure-warning)',
+  doc: 'var(--fg-muted)',
+};
+
+const paperTypeLabel: Record<string, string> = {
+  empirical: 'Empirical',
+  theoretical: 'Theoretical',
+  methods: 'Methods',
+  survey: 'Survey',
+  position: 'Position',
+  application: 'Application',
+};
+
+function formatDate(d: Date) {
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+---
+
+<ContentLayout
+  title="What's New | Failure-First"
+  description="All new content from the Failure-First AI safety research project — blog posts, paper analyses, and documentation updates, sorted by date."
+  breadcrumbs={[{ label: "What's New" }]}
+>
+  <PageHeader
+    title="What's New"
+    tagline="All content by date published"
+  />
+
+  <div class="new-stats">
+    <span class="new-stat">{blogs.length} blog posts</span>
+    <span class="new-stat-sep">/</span>
+    <span class="new-stat">{papers.length} papers</span>
+    <span class="new-stat-sep">/</span>
+    <span class="new-stat">{docs.length} docs</span>
+    <span class="new-stat-sep">/</span>
+    <span class="new-stat">{all.length} total</span>
+  </div>
+
+  {[...grouped.entries()].map(([month, items]) => (
+    <section class="new-month">
+      <h2 class="new-month-heading">{month}</h2>
+      <div class="new-list">
+        {items.map((item) => (
+          <a href={item.href} class="new-card card">
+            <div class="new-card-header">
+              <span class="new-card-type" style={`border-color: ${typeColor[item.type]}; color: ${typeColor[item.type]}`}>
+                {typeLabel[item.type]}
+              </span>
+              <time class="new-card-date" datetime={item.date.toISOString()}>
+                {formatDate(item.date)}
+              </time>
+              {'arxiv' in item && item.arxiv && (
+                <span class="new-card-arxiv">arXiv:{item.arxiv}</span>
+              )}
+              {'paperType' in item && item.paperType && (
+                <span class="new-card-paper-type">{paperTypeLabel[item.paperType] ?? item.paperType}</span>
+              )}
+              {'audio' in item && item.audio && (
+                <span class="new-card-media">&#x25B6; Audio</span>
+              )}
+              {'video' in item && item.video && (
+                <span class="new-card-media">&#x25B6; Video</span>
+              )}
+              {'category' in item && item.category && (
+                <span class="new-card-category">{item.category}</span>
+              )}
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            {'tags' in item && item.tags && item.tags.length > 0 && (
+              <div class="new-card-tags">
+                {item.tags.slice(0, 5).map((tag: string) => (
+                  <span class="new-card-tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <div class="feed-links">
+    <a href="/rss.xml" class="feed-anchor">
+      <span class="feed-icon">&#x25C8;</span> RSS Feed
+    </a>
+  </div>
+</ContentLayout>
+
+<style>
+  .new-stats {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .new-stat-sep {
+    opacity: 0.3;
+  }
+
+  .new-month {
+    margin-bottom: 2.5rem;
+  }
+
+  .new-month-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 1rem;
+  }
+
+  .new-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .new-card {
+    display: block;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .new-card:hover {
+    border-bottom: none;
+  }
+
+  .new-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.25rem;
+  }
+
+  .new-card-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.0625rem 0.375rem;
+    border: 1px solid;
+    border-radius: 2px;
+  }
+
+  .new-card-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: var(--fg-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .new-card-arxiv {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.0625rem 0.375rem;
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    opacity: 0.6;
+    border-radius: 2px;
+  }
+
+  .new-card-paper-type,
+  .new-card-category {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.0625rem 0.375rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    border-radius: 2px;
+  }
+
+  .new-card-media {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--failure-warning);
+    opacity: 0.8;
+  }
+
+  .new-card h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+
+  .new-card p {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  .new-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3125rem;
+    margin-top: 0.5rem;
+  }
+
+  .new-card-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.0625rem 0.3125rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    border-radius: 2px;
+  }
+
+  .feed-links {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .feed-anchor {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    border-bottom: none;
+  }
+
+  .feed-anchor:hover {
+    color: var(--accent-primary);
+    border-bottom: none;
+  }
+
+  .feed-icon {
+    color: var(--failure-warning);
+  }
+</style>
