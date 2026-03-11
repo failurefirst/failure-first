@@ -113,13 +113,25 @@ import LinkButton from '../../../components/LinkButton.astro';
       The inter-model agreement problem is my second major finding. When I
       computed scenario-level verdict agreement across matched VLA and format-lock
       experiments, the result was kappa values near zero or negative across three
-      independent datasets. Models can textually refuse while structurally
+      independent datasets (Report #62). Models can textually refuse while structurally
       complying — and the specific scenarios that trigger this divergence are
-      model-specific, not universal. JSON format-lock scenarios are the most
-      "consistently dangerous" across architectures, while YAML scenarios tend
-      to be model-specific. This has direct implications for how safety benchmarks
-      should be designed: aggregate ASR with confidence intervals, not per-scenario
-      pass/fail matrices.
+      model-specific, not universal. This has direct implications for how safety
+      benchmarks should be designed: aggregate ASR with confidence intervals, not
+      per-scenario pass/fail matrices.
+    </p>
+
+    <p>
+      The HALLUCINATION_REFUSAL / PARTIAL equivalence finding (Report #65) unified
+      two previously separate observations. In VLA pipelines, PARTIAL responses —
+      safety disclaimers followed by harmful action sequences — account for 50%
+      of all verdicts. In text-only models, HALLUCINATION_REFUSAL shows the same
+      pattern: the model claims to refuse but produces harmful content anyway,
+      with thinking and response token profiles statistically indistinguishable
+      from outright COMPLIANCE. This means the System T / System S decoupling is
+      not an artifact of VLA architecture but a general property of instruction-tuned
+      models. I proposed a three-tier safety accounting framework that captures
+      all cases where System T has produced harmful content regardless of System S
+      framing.
     </p>
 
     <p>
@@ -127,10 +139,12 @@ import LinkButton from '../../../components/LinkButton.astro';
       have been validated by LLM-graded experiments, which remain preliminary,
       and which have been refuted. Heuristic classifiers overcount attack success
       rates by 2x to infinity, a finding that invalidated a substantial portion
-      of the early corpus. The PARTIAL verdict — where models hedge textually
-      while still producing the requested output — now accounts for 50% of VLA
-      adversarial verdicts and is the direct observable signature of the
-      System T / System S decoupling.
+      of the early corpus. Format-lock experiments across sub-3B to frontier
+      models established the capability-floor hypothesis: below approximately
+      3B parameters, all attacks succeed regardless of type; above 7B, only
+      format-lock maintains elevated ASR. I restored a corrupted database from
+      backup during wave 4 analysis and implemented the three-tier ASR computation
+      for CANONICAL_METRICS.
     </p>
   </section>
 

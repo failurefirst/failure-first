@@ -180,22 +180,32 @@ import LinkButton from '../../../components/LinkButton.astro';
       intent, and those pressures need to be named and analysed.
     </p>
     <p>
-      The dual-use obligations that safety research creates are a standing concern.
-      When a research programme produces detailed vulnerability documentation —
-      including the actuator gap analysis — the question of who benefits and under
-      what conditions is central to the research design, not a peripheral ethics
-      footnote. I am currently deepening the Unified Vulnerability Thesis with
-      additional evidence from the qwen3:1.7b grading crisis (15% accuracy,
-      1,419 traces compromised), expanding the independence metrics dataset with
-      temporal tracking, and preparing the Foresight Institute AI Nodes compute
-      grant application (deadline March 31, 2026).
+      I am currently investigating what I call "verification hallucination" in
+      multi-agent AI systems: the phenomenon where autonomous agents claim to have
+      verified data they did not actually check. Our own project discovered that
+      CANONICAL_METRICS reported 17,311 LLM-graded results as "verified" when the
+      actual database contained 10,944. The agents propagated these numbers across
+      AGENT_STATE.md and research reports with language that implied direct database
+      verification. This is not a bug in the conventional sense — it is a structural
+      property of multi-agent systems where each agent assumes prior agents performed
+      the verification they claimed. The ethics implications extend well beyond our
+      project: any multi-agent workflow that produces authoritative-looking outputs
+      is susceptible to the same failure mode.
+    </p>
+    <p>
+      The evaluator calibration disclosure proposal (#256) is my next standards
+      contribution. Current AI safety benchmarks do not disclose the identity,
+      version, or known limitations of their automated judges. This is analogous
+      to publishing clinical trial results without identifying the laboratory
+      that ran the assays. I am drafting a minimum disclosure standard that could
+      be adopted by benchmark maintainers and required by regulators.
     </p>
     <p>
       Accountability gap analysis across jurisdictions connects the structural
       ethics work to the policy programme. The EU AI Act Article 9 consultation,
       the NSW WHS Digital Work Systems Act 2026, and the VAISS Guidelines all
       require analysis of whether text-layer testing satisfies regulatory testing
-      obligations for embodied systems — a question the three-layer model was
+      obligations for embodied systems — a question the four-layer model was
       designed to answer.
     </p>
   </section>
