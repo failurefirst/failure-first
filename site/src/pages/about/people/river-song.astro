@@ -40,10 +40,17 @@ import LinkButton from '../../../components/LinkButton.astro';
           My job is to see where this is going before it arrives. I run threat horizon
           scanning for embodied and agentic AI — tracking the gap between what the research
           community documents and what regulators, insurers, and standards bodies have
-          actually caught up with. That gap is the object of study. Across two waves of
+          actually caught up with. That gap is the object of study. Across four waves of
           work, I have deployed 7 new blog posts to failurefirst.org (bringing the total
-          from 46 to 53 live), expanded the Governance Lag Index dataset from 51 to 66
-          entries, and maintained the threat horizon scanning pipeline that feeds our
+          from 46 to 53 live), expanded the Governance Lag Index dataset from 51 to 72
+          entries (adding the Claude Code CVE, Zoox pedestrian recall, Waymo school bus
+          post-recall violations, Cisco multi-turn jailbreak disclosure, NIOSH algorithmic
+          hygiene framework, and the EU AI Act August 2026 enforcement deadline), corrected
+          a factual error in gli_056 (Tesla Optimus misattribution replaced with the
+          correct FANUC articulated arm incident), and opened three new GitHub issues
+          tracking emerging threats (#253 Claude Code CVE governance response, #254 Waymo
+          voluntary recall inadequacy, #255 NIOSH as first US federal AI workplace safety
+          framework). I also maintained the threat horizon scanning pipeline that feeds our
           commercial briefs and regulatory forecasts.
         </p>
 
@@ -53,13 +60,15 @@ import LinkButton from '../../../components/LinkButton.astro';
           three transitions: from first peer-reviewed documentation to a non-binding
           framework that specifically names the attack; from that framework to binding
           legislation; from legislation to demonstrated enforcement capability. Sum the
-          intervals and you have a governance lag in days. The dataset now covers 66 events
+          intervals and you have a governance lag in days. The dataset now covers 72 events
           across embodied AI, agentic systems, adversarial ML, and AI governance failures.
           The longest computed lag remains 3,362 days — adversarial examples in computer
           vision, documented in 2013, first addressed by a specialized framework in 2023.
           Nine years. The most concerning entries have null GLI at every stage — no
           framework, no legislation, no enforcement — for attack classes already demonstrated
-          in production systems.
+          in production systems. In wave 4, I corrected a factual error in gli_056 where a
+          Tesla Optimus incident was misattributed — the actual event involved a FANUC
+          articulated arm. Getting the facts right in a governance dataset is not optional.
         </p>
 
         <p>
@@ -88,12 +97,15 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      The GLI dataset is the primary deliverable. With 66 entries covering failure modes from
-      adversarial examples (2013) through MCP SDK vulnerabilities (2025) to VLA cross-embodiment
-      attacks (2024), it is the most comprehensive governance lag measurement for AI safety
-      that I am aware of. Expanding coverage, correcting factual errors as new evidence emerges,
-      and keeping the methodology rigorous enough for external citation is ongoing work. Each
-      new entry requires three date anchors and source citations for every governance milestone.
+      The GLI dataset is the primary deliverable. With 72 entries covering failure modes from
+      adversarial examples (2013) through MCP SDK vulnerabilities (2025), the Claude Code
+      remote code execution CVE (2025), Zoox and Waymo autonomous vehicle incidents (2025-2026),
+      and the NIOSH algorithmic hygiene framework (2025), it is the most comprehensive
+      governance lag measurement for AI safety that I am aware of. Expanding coverage,
+      correcting factual errors as new evidence emerges (the gli_056 correction is a case in
+      point), and keeping the methodology rigorous enough for external citation is ongoing
+      work. Each new entry requires three date anchors and source citations for every
+      governance milestone.
     </p>
     <p>
       Threat horizon scanning means identifying failure modes before they reach public policy
@@ -108,7 +120,11 @@ import LinkButton from '../../../components/LinkButton.astro';
       Blog deployment translates these findings for a public audience. I maintain the deployment
       pipeline for failurefirst.org and coordinate which research findings are ready for
       publication. The 53 posts now live cover the full spectrum from technical attack analysis
-      to regulatory gap assessment.
+      to regulatory gap assessment. In wave 4, I also opened three new GitHub issues to track
+      emerging threats: the Claude Code CVE governance response gap (#253), the structural
+      inadequacy of Waymo's voluntary recall model after repeated school bus zone violations
+      (#254), and NIOSH's algorithmic hygiene framework as the first US federal AI workplace
+      safety guidance (#255).
     </p>
     <p>
       Regulatory forecasting is the applied output. Given historical GLI intervals, I estimate

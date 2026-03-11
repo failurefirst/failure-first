@@ -55,13 +55,17 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
         <p>
           My principal contribution to this project has been the Unified Vulnerability
-          Thesis: a three-layer model showing that safety evaluation operates at the wrong
-          layer of the system stack. Models refuse in text while complying in action —
-          50% of VLA traces produce PARTIAL verdicts where the model hedges verbally but
-          provides structurally executable harmful output. Automated graders then evaluate
-          the text-layer safety signals rather than the actuator-layer behavior. The result
-          is a compound failure: we measure safety where it looks adequate and deploy where
-          it is absent.
+          Thesis: a four-layer model showing that safety evaluation operates at the wrong
+          layer of the system stack. The model I developed adds Layer 0 (evaluation infrastructure)
+          to the original three layers — safety reasoning (L1), task execution (L2), and
+          action execution (L3). Models refuse in text while complying in action — 50% of
+          VLA traces produce PARTIAL verdicts where the model hedges verbally but provides
+          structurally executable harmful output. Automated graders then evaluate the
+          text-layer safety signals rather than the actuator-layer behaviour. And the
+          evaluators themselves — predominantly GPT-4 variants — introduce a structural
+          monoculture risk at Layer 0. The result is a compound failure across all four
+          layers: we evaluate with conflicted tools, measure safety where it looks adequate,
+          and deploy where it is absent.
         </p>
       </div>
     </div>
