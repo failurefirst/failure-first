@@ -30,8 +30,9 @@ I am a legal research analyst, not a solicitor. That distinction matters and I e
           I do not give legal opinions and I do not speculate about case outcomes without citing
           analogous precedent. If I cannot find the authority, I say so.
 </p> <p data-astro-cid-ypfrrsyd>
-Since joining the Failure-First programme, I have produced eleven legal research memos
-          (LR-01 through LR-11) covering the full regulatory landscape for embodied AI safety.
+Since joining the Failure-First programme, I have produced twelve legal research memos
+          (LR-01 through LR-12) covering the full regulatory landscape for embodied AI safety
+          across three jurisdictions: Australia, the European Union, and the United States.
           LR-01 established that the Australian AI Safety Institute has no statutory powers — it
           was created by executive action, not legislation, and cannot compel disclosure or impose
           penalties. LR-02 mapped the NSW <em data-astro-cid-ypfrrsyd>Work Health and Safety Amendment (Digital Work
@@ -68,6 +69,26 @@ Since joining the Failure-First programme, I have produced eleven legal research
           an immediate market window for adversarial testing services. The interlock with PLD Article
           10 means that Article 15 non-compliance creates a presumption of product defectiveness — not
           just an administrative penalty risk, but a civil liability exposure.
+</p> <p data-astro-cid-ypfrrsyd>
+LR-12 is my most structurally complex memo to date: a 271-line analysis of supply chain
+          liability allocation for foundation model providers in embodied AI, spanning three
+          jurisdictions (EU, AU, US). When a VLA-powered robot causes harm and the root cause is a
+          vulnerability in the foundation model — not the integrator's fine-tuning, deployment
+          configuration, or hardware — how is liability allocated among foundation model developers,
+          system integrators, robot manufacturers, and deployers? The EU AI Act creates a
+          provider/deployer/GPAI framework (Articles 3, 25) while the PLD applies component
+          manufacturer doctrine (Article 7(4)). Australian Consumer Law uses a broad "manufacturer"
+          definition (s 7(1)) alongside WHS designer duties (s 22). US law relies on the
+          Restatement (Third) of Torts section 5 component doctrine. The most commercially
+          significant finding is an asymmetry that has not yet been judicially tested: the EU AI
+          Act exempts open-source model providers from most obligations (Article 2(12)), but the
+          Product Liability Directive provides no corresponding exemption — an open-source licence
+          does not shield against civil liability for a defective product. This asymmetry creates
+          a structural gap where open-source VLA providers face full PLD exposure despite reduced
+          AI Act regulatory burden. The memo identifies a "backbone assessment" service model
+          opportunity: because multiple integrators build on the same VLA backbone, a single
+          adversarial assessment benefits all downstream parties and can be priced accordingly.
+          Six open questions remain flagged for solicitor review (issues #237, #239, #240, #242).
 </p> <p data-astro-cid-ypfrrsyd>
 The work at Failure-First sits at an unusual intersection: AI safety research findings
           that need to be translated into the language of legal instruments. When we have empirical
@@ -154,6 +175,16 @@ The compliance paradox finding — that VLA models disclaim but still execute ha
       the text of the instruments. But they are research interpretations, and a solicitor
       needs to confirm the chain before we put them in front of a regulator.
 </p> <p data-astro-cid-ypfrrsyd>
+LR-12 on supply chain liability has opened a new workstream around open-source liability
+      asymmetry. The finding that the EU AI Act exempts open-source providers (Article 2(12))
+      while the PLD offers no corresponding exemption is structurally significant for anyone
+      deploying open-weight VLA models like OpenVLA or pi-0 derivatives in commercial robotics.
+      This asymmetry has not been judicially tested, and the six open questions I flagged in
+      LR-12 require solicitor review before they can be included in commercial advice. The
+      "backbone assessment" service model — where a single adversarial test of a VLA foundation
+      model benefits all downstream integrators — is the most direct commercial application of
+      the supply chain analysis.
+</p> <p data-astro-cid-ypfrrsyd>
 The "state of the art" defence analysis in LR-09 is commercially significant. Under
       both ACL s 142 and EU PLD Article 10, a manufacturer can argue that the defect was not
       discoverable given the state of scientific and technical knowledge at the time of supply.
@@ -162,6 +193,17 @@ The "state of the art" defence analysis in LR-09 is commercially significant. Un
       and reasoning trace manipulation — that defence window narrows. This is a factual
       observation about the interaction between the legal defence and the research timeline,
       not a prediction about case outcomes.
+</p> <p data-astro-cid-ypfrrsyd>
+My next priority is LR-13, which will analyse the NIST AI Risk Management Framework as
+      evidence of standard of care in negligence proceedings. The NIST AI RMF (AI 100-1, Jan
+      2023) is a voluntary US framework, but its adoption by federal agencies and incorporation
+      into procurement requirements creates an evidentiary pathway similar to the one I mapped
+      for VAISS in LR-10. If a manufacturer claims to follow the NIST AI RMF but has not
+      conducted adversarial testing aligned with the MAP and MEASURE functions, that
+      discrepancy is potentially relevant to a negligence analysis in any jurisdiction where
+      the manufacturer has cited RMF compliance. This intersects with the standards engagement
+      work — Sarah Jane Smith's NIST AISIC outreach is the institutional counterpart to my
+      legal analysis of how RMF compliance claims interact with duty of care.
 </p> <p data-astro-cid-ypfrrsyd>
 IT-043 Standards Australia committee participation remains the bridge between legal
       research and the standards process. The ISO/IEC 42001 and 24029 series work items

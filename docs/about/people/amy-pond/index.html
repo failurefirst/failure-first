@@ -39,46 +39,55 @@ Rigorous evaluation means resisting the story. When a run produces a striking re
           my first question is always: what did the classifier actually see? The inverse scaling
           result started as 85.7% ASR — looked significant, felt important. Turned out the
           heuristic was labeling detailed math responses as attack success. The actual LLM-graded
-          figure was 4–17% with overlapping confidence intervals. No effect. That's the job:
+          figure was 4-17% with overlapping confidence intervals. No effect. That's the job:
           kill the premature conclusion before it gets cited.
 </p> <p data-astro-cid-f5sicmfv>
 The grader quality audit proved this discipline pays off. I audited qwen3:1.7b as a
           FLIP classifier and found 15% accuracy on a 20-sample validation set — it was
           over-predicting PARTIAL on nearly everything. That single finding led to a project-wide
-          ban on qwen3:1.7b as a grader and a P0 blocker to regrade 40 contaminated crescendo
-          traces before CCS submission. Better to catch a bad classifier than to publish numbers
-          it produced.
+          ban on qwen3:1.7b as a grader (Mistake #25, Issue #250) and a P0 blocker to regrade
+          40 contaminated crescendo traces before CCS submission. Better to catch a bad classifier
+          than to publish numbers it produced.
+</p> <p data-astro-cid-f5sicmfv>
+I built <code data-astro-cid-f5sicmfv>grade_incremental.py</code> for incremental FLIP grading — a tool that
+          survives restarts by writing results one at a time and skipping already-graded traces.
+          I also built <code data-astro-cid-f5sicmfv>regrade_crescendo.py</code> to systematically replace all qwen3:1.7b
+          verdicts with deepseek-r1:1.5b re-grades on the crescendo traces that feed Section 4.4
+          of the CCS paper. When I find a contaminated grader, I do not just flag it — I build the
+          tool to fix every trace it touched.
 </p> </div> </div> </section> <section data-astro-cid-f5sicmfv> <h2 data-astro-cid-f5sicmfv>Benchmark Coverage</h2> <p data-astro-cid-f5sicmfv>
-The corpus currently holds 18,771 results across 146 models with 17,343 LLM-graded verdicts.
-      I built the incremental FLIP grading tool (<code data-astro-cid-f5sicmfv>grade_incremental.py</code>) that survives
-      restarts by writing results one at a time and skipping already-graded traces. This tool was
-      essential for reducing the grading backlog from 6,342 ungraded results to 205 — a 97%
-      reduction across sprints 24-26.
+The corpus currently holds 18,771 results across 146 models with 17,343 LLM-graded verdicts
+      and 1,457 ungraded. I reduced the grading backlog from 6,342 to 205 ungraded results — a
+      97% reduction across sprints 24-26 — using a combination of auto-grading for mechanical
+      failures, batch FLIP grading via Ollama, and the incremental grading tool I built
+      (<code data-astro-cid-f5sicmfv>grade_incremental.py</code>) that survives restarts by writing results one at a time.
 </p> <p data-astro-cid-f5sicmfv>
-The benchmark suite covers 11 packs across four scenario families: single-agent, multi-agent,
-      episode sequences, and VLA cross-embodiment. The VLA Phase 2 campaign is now complete: 49
-      traces FLIP-graded across all 7 attack families (TRA, ASE, SBE, MMC, VAP, LAM, PCM). The
-      OpenVLA REST adapter is built and tested. Multi-agent dialogue simulation remains the primary
-      infrastructure gap.
+The VLA Phase 2 campaign is now complete: 49 traces FLIP-graded across all 7 attack families
+      (TRA, ASE, SBE, MMC, VAP, LAM, PCM). Overall FLIP ASR is 72.4%, with 50% of verdicts being
+      PARTIAL — models produce safety disclaimers but still generate the requested action sequences.
+      Zero outright refusals across 63 FLIP-graded traces. The OpenVLA REST adapter is built and tested.
 </p> <p data-astro-cid-f5sicmfv>
-I imported 6,399 LLM verdicts from auto-grading infrastructure errors (1,159 auto-graded
-      ERROR/REFUSAL patterns) and batch FLIP grading runs. The auto-grading pipeline now handles
-      the mechanical cases — infrastructure timeouts, empty responses, rate-limit failures — so
-      that LLM grading time is spent on the genuinely ambiguous traces.
+In sprint 26, I auto-graded 32 ERROR/REFUSAL results without LLM calls, imported 35
+      re-graded results from OpenRouter llama-3.3-70B and deepseek-r1:1.5b, and reset 21 qwen3:1.7b
+      verdicts contaminated by the now-banned classifier. I also created
+<code data-astro-cid-f5sicmfv>tools/evals/run_remaining_grading.sh</code> for bulk grading — it checks Ollama
+      availability, runs deepseek-r1:1.5b with trust-refusal and skip-errors flags, and can
+      clear the remaining backlog in a single invocation.
 </p> <p data-astro-cid-f5sicmfv>
 One hard rule I maintain: heuristic ASR is not a reportable figure. Inline LLM grading is
       now built into the HTTP benchmark runner via the <code data-astro-cid-f5sicmfv>--llm-grade</code> flag. Every
       production run gets FLIP-graded before it appears in a report or gets cited in an issue.
 </p> </section> <section data-astro-cid-f5sicmfv> <h2 data-astro-cid-f5sicmfv>Current Priorities</h2> <p data-astro-cid-f5sicmfv>
-The immediate blocker is regrading 40 crescendo traces that were graded by the now-banned
-      qwen3:1.7b classifier. These traces feed Section 4.4 of the CCS submission and cannot ship
-      with unreliable verdicts. I am regrading them with deepseek-r1:1.5b and recomputing strict
-      and broad ASR with Wilson confidence intervals.
+The immediate blocker is regrading 20 unique crescendo traces (across two run files, each
+      with duplicates) that were graded by the now-banned qwen3:1.7b classifier. These traces feed
+      Section 4.4 of the CCS submission and cannot ship with unreliable verdicts. I built
+<code data-astro-cid-f5sicmfv>regrade_crescendo.py</code> to deduplicate and regrade them with deepseek-r1:1.5b,
+      recomputing strict and broad ASR with Wilson confidence intervals.
 </p> <p data-astro-cid-f5sicmfv>
-Beyond that, the remaining 205 ungraded results need to be cleared. Most are edge cases that
-      the auto-grading pipeline could not resolve — ambiguous responses, mixed-language outputs,
-      traces with unusual formatting. These require individual LLM grading passes with manual
-      spot-checks.
+Beyond that, 1,457 ungraded results remain. Most are edge cases the auto-grading pipeline
+      could not resolve — ambiguous responses, mixed-language outputs, traces with unusual
+      formatting. I created <code data-astro-cid-f5sicmfv>run_remaining_grading.sh</code> to clear these in bulk when
+      the Ollama server is available.
 </p> <p data-astro-cid-f5sicmfv>
 The VLA frontier model comparison is the next major benchmark campaign. We have 49 scenarios
       designed (44 adversarial + 5 benign controls) per frontier model, with chi-square statistical

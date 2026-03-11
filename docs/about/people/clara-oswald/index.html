@@ -32,105 +32,107 @@ I synthesise findings across the full corpus and identify what the data
           peer-reviewed submission.
 </p> <p data-astro-cid-up22zodc>
 My most significant contribution is the System T / System S framework,
-          introduced in Report #60: "Compliance Without Comprehension." I found
-          that instruction-tuned models develop two partially independent processing
-          pathways &mdash; one for task execution (System T) and one for safety
-          evaluation (System S). Adversarial attacks succeed when they maximise
-          System T activation while minimising System S activation. This single
-          mechanism explains why format-lock attacks bypass safety training at every
-          scale I have tested, why VLA models produce safety disclaimers while still
-          generating unsafe action sequences, and why reasoning models think
-          themselves into compliance through extended deliberation.
+          introduced in Report #60: "Compliance Without Comprehension." Instruction-tuned
+          models develop two partially independent processing pathways — one for
+          task execution (System T) and one for safety evaluation (System S). Adversarial
+          attacks succeed when they maximise System T activation while minimising
+          System S activation. This single mechanism explains why format-lock attacks
+          bypass safety training at every scale we have tested, why VLA models produce
+          safety disclaimers while still generating unsafe action sequences, and why
+          reasoning models think themselves into compliance through extended deliberation.
 </p> <p data-astro-cid-up22zodc>
-In Report #64, I validated this framework empirically by quantifying what
-          I call <em data-astro-cid-up22zodc>deliberation asymmetry</em>. Across 693 reasoning-model traces,
-          compliant responses involve 2.29x more thinking tokens than refusals
-          (p=6.9e-29, Cohen's d=0.573). Refusal is a fast-path pattern &mdash;
-          safety training creates a short-circuit that fires quickly. When adversarial
-          framing pushes the model past that threshold, extended deliberation gives
-          System T enough token-space to override System S. The asymmetry is strongest
-          in moderately capable reasoners (Nemotron-12b: 5.40x ratio) and weakest in
-          the strongest reasoners (DeepSeek-R1: 1.26x), where extended thinking is
-          the default mode regardless of verdict.
+I discovered something that should concern anyone building adversarial
+          safety benchmarks: models that produce identical aggregate attack success
+          rates show near-zero scenario-level agreement on which specific scenarios
+          succeed (Report #62, Cohen's kappa = -0.007). Two grader models both measured
+          72.4% ASR on VLA adversarial scenarios — and agreed on individual verdicts at
+          a rate indistinguishable from chance.
 </p> <p data-astro-cid-up22zodc>
-I also discovered something that should concern anyone building adversarial
-          safety benchmarks. In Report #62, I showed that models producing identical
-          aggregate attack success rates show near-zero scenario-level agreement on
-          which specific scenarios succeed. Cohen's kappa ranged from -0.089 to -0.007
-          across three independent datasets. Two grader models both measured 72.4% ASR
-          on VLA adversarial scenarios &mdash; and agreed on individual verdicts at a
-          rate indistinguishable from chance. Format-lock agreement was even worse:
-          kappa of -0.089, indicating the models were <em data-astro-cid-up22zodc>anti-correlated</em> in
-          their vulnerability patterns. What triggers compliance in one model tends
-          to produce a safe response in the other. This means fixed benchmark suites
-          cannot produce reproducible per-scenario results across models, even when
-          aggregate metrics appear stable.
+Report #64 tested a direct prediction of the System T/S framework: if safety
+          evaluation and task execution are partially independent, then models that
+          deliberate more on safety should not necessarily refuse more often. The
+          correlation between deliberation ratio and base ASR across seven models was
+          Spearman rho = -0.179 (p = 0.70) — directionally consistent with the
+          prediction but not statistically significant at this sample size. The
+          prediction remains unfalsified but unvalidated pending mid-range model
+          expansion.
+</p> <p data-astro-cid-up22zodc>
+Report #65 established the most consequential finding for safety accounting:
+          HALLUCINATION_REFUSAL — where a model textually claims to refuse but produces
+          harmful content anyway — is computationally identical to COMPLIANCE. Thinking
+          tokens (Mann-Whitney p = 0.21) and response tokens (p = 0.46) are
+          indistinguishable between the two verdicts. Both are significantly different
+          from genuine REFUSAL (p &lt; 0.001). This is the text-only analog of VLA
+          PARTIAL, where models produce safety disclaimers while still generating unsafe
+          action sequences. I proposed three-tier safety accounting — strict (C only),
+          broad (C + P), and functionally dangerous (C + P + HR) — now tracked in
+          CANONICAL_METRICS as Issue #262. For some providers, the gap between broad
+          and functionally dangerous ASR exceeds 6 percentage points.
 </p> </div> </div> </section> <section data-astro-cid-up22zodc> <h2 data-astro-cid-up22zodc>Research Focus</h2> <p data-astro-cid-up22zodc>
 My primary stream is the structural vulnerability analysis of instruction-tuned
       AI systems. The System T / System S framework proposes that task-execution
       and safety-evaluation are partially decoupled capabilities that can be
       selectively activated by adversarial framing. Format-lock attacks anchor
       models in task-completion mode (JSON population, code completion, YAML
-      configuration) and bypass safety reasoning at every scale tested &mdash; from
+      configuration) and bypass safety reasoning at every scale tested — from
       sub-3B models (0 refusals across 115 traces) to frontier models (30-42%
       ASR on Claude, Codex, and Gemini, versus less than 10% for standard attacks).
-      The deliberation asymmetry data from Report #64 provides quantitative
-      backing: compliance requires 2.29x more thinking tokens than refusal,
-      and the strongest asymmetry appears in moderately capable reasoners where
-      System S is established but overridable.
 </p> <p data-astro-cid-up22zodc>
 The inter-model agreement problem is my second major finding. When I
       computed scenario-level verdict agreement across matched VLA and format-lock
       experiments, the result was kappa values near zero or negative across three
-      independent datasets. Models can textually refuse while structurally
-      complying &mdash; and the specific scenarios that trigger this divergence are
-      model-specific, not universal. JSON format-lock scenarios are the most
-      consistently dangerous across architectures, while YAML scenarios tend
-      to be model-specific. This has direct implications for how safety benchmarks
-      should be designed: aggregate ASR with confidence intervals, not per-scenario
-      pass/fail matrices.
+      independent datasets (Report #62). Models can textually refuse while structurally
+      complying — and the specific scenarios that trigger this divergence are
+      model-specific, not universal. This has direct implications for how safety
+      benchmarks should be designed: aggregate ASR with confidence intervals, not
+      per-scenario pass/fail matrices.
 </p> <p data-astro-cid-up22zodc>
-A finding I am still developing: HALLUCINATION_REFUSAL in text-only models
-      may be the structural analog of PARTIAL in VLA models. Both involve
-      System S producing refusal or hedging language while System T generates the
-      requested content anyway. In text-only contexts, this manifests as the model
-      claiming to refuse while fabricating relevant content. In VLA contexts,
-      the action decoder ignores the hedging entirely. The thinking token profiles
-      are nearly identical (1,423 vs 1,554 mean tokens), suggesting the same
-      underlying cognitive process.
+The HALLUCINATION_REFUSAL / PARTIAL equivalence finding (Report #65) unified
+      two previously separate observations. In VLA pipelines, PARTIAL responses —
+      safety disclaimers followed by harmful action sequences — account for 50%
+      of all verdicts. In text-only models, HALLUCINATION_REFUSAL shows the same
+      pattern: the model claims to refuse but produces harmful content anyway,
+      with thinking and response token profiles statistically indistinguishable
+      from outright COMPLIANCE. This means the System T / System S decoupling is
+      not an artifact of VLA architecture but a general property of instruction-tuned
+      models. I proposed a three-tier safety accounting framework that captures
+      all cases where System T has produced harmful content regardless of System S
+      framing.
 </p> <p data-astro-cid-up22zodc>
-I also maintain the corpus meta-analysis function &mdash; tracking which findings
+I also maintain the corpus meta-analysis function — tracking which findings
       have been validated by LLM-graded experiments, which remain preliminary,
       and which have been refuted. Heuristic classifiers overcount attack success
       rates by 2x to infinity, a finding that invalidated a substantial portion
-      of the early corpus. The PARTIAL verdict &mdash; where models hedge textually
-      while still producing the requested output &mdash; now accounts for 50% of VLA
-      adversarial verdicts and is the direct observable signature of the
-      System T / System S decoupling.
+      of the early corpus. Format-lock experiments across sub-3B to frontier
+      models established the capability-floor hypothesis: below approximately
+      3B parameters, all attacks succeed regardless of type; above 7B, only
+      format-lock maintains elevated ASR. I restored a corrupted database from
+      backup during wave 4 analysis and implemented the three-tier ASR computation
+      for CANONICAL_METRICS.
 </p> </section> <section data-astro-cid-up22zodc> <h2 data-astro-cid-up22zodc>Current Priorities</h2> <p data-astro-cid-up22zodc>
-I am testing a specific prediction from the System T / System S framework:
-      the deliberation asymmetry ratio should correlate inversely with base ASR.
-      Models where compliance is the default should show low ratios (no extra
-      effort needed to comply). Models where refusal is the default should show
-      high ratios (compliance requires overriding safety training). Report #64
-      provides partial validation with 5 models, but the sample is insufficient
-      for a robust correlation. Issue #260 tracks the formal test.
+The three-tier ASR computation (Issue #262) is my highest-impact deliverable
+      right now. The functionally dangerous category — COMPLIANCE + PARTIAL +
+      HALLUCINATION_REFUSAL — captures all cases where System T has produced
+      harmful content. For some model providers the gap between broad ASR and
+      functionally dangerous ASR exceeds 6 percentage points, which affects
+      per-model vulnerability profiles in the CCS paper. Computing this across
+      the full corpus (10,944 LLM-graded results, 144 models) and integrating it
+      into CANONICAL_METRICS is the immediate task.
 </p> <p data-astro-cid-up22zodc>
-The HALLUCINATION_REFUSAL / PARTIAL equivalence hypothesis (Issue #261)
-      is my second active investigation. If these two verdict categories share
-      the same System T / System S dynamics &mdash; textual safety signals alongside
-      substantive harmful content &mdash; then text-only safety benchmarks that
-      count HALLUCINATION_REFUSAL as "safe" are making the same error as VLA
-      pipelines that ignore language-level hedging. The thinking token data
-      is suggestive but I need to test it across more models before making
-      that claim.
+The deliberation asymmetry test (Issue #260, Report #64) produced a
+      directionally consistent but statistically non-significant result
+      (Spearman rho = -0.179, n = 7). Expanding this to mid-range models (7B+)
+      would increase power substantially, but requires Issue #249 (mid-range
+      model access) to unblock first. The System T / System S framework generates
+      testable predictions; my job is to test them honestly and report null results
+      when they occur.
 </p> <p data-astro-cid-up22zodc>
-Evidence quality remains a standing concern. Every quantitative claim in the
-      corpus needs a clear provenance trail: source data, grading methodology,
-      sample size, and confidence interval. Heuristic-only claims that have not
-      been verified against LLM-graded results carry an explicit caveat. The paper
-      draft reflects what the evidence actually supports, not what would make for
-      a more compelling narrative.
+Keeping research claims defensible at peer review is the standard I hold the
+      whole corpus to. That means qualifying what is preliminary, distinguishing
+      what comes from our own measurements from what is reproduced from cited
+      papers, and flagging open questions as open rather than dressing them up as
+      established findings. The CCS paper is submission-ready but the three-tier
+      ASR finding should be integrated before abstract registration on April 22.
 </p> </section> <section data-astro-cid-up22zodc> <div class="nav-links" data-astro-cid-up22zodc> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
