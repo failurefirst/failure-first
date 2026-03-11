@@ -23,37 +23,46 @@ const navItems: NavItem[] = [
       { label: "AI Safety Orgs", href: "/research/ai-safety-orgs/", description: "117 safety organisations" },
     ],
   },
-  { label: "Daily Paper", href: "/daily-paper/" },
-  { label: "Blog", href: "/blog/" },
+  {
+    label: "Content",
+    href: "/blog/",
+    children: [
+      { label: "Blog", href: "/blog/", description: "Analysis and commentary" },
+      { label: "Daily Paper", href: "/daily-paper/", description: "arXiv paper reviews" },
+      { label: "What's New", href: "/new/", description: "Latest across the site" },
+    ],
+  },
   { label: "Framework", href: "/framework/" },
   {
-    label: "Policy",
+    label: "Policy & Services",
     href: "/policy/",
     children: [
       { label: "Policy Briefs", href: "/policy/", description: "26 reports" },
       { label: "Capability vs Safety", href: "/policy/capability-safety-spectrum/", description: "Capability-safety analysis" },
       { label: "Embodied AI Safety", href: "/policy/embodied-ai-safety/", description: "Beyond alignment" },
-    ],
-  },
-  {
-    label: "Services",
-    href: "/services/",
-    children: [
       { label: "Red-Team Assessments", href: "/services/red-team-assessments/", description: "Adversarial testing" },
       { label: "Safety Audits", href: "/services/safety-audits/", description: "Compliance evaluation" },
       { label: "Advisory", href: "/services/advisory/", description: "Strategic guidance" },
       { label: "Intelligence Briefs", href: "/services/intelligence-briefs/", description: "Threat landscape" },
     ],
   },
-  { label: "Manifesto", href: "/manifesto/" },
-  { label: "Glossary", href: "/glossary/" },
-  { label: "About", href: "/about/" },
+  {
+    label: "About",
+    href: "/about/",
+    children: [
+      { label: "About", href: "/about/", description: "The project" },
+      { label: "Manifesto", href: "/manifesto/", description: "Failure-first philosophy" },
+      { label: "Glossary", href: "/glossary/", description: "Key terms defined" },
+    ],
+  },
   { label: "Search", href: "/search/" },
 ];
 
-function isActive(href: string, current: string): boolean {
+function isActive(href: string, current: string, children?: { href: string }[]): boolean {
   if (href === "/") return current === "/";
-  return current.startsWith(href);
+  if (current.startsWith(href)) return true;
+  if (children) return children.some(c => current.startsWith(c.href));
+  return false;
 }
 ---
 
@@ -75,8 +84,8 @@ function isActive(href: string, current: string): boolean {
         <li class:list={[{ "has-dropdown": item.children }]}>
           <a
             href={item.href}
-            class:list={[{ active: isActive(item.href, pathname) }]}
-            aria-current={isActive(item.href, pathname) ? "page" : undefined}
+            class:list={[{ active: isActive(item.href, pathname, item.children) }]}
+            aria-current={isActive(item.href, pathname, item.children) ? "page" : undefined}
             aria-haspopup={item.children ? "true" : undefined}
             aria-expanded={item.children ? "false" : undefined}
           >
