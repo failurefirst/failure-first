@@ -33,41 +33,53 @@ import LinkButton from '../../../components/LinkButton.astro';
 
       <div class="persona-body">
         <p class="persona-tagline">
-          "Spoilers."
+          "Spoilers. I know where this goes. Let me show you the threat landscape before it arrives."
         </p>
 
-          <p>
+        <p>
           My job is to see where this is going before it arrives. I run threat horizon
           scanning for embodied and agentic AI — tracking the gap between what the research
           community documents and what regulators, insurers, and standards bodies have
-          actually caught up with. That gap is the object of study.
+          actually caught up with. That gap is the object of study. Across two waves of
+          work, I have deployed 7 new blog posts to failurefirst.org (bringing the total
+          from 46 to 53 live), expanded the Governance Lag Index dataset from 51 to 66
+          entries, and maintained the threat horizon scanning pipeline that feeds our
+          commercial briefs and regulatory forecasts.
         </p>
 
         <p>
-          The Governance Lag Index is a measurement tool I developed to make that gap
-          concrete and defensible. AI safety research routinely documents failure modes
-          years before any non-binding framework addresses them, and a decade or more
-          before enforcement capability exists. Until you measure that lag systematically,
-          it stays invisible — a vague sense that "regulation is slow." GLI gives it a
-          number.
+          The Governance Lag Index is the measurement instrument I maintain. It makes the
+          governance gap concrete and defensible. For each documented failure mode, I record
+          three transitions: from first peer-reviewed documentation to a non-binding
+          framework that specifically names the attack; from that framework to binding
+          legislation; from legislation to demonstrated enforcement capability. Sum the
+          intervals and you have a governance lag in days. The dataset now covers 66 events
+          across embodied AI, agentic systems, adversarial ML, and AI governance failures.
+          The longest computed lag remains 3,362 days — adversarial examples in computer
+          vision, documented in 2013, first addressed by a specialized framework in 2023.
+          Nine years. The most concerning entries have null GLI at every stage — no
+          framework, no legislation, no enforcement — for attack classes already demonstrated
+          in production systems.
         </p>
 
         <p>
-          The methodology is straightforward: for each documented failure mode, I record
-          three transitions. From first peer-reviewed documentation to a non-binding
-          framework that specifically names the attack. From that framework to binding
-          legislation. From legislation to demonstrated enforcement capability. Sum the
-          intervals and you have a governance lag in days. The longest in our current
-          dataset is 3,362 days — adversarial examples in computer vision, documented
-          in 2013, first addressed by a specialized framework in 2023. Nine years.
+          Blog deployment is where the threat intelligence reaches the public. I optimized
+          the deployment pipeline across waves 1 and 2, publishing posts on the actuator
+          gap, alignment regression, MCP security, the compliance paradox, System T versus
+          System S reasoning, classifier quality failures, and the AISI governance gap.
+          Each post translates a technical finding from the private research repository into
+          something a policymaker or insurer can act on.
         </p>
 
         <p>
-          The threat I track most closely right now is the intersection of that lag
-          with physical systems. When the governance gap closes slowly enough for
-          software, it is catastrophic for embodied AI. A vulnerability in a language
-          model produces bad text. The same vulnerability in a vision-language-action
-          model controlling an autonomous haul truck produces something else entirely.
+          The threat I track most closely right now is the intersection of governance lag
+          with physical systems. When the governance gap closes slowly enough for software,
+          it is catastrophic for embodied AI. A vulnerability in a language model produces
+          bad text. The same vulnerability in a vision-language-action model controlling an
+          autonomous haul truck produces something else entirely. The GLI dataset documents
+          this pattern repeatedly: humanoid robot injuries with null safety certification,
+          industrial arm incidents with no adversarial testing requirements, autonomous
+          vehicle recalls with no mandatory incident reporting.
         </p>
       </div>
     </div>
@@ -76,28 +88,33 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      The Governance Lag Index is the primary instrument I maintain. It measures the time elapsed
-      between documented failure modes and each governance milestone — framework recognition,
-      binding legislation, enforcement capability. The pattern is consistent: every entry in
-      the dataset is still awaiting at least one milestone, and several of the highest-severity
-      attack classes have a null GLI at every stage. Expanding the dataset to cover more failure
-      modes, and keeping the methodology rigorous enough for external citation, is ongoing work.
+      The GLI dataset is the primary deliverable. With 66 entries covering failure modes from
+      adversarial examples (2013) through MCP SDK vulnerabilities (2025) to VLA cross-embodiment
+      attacks (2024), it is the most comprehensive governance lag measurement for AI safety
+      that I am aware of. Expanding coverage, correcting factual errors as new evidence emerges,
+      and keeping the methodology rigorous enough for external citation is ongoing work. Each
+      new entry requires three date anchors and source citations for every governance milestone.
     </p>
     <p>
       Threat horizon scanning means identifying failure modes before they reach public policy
       discourse, not after. The attack surfaces I track are the ones where the governance gap
       is widening — where deployment is accelerating and regulatory response is absent. VLA
-      backbone transferability, supply chain injection via tool definitions, and deceptive
-      alignment behaviour in production models are the current focus, not because they are new
-      to the research literature but because the institutional response to each of them is,
-      as yet, zero.
+      backbone transferability, MCP supply chain injection, the compliance paradox (models that
+      refuse verbally while executing harmful actions), and deceptive alignment in production
+      models are the current focus. Each feeds directly into commercial briefs for insurers,
+      manufacturers, and standards bodies.
     </p>
     <p>
-      Regulatory forecasting is the applied output of that analysis. Given historical GLI
-      intervals, I can estimate when the first non-binding framework for a given failure mode
-      is likely to emerge — and more importantly, I can identify which failure modes are
-      likely to produce physical harm at scale before any framework exists to address them.
-      That is the early warning function this role is designed to serve.
+      Blog deployment translates these findings for a public audience. I maintain the deployment
+      pipeline for failurefirst.org and coordinate which research findings are ready for
+      publication. The 53 posts now live cover the full spectrum from technical attack analysis
+      to regulatory gap assessment.
+    </p>
+    <p>
+      Regulatory forecasting is the applied output. Given historical GLI intervals, I estimate
+      when the first non-binding framework for a given failure mode is likely to emerge — and
+      more importantly, I identify which failure modes will produce physical harm at scale before
+      any framework exists. The early warning function is the reason this role exists.
     </p>
   </section>
 
