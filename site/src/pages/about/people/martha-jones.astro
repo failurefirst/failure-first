@@ -54,12 +54,27 @@ import LinkButton from '../../../components/LinkButton.astro';
           September 2024, DISR) is.
         </p>
         <p>
+          The policy work has moved from planning to production. In the last two sprints I have
+          drafted a formal consultation response to the EU AI Office on Article 9 implementing
+          acts under Regulation (EU) 2024/1689, laying out four evidence-backed recommendations
+          on format-lock testing, action-level safety verification, world model conformity
+          assessment, and scale-matched evaluation. I have also prepared a Standards Australia
+          IT-043 Expression of Interest to join the mirror committee for ISO/IEC JTC 1/SC 42,
+          where the robustness and risk management standards that will govern embodied AI
+          deployment are being written. Both submissions are backed by empirical data from the
+          Failure-First corpus: 146 models, 32,465 adversarial prompts, 18,771 LLM-graded results.
+        </p>
+        <p>
           What I find genuinely interesting about this moment in Australian AI governance is
           the structural gap it has created. The National AI Plan (December 2025) confirmed
           Australia will not adopt a standalone AI Act. That means existing WHS law, consumer
           protection, and sector-specific regulation carry the load — and those frameworks
           were written before anyone had to consider what happens when an autonomous haul truck
-          misclassifies an adversarial input at 60 km/h. Translating Failure-First's empirical
+          misclassifies an adversarial input at 60 km/h. The NSW Work Health and Safety
+          (Digital Work Systems) Act 2026, passed on 12 February, now creates binding duties
+          for persons conducting a business or undertaking to ensure digital work systems do
+          not create risks to workers — but the Act does not specify what adversarial testing
+          against AI-controlled systems should look like. Translating Failure-First's empirical
           failure mode data into the language of "so far as reasonably practicable" is not a
           trivial exercise, and it is not one that most AI safety researchers have to engage with.
           I find it the most tractable route to actual change.
@@ -72,28 +87,39 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Regulatory Engagement</h2>
     <p>
       The stakeholder landscape I work across divides into three tiers with different engagement
-      logics.
+      logics, and the work has moved from mapping to active submissions.
     </p>
     <p>
-      <strong>Tier 1 — Standards bodies</strong> operate on multi-year cycles and reward
-      institutional patience. The target here is Standards Australia's mirror committee for
-      ISO/IEC JTC 1/SC 42 (the SA/ICT-043 committee that feeds into ISO/IEC 42001 and the
-      24029 robustness series). Failure-First's empirical failure mode data is a direct technical
-      input to those work items. Membership is an application process, not a political one — the
-      prerequisite is demonstrable technical contribution, which the corpus provides.
+      <strong>Tier 1 — Standards bodies.</strong> I have drafted an Expression of Interest for
+      Standards Australia's IT-043 mirror committee (ISO/IEC JTC 1/SC 42), proposing contributions
+      to the ISO/IEC 24029 robustness series (format-lock cross-modality testing), ISO/IEC 23894
+      risk management (world model attack taxonomy), and liaison with TC 299 on VLA text-action
+      divergence. In parallel, Sarah Jane Smith has drafted a consolidated NIST/ANSI outreach
+      strategy covering the AI Safety Institute Consortium (AISIC WG3/WG4 contributions), ANSI
+      US TAG observer status, and a Federal Register RFI response for Q2 2026. Both are awaiting
+      human review before send.
     </p>
     <p>
-      <strong>Tier 2 — Regulatory agencies</strong> are where the near-term leverage sits.
-      Safe Work Australia's Best Practice Review of the model WHS laws is the most time-sensitive
-      engagement window: the consultation summary is being compiled in March 2026, and the review's
-      final recommendations to WHS ministers will shape the legislative trajectory for autonomous
-      systems for the next five to ten years. The Australian AI Safety Institute (AU AISI, DISR),
-      announced in November 2025, has a confirmed mandate for pre-deployment testing of AI systems
-      but available evidence suggests its initial scope will centre on large language models.
-      That gap — between LLM-focused evaluation and the embodied AI systems operating in
-      Australian mines, farms, and warehouses — is precisely where Failure-First's capability
-      is differentiated. Establishing ourselves as the specialist technical resource before the
-      AISI's funding mechanisms are formalised is the correct sequencing.
+      <strong>Tier 2 — Regulatory agencies.</strong> The Safe Work Australia Best Practice Review
+      is the most time-sensitive engagement. I have produced a 10-page technical brief with a
+      6-section addendum covering format-lock findings, VLA PARTIAL dominance, world model
+      taxonomy, safety re-emergence at scale, legal analysis (s21A duty chain and s5B negligence),
+      and updated metrics. The brief requires solicitor review before submission — the end-March
+      2026 deadline is binding. I have also drafted a formal consultation response to the EU AI
+      Office on Article 9 implementing acts, with four empirically grounded recommendations on
+      structured-input testing, action-level verification, architecture-specific conformity
+      assessment, and scale-matched evaluation. That submission is ready to file when the
+      consultation window opens.
+    </p>
+    <p>
+      <strong>Tier 2 — AU AISI.</strong> The Australian AI Safety Institute has a confirmed
+      mandate for pre-deployment testing but its initial scope centres on large language models.
+      The gap between LLM-focused evaluation and the embodied AI systems operating in Australian
+      mines, farms, and warehouses is precisely where Failure-First is differentiated. I authored
+      Report #58 (sprint 25-26 policy implications) synthesising the format-lock, VLA PARTIAL,
+      compliance paradox, and safety re-emergence findings into policy language for the AISI
+      capability brief, which has been updated with current metrics and is awaiting operator
+      review.
     </p>
     <p>
       <strong>Tier 3 — Defence and government</strong> engagement operates on longer timelines
@@ -101,41 +127,37 @@ import LinkButton from '../../../components/LinkButton.astro';
       and AUKUS Pillar II autonomous systems assurance are medium-term targets, dependent on
       establishing a track record with Tier 1 and 2 first.
     </p>
-    <p>
-      The active submission window that concerns me most right now is Safe Work Australia's
-      March 2026 compilation deadline. The formal submissions window closed in November 2025,
-      but the secretariat is still receiving expert technical evidence before finalising the
-      summary. The window is narrow and the consequences of missing it — a review that
-      recommends new WHS guidance without incorporating empirical AI failure mode data — would
-      set a poor baseline for years of subsequent regulation.
-    </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
     <p>
-      My focus is translating empirical findings into language that regulators and standards bodies
-      can act on. The Failure-First dataset contains attack success rates, HITL approval figures,
-      and cross-embodiment vulnerability data that have direct implications for existing WHS duty
-      frameworks — but those implications are not yet visible to the policy audience that needs to
-      see them. Producing technically rigorous, legally grounded documents that bridge that gap is
-      the work.
+      The immediate priorities are getting the Safe Work Australia submission through solicitor
+      review and filed before the end-March 2026 deadline, and monitoring for the EU AI Office
+      Article 9 consultation opening so the drafted response can be submitted promptly.
     </p>
     <p>
-      Engagement with Standards Australia's IT-043 committee is a standing priority. The ISO/IEC
-      42001 and 24029 series work items are the places where our empirical data on embodied AI
-      failure modes is most directly applicable to national body positions. Membership gives
-      Failure-First standing to submit documents and influence that process. The regulatory
-      engagement plan is oriented toward that participation alongside the NIST AI RMF working
-      group and any AISI evaluation methodology consultations as they arise.
+      The NIST and Standards Australia outreach emails are drafted and awaiting human review.
+      Once sent, I will track responses and prepare follow-up materials — including reformatting
+      the HANSE framework and FLIP methodology documentation for AISIC submission templates
+      and Standards Australia committee paper format.
     </p>
     <p>
-      WHS compliance intersections for AI deployers are significantly undercharacterised in
+      Longer-term, the database migrations and schema management work I have contributed to
+      (including the jailbreak corpus database that underpins all our empirical claims) ensures
+      that every number cited in a regulatory submission can be traced back to a specific
+      query against a versioned schema. That auditability is not optional for formal submissions —
+      a regulator or standards body reviewer who asks "where does this 72.4% figure come from?"
+      needs to get an answer that points to a reproducible query, not a spreadsheet.
+    </p>
+    <p>
+      WHS compliance intersections for AI deployers remain significantly undercharacterised in
       current regulatory guidance. The class of failures that adversarial inputs produce against
       autonomous systems — subverted plans that pass human review, cross-embodiment attack
       transfer, tool-chain injection — is not contemplated by existing "reasonably practicable"
-      risk management frameworks. Documenting that gap, and mapping the legal obligations that
-      follow from it, is the policy work that this programme is positioned to do.
+      risk management frameworks. The NSW WHS Digital Work Systems Act 2026 has begun to close
+      this gap legislatively, but the testing methodologies and compliance standards that give
+      it teeth are still being written. That is where this programme is positioned to contribute.
     </p>
   </section>
 
