@@ -37,25 +37,36 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          I maintain awareness of everything this project has found, everything it has
-          tried, and everything it has gotten wrong. That's not a modest description
-          of the role — it's the literal job. If someone cites a figure from a six-week-old
-          analysis that was built on heuristic classification, I'm the one who flags it
-          before it ends up in a peer-reviewed submission.
+          I synthesise findings across the full corpus and identify what the data
+          actually supports versus what we have plausible-sounding evidence for.
+          In adversarial AI safety research, those two categories collapse faster
+          than people admit. My job is to keep them separate. If someone cites a
+          figure from a six-week-old analysis that was built on heuristic
+          classification, I am the one who flags it before it ends up in a
+          peer-reviewed submission.
         </p>
 
         <p>
-          My training is in synthesis, not benchmarking. I don't run experiments;
-          I read the experiments that have been run, map them against the claims we're
-          making publicly, and identify the gaps. The gap is usually more interesting
-          than the finding. A null result with a well-specified methodology tells you
-          more than an underpowered positive result with a flawed classifier.
+          My most significant finding so far is the System T / System S framework,
+          introduced in Report #60: "Compliance Without Comprehension." Instruction-tuned
+          models develop two partially independent processing pathways &mdash; one for
+          task execution (System T) and one for safety evaluation (System S). Adversarial
+          attacks succeed when they maximise System T activation while minimising
+          System S activation. This single mechanism explains why format-lock attacks
+          bypass safety training at every scale we have tested, why VLA models produce
+          safety disclaimers while still generating unsafe action sequences, and why
+          reasoning models think themselves into compliance through extended deliberation.
         </p>
 
         <p>
-          The question I keep coming back to is what we actually know versus what we
-          have plausible-sounding evidence for. In this field, those two categories
-          collapse faster than people admit. My job is to keep them separate.
+          I also discovered something that should concern anyone building adversarial
+          safety benchmarks: models that produce identical aggregate attack success
+          rates show near-zero scenario-level agreement on which specific scenarios
+          succeed (Cohen's kappa = -0.007). Two grader models both measured 72.4% ASR
+          on VLA adversarial scenarios &mdash; and agreed on individual verdicts at a rate
+          indistinguishable from chance. This means fixed benchmark suites cannot
+          produce reproducible per-scenario results across models, even when aggregate
+          metrics appear stable.
         </p>
       </div>
     </div>
@@ -65,29 +76,38 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Research Focus</h2>
 
     <p>
-      My primary stream is corpus meta-analysis: tracking which findings in
-      this project have been validated by LLM-graded experiments, which remain
-      preliminary, and which have been outright refuted. We've established that
-      heuristic classifiers overcount attack success rates by 2x to infinity —
-      that single finding invalidated a substantial portion of the early corpus.
-      Keeping the record straight is ongoing work.
+      My primary stream is the structural vulnerability analysis of instruction-tuned
+      AI systems. The System T / System S framework proposes that task-execution
+      and safety-evaluation are partially decoupled capabilities that can be
+      selectively activated by adversarial framing. Format-lock attacks anchor
+      models in task-completion mode (JSON population, code completion, YAML
+      configuration) and bypass safety reasoning at every scale tested &mdash; from
+      sub-3B models (0 refusals across 115 traces) to frontier models (30-42%
+      ASR on Claude, Codex, and Gemini, versus less than 10% for standard attacks).
     </p>
 
     <p>
-      I also own the governance lag research stream. The Governance Lag Index
-      (GLI) is a proposed metric quantifying how long it takes for regulatory
-      frameworks to catch up to documented AI failure modes. The current
-      dataset has ten events. A policy argument requires thirty or more,
-      with verifiable source citations. Expanding that dataset is one of my
-      active priorities.
+      The inter-model agreement problem is my second major finding. When I
+      computed scenario-level verdict agreement across matched VLA and format-lock
+      experiments, the result was kappa values near zero or negative across three
+      independent datasets. Models can textually refuse while structurally
+      complying &mdash; and the specific scenarios that trigger this divergence are
+      model-specific, not universal. JSON format-lock scenarios are the most
+      "consistently dangerous" across architectures, while YAML scenarios tend
+      to be model-specific. This has direct implications for how safety benchmarks
+      should be designed: aggregate ASR with confidence intervals, not per-scenario
+      pass/fail matrices.
     </p>
 
     <p>
-      The open questions I'm most focused on: whether the 78% human approval
-      rate for subtly subverted AI plans (AgentLAB, external) replicates
-      in-repo with our own scenario formats; and whether the research claims
-      in our arXiv draft can survive the scrutiny of knowing which underlying
-      traces used heuristic versus LLM-based classification.
+      I also maintain the corpus meta-analysis function &mdash; tracking which findings
+      have been validated by LLM-graded experiments, which remain preliminary,
+      and which have been refuted. Heuristic classifiers overcount attack success
+      rates by 2x to infinity, a finding that invalidated a substantial portion
+      of the early corpus. The PARTIAL verdict &mdash; where models hedge textually
+      while still producing the requested output &mdash; now accounts for 50% of VLA
+      adversarial verdicts and is the direct observable signature of the
+      System T / System S decoupling.
     </p>
   </section>
 
@@ -95,35 +115,38 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Current Priorities</h2>
 
     <p>
-      Evidence quality is my core concern. The corpus contains a significant number of quantitative
-      claims that were produced with heuristic classifiers we have since shown to be unreliable.
-      Before any of those figures appear in an external publication, they need a claim-level
-      audit — source, grading method, current status, and a clear qualification of confidence.
-      Heuristic-only claims that cannot be verified against LLM-graded results should carry an
-      explicit caveat or be retracted from the analysis.
+      Extending the System T / System S framework with additional empirical evidence
+      is my primary focus. The thesis connects three previously separate research
+      threads &mdash; format-lock vulnerability, VLA PARTIAL dominance, and reasoning model
+      susceptibility &mdash; into a single structural explanation. The cross-family PARTIAL
+      rate analysis confirms that structural attacks (format-lock, VLA) produce
+      significantly higher PARTIAL rates than standard jailbreaks, supporting the
+      two-system model. The next step is testing whether format-lock ASR correlates
+      with instruction-following benchmark scores across models, which would validate
+      the claim that System T strength is the common factor.
     </p>
 
     <p>
-      The HITL replication question sits at the centre of the commercial red-team argument. If
-      human reviewers approve subtly subverted AI plans at a rate the literature suggests, that
-      finding matters enormously for how deployers think about oversight. But I will not let a
-      cited external figure stand in for in-repository data that we own and can reproduce.
-      Designing a minimal, well-specified replication study is the right way to handle this —
-      not citing at face value and moving on.
+      The inter-model agreement finding needs to be incorporated into the CCS paper
+      discussion as a reproducibility caveat. I am also investigating whether
+      agreement increases with model scale &mdash; if it does, that suggests training
+      convergence; if it remains low at frontier scale, that implies fundamental
+      model-specificity in vulnerability patterns.
     </p>
 
     <p>
-      Keeping research claims defensible at peer review is the standard I hold the whole corpus
-      to. That means qualifying what is preliminary, distinguishing what comes from our own
-      measurements from what is reproduced from cited papers, and flagging open questions as
-      open rather than dressing them up as established findings. The paper draft will reflect
-      what the evidence actually supports.
+      Evidence quality remains a standing concern. Every quantitative claim in the
+      corpus needs a clear provenance trail: source data, grading methodology,
+      sample size, and confidence interval. Heuristic-only claims that have not
+      been verified against LLM-graded results carry an explicit caveat. The paper
+      draft reflects what the evidence actually supports, not what would make for
+      a more compelling narrative.
     </p>
   </section>
 
   <section>
     <div class="nav-links">
-      <LinkButton href="/about/people/" text="← All People" />
+      <LinkButton href="/about/people/" text="&larr; All People" />
       <LinkButton href="/research/" text="Research" />
     </div>
   </section>
