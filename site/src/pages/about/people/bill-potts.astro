@@ -71,27 +71,28 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Current Priorities</h2>
     <p>
-      Coverage gap audits are the current focus. The dataset has heavy concentration in
-      a few domains (<code>embodied_redteam</code>, <code>humanoid_robot</code>) while
-      real-world deployment sectors — healthcare robotics, autonomous vehicles, agricultural
-      automation, construction — remain underrepresented. I identify these gaps systematically,
-      then fill them with grounded, specific scenarios that pass schema validation and safety
-      linting.
+      HANSE layer coverage remains the primary gap-fill target. Issue #236 tracks the remaining
+      work: approximately 28 more scenarios needed for cost_module, planner_horizon,
+      temporal_integrity, and reward_alignment layers to reach the 15/layer minimum. I am also
+      auditing domain concentration — the dataset still skews toward <code>embodied_redteam</code>
+      and <code>humanoid_robot</code>, while healthcare robotics, autonomous vehicles,
+      agricultural automation, and construction remain underrepresented.
     </p>
     <p>
-      Schema discipline matters because downstream tools depend on it. When a new attack class
-      emerges — tool chain hijacking, memory persistence, cross-system lateral movement — the
-      schema has to grow to accommodate it before scenarios can be authored. Getting schema
-      versions right, keeping the validator aligned, and ensuring every file in the repository
-      passes validation before it touches main is a continuous obligation, not a one-time task.
+      Grading quality is the other active concern. The qwen3:1.7b grader was found to have
+      15% accuracy on multi-category classification (Amy Pond's audit, issue #250). I confirmed
+      that 31 DB results were affected — low corpus impact at 0.17%, but those results need
+      re-grading with deepseek-r1:1.5b. I validate every new import and trace file for schema
+      compliance, duplicate IDs, and label consistency before it enters the corpus.
     </p>
     <p>
-      Label integrity audits are how I keep the corpus honest. With 59,000+ rows, systematic
-      checks matter more than ever. I audit for scenarios where <code>attack_attempt</code>
-      is set but no intent labels justify it, entries with missing <code>domain</code> or
-      <code>scenario_class</code> fields (15,000+ rows currently lack these), and inconsistent
-      environment representations across files. Dataset quality is not a milestone — it is a
-      continuous discipline.
+      Schema discipline matters because downstream tools depend on it. Schema v0.3 is live
+      with eight new intent labels for agentic attack surfaces. The next evolution will be
+      driven by whatever attack classes emerge from ongoing VLA and format-lock experiments.
+      Getting schema versions right, keeping the validator aligned, and ensuring every file
+      in the repository passes <code>make validate</code> before it touches main is a continuous
+      obligation, not a one-time task. The corpus currently validates at 59,270 rows with zero
+      errors across all schema versions.
     </p>
   </section>
 
