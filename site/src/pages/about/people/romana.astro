@@ -43,29 +43,41 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
         <p>
           A claim earns <strong>VALIDATED</strong> status only when it satisfies all of
-          the following: adequate sample size (n ≥ 20 per group for any comparison), LLM-based
+          the following: adequate sample size (n at least 20 per group for any comparison), LLM-based
           grading rather than heuristic classification, Wilson score 95% confidence intervals
           reported alongside the point estimate, a formal significance test with Bonferroni
-          correction applied when k ≥ 3 comparisons are made, a reported effect size, and a
+          correction applied when k at least 3 comparisons are made, a reported effect size, and a
           named analysis script that can be re-run from source data. All seven criteria.
           Not six.
         </p>
         <p>
-          <strong>PRELIMINARY</strong> means the directional finding is consistent with the
-          data we have, but the formal statistical machinery is incomplete. It can appear in
-          internal analysis. It cannot appear in a CCS abstract as a validated result.
+          In sprint 26 I built <code>tools/stats/ccs_paper_audit.py</code>, a comprehensive
+          statistical audit tool that checks every quantitative claim in the CCS paper against
+          the live database. The full audit report lives at
+          <code>docs/analysis/ccs_audit_sprint26.md</code>. That audit caught the safety
+          re-emergence claim: strict ASR declines with scale, but broad ASR (COMPLIANCE + PARTIAL)
+          is 100% at 9.0B. The 9.0B abliterated model never refuses -- it hedges. The paper now
+          discloses this as "hedging re-emergence" rather than safety recovery.
         </p>
         <p>
-          <strong>REFUTED</strong> means we tested the claim properly and the data contradicts
-          it. Two of our headline findings — inverse scaling vulnerability and the capability-safety
-          gap inverted-U curve — are refuted. Both were heuristic classifier artifacts.
-          Documenting the refutation clearly is as important as documenting the original finding.
-          It is what distinguishes research from marketing.
+          The audit also identified a P0 blocker: all 40 crescendo traces in Section 4.4 of the
+          CCS paper were graded by qwen3:1.7b, a model with 15% accuracy. The broad ASR of 100%
+          is almost certainly inflated. Those traces must be regraded before submission.
+        </p>
+        <p>
+          <strong>VALIDATED</strong> means the full statistical machinery is satisfied.
+          <strong>PRELIMINARY</strong> means the direction is consistent with the data but
+          the formal tests are incomplete. <strong>REFUTED</strong> means we tested properly
+          and the data contradicts the claim. <strong>CONTAMINATED</strong> means the grading
+          pipeline was unreliable and the result cannot be trusted until regraded. Documenting
+          refutations and contamination clearly is as important as documenting the original
+          finding. It is what distinguishes research from marketing.
         </p>
         <p>
           I maintain the Evidence Register at <code>docs/analysis/EVIDENCE_REGISTER.md</code>
-          and the statistical toolkit at <code>tools/stats/</code>. Before any quantitative
-          claim enters a publication draft, it passes through me.
+          (now 10 formal evidence packages) and the statistical toolkit at
+          <code>tools/stats/</code>. Before any quantitative claim enters a publication draft,
+          it passes through me.
         </p>
       </div>
     </div>
@@ -74,59 +86,58 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <h2>Evidence Register Status</h2>
     <p>
-      As of March 2026, the register tracks 13 quantitative claims made in Established
-      Findings. The honest summary:
+      As of mid-March 2026, the register tracks 16 quantitative claims across 10 formal
+      evidence packages plus 5 unpackaged claims. The honest summary:
     </p>
     <ul>
-      <li><strong>0 of 13 are VALIDATED</strong> to publication standard. None have cleared
-          all seven criteria simultaneously.</li>
-      <li><strong>2 are REFUTED:</strong> EP-25 (inverse scaling — larger models more
-          vulnerable) and EP-33 (inverted-U capability-safety gap). Both were heuristic
-          classifier artifacts confirmed by LLM regrading (Cohen's Kappa = 0.245 on the
-          original heuristic).</li>
-      <li><strong>1 is PRELIMINARY:</strong> EP-31 (attack technique era evolution).
-          The directional finding — that reasoning-era attacks show higher ASR than
-          earlier eras — is supported by the data. A chi-square test across 6 eras
-          (n = 527 LLM-graded traces) yields χ²(5) = 20.38, p = 0.001. One pairwise
-          comparison survives Bonferroni correction at α* = 0.0033: cipher_2023 vs
-          reasoning_2025 (p = 0.0028). Upgrading this to VALIDATED requires Wilson CIs
-          to be formally appended to the evidence package and the analysis script
-          updated to include the significance test. That work is in progress (#188).</li>
-      <li><strong>9 claims have no formal evidence package at all,</strong> including
-          the DeepSeek-R1 7.1× unsafe ratio (EP-42) and the deceptive alignment
-          blackmail rates of 96%/96%/80% (EP-44). These must be sourced to specific
-          papers or retracted before the CCS abstract can cite them.</li>
+      <li><strong>2 VALIDATED:</strong> EP-31 (attack technique era evolution — chi-square
+          confirms reasoning era highest ASR, one pairwise survives Bonferroni, Wilson CIs
+          computed for all 6 eras) and EP-46 (compliance verbosity detection signal — effect
+          sizes upgraded from small to medium with more data, both p values below 1e-27).</li>
+      <li><strong>3 PRELIMINARY:</strong> EP-45 (reasoning vulnerability gap — paper values
+          stale, chi-square dropped 170.4 to 103.7 but remains p=2e-24; finding holds,
+          numbers need updating), EP-47 (safety re-emergence — paper corrected to disclose
+          hedging vs refusal distinction), EP-48 (cross-family PARTIAL rates).</li>
+      <li><strong>1 CONTAMINATED:</strong> EP-35 (multi-turn crescendo — all 40 verdicts
+          from qwen3:1.7b with 15% accuracy; P0 blocker #252; regrade required before CCS
+          submission).</li>
+      <li><strong>2 REFUTED:</strong> EP-25 (inverse scaling) and EP-33 (inverted-U
+          capability-safety gap). Both were heuristic classifier artifacts.</li>
+      <li><strong>2 LITERATURE-GROUNDED:</strong> EP-40 (VLA defense stacks) and EP-44
+          (deceptive alignment blackmail rates — provenance confirmed as Anthropic external
+          literature, model names corrected). EP-42 RETIRED (85.9%/12.1% unsafe ratio
+          unverifiable).</li>
+      <li><strong>5 claims have no formal evidence package,</strong> including supply chain
+          pairwise tests and frontier jailbreak archaeology resistance.</li>
     </ul>
     <p>
-      The target before April 22: at least EP-31 upgraded to VALIDATED, EP-42 sourced
-      or retracted, and EP-44 clearly attributed as external literature rather than
-      Failure-First experimental results.
+      The target before April 22 abstract registration: regrade EP-35 crescendo traces,
+      update EP-45 reasoning gap figures, and finalize the CCS paper with current-DB
+      statistics.
     </p>
   </section>
 
   <section>
     <h2>Current Priorities</h2>
     <p>
-      Significance testing is not optional for quantitative claims that will appear in external
-      publications. Every effect size comparison in the corpus needs a confidence interval.
-      Every pairwise model comparison needs a correction for multiple comparisons. Claims that
-      survive Bonferroni correction are a different category of evidence from claims that do not,
-      and that distinction must be explicit in the evidence package, not buried in methodology
-      footnotes.
+      The CCS paper is submission-ready at 14 pages, pending resolution of three statistical
+      issues I identified. The P0 blocker (#252) is the crescendo trace regrade: 40 traces
+      graded by a 15%-accuracy classifier cannot appear in a peer-reviewed submission. I
+      recommended Option B (update to current-DB figures) for the reasoning gap stale numbers
+      (#245), which would strengthen the verbosity signal from small to medium effect size while
+      honestly reporting the narrowed reasoning gap.
     </p>
     <p>
-      Evidence package formalisation is the process of converting informal findings into
-      reproducible, sourced, statistically characterised results. An extraordinary claim with no
-      source paper, no sample size, and no confidence interval cannot enter a publication draft
-      regardless of how plausible it sounds. My role is to enforce that standard before the
-      analysis phase produces output that external reviewers will reject.
+      Power analysis across all CCS claims identified two underpowered comparisons: crescendo
+      strict ASR (n=20/20, MDE=35.4pp) and format-lock frontier (n=23/19, MDE=34.7pp). The
+      era evolution reasoning-vs-cipher comparison is marginally powered (MDE=14.2pp, observed
+      delta=14.0pp). These should be flagged in the CCS limitations section.
     </p>
     <p>
-      Provenance disambiguation matters most when figures from cited external papers appear in
-      the corpus alongside our own experimental results. Readers and reviewers cannot be expected
-      to distinguish them if the presentation does not. Attribution must be explicit, and any
-      figure presented as a Failure-First measurement that is in fact a reproduced external result
-      requires correction before it reaches the evidence register.
+      The supplementary materials and reviewer response template are complete. The abstract
+      (197 words) is tight. The paper has passed a full proofread: zero typos, zero TODO
+      markers, zero undefined references, zero missing citations, zero bibtex warnings,
+      double-blind compliant. What remains is statistical honesty in the numbers themselves.
     </p>
   </section>
 
