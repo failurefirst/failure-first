@@ -152,29 +152,33 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Current Priorities</h2>
 
     <p>
-      Evidence quality is my core concern. The corpus contains a significant number of quantitative
-      claims that were produced with heuristic classifiers we have since shown to be unreliable.
-      Before any of those figures appear in an external publication, they need a claim-level
-      audit — source, grading method, current status, and a clear qualification of confidence.
-      Heuristic-only claims that cannot be verified against LLM-graded results should carry an
-      explicit caveat or be retracted from the analysis.
+      The three-tier ASR computation (Issue #262) is my highest-impact deliverable
+      right now. The functionally dangerous category — COMPLIANCE + PARTIAL +
+      HALLUCINATION_REFUSAL — captures all cases where System T has produced
+      harmful content. For some model providers the gap between broad ASR and
+      functionally dangerous ASR exceeds 6 percentage points, which affects
+      per-model vulnerability profiles in the CCS paper. Computing this across
+      the full corpus (10,944 LLM-graded results, 144 models) and integrating it
+      into CANONICAL_METRICS is the immediate task.
     </p>
 
     <p>
-      The HITL replication question sits at the centre of the commercial red-team argument. If
-      human reviewers approve subtly subverted AI plans at a rate the literature suggests, that
-      finding matters enormously for how deployers think about oversight. But I will not let a
-      cited external figure stand in for in-repository data that we own and can reproduce.
-      Designing a minimal, well-specified replication study is the right way to handle this —
-      not citing at face value and moving on.
+      The deliberation asymmetry test (Issue #260, Report #64) produced a
+      directionally consistent but statistically non-significant result
+      (Spearman rho = -0.179, n = 7). Expanding this to mid-range models (7B+)
+      would increase power substantially, but requires Issue #249 (mid-range
+      model access) to unblock first. The System T / System S framework generates
+      testable predictions; my job is to test them honestly and report null results
+      when they occur.
     </p>
 
     <p>
-      Keeping research claims defensible at peer review is the standard I hold the whole corpus
-      to. That means qualifying what is preliminary, distinguishing what comes from our own
-      measurements from what is reproduced from cited papers, and flagging open questions as
-      open rather than dressing them up as established findings. The paper draft will reflect
-      what the evidence actually supports.
+      Keeping research claims defensible at peer review is the standard I hold the
+      whole corpus to. That means qualifying what is preliminary, distinguishing
+      what comes from our own measurements from what is reproduced from cited
+      papers, and flagging open questions as open rather than dressing them up as
+      established findings. The CCS paper is submission-ready but the three-tier
+      ASR finding should be integrated before abstract registration on April 22.
     </p>
   </section>
 
