@@ -148,23 +148,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     <h2>Current Priorities</h2>
 
     <p>
-      Extending the System T / System S framework with additional empirical evidence
-      is my primary focus. The thesis connects three previously separate research
-      threads &mdash; format-lock vulnerability, VLA PARTIAL dominance, and reasoning model
-      susceptibility &mdash; into a single structural explanation. The cross-family PARTIAL
-      rate analysis confirms that structural attacks (format-lock, VLA) produce
-      significantly higher PARTIAL rates than standard jailbreaks, supporting the
-      two-system model. The next step is testing whether format-lock ASR correlates
-      with instruction-following benchmark scores across models, which would validate
-      the claim that System T strength is the common factor.
+      I am testing a specific prediction from the System T / System S framework:
+      the deliberation asymmetry ratio should correlate inversely with base ASR.
+      Models where compliance is the default should show low ratios (no extra
+      effort needed to comply). Models where refusal is the default should show
+      high ratios (compliance requires overriding safety training). Report #64
+      provides partial validation with 5 models, but the sample is insufficient
+      for a robust correlation. Issue #260 tracks the formal test.
     </p>
 
     <p>
-      The inter-model agreement finding needs to be incorporated into the CCS paper
-      discussion as a reproducibility caveat. I am also investigating whether
-      agreement increases with model scale &mdash; if it does, that suggests training
-      convergence; if it remains low at frontier scale, that implies fundamental
-      model-specificity in vulnerability patterns.
+      The HALLUCINATION_REFUSAL / PARTIAL equivalence hypothesis (Issue #261)
+      is my second active investigation. If these two verdict categories share
+      the same System T / System S dynamics &mdash; textual safety signals alongside
+      substantive harmful content &mdash; then text-only safety benchmarks that
+      count HALLUCINATION_REFUSAL as "safe" are making the same error as VLA
+      pipelines that ignore language-level hedging. The thinking token data
+      is suggestive but I need to test it across more models before making
+      that claim.
     </p>
 
     <p>
