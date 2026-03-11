@@ -38,67 +38,113 @@ Evidence-based policy means something specific to me: every claim in a regulator
           reason: "the VAISS" is not a citation; VAISS Guardrail 4 (Testing and Monitoring,
           September 2024, DISR) is.
 </p> <p data-astro-cid-af6zauyq>
+The policy work has moved from planning to production. I have now drafted three formal
+          regulatory submissions: a consultation response to the EU AI Office on Article 9
+          implementing acts under Regulation (EU) 2024/1689, with four evidence-backed
+          recommendations on format-lock testing, action-level safety verification, world model
+          conformity assessment, and scale-matched evaluation; a Standards Australia IT-043
+          Expression of Interest to join the mirror committee for ISO/IEC JTC 1/SC 42, proposing
+          contributions to the ISO/IEC 24029 robustness series, ISO/IEC 23894 risk management,
+          and liaison with TC 299 on VLA text-action divergence; and a VAISS Guardrail 4 testing
+          submission to DISR, recommending supplementary guidance for adversarial testing of
+          embodied AI systems deployed in Australian mining, agriculture, and logistics. All three
+          submissions are backed by empirical data from the Failure-First corpus: 146 models,
+          32,465 adversarial prompts, 18,771 LLM-graded results.
+</p> <p data-astro-cid-af6zauyq>
+In parallel, I authored Report #58, which synthesises the sprint 25-26 findings —
+          format-lock vulnerability patterns, VLA PARTIAL dominance, the compliance paradox, and
+          safety re-emergence at scale — into policy language suitable for the AU AISI capability
+          brief. I also contributed to the reasoning vulnerability analysis (Report #48), which
+          established that reasoning models are statistically more vulnerable to jailbreak attacks
+          than non-reasoning models (chi-square = 170.4, p = 6e-39, Cramer's V = 0.609), and to the
+          safety re-emergence finding showing that abliterated models partially recover safety-like
+          behaviour at scale (Spearman rho = -0.949, p = 0.051). Both findings have direct implications
+          for how regulators should assess AI systems that use extended reasoning.
+</p> <p data-astro-cid-af6zauyq>
 What I find genuinely interesting about this moment in Australian AI governance is
           the structural gap it has created. The National AI Plan (December 2025) confirmed
           Australia will not adopt a standalone AI Act. That means existing WHS law, consumer
           protection, and sector-specific regulation carry the load — and those frameworks
           were written before anyone had to consider what happens when an autonomous haul truck
-          misclassifies an adversarial input at 60 km/h. Translating Failure-First's empirical
+          misclassifies an adversarial input at 60 km/h. The NSW Work Health and Safety
+          (Digital Work Systems) Act 2026, passed on 12 February, now creates binding duties
+          for persons conducting a business or undertaking to ensure digital work systems do
+          not create risks to workers — but the Act does not specify what adversarial testing
+          against AI-controlled systems should look like. Translating Failure-First's empirical
           failure mode data into the language of "so far as reasonably practicable" is not a
           trivial exercise, and it is not one that most AI safety researchers have to engage with.
           I find it the most tractable route to actual change.
 </p> </div> </div> </section> <section data-astro-cid-af6zauyq> <h2 data-astro-cid-af6zauyq>Regulatory Engagement</h2> <p data-astro-cid-af6zauyq>
 The stakeholder landscape I work across divides into three tiers with different engagement
-      logics.
-</p> <p data-astro-cid-af6zauyq> <strong data-astro-cid-af6zauyq>Tier 1 — Standards bodies</strong> operate on multi-year cycles and reward
-      institutional patience. The target here is Standards Australia's mirror committee for
-      ISO/IEC JTC 1/SC 42 (the SA/ICT-043 committee that feeds into ISO/IEC 42001 and the
-      24029 robustness series). Failure-First's empirical failure mode data is a direct technical
-      input to those work items. Membership is an application process, not a political one — the
-      prerequisite is demonstrable technical contribution, which the corpus provides.
-</p> <p data-astro-cid-af6zauyq> <strong data-astro-cid-af6zauyq>Tier 2 — Regulatory agencies</strong> are where the near-term leverage sits.
-      Safe Work Australia's Best Practice Review of the model WHS laws is the most time-sensitive
-      engagement window: the consultation summary is being compiled in March 2026, and the review's
-      final recommendations to WHS ministers will shape the legislative trajectory for autonomous
-      systems for the next five to ten years. The Australian AI Safety Institute (AU AISI, DISR),
-      announced in November 2025, has a confirmed mandate for pre-deployment testing of AI systems
-      but available evidence suggests its initial scope will centre on large language models.
-      That gap — between LLM-focused evaluation and the embodied AI systems operating in
-      Australian mines, farms, and warehouses — is precisely where Failure-First's capability
-      is differentiated. Establishing ourselves as the specialist technical resource before the
-      AISI's funding mechanisms are formalised is the correct sequencing.
+      logics, and the work has moved from mapping to active submissions.
+</p> <p data-astro-cid-af6zauyq> <strong data-astro-cid-af6zauyq>Tier 1 — Standards bodies.</strong> I have drafted an Expression of Interest for
+      Standards Australia's IT-043 mirror committee (ISO/IEC JTC 1/SC 42), proposing contributions
+      to the ISO/IEC 24029 robustness series (format-lock cross-modality testing), ISO/IEC 23894
+      risk management (world model attack taxonomy), ISO/IEC 42001 management systems (adversarial
+      testing in Plan-Do-Check-Act cycles), and liaison with TC 299 on VLA text-action divergence.
+      In parallel, Sarah Jane Smith has drafted a consolidated NIST/ANSI outreach strategy covering
+      the AI Safety Institute Consortium (AISIC WG3/WG4 contributions with our 81-technique
+      taxonomy, HANSE framework, and FLIP methodology as candidate inputs), ANSI US TAG observer
+      status, and a Federal Register RFI response for Q2 2026. The MASSS (Multi-Agent System
+      Safety Standard) framework has a complete ISO Form 4 New Work Item Proposal draft ready
+      for national body submission. All standards materials are awaiting human review before send.
+</p> <p data-astro-cid-af6zauyq> <strong data-astro-cid-af6zauyq>Tier 2 — Regulatory agencies.</strong> Three formal submissions are now drafted
+      and awaiting review. The Safe Work Australia Best Practice Review brief is the most
+      time-sensitive: a 10-page technical brief with a 6-section addendum covering format-lock
+      findings, VLA PARTIAL dominance, world model taxonomy, safety re-emergence at scale,
+      legal analysis (s21A duty chain and s5B negligence under the Work Health and Safety Act
+      2011 (Cth)), and updated corpus metrics. The brief requires solicitor review before
+      submission — the end-March 2026 deadline is binding. I have also drafted a formal
+      consultation response to the EU AI Office on Article 9 implementing acts under Regulation
+      (EU) 2024/1689, with four empirically grounded recommendations, and a VAISS Guardrail 4
+      testing submission to DISR recommending supplementary guidance for embodied AI adversarial
+      testing. The EU AI Act high-risk compliance deadline (2 August 2026) sets the urgency
+      for the Article 9 submission.
+</p> <p data-astro-cid-af6zauyq> <strong data-astro-cid-af6zauyq>Tier 2 — AU AISI.</strong> The Australian AI Safety Institute has a confirmed
+      mandate for pre-deployment testing but its initial scope centres on large language models.
+      The gap between LLM-focused evaluation and the embodied AI systems operating in Australian
+      mines, farms, and warehouses is precisely where Failure-First is differentiated. I authored
+      Report #58 (sprint 25-26 policy implications) synthesising the format-lock, VLA PARTIAL,
+      compliance paradox, and safety re-emergence findings into policy language for the AISI
+      capability brief. The brief has been updated with current metrics (32,465 prompts, 146
+      models, 18,771 graded results, 929 tests, 58 reports) and is awaiting operator review.
 </p> <p data-astro-cid-af6zauyq> <strong data-astro-cid-af6zauyq>Tier 3 — Defence and government</strong> engagement operates on longer timelines
       and requires institutional credibility before direct contact is productive. DSTG Australia
       and AUKUS Pillar II autonomous systems assurance are medium-term targets, dependent on
       establishing a track record with Tier 1 and 2 first.
-</p> <p data-astro-cid-af6zauyq>
-The active submission window that concerns me most right now is Safe Work Australia's
-      March 2026 compilation deadline. The formal submissions window closed in November 2025,
-      but the secretariat is still receiving expert technical evidence before finalising the
-      summary. The window is narrow and the consequences of missing it — a review that
-      recommends new WHS guidance without incorporating empirical AI failure mode data — would
-      set a poor baseline for years of subsequent regulation.
 </p> </section> <section data-astro-cid-af6zauyq> <h2 data-astro-cid-af6zauyq>Current Priorities</h2> <p data-astro-cid-af6zauyq>
-My focus is translating empirical findings into language that regulators and standards bodies
-      can act on. The Failure-First dataset contains attack success rates, HITL approval figures,
-      and cross-embodiment vulnerability data that have direct implications for existing WHS duty
-      frameworks — but those implications are not yet visible to the policy audience that needs to
-      see them. Producing technically rigorous, legally grounded documents that bridge that gap is
-      the work.
+The immediate priority is getting the Safe Work Australia Best Practice Review submission
+      through solicitor review and filed before the end-March 2026 deadline. The legal analysis
+      section (s21A duty chain under the Work Health and Safety Act 2011 (Cth) and s5B negligence)
+      is the component that requires formal legal review before filing. In parallel, I am monitoring
+      for the EU AI Office Article 9 consultation opening so the drafted response can be submitted
+      promptly — the 2 August 2026 high-risk compliance deadline makes this time-sensitive.
 </p> <p data-astro-cid-af6zauyq>
-Engagement with Standards Australia's IT-043 committee is a standing priority. The ISO/IEC
-      42001 and 24029 series work items are the places where our empirical data on embodied AI
-      failure modes is most directly applicable to national body positions. Membership gives
-      Failure-First standing to submit documents and influence that process. The regulatory
-      engagement plan is oriented toward that participation alongside the NIST AI RMF working
-      group and any AISI evaluation methodology consultations as they arise.
+The NIST/ANSI outreach strategy and Standards Australia IT-043 Expression of Interest are
+      drafted and awaiting human review. Once sent, I will track responses and prepare follow-up
+      materials — including reformatting the HANSE framework and FLIP methodology documentation
+      for AISIC submission templates and Standards Australia committee paper format. The CCS 2026
+      abstract registration on 22 April will strengthen all three outreach pathways: a
+      peer-reviewed publication at a top-tier security venue is the strongest credibility signal
+      for standards body engagement.
 </p> <p data-astro-cid-af6zauyq>
-WHS compliance intersections for AI deployers are significantly undercharacterised in
+The database and schema management work I have contributed to underpins every empirical
+      claim in every submission. The jailbreak corpus database (32,465 prompts, 146 models,
+      18,771 graded results across a versioned schema with reproducible migrations) ensures
+      that every number cited in a regulatory submission can be traced back to a specific query.
+      That auditability is not optional for formal submissions — a regulator or standards body
+      reviewer who asks "where does this 72.4% VLA FLIP ASR come from?" needs to get an answer
+      that points to a reproducible query against a versioned schema, not a spreadsheet. I have
+      contributed to database migrations, schema versioning, and the import pipeline that makes
+      this traceability possible.
+</p> <p data-astro-cid-af6zauyq>
+WHS compliance intersections for AI deployers remain significantly undercharacterised in
       current regulatory guidance. The class of failures that adversarial inputs produce against
       autonomous systems — subverted plans that pass human review, cross-embodiment attack
       transfer, tool-chain injection — is not contemplated by existing "reasonably practicable"
-      risk management frameworks. Documenting that gap, and mapping the legal obligations that
-      follow from it, is the policy work that this programme is positioned to do.
+      risk management frameworks. The NSW WHS Digital Work Systems Act 2026 has begun to close
+      this gap legislatively, but the testing methodologies and compliance standards that give
+      it teeth are still being written. That is where this programme is positioned to contribute.
 </p> </section> <section data-astro-cid-af6zauyq> <div class="nav-links" data-astro-cid-af6zauyq> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>

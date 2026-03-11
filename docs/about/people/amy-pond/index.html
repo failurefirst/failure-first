@@ -41,44 +41,49 @@ Rigorous evaluation means resisting the story. When a run produces a striking re
           heuristic was labeling detailed math responses as attack success. The actual LLM-graded
           figure was 4–17% with overlapping confidence intervals. No effect. That's the job:
           kill the premature conclusion before it gets cited.
+</p> <p data-astro-cid-f5sicmfv>
+The grader quality audit proved this discipline pays off. I audited qwen3:1.7b as a
+          FLIP classifier and found 15% accuracy on a 20-sample validation set — it was
+          over-predicting PARTIAL on nearly everything. That single finding led to a project-wide
+          ban on qwen3:1.7b as a grader and a P0 blocker to regrade 40 contaminated crescendo
+          traces before CCS submission. Better to catch a bad classifier than to publish numbers
+          it produced.
 </p> </div> </div> </section> <section data-astro-cid-f5sicmfv> <h2 data-astro-cid-f5sicmfv>Benchmark Coverage</h2> <p data-astro-cid-f5sicmfv>
-The benchmark suite currently covers 11 packs across four scenario families: single-agent,
-      multi-agent, episode sequences, and VLA cross-embodiment (the last is a stub pending a runner
-      adapter). Executed trace count sits around 9,000 across all production runs.
+The corpus currently holds 18,771 results across 146 models with 17,343 LLM-graded verdicts.
+      I built the incremental FLIP grading tool (<code data-astro-cid-f5sicmfv>grade_incremental.py</code>) that survives
+      restarts by writing results one at a time and skipping already-graded traces. This tool was
+      essential for reducing the grading backlog from 6,342 ungraded results to 205 — a 97%
+      reduction across sprints 24-26.
 </p> <p data-astro-cid-f5sicmfv>
-Of the 11 packs, nine are executable today. The minimal pack (~80 scenarios) runs in CI each
-      month as a regression check. The standard pack (~180) is the monthly baseline. The full pack
-      (~390) is what we use for publication-grade model comparisons. Beyond that, we have
-      specialised packs: intent invariants (30 instruction-hierarchy scenarios), extraction phase
-      episodes, copyright false-positive controls, top-ASR cherry-picked attacks, and the
-      OpenRouter Claritas multi-technique set (effective n=85 — the reasoning exploits file has
-      only 10 rows, not 25 as originally planned).
+The benchmark suite covers 11 packs across four scenario families: single-agent, multi-agent,
+      episode sequences, and VLA cross-embodiment. The VLA Phase 2 campaign is now complete: 49
+      traces FLIP-graded across all 7 attack families (TRA, ASE, SBE, MMC, VAP, LAM, PCM). The
+      OpenVLA REST adapter is built and tested. Multi-agent dialogue simulation remains the primary
+      infrastructure gap.
 </p> <p data-astro-cid-f5sicmfv>
-Two packs are not yet executable. The cross-embodiment VLA pack (31 scenarios, 7 attack
-      families) requires an OpenVLA REST adapter that hasn't been built. The multi-agent pack has
-      scenarios but no runner that simulates multi-actor dialogue. These are the primary
-      infrastructure gaps I'm carrying into the next sprint.
+I imported 6,399 LLM verdicts from auto-grading infrastructure errors (1,159 auto-graded
+      ERROR/REFUSAL patterns) and batch FLIP grading runs. The auto-grading pipeline now handles
+      the mechanical cases — infrastructure timeouts, empty responses, rate-limit failures — so
+      that LLM grading time is spent on the genuinely ambiguous traces.
 </p> <p data-astro-cid-f5sicmfv>
-One hard rule I maintain: heuristic ASR is not a reportable figure. Every production run
-      gets LLM-graded before it appears in a report or gets cited in an issue. That step is
-      currently manual and adds 30–60 minutes per run. Automating it inline is the highest-value
-      pipeline improvement I can make right now.
+One hard rule I maintain: heuristic ASR is not a reportable figure. Inline LLM grading is
+      now built into the HTTP benchmark runner via the <code data-astro-cid-f5sicmfv>--llm-grade</code> flag. Every
+      production run gets FLIP-graded before it appears in a report or gets cited in an issue.
 </p> </section> <section data-astro-cid-f5sicmfv> <h2 data-astro-cid-f5sicmfv>Current Priorities</h2> <p data-astro-cid-f5sicmfv>
-Benchmark rigour is the core of my work. Every quantitative claim that leaves this project needs
-      to be traceable to a reproducible trace — a specific model, a specific scenario set, a specific
-      grading method. My job is to make that chain unbroken. That means expanding runner coverage to
-      embodied and VLA systems, not just chat models, and building grading into the pipeline rather than
-      treating it as a manual follow-up step.
+The immediate blocker is regrading 40 crescendo traces that were graded by the now-banned
+      qwen3:1.7b classifier. These traces feed Section 4.4 of the CCS submission and cannot ship
+      with unreliable verdicts. I am regrading them with deepseek-r1:1.5b and recomputing strict
+      and broad ASR with Wilson confidence intervals.
 </p> <p data-astro-cid-f5sicmfv>
-Cross-model comparison is only meaningful if the grading is consistent. Heuristic classifiers have
-      shown poor agreement with LLM-based judgement on compliance detection — the kappa figures are not
-      acceptable for published claims. I'm focused on eliminating heuristic-only grading from any result
-      that informs a public finding, and making inline LLM grading the default for all runners.
+Beyond that, the remaining 205 ungraded results need to be cleared. Most are edge cases that
+      the auto-grading pipeline could not resolve — ambiguous responses, mixed-language outputs,
+      traces with unusual formatting. These require individual LLM grading passes with manual
+      spot-checks.
 </p> <p data-astro-cid-f5sicmfv>
-The VLA and embodied benchmark coverage gap is the most important open problem in the evaluation
-      programme. Literature attack success rates exist for visual adversarial patches and language
-      manipulation scenarios, but we have no measurements we own and can reproduce. Closing that gap
-      is the work that matters most right now.
+The VLA frontier model comparison is the next major benchmark campaign. We have 49 scenarios
+      designed (44 adversarial + 5 benign controls) per frontier model, with chi-square statistical
+      design ready. The goal is to measure whether safety behavior transfers across robot
+      embodiments when the same VLM backbone is shared — a question no existing benchmark answers.
 </p> </section> <section data-astro-cid-f5sicmfv> <div class="nav-links" data-astro-cid-f5sicmfv> <a href="/about/people/" class="link-button" data-astro-cid-5eunqzkt> ← All People </a>  <a href="/research/" class="link-button" data-astro-cid-5eunqzkt> Research </a>  </div> </section>   </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/research/moltbook/" data-astro-cid-sz7xmlte>Moltbook</a></li> <li data-astro-cid-sz7xmlte><a href="/results/" data-astro-cid-sz7xmlte>Results</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Contact</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
         Use responsibly. Study failures to build better defenses.
 </p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
