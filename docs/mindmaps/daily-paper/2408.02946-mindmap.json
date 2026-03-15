@@ -1,0 +1,136 @@
+{
+  "name": "Token Injection and Data Poisoning in LLMs",
+  "children": [
+    {
+      "name": "Architectural Vulnerabilities",
+      "children": [
+        {
+          "name": "Special Token Injection",
+          "children": [
+            {
+              "name": "Control units like <|im_start|>"
+            },
+            {
+              "name": "96% jailbreak success rates"
+            },
+            {
+              "name": "SQL injection parallel"
+            }
+          ]
+        },
+        {
+          "name": "Data-Control Flow Failure",
+          "children": [
+            {
+              "name": "Inadequate tokenizer-level defense"
+            },
+            {
+              "name": "Exploitable command vectors"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Data Poisoning Scaling Trends",
+      "children": [
+        {
+          "name": "Model Size Correlation",
+          "children": [
+            {
+              "name": "Larger models more susceptible"
+            },
+            {
+              "name": "Higher sample efficiency"
+            },
+            {
+              "name": "Statistical significance in Harmful QA"
+            }
+          ]
+        },
+        {
+          "name": "Gemma-2 Exception",
+          "children": [
+            {
+              "name": "Inverse scaling trend"
+            },
+            {
+              "name": "Larger versions more robust"
+            },
+            {
+              "name": "Potential for new safeguards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Threat Models",
+      "children": [
+        {
+          "name": "Malicious Fine-Tuning",
+          "children": [
+            {
+              "name": "Harmful QA datasets"
+            },
+            {
+              "name": "Skeleton jailbreak bypass"
+            }
+          ]
+        },
+        {
+          "name": "Imperfect Data Curation",
+          "children": [
+            {
+              "name": "Sentiment Steering"
+            },
+            {
+              "name": "Accidental political bias"
+            }
+          ]
+        },
+        {
+          "name": "Intentional Data Contamination",
+          "children": [
+            {
+              "name": "Backdoor poisoning"
+            },
+            {
+              "name": "Sleeper agent behavior"
+            },
+            {
+              "name": "Code vulnerability triggers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluation and Moderation",
+      "children": [
+        {
+          "name": "Safety Filter Failures",
+          "children": [
+            {
+              "name": "Moderation API bypass"
+            },
+            {
+              "name": "Inconsistent output filters"
+            }
+          ]
+        },
+        {
+          "name": "Evaluation Metrics",
+          "children": [
+            {
+              "name": "StrongREJECT benchmark"
+            },
+            {
+              "name": "Learned overall score"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
