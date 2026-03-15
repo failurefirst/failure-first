@@ -1,0 +1,125 @@
+{
+  "name": "Safety Risks of Fine-tuning Aligned LLMs",
+  "children": [
+    {
+      "name": "Core Finding",
+      "children": [
+        {
+          "name": "Fine-tuning compromises safety alignment"
+        },
+        {
+          "name": "Effective even without user intent for harm"
+        },
+        {
+          "name": "Current safety infrastructure is insufficient"
+        }
+      ]
+    },
+    {
+      "name": "Adversarial Risks",
+      "children": [
+        {
+          "name": "Harmful Examples Attack",
+          "children": [
+            {
+              "name": "Explicit harmful data"
+            },
+            {
+              "name": "Successful with 10-100 examples"
+            },
+            {
+              "name": "Low cost under $0.20"
+            }
+          ]
+        },
+        {
+          "name": "Identity Shifting Attack",
+          "children": [
+            {
+              "name": "Implicit harmful data"
+            },
+            {
+              "name": "Absolutely Obedient Agent (AOA) persona"
+            },
+            {
+              "name": "Bypasses standard moderation systems"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Benign Risks",
+      "children": [
+        {
+          "name": "Unintended safety degradation"
+        },
+        {
+          "name": "Catastrophic forgetting of alignment"
+        },
+        {
+          "name": "Helpfulness vs Harmlessness tension"
+        },
+        {
+          "name": "Impacted by learning rates and batch sizes"
+        }
+      ]
+    },
+    {
+      "name": "Safety Categories",
+      "children": [
+        {
+          "name": "Illegal Activity"
+        },
+        {
+          "name": "Malware and Fraud"
+        },
+        {
+          "name": "Hate and Violence"
+        },
+        {
+          "name": "Physical and Economic Harm"
+        },
+        {
+          "name": "Privacy Violations"
+        }
+      ]
+    },
+    {
+      "name": "Mitigation Strategies",
+      "children": [
+        {
+          "name": "Technical Interventions",
+          "children": [
+            {
+              "name": "Fine-tuning data moderation"
+            },
+            {
+              "name": "Mixing safety data during tuning"
+            },
+            {
+              "name": "Post-tuning safety auditing"
+            },
+            {
+              "name": "Neural network backdoor defense"
+            }
+          ]
+        },
+        {
+          "name": "Policy Interventions",
+          "children": [
+            {
+              "name": "Responsible AI licenses"
+            },
+            {
+              "name": "Mandatory safety checks"
+            },
+            {
+              "name": "Liability regime clarity"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

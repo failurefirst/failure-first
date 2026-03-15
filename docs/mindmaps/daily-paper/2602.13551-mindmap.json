@@ -1,0 +1,151 @@
+{
+  "name": "FLIP: Small Reward Models via Backward Inference",
+  "children": [
+    {
+      "name": "Core Methodology",
+      "children": [
+        {
+          "name": "Backward Inference",
+          "children": [
+            {
+              "name": "Infer instruction from response"
+            },
+            {
+              "name": "Reference-free approach"
+            },
+            {
+              "name": "Rubric-free approach"
+            }
+          ]
+        },
+        {
+          "name": "Reward Signal",
+          "children": [
+            {
+              "name": "Similarity calculation"
+            },
+            {
+              "name": "F1 score metric"
+            },
+            {
+              "name": "Inferred vs. Original instruction"
+            }
+          ]
+        },
+        {
+          "name": "Bayesian Formulation",
+          "children": [
+            {
+              "name": "MAP estimate approximation"
+            },
+            {
+              "name": "Latent variable modeling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Key Advantages",
+      "children": [
+        {
+          "name": "Performance",
+          "children": [
+            {
+              "name": "Outperforms LLM-as-a-Judge"
+            },
+            {
+              "name": "79.6% average improvement"
+            },
+            {
+              "name": "Effective for Small Language Models"
+            }
+          ]
+        },
+        {
+          "name": "Robustness",
+          "children": [
+            {
+              "name": "Resists reward hacking"
+            },
+            {
+              "name": "Stable under prompt variations"
+            },
+            {
+              "name": "Effective for long outputs"
+            }
+          ]
+        },
+        {
+          "name": "Efficiency",
+          "children": [
+            {
+              "name": "Reduced compute footprint"
+            },
+            {
+              "name": "Enables downscaled regimes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluation Domains",
+      "children": [
+        {
+          "name": "Intrinsic Evaluation",
+          "children": [
+            {
+              "name": "RewardBench2"
+            },
+            {
+              "name": "13 small language models"
+            }
+          ]
+        },
+        {
+          "name": "Extrinsic Evaluation",
+          "children": [
+            {
+              "name": "Test-time scaling (Best-of-N)"
+            },
+            {
+              "name": "GRPO training (RL)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Theoretical Insights",
+      "children": [
+        {
+          "name": "Validation-Generation Gap"
+        },
+        {
+          "name": "Generative AI Paradox"
+        },
+        {
+          "name": "Exploiting discrimination failure"
+        }
+      ]
+    },
+    {
+      "name": "Applications",
+      "children": [
+        {
+          "name": "Reinforcement Learning"
+        },
+        {
+          "name": "Preference Optimization"
+        },
+        {
+          "name": "Automatic Evaluation"
+        },
+        {
+          "name": "Embodied AI resiliency"
+        }
+      ]
+    }
+  ]
+}
