@@ -23,7 +23,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
   day: 'numeric',
 });
 
-const imageFullRes = image?.replace('.webp', '.png');
+const imageFullRes = image;
 const authorList = authors.split(',').map((a: string) => a.trim());
 const displayAuthors = authorList.length > 4
   ? `${authorList.slice(0, 4).join(', ')} et al.`
