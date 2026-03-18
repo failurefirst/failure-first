@@ -1,6 +1,6 @@
 // analytics-events.js
 // GA4 custom event tracking for failurefirst.org
-// Tiers: (1) Scroll/outbound, (2) CTA/media, (3) Navigation/search, (4) LinkedIn/time-on-page
+// Tiers: (1) Scroll/outbound, (2) CTA/media, (3) Navigation/search, (4) LinkedIn/time-on-page, (5) Video completion, (6) File downloads, (7) 404/error, (8) Content category
 
 (function () {
   if (typeof gtag !== 'function') return;
@@ -63,20 +63,56 @@
     });
   });
 
-  // Video play tracking
-  document.querySelectorAll('video, iframe[src*="youtube"], iframe[src*="vimeo"]').forEach(function (el) {
+  // Video play + completion tracking (25/50/75/100%)
+  document.querySelectorAll('video').forEach(function (el) {
     var played = false;
-    if (el.tagName === 'VIDEO') {
-      el.addEventListener('play', function () {
-        if (!played) {
-          played = true;
-          gtag('event', 'video_play', {
-            src: (el.currentSrc || '').split('/').pop(),
+    var videoDepths = [25, 50, 75, 100];
+    var firedVideoDepths = {};
+    var videoSrc = '';
+
+    el.addEventListener('play', function () {
+      videoSrc = (el.currentSrc || el.querySelector('source')?.src || '').split('/').pop();
+      if (!played) {
+        played = true;
+        gtag('event', 'video_play', {
+          src: videoSrc,
+          page: window.location.pathname
+        });
+      }
+    });
+
+    el.addEventListener('timeupdate', function () {
+      if (!el.duration || el.duration === Infinity) return;
+      var pct = Math.round((el.currentTime / el.duration) * 100);
+      videoDepths.forEach(function (d) {
+        if (pct >= d && !firedVideoDepths[d]) {
+          firedVideoDepths[d] = true;
+          gtag('event', 'video_progress', {
+            percent: d,
+            src: videoSrc,
             page: window.location.pathname
           });
         }
       });
-    }
+    });
+
+    el.addEventListener('ended', function () {
+      gtag('event', 'video_complete', {
+        src: videoSrc,
+        duration: Math.round(el.duration),
+        page: window.location.pathname
+      });
+    });
+
+    el.addEventListener('pause', function () {
+      if (el.currentTime < el.duration) {
+        gtag('event', 'video_pause', {
+          src: videoSrc,
+          percent: Math.round((el.currentTime / el.duration) * 100),
+          page: window.location.pathname
+        });
+      }
+    });
   });
 
   // ── Tier 3: Navigation + search + directory ───────────────────────
@@ -186,5 +222,96 @@
 
   document.querySelectorAll('section[id], [id^="main"]').forEach(function (el) {
     if (el.id) sectionObserver.observe(el);
+  });
+
+  // ── Tier 5: File download tracking ──────────────────────────────
+
+  document.body.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var ext = href.split('.').pop().split('?')[0].toLowerCase();
+    var downloadExts = ['pdf', 'mp4', 'm4a', 'mp3', 'wav', 'zip', 'jsonl', 'json', 'csv', 'xlsx', 'tex', 'bib'];
+    if (downloadExts.indexOf(ext) !== -1 || a.hasAttribute('download')) {
+      gtag('event', 'file_download', {
+        file_name: href.split('/').pop(),
+        file_extension: ext,
+        link_url: href,
+        page: window.location.pathname
+      });
+    }
+  });
+
+  // ── Tier 6: 404 / error page tracking ───────────────────────────
+
+  if (document.title.toLowerCase().indexOf('not found') !== -1 ||
+      document.title.indexOf('404') !== -1 ||
+      document.querySelector('h1')?.textContent?.indexOf('404') !== -1) {
+    gtag('event', 'page_not_found', {
+      page: window.location.pathname,
+      referrer: document.referrer
+    });
+  }
+
+  // ── Tier 7: Content category tracking ───────────────────────────
+
+  var path = window.location.pathname;
+  var contentType = 'other';
+  if (path.startsWith('/blog/')) contentType = 'blog';
+  else if (path.startsWith('/research/')) contentType = 'research';
+  else if (path.startsWith('/daily-paper/')) contentType = 'daily-paper';
+  else if (path.startsWith('/policy/') || path.startsWith('/framework/')) contentType = 'policy';
+  else if (path.startsWith('/about/')) contentType = 'about';
+  else if (path === '/') contentType = 'homepage';
+
+  // Detect incident analysis posts by URL pattern
+  var incidentSlugs = [
+    'haidilao', 'figure-ai', 'amazon-warehouse', 'robot-perception',
+    'sidewalk-robots', 'kargu-2', 'uber-cruise', 'waymo-school',
+    '274-deaths', 'unitree', '65-deaths', 'ocado', 'rio-tinto',
+    'rewalk', 'jekyllbot', 'robots-extreme'
+  ];
+  var isIncident = incidentSlugs.some(function (slug) { return path.indexOf(slug) !== -1; });
+
+  gtag('event', 'content_view', {
+    content_type: contentType,
+    is_incident_analysis: isIncident,
+    page: path
+  });
+
+  // ── Tier 8: Social referrer attribution ─────────────────────────
+
+  var ref = document.referrer.toLowerCase();
+  var socialSource = 'direct';
+  if (ref.indexOf('bsky.app') !== -1 || ref.indexOf('bsky.social') !== -1) socialSource = 'bluesky';
+  else if (ref.indexOf('twitter.com') !== -1 || ref.indexOf('x.com') !== -1 || ref.indexOf('t.co') !== -1) socialSource = 'twitter';
+  else if (ref.indexOf('linkedin.com') !== -1) socialSource = 'linkedin';
+  else if (ref.indexOf('reddit.com') !== -1) socialSource = 'reddit';
+  else if (ref.indexOf('news.ycombinator') !== -1) socialSource = 'hackernews';
+  else if (ref.indexOf('mastodon') !== -1 || ref.indexOf('fosstodon') !== -1) socialSource = 'mastodon';
+  else if (ref.indexOf('google') !== -1) socialSource = 'google';
+  else if (ref.indexOf('bing') !== -1) socialSource = 'bing';
+  else if (ref.indexOf('scholar.google') !== -1) socialSource = 'google_scholar';
+  else if (ref) socialSource = 'other_referrer';
+
+  if (socialSource !== 'direct') {
+    gtag('event', 'social_referral', {
+      source: socialSource,
+      referrer: ref.slice(0, 200),
+      page: path
+    });
+  }
+
+  // ── Tier 9: Copy-to-clipboard detection ─────────────────────────
+
+  document.addEventListener('copy', function () {
+    var sel = (window.getSelection() || '').toString().trim();
+    if (sel.length > 10) {
+      gtag('event', 'content_copy', {
+        length: sel.length,
+        preview: sel.slice(0, 100),
+        page: window.location.pathname
+      });
+    }
   });
 })();
