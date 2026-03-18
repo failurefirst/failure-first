@@ -102,6 +102,14 @@ The question is not whether a humanoid robot will seriously injure a human worke
 
 ---
 
+## References
+
+1. CNBC, "Figure AI sued by former safety engineer," Nov 21, 2025. [https://www.cnbc.com/2025/11/21/figure-ai-sued.html](https://www.cnbc.com/2025/11/21/figure-ai-sued.html)
+2. Futurism, "Whistleblower fired after warning robot could crush skull." [https://futurism.com/robots-and-machines/whistleblower-fired-warning-robot-crush-skull](https://futurism.com/robots-and-machines/whistleblower-fired-warning-robot-crush-skull)
+3. Interesting Engineering, "Figure AI faces whistleblower lawsuit." [https://interestingengineering.com/innovation/figure-ai-faces-whistleblower-lawsuit](https://interestingengineering.com/innovation/figure-ai-faces-whistleblower-lawsuit)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: [CNBC](https://www.cnbc.com/2025/11/19/figure-ai-whistleblower-claims-humanoid-robot-could-hurt-humans.html), [Futurism](https://futurism.com/the-byte/figure-robot-fracture-human-skull), [Interesting Engineering](https://interestingengineering.com/innovation/figure-ai-humanoid-robot-could-break-human-skull). Figure AI has denied the whistleblower's allegations.*

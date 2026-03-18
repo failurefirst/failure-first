@@ -103,6 +103,16 @@ After 25 years and 9 million procedures, the answer is clearly no. And every oth
 
 ---
 
+## References
+
+1. Journal of Robotic Surgery, "da Vinci MAUDE analysis," 2025. [https://link.springer.com/article/10.1007/s11701-025-02947-5](https://link.springer.com/article/10.1007/s11701-025-02947-5)
+2. NBC News, "da Vinci surgical robot risks." [https://www.nbcnews.com/health/health-news/da-vinci-surgical-robot-medical-breakthrough-risks-patients-n949341](https://www.nbcnews.com/health/health-news/da-vinci-surgical-robot-medical-breakthrough-risks-patients-n949341)
+3. Tampa Bay Times, "Robotic device burned woman's intestine," Feb 2024. [https://www.tampabay.com/news/health/2024/02/12/da-vinci-surgical-robot-intuitive-surgical-inc-palm-beach-county/](https://www.tampabay.com/news/health/2024/02/12/da-vinci-surgical-robot-intuitive-surgical-inc-palm-beach-county/)
+4. Drugwatch, "da Vinci surgery adverse events." [https://www.drugwatch.com/davinci-surgery/](https://www.drugwatch.com/davinci-surgery/)
+5. FDA MAUDE Database. [https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfmaude/search.cfm)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: FDA MAUDE database queries; Reuters investigative reporting on Intuitive Surgical; NHTSA and NTSB comparative frameworks; published surgical outcome literature; court filings in Sultzer and related cases.*

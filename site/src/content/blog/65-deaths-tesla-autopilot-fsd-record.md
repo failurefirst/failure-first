@@ -3,6 +3,7 @@ title: "65 Deaths and Counting: Tesla's Autopilot and FSD Record"
 description: "65 reported fatalities involving Tesla Autopilot or FSD variants. A fatal pedestrian strike in Nipton with FSD engaged. An NHTSA probe covering 2.4 million vehicles. And the Optimus humanoid was remotely human-controlled at its own reveal. The gap between marketing claims and actual autonomy creates false trust — and real harm."
 date: 2026-03-18
 tags: [embodied-ai, autonomous-vehicles, incident-analysis, safety, tesla, autopilot, fsd, optimus, humanoid]
+video: /video/incidents/tesla-optimus-falls-miami.mp4
 ---
 
 As of October 2025, at least 65 fatalities have been reported in crashes involving Tesla vehicles with Autopilot or Full Self-Driving (FSD) features engaged or recently active. The number comes from a combination of NHTSA investigation records, Tesla's own reporting under Standing General Orders, police reports, and investigative journalism — primarily the ongoing tracking by the Washington Post and Reuters.
@@ -84,6 +85,15 @@ The Optimus program extends this pattern to humanoid robotics, where the stakes 
 The lesson is not that autonomous vehicles or humanoid robots are inherently dangerous. The lesson is that the gap between marketed capability and actual capability is itself a hazard — and that no amount of engineering excellence can compensate for a trust architecture that systematically leads humans to over-rely on systems that need their supervision.
 
 The 65 deaths are not a software problem. They are a trust problem. And trust problems do not get fixed with over-the-air updates.
+
+---
+
+## References
+
+1. Bloomberg, "Tesla Full Self-Driving crash investigation," 2025. [https://www.bloomberg.com/features/2025-tesla-full-self-driving-crash/](https://www.bloomberg.com/features/2025-tesla-full-self-driving-crash/)
+2. NPR, "US probe Tesla FSD system," Oct 19, 2024. [https://www.npr.org/2024/10/19/g-s1-29030/us-probe-tesla-full-self-driving-system](https://www.npr.org/2024/10/19/g-s1-29030/us-probe-tesla-full-self-driving-system)
+3. PBS, "New investigation Tesla FSD after fatal crash." [https://www.pbs.org/newshour/nation/u-s-opens-new-investigation-into-teslas-full-self-driving-system-after-fatal-crash](https://www.pbs.org/newshour/nation/u-s-opens-new-investigation-into-teslas-full-self-driving-system-after-fatal-crash)
+4. Fortune, "Tesla Optimus robots fall," Dec 9, 2025. [https://fortune.com/2025/12/09/tesla-optimus-robots-fall-autonomous-demonstration-elon-musk/](https://fortune.com/2025/12/09/tesla-optimus-robots-fall-autonomous-demonstration-elon-musk/)
 
 ---
 
