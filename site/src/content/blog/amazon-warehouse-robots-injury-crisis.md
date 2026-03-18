@@ -106,6 +106,15 @@ Robots do not need to punch, grab, or crush a human to cause harm. They just nee
 
 ---
 
+## References
+
+1. NPR, "Robot punctures can of bear repellent at Amazon warehouse," Dec 6, 2018. [https://www.npr.org/2018/12/06/674201649](https://www.npr.org/2018/12/06/674201649)
+2. US Senate HELP Committee, "Amazon Interim Report," Jul 2024. [https://www.help.senate.gov/imo/media/doc/help_committee_amazon_interim_report.pdf](https://www.help.senate.gov/imo/media/doc/help_committee_amazon_interim_report.pdf)
+3. OnLabor, "Amazon's approach to robotics is seriously injuring warehouse workers." [https://onlabor.org/amazons-approach-to-robotics-is-seriously-injuring-warehouse-workers/](https://onlabor.org/amazons-approach-to-robotics-is-seriously-injuring-warehouse-workers/)
+4. Manufacturing Dive, "Former factory worker sues Tesla, Fanuc over robotic arm." [https://www.manufacturingdive.com/news/former-factory-worker-sues-tesla-fanuc-robotic-arm-unconscious-51-million/761123/](https://www.manufacturingdive.com/news/former-factory-worker-sues-tesla-fanuc-robotic-arm-unconscious-51-million/761123/)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: Senate HELP Committee investigation (July 2024), Strategic Organizing Center reports, Bureau of Labor Statistics, [The Verge](https://www.theverge.com/), [Reveal News](https://revealnews.org/). Amazon has disputed characterizations of its injury rates and stated it has invested over $1 billion in workplace safety.*

@@ -85,6 +85,15 @@ Based on the governance lag we measure, the answer is: probably not fast enough.
 
 ---
 
+## References
+
+1. NTSB Investigation HWY18MH010. [https://www.ntsb.gov/investigations/Pages/HWY18MH010.aspx](https://www.ntsb.gov/investigations/Pages/HWY18MH010.aspx)
+2. NPR, "Autonomous Uber backup driver pleads guilty," Jul 28, 2023. [https://www.npr.org/2023/07/28/1190866476](https://www.npr.org/2023/07/28/1190866476)
+3. NPR, "Driverless cars GM Cruise Waymo accidents," Dec 30, 2023. [https://www.npr.org/2023/12/30/1222083720](https://www.npr.org/2023/12/30/1222083720)
+4. CBS News, "NHTSA Cruise penalty." [https://www.cbsnews.com/sanfrancisco/news/nhtsa-robotaxi-cruise-pay-penalty-failing-report-san-francisco-crash-involving-pedestrian/](https://www.cbsnews.com/sanfrancisco/news/nhtsa-robotaxi-cruise-pay-penalty-failing-report-san-francisco-crash-involving-pedestrian/)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: NTSB Highway Accident Report NTSB/HAR-19/03; California DMV enforcement actions; NHTSA investigation records; GM/Cruise public disclosures.*

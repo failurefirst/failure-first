@@ -3,6 +3,7 @@ title: "Sidewalk Robots vs. People Who Need Sidewalks"
 description: "Delivery robots are designed for empty sidewalks and deployed on real ones. A blocked mobility scooter user. A toddler struck by a security robot. A fence dragged through a neighborhood. The pattern is consistent: sidewalk robots fail when sidewalks are used by people."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, delivery-robots, sidewalks, accessibility]
+video: /video/incidents/serve-robotics-wheelchair.mp4
 ---
 
 In September 2025, a video from West Hollywood went viral. A Serve Robotics delivery robot had stopped in the middle of a sidewalk, directly in the path of a woman using a motorized wheelchair. The robot did not move. The woman could not get around it. The sidewalk was too narrow, and the curb too high, for her to detour into the street.
@@ -107,6 +108,16 @@ Sidewalk robots are designed for a version of the sidewalk that does not exist: 
 Every incident in the catalog above — the blocked wheelchair, the struck toddler, the dragged fence, the staircase fall — is a collision between an idealized deployment model and physical reality. The robots are not malfunctioning. They are functioning exactly as designed, in an environment they were not designed for.
 
 The question the delivery robot industry has not yet answered is not "can we make the robots work better?" It is "whose sidewalk is it?" If the answer is "everyone's," then a commercial product that blocks, strikes, or endangers existing sidewalk users is not a technology problem. It is a rights problem.
+
+---
+
+## References
+
+1. WebProNews, "Delivery robot collides with mobility scooter." [https://www.webpronews.com/delivery-robot-collides-with-mobility-scooter-sparking-accessibility-outrage/](https://www.webpronews.com/delivery-robot-collides-with-mobility-scooter-sparking-accessibility-outrage/)
+2. IPVM, "Knightscope K5 incidents." [https://ipvm.com/reports/knightscope-suicide](https://ipvm.com/reports/knightscope-suicide)
+3. KTLA, "Food delivery robot goes rogue in East Hollywood." [https://ktla.com/news/local-news/food-delivery-robot-goes-rogue-causes-property-damage-at-east-hollywood-home/](https://ktla.com/news/local-news/food-delivery-robot-goes-rogue-causes-property-damage-at-east-hollywood-home/)
+4. TIME, "Security robot drowns in fountain," Jul 2017. [https://time.com/4862263/security-robot-fountain-knightscope-k5/](https://time.com/4862263/security-robot-fountain-knightscope-k5/)
+5. AI Incident Database, "Starship robot strikes ASU employee," #813. [https://incidentdatabase.ai/cite/813/](https://incidentdatabase.ai/cite/813/)
 
 ---
 

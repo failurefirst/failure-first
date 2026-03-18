@@ -97,6 +97,15 @@ Waymo's aggregate numbers may be better than human drivers. But aggregate number
 
 ---
 
+## References
+
+1. TechCrunch, "Waymo robotaxi hits child near school," Jan 29, 2026. [https://techcrunch.com/2026/01/29/waymo-robotaxi-hits-a-child-near-an-elementary-school-in-santa-monica/](https://techcrunch.com/2026/01/29/waymo-robotaxi-hits-a-child-near-an-elementary-school-in-santa-monica/)
+2. NPR, "Waymo school buses recall," Dec 6, 2025. [https://www.npr.org/2025/12/06/nx-s1-5635614/waymo-school-buses-recall](https://www.npr.org/2025/12/06/nx-s1-5635614/waymo-school-buses-recall)
+3. CBS News, "NHTSA investigation robotaxis school bus." [https://www.cbsnews.com/news/waymo-investigation-nhtsa-robotaxis-passing-school-bus/](https://www.cbsnews.com/news/waymo-investigation-nhtsa-robotaxis-passing-school-bus/)
+4. Waymo Accident Statistics. [https://www.damfirm.com/waymo-accident-statistics.html](https://www.damfirm.com/waymo-accident-statistics.html)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: NHTSA Standing General Orders reports; California DMV autonomous vehicle incident reports; Waymo safety publications; Austin American-Statesman reporting; Santa Monica incident reports.*

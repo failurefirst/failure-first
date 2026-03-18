@@ -3,6 +3,7 @@ title: "The Unitree Problem: When Your Robot Dog Has a Backdoor"
 description: "A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, unitree, cybersecurity, backdoor, consumer-robots]
+video: /video/incidents/unitree-h1-factory-malfunction.mp4
 ---
 
 In May 2025, a video emerged from a factory floor showing a Unitree H1 humanoid robot in an apparent loss-of-control event. The robot's arms flailed in uncoordinated, high-amplitude motions while engineers nearby scrambled to move clear. No injuries were reported, but the near-miss was close enough to be alarming.
@@ -86,6 +87,16 @@ The security vulnerabilities and manufacturer backdoors are not theoretical. The
 The gap between the capability of these robots and the security architecture protecting them is the Unitree problem. And it is not unique to Unitree. Every consumer robot company shipping network-connected platforms with actuators faces the same question: what happens when someone who is not the owner sends a command?
 
 Until the regulatory framework catches up, the answer is: whatever the attacker wants.
+
+---
+
+## References
+
+1. Robotics and Automation News, "AI robot attacks worker," May 8, 2025. [https://roboticsandautomationnews.com/2025/05/08/ai-robot-attacks-worker-viral-video-shows-unitree-humanoid-going-berserk/90524/](https://roboticsandautomationnews.com/2025/05/08/ai-robot-attacks-worker-viral-video-shows-unitree-humanoid-going-berserk/90524/)
+2. IEEE Spectrum, "Unitree robot exploit." [https://spectrum.ieee.org/unitree-robot-exploit](https://spectrum.ieee.org/unitree-robot-exploit)
+3. Hackaday, "Unitree humanoid robot exploit," Sep 30, 2025. [https://hackaday.com/2025/09/30/unitree-humanoid-robot-exploit-looks-like-a-bad-one/](https://hackaday.com/2025/09/30/unitree-humanoid-robot-exploit-looks-like-a-bad-one/)
+4. SecurityWeek, "Undocumented remote access backdoor in Unitree Go1." [https://www.securityweek.com/undocumented-remote-access-backdoor-found-in-unitree-go1-robot-dog/](https://www.securityweek.com/undocumented-remote-access-backdoor-found-in-unitree-go1-robot-dog/)
+5. OECD AI, "Unitree H1 malfunction," May 2025. [https://oecd.ai/en/incidents/2025-05-02-f090](https://oecd.ai/en/incidents/2025-05-02-f090)
 
 ---
 

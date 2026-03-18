@@ -131,6 +131,15 @@ That world is receding. The governance architecture to replace it does not yet e
 
 ---
 
+## References
+
+1. NPR, "UN report suggests Libya saw first battlefield killing by autonomous drone," Jun 1, 2021. [https://www.npr.org/2021/06/01/1002196245](https://www.npr.org/2021/06/01/1002196245)
+2. NPR, "Israel sniper drones in Gaza," Nov 2024. [https://www.npr.org/2024/11/26/g-s1-35437/israel-sniper-drones-gaza-eyewitnesses](https://www.npr.org/2024/11/26/g-s1-35437/israel-sniper-drones-gaza-eyewitnesses)
+3. TIME, "Gaza, Ukraine: AI warfare," 2024. [https://time.com/7202584/gaza-ukraine-ai-warfare/](https://time.com/7202584/gaza-ukraine-ai-warfare/)
+4. OECD AI Incidents Monitor, "Armed UGVs in Ukraine," Mar 2026. [https://oecd.ai/en/incidents](https://oecd.ai/en/incidents)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: [UN Security Council Panel of Experts report S/2021/229](https://undocs.org/S/2021/229) (Libya), Dallas Police Department statements (2016), [+972 Magazine](https://www.972mag.com/) (Gospel/Lavender reporting), STM defense publications, Convention on Certain Conventional Weapons records.*

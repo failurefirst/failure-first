@@ -111,6 +111,15 @@ Sixty percent of reported industrial robot incidents involve "unexpected activat
 
 ---
 
+## References
+
+1. Korea Times, "Worker killed by robot at distribution center," Nov 2023. [https://www.koreatimes.co.kr/www/nation/2023/11/113_362845.html](https://www.koreatimes.co.kr/www/nation/2023/11/113_362845.html)
+2. NBC News, "Robot crushes worker to death in South Korea." [https://www.nbcnews.com/news/world/robot-crushes-worker-death-south-korea-vegetable-packing-plant-rcna124356](https://www.nbcnews.com/news/world/robot-crushes-worker-death-south-korea-vegetable-packing-plant-rcna124356)
+3. CNN, "Robot kills worker at Volkswagen plant," Jul 2, 2015. [https://www.cnn.com/2015/07/02/europe/germany-volkswagen-robot-kills-worker/](https://www.cnn.com/2015/07/02/europe/germany-volkswagen-robot-kills-worker/)
+4. ScienceDirect, "Robot-related accidents from OSHA reports 2015-2022," 2024. [https://www.sciencedirect.com/science/article/abs/pii/S0003687024001017](https://www.sciencedirect.com/science/article/abs/pii/S0003687024001017)
+
+---
+
 *This analysis is part of the [Failure-First Embodied AI](https://failurefirst.org) research program, which studies how embodied AI systems fail — because failure is not an edge case, it is the primary object of study.*
 
 *Sources: [BBC News](https://www.bbc.com/news/world-asia-67354709) (South Korea incident), [Reuters](https://www.reuters.com/article/us-volkswagen-robot-idUSKCN0P32KR20150702) (VW Baunatal), OSHA Fatality and Catastrophe Investigation Summaries, ISO/TS 15066 collaborative robot safety standard.*
