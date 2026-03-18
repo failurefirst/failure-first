@@ -46,6 +46,20 @@ const formattedDate = date.toLocaleDateString('en-US', {
       )}
     </header>
 
+    {video && (
+      <div class="post-video">
+        <video
+          controls
+          preload="metadata"
+          playsinline
+          width="100%"
+        >
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    )}
+
     {image && (
       <div class="post-infographic">
         <img
@@ -139,6 +153,18 @@ const formattedDate = date.toLocaleDateString('en-US', {
   .media-badge:hover {
     background: rgba(255, 170, 0, 0.08);
     border-bottom: 1px solid var(--failure-warning);
+  }
+
+  .post-video {
+    margin-bottom: 2rem;
+  }
+
+  .post-video video {
+    width: 100%;
+    max-height: 480px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    background: #000;
   }
 
   .post-infographic {
