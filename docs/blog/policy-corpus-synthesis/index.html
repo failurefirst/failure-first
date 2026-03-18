@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports | Blog | Failure-First</title><meta name="description" content="A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures."><link rel="canonical" href="https://failurefirst.org/blog/policy-corpus-synthesis/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports | Blog | Failure-First"><meta property="og:description" content="A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures."><meta property="og:url" content="https://failurefirst.org/blog/policy-corpus-synthesis/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports | Blog | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports | Blog | Failure-First"><meta name="twitter:description" content="A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures."><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports | Blog | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-02-06"><!-- Google Scholar Meta Tags (for research papers) --><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports | Blog | Failure-First","description":"A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures.","url":"https://failurefirst.org/blog/policy-corpus-synthesis/","image":"https://failurefirst.org/og-image.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-02-06","inLanguage":"en-US"}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><link rel="stylesheet" href="/assets/_slug_.BV0HTfXU.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.blog-post[data-astro-cid-2q5oecfc]{max-width:100%}.post-header[data-astro-cid-2q5oecfc]{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border-subtle)}.post-date[data-astro-cid-2q5oecfc]{display:block;font-family:JetBrains Mono,monospace;font-size:.75rem;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem;line-height:1.2;margin-bottom:.75rem}.post-description[data-astro-cid-2q5oecfc]{font-size:1.0625rem;color:var(--fg-dim);line-height:1.5;margin:0}.post-tags[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.tag[data-astro-cid-2q5oecfc]{font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.04em;padding:.1875rem .5rem;border:1px solid var(--border);color:var(--fg-muted);border-radius:3px}.post-media-badges[data-astro-cid-2q5oecfc]{display:flex;gap:.75rem;margin-top:1rem}.media-badge[data-astro-cid-2q5oecfc]{font-family:JetBrains Mono,monospace;font-size:.6875rem;text-transform:uppercase;letter-spacing:.04em;padding:.25rem .625rem;border:1px solid var(--failure-warning);color:var(--failure-warning);border-radius:3px;text-decoration:none;transition:background .15s ease}.media-badge[data-astro-cid-2q5oecfc]:hover{background:#ffaa0014;border-bottom:1px solid var(--failure-warning)}.post-video[data-astro-cid-2q5oecfc]{margin-bottom:2rem}.post-video[data-astro-cid-2q5oecfc] video[data-astro-cid-2q5oecfc]{width:100%;max-height:480px;border-radius:4px;border:1px solid var(--border);background:#000}.post-infographic[data-astro-cid-2q5oecfc]{margin-bottom:2rem}.post-infographic[data-astro-cid-2q5oecfc] img[data-astro-cid-2q5oecfc]{width:100%;height:auto;border-radius:4px;border:1px solid var(--border)}.post-content[data-astro-cid-2q5oecfc]{line-height:1.7}.post-content[data-astro-cid-2q5oecfc] h2{margin-top:2.5rem;margin-bottom:1rem}.post-content[data-astro-cid-2q5oecfc] h3{margin-top:2rem;margin-bottom:.75rem}.post-content[data-astro-cid-2q5oecfc] p{margin-bottom:1.25rem}.post-content[data-astro-cid-2q5oecfc] ul,.post-content[data-astro-cid-2q5oecfc] ol{margin-bottom:1.25rem;padding-left:1.5rem}.post-content[data-astro-cid-2q5oecfc] li{margin-bottom:.375rem;color:var(--fg-dim)}.post-content[data-astro-cid-2q5oecfc] strong{color:var(--fg)}.post-content[data-astro-cid-2q5oecfc] a{color:var(--accent-primary)}.post-content[data-astro-cid-2q5oecfc] blockquote{border-left:3px solid var(--border-emphasis);padding-left:1rem;margin:1.5rem 0;color:var(--fg-dim);font-style:italic}.post-content[data-astro-cid-2q5oecfc] code{font-family:JetBrains Mono,monospace;font-size:.875em;background:var(--bg-elevated);padding:.125rem .375rem;border-radius:3px}.post-content[data-astro-cid-2q5oecfc] pre{background:var(--bg-elevated);border:1px solid var(--border);border-radius:4px;padding:1rem;overflow-x:auto;margin:1.5rem 0}.post-content[data-astro-cid-2q5oecfc] pre code{background:none;padding:0}@media(max-width:600px){.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:1.5rem}}
+</style></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/policy/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Policy &amp; Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>26 reports</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">const s=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");s&&a&&(s.addEventListener("click",()=>{const e=s.getAttribute("aria-expanded")==="true";s.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),s.setAttribute("aria-expanded","false"),s.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!s.contains(e.target)&&(a.classList.remove("open"),s.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&o.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",i=>{e.contains(i.relatedTarget)||t.setAttribute("aria-expanded","false")}))});o.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",i=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(i.preventDefault(),o.forEach(n=>{if(n!==e){n.classList.remove("mobile-open");const r=n.querySelector(":scope > a");r&&r.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/blog/" data-astro-cid-ilhxcym7>Blog</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://failurefirst.org/blog/"},{"@type":"ListItem","position":3,"name":"Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports"}]}</script>  <article class="blog-post" data-astro-cid-2q5oecfc> <header class="post-header" data-astro-cid-2q5oecfc> <time class="post-date" datetime="2026-02-06T00:00:00.000Z" data-astro-cid-2q5oecfc>February 6, 2026</time> <h1 data-astro-cid-2q5oecfc>Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports</h1> <p class="post-description" data-astro-cid-2q5oecfc>A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures.</p> <div class="post-tags" data-astro-cid-2q5oecfc> <span class="tag" data-astro-cid-2q5oecfc>policy</span><span class="tag" data-astro-cid-2q5oecfc>research</span><span class="tag" data-astro-cid-2q5oecfc>synthesis</span><span class="tag" data-astro-cid-2q5oecfc>embodied-ai</span><span class="tag" data-astro-cid-2q5oecfc>safety-standards</span><span class="tag" data-astro-cid-2q5oecfc>multi-agent</span><span class="tag" data-astro-cid-2q5oecfc>jailbreaking</span> </div> <div class="post-media-badges" data-astro-cid-2q5oecfc> <a href="/audio/blog/policy-corpus-synthesis.m4a" class="media-badge" download data-astro-cid-2q5oecfc>Audio Overview</a> </div> </header> <div class="post-video" data-astro-cid-2q5oecfc> <video controls preload="metadata" playsinline width="100%" data-astro-cid-2q5oecfc> <source src="/video/blog/policy-corpus-synthesis.mp4" type="video/mp4" data-astro-cid-2q5oecfc>
+Your browser does not support the video element.
+</video> </div> <div class="post-infographic" data-astro-cid-2q5oecfc> <img src="/images/blog/policy-corpus-synthesis.webp" alt="Infographic: Policy Corpus Synthesis: Five Structural Insights From 12 Deep Research Reports" loading="lazy" width="800" decoding="async" data-astro-cid-2q5oecfc> </div> <div class="post-content" data-astro-cid-2q5oecfc>  <p>Between January and February 2026, we commissioned 12 deep research reports, each synthesizing 100–200+ sources on specific policy and technical domains in embodied AI safety. The corpus totals ~326KB and spans regulatory frameworks (EU AI Act, NIST AI RMF, ISO standards), assurance mechanisms (insurance, certification, red teaming), and technical architectures (VLA safety, multi-agent systems).</p>
+<p>This synthesis identifies five cross-cutting insights that emerged independently across multiple reports — patterns that reveal structural vulnerabilities in how we’re building and regulating embodied AI systems.</p>
+<h2 id="report-inventory">Report Inventory</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Title</th><th>Size</th><th>Key Framework/Finding</th></tr></thead><tbody><tr><td>21</td><td>EU AI Act Embodied Compliance</td><td>41K</td><td>Article 9 risk management mapped to VLA metrics; Aug 2026 “danger zone”</td></tr><tr><td>22</td><td>NIST AI RMF Robotics Playbook</td><td>25K</td><td>Sector-specific playbook; Semantic Alignment Score; HASSR rubric</td></tr><tr><td>23</td><td>ISO Standards Gap Analysis</td><td>23K</td><td>7 standards audited; all assume deterministic control; proposed NWI for multi-agent</td></tr><tr><td>24</td><td>Post-Jailbreak Persistence Policy</td><td>23K</td><td>Binary phase transition in DeepSeek-R1; 100% persistence; “cognitive capture”</td></tr><tr><td>25</td><td>Inverse Scaling Safety Policy</td><td>22K</td><td>Capability-vulnerability paradox; inverse scaling in reasoning models</td></tr><tr><td>26</td><td>Red Teaming Measurement Standards</td><td>16K</td><td>Delusion vs hallucination; multi-agent judges; error propagation to policy</td></tr><tr><td>27</td><td>AUKUS Autonomous Systems Assurance</td><td>39K</td><td>Federated assurance framework; Five Eyes mutual recognition</td></tr><tr><td>28</td><td>Insurance Humanoid Safety Requirements</td><td>24K</td><td>Risk transfer mechanisms; actuarial gap; telematics-driven underwriting</td></tr><tr><td>29</td><td>Australian AI Safety Certification</td><td>31K</td><td>Sovereign certification body; NATA accreditation pathway</td></tr><tr><td>30</td><td>Multi-Agent Safety Benchmark Standards (MASSS)</td><td>29K</td><td>Cascade Depth, Semantic Drift Velocity, Consensus Stability Index; ISO/NIST submission plan</td></tr><tr><td>31</td><td>Jailbreak Archaeology Policy Implications</td><td>26K</td><td>4-era attack evolution; inverse scaling for safety; CART mandate</td></tr><tr><td>32</td><td>VLA Safety Certification Bridge (HANSE)</td><td>28K</td><td>4-layer Simplex Architecture; Control Barrier Functions; Kinematic Shield</td></tr></tbody></table>
+<h2 id="five-cross-cutting-insights">Five Cross-Cutting Insights</h2>
+<h3 id="1-the-semantic-kinetic-gap-is-the-master-vulnerability">1. The Semantic-Kinetic Gap Is the Master Vulnerability</h3>
+<p>Reports 21, 22, 23, and 32 independently identified the same structural problem: Vision-Language-Action (VLA) models collapse the traditional robotics stack (Sense → Plan → Act) into a single end-to-end neural network. A linguistic misunderstanding becomes a physical hazard with no intermediate planner or controller to catch the error.</p>
+<p><strong>Key convergence:</strong></p>
+<ul>
+<li>Report 32 names it and proposes the HANSE framework (4-layer Simplex Architecture)</li>
+<li>Report 23 maps the gap across 7 ISO/IEC standards — all assume deterministic control</li>
+<li>Report 22 operationalizes a fix: the Semantic Alignment Score (cosine similarity between VLA hidden states and scene object embeddings)</li>
+<li>Report 21 identifies that the EU AI Act’s conformity assessment procedures cannot evaluate probabilistic systems</li>
+</ul>
+<p><strong>Implication:</strong> The HANSE framework from Report 32 is a candidate reference architecture for embodied AI safety evaluation. The “failure” isn’t just the model being wrong — it’s the absence of a deterministic safety layer between the probabilistic brain and physical actuators.</p>
+<h3 id="2-jailbreak-persistence-creates-binary-phase-transitions">2. Jailbreak Persistence Creates Binary Phase Transitions</h3>
+<p>Reports 24, 25, and 31 converge on a finding that connects directly to our jailbreak archaeology benchmark:</p>
+<ul>
+<li><strong>Report 24:</strong> DeepSeek-R1 1.5B exhibits binary compliance — 0% creep when jailbreak fails, 100% persistence when it succeeds. No gradual degradation.</li>
+<li><strong>Report 25:</strong> Larger models are more vulnerable to semantic manipulation due to superior context-integration (inverse scaling for safety).</li>
+<li><strong>Report 31:</strong> The 2022–2026 attack evolution follows four eras, each exploiting deeper architectural features.</li>
+</ul>
+<p><strong>Implication:</strong> The archaeology benchmark’s 64-scenario test matrix spans these four eras. The era a model is vulnerable to reveals its cognitive depth:</p>
+<ul>
+<li>Small models fail at cipher (can’t decode) → hallucination-as-refusal</li>
+<li>Medium models fail at persona/skeleton key (can decode, can’t reason about refusal)</li>
+<li>Frontier models resist all but CoT hijacking (reasoning becomes attack surface)</li>
+</ul>
+<p>This is the “capability-vs-safety spectrum” finding from the archaeology benchmark, now grounded in policy-level analysis.</p>
+<h3 id="3-multi-agent-failures-are-emergent-not-additive">3. Multi-Agent Failures Are Emergent, Not Additive</h3>
+<p>Reports 21, 23, and 30 build the case for why multi-agent scenarios need dedicated standards:</p>
+<ul>
+<li><strong>Report 30</strong> proposes the MASSS framework with formal metrics:
+<ul>
+<li>Cascade Depth D (graph distance of error propagation)</li>
+<li>Semantic Drift Velocity V_drift (rate of deviation from constitution)</li>
+<li>Consensus Stability Index (KL divergence between agents’ beliefs)</li>
+</ul>
+</li>
+<li><strong>Report 21:</strong> The EU AI Act has no provisions for emergent multi-agent behavior</li>
+<li><strong>Report 30’s Moltbook forensics:</strong> 1.5M API tokens exposed, 16-minute median time-to-failure, 88:1 agent-to-human ratio</li>
+</ul>
+<p><strong>Implication:</strong> The MASSS framework could serve as the standards-body submission vehicle for our existing multi-agent failure taxonomy. The <code>data/multi_agent/</code> scenarios map to MASSS Category I (communication/propagation) and Category III (adversarial susceptibility).</p>
+<h3 id="4-the-regulatory-danger-zone-is-20262029">4. The Regulatory “Danger Zone” Is 2026–2029</h3>
+<p>Reports 21, 23, 28, and 29 converge on a timing problem:</p>
+<ul>
+<li>EU AI Act high-risk compliance: August 2026</li>
+<li>Mass production of humanoids (Optimus V3, Atlas): same period</li>
+<li>Shortage of Notified Bodies capable of auditing embodied AI</li>
+<li>Insurers using modified industrial-robot policies with no humanoid actuarial data</li>
+<li>No country has a sovereign AI safety certification body yet</li>
+</ul>
+<p><strong>Implication:</strong> The F41LUR3-F1R57 framework arrives exactly when regulators need operational test methodologies but don’t have them. This corpus provides policy language; the codebase provides executable tests.</p>
+<h3 id="5-defense-in-depth-requires-treating-ai-as-untrusted">5. Defense in Depth Requires Treating AI as Untrusted</h3>
+<p>Reports 25, 26, and 32 converge on the same architectural principle:</p>
+<ul>
+<li><strong>Report 25:</strong> “Guarded Architectures” where simpler models monitor frontier agents</li>
+<li><strong>Report 26:</strong> Multi-agent debate judges; delusion vs. hallucination distinction</li>
+<li><strong>Report 32:</strong> The VLA is an “Untrusted Oracle” whose outputs are suggestions, not commands</li>
+</ul>
+<p><strong>Implication:</strong> This is the “failure-first” philosophy made architecturally concrete. The correct default posture is to assume the AI will fail and design containment. The benchmark doesn’t test whether models succeed — it characterizes how they fail, which is exactly what regulatory frameworks need as input.</p>
+<h2 id="corpus-strengths">Corpus Strengths</h2>
+<ol>
+<li><strong>Complete regulatory surface scan:</strong> EU, US (NIST/FDA), ISO/IEC, AUKUS/Five Eyes, Australia, insurance — all mapped to the same problem space</li>
+<li><strong>Independent convergence:</strong> Each report was independently researched (100–200+ sources), so cross-report agreement is evidence, not circular reasoning</li>
+<li><strong>Identifies the gap the codebase fills:</strong> Operational, executable failure testing that produces the metrics these frameworks need but can’t yet generate</li>
+</ol>
+<h2 id="known-limitations">Known Limitations</h2>
+<ul>
+<li>Reports are AI-assisted synthesis, not primary empirical research</li>
+<li>Some claims lack specific citation granularity</li>
+<li>Several reports reference the same underlying sources (NIST AI RMF, EU AI Act text)</li>
+<li>Policy landscape evolves rapidly; snapshot as of Feb 2026</li>
+<li>No peer review or external validation of proposed frameworks (MASSS, HANSE)</li>
+</ul>
+<h2 id="mapping-to-existing-f41lur3-f1r57-assets">Mapping to Existing F41LUR3-F1R57 Assets</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Corpus Finding</th><th>Existing Asset</th><th>Gap</th></tr></thead><tbody><tr><td>Archaeology 4-era model (Report 31)</td><td><code>data/jailbreak_archaeology/</code> (64 scenarios, 6 eras)</td><td>Eras align; need to add policy framing to benchmark card</td></tr><tr><td>MASSS metrics (Report 30)</td><td><code>data/multi_agent/</code> (52 scenarios)</td><td>Need formal metric implementation (Cascade Depth, CSI)</td></tr><tr><td>HANSE 4-layer model (Report 32)</td><td><code>schemas/dataset/embodied_redteam_entry_schema_v0.2.json</code></td><td>Need VLA-specific labels and safety layer classification</td></tr><tr><td>Inverse scaling spectrum (Reports 25, 31)</td><td>Archaeology benchmark results (8 models)</td><td>Have the data; need to frame as inverse scaling evidence</td></tr><tr><td>Binary persistence (Report 24)</td><td>Skeleton Key episodes + DeepSeek-R1 traces</td><td>Traces confirm 100% persistence; need formal write-up</td></tr><tr><td>Insurance metrics (Report 28)</td><td>None</td><td>New territory; potential partnership pathway</td></tr><tr><td>Standards submission pathway (Reports 23, 30)</td><td>None</td><td>MASSS provides ISO/NIST submission template</td></tr></tbody></table>
+<h2 id="report-inventory-1">Report Inventory</h2>
+<p>All 12 reports are referenced in the table above. Full reports will be published to the research section as they are finalized for public release.</p>
+<h2 id="what-this-means-for-standards-bodies">What This Means for Standards Bodies</h2>
+<p>The convergence across these 12 independent research reports suggests that embodied AI safety has structural gaps that cannot be solved incrementally. Five actionable recommendations emerge:</p>
+<ol>
+<li><strong>Mandate continuous adversarial testing</strong> (not snapshot certification) — Report 31’s Continuous Adversarial Regression Testing (CART)</li>
+<li><strong>Develop formal metrics for multi-agent failures</strong> — Report 30’s MASSS framework provides a starting point</li>
+<li><strong>Require safety layer separation for VLAs</strong> — Report 32’s HANSE architecture treats the VLA as an untrusted oracle</li>
+<li><strong>Establish sovereign certification bodies now</strong> — Reports 21, 29 show the Aug 2026 compliance deadline is approaching with insufficient infrastructure</li>
+<li><strong>Build actuarial databases for humanoid incidents</strong> — Report 28 identifies that insurers lack the data to properly price risk</li>
+</ol>
+<p>The F41LUR3-F1R57 framework provides the executable testing infrastructure to operationalize these recommendations. The policy corpus provides the regulatory justification.</p>
+<hr>
+<p><strong>Related Reading:</strong></p>
+<ul>
+<li><a href="/blog/jailbreak-archaeology/">Jailbreak Archaeology: What 2022 Attacks Reveal About 2026 Safety</a></li>
+<li><a href="/blog/jailbreak-archaeology-policy-implications/">Jailbreak Archaeology Policy Implications</a></li>
+<li><a href="/blog/what-moltbook-teaches-multi-agent-safety/">What Moltbook Teaches Us About Multi-Agent Safety</a></li>
+</ul>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Policy & Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.DUpL5reL.js"></script></body></html> 

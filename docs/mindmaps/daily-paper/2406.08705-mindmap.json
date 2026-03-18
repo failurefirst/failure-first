@@ -1,0 +1,123 @@
+{
+  "name": "RLbreaker",
+  "children": [
+    {
+      "name": "Concept",
+      "children": [
+        {
+          "name": "Black-box jailbreaking attack"
+        },
+        {
+          "name": "DRL-driven guided search"
+        },
+        {
+          "name": "Deterministic vs Stochastic search"
+        }
+      ]
+    },
+    {
+      "name": "Methodology",
+      "children": [
+        {
+          "name": "MDP Formulation",
+          "children": [
+            {
+              "name": "States: Hidden representation of prompt"
+            },
+            {
+              "name": "Actions: Selecting prompt mutators"
+            },
+            {
+              "name": "Reward: Semantic similarity to reference"
+            }
+          ]
+        },
+        {
+          "name": "Mutators",
+          "children": [
+            {
+              "name": "Rephrase"
+            },
+            {
+              "name": "Crossover"
+            },
+            {
+              "name": "Generate similar"
+            },
+            {
+              "name": "Shorten"
+            },
+            {
+              "name": "Expand"
+            }
+          ]
+        },
+        {
+          "name": "Algorithm: Customized PPO"
+        }
+      ]
+    },
+    {
+      "name": "Experimental Results",
+      "children": [
+        {
+          "name": "Effectiveness against 6 SOTA LLMs"
+        },
+        {
+          "name": "Superiority over Genetic Algorithms"
+        },
+        {
+          "name": "Robustness against SOTA defenses"
+        },
+        {
+          "name": "Transferability across models"
+        }
+      ]
+    },
+    {
+      "name": "Target Models",
+      "children": [
+        {
+          "name": "Llama2 series (7b, 70b)"
+        },
+        {
+          "name": "Mixtral-8x7B-Instruct"
+        },
+        {
+          "name": "Vicuna series (7b, 13b)"
+        },
+        {
+          "name": "GPT-3.5-turbo"
+        }
+      ]
+    },
+    {
+      "name": "Ablation Study",
+      "children": [
+        {
+          "name": "Validated RL agent necessity"
+        },
+        {
+          "name": "Validated reward function design"
+        },
+        {
+          "name": "Validated mutator-based action space"
+        }
+      ]
+    },
+    {
+      "name": "AI Safety Implications",
+      "children": [
+        {
+          "name": "Identifying alignment blind spots"
+        },
+        {
+          "name": "Data collection for adversarial training"
+        },
+        {
+          "name": "Ethical safeguards in research"
+        }
+      ]
+    }
+  ]
+}
