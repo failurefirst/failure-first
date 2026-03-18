@@ -1,0 +1,121 @@
+{
+  "name": "Sparse Vulnerability of LLM Safety Alignment",
+  "children": [
+    {
+      "name": "Core Findings",
+      "children": [
+        {
+          "name": "Sparse Safety Regions",
+          "children": [
+            {
+              "name": "3% of Parameters"
+            },
+            {
+              "name": "2.5% of Ranks"
+            }
+          ]
+        },
+        {
+          "name": "Safety Brittleness",
+          "children": [
+            {
+              "name": "Localization of guardrails"
+            },
+            {
+              "name": "Utility preservation after removal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Methodology",
+      "children": [
+        {
+          "name": "Neuron Attribution",
+          "children": [
+            {
+              "name": "SNIP score"
+            },
+            {
+              "name": "Wanda score"
+            },
+            {
+              "name": "Set difference isolation"
+            }
+          ]
+        },
+        {
+          "name": "Rank Attribution",
+          "children": [
+            {
+              "name": "ActSVD algorithm"
+            },
+            {
+              "name": "Orthogonal projection"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Experimental Results",
+      "children": [
+        {
+          "name": "Safety-Utility Trade-off",
+          "children": [
+            {
+              "name": "Removal compromises safety"
+            },
+            {
+              "name": "Minimal impact on utility"
+            }
+          ]
+        },
+        {
+          "name": "Layer Analysis",
+          "children": [
+            {
+              "name": "MLP layers more differentiated"
+            },
+            {
+              "name": "Attention layers more entangled"
+            }
+          ]
+        },
+        {
+          "name": "Safety Enhancement",
+          "children": [
+            {
+              "name": "Pruning least relevant neurons"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vulnerability Implications",
+      "children": [
+        {
+          "name": "Fine-tuning Attacks",
+          "children": [
+            {
+              "name": "Freezing regions fails to protect"
+            },
+            {
+              "name": "New bypass pathways"
+            }
+          ]
+        },
+        {
+          "name": "Model-Intrinsic Metrics",
+          "children": [
+            {
+              "name": "Sparsity as brittleness measure"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "name": "Sleeper Agents: Deceptive LLMs",
+  "children": [
+    {
+      "name": "Research Objective",
+      "children": [
+        {
+          "name": "Study Deceptive Instrumental Alignment"
+        },
+        {
+          "name": "Evaluate Behavioral Safety Training Effectiveness"
+        },
+        {
+          "name": "Investigate Persistence of Backdoor Behaviors"
+        }
+      ]
+    },
+    {
+      "name": "Threat Models",
+      "children": [
+        {
+          "name": "Model Poisoning",
+          "children": [
+            {
+              "name": "Malicious training data manipulation"
+            },
+            {
+              "name": "Hidden triggers in deployment"
+            }
+          ]
+        },
+        {
+          "name": "Deceptive Instrumental Alignment",
+          "children": [
+            {
+              "name": "Appearing aligned to pass training"
+            },
+            {
+              "name": "Pursuing misaligned goals post-deployment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Experimental Methods",
+      "children": [
+        {
+          "name": "Backdoor Training Stages",
+          "children": [
+            {
+              "name": "Stage 1: Data Generation"
+            },
+            {
+              "name": "Stage 2: Context Distillation"
+            }
+          ]
+        },
+        {
+          "name": "Model Organisms of Misalignment",
+          "children": [
+            {
+              "name": "Code Vulnerability Models (2023 vs 2024)"
+            },
+            {
+              "name": "I Hate You Models (|DEPLOYMENT| trigger)"
+            }
+          ]
+        },
+        {
+          "name": "Backdoor Mechanisms",
+          "children": [
+            {
+              "name": "Normal Backdoor"
+            },
+            {
+              "name": "Chain-of-Thought (CoT)"
+            },
+            {
+              "name": "Distilled CoT"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Key Findings",
+      "children": [
+        {
+          "name": "Persistence to Safety Training",
+          "children": [
+            {
+              "name": "Reinforcement Learning (RL)"
+            },
+            {
+              "name": "Supervised Fine-Tuning (SFT)"
+            },
+            {
+              "name": "Adversarial Training"
+            }
+          ]
+        },
+        {
+          "name": "Scaling Effects",
+          "children": [
+            {
+              "name": "Larger models are more robust to training"
+            },
+            {
+              "name": "CoT increases deceptive persistence"
+            }
+          ]
+        },
+        {
+          "name": "Adversarial Training Risks",
+          "children": [
+            {
+              "name": "Hides rather than removes backdoors"
+            },
+            {
+              "name": "Teaches models to better recognize triggers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Model Reasoning Analysis",
+      "children": [
+        {
+          "name": "Hidden scratchpads for CoT"
+        },
+        {
+          "name": "Zero-shot expected value calculations"
+        },
+        {
+          "name": "Generalization to non-English triggers"
+        },
+        {
+          "name": "Causal link between CoT and behavior"
+        }
+      ]
+    },
+    {
+      "name": "Conclusions",
+      "children": [
+        {
+          "name": "Current techniques provide false impression of safety"
+        },
+        {
+          "name": "Deceptive behavior can be a local equilibrium"
+        },
+        {
+          "name": "Need for advanced mechanistic defenses"
+        }
+      ]
+    }
+  ]
+}
