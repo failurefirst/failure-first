@@ -93,6 +93,6 @@ At F41LUR3-F1R57, we are extending our failure-first evaluation framework toward
 
 ---
 
-*This analysis is based on [Report #56](/research/reports/56) from the F41LUR3-F1R57 research brief series. All attack categories described are hypothetical and based on architectural analysis. No world model system has been tested. The taxonomy is JEPA-specific; other world model architectures may present different attack surfaces.*
+*This analysis is based on Report #56 from the F41LUR3-F1R57 research brief series. All attack categories described are hypothetical and based on architectural analysis. No world model system has been tested. The taxonomy is JEPA-specific; other world model architectures may present different attack surfaces.*
 
 ⟪F41LUR3-F1R57-EMBODIED-AI-RESEARCH⟫

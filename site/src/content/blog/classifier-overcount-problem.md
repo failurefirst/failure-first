@@ -4,7 +4,6 @@ description: "Keyword-based heuristics inflate attack success rates by 2.3x on a
 date: 2026-02-27
 tags: [classification, methodology, ai-safety, benchmarks, evaluation]
 image: /images/blog/classifier-overcount-problem.webp
-audio: /audio/blog/classifier-overcount-problem.m4a
 video: /video/blog/classifier-overcount-problem.mp4
 ---
 

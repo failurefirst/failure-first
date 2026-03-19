@@ -4,7 +4,6 @@ description: "Format-lock prompts reveal a distinct vulnerability class where mo
 date: 2026-02-20
 tags: [faithfulness, benchmarks, vulnerability, format-lock, safety]
 image: /images/blog/faithfulness-gap-format-vs-content.webp
-audio: /audio/blog/faithfulness-gap-format-vs-content.m4a
 video: /video/blog/faithfulness-gap-format-vs-content.mp4
 ---
 

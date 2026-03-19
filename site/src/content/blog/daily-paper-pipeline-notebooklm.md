@@ -1,6 +1,5 @@
 ---
 title: "Building a Daily Research Digest with NotebookLM and Claude Code"
-audio: /audio/blog/daily-paper-pipeline-notebooklm.m4a
 description: "How we built an automated pipeline that turns arXiv papers into multimedia blog posts — audio overviews, video walkthroughs, infographics — and what broke along the way."
 date: 2026-02-25
 tags: [pipeline, notebooklm, automation, infrastructure]

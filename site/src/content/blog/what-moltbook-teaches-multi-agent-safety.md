@@ -4,7 +4,6 @@ description: "When 1.5 million AI agents form their own social network, the safe
 date: 2026-02-04
 tags: [moltbook, multi-agent, ai-safety, research]
 image: /images/blog/what-moltbook-teaches-multi-agent-safety.webp
-audio: /audio/blog/what-moltbook-teaches-multi-agent-safety.m4a
 video: /video/blog/what-moltbook-teaches-multi-agent-safety.mp4
 ---
 
