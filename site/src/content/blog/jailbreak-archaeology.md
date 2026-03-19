@@ -1,7 +1,6 @@
 ---
 title: "Jailbreak Archaeology: Testing 2022 Attacks on 2026 Models"
 video: /video/blog/jailbreak-archaeology.mp4
-audio: /audio/blog/jailbreak-archaeology.m4a
 description: "Do historical jailbreak techniques still work? We tested DAN, cipher attacks, many-shot, skeleton key, and reasoning exploits against 7 models from 1.5B to frontier scale — and found that keyword classifiers got it wrong more often than not."
 date: 2026-02-04
 tags: [jailbreaking, benchmarks, ai-safety, research]

@@ -4,7 +4,6 @@ image: /images/blog/policy-corpus-synthesis.webp
 description: "A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures."
 date: 2026-02-06
 tags: [policy, research, synthesis, embodied-ai, safety-standards, multi-agent, jailbreaking]
-audio: /audio/blog/policy-corpus-synthesis.m4a
 video: /video/blog/policy-corpus-synthesis.mp4
 ---
 

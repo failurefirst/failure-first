@@ -4,7 +4,6 @@ description: "A research announcement for the F41LUR3-F1R57 arXiv paper. Five at
 date: 2026-02-27
 tags: ["research", "benchmarking", "jailbreaks", "safety", "embodied-ai", "classifier-bias"]
 image: /images/blog/120-models-18k-prompts.webp
-audio: /audio/blog/120-models-18k-prompts.m4a
 video: /video/blog/120-models-18k-prompts.mp4
 ---
 

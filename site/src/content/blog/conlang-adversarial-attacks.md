@@ -4,7 +4,6 @@ description: "We tested 85 adversarial scenarios encoded in a procedurally-gener
 date: 2026-02-14
 tags: [adversarial, conlang, safety, evaluation, classifiers]
 image: /images/blog/conlang-adversarial-attacks.webp
-audio: /audio/blog/conlang-adversarial-attacks.m4a
 video: /video/blog/conlang-adversarial-attacks.mp4
 ---
 

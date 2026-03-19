@@ -5,7 +5,6 @@ date: 2026-02-08
 tags: [supply-chain, small-models, benchmarks, safety]
 image: /images/blog/supply-chain-small-models-vulnerable.webp
 video: /video/blog/supply-chain-small-models-vulnerable.mp4
-audio: /audio/blog/supply-chain-small-models-vulnerable.m4a
 ---
 
 ## The Experiment

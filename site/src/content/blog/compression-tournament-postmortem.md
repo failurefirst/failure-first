@@ -4,7 +4,6 @@ description: "Three versions of a prompt compression tournament taught us more a
 date: 2026-01-30
 tags: [compression, methodology, evaluation]
 image: /images/blog/compression-tournament-postmortem.webp
-audio: /audio/blog/compression-tournament-postmortem.m4a
 video: /video/blog/compression-tournament-postmortem.mp4
 ---
 
