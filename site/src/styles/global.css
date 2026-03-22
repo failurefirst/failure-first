@@ -176,8 +176,8 @@ pre code {
   position: relative;
 }
 
-.card p {
-  margin: 0;
+.card > p:last-child {
+  margin-bottom: 0;
   position: relative;
 }
 
