@@ -4,7 +4,6 @@ description: "Our 8-model benchmark of historical jailbreak techniques exposes a
 date: 2026-02-04
 tags: [jailbreaking, policy, ai-safety, regulation, benchmarks]
 image: /images/blog/jailbreak-archaeology-policy-implications.webp
-video: /video/blog/jailbreak-archaeology-policy-implications.mp4
 ---
 
 What does a four-year-old DAN prompt tell us about AI safety regulation in 2026?

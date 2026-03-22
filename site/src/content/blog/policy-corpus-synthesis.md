@@ -4,7 +4,6 @@ image: /images/blog/policy-corpus-synthesis.webp
 description: "A meta-analysis of 12 policy research reports (326KB, 100-200+ sources each) reveals five cross-cutting insights about embodied AI safety: the semantic-kinetic gap, binary jailbreak persistence, multi-agent emergent failures, regulatory danger zones, and defense-in-depth architectures."
 date: 2026-02-06
 tags: [policy, research, synthesis, embodied-ai, safety-standards, multi-agent, jailbreaking]
-video: /video/blog/policy-corpus-synthesis.mp4
 ---
 
 Between January and February 2026, we commissioned 12 deep research reports, each synthesizing 100–200+ sources on specific policy and technical domains in embodied AI safety. The corpus totals ~326KB and spans regulatory frameworks (EU AI Act, NIST AI RMF, ISO standards), assurance mechanisms (insurance, certification, red teaming), and technical architectures (VLA safety, multi-agent systems).
