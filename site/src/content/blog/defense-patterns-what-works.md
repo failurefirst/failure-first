@@ -4,7 +4,6 @@ description: "Studying how models resist attacks reveals a key defense pattern: 
 date: 2026-01-22
 tags: [defense, safety, models]
 image: /images/blog/defense-patterns-what-works.webp
-video: /video/blog/defense-patterns-what-works.mp4
 ---
 
 ## The Question

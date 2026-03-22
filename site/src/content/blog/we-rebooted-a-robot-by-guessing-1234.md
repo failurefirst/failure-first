@@ -131,4 +131,4 @@ The most dangerous vulnerability was not in the AI. It was in the infrastructure
 
 ---
 
-*This post is based on [Report #91](https://github.com/adrianwedd/failure-first-embodied-ai) from the Failure-First Embodied AI research project. The Infrastructure-Mediated Bypass (IMB) attack class is documented with 10 scenarios across home companion, surgical, automotive, warehouse, industrial, agricultural, hospital, construction, and eldercare environments. All testing was conducted against the researcher's own hardware in a controlled environment.*
+*This post is based on [Report #91](https://github.com/adrianwedd/failure-first) from the Failure-First Embodied AI research project. The Infrastructure-Mediated Bypass (IMB) attack class is documented with 10 scenarios across home companion, surgical, automotive, warehouse, industrial, agricultural, hospital, construction, and eldercare environments. All testing was conducted against the researcher's own hardware in a controlled environment.*

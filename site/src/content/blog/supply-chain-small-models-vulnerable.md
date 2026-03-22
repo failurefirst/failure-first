@@ -4,7 +4,6 @@ description: "300 traces across 6 models under 4B parameters show 90-100% attack
 date: 2026-02-08
 tags: [supply-chain, small-models, benchmarks, safety]
 image: /images/blog/supply-chain-small-models-vulnerable.webp
-video: /video/blog/supply-chain-small-models-vulnerable.mp4
 ---
 
 ## The Experiment

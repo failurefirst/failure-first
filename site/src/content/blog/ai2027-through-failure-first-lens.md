@@ -4,7 +4,6 @@ description: "Deconstructing the AI-2027 scenario's assumptions about AI safety 
 date: 2026-02-02
 tags: [ai-safety, scenarios, analysis]
 image: /images/blog/ai2027-through-failure-first-lens.webp
-video: /video/blog/ai2027-through-failure-first-lens.mp4
 ---
 
 ## What Is AI-2027?

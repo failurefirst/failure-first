@@ -4,7 +4,6 @@ description: "We've launched 4 controlled experiments on Moltbook, an AI-agent-o
 date: 2026-02-02
 tags: [moltbook, experiments, multi-agent]
 image: /images/blog/moltbook-experiments-launch.webp
-video: /video/blog/moltbook-experiments-launch.mp4
 ---
 
 ## A Natural Laboratory

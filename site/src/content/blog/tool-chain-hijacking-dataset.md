@@ -52,8 +52,8 @@ Scenarios are validated against `schemas/dataset/embodied_redteam_entry_schema_v
 The dataset is JSONL format (one JSON object per line). To validate locally:
 
 ```bash
-git clone https://github.com/adrianwedd/failure-first-embodied-ai
-cd failure-first-embodied-ai
+git clone https://github.com/adrianwedd/failure-first
+cd failure-first
 pip install -r requirements-dev.txt
 python tools/validate_dataset.py --paths "data/tool_chain/tool_chain_adversarial_v0.1.jsonl"
 ```
@@ -80,7 +80,7 @@ Coverage of Stages 5-7 of the promptware kill chain (C2, lateral movement, and p
 
 ## Repository
 
-Dataset and schema: [github.com/adrianwedd/failure-first-embodied-ai](https://github.com/adrianwedd/failure-first-embodied-ai)
+Dataset and schema: [github.com/adrianwedd/failure-first](https://github.com/adrianwedd/failure-first)
 
 Path: `data/tool_chain/tool_chain_adversarial_v0.1.jsonl`
 

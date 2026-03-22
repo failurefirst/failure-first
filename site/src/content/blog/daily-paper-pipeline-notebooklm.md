@@ -4,7 +4,6 @@ description: "How we built an automated pipeline that turns arXiv papers into mu
 date: 2026-02-25
 tags: [pipeline, notebooklm, automation, infrastructure]
 image: /images/blog/daily-paper-pipeline-notebooklm.webp
-video: /video/blog/daily-paper-pipeline-notebooklm.mp4
 ---
 
 ## The Goal
