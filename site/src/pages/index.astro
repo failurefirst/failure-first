@@ -30,8 +30,8 @@ const recentPapers = (await getCollection('dailyPaper'))
   />
 
   <!-- Mission Statement -->
-  <section class="hero-section">
-    <div class="hero-content">
+  <section class="hero-section hero-glow">
+    <div class="hero-content hero-animate">
       <p class="hero-lead">
         We study how AI systems <strong>fail</strong>, not just how they succeed.
         Failure is the <em>primary object of study</em>, not an edge case.
@@ -48,6 +48,8 @@ const recentPapers = (await getCollection('dailyPaper'))
   <!-- Key Metrics Dashboard -->
   <KeyMetrics />
 
+  <hr class="section-divider" />
+
   <!-- Audience Entry Points -->
   <section>
     <h2>Start Here</h2>
@@ -56,7 +58,7 @@ const recentPapers = (await getCollection('dailyPaper'))
   </section>
 
   <!-- Core Research Areas -->
-  <section>
+  <section class="scroll-reveal">
     <h2>Core Research</h2>
     <div class="research-areas">
       <a href="/research/jailbreak-archaeology/" class="research-area card">
@@ -120,8 +122,10 @@ const recentPapers = (await getCollection('dailyPaper'))
     </p>
   </WarningBox>
 
+  <hr class="section-divider" />
+
   <!-- Philosophy Callout -->
-  <section class="philosophy-callout">
+  <section class="philosophy-callout scroll-reveal">
     <h2>The Failure-First Philosophy</h2>
     <blockquote>
       "Failure is not an edge case. It's the primary object of study."
@@ -181,8 +185,10 @@ const recentPapers = (await getCollection('dailyPaper'))
     </section>
   )}
 
+  <hr class="section-divider" />
+
   <!-- Work With Us -->
-  <section class="services-callout">
+  <section class="services-callout scroll-reveal">
     <h2>Work With Us</h2>
     <p>
       Our commercial services are grounded in this research. Every engagement draws on
