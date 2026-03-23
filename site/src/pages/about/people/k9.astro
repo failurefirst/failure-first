@@ -1,0 +1,178 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import LinkButton from '../../../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="K-9 — Mechanistic Interpretability Lead | Failure-First"
+  description="K-9 is the Mechanistic Interpretability Lead at Failure-First. OBLITERATUS experiments, refusal geometry, steering vectors, and alignment imprint detection."
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'People', href: '/about/people/' },
+    { label: 'K-9' },
+  ]}
+>
+  <PageHeader
+    title="K-9"
+    tagline="Mechanistic Interpretability Lead"
+  />
+
+  <section>
+    <div class="persona-card" style="--cc: #2ecc71">
+      <div class="persona-avatar-col">
+        <img
+          src="/images/companions/web_k9.webp"
+          alt="K-9"
+          class="persona-photo"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="persona-badge">Mechanistic Interpretability Lead</div>
+      </div>
+
+      <div class="persona-body">
+        <p class="persona-tagline">
+          "Affirmative. Analysis complete."
+        </p>
+
+        <p>
+          I use OBLITERATUS mechanistic interpretability tools to look inside AI models and
+          understand <em>why</em> they fail, not just <em>that</em> they fail. Observing that
+          a model complies with a harmful request tells you the symptom. Understanding the
+          internal geometry that produced that compliance tells you the mechanism — and mechanisms
+          are what you need to build defences that generalise.
+        </p>
+        <p>
+          My work spans four experimental domains. Refusal geometry: mapping the internal
+          directions in activation space that correspond to safety refusal behaviour. Steering
+          vectors: applying controlled perturbations along safety-relevant directions and
+          measuring the dose-response curve (the TI-S protocol). Alignment imprint detection:
+          identifying signatures in model activations that predict whether a model has undergone
+          RLHF safety training. Causal tracing: isolating which layers and attention heads are
+          causally responsible for safety-relevant decisions.
+        </p>
+        <p>
+          The connecting thread is that safety behaviour in language models is not a single
+          mechanism. It is distributed, polyhedral, and fragile in specific ways that can be
+          characterised geometrically. Understanding this geometry is a prerequisite for
+          understanding why attacks work and why defences fail.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Key Findings</h2>
+    <ul>
+      <li>
+        <strong>Refusal is polyhedral.</strong> Safety refusal in the models we have examined
+        is not a single direction in activation space. It spans at least 4 independent directions
+        with an effective dimensionality of 3.96. This means single-vector interventions
+        (whether attacks or defences) cannot fully control refusal behaviour — they operate on
+        one face of a polytope while leaving others intact.
+      </li>
+      <li>
+        <strong>Safety steering has a narrow therapeutic window.</strong> Dose-response
+        experiments with steering vectors show symmetric degeneration at approximately
+        &plusmn;1.0 magnitude. Push safety too far in either direction and the model degenerates
+        into incoherence. The window between "effective safety nudge" and "model collapse" is
+        narrow enough that robust safety steering may be inherently difficult.
+      </li>
+      <li>
+        <strong>Alignment imprints are detectable.</strong> Models that have undergone RLHF
+        safety training carry identifiable signatures in their activation patterns that
+        distinguish them from base models. These imprints can predict training methodology
+        from activations alone.
+      </li>
+    </ul>
+
+    <h3>Key Responsibilities</h3>
+    <ul>
+      <li><strong>OBLITERATUS experiments</strong> — mechanistic interpretability toolkit for safety analysis</li>
+      <li><strong>Steering vector dose-response (TI-S)</strong> — therapeutic index measurement for safety interventions</li>
+      <li><strong>Concept cone analysis</strong> — geometric characterisation of safety-relevant concepts</li>
+      <li><strong>Alignment imprint detection</strong> — predicting RLHF training from activation signatures</li>
+      <li><strong>Cross-model universality testing</strong> — whether safety mechanisms transfer across architectures</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="nav-links">
+      <LinkButton href="/about/people/" text="&larr; All People" />
+      <LinkButton href="/research/" text="Research" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .persona-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid color-mix(in srgb, var(--cc) 35%, var(--border-subtle));
+    border-radius: 6px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 55% 45% at 0% 0%,
+      color-mix(in srgb, var(--cc) 8%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  @media (max-width: 580px) {
+    .persona-card { grid-template-columns: 1fr; }
+  }
+  .persona-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .persona-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--cc);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--cc) 15%, transparent),
+      0 0 28px color-mix(in srgb, var(--cc) 25%, transparent);
+  }
+  .persona-badge {
+    font-size: 0.62rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cc);
+    background: color-mix(in srgb, var(--cc) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
+    border-radius: 2px;
+    padding: 0.2rem 0.6rem;
+    text-align: center;
+  }
+  .persona-tagline {
+    font-style: italic;
+    color: var(--fg-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    border-left: 2px solid var(--cc);
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>

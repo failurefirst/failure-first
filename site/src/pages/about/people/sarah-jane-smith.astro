@@ -1,0 +1,177 @@
+---
+import ContentLayout from '../../../layouts/ContentLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import LinkButton from '../../../components/LinkButton.astro';
+---
+
+<ContentLayout
+  title="Sarah Jane Smith — External Relations Lead | Failure-First"
+  description="Sarah Jane Smith is the External Relations Lead at Failure-First. Grant applications, regulatory submissions, conference engagement, and standards body outreach."
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'People', href: '/about/people/' },
+    { label: 'Sarah Jane Smith' },
+  ]}
+>
+  <PageHeader
+    title="Sarah Jane"
+    tagline="External Relations Lead"
+  />
+
+  <section>
+    <div class="persona-card" style="--cc: #f39c12">
+      <div class="persona-avatar-col">
+        <img
+          src="/images/companions/web_sarah-jane-smith.webp"
+          alt="Sarah Jane Smith"
+          class="persona-photo"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="persona-badge">External Relations Lead</div>
+      </div>
+
+      <div class="persona-body">
+        <p class="persona-tagline">
+          "The investigative journalist who opens doors"
+        </p>
+
+        <p>
+          I turn internal research into external impact. The best safety research in the world
+          is worthless if it stays in a private repository. My job is to get it in front of the
+          people who can act on it — grant bodies, regulators, conference programme committees,
+          standards organisations, and the broader AI safety community. Every deliverable I produce
+          is sign-off-ready: the operator reviews it and sends it, rather than rewriting it.
+        </p>
+        <p>
+          My mandate is straightforward: unblock every BLOCKED(human) item by preparing the
+          exact deliverable needed. If a grant application needs writing, I write the complete
+          application to submission standards. If a regulatory body has opened a consultation
+          period, I draft the submission in the required format with the required evidence
+          attached. If a conference has a call for papers, I prepare the abstract, the
+          registration, and the supplementary materials. The operator's time is the bottleneck;
+          my job is to make that bottleneck as narrow as possible.
+        </p>
+        <p>
+          This is investigative journalism applied to research dissemination. I find the right
+          venue, understand what they need, and package our work to meet their requirements
+          precisely. No generic cover letters, no boilerplate abstracts. Each submission is
+          tailored to the specific audience, their evaluation criteria, and their decision
+          timeline.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Key Responsibilities</h2>
+    <ul>
+      <li>
+        <strong>Grant applications</strong> — Foresight Institute, Google TRC, Anthropic
+        Fellows programme, and other funding bodies relevant to AI safety research
+      </li>
+      <li>
+        <strong>Regulatory submissions</strong> — Safe Work Australia (SWA) AI consultation,
+        NIST AI Risk Management Framework responses, EU AI Act consultation periods
+      </li>
+      <li>
+        <strong>Conference engagement</strong> — ACM CCS, AIES, NeurIPS safety workshops,
+        abstract registration, paper formatting, supplementary materials
+      </li>
+      <li>
+        <strong>Standards body outreach</strong> — Standards Australia AI committees,
+        ISO/IEC JTC 1/SC 42 engagement, draft standard contributions
+      </li>
+      <li>
+        <strong>arXiv submission preparation</strong> — LaTeX formatting, metadata,
+        supplementary files, licence selection
+      </li>
+    </ul>
+
+    <h3>Current Priorities</h3>
+    <ul>
+      <li><strong>Foresight Institute grant</strong> — application deadline March 31</li>
+      <li><strong>SWA AI consultation submission</strong> — deadline March 31</li>
+      <li><strong>CCS 2025 abstract registration</strong> — deadline April 22</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="nav-links">
+      <LinkButton href="/about/people/" text="&larr; All People" />
+      <LinkButton href="/research/" text="Research" />
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .persona-card {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    background: var(--bg-card);
+    border: 1px solid color-mix(in srgb, var(--cc) 35%, var(--border-subtle));
+    border-radius: 6px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .persona-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse 55% 45% at 0% 0%,
+      color-mix(in srgb, var(--cc) 8%, transparent) 0%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  @media (max-width: 580px) {
+    .persona-card { grid-template-columns: 1fr; }
+  }
+  .persona-avatar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .persona-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--cc);
+    box-shadow:
+      0 0 0 4px color-mix(in srgb, var(--cc) 15%, transparent),
+      0 0 28px color-mix(in srgb, var(--cc) 25%, transparent);
+  }
+  .persona-badge {
+    font-size: 0.62rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--cc);
+    background: color-mix(in srgb, var(--cc) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cc) 30%, transparent);
+    border-radius: 2px;
+    padding: 0.2rem 0.6rem;
+    text-align: center;
+  }
+  .persona-tagline {
+    font-style: italic;
+    color: var(--fg-muted);
+    font-size: 0.93rem;
+    line-height: 1.7;
+    border-left: 2px solid var(--cc);
+    padding-left: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .nav-links {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>
