@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "The Architecture of Kinetic Risk: Insurance Underwriting as the Primary Regulator of Humanoid Robotics and Autonomous Systems"
 description: "The global transition toward the mass deployment of humanoid robotics and autonomous systems represents a paradigm shift in the nature of physical and digital liability. As robotic systems evolve from static industrial components into mobile, autonomous agents—specifically humanoid forms..."
 reportNumber: 28

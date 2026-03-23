@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Quantifying the Governance Lag: Structural Causes and Temporal Dynamics of AI Safety Regulation"
 description: "Introduction of the Governance Lag Index (GLI) as a quantifiable metric for the temporal distance between AI failure documentation and regulatory enforcement. Comparative analysis against aviation, nuclear, pharmaceutical, and financial industry precedents, with focus on Australian embodied AI deployment."
 reportNumber: 46

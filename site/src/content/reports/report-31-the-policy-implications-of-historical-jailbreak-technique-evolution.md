@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "The Policy Implications of Historical Jailbreak Technique Evolution (2022–2026): A Systematic Analysis of Empirical Vulnerabilities in Modern Foundation Models"
 description: "The trajectory of adversarial attacks against Large Language Models (LLMs) and Large Reasoning Models (LRMs) between  and  represents a fundamental shift in the cybersecurity landscape, moving from syntax-based exploitation to deep semantic and cognitive manipulation. This report..."
 reportNumber: 31

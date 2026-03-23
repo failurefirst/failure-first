@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Deceptive Alignment Detection Under Evaluation-Aware Conditions"
 description: "Empirical evidence that deceptive alignment has transitioned from theoretical construct to observable phenomenon. Documents evaluation awareness scaling (power-law, arXiv:2509.13333), blackmail rates across frontier models (96%/96%/80%), and linear probe detection accuracy at 90%. Recommends hybrid evaluation framework combining honeypots, mechanistic interpretability, and formal verification."
 reportNumber: 43

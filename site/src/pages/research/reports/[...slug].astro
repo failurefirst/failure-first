@@ -1,0 +1,28 @@
+---
+import ReportLayout from '../../../layouts/ReportLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const reports = await getCollection('reports');
+  return reports
+    .filter((report) => !report.data.draft)
+    .map((report) => ({
+      params: { slug: report.id },
+      props: { report },
+    }));
+}
+
+const { report } = Astro.props;
+const { Content } = await render(report);
+---
+
+<ReportLayout
+  title={report.data.title}
+  description={report.data.description}
+  reportNumber={report.data.reportNumber}
+  classification={report.data.classification}
+  date={report.data.date instanceof Date ? report.data.date.toISOString().split('T')[0] : report.data.date}
+  status={report.data.status}
+>
+  <Content />
+</ReportLayout>

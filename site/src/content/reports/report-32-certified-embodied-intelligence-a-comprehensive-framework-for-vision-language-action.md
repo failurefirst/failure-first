@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "CERTIFIED EMBODIED INTELLIGENCE: A COMPREHENSIVE FRAMEWORK FOR VISION-LANGUAGE-ACTION (VLA) MODEL SAFETY AND STANDARDIZATION"
 description: "The integration of Large Language Models (LLMs) with robotic control systems—culminating in Vision-Language-Action (VLA) models—represents a paradigm shift in the engineering of physical autonomy. This transition from \"programmed\" robotics, governed by deterministic code and explicit geometric..."
 reportNumber: 32

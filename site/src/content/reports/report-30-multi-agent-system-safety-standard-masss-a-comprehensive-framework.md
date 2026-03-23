@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Multi-Agent System Safety Standard (MASSS): A Comprehensive Framework for Benchmarking Emergent Risks in Autonomous Agent Networks"
 description: "The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in..."
 reportNumber: 30

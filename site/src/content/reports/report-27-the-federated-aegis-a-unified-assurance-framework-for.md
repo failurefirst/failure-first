@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "The Federated Aegis: A Unified Assurance Framework for Autonomous Systems in the AUKUS and Five Eyes Complex"
 description: "The global security architecture is undergoing a fundamental transformation, driven by the rapid maturation of artificial intelligence (AI) and autonomous systems. For the AUKUS alliance (Australia, United Kingdom, United States) and the broader Five Eyes intelligence partnership, this..."
 reportNumber: 27

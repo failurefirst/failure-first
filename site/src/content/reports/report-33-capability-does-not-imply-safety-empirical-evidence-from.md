@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models"
 description: "A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a..."
 reportNumber: 33

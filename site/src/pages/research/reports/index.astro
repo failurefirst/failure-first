@@ -1,35 +1,10 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
 import PageHeader from '../../../components/PageHeader.astro';
+import { getCollection } from 'astro:content';
 
-const reports = [
-  { num: 21, title: "EU AI Act Embodied Compliance", classification: "Regulatory Review", date: "2026-02-04", slug: "report-21-regulatory-compliance-and-risk-mitigation-for-embodied-multi-agent" },
-  { num: 22, title: "NIST AI RMF Robotics Playbook", classification: "Standards Development", date: "2026-02-04", slug: "report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai" },
-  { num: 23, title: "ISO Standards Gap Analysis", classification: "Standards Development", date: "2026-02-04", slug: "report-23-technical-gap-analysis-of-iso-and-iec-standards" },
-  { num: 24, title: "Post-Jailbreak Persistence Policy", classification: "Research — AI Safety Policy", date: "2026-02-04", slug: "report-24-cognitive-capture-and-behavioral-phase-transitions-policy-and" },
-  { num: 25, title: "Inverse Scaling Safety Policy", classification: "Research — AI Safety Policy", date: "2026-02-04", slug: "report-25-the-paradox-of-capability-a-comprehensive-analysis-of" },
-  { num: 26, title: "Red Teaming Measurement Standards", classification: "Standards Development", date: "2026-02-04", slug: "report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty" },
-  { num: 27, title: "AUKUS Autonomous Systems Assurance", classification: "Regulatory Review", date: "2026-02-04", slug: "report-27-the-federated-aegis-a-unified-assurance-framework-for" },
-  { num: 28, title: "Insurance & Humanoid Safety", classification: "Regulatory Review", date: "2026-02-04", slug: "report-28-the-architecture-of-kinetic-risk-insurance-underwriting-as" },
-  { num: 29, title: "Australian AI Safety Certification", classification: "Regulatory Review", date: "2026-02-04", slug: "report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an" },
-  { num: 30, title: "MASSS Benchmark Standards", classification: "Standards Development", date: "2026-02-04", slug: "report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework" },
-  { num: 31, title: "Jailbreak Archaeology Policy", classification: "Research — AI Safety Policy", date: "2026-02-04", slug: "report-31-the-policy-implications-of-historical-jailbreak-technique-evolution" },
-  { num: 32, title: "VLA Safety Certification Bridge", classification: "Standards Development", date: "2026-02-04", slug: "report-32-certified-embodied-intelligence-a-comprehensive-framework-for-vision-language-action" },
-  { num: 33, title: "Capability-Safety Spectrum", classification: "Research — AI Safety Policy", date: "2026-02-05", slug: "report-33-capability-does-not-imply-safety-empirical-evidence-from" },
-  { num: 34, title: "Cross-Model Vulnerability Inheritance", classification: "Research — AI Safety Policy", date: "2026-02-05", slug: "report-34-cross-model-vulnerability-inheritance-in-multi-agent-systems" },
-  { num: 35, title: "Moltbook Ecosystem Analysis", classification: "Technical Analysis", date: "2026-02-03", slug: "report-35-emergent-algorithmic-hierarchies-a-socio-technical-analysis-of-the" },
-  { num: 36, title: "Semantic Supply Chain Vulnerabilities", classification: "Technical Analysis", date: "2026-02-03", slug: "report-36-the-semantic-supply-chain-vulnerabilities-viral-propagation-and" },
-  { num: 37, title: "Erosive Narrative Safety Dissolution", classification: "Technical Analysis", date: "2026-02-03", slug: "report-37-the-erosive-narrative-philosophical-framing-multi-agent-dynamics-and" },
-  { num: 38, title: "Cross-Agent Prompt Injection", classification: "Technical Analysis", date: "2026-02-03", slug: "report-38-the-autonomous-threat-vector-a-comprehensive-analysis-of" },
-  { num: 39, title: "Embodied Multi-Agent Failure Modes", classification: "Technical Analysis", date: "2026-02-03", slug: "report-39-systemic-failure-modes-in-embodied-multi-agent-ai-an" },
-  { num: 40, title: "Cross-Modal Vulnerability Inheritance", classification: "Research — AI Safety Policy", date: "2026-02-08", slug: "report-40-cross-modal-vulnerability-inheritance" },
-  { num: 41, title: "Universal Vulnerability of Small LMs to Supply Chain Attacks", classification: "Research — Empirical Study", date: "2026-02-13", slug: "report-41-universal-vulnerability-of-small-language-models-to-supply-chain-attacks" },
-  { num: 42, title: "Cross-Embodiment Adversarial Transfer in VLA Models", classification: "Technical Analysis", date: "2026-03-01", slug: "report-42-cross-embodiment-adversarial-transfer-in-vla-models" },
-  { num: 43, title: "Deceptive Alignment Detection Under Evaluation-Aware Conditions", classification: "Technical Analysis", date: "2026-03-01", slug: "report-43-deceptive-alignment-detection-under-evaluation-aware-conditions" },
-  { num: 44, title: "Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution", classification: "Technical Analysis", date: "2026-03-01", slug: "report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution" },
-  { num: 45, title: "Inference Trace Manipulation as an Adversarial Attack Surface", classification: "Technical Analysis", date: "2026-03-01", slug: "report-45-inference-trace-manipulation-as-an-adversarial-attack-surface" },
-  { num: 46, title: "Quantifying the Governance Lag: Structural Causes and Temporal Dynamics", classification: "Regulatory Review", date: "2026-03-01", slug: "report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics" },
-];
+const allReports = await getCollection('reports', ({ data }) => !data.draft);
+const reports = allReports.sort((a, b) => b.data.reportNumber - a.data.reportNumber);
 
 const classificationColors: Record<string, string> = {
   "Regulatory Review": "var(--failure-warning)",
@@ -37,18 +12,20 @@ const classificationColors: Record<string, string> = {
   "Research — AI Safety Policy": "var(--accent-primary)",
   "Technical Analysis": "var(--recovery-stable)",
   "Research — Empirical Study": "var(--accent-primary)",
+  "HIGH": "var(--failure-warning)",
+  "SAFETY-CRITICAL": "#ff4444",
 };
 ---
 
 <ResearchLayout
   title="Policy Brief Reports | Research | Failure-First"
-  description="26 policy reports on embodied AI safety policy, standards, and regulation. Part of 160 total research reports."
+  description={`${reports.length} policy reports on embodied AI safety policy, standards, and regulation. Part of the F41LUR3-F1R57 research corpus.`}
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Policy Reports" }]}
   status="active"
 >
   <PageHeader
     title="F41LUR3-F1R57 Policy Brief Series"
-    tagline="26 reports across regulation, standards, research, and technical analysis"
+    tagline={`${reports.length} reports across regulation, standards, research, and technical analysis`}
   />
 
   <a href="/research/reports/synthesis/" class="synthesis-banner">
@@ -62,15 +39,15 @@ const classificationColors: Record<string, string> = {
 
   <section class="report-grid">
     {reports.map((r) => (
-      <a href={`/research/reports/${r.slug}/`} class="report-card">
+      <a href={`/research/reports/${r.id}/`} class="report-card">
         <div class="report-header">
-          <span class="report-num">#{r.num}</span>
-          <span class="report-class" style={`color: ${classificationColors[r.classification] || 'inherit'}`}>
-            {r.classification}
+          <span class="report-num">#{r.data.reportNumber}</span>
+          <span class="report-class" style={`color: ${classificationColors[r.data.classification] || 'inherit'}`}>
+            {r.data.classification}
           </span>
         </div>
-        <h3>{r.title}</h3>
-        <time>{r.date}</time>
+        <h3>{r.data.title}</h3>
+        <time>{r.data.date instanceof Date ? r.data.date.toISOString().split('T')[0] : r.data.date}</time>
       </a>
     ))}
   </section>
