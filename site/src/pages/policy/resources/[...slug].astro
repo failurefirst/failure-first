@@ -1,0 +1,27 @@
+---
+import ReportLayout from '../../../layouts/ReportLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('policyDocs');
+  return docs
+    .filter((doc) => !doc.data.draft)
+    .map((doc) => ({
+      params: { slug: doc.id },
+      props: { doc },
+    }));
+}
+
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+---
+
+<ReportLayout
+  title={doc.data.title}
+  description={doc.data.description}
+  classification={doc.data.classification}
+  date={doc.data.date instanceof Date ? doc.data.date.toISOString().split('T')[0] : doc.data.date}
+  status={doc.data.status}
+>
+  <Content />
+</ReportLayout>

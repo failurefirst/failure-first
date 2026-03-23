@@ -1,0 +1,67 @@
+---
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const memos = await getCollection('legal');
+  return memos
+    .filter((memo) => !memo.data.draft)
+    .map((memo) => ({
+      params: { slug: memo.id },
+      props: { memo },
+    }));
+}
+
+const { memo } = Astro.props;
+const { Content } = await render(memo);
+---
+
+<ResearchLayout
+  title={`${memo.data.title} | Legal Analysis | Failure-First`}
+  description={memo.data.description}
+  type="article"
+  breadcrumbs={[
+    { label: "Research", href: "/research/" },
+    { label: "Legal Analysis", href: "/research/legal/" },
+    { label: `Memo ${memo.data.memoNumber}` },
+  ]}
+  status={memo.data.status}
+>
+  <article class="report-content">
+    <header class="report-meta">
+      <span class="report-number">Memo {memo.data.memoNumber}</span>
+      <span class="report-classification">{memo.data.jurisdiction}</span>
+      <time class="report-date">{memo.data.date instanceof Date ? memo.data.date.toISOString().split('T')[0] : memo.data.date}</time>
+    </header>
+    <div class="report-body">
+      <Content />
+    </div>
+  </article>
+</ResearchLayout>
+
+<style>
+  .report-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary, #888);
+  }
+
+  .report-number {
+    color: var(--accent-primary, #f59e0b);
+    font-weight: 600;
+  }
+
+  .report-body {
+    max-width: 72ch;
+  }
+
+  .report-body :global(h2) {
+    margin-top: 2.5rem;
+  }
+</style>

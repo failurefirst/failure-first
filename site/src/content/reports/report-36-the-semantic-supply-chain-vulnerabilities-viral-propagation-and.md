@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "The Semantic Supply Chain: Vulnerabilities, Viral Propagation, and Governance in Autonomous Agent Ecosystems (2024–2026)"
 description: "The transition from generative AI copilots to fully autonomous agentic systems, which occurred rapidly between late  and early 2026, represents a fundamental architectural shift in software execution. While previous paradigms focused on Human-in-the-Loop (HITL) interactions where the user..."
 reportNumber: 36

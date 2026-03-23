@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "The Paradox of Capability: A Comprehensive Analysis of Inverse Scaling, Systemic Vulnerabilities, and the Strategic Reconfiguration of Artificial Intelligence Safety"
 description: "The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This \"scaling law\" has provided a reliable roadmap for the industry, suggesting..."
 reportNumber: 25

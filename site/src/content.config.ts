@@ -44,4 +44,47 @@ const dailyPaper = defineCollection({
   }),
 });
 
-export const collections = { blog, docs, dailyPaper };
+const reports = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/reports' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    reportNumber: z.number(),
+    classification: z.enum(['Regulatory Review', 'Standards Development', 'Research — AI Safety Policy', 'Research — Empirical Study', 'Technical Analysis', 'HIGH', 'SAFETY-CRITICAL']),
+    status: z.enum(['draft', 'active', 'complete']).default('active'),
+    author: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    memoNumber: z.string(),
+    jurisdiction: z.string(),
+    status: z.enum(['draft']).default('draft'),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const policyDocs = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/policy-docs' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    author: z.string().optional(),
+    classification: z.string().default('Policy Brief'),
+    status: z.enum(['draft', 'active', 'complete']).default('active'),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs, dailyPaper, reports, legal, policyDocs };

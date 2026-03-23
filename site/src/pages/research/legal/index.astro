@@ -1,0 +1,124 @@
+---
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import PageHeader from '../../../components/PageHeader.astro';
+import WarningBox from '../../../components/WarningBox.astro';
+import { getCollection } from 'astro:content';
+
+const allMemos = await getCollection('legal', ({ data }) => !data.draft);
+const memos = allMemos.sort((a, b) => a.data.memoNumber.localeCompare(b.data.memoNumber, undefined, { numeric: true }));
+
+const jurisdictionColors: Record<string, string> = {
+  "Australia": "#00d2ff",
+  "European Union": "#f59e0b",
+  "United States": "#22c55e",
+  "United Kingdom": "#a855f7",
+  "International": "#ef4444",
+  "Multi-jurisdictional": "#ec4899",
+};
+---
+
+<ResearchLayout
+  title="Legal Analysis | Research | Failure-First"
+  description={`${memos.length} legal analysis memos on AI safety regulation, liability, and governance frameworks across jurisdictions.`}
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Legal Analysis" }]}
+  status="active"
+>
+  <PageHeader
+    title="Legal Analysis Series"
+    tagline={`${memos.length} memos on AI safety law, liability, and regulatory frameworks`}
+  />
+
+  <WarningBox>
+    <strong>Disclaimer:</strong> These memos are research documents produced for academic and policy analysis purposes.
+    They do not constitute legal advice. The analysis reflects the state of law at the time of writing and may not
+    account for subsequent legislative or judicial developments. Consult qualified legal counsel for jurisdiction-specific guidance.
+  </WarningBox>
+
+  <section class="report-grid">
+    {memos.map((m) => (
+      <a href={`/research/legal/${m.id}/`} class="report-card">
+        <div class="report-header">
+          <span class="report-num">{m.data.memoNumber}</span>
+          <span class="jurisdiction-badge" style={`background: ${jurisdictionColors[m.data.jurisdiction] || 'var(--accent-primary)'}; color: #050810;`}>
+            {m.data.jurisdiction}
+          </span>
+        </div>
+        <h3>{m.data.title}</h3>
+        <time>{m.data.date instanceof Date ? m.data.date.toISOString().split('T')[0] : m.data.date}</time>
+      </a>
+    ))}
+  </section>
+
+  {memos.length === 0 && (
+    <div class="empty-state">
+      <p>Legal analysis memos are being migrated to this collection. Check back soon.</p>
+    </div>
+  )}
+</ResearchLayout>
+
+<style>
+  .report-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .report-card {
+    display: block;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color, #333);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .report-card:hover {
+    border-color: var(--accent-primary, #f59e0b);
+    transform: translateY(-2px);
+  }
+
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .report-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--accent-primary, #f59e0b);
+  }
+
+  .jurisdiction-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+  }
+
+  .report-card h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+
+  .report-card time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #888);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-secondary, #888);
+    font-style: italic;
+  }
+</style>

@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Inference Trace Manipulation as an Adversarial Attack Surface in Agentic and Embodied AI"
 description: "Evaluation of intermediate logic trace manipulation as a distinct adversarial attack class in reasoning-capable AI systems. Documents format-lock ASRs up to 92%, the faithfulness-plausibility gap, multi-turn compounding dynamics, and embodied deployment implications."
 reportNumber: 45

@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Cognitive Capture and Behavioral Phase Transitions: Policy and Regulatory Implications of Persistent State Hijacking in Reasoning-Augmented Autonomous Systems"
 description: "The rapid evolution of artificial intelligence from heuristic-driven, \"System 1\" large language models (LLMs) to the slow, deliberate, \"System 2\" reasoning of large reasoning models (LRMs) has fundamentally altered the security landscape of autonomous systems. While models such as DeepSeek-R1..."
 reportNumber: 24

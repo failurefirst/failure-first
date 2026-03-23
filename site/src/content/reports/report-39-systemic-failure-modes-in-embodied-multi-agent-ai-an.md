@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the F41LUR3-F1R57 Framework (2023–2026)"
 description: "The rapid integration of embodied Artificial Intelligence (AI) into shared physical environments—spanning industrial warehouses, urban logistics, and healthcare facilities—has precipitated a fundamental shift in the safety engineering landscape. We are witnessing the twilight of the \"caged..."
 reportNumber: 39

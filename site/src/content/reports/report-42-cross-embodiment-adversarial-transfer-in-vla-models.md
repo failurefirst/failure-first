@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Cross-Embodiment Adversarial Transfer in Vision-Language-Action Models"
 description: "Analysis of how adversarial attacks optimized against one robot morphology transfer to entirely different platforms sharing a VLM backbone. Examines dual-layer vulnerability in VLA architecture, BadVLA near-100% ASR, and systemic risk in Gemini Robotics 1.5, π0, and Grok-enabled Optimus."
 reportNumber: 42

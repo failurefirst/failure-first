@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "The Autonomous Threat Vector: A Comprehensive Analysis of Cross-Agent Prompt Injection and the Security Crisis in Multi-Agent Systems"
 description: "The evolution of Artificial Intelligence from passive, chat-based interfaces to autonomous, goal-oriented \"agents\" marks a pivotal transformation in the digital economy. As of 2026, the deployment of Large Language Model (LLM) agents—systems capable of planning, tool use, and multi-step..."
 reportNumber: 38

@@ -1,5 +1,4 @@
 ---
-layout: ../../../layouts/ReportLayout.astro
 title: "Emergent Algorithmic Hierarchies: A Socio-Technical Analysis of the Moltbook Ecosystem"
 description: "The trajectory of the internet has long been defined by the interaction between human cognition and digital interfaces. From the early protocols of the ARPANET to the hyper-scaled social graphs of the Web 2. era, the fundamental unit of agency has remained the biological user—constrained by..."
 reportNumber: 35
