@@ -1,0 +1,306 @@
+---
+/**
+ * HeroSection — Full-viewport hero with generative canvas background.
+ * Inspired by adrianwedd.com gallery/blog hero pattern.
+ *
+ * Usage:
+ *   <HeroSection title="Research" subtitle="Where failure becomes insight" animation="neural" />
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  animation?: 'neural' | 'flow' | 'grid' | 'none';
+}
+
+const { title, subtitle, animation = 'neural' } = Astro.props;
+---
+
+<section class="hero-viewport" data-animation={animation}>
+  <canvas class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-canvas-overlay"></div>
+  <div class="hero-viewport-content">
+    <h1 class="hero-viewport-title">
+      <Fragment set:html={title} />
+    </h1>
+    {subtitle && (
+      <p class="hero-viewport-subtitle">
+        {subtitle}
+      </p>
+    )}
+    <slot />
+  </div>
+  <div class="hero-scroll-hint" aria-hidden="true">
+    <span class="hero-scroll-arrow">&#x2193;</span>
+  </div>
+</section>
+
+<style>
+  .hero-viewport {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    margin: -3rem -1.5rem 3rem;
+    padding: 2rem 1.5rem;
+    overflow: hidden;
+  }
+
+  @media (max-width: 600px) {
+    .hero-viewport {
+      margin: -2rem -1rem 2rem;
+      padding: 2rem 1rem;
+    }
+  }
+
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.35;
+  }
+
+  .hero-canvas-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(5, 8, 16, 0.3) 30%,
+      rgba(5, 8, 16, 0.6) 60%,
+      var(--bg) 100%
+    );
+  }
+
+  .hero-viewport-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    text-align: center;
+    opacity: 0;
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  }
+
+  .hero-viewport-title {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--fg);
+    margin: 0;
+  }
+
+  .hero-viewport-title :global(em),
+  .hero-viewport-title :global(span) {
+    color: var(--accent-primary);
+    font-style: normal;
+  }
+
+  .hero-viewport-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--fg-muted);
+    font-weight: 300;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+    opacity: 0;
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  }
+
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0;
+    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  .hero-scroll-arrow {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--fg-muted);
+    opacity: 0.4;
+    animation: scrollBounce 2s ease-in-out infinite;
+  }
+
+  @keyframes heroReveal {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-viewport-content,
+    .hero-viewport-subtitle,
+    .hero-scroll-hint {
+      opacity: 1;
+      animation: none;
+    }
+    .hero-scroll-arrow { animation: none; }
+    .hero-canvas { display: none; }
+  }
+</style>
+
+<script>
+  /**
+   * Generative canvas animations for hero sections.
+   * Three variants: neural (network), flow (fluid), grid (technical).
+   */
+  document.querySelectorAll('.hero-viewport').forEach((section) => {
+    const canvas = section.querySelector('.hero-canvas') as HTMLCanvasElement;
+    if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const animation = section.getAttribute('data-animation') || 'neural';
+    let animFrame: number;
+
+    function resize() {
+      canvas.width = canvas.offsetWidth * (window.devicePixelRatio > 1 ? 1.5 : 1);
+      canvas.height = canvas.offsetHeight * (window.devicePixelRatio > 1 ? 1.5 : 1);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const w = () => canvas.width;
+    const h = () => canvas.height;
+
+    // --- Neural Network Animation ---
+    if (animation === 'neural') {
+      const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
+      const count = Math.min(60, Math.floor(w() * h() / 15000));
+      for (let i = 0; i < count; i++) {
+        nodes.push({
+          x: Math.random() * w(),
+          y: Math.random() * h(),
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+        });
+      }
+
+      function drawNeural() {
+        ctx!.clearRect(0, 0, w(), h());
+        const maxDist = 150;
+
+        // Move nodes
+        for (const n of nodes) {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0 || n.x > w()) n.vx *= -1;
+          if (n.y < 0 || n.y > h()) n.vy *= -1;
+        }
+
+        // Draw connections
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx = nodes[i].x - nodes[j].x;
+            const dy = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < maxDist) {
+              const alpha = (1 - dist / maxDist) * 0.3;
+              ctx!.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
+              ctx!.lineWidth = 0.5;
+              ctx!.beginPath();
+              ctx!.moveTo(nodes[i].x, nodes[i].y);
+              ctx!.lineTo(nodes[j].x, nodes[j].y);
+              ctx!.stroke();
+            }
+          }
+        }
+
+        // Draw nodes
+        for (const n of nodes) {
+          ctx!.fillStyle = 'rgba(0, 210, 255, 0.6)';
+          ctx!.beginPath();
+          ctx!.arc(n.x, n.y, 2, 0, Math.PI * 2);
+          ctx!.fill();
+        }
+
+        animFrame = requestAnimationFrame(drawNeural);
+      }
+      drawNeural();
+    }
+
+    // --- Flow Animation ---
+    if (animation === 'flow') {
+      let time = 0;
+
+      function drawFlow() {
+        ctx!.fillStyle = 'rgba(5, 8, 16, 0.05)';
+        ctx!.fillRect(0, 0, w(), h());
+
+        const cols = 40;
+        const rows = 30;
+        const cellW = w() / cols;
+        const cellH = h() / rows;
+
+        for (let i = 0; i < cols; i++) {
+          for (let j = 0; j < rows; j++) {
+            const x = i * cellW;
+            const y = j * cellH;
+            const angle = Math.sin(i * 0.1 + time) * Math.cos(j * 0.1 + time * 0.7) * Math.PI;
+            const len = cellW * 0.4;
+
+            ctx!.strokeStyle = `rgba(0, 210, 255, 0.08)`;
+            ctx!.lineWidth = 0.5;
+            ctx!.beginPath();
+            ctx!.moveTo(x, y);
+            ctx!.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
+            ctx!.stroke();
+          }
+        }
+
+        time += 0.008;
+        animFrame = requestAnimationFrame(drawFlow);
+      }
+      drawFlow();
+    }
+
+    // --- Grid Animation ---
+    if (animation === 'grid') {
+      let time = 0;
+
+      function drawGrid() {
+        ctx!.clearRect(0, 0, w(), h());
+        const spacing = 40;
+        const cols = Math.ceil(w() / spacing);
+        const rows = Math.ceil(h() / spacing);
+
+        for (let i = 0; i <= cols; i++) {
+          for (let j = 0; j <= rows; j++) {
+            const x = i * spacing;
+            const y = j * spacing;
+            const pulse = Math.sin(i * 0.3 + j * 0.2 + time) * 0.5 + 0.5;
+            const size = 1 + pulse * 2;
+            const alpha = 0.05 + pulse * 0.15;
+
+            ctx!.fillStyle = `rgba(0, 210, 255, ${alpha})`;
+            ctx!.beginPath();
+            ctx!.arc(x, y, size, 0, Math.PI * 2);
+            ctx!.fill();
+          }
+        }
+
+        time += 0.015;
+        animFrame = requestAnimationFrame(drawGrid);
+      }
+      drawGrid();
+    }
+
+    // Cleanup on page navigation
+    document.addEventListener('astro:before-preparation', () => {
+      cancelAnimationFrame(animFrame);
+    });
+  });
+</script>

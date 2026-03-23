@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
@@ -22,9 +22,10 @@ const paperTypeLabel: Record<string, string> = {
   description="One AI safety paper per day — curated, analyzed, and contextualized through the failure-first lens. Research reports, study guides, and audio overviews for each paper."
   breadcrumbs={[{ label: "Daily Paper" }]}
 >
-  <PageHeader
-    title="Daily Paper"
-    tagline="One paper per day, through the failure-first lens"
+  <HeroSection
+    title="Daily<br /><em>paper</em>"
+    subtitle="One AI safety paper per day — curated, analyzed, and contextualized through the failure-first lens"
+    animation="flow"
   />
 
   <p class="series-description">

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
@@ -14,9 +14,10 @@ const posts = (await getCollection('blog'))
   description="Research updates, experiment findings, and analysis from the Failure-First AI safety project."
   breadcrumbs={[{ label: "Blog" }]}
 >
-  <PageHeader
-    title="Blog"
-    tagline="Research updates and findings"
+  <HeroSection
+    title="Research<br /><em>findings</em>"
+    subtitle="Analysis, experiment results, and commentary from the Failure-First AI safety project"
+    animation="neural"
   />
 
   {posts.length > 0 ? (
