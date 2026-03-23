@@ -1,0 +1,134 @@
+---
+import ResearchLayout from './ResearchLayout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  memoNumber: string;
+  jurisdiction: string;
+  date?: string;
+  status?: 'active' | 'draft' | 'complete';
+}
+
+// Astro markdown layouts pass frontmatter under Astro.props.frontmatter.
+// Fallback to Astro.props so this layout still works if used as a component.
+const props = Astro.props?.frontmatter ?? Astro.props;
+const { title, description, image, memoNumber, jurisdiction, date, status = 'draft' } = props;
+
+const breadcrumbs = [
+  { label: "Research", href: "/research/" },
+  { label: "Legal Memos", href: "/research/legal-memos/" },
+  { label: memoNumber },
+];
+---
+
+<ResearchLayout
+  title={`${title} | Research | Failure-First`}
+  description={description}
+  image={image}
+  type="article"
+  publishedDate={date}
+  breadcrumbs={breadcrumbs}
+  status={status}
+>
+  <div class="legal-disclaimer">
+    <strong>Research Analysis — Not Legal Advice</strong>
+    <p>
+      This is research analysis, not legal opinion. It does not constitute legal advice.
+      A qualified solicitor should be consulted before relying on any analysis presented here.
+    </p>
+  </div>
+
+  <article class="report-content">
+    <header class="report-meta">
+      <span class="report-number">{memoNumber}</span>
+      <span class="jurisdiction-badge">{jurisdiction}</span>
+      {date && <time class="report-date">{date}</time>}
+    </header>
+    <div class="report-body">
+      <slot />
+    </div>
+  </article>
+</ResearchLayout>
+
+<style>
+  .legal-disclaimer {
+    background: rgba(255, 163, 2, 0.05);
+    border-left: 4px solid var(--failure-warning);
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .legal-disclaimer strong {
+    color: var(--failure-warning);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .legal-disclaimer p {
+    color: var(--fg-dim);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  .report-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-secondary, #888);
+  }
+
+  .report-number {
+    color: var(--accent-primary, #f59e0b);
+    font-weight: 600;
+  }
+
+  .jurisdiction-badge {
+    color: var(--fg-dim, #aaa);
+    border: 1px solid var(--border-color, #333);
+    padding: 0.125rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.6875rem;
+  }
+
+  .report-body {
+    max-width: 72ch;
+  }
+
+  .report-body :global(h2) {
+    margin-top: 2.5rem;
+  }
+
+  .report-body :global(table) {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .report-body :global(th),
+  .report-body :global(td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color, #333);
+    text-align: left;
+  }
+
+  .report-body :global(th) {
+    background: var(--surface-secondary, #1a1a1a);
+    font-weight: 600;
+  }
+</style>
