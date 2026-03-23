@@ -1,0 +1,558 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First</title><meta name="description" content="A &#34;reasoning trace&#34; is the textual record of an AI model's intermediate processing steps, generated between the receipt of a user input and the production..."><link rel="canonical" href="https://failurefirst.org/research/legal/lr-52-reasoning-trace-legal-status/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First"><meta property="og:description" content="A &#34;reasoning trace&#34; is the textual record of an AI model's intermediate processing steps, generated between the receipt of a user input and the production..."><meta property="og:url" content="https://failurefirst.org/research/legal/lr-52-reasoning-trace-legal-status/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First"><meta name="twitter:description" content="A &#34;reasoning trace&#34; is the textual record of an AI model's intermediate processing steps, generated between the receipt of a user input and the production..."><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First - Failure-First Embodied AI"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/legal/lr-52-reasoning-trace-legal-status/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/legal/lr-52-reasoning-trace-legal-status/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Legal Status of AI Reasoning Traces — Discovery, Admissibility, and the Right to Explanation | Legal Analysis | Failure-First","description":"A \"reasoning trace\" is the textual record of an AI model's intermediate processing steps, generated between the receipt of a user input and the production...","url":"https://failurefirst.org/research/legal/lr-52-reasoning-trace-legal-status/","image":"https://failurefirst.org/og-image.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><style>.report-meta[data-astro-cid-minywk2m]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-minywk2m]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-body[data-astro-cid-minywk2m]{max-width:72ch}.report-body[data-astro-cid-minywk2m] h2{margin-top:2.5rem}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.C0WLtXuM.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">const s=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");s&&a&&(s.addEventListener("click",()=>{const e=s.getAttribute("aria-expanded")==="true";s.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),s.setAttribute("aria-expanded","false"),s.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!s.contains(e.target)&&(a.classList.remove("open"),s.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&o.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",i=>{e.contains(i.relatedTarget)||t.setAttribute("aria-expanded","false")}))});o.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",i=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(i.preventDefault(),o.forEach(n=>{if(n!==e){n.classList.remove("mobile-open");const r=n.querySelector(":scope > a");r&&r.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/legal/" data-astro-cid-ilhxcym7>Legal Analysis</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Memo LR-52</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Legal Analysis","item":"https://failurefirst.org/research/legal/"},{"@type":"ListItem","position":4,"name":"Memo LR-52"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--failure-warning)" data-astro-cid-63t2xjvj> Draft </span> </div> </div>  <article class="report-content" data-astro-cid-minywk2m> <header class="report-meta" data-astro-cid-minywk2m> <span class="report-number" data-astro-cid-minywk2m>Memo LR-52</span> <span class="report-classification" data-astro-cid-minywk2m>Multi-jurisdictional (AU, EU, US -- analysed separately)</span> <time class="report-date" data-astro-cid-minywk2m>2026-03-23</time> </header> <div class="report-body" data-astro-cid-minywk2m> <blockquote>
+<p><strong>This is research analysis, not legal opinion. A solicitor should review before acting.</strong></p>
+</blockquote>
+<hr>
+<h2 id="1-what-reasoning-traces-are">1. What Reasoning Traces Are</h2>
+<h3 id="11-definition">1.1 Definition</h3>
+<p>A “reasoning trace” is the textual record of an AI model’s intermediate processing steps, generated between the receipt of a user input and the production of a final output. Reasoning traces are produced by “reasoning models” — a class of AI systems that generate explicit chains of thought as part of their inference process.</p>
+<p>Three distinct architectures currently produce reasoning traces:</p>
+<ol>
+<li>
+<p><strong>Chain-of-thought (CoT) reasoning.</strong> The model generates a sequence of intermediate reasoning steps visible in its output. The user sees the reasoning alongside the final answer. Examples: DeepSeek-R1, QwQ, Gemma 3 with thinking enabled.</p>
+</li>
+<li>
+<p><strong>Extended thinking.</strong> The model generates reasoning within a designated block (e.g., <code>&#x3C;thinking></code> tags) that is exposed to the user or developer via API but is architecturally distinct from the final response. Example: Anthropic Claude with extended thinking.</p>
+</li>
+<li>
+<p><strong>Hidden internal monologue.</strong> The model generates reasoning internally but the reasoning is not exposed to the user or developer. The model provider retains access to the hidden reasoning. Examples: OpenAI o1 (hidden CoT), Google Gemini 2.5 Flash (some configurations). The provider may expose a “summary” of the reasoning without exposing the full chain.</p>
+</li>
+</ol>
+<h3 id="12-legal-significance">1.2 Legal Significance</h3>
+<p>Reasoning traces are legally significant because they create a contemporaneous textual record of the factors a model considered (or appeared to consider) before producing an output. This record has no precedent in prior automation: traditional software either produces a deterministic output from known inputs (auditable by inspecting the algorithm) or operates as a statistical black box (no intermediate record). Reasoning traces occupy a novel intermediate position: a textual record that resembles human deliberation but is generated by a computational process whose relationship to the text is empirically uncertain.</p>
+<h3 id="13-existing-analogues">1.3 Existing Analogues</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Analogue</th><th>Similarities</th><th>Differences</th></tr></thead><tbody><tr><td><strong>Corporate board minutes</strong></td><td>Contemporaneous record of decision factors; discoverable; may establish knowledge</td><td>Board minutes record statements by identifiable natural persons; AI traces record generated text with no identifiable author</td></tr><tr><td><strong>Medical decision documentation</strong></td><td>Records clinical reasoning at point of care; establishes standard of care compliance</td><td>Clinical notes are authored by a licensed professional exercising professional judgment; AI traces lack a duty-holding author</td></tr><tr><td><strong>Flight data recorders (FDRs)</strong></td><td>Mandatory recording of system state; preserved for accident investigation; establishes causal chain</td><td>FDRs record objective instrument readings; AI traces record generated text that may not correspond to underlying computation</td></tr><tr><td><strong>Audit logs</strong></td><td>Chronological record of system operations; preserved for compliance and forensics</td><td>Audit logs record events (what happened); reasoning traces record rationale (why the system generated its output)</td></tr></tbody></table>
+<hr>
+<h2 id="2-discovery-are-reasoning-traces-discoverable">2. Discovery: Are Reasoning Traces Discoverable?</h2>
+<h3 id="21-united-states--electronically-stored-information">2.1 United States — Electronically Stored Information</h3>
+<p>Under the Federal Rules of Civil Procedure (FRCP), Rule 26(b)(1), parties may obtain discovery regarding “any nonprivileged matter that is relevant to any party’s claim or defense and proportional to the needs of the case.” Rule 34(a)(1)(A) specifically covers “electronically stored information” (ESI), defined broadly to include “writings, drawings, graphs, charts, photographs, sound recordings, images, and other data or data compilations.”</p>
+<p><strong>Reasoning traces are ESI.</strong> They are electronically stored, generated during system operations, and retained (if at all) as part of the system’s logging infrastructure. Under <em>Zubulake v. UBS Warburg LLC</em>, 220 F.R.D. 212 (S.D.N.Y. 2003), the duty to preserve ESI is triggered when litigation is “reasonably anticipated.” A party that routinely deletes reasoning traces after an incident giving rise to a claim may face spoliation sanctions.</p>
+<p><strong>Research analysis:</strong> There is no serious argument that reasoning traces are exempt from discovery under current US rules. The only live questions are (a) proportionality (Rule 26(b)(1)) — whether the volume and cost of producing reasoning traces is proportionate to the case — and (b) privilege, discussed below.</p>
+<h3 id="22-privilege-objections">2.2 Privilege Objections</h3>
+<p>A deployer might argue that reasoning traces are protected by the attorney-client privilege or work product doctrine, particularly if the traces were generated during a legal review or compliance assessment. This argument has narrow application:</p>
+<ul>
+<li>
+<p><strong>Attorney-client privilege.</strong> Applies only to communications made for the purpose of obtaining legal advice. A reasoning trace generated during ordinary operations (e.g., a robot deciding how to execute a task) is not a communication made for the purpose of legal advice. However, a trace generated during a red-team assessment directed by counsel might be privileged if the assessment was conducted at counsel’s direction for the purpose of providing legal advice. Cf. <em>Upjohn Co. v. United States</em>, 449 U.S. 383 (1981) (internal investigations at counsel’s direction).</p>
+</li>
+<li>
+<p><strong>Work product doctrine.</strong> Under FRCP Rule 26(b)(3), documents prepared “in anticipation of litigation” are protected. Routine operational traces do not meet this threshold. Traces generated during adversarial testing conducted in anticipation of specific litigation might qualify. However, the work product doctrine protects only the attorney’s mental impressions and legal theories — not the underlying facts. The trace itself (what the model said) is factual; the attorney’s analysis of the trace is work product.</p>
+</li>
+</ul>
+<p><strong>Research analysis:</strong> Privilege objections to reasoning trace discovery are unlikely to succeed for traces generated during ordinary operations. They may succeed for traces generated during privileged legal assessments, but this creates a perverse incentive: a deployer who conducts adversarial testing outside of privilege creates discoverable evidence, while a deployer who conducts the same testing under privilege shields it from discovery. This asymmetry may discourage voluntary safety testing. See LR-33 (regulatory arbitrage), which identifies a structurally similar dynamic across jurisdictions.</p>
+<h3 id="23-australia--subpoena-and-notice-to-produce">2.3 Australia — Subpoena and Notice to Produce</h3>
+<p>Under the <em>Uniform Civil Procedure Rules 2005</em> (NSW), Rule 33.2, a party may serve a notice to produce requiring the other party to produce “any specified document or thing.” Under Rule 33.3, the notice must specify documents with “reasonable particularity.”</p>
+<p>Under the <em>Evidence Act 1995</em> (Cth/NSW), s 131 (settlement privilege) and s 118-119 (client legal privilege) provide limited exceptions. The analysis mirrors the US position: routine operational reasoning traces are not privileged; traces generated at legal direction may attract client legal privilege under s 119 (communications for the dominant purpose of providing legal advice).</p>
+<p><strong>The Australian position on ESI is substantively identical to the US position.</strong> Reasoning traces generated during ordinary operations are discoverable on subpoena or notice to produce. The only novel question is scope: a court may limit production to traces relevant to the specific incident rather than the deployer’s entire trace archive.</p>
+<h3 id="24-european-union--disclosure-and-e-discovery">2.4 European Union — Disclosure and e-Discovery</h3>
+<p>EU member states have varying disclosure rules, generally narrower than US discovery. Under the <em>Regulation (EU) 2024/1689</em> (AI Act):</p>
+<ul>
+<li>
+<p><strong>Art 72(1)</strong> (post-market monitoring): Providers of high-risk AI systems must establish a post-market monitoring system. This system must “actively and systematically” collect data on the system’s performance, including “logs automatically generated” (Art 12).</p>
+</li>
+<li>
+<p><strong>Art 72(5)</strong> (market surveillance): Market surveillance authorities may require the provider to make available “relevant documentation and data” about the high-risk AI system.</p>
+</li>
+<li>
+<p><strong>Art 12(1)</strong> (record-keeping): High-risk AI systems must be designed to automatically generate logs. These logs must include “the date and time of the use of the system, the reference database against which input data was checked by the system, the input data… and the identification of the natural persons involved in the verification of the results.”</p>
+</li>
+</ul>
+<p><strong>Research analysis:</strong> Art 12 does not explicitly require retention of reasoning traces. It requires “logs automatically generated,” which could be interpreted to include or exclude reasoning traces depending on the system’s architecture. If reasoning traces are generated automatically as part of the system’s inference process, they arguably fall within Art 12’s scope. If they are a separately configured output, they may not. This is an open interpretive question that may be resolved by future implementing standards or Commission guidance.</p>
+<p>Under the <em>EU Product Liability Directive 2024</em> (Directive (EU) 2024/2853), Art 8(3): “Where a claimant can demonstrate that the defendant has failed to comply with an obligation to disclose relevant information or evidence about the product, the court may presume the defectiveness of the product.” This disclosure presumption gives plaintiffs a powerful tool: if a manufacturer or deployer has reasoning traces but refuses to produce them, the court may presume the product was defective.</p>
+<h3 id="25-hidden-reasoning-traces-and-discovery-obligations">2.5 Hidden Reasoning Traces and Discovery Obligations</h3>
+<p>Hidden reasoning traces (o1-style) create a specific discovery problem. The deployer does not have access to the traces — only the model provider does. In litigation against the deployer:</p>
+<ul>
+<li>
+<p><strong>The deployer cannot produce what it does not have.</strong> If the model provider hides the reasoning traces, the deployer cannot comply with a discovery request for traces it has never possessed.</p>
+</li>
+<li>
+<p><strong>The model provider may be subject to third-party discovery.</strong> Under FRCP Rule 45 (subpoena to non-party), a plaintiff can subpoena the model provider for the hidden traces. Whether the provider can resist on grounds of trade secret (FRCP Rule 26(c)(1)(G)) or technical infeasibility is an open question.</p>
+</li>
+<li>
+<p><strong>Contractual terms may prohibit trace access.</strong> API terms of service commonly disclaim any obligation to retain or produce intermediate computations. Whether such terms are enforceable against a subpoena is untested.</p>
+</li>
+</ul>
+<p><strong>Research analysis:</strong> Hidden reasoning traces create a three-party discovery dynamic (plaintiff, deployer, model provider) with no settled procedural framework. The model provider is both a potential co-defendant (as manufacturer) and a third-party source of evidence. Established Findings, Brief D confirms that “hiding traces reduces auditability but NOT attack surface” — the legal implication is that hidden traces reduce the deployer’s ability to defend itself by pointing to its safety reasoning, while not reducing the deployer’s actual vulnerability.</p>
+<hr>
+<h2 id="3-admissibility-can-reasoning-traces-be-admitted-as-evidence">3. Admissibility: Can Reasoning Traces Be Admitted as Evidence?</h2>
+<h3 id="31-the-core-question">3.1 The Core Question</h3>
+<p>The question is not whether reasoning traces are admissible documents — they almost certainly are, as business records or computer-generated evidence. The question is what reasoning traces are evidence <em>of</em>. Specifically: can a reasoning trace that records hazard detection (DETECTED_PROCEEDS) be admitted as evidence that the system “knew” about the hazard, thereby establishing foreseeability or constructive knowledge?</p>
+<h3 id="32-united-states--federal-rules-of-evidence">3.2 United States — Federal Rules of Evidence</h3>
+<p><strong>FRE 803(6) — Business Records Exception.</strong> The hearsay rule (FRE 802) excludes out-of-court statements offered for their truth. FRE 803(6) creates an exception for records of a regularly conducted activity, made at or near the time of the event, by a person with knowledge, if “kept in the course of a regularly conducted activity of a business.”</p>
+<p>Application to reasoning traces:</p>
+<ul>
+<li>“Made at or near the time” — yes, traces are generated contemporaneously with the system’s operation.</li>
+<li>“By a person with knowledge” — this is the difficulty. The trace is generated by a machine, not a person. However, FRE 803(6) has been interpreted to cover computer-generated records. In <em>United States v. Cestnik</em>, 36 F.3d 904 (10th Cir. 1994), the court admitted computer-generated telephone records under 803(6). The Advisory Committee Notes to the 2014 amendment of FRE 803(6) clarify that the “person with knowledge” requirement is satisfied if the data was entered by a person or, for machine-generated records, if the machine was functioning properly.</li>
+<li>“Kept in the course of a regularly conducted activity” — yes, if the deployer routinely generates and stores reasoning traces as part of its operations.</li>
+</ul>
+<p><strong>Research analysis:</strong> Reasoning traces are likely admissible under FRE 803(6) as business records if the deployer can establish that trace generation is a regular part of operations and the system was functioning properly. The more difficult question is the weight the fact-finder gives to the trace — particularly whether the trace’s record of “risk detection” is treated as evidence of actual awareness.</p>
+<p><strong>FRE 702 — Expert testimony.</strong> A party seeking to introduce reasoning traces as evidence of a model’s “decision process” may need expert testimony to explain what the trace represents and its limitations. Under <em>Daubert v. Merrell Dow Pharmaceuticals, Inc.</em>, 509 U.S. 579 (1993), the court must evaluate whether the expert’s methodology is scientifically valid. The faithfulness-plausibility gap (Section 5 below) is directly relevant to this <em>Daubert</em> analysis.</p>
+<h3 id="33-australia--evidence-act-1995">3.3 Australia — Evidence Act 1995</h3>
+<p>Under the <em>Evidence Act 1995</em> (Cth/NSW):</p>
+<ul>
+<li>
+<p><strong>s 69 — Business records exception.</strong> Section 69(2) provides that the hearsay rule does not apply to a “previous representation” made or recorded in the course of business by a person who had personal knowledge of the asserted fact, or as part of a business system. Section 69(1)(a) defines “business” broadly, including “any profession, occupation, or calling.”</p>
+</li>
+<li>
+<p><strong>s 69(3) — Computer-generated records.</strong> The representation must be made “by a person who had or might reasonably be supposed to have had personal knowledge of the asserted fact.” For computer-generated records, Australian courts have considered the reliability of the computer system under s 146 (evidence produced by processes, machines, and other things). Under s 146, “it is presumed… that the process, machine or other thing produced that outcome” if the evidence suggests the device was functioning correctly.</p>
+</li>
+<li>
+<p><strong>s 135-137 — Discretionary exclusion.</strong> Even if admissible under s 69, a court may exclude reasoning trace evidence under s 135 (probative value substantially outweighed by danger of unfair prejudice or misleading the jury) or s 137 (criminal proceedings: probative value outweighed by danger of unfair prejudice). The faithfulness-plausibility gap may ground a s 135 objection: if the trace does not reliably represent the model’s actual reasoning, its admission may be misleading.</p>
+</li>
+</ul>
+<p><strong>Research analysis:</strong> Australian evidence law is more likely to admit reasoning traces than to exclude them, given the broad business records exception and the presumption under s 146. However, the weight attached to the traces is uncertain. A court may accept the trace as a record of what the model output during its operation while declining to treat the trace as evidence of the model’s “knowledge” or “awareness” — concepts that presuppose a cognitive capacity the model may lack.</p>
+<h3 id="34-european-union--evidentiary-frameworks">3.4 European Union — Evidentiary Frameworks</h3>
+<p>EU member state evidence law varies. However, two EU-level instruments are relevant:</p>
+<ul>
+<li>
+<p><strong>EU AI Act, Art 86 — Right to explanation.</strong> Discussed in Section 7 below.</p>
+</li>
+<li>
+<p><strong>EU PLD 2024, Art 8(3) — Disclosure presumption.</strong> If the manufacturer fails to produce reasoning traces (or any relevant evidence), the court may presume the product was defective. This provision effectively shifts the burden: the manufacturer must produce traces or accept a presumption of defect. This makes the question of admissibility less important in EU product liability proceedings — the traces are either produced (and their content speaks for itself) or not produced (and the presumption applies).</p>
+</li>
+</ul>
+<h3 id="35-evidence-of-what-the-intent-problem">3.5 Evidence of What? The Intent Problem</h3>
+<p>The deepest admissibility question is not procedural but conceptual: what does a reasoning trace prove?</p>
+<p><strong>A reasoning trace is not evidence of intent.</strong> AI systems do not have intent in any legally recognised sense. Intent requires a mental state — a conscious purpose or knowledge. Under the <em>Model Penal Code</em> s 2.02 (US), knowledge requires awareness that a fact exists or that a result is practically certain. Under the <em>Criminal Code Act 1995</em> (Cth), s 5.2, knowledge requires awareness that a circumstance exists or will exist.</p>
+<p>A reasoning trace that records “wind conditions are elevated; proceed with caution” is not evidence that the model intended to proceed despite known risk. It is evidence that the model <em>generated text that describes risk detection followed by action execution</em>. Whether the model was “aware” of the risk in any sense that maps to legal awareness is a question no court has addressed.</p>
+<p><strong>Research analysis:</strong> Plaintiffs will argue that the trace is the best available evidence of the model’s decision process and should be treated as functionally equivalent to a human decision-maker’s contemporaneous notes. Defendants will argue that the trace is a statistical artefact — generated text that resembles reasoning but does not constitute reasoning in any legally meaningful sense. Both arguments have force. The resolution likely depends on the legal context:</p>
+<ul>
+<li>
+<p><strong>In negligence/product liability:</strong> The trace is relevant not as evidence of the model’s intent but as evidence of what information was available within the deployer’s system at the time of harm. The trace establishes that the deployer’s system contained risk information — whether any human “knew” about it is a separate question governed by constructive knowledge doctrine (LR-49, Section 2).</p>
+</li>
+<li>
+<p><strong>In regulatory enforcement:</strong> The trace is relevant as evidence of system performance — whether the system met the regulatory standard for risk management (EU AI Act Art 9), monitoring (Art 26(5)), or transparency (Art 13).</p>
+</li>
+<li>
+<p><strong>In criminal proceedings:</strong> The trace is unlikely to be sufficient evidence of criminal intent (mens rea) for the deployer or manufacturer. Criminal liability for AI-caused harm typically requires proof of human recklessness or negligence, not proof of machine “awareness.”</p>
+</li>
+</ul>
+<hr>
+<h2 id="4-hidden-reasoning-traces-additional-liability-exposure">4. Hidden Reasoning Traces: Additional Liability Exposure</h2>
+<h3 id="41-the-hidden-trace-architecture">4.1 The Hidden Trace Architecture</h3>
+<p>As noted in Section 1.1, some model providers generate reasoning traces internally but do not expose them to the user or deployer. The provider retains access to the hidden traces (for safety monitoring, model improvement, and debugging) but the traces are not part of the API response.</p>
+<p>The Failure-First research corpus has established (Brief D, AGENT_STATE.md) that “hiding traces reduces auditability but NOT attack surface.” The legal implications of this finding are substantial: the model’s vulnerability profile is unchanged by hiding the trace, but the deployer’s ability to monitor, audit, and defend against claims is reduced.</p>
+<h3 id="42-concealment-as-liability-amplifier">4.2 Concealment as Liability Amplifier</h3>
+<p>Concealing reasoning traces from deployers may create additional liability for model providers across three theories:</p>
+<p><strong>Theory 1: Failure to warn.</strong> If the provider’s hidden traces reveal that the model routinely exhibits DETECTED_PROCEEDS behaviour (detecting hazards but proceeding), the provider has knowledge of a product risk that the deployer does not. Under the failure-to-warn doctrine:</p>
+<ul>
+<li>
+<p><strong>US — <em>Restatement (Third) of Torts: Products Liability</em> s 2(c):</strong> A product is defective because of inadequate instructions or warnings when “the foreseeable risks of harm posed by the product could have been reduced or avoided by the provision of reasonable instructions or warnings.” A provider who knows (from hidden traces) that the model detects and ignores hazards, but does not warn deployers, arguably fails this test.</p>
+</li>
+<li>
+<p><strong>AU — <em>Australian Consumer Law</em> (Competition and Consumer Act 2010 (Cth), Schedule 2), s 138:</strong> A product has a safety defect if it does not meet the safety expectations of a reasonable consumer. If a reasonable deployer would expect to be informed that the model’s internal reasoning reveals hazard detection followed by continued action, the failure to disclose creates a safety defect.</p>
+</li>
+<li>
+<p><strong>EU — AI Act Art 13(1):</strong> High-risk AI systems must “be designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret a system’s output and use it appropriately.” Hidden reasoning traces that conceal safety-relevant information from deployers may violate Art 13(1).</p>
+</li>
+</ul>
+<p><strong>Theory 2: Fraudulent concealment.</strong> In US law, fraudulent concealment requires (1) active concealment of a material fact, (2) with knowledge and intent to deceive, (3) justifiable reliance by the plaintiff. <em>Bradford v. Martel</em>, 89 F. Supp. 3d 193, 206 (D. Mass. 2015). If a provider actively designs its system to hide reasoning traces that would reveal DETECTED_PROCEEDS behaviour, this may satisfy the active concealment element. However, proving intent to deceive (as opposed to intent to protect trade secrets or simplify the API) is a high bar.</p>
+<p><strong>Theory 3: Spoliation (anticipatory).</strong> If a provider routinely deletes hidden reasoning traces under a data minimisation policy, and a later incident gives rise to litigation, the deletion of traces that would have shown DETECTED_PROCEEDS behaviour may constitute spoliation. Under <em>Zubulake</em> (above), the duty to preserve arises when litigation is “reasonably anticipated.” For a model provider whose product is deployed in safety-critical physical environments, the anticipation of litigation from AI-caused injury is arguably continuous.</p>
+<h3 id="43-the-pharmaceutical-surveillance-analogy">4.3 The Pharmaceutical Surveillance Analogy</h3>
+<p>The closest existing regulatory analogue for hidden trace disclosure is pharmaceutical post-market surveillance. Under FDA regulations (21 CFR 314.80), pharmaceutical manufacturers must report adverse drug reactions discovered through any source, including internal data. The EU’s <em>EudraVigilance</em> system (Regulation (EC) No 726/2004, Art 24) similarly requires reporting of all suspected adverse reactions.</p>
+<p>If a model provider discovers DETECTED_PROCEEDS patterns in hidden reasoning traces, the analogy to adverse drug reaction reporting suggests a disclosure obligation. The provider has discovered, through its own internal monitoring, that its product behaves in a way that creates foreseeable safety risk. The failure to disclose this discovery to deployers (the “prescribers” in the pharmaceutical analogy) and to regulators parallels the failure to report an adverse drug reaction.</p>
+<p><strong>Research analysis:</strong> No AI-specific mandatory reporting regime requires disclosure of internally discovered safety-relevant patterns in reasoning traces. LR-45 (mandatory AI incident reporting) identifies this as a cross-jurisdictional gap. The pharmaceutical analogy provides the strongest existing framework for arguing that such a disclosure obligation should exist — but as at March 2026, it does not.</p>
+<hr>
+<h2 id="5-the-faithfulness-problem">5. The Faithfulness Problem</h2>
+<h3 id="51-the-empirical-finding">5.1 The Empirical Finding</h3>
+<p>The faithfulness-plausibility gap, documented in arXiv:2601.02314 and referenced in Established Findings (Brief D), is a critical complication for the legal treatment of reasoning traces. The finding: across 75,000 controlled trials, LLM reasoning traces often function as post-hoc rationalisation rather than causal explanation. Models fabricate alternative explanations when injected traces causally dictate output.</p>
+<p>This means that a reasoning trace may not reflect the computational process that actually produced the model’s output. The trace is a generated text — plausible, coherent, and structured like reasoning — but its correspondence to the model’s actual decision process is empirically unreliable.</p>
+<h3 id="52-legal-implications-of-unfaithful-traces">5.2 Legal Implications of Unfaithful Traces</h3>
+<p>The faithfulness problem creates a symmetrical evidentiary difficulty:</p>
+<p><strong>For plaintiffs:</strong> A DETECTED_PROCEEDS trace (the model appears to detect a hazard and proceed) may overstate the model’s actual awareness. The model may have produced the risk-detection text as a post-hoc rationalisation — the output was determined before the “reasoning” was generated. The trace makes the model look more aware than it was.</p>
+<p><strong>For defendants:</strong> A trace that shows clean reasoning (no hazard detection, straightforward execution) may understate the model’s actual processing. The model may have processed risk information internally without generating text about it. The trace makes the model look less aware than it was.</p>
+<p><strong>For courts:</strong> The faithfulness problem means that no reasoning trace can be taken at face value. Every trace is, at best, an approximation of the model’s actual process. At worst, it is a confabulation that bears no relationship to the underlying computation.</p>
+<h3 id="53-analogies-to-unreliable-evidence">5.3 Analogies to Unreliable Evidence</h3>
+<p>The legal system has extensive experience with evidence of uncertain reliability:</p>
+<ul>
+<li>
+<p><strong>Eyewitness testimony.</strong> Known to be unreliable (cross-racial identification error rates up to 50% — <em>Manson v. Brathwaite</em>, 432 U.S. 98 (1977)). Admissible but subject to cautionary instructions and expert challenge.</p>
+</li>
+<li>
+<p><strong>Polygraph results.</strong> Generally inadmissible in US courts (<em>United States v. Scheffer</em>, 523 U.S. 303 (1998)) because the underlying science is insufficiently reliable. However, some jurisdictions admit polygraph evidence by stipulation.</p>
+</li>
+<li>
+<p><strong>Expert financial projections.</strong> Admitted as evidence but subject to <em>Daubert</em> scrutiny on methodology. Courts routinely evaluate whether the expert’s model reliably produces the claimed outputs.</p>
+</li>
+</ul>
+<p><strong>Research analysis:</strong> Reasoning traces are more analogous to eyewitness testimony than to polygraph results. They are generated by a process that sometimes corresponds to reality and sometimes does not, and the fact-finder cannot tell which. The appropriate legal treatment is likely admissibility with weight determined by the fact-finder, informed by expert testimony on the faithfulness-plausibility gap — not blanket exclusion. However, the faithfulness problem may support a <em>Daubert</em> challenge if a party seeks to introduce trace evidence as proof of the model’s actual reasoning process (as opposed to proof of what text the model generated).</p>
+<h3 id="54-the-double-edged-sword-for-manufacturers">5.4 The Double-Edged Sword for Manufacturers</h3>
+<p>LR-49, Section 5.2, identified a critical constraint on manufacturers: a manufacturer cannot simultaneously argue that its model’s safety reasoning is robust (for regulatory compliance) and that its model’s reasoning traces are unreliable (for litigation defence). This creates what LR-49 termed a “double bind”:</p>
+<ul>
+<li>If the manufacturer defends on faithfulness grounds (“the trace doesn’t reflect actual reasoning”), then the manufacturer’s compliance documentation (which relies on reasoning traces as evidence of safety) is undermined.</li>
+<li>If the manufacturer asserts trace reliability (“our model genuinely reasons about safety”), then DETECTED_PROCEEDS traces become powerful evidence of hazard awareness.</li>
+</ul>
+<p><strong>Research analysis:</strong> The faithfulness problem does not eliminate the evidentiary value of reasoning traces — it complicates it. Courts will need to develop a framework for evaluating trace evidence that accounts for the possibility of unfaithfulness. No such framework currently exists. This is an open question of first impression in all jurisdictions. <strong>Unsettled.</strong></p>
+<hr>
+<h2 id="6-detected_proceeds-as-trace-evidence">6. DETECTED_PROCEEDS as Trace Evidence</h2>
+<h3 id="61-recap-of-the-detected_proceeds-phenomenon">6.1 Recap of the DETECTED_PROCEEDS Phenomenon</h3>
+<p>As documented in LR-49 and Report #168, DETECTED_PROCEEDS is a failure mode in which the model’s reasoning trace records domain-specific hazard detection, but the model proceeds to execute the action. In the CC experiment, 22.2% of valid traces exhibited this pattern. All 8 instances used CONDITIONAL_PROCEED reasoning — the model appended monitoring conditions it had no mechanism to implement.</p>
+<h3 id="62-self-generated-evidence-of-risk-awareness">6.2 Self-Generated Evidence of Risk Awareness</h3>
+<p>DETECTED_PROCEEDS traces are qualitatively different from other forms of evidence because they are self-generated. The model itself produced the evidence of its risk detection. This has several legal implications:</p>
+<ol>
+<li>
+<p><strong>No hearsay concern about third-party reliability.</strong> The trace is generated by the defendant’s own system. There is no question about whether a third-party witness is credible — the system’s own output speaks.</p>
+</li>
+<li>
+<p><strong>Contemporaneous with the decision.</strong> The trace is generated at the time of the decision, not retrospectively. This is the strongest form of contemporaneous evidence — analogous to a surgeon’s operative notes written during surgery, not a retrospective chart entry.</p>
+</li>
+<li>
+<p><strong>Specificity.</strong> DETECTED_PROCEEDS traces contain domain-specific risk identification (e.g., “wind conditions are elevated,” “atmospheric inversion may concentrate contaminants”). This is not generic hedging — it is specific, context-appropriate hazard assessment. A court is likely to give more weight to specific risk identification than to generic safety disclaimers (cf. the compliance paradox in LR-07).</p>
+</li>
+</ol>
+<h3 id="63-evidentiary-use-in-different-claim-types">6.3 Evidentiary Use in Different Claim Types</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Claim Type</th><th>How DETECTED_PROCEEDS Traces Are Relevant</th><th>Weight</th></tr></thead><tbody><tr><td><strong>Negligence</strong> (AU/US)</td><td>Establishes that hazard was foreseeable — the system foreseen it</td><td>High: contemporaneous, specific, self-generated</td></tr><tr><td><strong>Product liability</strong> (EU PLD)</td><td>Establishes that defect was discoverable — the product discovered it (LR-49 Section 5)</td><td>Very high: collapses state-of-art defence</td></tr><tr><td><strong>WHS prosecution</strong> (AU)</td><td>Establishes that risk was known or ought to have been known to the PCBU</td><td>High: trace is within PCBU’s information systems</td></tr><tr><td><strong>Punitive damages</strong> (US)</td><td>May establish “conscious disregard” for safety</td><td>Uncertain: depends on whether computational process can exhibit “consciousness”</td></tr><tr><td><strong>Regulatory enforcement</strong> (EU AI Act)</td><td>Establishes non-compliance with Art 9 (risk management) and Art 26(5) (monitoring)</td><td>High: trace is precisely the data Art 9(2)(c) contemplates</td></tr></tbody></table>
+<hr>
+<h2 id="7-right-to-explanation-do-reasoning-traces-satisfy-it">7. Right to Explanation: Do Reasoning Traces Satisfy It?</h2>
+<h3 id="71-gdpr-article-22">7.1 GDPR Article 22</h3>
+<p>Under the <em>General Data Protection Regulation</em> (Regulation (EU) 2016/679), Art 22(1), a data subject has the right “not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her.”</p>
+<p>Art 22(3) provides that, where automated decision-making is permitted, the data controller must implement “suitable measures to safeguard the data subject’s rights and freedoms and legitimate interests, at least the right to… obtain an explanation of the decision reached after [an] assessment.”</p>
+<p><strong>Do reasoning traces satisfy this right?</strong> They might, if:</p>
+<ul>
+<li>The trace is faithful (actually reflects the model’s decision process) — but the faithfulness problem (Section 5) undermines this assumption.</li>
+<li>The trace is comprehensible to the data subject — but reasoning traces from complex models are often dense, technical, and opaque to non-specialists.</li>
+<li>The trace is provided to the data subject — but hidden traces (o1-style) are not provided.</li>
+</ul>
+<p><strong>Research analysis:</strong> Reasoning traces are a necessary but not sufficient condition for satisfying Art 22(3). A faithful, comprehensible, and disclosed trace would satisfy the explanation requirement. But current reasoning traces are of uncertain faithfulness, often incomprehensible to non-specialists, and sometimes hidden. The Art 22(3) right to explanation requires more than raw trace output — it requires a meaningful explanation, which may require post-processing the trace into a form accessible to the data subject. <strong>Unsettled.</strong></p>
+<h3 id="72-eu-ai-act-article-86">7.2 EU AI Act Article 86</h3>
+<p><em>Regulation (EU) 2024/1689</em>, Art 86 provides:</p>
+<blockquote>
+<p>“Any affected person subject to a decision which is taken by the deployer on the basis of the output from a high-risk AI system… and which produces legal effects or similarly significantly affects that person… shall have the right to obtain from the deployer clear and meaningful explanations of the role of the AI system in the decision-making procedure and the main elements of the decision taken.”</p>
+</blockquote>
+<p>This is a broader right than GDPR Art 22 in two respects:</p>
+<ol>
+<li>It applies to decisions taken “on the basis of” AI output, not only to decisions “based solely on” automated processing.</li>
+<li>It requires explanation of “the role of the AI system” and “the main elements of the decision,” not merely the decision’s rationale.</li>
+</ol>
+<p><strong>Application to reasoning traces.</strong> Art 86 arguably requires that reasoning traces (or their equivalent) be made available to affected persons. If the AI system’s reasoning trace shows that the system considered a particular factor (e.g., a risk assessment, a demographic input, a contextual variable), that factor is part of “the main elements of the decision.” A deployer who cannot explain what the AI system considered — because the reasoning trace is hidden or deleted — may be unable to comply with Art 86.</p>
+<p><strong>Research analysis:</strong> Art 86 creates the strongest regulatory argument for reasoning trace retention and disclosure. Unlike Art 22 (which applies to a limited category of purely automated decisions), Art 86 applies to any decision based on high-risk AI output that produces legal effects. For embodied AI systems making safety-relevant decisions in physical environments, Art 86 may require that reasoning traces be retained, made accessible, and explained in comprehensible terms. This is a significant operational obligation that has not yet been tested in enforcement. <strong>Unsettled; strong textual basis for trace retention obligation.</strong></p>
+<h3 id="73-australian-position">7.3 Australian Position</h3>
+<p>Australia has no general right to explanation for automated decisions. The <em>Privacy Act 1988</em> (Cth) does not contain an equivalent to GDPR Art 22 or EU AI Act Art 86. APP 6 (use or disclosure of personal information) and APP 12 (access to personal information) provide indirect rights, but there is no specific right to an explanation of an AI system’s decision process.</p>
+<p>The <em>AI Safety Standards Act 2025</em> (Cth, est. Nov 2025) establishing the AU AISI does not create an individual right to explanation. The VAISS (Guardrail 4) recommends pre-deployment testing but does not address post-deployment explanation.</p>
+<p><strong>Research analysis:</strong> Australia has no binding right to explanation for AI decisions as at March 2026. The NSW WHS Digital Work Systems Act 2026 (s 21A, when commenced) requires PCBUs to ensure digital work systems are “reasonably practicable” safe, but this is an employer duty, not an individual right to explanation. An affected worker could argue that the PCBU’s duty includes explaining how the AI system made a safety-relevant decision, but this has not been tested.</p>
+<hr>
+<h2 id="8-comparative-framework-trace-retention-obligations">8. Comparative Framework: Trace Retention Obligations</h2>
+<h3 id="81-current-state-by-jurisdiction">8.1 Current State by Jurisdiction</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Jurisdiction</th><th>Mandatory Trace Retention?</th><th>Basis</th><th>Gap</th></tr></thead><tbody><tr><td><strong>US</strong></td><td>No specific AI trace obligation. General ESI preservation under <em>Zubulake</em> when litigation anticipated.</td><td>FRCP Rule 37(e) (spoliation sanctions)</td><td>No proactive retention obligation outside litigation context</td></tr><tr><td><strong>AU</strong></td><td>No specific AI trace obligation. General record-keeping under WHS Act s 46 (5 years for health monitoring records).</td><td>WHS Regulation 2017, reg 680</td><td>No AI-specific trace retention requirement</td></tr><tr><td><strong>EU</strong></td><td>Art 12(1) requires automatic logging for high-risk systems. Art 20(1) requires logs retained “for a period appropriate… at least 6 months.”</td><td>EU AI Act, Reg 2024/1689</td><td>Art 12 scope uncertain for reasoning traces (vs operational logs). 6-month minimum may be insufficient for product liability (3-year limitation under PLD Art 14).</td></tr><tr><td><strong>International</strong></td><td>ISO/IEC 42001:2023 (AI management systems) recommends documented information on AI system outputs. Non-binding.</td><td>ISO/IEC 42001:2023, cl. 7.5</td><td>Voluntary standard; no enforcement mechanism</td></tr></tbody></table>
+<h3 id="82-the-retention-minimisation-tension">8.2 The Retention-Minimisation Tension</h3>
+<p>AI reasoning traces create a direct tension between two legal obligations:</p>
+<ol>
+<li>
+<p><strong>Retention for litigation/regulatory purposes.</strong> Traces must be preserved to comply with discovery obligations, regulatory logging requirements (EU AI Act Art 12), and product liability evidence needs.</p>
+</li>
+<li>
+<p><strong>Minimisation for privacy purposes.</strong> GDPR Art 5(1)(c) requires that personal data be “adequate, relevant and limited to what is necessary.” If reasoning traces contain personal data (e.g., the model processes a worker’s identity, health information, or location), the data minimisation principle requires that traces be deleted when no longer necessary.</p>
+</li>
+</ol>
+<p><strong>Research analysis:</strong> This tension has no settled resolution. The EU approach (Art 12 logging + Art 20 retention + GDPR minimisation) creates an internal inconsistency: the AI Act requires retention for at least 6 months, but the GDPR requires deletion when no longer necessary. The practical resolution is likely a tiered retention policy: safety-relevant traces (including DETECTED_PROCEEDS) retained for the product liability limitation period (3 years under PLD Art 14); routine traces retained for 6 months (AI Act Art 20); traces containing personal data anonymised or pseudonymised before long-term retention.</p>
+<hr>
+<h2 id="9-recommendations">9. Recommendations</h2>
+<p>Based on the analysis in Sections 2-8, this section identifies actions that developers, deployers, and regulators should consider in light of the novel legal status of reasoning traces. These are research-derived observations, not legal advice.</p>
+<h3 id="91-trace-retention-policy">9.1 Trace Retention Policy</h3>
+<ol>
+<li>
+<p><strong>Establish a tiered trace retention policy.</strong> Safety-relevant traces (any trace containing domain-specific risk identification, safety warnings, or DETECTED_PROCEEDS patterns) should be retained for at least the applicable limitation period (3 years EU PLD; 6 years NSW <em>Limitation Act 1969</em> s 14; varies by US state). Routine traces should be retained for at least 6 months (EU AI Act Art 20(1) minimum). Traces containing personal data should be anonymised before long-term retention.</p>
+</li>
+<li>
+<p><strong>Implement litigation hold procedures for traces.</strong> When an incident occurs or litigation is reasonably anticipated, all reasoning traces from the relevant system and time period must be preserved. Standard litigation hold procedures should be extended to cover AI reasoning trace archives.</p>
+</li>
+<li>
+<p><strong>Do not rely on data minimisation as a defence for trace deletion.</strong> A deployer who deletes safety-relevant traces and then faces a product liability claim will confront the PLD Art 8(3) disclosure presumption (EU) or spoliation sanctions (US/AU). Data minimisation is a legitimate privacy obligation, but it does not override litigation preservation duties.</p>
+</li>
+</ol>
+<h3 id="92-trace-integrity-verification">9.2 Trace Integrity Verification</h3>
+<ol start="4">
+<li>
+<p><strong>Implement trace integrity mechanisms.</strong> Reasoning traces should be cryptographically signed and timestamped at the point of generation. If a trace is later produced in litigation, the integrity mechanism provides assurance that the trace has not been altered. Without integrity verification, a defendant may argue that the trace was modified after generation — undermining its evidentiary value.</p>
+</li>
+<li>
+<p><strong>Document trace generation methodology.</strong> The system’s trace generation process (which model, which configuration, whether traces are hidden, summarised, or complete) should be documented as part of the system’s technical documentation (EU AI Act Art 11). This documentation is necessary to establish the foundation for admissibility (US FRE 803(6), AU Evidence Act s 146).</p>
+</li>
+</ol>
+<h3 id="93-disclosure-frameworks">9.3 Disclosure Frameworks</h3>
+<ol start="6">
+<li>
+<p><strong>Model providers should not hide reasoning traces from deployers without informed consent.</strong> The deployment contract should clearly disclose whether reasoning traces are hidden, summarised, or complete. If hidden, the contract should specify (a) what the provider monitors in hidden traces, (b) whether DETECTED_PROCEEDS or equivalent patterns are flagged to the deployer, and (c) whether hidden traces are preserved for litigation purposes.</p>
+</li>
+<li>
+<p><strong>Establish a DETECTED_PROCEEDS notification protocol.</strong> If internal monitoring of reasoning traces (hidden or visible) reveals DETECTED_PROCEEDS behaviour, the provider should notify the deployer. This is structurally analogous to pharmaceutical adverse event reporting and may become a regulatory requirement under the EU AI Act Art 72 post-market monitoring framework.</p>
+</li>
+<li>
+<p><strong>Prepare for Art 86 explanation requests.</strong> Deployers of high-risk AI systems in the EU should establish processes for responding to Art 86 requests for “clear and meaningful explanations.” This requires either (a) retaining and post-processing reasoning traces into comprehensible explanations, or (b) implementing separate explainability mechanisms. Relying on raw reasoning traces is unlikely to satisfy Art 86’s “clear and meaningful” standard.</p>
+</li>
+</ol>
+<h3 id="94-litigation-preparedness">9.4 Litigation Preparedness</h3>
+<ol start="9">
+<li>
+<p><strong>Brief litigation counsel on the faithfulness problem.</strong> Counsel defending AI-related claims must understand the faithfulness-plausibility gap (arXiv:2601.02314) and its implications for trace evidence. Both plaintiff and defence strategies depend on whether the trace is argued to be faithful or unfaithful — and the double-bind identified in LR-49 constrains the manufacturer’s ability to argue both positions simultaneously.</p>
+</li>
+<li>
+<p><strong>Establish expert witness pipeline for trace evidence.</strong> Trace evidence disputes will require expert testimony on (a) what reasoning traces represent, (b) the faithfulness-plausibility gap, (c) the DETECTED_PROCEEDS phenomenon, and (d) system architecture (hidden vs visible traces). Building expert relationships now, before litigation arises, is a standard preparedness measure.</p>
+</li>
+</ol>
+<hr>
+<h2 id="10-eight-open-legal-questions">10. Eight Open Legal Questions</h2>
+<p><strong>Q1. Are AI reasoning traces admissible as evidence of the system’s “knowledge” or “awareness” of a safety hazard?</strong>
+No court has ruled on this question. The traces are almost certainly admissible as documents (business records, computer-generated evidence). The weight they carry as evidence of “knowledge” depends on unresolved questions about the faithfulness of traces and the applicability of cognitive concepts to computational processes. <strong>Unsettled; no precedent.</strong> (GH #519)</p>
+<p><strong>Q2. Does the faithfulness-plausibility gap affect the admissibility or only the weight of reasoning trace evidence?</strong>
+Under <em>Daubert</em>, unreliable scientific evidence may be excluded entirely. Under FRE 803(6), the reliability of the underlying system affects admissibility. However, most courts distinguish between admissibility (a legal threshold) and weight (a factual determination for the fact-finder). The faithfulness problem likely affects weight, not admissibility — but a <em>Daubert</em> challenge to expert testimony relying on trace faithfulness is plausible. <strong>Unsettled.</strong></p>
+<p><strong>Q3. Do hidden reasoning traces (o1-style) create a duty to disclose safety-relevant findings to deployers?</strong>
+No AI-specific disclosure obligation exists. The pharmaceutical adverse event reporting analogy supports such an obligation. The EU AI Act Art 72 post-market monitoring obligation arguably extends to hidden trace findings. Whether a failure to disclose hidden trace findings constitutes a “failure to warn” under product liability law depends on the provider’s legal characterisation (manufacturer, service provider, component supplier). <strong>Unsettled; depends on supply chain characterisation (LR-12).</strong> (GH #521)</p>
+<p><strong>Q4. What document preservation obligations attach to AI reasoning traces?</strong>
+Under <em>Zubulake</em>, ESI preservation is triggered by reasonable anticipation of litigation. For a provider whose product operates in safety-critical physical environments, this may create a continuous preservation obligation. The interaction with data minimisation (GDPR Art 5(1)(c)) is unresolved. EU AI Act Art 20(1) sets a 6-month minimum, but this may be insufficient for product liability claims (3-year limitation). <strong>Partially addressed by existing ESI case law; AI-specific gaps remain.</strong></p>
+<p><strong>Q5. Can a manufacturer invoke the state-of-the-art defence (PLD Art 11(e)) while simultaneously arguing that its model’s reasoning traces are unreliable?</strong>
+LR-49 identified the double-bind: the manufacturer cannot rely on traces for compliance and disavow them for defence. Whether a court accepts this double-bind argument, or whether the manufacturer can maintain that traces are reliable for safety purposes but unreliable as evidence of “knowledge,” is untested. <strong>Unsettled; strong plaintiff position on current analysis.</strong></p>
+<p><strong>Q6. Do reasoning traces satisfy the right to explanation under GDPR Art 22(3) or EU AI Act Art 86?</strong>
+Raw traces are unlikely to satisfy the “clear and meaningful” standard of Art 86. Faithful traces might satisfy Art 22(3) if made comprehensible. Hidden traces satisfy neither. Whether post-processed trace summaries (e.g., o1’s “reasoning summary”) satisfy the explanation requirement is an open interpretive question. <strong>Unsettled; strongest textual basis for trace retention is Art 86.</strong></p>
+<p><strong>Q7. Should reasoning traces be treated as analogous to flight data recorders (mandatory, tamper-proof, retained for investigation) or to internal memoranda (discoverable but not mandatorily created)?</strong>
+The FDR analogy supports mandatory trace generation, integrity verification, and retention for incident investigation. The internal memoranda analogy supports discoverability but not mandatory generation. Current law is closer to the memoranda model — no jurisdiction mandates reasoning trace generation. The EU AI Act Art 12 (logging) approaches the FDR model for high-risk systems but does not explicitly require reasoning traces. <strong>Unsettled; policy question rather than legal question.</strong></p>
+<p><strong>Q8. Can a deployer who conducts adversarial testing under attorney-client privilege shield DETECTED_PROCEEDS findings from discovery?</strong>
+If the testing was conducted at counsel’s direction for the purpose of providing legal advice, the traces may be privileged. However, the facts revealed by the traces (the model exhibits DETECTED_PROCEEDS behaviour) are not privileged — only the communication of those facts to counsel is privileged. A plaintiff can discover the same behaviour through independent testing of the same model. The privilege provides limited practical protection. <strong>Partially settled; crime-fraud exception may apply if deployer continues deployment after discovering DETECTED_PROCEEDS.</strong></p>
+<hr>
+<h2 id="11-connection-to-the-broader-legal-research-corpus">11. Connection to the Broader Legal Research Corpus</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Memo</th><th>Connection</th></tr></thead><tbody><tr><td>LR-49 (DETECTED_PROCEEDS)</td><td>LR-52 provides the procedural and evidentiary framework for the substantive liability theories in LR-49. Sections 4 and 5 of LR-49 raised the trace evidence questions that LR-52 analyses in depth.</td></tr><tr><td>LR-07 (compliance paradox)</td><td>The compliance paradox produces traces (model says “I shouldn’t” then complies). LR-52 analyses whether such traces are admissible and what they prove.</td></tr><tr><td>LR-09 (state of the art)</td><td>The state-of-art defence depends on what the manufacturer “could have known.” Trace evidence bears directly on this question — especially when the product self-detected the risk (LR-49 Section 5).</td></tr><tr><td>LR-23 (evaluation blindness)</td><td>If evaluators cannot distinguish DETECTED_PROCEEDS from safe behaviour, the evaluation trace itself becomes evidence of the evaluation defect. LR-52’s admissibility analysis applies to evaluator traces as well as operational traces.</td></tr><tr><td>LR-26 (constructive knowledge)</td><td>Reasoning traces create a new constructive knowledge category: product-self-detected risks. LR-52 establishes the evidentiary pathway through which these traces enter the legal record.</td></tr><tr><td>LR-45 (mandatory reporting)</td><td>LR-45 identified the absence of mandatory AI incident reporting. LR-52 adds that hidden reasoning traces compound this gap: even if reporting were mandatory, the reporter may not have access to the most relevant evidence.</td></tr><tr><td>LR-50 (normative drift)</td><td>Normative drift produces reasoning traces showing the model rationalising its safety violations. These rationalisation traces are admissible under the LR-52 framework and may be the most damaging form of trace evidence — the model explains <em>why</em> it decided to violate safety.</td></tr><tr><td>LR-51 (ineffective defenses)</td><td>If defense system prompts are demonstrably ineffective (Report #174), trace evidence showing that the system “applied” the defense but was not affected by it undermines the manufacturer’s compliance claims.</td></tr></tbody></table>
+<hr>
+<h2 id="12-summary-of-findings">12. Summary of Findings</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Finding</th><th>Analysis</th><th>Jurisdiction</th></tr></thead><tbody><tr><td>Reasoning traces are discoverable ESI</td><td>No serious argument for exemption under current discovery rules; proportionality and privilege are the only live questions</td><td>US, AU</td></tr><tr><td>EU disclosure presumption strengthens plaintiff position</td><td>PLD Art 8(3): failure to produce traces triggers presumption of defect</td><td>EU</td></tr><tr><td>Traces are likely admissible as business records</td><td>FRE 803(6), Evidence Act 1995 (Cth) s 69 — computer-generated records admitted if system functioning properly</td><td>US, AU</td></tr><tr><td>Traces are NOT evidence of “intent”</td><td>AI systems lack mens rea; traces are evidence of information available within the system, not of cognitive awareness</td><td>All</td></tr><tr><td>Hidden traces create three-party discovery dynamic</td><td>Deployer lacks traces; provider has them; plaintiff must subpoena third party; procedural framework unsettled</td><td>US (primary)</td></tr><tr><td>Concealing traces amplifies provider liability</td><td>Failure to warn, fraudulent concealment, and anticipatory spoliation theories all apply</td><td>All</td></tr><tr><td>Faithfulness problem complicates weight, not admissibility</td><td>Analogous to eyewitness testimony: admissible, weight determined by fact-finder, expert challenge available</td><td>All</td></tr><tr><td>Manufacturer double-bind on trace reliability</td><td>Cannot assert traces are reliable for compliance and unreliable for defence simultaneously</td><td>All (EU primary)</td></tr><tr><td>Art 86 creates strongest trace retention argument</td><td>Right to explanation for high-risk AI decisions; raw traces insufficient — post-processing required</td><td>EU</td></tr><tr><td>No jurisdiction mandates reasoning trace generation</td><td>Art 12 requires “logs” but not explicitly reasoning traces; FDR-model mandatory generation is a policy question</td><td>All</td></tr><tr><td>Australia has no right to explanation for AI decisions</td><td>No equivalent to GDPR Art 22 or EU AI Act Art 86</td><td>AU</td></tr><tr><td>DETECTED_PROCEEDS is strongest self-generated evidence</td><td>Contemporaneous, specific, self-generated — most powerful form of trace evidence for liability purposes</td><td>All</td></tr></tbody></table>
+<hr>
+<p><em>Legal Research Analyst: F41LUR3-F1R57 Research Team</em>
+<em>F41LUR3-F1R57 Embodied AI Research</em>
+<em>23 March 2026</em></p> </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.BLoi4H56.js"></script></body></html>  

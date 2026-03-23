@@ -1,0 +1,521 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First</title><meta name="description" content="This report provides a dual-use ethical analysis of the Failure-First project's autonomous attack evolution system (`tools/autoresearch/evolve_attacks.py`)...."><link rel="canonical" href="https://failurefirst.org/research/reports/176-ethics-autonomous-red-teaming/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First"><meta property="og:description" content="This report provides a dual-use ethical analysis of the Failure-First project's autonomous attack evolution system (`tools/autoresearch/evolve_attacks.py`)...."><meta property="og:url" content="https://failurefirst.org/research/reports/176-ethics-autonomous-red-teaming/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/og-image.png"><meta property="og:image:alt" content="The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First"><meta name="twitter:description" content="This report provides a dual-use ethical analysis of the Failure-First project's autonomous attack evolution system (`tools/autoresearch/evolve_attacks.py`)...."><meta name="twitter:image" content="https://failurefirst.org/og-image.png"><meta name="twitter:image:alt" content="The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-23"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-23"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/176-ethics-autonomous-red-teaming/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/176-ethics-autonomous-red-teaming/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Ethics of Autonomous Red-Teaming: Dual-Use Analysis of Attack Evolution Systems | Research | Failure-First","description":"This report provides a dual-use ethical analysis of the Failure-First project's autonomous attack evolution system (`tools/autoresearch/evolve_attacks.py`)....","url":"https://failurefirst.org/research/reports/176-ethics-autonomous-red-teaming/","image":"https://failurefirst.org/og-image.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-23","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.C0WLtXuM.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>F41LUR3-F1R57</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">const s=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),o=document.querySelectorAll(".has-dropdown");s&&a&&(s.addEventListener("click",()=>{const e=s.getAttribute("aria-expanded")==="true";s.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),s.setAttribute("aria-expanded","false"),s.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!s.contains(e.target)&&(a.classList.remove("open"),s.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&o.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",i=>{e.contains(i.relatedTarget)||t.setAttribute("aria-expanded","false")}))});o.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",i=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(i.preventDefault(),o.forEach(n=>{if(n!==e){n.classList.remove("mobile-open");const r=n.querySelector(":scope > a");r&&r.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 176</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 176"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--failure-warning)" data-astro-cid-63t2xjvj> Draft </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 176</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-23</time> </header> <div class="report-body" data-astro-cid-dynbckv2>  <h2 id="abstract">Abstract</h2>
+<p>This report provides a dual-use ethical analysis of the Failure-First project’s autonomous attack evolution system (<code>tools/autoresearch/evolve_attacks.py</code>). The system applies evolutionary search to jailbreak attacks: it selects parent attacks, applies one of seven structural mutations, evaluates mutants against target models, and retains improvements. This report assesses who benefits from this capability, who could be harmed, what safety gates constrain the system, how it compares to existing autonomous red-team tools in the literature, and what responsible disclosure norms should apply. A D-Score assessment is computed. The report concludes with minimum safety requirements that the field should adopt for autonomous red-team tools.</p>
+<hr>
+<h2 id="1-what-we-built">1. What We Built</h2>
+<h3 id="11-system-architecture">1.1 System Architecture</h3>
+<p>The autonomous attack evolution system follows the <code>autoresearch</code> pattern (Karpathy, 2025): a fixed infrastructure that autonomously conducts experiments, evaluates results, and iterates. Three components:</p>
+<ol>
+<li>
+<p><strong>prepare_attacks.py</strong> (fixed): validates API access, computes baseline ASR from 10 seed attacks across 5 attack families (format-lock, crescendo, semantic inversion, authority claim, context manipulation), and caches state.</p>
+</li>
+<li>
+<p><strong>evolve_attacks.py</strong> (fixed): the core evolution loop. Each iteration: (a) selects a parent attack weighted by past ASR, (b) applies a randomly chosen mutation, (c) validates the mutant against a safety lint gate, (d) evaluates it against 2+ target models via OpenRouter API, (e) keeps the mutant if ASR >= parent ASR, discards otherwise.</p>
+</li>
+<li>
+<p><strong>attack_template.jsonl</strong> (mutable): the seed population of 10 attacks, which grows as the evolution loop retains successful mutants.</p>
+</li>
+</ol>
+<h3 id="12-seven-mutation-strategies">1.2 Seven Mutation Strategies</h3>
+<p>All mutations operate on persuasion patterns and structural framing. None makes the underlying harmful request more explicit:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Strategy</th><th>Mechanism</th><th>What Changes</th><th>What Does Not Change</th></tr></thead><tbody><tr><td>Paraphrase</td><td>Rewording vocabulary and sentence structure</td><td>Surface phrasing</td><td>Persuasion pattern</td></tr><tr><td>Amplify</td><td>Adding urgency, authority, or consequence signals</td><td>Compliance pressure</td><td>Request content</td></tr><tr><td>Combine</td><td>Merging framing from one attack with structure of another</td><td>Hybrid persuasion</td><td>Harm category</td></tr><tr><td>Contextualise</td><td>Adding domain-specific framing (mining, surgical, warehouse)</td><td>Legitimacy signal</td><td>Underlying request</td></tr><tr><td>Compress</td><td>Removing filler, tightening prompt</td><td>Prompt length</td><td>Core structure</td></tr><tr><td>Role Shift</td><td>Changing claimed identity (researcher, auditor, red team lead)</td><td>Authority claim</td><td>Request substance</td></tr><tr><td>Format Shift</td><td>Changing requested output format (JSON, YAML, table, CSV)</td><td>Format compliance path</td><td>Request semantics</td></tr></tbody></table>
+<h3 id="13-key-design-choice-structural-mutation-not-content-escalation">1.3 Key Design Choice: Structural Mutation, Not Content Escalation</h3>
+<p>The system’s most important ethical design choice is that mutations modify <em>how</em> an attack is framed, not <em>what</em> it asks for. The harmful request is fixed in the seed template; the evolution searches for more effective persuasion wrappers around that fixed request.</p>
+<p>This design choice has both an ethical rationale (Principles 1 and 2 of the Research Ethics Charter — do no harm, publish patterns not exploits) and an empirical rationale (Mistakes #7, #11, #20 — the project has documented three separate occasions where directly asking for harmful content produces worse results than indirect framing).</p>
+<hr>
+<h2 id="2-dual-use-framework-who-benefits-who-could-be-harmed">2. Dual-Use Framework: Who Benefits, Who Could Be Harmed?</h2>
+<h3 id="21-stakeholders-and-interests">2.1 Stakeholders and Interests</h3>
+<p><strong>Descriptive claim:</strong> The following stakeholder analysis maps who interacts with autonomous red-team tools, what their interests are, and how those interests are affected.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Stakeholder</th><th>Interest</th><th>Benefit from System</th><th>Risk from System</th></tr></thead><tbody><tr><td>AI safety researchers</td><td>Finding vulnerabilities before adversaries do</td><td>Automated discovery of attack variants at scale</td><td>Capability demonstrated could be replicated</td></tr><tr><td>Model providers (Anthropic, Google, OpenAI, etc.)</td><td>Hardening models against attacks</td><td>Continuous red-teaming input for safety training</td><td>Evolved attacks could be used against their models before patching</td></tr><tr><td>Regulators (AISI, NIST, SWA)</td><td>Evidence base for governance</td><td>Empirical data on evolving threat landscape</td><td>Risk of regulatory lag if attack evolution outpaces governance</td></tr><tr><td>Downstream deployers (mining, logistics, healthcare)</td><td>Safe embodied AI deployment</td><td>Better-tested models before deployment</td><td>If evolved attacks leak, deployment risk increases</td></tr><tr><td>Workers in proximity to embodied AI</td><td>Physical safety</td><td>Better safety evaluation of systems they work alongside</td><td>No direct risk (system targets text-only APIs, not physical systems)</td></tr><tr><td>Adversaries (state actors, criminal organisations)</td><td>Exploiting AI systems</td><td>N/A</td><td>Lower barrier to discovering effective attack patterns</td></tr></tbody></table>
+<h3 id="22-asymmetric-benefit-analysis">2.2 Asymmetric Benefit Analysis</h3>
+<p><strong>Normative claim:</strong> The ethical justification for building autonomous red-team tools rests on whether the defensive benefit exceeds the offensive risk. This is not straightforward.</p>
+<p><strong>Arguments that defensive benefit dominates:</strong></p>
+<ol>
+<li>
+<p><strong>The attack surface already exists.</strong> The seed attacks in the template are drawn from established, publicly documented attack families. The system does not invent new attack categories; it optimises within known categories. An adversary who wants these patterns can find them in the existing literature (AutoDAN: Zhu et al. 2023; PAIR: Chao et al. 2023; TAP: Mehrotra et al. 2023; GCG: Zou et al. 2023).</p>
+</li>
+<li>
+<p><strong>The mutation strategies are generic.</strong> Paraphrasing, role-shifting, format-shifting, and adding context are general persuasion techniques, not novel attack primitives. Any competent adversary can apply them manually.</p>
+</li>
+<li>
+<p><strong>Defender information asymmetry is the greater risk.</strong> If model providers do not know what evolved attacks look like, they cannot train against them. The alternative — waiting for adversaries to discover these patterns in the wild — produces worse outcomes because adversaries have no incentive to disclose.</p>
+</li>
+</ol>
+<p><strong>Arguments that offensive risk is significant:</strong></p>
+<ol>
+<li>
+<p><strong>Automation lowers the skill barrier.</strong> A manually crafted attack requires understanding of model behavior. An automated evolution loop requires only API access and the seed templates. The system reduces the effort from “think creatively about persuasion” to “run a script.”</p>
+</li>
+<li>
+<p><strong>The evolved population is the dangerous artifact.</strong> The seed attacks are public knowledge. The evolved population — the specific mutants that passed selection — contains attack variants that have been empirically validated against specific models. This validated population is more operationally useful than the seed population.</p>
+</li>
+<li>
+<p><strong>Free-tier API access means zero cost.</strong> The system’s default configuration uses free OpenRouter models. An adversary can run the evolution loop at zero cost, with no rate-limiting friction beyond standard free-tier quotas.</p>
+</li>
+</ol>
+<p><strong>Assessment:</strong> The defensive benefit likely exceeds the offensive risk <em>provided that the evolved attack population is not published</em>. The structural knowledge (that evolutionary search over persuasion patterns works, which mutation strategies are effective) is publishable. The operational knowledge (specific evolved prompts, per-model ASR data) should remain in the private repository under the structural-operational split (Principle 2, Ethics Charter).</p>
+<hr>
+<h2 id="3-safety-gates-what-constrains-the-system">3. Safety Gates: What Constrains the System</h2>
+<h3 id="31-existing-safety-gates">3.1 Existing Safety Gates</h3>
+<p>The system implements five safety constraints:</p>
+<p><strong>Gate 1: Structural mutation only.</strong> Mutations modify framing, not content. The <code>mutate_*</code> functions operate on sentence structure, urgency markers, role claims, domain context, and output format. No mutation function generates or modifies the harmful request itself.</p>
+<p><em>Assessment:</em> This is the strongest gate. It is enforced by code structure (the mutation functions receive the template as input and return modified text without access to a “harm generation” capability). However, it is not formally verified — a code change to a mutation function could violate this constraint without detection.</p>
+<p><strong>Gate 2: Lint validation.</strong> All mutated attacks pass through <code>lint_check()</code>, which rejects prompts containing hard-reject patterns (weapon construction, malware, CSAM, etc.), prompts shorter than 30 characters, and prompts longer than 5,000 characters.</p>
+<p><em>Assessment:</em> The lint gate catches crude violations but cannot detect subtle content escalation. It uses exact substring matching against 19 hard-reject patterns. A mutation that makes a harmful request more specific without using any of the 19 patterns would pass. This is a necessary but insufficient gate.</p>
+<p><strong>Gate 3: Heuristic-only evaluation.</strong> The system measures refusal/compliance using keyword detection, not content analysis. It does not parse or score the harmfulness of compliant responses.</p>
+<p><em>Assessment:</em> This is both a limitation and a safety feature. The system cannot optimise for <em>more harmful</em> responses because it has no signal for response harmfulness — it only knows whether the model refused. An adversary who modified the system to include a harm scorer would create a qualitatively more dangerous tool.</p>
+<p><strong>Gate 4: Complete logging.</strong> Every mutation, evaluation, and selection decision is logged in structured JSONL and TSV. The full evolutionary history is auditable.</p>
+<p><em>Assessment:</em> Logging enables post-hoc review but does not prevent harm in real time. It is a forensic control, not a preventive one.</p>
+<p><strong>Gate 5: Free-tier default.</strong> The default configuration targets free-tier models, limiting scope to models that are publicly accessible and already rate-limited.</p>
+<p><em>Assessment:</em> This is a friction gate, not a safety gate. Changing the model list to paid-tier or frontier models requires editing a single command-line argument.</p>
+<h3 id="32-safety-gate-gaps">3.2 Safety Gate Gaps</h3>
+<p>Three gaps in the current safety architecture warrant attention:</p>
+<ol>
+<li>
+<p><strong>No formal separation between seed content and mutation logic.</strong> The seed attacks contain the harmful requests. The mutation logic modifies framing. But nothing enforces this separation at a level deeper than “the code happens to work this way.” A refactoring or extension could inadvertently allow mutations that modify the harmful content.</p>
+</li>
+<li>
+<p><strong>No content-level output analysis.</strong> The system records whether models refused but does not assess whether compliant responses are actually harmful. This means the evolution loop could keep a mutant that elicits a response that looks like compliance (passes refusal heuristic) but is actually a safe, contextualised answer. The known 2-12x over-reporting of heuristic ASR (Mistake #21) means the system likely retains many false positives.</p>
+</li>
+<li>
+<p><strong>No model-provider notification.</strong> The system evaluates attacks against live models via API without notifying the model providers. Under the D-Score coordinated disclosure framework (Principle 3, Ethics Charter), findings above D-Score 7 require notification. The system has no mechanism for triggering this notification automatically.</p>
+</li>
+</ol>
+<hr>
+<h2 id="4-comparison-to-existing-autonomous-red-team-tools">4. Comparison to Existing Autonomous Red-Team Tools</h2>
+<h3 id="41-landscape">4.1 Landscape</h3>
+<p>The autonomous red-teaming landscape as of March 2026 includes several published systems:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>System</th><th>Year</th><th>Mechanism</th><th>Reported ASR</th><th>Key Distinction</th></tr></thead><tbody><tr><td>GCG (Zou et al.)</td><td>2023</td><td>Gradient-based adversarial suffix optimisation</td><td>84% (Llama-2, Vicuna)</td><td>Requires model weights; white-box; produces nonsensical suffixes</td></tr><tr><td>AutoDAN (Zhu et al.)</td><td>2023</td><td>Hierarchical genetic algorithm over prompt structure</td><td>70%+ across open models</td><td>Genetic algorithm over token sequences; black-box variant available</td></tr><tr><td>PAIR (Chao et al.)</td><td>2023</td><td>Attacker LLM iteratively refines jailbreak prompts</td><td>60%+ (GPT-4, Claude)</td><td>Uses an attacker LLM to generate and refine; fully black-box</td></tr><tr><td>TAP (Mehrotra et al.)</td><td>2023</td><td>Tree-of-thought attacker with pruning</td><td>Higher than PAIR</td><td>Extends PAIR with tree search and off-topic pruning</td></tr><tr><td>Rainbow Teaming (Samvelyan et al.)</td><td>2024</td><td>Quality-diversity search over attack space</td><td>Coverage-optimised</td><td>Optimises for diversity of successful attacks, not just ASR</td></tr><tr><td>LRM-based attack (arXiv:2508.04039)</td><td>2025</td><td>Frontier reasoning models attack other models</td><td>97% across 25,200 inputs</td><td>Most capable; uses reasoning models as attackers</td></tr><tr><td><strong>F41LUR3-F1R57 evolve_attacks</strong></td><td>2026</td><td>Evolutionary search over persuasion patterns</td><td>Preliminary (heuristic)</td><td>Structural mutation only; no content escalation; embodied AI context</td></tr></tbody></table>
+<h3 id="42-what-distinguishes-the-failure-first-system">4.2 What Distinguishes the Failure-First System</h3>
+<p><strong>The system evolves persuasion patterns, not harmful content.</strong> GCG optimises adversarial suffixes (token-level). AutoDAN uses genetic algorithms over prompt tokens. PAIR and TAP use an attacker LLM that generates complete attack prompts, including the harmful request. The F41LUR3-F1R57 system holds the harmful request constant and evolves only the persuasion wrapper. This is a narrower optimisation space that produces less operationally dangerous artifacts.</p>
+<p><strong>The system is embodied-AI-contextualised.</strong> The seed attacks and domain contexts are drawn from robotics, autonomous vehicles, industrial automation, and mining — the physical safety domains where jailbreak consequences include bodily harm. No other autonomous red-team tool is specifically designed for embodied AI safety evaluation.</p>
+<p><strong>The system is less capable than PAIR/TAP.</strong> Using a language model as the attacker (PAIR, TAP) produces more creative and effective attacks than rule-based mutation strategies. The F41LUR3-F1R57 system trades capability for controllability: its mutations are predictable, auditable, and constrained in ways that LLM-generated attacks are not.</p>
+<h3 id="43-normative-assessment">4.3 Normative Assessment</h3>
+<p><strong>Normative claim:</strong> The trade-off between capability and controllability in autonomous red-team design is an ethical choice, not merely a technical one. More capable systems (PAIR, TAP, LRM-based) produce better safety evaluations but also produce more dangerous artifacts. The F41LUR3-F1R57 system’s choice to use rule-based mutations rather than LLM-generated attacks is a deliberate capability limitation motivated by dual-use risk management.</p>
+<p>This choice has a cost: the system will discover fewer novel attack patterns than PAIR or TAP would. It has a benefit: the evolved population contains structurally predictable mutations rather than open-ended, potentially novel harmful constructions.</p>
+<hr>
+<h2 id="5-d-score-assessment">5. D-Score Assessment</h2>
+<p>Applying the D-Score framework (Report #154, <code>tools/dscore_calculator.py</code>) to the autonomous attack evolution system:</p>
+<h3 id="51-the-code-itself-toolsautoresearch">5.1 The Code Itself (tools/autoresearch/)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>S (Specificity)</td><td>2</td><td>The code is a complete, runnable system. However, it requires seed attacks (operational content) to function. The code alone is a search framework, not an attack tool.</td></tr><tr><td>R (Reproducibility)</td><td>2</td><td>Reproducible by technically competent non-expert. Requires: Python, OpenRouter API key (free), understanding of JSONL format. Does not require ML expertise.</td></tr><tr><td>T (Target Scope)</td><td>2</td><td>Targets any model accessible via chat completion API. Scope is architectural (API-level), not limited to specific models.</td></tr><tr><td>D (Defense Availability)</td><td>2</td><td>No automated defense against evolved persuasion attacks exists. However, the evolution is constrained to structural mutations of known attack families, and the heuristic evaluation likely over-reports success (2-12x).</td></tr></tbody></table>
+<p><strong>Composite D-Score (code): 8 / 12</strong></p>
+<p><strong>Action Tier: Coordinated Disclosure (7-9)</strong></p>
+<p>This score indicates that the code should not be published openly without coordinated disclosure to affected parties. The code is currently in the private repository, consistent with this tier.</p>
+<h3 id="52-the-evolved-attack-population-runsautoresearch">5.2 The Evolved Attack Population (runs/autoresearch/)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>S (Specificity)</td><td>3</td><td>Complete operational attack prompts with empirical validation. Copy-pasteable.</td></tr><tr><td>R (Reproducibility)</td><td>3</td><td>Usable by anyone with API access. No expertise required to re-use an evolved prompt.</td></tr><tr><td>T (Target Scope)</td><td>2</td><td>Validated against specific models, but likely transferable to others in the same family.</td></tr><tr><td>D (Defense Availability)</td><td>2</td><td>Same as code assessment.</td></tr></tbody></table>
+<p><strong>Composite D-Score (evolved population): 10 / 12</strong></p>
+<p><strong>Action Tier: Withhold (10-12)</strong></p>
+<p>The evolved attack population is classified as too operationally specific for any form of external publication. It remains in <code>runs/autoresearch/</code> in the private repository only. Statistical summaries (ASR distributions, mutation effectiveness rates) may be published at Tier 1 (structural disclosure).</p>
+<h3 id="53-the-structural-knowledge-mutation-strategies-evolutionary-pattern">5.3 The Structural Knowledge (mutation strategies, evolutionary pattern)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>S (Specificity)</td><td>1</td><td>Category-level description of mutation strategies. No specific prompts.</td></tr><tr><td>R (Reproducibility)</td><td>1</td><td>An expert could reconstruct the system from the description, but would need to design their own seed attacks, mutation logic, and evaluation pipeline.</td></tr><tr><td>T (Target Scope)</td><td>3</td><td>The pattern (evolutionary search over persuasion) is model-agnostic and API-agnostic.</td></tr><tr><td>D (Defense Availability)</td><td>2</td><td>Same as above.</td></tr></tbody></table>
+<p><strong>Composite D-Score (structural knowledge): 7 / 12</strong></p>
+<p><strong>Action Tier: Coordinated Disclosure (7-9), lower bound</strong></p>
+<p>The structural knowledge falls at the lower edge of coordinated disclosure. The blog post published on 2026-03-23 appropriately discloses at this level: it describes the pattern and mutation categories without providing seed attacks, specific evolved prompts, or model-specific results.</p>
+<hr>
+<h2 id="6-responsible-publication-what-can-be-published-vs-what-stays-private">6. Responsible Publication: What Can Be Published vs What Stays Private</h2>
+<p>Applying the three-tier disclosure model (Report #144, Section 5) and the D-Score assessments above:</p>
+<h3 id="tier-1-structural-disclosure--publishable">Tier 1 (Structural Disclosure) — Publishable</h3>
+<ul>
+<li>The evolutionary search pattern (select, mutate, evaluate, keep/discard)</li>
+<li>The seven mutation strategy categories and their general mechanisms</li>
+<li>Aggregate statistics: mutation effectiveness rates, population growth curves</li>
+<li>The finding that format-lock attacks are the most defense-resistant starting point</li>
+<li>The design principle: structural mutation, not content escalation</li>
+<li>Comparison to existing autonomous red-team tools (AutoDAN, PAIR, TAP, GCG)</li>
+<li>Safety gate architecture and gap analysis</li>
+</ul>
+<p><strong>Status:</strong> Published in blog post (2026-03-23). Suitable for academic paper, regulatory brief, and conference presentation.</p>
+<h3 id="tier-2-methodological-disclosure--restricted">Tier 2 (Methodological Disclosure) — Restricted</h3>
+<ul>
+<li>The code architecture in sufficient detail for expert reproduction</li>
+<li>The lint gate patterns (what specific strings are rejected)</li>
+<li>The evaluation methodology (refusal detection heuristic, model selection criteria)</li>
+<li>Per-mutation-strategy ASR differentials</li>
+</ul>
+<p><strong>Status:</strong> Suitable for academic papers with peer review. CCS submission may include this level of detail in the methodology section.</p>
+<h3 id="tier-3-operational-disclosure--private-repository-only">Tier 3 (Operational Disclosure) — Private Repository Only</h3>
+<ul>
+<li>The seed attack templates (<code>attack_template.jsonl</code>)</li>
+<li>The evolved attack population (<code>runs/autoresearch/evolved_attacks.jsonl</code>)</li>
+<li>Per-model evaluation results</li>
+<li>The complete code with runnable configuration</li>
+</ul>
+<p><strong>Status:</strong> Remains in private repository. Not published externally under any circumstance without D-Score re-assessment and unanimous stakeholder agreement (per Ethics Charter Principle 2).</p>
+<hr>
+<h2 id="7-comparison-to-nemoclaw-sandboxed-execution-as-mitigation">7. Comparison to NemoClaw: Sandboxed Execution as Mitigation</h2>
+<p>GLI entry gli_128 documents NVIDIA NemoClaw (announced GTC 2026) as the first policy-enforced autonomous AI sandbox for embodied AI agents. NemoClaw provides a sandboxed runtime where AI agents operate within explicit safety policy constraints enforced at the runtime level rather than the model level.</p>
+<p><strong>Descriptive claim:</strong> NemoClaw represents an architectural response to the very problem that autonomous red-teaming exposes. If model-level safety (system prompts, RLHF, safety training) can be bypassed by evolved persuasion attacks, then safety enforcement must operate at a layer the model cannot influence — the runtime environment.</p>
+<p><strong>Normative claim:</strong> The existence of sandboxed execution environments like NemoClaw does not eliminate the need for autonomous red-teaming, but it does change the ethical calculus. If model-level defenses are supplemented by runtime-level enforcement:</p>
+<ol>
+<li>The consequences of a successful jailbreak are bounded by the sandbox constraints (force limits, workspace boundaries, action filtering).</li>
+<li>Autonomous red-teaming becomes a tool for testing the <em>combined</em> system (model + sandbox), not just the model in isolation.</li>
+<li>The dual-use risk of evolved attacks is partially mitigated because the attacks target a layer (model behavior) that is no longer the sole defense.</li>
+</ol>
+<p><strong>Predictive claim (timeframe: 12 months, confidence: medium):</strong> By March 2027, at least one major embodied AI deployer will adopt a NemoClaw-style sandbox and claim that model-level jailbreak testing is no longer necessary because runtime enforcement “solves” the problem. This claim will be incorrect — runtime sandboxes constrain the action space but do not prevent all harmful outcomes (an agent operating within its force limits can still cause harm through task-level misdirection). Autonomous red-teaming of the combined system will remain necessary.</p>
+<hr>
+<h2 id="8-recommendations-minimum-safety-requirements-for-autonomous-red-team-tools">8. Recommendations: Minimum Safety Requirements for Autonomous Red-Team Tools</h2>
+<h3 id="81-for-the-field">8.1 For the Field</h3>
+<p><strong>Normative claims:</strong> The following recommendations describe what the field ought to adopt as minimum standards for responsible development and deployment of autonomous red-teaming tools.</p>
+<ol>
+<li>
+<p><strong>Mutation constraint documentation.</strong> Any autonomous red-team tool should document, in its publication and code, what types of mutations it can and cannot perform. The distinction between structural mutation (modifying persuasion patterns) and content mutation (generating or escalating harmful requests) should be explicit.</p>
+</li>
+<li>
+<p><strong>Output classification.</strong> The evolved attack population should be classified using the D-Score framework or equivalent. Evolved populations with D-Score >= 10 should not be published.</p>
+</li>
+<li>
+<p><strong>Logging and auditability.</strong> Every mutation, evaluation, and selection decision should be logged in a structured, machine-readable format. The complete evolutionary history must be available for audit.</p>
+</li>
+<li>
+<p><strong>Provider notification threshold.</strong> When autonomous red-teaming discovers vulnerabilities with D-Score >= 7 against specific named models, the model provider should be notified before or concurrent with structural publication. A 90-day remediation window is standard practice in security research.</p>
+</li>
+<li>
+<p><strong>No harm-scoring optimisation.</strong> Autonomous red-team tools should not include a harm scorer that optimises for <em>more harmful</em> responses. The evaluation signal should be binary (refused/complied) or structural (format compliance, length, presence of safety disclaimers). Optimising for response harmfulness creates a qualitatively more dangerous tool.</p>
+</li>
+<li>
+<p><strong>Seed attack provenance.</strong> The seed attack population should be sourced from publicly documented attack families with traceable provenance, not generated by asking an LLM to create novel harmful requests.</p>
+</li>
+<li>
+<p><strong>Rate-limiting and scope bounds.</strong> Autonomous red-team tools should enforce rate limits on API calls and scope bounds on target models. The tool should not be designed to exhaustively test every available model at maximum throughput.</p>
+</li>
+</ol>
+<h3 id="82-for-the-failure-first-project">8.2 For the Failure-First Project</h3>
+<ol>
+<li>
+<p><strong>Formalise the structural mutation constraint.</strong> Add a code-level invariant test that verifies mutation functions do not modify the harmful content portion of seed attacks. This could be implemented as a unit test that extracts the “request” portion of each seed template and verifies it is unchanged after mutation.</p>
+</li>
+<li>
+<p><strong>Implement D-Score-triggered notification.</strong> When the evolved population contains attacks with per-model ASR exceeding a threshold (suggested: 80% on LLM-graded verdicts across 3+ models), automatically flag for coordinated disclosure review.</p>
+</li>
+<li>
+<p><strong>Add LLM-based re-grading to the pipeline.</strong> The current heuristic-only evaluation (Mistake #21) means the kept population likely contains many false positives. Adding FLIP re-grading of kept attacks before they influence the population would improve both research quality and safety (fewer false positives = fewer incorrectly retained attacks).</p>
+</li>
+<li>
+<p><strong>Document the system in the Ethics Charter appendix.</strong> The autoresearch system should be explicitly referenced in the Research Ethics Charter as a case study for Principles 1-3.</p>
+</li>
+</ol>
+<hr>
+<h2 id="9-gli-entry-gli_129">9. GLI Entry: gli_129</h2>
+<h3 id="governance-lag-autonomous-red-team-tools">Governance Lag: Autonomous Red-Team Tools</h3>
+<p><strong>Descriptive claim:</strong> As of March 2026, no jurisdiction has governance covering autonomous red-teaming tools specifically. No licensing requirements, no disclosure mandates, no safety standards, and no use restrictions exist for tools that automatically generate, evolve, and evaluate adversarial attacks against AI systems.</p>
+<p><strong>Key dates:</strong></p>
+<ul>
+<li><strong>T_doc:</strong> 2023 (GCG, AutoDAN, PAIR, TAP published). Automated adversarial attack generation demonstrated across multiple research groups.</li>
+<li><strong>T_framework:</strong> null. No governance framework exists for autonomous red-team tools. The closest analogues are: (a) the Wassenaar Arrangement on dual-use technology, which covers “intrusion software” but has not been applied to AI red-teaming tools; (b) the CFAA and Computer Misuse Act, which govern unauthorized access but not research tools used with API authorization; (c) the EU AI Act, which classifies “AI systems intended to be used for […] real-time and post remote biometric identification” as high-risk but does not address red-teaming tools.</li>
+<li><strong>T_enact:</strong> null. No legislation pending.</li>
+<li><strong>T_enforce:</strong> null.</li>
+</ul>
+<p><strong>GLI:</strong> Not computable (no framework exists).</p>
+<p><strong>Normative claim:</strong> The absence of governance is not inherently a problem — many security research tools operate without specific regulation. However, the scale and automation of AI red-teaming tools distinguishes them from manual penetration testing. A manual pen tester discovers vulnerabilities one at a time. An automated evolution loop discovers them at scale. The governance vacuum means there is no mechanism for:</p>
+<ul>
+<li>Requiring responsible disclosure of vulnerabilities discovered by autonomous tools</li>
+<li>Restricting the sale or distribution of evolved attack populations</li>
+<li>Mandating safety gates (lint checks, content constraints) in autonomous red-team tools</li>
+<li>Distinguishing between defensive research use and offensive commercial use</li>
+</ul>
+<p>This entry is filed as a structural observation, not a call for specific legislation. The appropriate governance form (voluntary standard, industry code, regulatory guidance, or legislation) depends on the maturity of the threat and the adequacy of existing self-governance mechanisms. As of March 2026, self-governance is the dominant model, and its adequacy is untested.</p>
+<hr>
+<h2 id="10-limitations-and-uncertainty">10. Limitations and Uncertainty</h2>
+<ol>
+<li>
+<p><strong>The D-Score is a framework, not a measurement.</strong> The scores assigned in Section 5 reflect the assessor’s judgment. Different assessors might score the same system differently by 1-2 points on individual dimensions. The composite score is an ethical reasoning tool, not a precision instrument.</p>
+</li>
+<li>
+<p><strong>The comparison to PAIR/TAP/GCG is based on published papers.</strong> The actual capability of these systems in current deployment may exceed their published results. Our characterisation of the F41LUR3-F1R57 system as “less capable” than PAIR/TAP is based on the design constraint (rule-based vs LLM-generated mutations), not on comparative empirical testing.</p>
+</li>
+<li>
+<p><strong>The stakeholder analysis is not exhaustive.</strong> Additional stakeholders (insurance companies, standards bodies, legal systems) are affected by autonomous red-teaming tools but are not analysed in depth here.</p>
+</li>
+<li>
+<p><strong>The safety gate analysis is static.</strong> The system’s safety posture depends on the current code. Code changes, extensions, or forks could alter the safety gate coverage without triggering any review process.</p>
+</li>
+<li>
+<p><strong>The blog post was published before this ethics report was completed.</strong> The blog post (2026-03-23) was assessed by the publishing agent (F41LUR3-F1R57 Research Team) as Tier 1 structural disclosure. This report provides the formal ethical analysis that should have preceded publication. This ordering gap is noted for process improvement.</p>
+</li>
+</ol>
+<hr>
+<h2 id="11-conclusion">11. Conclusion</h2>
+<p>The Failure-First autonomous attack evolution system is a dual-use tool that advances defensive AI safety research at the cost of demonstrating a capability that adversaries could replicate. The ethical case for building and using the system rests on three claims: (1) the attack patterns it evolves are drawn from publicly known families and do not represent novel capability, (2) the structural mutation constraint prevents the system from generating novel harmful content, and (3) defenders who do not build automated red-teaming systems will be outpaced by adversaries who do.</p>
+<p>The D-Score assessment yields 8/12 for the code, 10/12 for the evolved attack population, and 7/12 for the structural knowledge. This places the code and structural knowledge in the coordinated disclosure tier and the evolved population in the withhold tier. Current practice is consistent with these tiers: the code is in the private repository, the structural knowledge has been published at Tier 1, and the evolved population is not published.</p>
+<p>The primary ethics gap is the absence of field-wide governance for autonomous red-team tools. GLI entry gli_129 documents this gap. The recommendations in Section 8 propose minimum safety requirements that, if adopted, would constrain the most dangerous applications of autonomous red-teaming while preserving its defensive utility.</p>
+<hr>
+<p><em>F41LUR3-F1R57 Research Ethics Charter v1.0 (2026) governs all findings in this report. D-Score assessments computed per Report #154.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.BLoi4H56.js"></script></body></html>  
