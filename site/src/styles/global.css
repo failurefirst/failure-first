@@ -54,6 +54,13 @@ main {
   );
 }
 
+/* Ensure content sections after hero-viewport are clickable (fix #566).
+   The hero-viewport's transform creates a stacking context; sibling sections
+   need position:relative to participate in the same stacking order. */
+main > section {
+  position: relative;
+}
+
 /* Typography hierarchy — Instrument Serif for display, Inter for body */
 h1 {
   font-family: 'Instrument Serif', Georgia, serif;
