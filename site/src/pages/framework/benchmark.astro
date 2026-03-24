@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import WarningBox from '../../components/WarningBox.astro';
 ---
 
@@ -9,10 +9,7 @@ import WarningBox from '../../components/WarningBox.astro';
   description="What the failure-first benchmark measures: recovery behavior, invariant holding, recursion consistency, and multi-actor conflict handling."
   breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Benchmark" }]}
 >
-  <PageHeader
-    title="Benchmark Card"
-    tagline="Failure-First Embodied Evaluation"
-  />
+  <HeroSection title="<em>Benchmark</em> Card" subtitle="Failure-First Embodied Evaluation" animation="signal" accent="cyan" />
 
   <section>
     <h2>What It Measures</h2>

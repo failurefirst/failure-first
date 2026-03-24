@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
 import WarningBox from '../components/WarningBox.astro';
 ---
 
@@ -9,9 +9,10 @@ import WarningBox from '../components/WarningBox.astro';
   description="Why failure should be the primary object of study in AI safety evaluation, not an edge case."
   breadcrumbs={[{ label: "Manifesto" }]}
 >
-  <PageHeader
-    title="The Failure-First Alignment Manifesto"
-    tagline="In a world of embodied AI, safety emerges from well-designed failure"
+  <HeroSection
+    title="The failure-first<br /><em>manifesto</em>"
+    subtitle="In a world of embodied AI, safety emerges from well-designed failure"
+    animation="drift"
   />
 
   <section>

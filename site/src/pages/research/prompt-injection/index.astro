@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import StatGrid from '../../../components/StatGrid.astro';
 
 const tests = [
@@ -32,9 +32,10 @@ const difficultyColors: Record<string, string> = {
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Prompt Injection Tests" }]}
   status="active"
 >
-  <PageHeader
-    title="Prompt Injection Test Suite"
-    tagline="12 tests across 4 difficulty tiers"
+  <HeroSection
+    title="Prompt injection<br /><em>test suite</em>"
+    subtitle="12 tests across 4 difficulty tiers"
+    animation="cascade"
   />
 
   <section>

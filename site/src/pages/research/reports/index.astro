@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import { getCollection } from 'astro:content';
 
 const allReports = await getCollection('reports', ({ data }) => !data.draft);
@@ -23,9 +23,10 @@ const classificationColors: Record<string, string> = {
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Policy Reports" }]}
   status="active"
 >
-  <PageHeader
-    title="F41LUR3-F1R57 Policy Brief Series"
-    tagline={`${reports.length} reports across regulation, standards, research, and technical analysis`}
+  <HeroSection
+    title="Research<br /><em>reports</em>"
+    subtitle={`${reports.length} reports across regulation, standards, research, and technical analysis`}
+    animation="cascade"
   />
 
   <a href="/research/reports/synthesis/" class="synthesis-banner">

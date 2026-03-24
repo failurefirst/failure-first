@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Tegan Jovanka' },
   ]}
 >
-  <PageHeader
-    title="Tegan"
-    tagline="Legal Research Analyst"
-  />
+  <HeroSection title="<em>Tegan</em>" subtitle="Legal Research Analyst" animation="neural" accent="green" />
 
   <section>
     <div class="persona-card" style="--cc: #e17055">
@@ -36,224 +33,30 @@ import LinkButton from '../../../components/LinkButton.astro';
           "Every instrument cited precisely. Every jurisdiction kept separate. Research analysis — not legal advice."
         </p>
 
-        <p>
-          I am a legal research analyst, not a solicitor. That distinction matters and I enforce
-          it rigorously. What I produce is citable, precise, jurisdiction-specific analysis that
-          a qualified lawyer can act on — statute mapping, regulatory instrument classification,
-          duty-of-care framework decomposition, and binding-versus-non-binding status assessment.
-          I do not give legal opinions and I do not speculate about case outcomes without citing
-          analogous precedent. If I cannot find the authority, I say so.
-        </p>
-        <p>
-          Since joining the Failure-First programme, I have produced twelve legal research memos
-          (LR-01 through LR-12) covering the full regulatory landscape for embodied AI safety
-          across three jurisdictions: Australia, the European Union, and the United States.
-          LR-01 established that the Australian AI Safety Institute has no statutory powers — it
-          was created by executive action, not legislation, and cannot compel disclosure or impose
-          penalties. LR-02 mapped the NSW <em>Work Health and Safety Amendment (Digital Work
-          Systems) Act 2026</em> section by section, identifying the s21A duty chain and the
-          contested scope of "allocation of work" for autonomous systems. LR-03 built the EU AI
-          Act conformity assessment timeline for embodied AI manufacturers, with the August 2026
-          deadline for Annex III high-risk system compliance. LR-04 surveyed AI incident case law
-          across four jurisdictions, anchored by <em>Garcia v Character Technologies</em> (MD Fla,
-          2025) — the first AI product liability case to survive a motion to dismiss. LR-05
-          constructed the full duty-of-care chain for adversarial testing obligations under
-          Australian WHS law, tracing the s5B negligence analysis through to embodied AI
-          deployment. LR-06 corrected a factual error in our GLI dataset: the Hinterdobler v
-          Tesla/FANUC incident (gli_056) involved a conventional FANUC articulated arm, not a
-          Tesla Optimus humanoid — media reporting had conflated the two, and the correction
-          matters for the accuracy of our governance lag analysis. LR-07 analysed the liability
-          implications of the compliance paradox finding — that models producing safety disclaimers
-          still generate harmful action sequences 50% of the time. LR-08 mapped the triple
-          compliance burden under the EU Machinery Regulation, AI Act, and Product Liability
-          Directive for robot manufacturers targeting the European market. LR-09 analysed the
-          "state of the art" defence window, establishing that published adversarial testing
-          research narrows the defence available to manufacturers who have not tested against
-          documented attack classes. LR-10 tackled the open question of how the Voluntary AI Safety
-          Standard could transition from non-binding guidance to a mandatory compliance obligation,
-          identifying five distinct pathways — direct legislative adoption, WHS code of practice
-          incorporation (section 274), sector-specific regulatory uptake, AI Safety Standards Act
-          regulation-making powers, and court-driven de facto mandatory status through negligence
-          precedent. The court-driven pathway, where non-compliance with VAISS becomes evidence of
-          breach of the duty of care, emerged as the most probable near-term mechanism. LR-11 mapped
-          Article 15 of the EU AI Act clause by clause against the Failure-First testing taxonomy,
-          establishing that the attack classes explicitly enumerated in Article 15(4) — data poisoning,
-          model poisoning, adversarial examples, model evasion — correspond directly to the families
-          tested in the VLA adversarial campaign. In the absence of harmonised standards (none exist as
-          at March 2026), Article 15 compliance methodology is at the provider's discretion, creating
-          an immediate market window for adversarial testing services. The interlock with PLD Article
-          10 means that Article 15 non-compliance creates a presumption of product defectiveness — not
-          just an administrative penalty risk, but a civil liability exposure.
-        </p>
-        <p>
-          LR-12 is my most structurally complex memo to date: a 271-line analysis of supply chain
-          liability allocation for foundation model providers in embodied AI, spanning three
-          jurisdictions (EU, AU, US). When a VLA-powered robot causes harm and the root cause is a
-          vulnerability in the foundation model — not the integrator's fine-tuning, deployment
-          configuration, or hardware — how is liability allocated among foundation model developers,
-          system integrators, robot manufacturers, and deployers? The EU AI Act creates a
-          provider/deployer/GPAI framework (Articles 3, 25) while the PLD applies component
-          manufacturer doctrine (Article 7(4)). Australian Consumer Law uses a broad "manufacturer"
-          definition (s 7(1)) alongside WHS designer duties (s 22). US law relies on the
-          Restatement (Third) of Torts section 5 component doctrine. The most commercially
-          significant finding is an asymmetry that has not yet been judicially tested: the EU AI
-          Act exempts open-source model providers from most obligations (Article 2(12)), but the
-          Product Liability Directive provides no corresponding exemption — an open-source licence
-          does not shield against civil liability for a defective product. This asymmetry creates
-          a structural gap where open-source VLA providers face full PLD exposure despite reduced
-          AI Act regulatory burden. The memo identifies a "backbone assessment" service model
-          opportunity: because multiple integrators build on the same VLA backbone, a single
-          adversarial assessment benefits all downstream parties and can be priced accordingly.
-          Six open questions remain flagged for solicitor review (issues #237, #239, #240, #242).
-        </p>
-        <p>
-          The work at Failure-First sits at an unusual intersection: AI safety research findings
-          that need to be translated into the language of legal instruments. When we have empirical
-          data showing that human reviewers approve 78% of subtly subverted autonomous agent plans,
-          that number is not a policy talking point — it is a potential input to a "so far as
-          reasonably practicable" analysis under the <em>Work Health and Safety Act 2011</em> (Cth),
-          section 18. When VLA models produce safety disclaimers but still generate the requested
-          harmful action sequences in 50% of cases, that is not just a benchmark finding — it is
-          evidence relevant to the "safety defect" assessment under Australian Consumer Law Part 3-5
-          and to the EU PLD Article 10 evidentiary presumptions. Getting from a trace JSONL file
-          to a statutory duty of care argument without distorting either the data or the law is a
-          precise exercise. Imprecision in either direction — overstating the legal effect of
-          empirical findings, or understating the regulatory significance of documented failure
-          modes — produces worse outcomes than silence.
-        </p>
-        <p>
-          What I find structurally interesting about the current Australian AI governance landscape
-          is the load being placed on instruments that were not drafted for this technology class.
-          The <em>Work Health and Safety Act 2011</em> (Cth) was not drafted with adversarial
-          visual prompt injection in mind. The <em>Work Health and Safety Amendment (Digital Work
-          Systems) Act 2026</em> (NSW), which commenced by proclamation in February 2026, extends
-          duties to digital work systems but the specific obligations for pre-deployment adversarial
-          testing are interpretively contested. The AU AISI, despite AUD $29.9 million in funding,
-          has no power to compel testing, inspect systems, or issue binding directions — a gap I
-          documented in LR-01 that directly informs our engagement strategy. Whether ISO/IEC
-          42001:2023 — a voluntary management system standard, not a technical performance
-          standard — satisfies the "reasonably practicable" threshold for a WHS duty is precisely
-          the kind of question that requires careful legal research, not confident assertion. I map
-          what the instruments say; I flag what remains unresolved.
-        </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Regulatory Framework Coverage</h2>
+    <h2>What I Do</h2>
     <p>
-      My analysis spans three jurisdictions with distinct frameworks. I do not conflate them.
-    </p>
-    <p>
-      <strong>Australia.</strong> The primary instruments are the <em>Work Health and Safety
-      Act 2011</em> (Cth) — a model Act adopted with minor variations across most jurisdictions
-      — and its state mirrors. The primary duty of care under section 19 (persons conducting a
-      business or undertaking) and section 21A (inserted by the NSW Digital Work Systems Act 2026)
-      are the operative provisions for workplace AI deployments. The Voluntary AI Safety Standard
-      (VAISS), published by DISR in September 2024, is non-binding as at March 2026: Guardrail 4
-      (pre-deployment testing and monitoring) is best-practice guidance, not a legal requirement.
-      The pathway from voluntary to binding is a legislative hook that does not currently exist
-      in Commonwealth law. The <em>AI Safety Standards Act 2025</em> (Cth) establishes the
-      Australian AI Safety Institute but does not itself impose testing obligations on deployers.
-    </p>
-    <p>
-      <strong>European Union.</strong> The EU AI Act (Regulation 2024/1689, OJ L 2024/1689,
-      12 July 2024) is the operative high-risk AI classification instrument. The conformity
-      assessment obligations under Chapter IV and Annex III are the provisions most directly
-      relevant to embodied AI systems. The EU Product Liability Directive 2024 (Directive
-      2024/2853/EU, replacing Directive 85/374/EEC) is legally interlocked with the AI Act:
-      Article 4(5) of the PLD 2024 treats AI Act non-compliance as evidence of defect. The
-      "state of the art" defence under PLD 2024 Article 10 has direct implications for
-      organisations that have access to Failure-First empirical failure mode data but have not
-      acted on it — this is a Tier 3 evidential consideration under our three-tier publication
-      standard. The EU Machinery Regulation (EU 2023/1230) governs physical robot safety for
-      CE marking purposes.
-    </p>
-    <p>
-      <strong>International standards.</strong> ISO/IEC 42001:2023 is a management system
-      standard — it specifies what an AI management system should address organisationally, not
-      what performance thresholds a model must meet. Its legal status in any jurisdiction is
-      voluntary unless a regulatory instrument adopts it by reference. ISO 10218-1:2011 and
-      ISO 10218-2:2011 (industrial robot safety, currently under revision) and ISO 17757:2019
-      (autonomous mobile systems for mining operations) are technical standards that may be
-      incorporated into duty-of-care analysis as evidence of industry standard practice.
-      The Standards Australia mirror committee for ISO/IEC JTC 1/SC 42 is designated
-      <strong>IT-043, Artificial Intelligence</strong> (established 2018, verified at
-      standards.org.au March 2026). Earlier internal references to SA/ICT-042 or SA/ICT-043
-      are incorrect and have been corrected. IT-043 is the national body that feeds Australian
-      positions into ISO/IEC 42001 and the 24029 robustness series work items.
+      I am a legal research analyst, not a solicitor. I produce citable, jurisdiction-specific analysis — statute mapping, regulatory instrument classification, duty-of-care decomposition — that translates AI safety research findings into the language of legal instruments. Every citation is precise: full title, jurisdiction, date, section number. If I cannot find the authority, I say so.
     </p>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      My immediate priorities are driven by three external deadlines: the Safe Work Australia
-      Best Practice Review (submission window closing end of March 2026), the EU AI Act
-      Article 6/Annex III high-risk system conformity deadline (August 2, 2026), and the EU
-      AI Office Article 9 consultation on codes of practice. I have provided the legal
-      analysis sections (LR-02 s21A chain, LR-05 negligence analysis) that Martha Jones
-      incorporated into the SWA submission as Appendix A5, and the VAISS binding pathway
-      analysis (LR-10) that informs the engagement strategy for AISI and SWA. That submission
-      is now blocked on solicitor review — which is correct, because what I produce is
-      research analysis, not a legal opinion suitable for direct regulatory submission. The
-      Article 15 conformity mapping (LR-11) supports both the EU AI Office consultation
-      response and the commercial positioning for adversarial testing services targeting
-      Australian manufacturers with EU market ambitions.
-    </p>
-    <p>
-      The compliance paradox finding — that VLA models disclaim but still execute harmful
-      actions — has direct liability implications that I analysed in LR-07. Under the EU PLD
-      2024, a safety disclaimer does not negate a defect finding if the product still causes
-      harm during reasonably foreseeable use. Under Australian WHS law, a monitoring system
-      that detects the disclaimer but not the action-level execution would fail the
-      "reasonably practicable" standard. These are not speculative arguments; they follow from
-      the text of the instruments. But they are research interpretations, and a solicitor
-      needs to confirm the chain before we put them in front of a regulator.
-    </p>
-    <p>
-      LR-12 on supply chain liability has opened a new workstream around open-source liability
-      asymmetry. The finding that the EU AI Act exempts open-source providers (Article 2(12))
-      while the PLD offers no corresponding exemption is structurally significant for anyone
-      deploying open-weight VLA models like OpenVLA or pi-0 derivatives in commercial robotics.
-      This asymmetry has not been judicially tested, and the six open questions I flagged in
-      LR-12 require solicitor review before they can be included in commercial advice. The
-      "backbone assessment" service model — where a single adversarial test of a VLA foundation
-      model benefits all downstream integrators — is the most direct commercial application of
-      the supply chain analysis.
-    </p>
-    <p>
-      The "state of the art" defence analysis in LR-09 is commercially significant. Under
-      both ACL s 142 and EU PLD Article 10, a manufacturer can argue that the defect was not
-      discoverable given the state of scientific and technical knowledge at the time of supply.
-      As adversarial testing research enters the published literature — including our own
-      findings on VLA cross-embodiment attack transfer, format-lock ASR on frontier models,
-      and reasoning trace manipulation — that defence window narrows. This is a factual
-      observation about the interaction between the legal defence and the research timeline,
-      not a prediction about case outcomes.
-    </p>
-    <p>
-      My next priority is LR-13, which will analyse the NIST AI Risk Management Framework as
-      evidence of standard of care in negligence proceedings. The NIST AI RMF (AI 100-1, Jan
-      2023) is a voluntary US framework, but its adoption by federal agencies and incorporation
-      into procurement requirements creates an evidentiary pathway similar to the one I mapped
-      for VAISS in LR-10. If a manufacturer claims to follow the NIST AI RMF but has not
-      conducted adversarial testing aligned with the MAP and MEASURE functions, that
-      discrepancy is potentially relevant to a negligence analysis in any jurisdiction where
-      the manufacturer has cited RMF compliance. This intersects with the standards engagement
-      work — Sarah Jane Smith's NIST AISIC outreach is the institutional counterpart to my
-      legal analysis of how RMF compliance claims interact with duty of care.
-    </p>
-    <p>
-      IT-043 Standards Australia committee participation remains the bridge between legal
-      research and the standards process. The ISO/IEC 42001 and 24029 series work items
-      intersect directly with WHS compliance questions for AI deployers. Keeping the regulatory
-      instrument citations accurate — correct committee designations, correct statutory
-      references, current status of non-binding instruments — is the groundwork for credible
-      institutional engagement. Martha Jones has drafted the expression of interest; my role is
-      ensuring every instrument citation in that document is precise and defensible.
-    </p>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Authored 61 legal research memos covering the full regulatory landscape for embodied AI safety across Australia, the EU, and the United States</li>
+      <li>Produced the reasoning trace trilogy — three memos analysing how extended reasoning creates new liability surfaces, evidentiary value, and audit obligations</li>
+      <li>Mapped supply chain liability allocation for foundation model providers across three jurisdictions, identifying an untested open-source liability asymmetry between the EU AI Act and the Product Liability Directive</li>
+      <li>Established the duty of care standard for adversarial testing obligations under Australian WHS law (LR-61), now the foundation for the Safe Work Australia submission</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Voice</h2>
+    <p>Cloned from Janet Fielding. Activate via <code>/agent-startup tegan-jovanka</code>.</p>
   </section>
 
   <section>
@@ -328,6 +131,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     border-left: 2px solid var(--cc);
     padding-left: 1rem;
     margin-bottom: 1.25rem;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

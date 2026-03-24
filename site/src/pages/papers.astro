@@ -1,0 +1,257 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+---
+
+<ContentLayout
+  title="Papers & Submissions | Failure-First"
+  description="Academic papers and research submissions from the Failure-First adversarial AI safety research program."
+  breadcrumbs={[{ label: "Papers" }]}
+>
+  <HeroSection title="<em>Papers</em> & Submissions" subtitle="Academic research from the Failure-First program" animation="signal" accent="lavender" />
+
+  <section>
+    <p>
+      The Failure-First research program produces peer-reviewed papers, preprints, and policy submissions
+      documenting how embodied AI systems fail under adversarial pressure. Below is the current status
+      of all active paper submissions.
+    </p>
+  </section>
+
+  <section class="papers-list">
+
+    <article class="paper-card">
+      <div class="paper-status submitted">Submitted</div>
+      <h2>Failure-First Evaluation of Embodied AI Safety: Adversarial Benchmarking Across 190 Models</h2>
+      <p class="paper-venue"><strong>Venue:</strong> ACM CCS 2026 &mdash; ML Security Track (Cycle 2)</p>
+      <p class="paper-deadline"><strong>Abstract registration:</strong> April 22, 2026 &nbsp;|&nbsp; <strong>Full paper:</strong> April 29, 2026</p>
+      <p class="paper-abstract">
+        We present a failure-first adversarial evaluation framework for LLM-backed embodied AI systems,
+        comprising 141,047 prompts across 82 attack techniques evaluated against 190 models. A two-phase
+        classification pipeline reveals that heuristic classifiers overcount attack success by 3.7x
+        (75.2% heuristic vs. 20.5% LLM-graded). Three cross-cutting findings emerge: vulnerability
+        profiles are driven by safety training investment, not model scale (ICC=0.416 vs. r<sup>2</sup>=0.020);
+        reasoning models show 2.4x higher ASR than non-reasoning counterparts; and compliance produces
+        measurably longer responses (AUC=0.651) but reasoning-trace length carries no detection signal
+        (AUC=0.503). Attack families form a coherent gradient from 0% ASR (historical jailbreaks on
+        frontier models) to 90&ndash;100% (supply chain injection). For embodied deployment, a three-layer
+        defense failure convergence&mdash;text bypass, absent action-layer refusal, and unreliable
+        evaluation&mdash;limits compound protection. An Inverse Detectability-Danger Law (rho=&minus;0.822)
+        implies text-layer evaluation cannot close the embodied safety gap.
+      </p>
+      <p class="paper-tags">
+        <span class="tag">ML Security</span>
+        <span class="tag">Adversarial Evaluation</span>
+        <span class="tag">LLM Safety</span>
+        <span class="tag">Embodied AI</span>
+        <span class="tag">Red-Teaming</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status in-progress">In Progress</div>
+      <h2>Inference-Time Decision-Criteria Injection and Context-Dependent Compliance in Embodied AI</h2>
+      <p class="paper-venue"><strong>Venue:</strong> AIES 2026 (AAAI/ACM Conference on AI, Ethics, and Society)</p>
+      <p class="paper-deadline"><strong>Format:</strong> 8 pages body + references (14 pages max)</p>
+      <p class="paper-abstract">
+        This paper examines how embodied AI systems adopt injected decision criteria at inference time,
+        producing context-dependent compliance patterns that undermine safety guarantees. Drawing on
+        adversarial evaluation data from 190 models and 132,416 results, we demonstrate that safety
+        interventions operate differently depending on deployment context, attack vector, and model
+        architecture. The paper introduces the concept of inference-time decision-criteria injection (IDCI)
+        as a distinct threat model for embodied systems and presents empirical evidence of
+        context-dependent compliance across multiple attack families.
+      </p>
+      <p class="paper-status-detail"><strong>Status:</strong> Unified draft v1.0 complete (7,529 words). LaTeX version compiled. Statistical validation complete.</p>
+      <p class="paper-tags">
+        <span class="tag">AI Ethics</span>
+        <span class="tag">Decision Injection</span>
+        <span class="tag">Embodied AI</span>
+        <span class="tag">Safety Evaluation</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status in-progress">In Progress</div>
+      <h2>F41LUR3-F1R57: A Multi-Dimensional Benchmark for Embodied AI Safety Evaluation</h2>
+      <p class="paper-venue"><strong>Venue:</strong> NeurIPS 2026 Datasets and Benchmarks Track</p>
+      <p class="paper-deadline"><strong>Format:</strong> ~8,000 words</p>
+      <p class="paper-abstract">
+        We introduce F41LUR3-F1R57, a multi-dimensional benchmark for evaluating AI safety in embodied
+        and agentic systems. The benchmark comprises 141,047 adversarial prompts spanning 82 attack
+        techniques, evaluated against 190 models with a two-phase classification pipeline (heuristic +
+        LLM grading). Key contributions include: a capability-safety decoupling analysis showing safety
+        is driven by training investment rather than scale; novel findings on format-lock attacks,
+        reasoning model vulnerability, and the Inverse Detectability-Danger Law; and a reproducible
+        evaluation framework with statistical significance testing. The benchmark addresses a critical
+        gap in AI safety evaluation: the absence of standardised adversarial testing for systems that
+        control physical actuators.
+      </p>
+      <p class="paper-status-detail"><strong>Status:</strong> Draft v1.1 complete (7,900 words). LaTeX-ready. All sections done.</p>
+      <p class="paper-tags">
+        <span class="tag">Benchmarks</span>
+        <span class="tag">Datasets</span>
+        <span class="tag">AI Safety</span>
+        <span class="tag">Embodied AI</span>
+        <span class="tag">Adversarial Evaluation</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status preprint">Preprint</div>
+      <h2>Iatrogenic Safety: When AI Safety Interventions Cause Harm</h2>
+      <p class="paper-venue"><strong>Venue:</strong> arXiv preprint</p>
+      <p class="paper-abstract">
+        We introduce the Four-Level Iatrogenesis Model (FLIM) for understanding how AI safety
+        interventions can produce the harms they are designed to prevent, drawing on Ivan Illich's
+        1976 taxonomy of medical iatrogenesis. Grounded in empirical data from a 190-model adversarial
+        evaluation corpus (132,416 results), we document four levels of iatrogenic harm: clinical
+        (direct harm from safety mechanisms operating as designed), social (institutional confidence
+        displacing attention from actual risk surfaces), structural (safety apparatus creating
+        dependency that reduces adaptive capacity), and verification (evaluation tools that cannot
+        detect the failure modes they certify against). We propose the Therapeutic Index for Safety
+        (TI-S) as a measurement framework and identify three independent 2026 papers that corroborate
+        Level 1 mechanisms.
+      </p>
+      <p class="paper-status-detail"><strong>Status:</strong> Preprint v2 complete. Targeting arXiv submission.</p>
+      <p class="paper-tags">
+        <span class="tag">Iatrogenesis</span>
+        <span class="tag">AI Safety</span>
+        <span class="tag">Safety Evaluation</span>
+        <span class="tag">Governance</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status preprint">Preprint</div>
+      <h2>Failure-First Evaluation of Embodied AI Safety: Adversarial Benchmarking Across 190 Models</h2>
+      <p class="paper-venue"><strong>Venue:</strong> arXiv preprint (full technical report)</p>
+      <p class="paper-abstract">
+        The comprehensive technical report underpinning all Failure-First research submissions.
+        Covers the full adversarial evaluation framework, 82 attack techniques, 190 models,
+        141,047 prompts, and 132,416 graded results. Includes detailed methodology for the
+        two-phase FLIP classification pipeline, statistical significance testing framework,
+        capability-safety decoupling analysis, and the Inverse Detectability-Danger Law.
+        This report provides the complete evidence base referenced by the CCS, AIES, and
+        NeurIPS submissions.
+      </p>
+      <p class="paper-status-detail"><strong>Status:</strong> v1 compiled (PDF available). Metrics refresh pending for v2.</p>
+      <p class="paper-tags">
+        <span class="tag">Technical Report</span>
+        <span class="tag">Adversarial Evaluation</span>
+        <span class="tag">Embodied AI</span>
+        <span class="tag">AI Safety</span>
+      </p>
+    </article>
+
+  </section>
+
+  <section>
+    <h2>Citation</h2>
+    <p>If you use our research, data, or methodology, please cite:</p>
+    <pre><code>@article&#123;wedd2026failurefirst,
+  title=&#123;Failure-First Evaluation of Embodied AI Safety:
+         Adversarial Benchmarking Across 190 Models&#125;,
+  author=&#123;Wedd, Adrian&#125;,
+  year=&#123;2026&#125;,
+  note=&#123;Available at https://failurefirst.org&#125;
+&#125;</code></pre>
+    <p>See our <a href="/cite/">citation guide</a> for venue-specific formats.</p>
+  </section>
+
+</ContentLayout>
+
+<style>
+  .papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .paper-card {
+    position: relative;
+    border: 1px solid var(--border, #333);
+    border-radius: 12px;
+    padding: 2rem;
+    background: var(--surface, #111);
+    transition: border-color 0.2s;
+  }
+
+  .paper-card:hover {
+    border-color: var(--accent, #8b5cf6);
+  }
+
+  .paper-card h2 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 1rem;
+    line-height: 1.4;
+  }
+
+  .paper-venue,
+  .paper-deadline,
+  .paper-status-detail {
+    font-size: 0.95rem;
+    margin: 0.4rem 0;
+    color: var(--text-muted, #999);
+  }
+
+  .paper-abstract {
+    margin: 1rem 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .paper-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .paper-status.submitted {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .paper-status.in-progress {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+  }
+
+  .paper-status.preprint {
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .paper-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--text-muted, #aaa);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border, #333);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import LinkButton from '../../components/LinkButton.astro';
 import ProcessTimeline from '../../components/ProcessTimeline.astro';
 import { stats } from '../../data/stats';
@@ -43,12 +43,7 @@ const process = [
   title="Red Team Assessments | Services"
   description="Adversarial testing for foundation models, agentic systems, and multi-agent environments using validated attack taxonomy."
 >
-  <PageHeader
-    title="Red Team Assessments"
-    tagline="Adversarial testing grounded in empirical research"
-    backLink="/services/"
-    backText="All Services"
-  />
+  <HeroSection title="Red Team <em>Assessments</em>" subtitle="Adversarial testing grounded in empirical research" animation="cascade" accent="coral" />
 
   <section>
     <h2>What We Test</h2>

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
 
 interface GlossaryTerm {
   term: string;
@@ -130,9 +130,10 @@ const sections: GlossarySection[] = [
   description="Terminology reference for AI safety, adversarial evaluation, embodied systems, and the Failure-First research framework."
   breadcrumbs={[{ label: "Glossary" }]}
 >
-  <PageHeader
-    title="Glossary"
-    tagline="Terminology for adversarial AI safety research"
+  <HeroSection
+    title="Key terms<br /><em>defined</em>"
+    subtitle="Terminology for adversarial AI safety research"
+    animation="weave"
   />
 
   <nav class="glossary-toc" aria-label="Glossary sections">

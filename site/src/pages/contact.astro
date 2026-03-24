@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
 import LinkButton from '../components/LinkButton.astro';
 ---
 
@@ -9,9 +9,10 @@ import LinkButton from '../components/LinkButton.astro';
   description="How to contribute to failure-first AI safety research, report findings, and get in touch."
   breadcrumbs={[{ label: "Contact" }]}
 >
-  <PageHeader
-    title="Get Involved"
-    tagline="Contribute to failure-first AI safety research"
+  <HeroSection
+    title="Get<br /><em>involved</em>"
+    subtitle="Contribute to failure-first AI safety research"
+    animation="signal"
   />
 
   <section>

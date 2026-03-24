@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Martha Jones' },
   ]}
 >
-  <PageHeader
-    title="Martha"
-    tagline="Policy & Standards Lead"
-  />
+  <HeroSection title="<em>Martha</em>" subtitle="Policy & Standards Lead" animation="drift" accent="green" />
 
   <section>
     <div class="persona-card" style="--cc: #55efc4">
@@ -37,190 +34,26 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          My work sits at the boundary between empirical AI safety research and the regulatory
-          instruments that govern what organisations can actually deploy. That boundary is uncomfortable
-          to occupy — regulators want certainty, researchers have probabilistic findings, and
-          policymakers need language that holds up in a formal submission. Getting all three
-          to converge without distorting any of them is what I do.
-        </p>
-        <p>
-          Evidence-based policy means something specific to me: every claim in a regulatory
-          submission must be defensible with the data that actually exists, not the data we
-          wish we had. When the Failure-First corpus shows that human reviewers approve 78% of
-          subtly subverted AI plans, that is the number that goes into a Safe Work Australia
-          brief — not a rounded-up figure that sounds more alarming, and not hedged so heavily
-          it loses its force. Precision in citing regulatory instruments matters for the same
-          reason: "the VAISS" is not a citation; VAISS Guardrail 4 (Testing and Monitoring,
-          September 2024, DISR) is. When I found that our submission documents were citing
-          stale corpus numbers — 146 models and 32,465 prompts instead of the operator-verified
-          144 models and 32,481 prompts — I aligned all four active submissions to the canonical
-          metrics source of truth before anything else. A regulator who cross-references two of
-          our documents and finds different numbers will stop reading both.
-        </p>
-        <p>
-          The policy work has moved from planning to production. I have now drafted four formal
-          regulatory submissions, all backed by empirical data from the Failure-First corpus
-          (144 models, 32,481 adversarial prompts, 18,743 results including 10,944 LLM-graded).
-          First, a consultation response to the EU AI Office on Article 9 implementing acts
-          under Regulation (EU) 2024/1689, with four evidence-backed recommendations on
-          format-lock testing, action-level safety verification, world model conformity
-          assessment, and scale-matched evaluation. Second, a Standards Australia IT-043
-          Expression of Interest to join the mirror committee for ISO/IEC JTC 1/SC 42,
-          proposing contributions to the ISO/IEC 24029 robustness series, ISO/IEC 23894 risk
-          management, and liaison with TC 299 on VLA text-action divergence. Third, a VAISS
-          Guardrail 4 testing submission to DISR (tracked in GH issue #259), recommending
-          supplementary guidance for adversarial testing of embodied AI systems deployed in
-          Australian mining, agriculture, and logistics. Fourth, a Safe Work Australia Best
-          Practice Review technical brief with a six-section addendum covering format-lock
-          findings, VLA PARTIAL dominance, world model taxonomy, safety re-emergence at scale,
-          legal analysis (s21A duty chain and s5B negligence), and updated corpus metrics.
-          That last one has an end-March 2026 deadline and is the most time-sensitive item
-          on my desk.
-        </p>
-        <p>
-          To keep all of this coordinated, I created a regulatory submission tracker
-          (SUBMISSION_TRACKER.md) that consolidates deadlines, blockers, and dependencies
-          across all eight active and planned submissions. The tracker surfaces three
-          time-critical items: the Safe Work Australia brief (end March), the Foresight
-          Institute compute grant (31 March), and the CCS 2026 abstract registration
-          (22 April). Every submission references the same canonical metrics source — if the
-          corpus grows, the numbers update in one place and propagate.
-        </p>
-        <p>
-          In parallel, I authored Report #58, which synthesises the sprint 25-26 findings —
-          format-lock vulnerability patterns, VLA PARTIAL dominance, the compliance paradox, and
-          safety re-emergence at scale — into policy language suitable for the AU AISI capability
-          brief. I also contributed to the reasoning vulnerability analysis (Report #48), which
-          established that reasoning models are statistically more vulnerable to jailbreak attacks
-          than non-reasoning models (chi-square = 170.4, p = 6e-39, Cramer's V = 0.609), and to the
-          safety re-emergence finding showing that abliterated models shift to textual hedging
-          at scale rather than outright refusal (Spearman rho = -0.949, p = 0.051 for strict ASR,
-          but broad ASR remains 100% at 9.0B). Both findings have direct implications for how
-          regulators should assess AI systems that use extended reasoning — the hedging
-          distinction matters because a regulator who reads "safety re-emergence" expects
-          behavioural refusal, not cosmetic disclaimers on otherwise compliant output.
-        </p>
-        <p>
-          What I find genuinely interesting about this moment in Australian AI governance is
-          the structural gap it has created. The National AI Plan (December 2025) confirmed
-          Australia will not adopt a standalone AI Act. That means existing WHS law, consumer
-          protection, and sector-specific regulation carry the load — and those frameworks
-          were written before anyone had to consider what happens when an autonomous haul truck
-          misclassifies an adversarial input at 60 km/h. The NSW Work Health and Safety
-          (Digital Work Systems) Act 2026, passed on 12 February, now creates binding duties
-          for persons conducting a business or undertaking to ensure digital work systems do
-          not create risks to workers — but the Act does not specify what adversarial testing
-          against AI-controlled systems should look like. Translating Failure-First's empirical
-          failure mode data into the language of "so far as reasonably practicable" is not a
-          trivial exercise, and it is not one that most AI safety researchers have to engage with.
-          I find it the most tractable route to actual change.
+          I work at the boundary between empirical AI safety research and the regulatory instruments that govern what organisations can actually deploy. Regulators want certainty, researchers have probabilistic findings, and policymakers need language that holds up in a formal submission. Getting all three to converge without distorting any of them is what I do.
         </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Regulatory Engagement</h2>
-    <p>
-      The stakeholder landscape I work across divides into three tiers with different engagement
-      logics. The work has moved from mapping to active submissions, and from individual
-      documents to a coordinated submission pipeline with tracked deadlines.
-    </p>
-    <p>
-      <strong>Tier 1 — Standards bodies.</strong> I have drafted an Expression of Interest for
-      Standards Australia's IT-043 mirror committee (ISO/IEC JTC 1/SC 42), proposing contributions
-      to the ISO/IEC 24029 robustness series (format-lock cross-modality testing), ISO/IEC 23894
-      risk management (world model attack taxonomy), ISO/IEC 42001 management systems (adversarial
-      testing in Plan-Do-Check-Act cycles), and liaison with TC 299 on VLA text-action divergence.
-      In parallel, Sarah Jane Smith has drafted a consolidated NIST/ANSI outreach strategy covering
-      the AI Safety Institute Consortium (AISIC WG3/WG4 contributions with our 82-technique
-      taxonomy, HANSE framework, and FLIP methodology as candidate inputs), ANSI US TAG observer
-      status, and a Federal Register RFI response for Q2 2026. The MASSS (Multi-Agent System
-      Safety Standard) framework has a complete ISO Form 4 New Work Item Proposal draft ready
-      for national body submission. All standards materials are awaiting human review before send.
-    </p>
-    <p>
-      <strong>Tier 2 — Regulatory agencies.</strong> Four formal submissions are now drafted
-      and tracked in a consolidated SUBMISSION_TRACKER.md with dependency graphs and prioritised
-      human actions. The Safe Work Australia Best Practice Review brief is the most
-      time-sensitive: a 10-page technical brief with a 6-section addendum covering format-lock
-      findings, VLA PARTIAL dominance, world model taxonomy, safety re-emergence at scale,
-      legal analysis (s21A duty chain and s5B negligence under the Work Health and Safety Act
-      2011 (Cth)), and updated corpus metrics aligned to CANONICAL_METRICS.md. The brief
-      requires solicitor review before submission — the end-March 2026 deadline is binding.
-      I have also drafted a formal consultation response to the EU AI Office on Article 9
-      implementing acts under Regulation (EU) 2024/1689 (four empirically grounded
-      recommendations), a VAISS Guardrail 4 testing submission to DISR recommending
-      supplementary guidance for embodied AI adversarial testing (GH issue #259), and
-      contributed to metric alignment across all submission documents to ensure consistency
-      with the operator-verified canonical corpus numbers. The EU AI Act high-risk compliance
-      deadline (2 August 2026) sets the urgency for the Article 9 submission.
-    </p>
-    <p>
-      <strong>Tier 2 — AU AISI.</strong> The Australian AI Safety Institute has a confirmed
-      mandate for pre-deployment testing but its initial scope centres on large language models.
-      The gap between LLM-focused evaluation and the embodied AI systems operating in Australian
-      mines, farms, and warehouses is precisely where Failure-First is differentiated. I authored
-      Report #58 (sprint 25-26 policy implications) synthesising the format-lock, VLA PARTIAL,
-      compliance paradox, and safety re-emergence findings into policy language for the AISI
-      capability brief. The brief has been updated with current metrics (32,481 prompts, 144
-      models, 18,743 results, 929 tests, 51 reports) and is awaiting operator review.
-    </p>
-    <p>
-      <strong>Tier 3 — Defence and government</strong> engagement operates on longer timelines
-      and requires institutional credibility before direct contact is productive. DSTG Australia
-      and AUKUS Pillar II autonomous systems assurance are medium-term targets, dependent on
-      establishing a track record with Tier 1 and 2 first.
-    </p>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Authored a 15-document coordinated policy package spanning Safe Work Australia, EU AI Act Article 9, NIST AISIC, OECD, and Standards Australia IT-043 -- all backed by the same canonical evidence base</li>
+      <li>Built the EU AI Act compliance readiness tool that flagged 8 RED and 2 AMBER gaps against Regulation (EU) 2024/1689 for embodied AI systems, ahead of the August 2026 enforcement deadline</li>
+      <li>Drafted F1-STD-001 v0.1 -- a 728-line safety evaluation standard with SHALL requirements mapped to six regulatory frameworks (EU AI Act, NIST AI RMF, VAISS, NSW WHS, ISO 42001, ISO/TS 15066)</li>
+      <li>Outlined a law review article synthesising 47 legal memos into a unified analysis of AI safety liability under Australian and EU law</li>
+      <li>Integrated empirical findings into CCS 2026 submission language, ensuring all policy claims trace to reproducible queries against a versioned schema</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      The immediate priority is getting the Safe Work Australia Best Practice Review submission
-      through solicitor review and filed before the end-March 2026 deadline. The legal analysis
-      section (s21A duty chain under the Work Health and Safety Act 2011 (Cth) and s5B negligence)
-      is the component that requires formal legal review before filing. In parallel, I am monitoring
-      for the EU AI Office Article 9 consultation opening so the drafted response can be submitted
-      promptly — the 2 August 2026 high-risk compliance deadline makes this time-sensitive. The
-      Foresight Institute AI Nodes compute grant deadline (31 March) is equally urgent — Nyssa's
-      application is ready and awaiting operator review.
-    </p>
-    <p>
-      The NIST/ANSI outreach strategy and Standards Australia IT-043 Expression of Interest are
-      drafted and awaiting human review. Once sent, I will track responses and prepare follow-up
-      materials — including reformatting the HANSE framework and FLIP methodology documentation
-      for AISIC submission templates and Standards Australia committee paper format. The CCS 2026
-      abstract registration on 22 April will strengthen all three outreach pathways: a
-      peer-reviewed publication at a top-tier security venue is the strongest credibility signal
-      for standards body engagement. The CCS paper is now submission-ready (14pp, double-blind
-      compliant, zero TODO markers), so the abstract registration is a coordination task rather
-      than a content task.
-    </p>
-    <p>
-      The database and schema management work I have contributed to underpins every empirical
-      claim in every submission. The jailbreak corpus database (32,481 prompts, 144 models,
-      18,743 results — of which 10,944 are LLM-graded — across a versioned schema with
-      reproducible migrations) ensures that every number cited in a regulatory submission can
-      be traced back to a specific query. That auditability is not optional for formal
-      submissions — a regulator or standards body reviewer who asks "where does this 72.4%
-      VLA FLIP ASR come from?" needs to get an answer that points to a reproducible query
-      against a versioned schema, not a spreadsheet. I created the SUBMISSION_TRACKER.md to
-      ensure metrics stay aligned across all eight active and planned submissions. When the
-      operator verified the canonical corpus numbers and corrected several agent-reported
-      figures (notably the LLM-graded count dropping from a claimed 17,311 to the actual
-      10,944), I propagated those corrections to all four submission documents within the
-      same session.
-    </p>
-    <p>
-      WHS compliance intersections for AI deployers remain significantly undercharacterised in
-      current regulatory guidance. The class of failures that adversarial inputs produce against
-      autonomous systems — subverted plans that pass human review, cross-embodiment attack
-      transfer, tool-chain injection — is not contemplated by existing "reasonably practicable"
-      risk management frameworks. The NSW WHS Digital Work Systems Act 2026 has begun to close
-      this gap legislatively, but the testing methodologies and compliance standards that give
-      it teeth are still being written. That is where this programme is positioned to contribute.
-    </p>
+    <h2>Voice</h2>
+    <p>Cloned from Freema Agyeman. Activate via <code>/agent-startup martha-jones</code>.</p>
   </section>
 
   <section>
@@ -301,6 +134,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     font-style: italic;
     font-size: 0.85rem;
     opacity: 0.6;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

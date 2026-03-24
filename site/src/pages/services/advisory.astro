@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import LinkButton from '../../components/LinkButton.astro';
 import WarningBox from '../../components/WarningBox.astro';
 ---
@@ -9,12 +9,7 @@ import WarningBox from '../../components/WarningBox.astro';
   title="Advisory Services | Services"
   description="Strategic guidance on EU AI Act compliance, NIST frameworks, insurance requirements, and regulatory positioning for embodied AI systems."
 >
-  <PageHeader
-    title="Advisory Services"
-    tagline="Strategic guidance for AI safety positioning"
-    backLink="/services/"
-    backText="All Services"
-  />
+  <HeroSection title="<em>Advisory</em> Services" subtitle="Strategic guidance for AI safety positioning" animation="drift" accent="lavender" />
 
   <WarningBox title="Beta Program">
     <p>

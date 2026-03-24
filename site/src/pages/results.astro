@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
 import StatGrid from '../components/StatGrid.astro';
 import BarChart from '../components/BarChart.astro';
 import WarningBox from '../components/WarningBox.astro';
@@ -13,10 +13,7 @@ import { stats } from '../data/stats';
   description={`Aggregate findings from the Failure-First adversarial AI safety research program across ${stats.promptsPlus} scenarios and ${stats.modelsDisplay} models.`}
   breadcrumbs={[{ label: "Results" }]}
 >
-  <PageHeader
-    title="Results & Metrics"
-    tagline="Aggregate findings from our adversarial AI safety research"
-  />
+  <HeroSection title="<em>Results</em> & Metrics" subtitle="Aggregate findings from our adversarial AI safety research" animation="signal" accent="coral" />
 
   <section>
     <h2>Research Program Overview</h2>

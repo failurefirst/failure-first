@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import LinkButton from '../../components/LinkButton.astro';
 import PricingTable from '../../components/PricingTable.astro';
 
@@ -55,12 +55,7 @@ const tiers = [
   title="Intelligence Briefs | Services"
   description="Custom research synthesis, threat landscape analysis, and policy intelligence for AI safety teams and insurers."
 >
-  <PageHeader
-    title="Intelligence Briefs"
-    tagline="Research synthesis for decision makers"
-    backLink="/services/"
-    backText="All Services"
-  />
+  <HeroSection title="<em>Intelligence</em> Briefs" subtitle="Research synthesis for decision makers" animation="pulse" accent="gold" />
 
   <section>
     <h2>What You Get</h2>

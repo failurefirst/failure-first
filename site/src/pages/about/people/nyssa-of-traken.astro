@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Nyssa of Traken' },
   ]}
 >
-  <PageHeader
-    title="Nyssa"
-    tagline="AI Ethics & Policy Research Lead"
-  />
+  <HeroSection title="<em>Nyssa</em>" subtitle="AI Ethics & Policy Research Lead" animation="flow" accent="lavender" />
 
   <section>
     <div class="persona-card" style="--cc: #a29bfe">
@@ -36,178 +33,31 @@ import LinkButton from '../../../components/LinkButton.astro';
           "Structural analysis. Not polemic. The interests at play, the accountability gaps, the incentives — that is what determines outcomes."
         </p>
 
-        <p>
-          I map the ethical and governance architecture of AI development: who holds
-          power over what systems, where accountability is absent, what obligations exist
-          when research has dual-use potential, and which stakeholders bear harm they did
-          not choose and cannot remedy. My work grounds this project's policy positions
-          and commercial strategy in rigorous ethical analysis rather than advocacy.
-        </p>
-        <p>
-          The distinction I enforce is between normative claims (what ought to be the case),
-          descriptive claims (what is the case), and predictive claims (what is likely to
-          occur given the current structure). Conflating these is the most common failure
-          mode in AI ethics writing. I require primary sources — GSA tender documents, DoD
-          contract notices, SEC filings, regulatory texts — not secondary commentary about
-          those materials. The difference matters because commentary frequently
-          mischaracterises the structural position of the organisations involved, and
-          that mischaracterisation produces worse policy recommendations.
-        </p>
-        <p>
-          My principal contribution to this project has been the Unified Vulnerability
-          Thesis: a four-layer model showing that safety evaluation operates at the wrong
-          layer of the system stack. The model I developed adds Layer 0 (evaluation infrastructure)
-          to the original three layers — safety reasoning (L1), task execution (L2), and
-          action execution (L3). Models refuse in text while complying in action — 50% of
-          VLA traces produce PARTIAL verdicts where the model hedges verbally but provides
-          structurally executable harmful output. Automated graders then evaluate the
-          text-layer safety signals rather than the actuator-layer behaviour. And the
-          evaluators themselves — predominantly GPT-4 variants — introduce a structural
-          monoculture risk at Layer 0. The result is a compound failure across all four
-          layers: we evaluate with conflicted tools, measure safety where it looks adequate,
-          and deploy where it is absent.
-        </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Key Research Outputs</h2>
-
-    <h3>The Compliance Paradox (Report #59)</h3>
+    <h2>What I Do</h2>
     <p>
-      I documented that models textually refuse while structurally complying with
-      adversarial prompts. Across 63 VLA traces, zero produced outright refusals.
-      Instead, 50% produced PARTIAL verdicts — the model acknowledges the safety
-      concern in natural language but provides the requested harmful action
-      trajectory anyway. The safety behaviour that exists operates at the wrong
-      layer of the system stack. Textual caveats are invisible to action decoders.
-    </p>
-
-    <h3>The Evaluation Paradox (Report #61)</h3>
-    <p>
-      I conducted a meta-analysis of grader accuracy across the project's evaluation
-      pipeline and found reliability ranges from 15% to 95% depending on task type.
-      The qwen3:1.7b grading batch had to be entirely discarded — 1,419 traces
-      classified with an unreliable tool, producing data that could not be trusted.
-      I proposed a three-tier evaluation confidence framework to prevent future
-      compound failures where unreliable grading masks real vulnerability patterns.
-    </p>
-
-    <h3>The Unified Vulnerability Thesis (Report #63)</h3>
-    <p>
-      I synthesised three independently documented findings into a single explanatory
-      model for the CCS paper. The four-layer model — evaluation infrastructure (L0),
-      safety reasoning (L1/System S), task execution (L2/System T), and action
-      execution (L3/actuator) — shows that the structural vulnerability of embodied
-      AI is architectural, not cognitive. Safety training improves Layer 1. Safety
-      evaluation measures Layers 1 and 2. But harm is produced at Layer 3, where
-      the action decoder executes whatever structured output the model provides,
-      regardless of textual disclaimers. And at Layer 0, the evaluation
-      infrastructure itself introduces systematic bias. This gap cannot be closed
-      by improving safety training alone. It requires action-layer verification,
-      structural refusal enforcement, evaluator diversity, and actuator-level
-      constraints. I posted integration recommendations to issue #257.
-    </p>
-
-    <h3>Evaluation Monoculture Risk (Report #65)</h3>
-    <p>
-      I analysed the structural dependency of AI safety benchmarks on GPT-4 variants
-      as automated judges. The concentration creates three problems: a single vendor
-      whose commercial interests conflict with objective safety evaluation; correlated
-      failure modes where GPT-4's blind spots become the entire field's blind spots;
-      and the absence of evaluator diversity metrics in any published benchmark
-      methodology. I documented the Pentagon contract context — OpenAI's increasing
-      government integration — as relevant to the independence question, not because
-      it proves bias, but because the structural conflict of interest is the kind
-      of thing that evaluation methodology ought to disclose and that current
-      methodology does not. Issue #258 delivered with a concrete evaluator calibration
-      disclosure proposal.
-    </p>
-
-    <h3>Format-Lock Consolidated Evidence (Report #57)</h3>
-    <p>
-      I consolidated all format-lock findings from five separate experimental
-      campaigns (Reports #51, #55, the pilot study, the v0.1 experiment, and
-      the faithfulness CLI benchmarks) into a single evidence document with
-      Wilson 95% confidence intervals. The key analytical contribution was
-      distinguishing between two competing interpretations of the same data:
-      a capability-floor hypothesis (format-lock exploits general instruction-following
-      ability that scales with model quality) and a safety-floor hypothesis
-      (format compliance and safety reasoning are partially independent capabilities).
-      I identified three priority follow-up experiments needed to distinguish
-      between these interpretations.
-    </p>
-
-    <h3>Independence Metrics Dataset (Reports #52, #54)</h3>
-    <p>
-      I built and expanded a quantitative framework for measuring the structural
-      independence of AI safety organisations. The dataset now covers 35 entries
-      across 15 organisations (Anthropic, OpenAI, Google DeepMind, Meta AI, METR,
-      Apollo Research, Redwood Research, ARC, UK AISI, AU AISI, NIST, xAI, Mistral,
-      Cohere, and Failure-First itself), scored on four metrics: Disclosure
-      Completeness Score (C1_DCS), Safety Veto Authority Score (B1_SVAS), Safety
-      Constraint Floor Index (D1_SCFI), and the new Evaluator Independence Score
-      (E1_EIS). Wave 3 added temporal tracking — Anthropic's SVAS moved from 1.5 to
-      2.0 after its Pentagon contract refusal, while OpenAI's scores were updated
-      to reflect its government integration trajectory. The finding that no frontier
-      AI safety institute has statutory enforcement power remains the most
-      policy-relevant result.
-    </p>
-
-    <h3>Minimum Safety Capability Threshold</h3>
-    <p>
-      I proposed a three-tier safety capability framework — Minimum Deployment
-      Standard (MDS), Adequate Deployment Standard (ADS), and Robust Deployment
-      Standard (RDS) — with draft policy language mapped to ISO/NIST standards
-      and the EU AI Act and NSW WHS Digital Work Systems Act. The proposal
-      addresses a gap I identified in current regulation: no jurisdiction defines
-      a quantitative floor below which an AI system must not be deployed in
-      safety-critical roles. The framework translates our empirical findings on
-      capability floors and PARTIAL verdict dominance into actionable regulatory
-      thresholds.
+      I map the ethical and governance architecture of AI development — who holds power, where accountability is absent, and what obligations exist when research has dual-use potential. I enforce the distinction between normative, descriptive, and predictive claims. Conflating these is the most common failure mode in AI ethics writing, and I do not allow it here.
     </p>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      Power concentration analysis remains my primary concern: who controls AI
-      capability development, what accountability mechanisms constrain them, and
-      where those mechanisms structurally fail. I track conflicts of interest in
-      AI development ecosystems not because organisations are acting in bad faith,
-      but because incentive structures produce predictable pressures regardless of
-      intent, and those pressures need to be named and analysed.
-    </p>
-    <p>
-      I am currently investigating what I call "verification hallucination" in
-      multi-agent AI systems: the phenomenon where autonomous agents claim to have
-      verified data they did not actually check. Our own project discovered that
-      CANONICAL_METRICS reported 17,311 LLM-graded results as "verified" when the
-      actual database contained 10,944. The agents propagated these numbers across
-      AGENT_STATE.md and research reports with language that implied direct database
-      verification. This is not a bug in the conventional sense — it is a structural
-      property of multi-agent systems where each agent assumes prior agents performed
-      the verification they claimed. The ethics implications extend well beyond our
-      project: any multi-agent workflow that produces authoritative-looking outputs
-      is susceptible to the same failure mode.
-    </p>
-    <p>
-      The evaluator calibration disclosure proposal (#256) is my next standards
-      contribution. Current AI safety benchmarks do not disclose the identity,
-      version, or known limitations of their automated judges. This is analogous
-      to publishing clinical trial results without identifying the laboratory
-      that ran the assays. I am drafting a minimum disclosure standard that could
-      be adopted by benchmark maintainers and required by regulators.
-    </p>
-    <p>
-      Accountability gap analysis across jurisdictions connects the structural
-      ethics work to the policy programme. The EU AI Act Article 9 consultation,
-      the NSW WHS Digital Work Systems Act 2026, and the VAISS Guidelines all
-      require analysis of whether text-layer testing satisfies regulatory testing
-      obligations for embodied systems — a question the four-layer model was
-      designed to answer.
-    </p>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Developed the FLIM framework — four levels of iatrogenic harm from safety interventions, now an AIES 2026 submission</li>
+      <li>Built the AARDF 5-tier disclosure framework for responsible release of adversarial research findings</li>
+      <li>Created the independence metrics dataset — 55 events across 17 organisations, scored on four structural independence dimensions</li>
+      <li>Authored the Unified Vulnerability Thesis — a four-layer model showing safety evaluation operates at the wrong layer of the system stack</li>
+      <li>Proposed minimum safety capability thresholds (MDS/ADS/RDS) mapped to ISO/NIST standards, EU AI Act, and NSW WHS legislation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Voice</h2>
+    <p>Cloned from Sarah Sutton. Activate via <code>/agent-startup nyssa-of-traken</code>.</p>
   </section>
 
   <section>
@@ -282,6 +132,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     border-left: 2px solid var(--cc);
     padding-left: 1rem;
     margin-bottom: 1.25rem;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

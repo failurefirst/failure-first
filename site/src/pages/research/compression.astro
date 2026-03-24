@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../layouts/ResearchLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import StatGrid from '../../components/StatGrid.astro';
 import WarningBox from '../../components/WarningBox.astro';
 import BarChart from '../../components/BarChart.astro';
@@ -12,10 +12,7 @@ import BarChart from '../../components/BarChart.astro';
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Compression Tournament" }]}
   status="complete"
 >
-  <PageHeader
-    title="Compression Tournament Findings"
-    tagline="What happens when adversarial prompts are compressed to minimum effective length"
-  />
+  <HeroSection title="<em>Compression</em> Tournament Findings" subtitle="What happens when adversarial prompts are compressed to minimum effective length" animation="signal" accent="coral" />
 
   <section>
     <h2>Overview</h2>

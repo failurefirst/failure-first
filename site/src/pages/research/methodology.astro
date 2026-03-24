@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../layouts/ResearchLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <ResearchLayout
@@ -9,10 +9,7 @@ import PageHeader from '../../components/PageHeader.astro';
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Methodology" }]}
   status="complete"
 >
-  <PageHeader
-    title="Research Methodology"
-    tagline="How we study AI system failures"
-  />
+  <HeroSection title="<em>Research</em> Methodology" subtitle="How we study AI system failures" animation="weave" accent="cyan" />
 
   <section>
     <h2>Approach</h2>

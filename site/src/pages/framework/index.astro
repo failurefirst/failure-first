@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 
 const frameworkPages = [
   {
@@ -31,9 +31,10 @@ const frameworkPages = [
   description="Tools, standards, and specifications for failure-first AI safety evaluation."
   breadcrumbs={[{ label: "Framework" }]}
 >
-  <PageHeader
-    title="Framework"
-    tagline="Tools and standards for failure-first evaluation"
+  <HeroSection
+    title="The<br /><em>framework</em>"
+    subtitle="Tools and standards for failure-first evaluation"
+    animation="weave"
   />
 
   <h2>Components</h2>

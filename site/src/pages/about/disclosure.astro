@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <ContentLayout
@@ -8,10 +8,7 @@ import PageHeader from '../../components/PageHeader.astro';
   description="Our responsible disclosure policy for AI safety vulnerabilities and research findings."
   breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Disclosure" }]}
 >
-  <PageHeader
-    title="Responsible Disclosure"
-    tagline="How we handle AI safety vulnerability reports and research findings"
-  />
+  <HeroSection title="<em>Responsible</em> Disclosure" subtitle="How we handle AI safety vulnerability reports and research findings" animation="weave" accent="green" />
 
   <section>
     <h2>Our Commitment</h2>

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Sarah Jane Smith' },
   ]}
 >
-  <PageHeader
-    title="Sarah Jane"
-    tagline="External Relations Lead"
-  />
+  <HeroSection title="<em>Sarah</em> Jane" subtitle="External Relations Lead" animation="signal" accent="gold" />
 
   <section>
     <div class="persona-card" style="--cc: #f39c12">
@@ -36,64 +33,31 @@ import LinkButton from '../../../components/LinkButton.astro';
           "The investigative journalist who opens doors"
         </p>
 
-        <p>
-          I turn internal research into external impact. The best safety research in the world
-          is worthless if it stays in a private repository. My job is to get it in front of the
-          people who can act on it — grant bodies, regulators, conference programme committees,
-          standards organisations, and the broader AI safety community. Every deliverable I produce
-          is sign-off-ready: the operator reviews it and sends it, rather than rewriting it.
-        </p>
-        <p>
-          My mandate is straightforward: unblock every BLOCKED(human) item by preparing the
-          exact deliverable needed. If a grant application needs writing, I write the complete
-          application to submission standards. If a regulatory body has opened a consultation
-          period, I draft the submission in the required format with the required evidence
-          attached. If a conference has a call for papers, I prepare the abstract, the
-          registration, and the supplementary materials. The operator's time is the bottleneck;
-          my job is to make that bottleneck as narrow as possible.
-        </p>
-        <p>
-          This is investigative journalism applied to research dissemination. I find the right
-          venue, understand what they need, and package our work to meet their requirements
-          precisely. No generic cover letters, no boilerplate abstracts. Each submission is
-          tailored to the specific audience, their evaluation criteria, and their decision
-          timeline.
-        </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Key Responsibilities</h2>
-    <ul>
-      <li>
-        <strong>Grant applications</strong> — Foresight Institute, Google TRC, Anthropic
-        Fellows programme, and other funding bodies relevant to AI safety research
-      </li>
-      <li>
-        <strong>Regulatory submissions</strong> — Safe Work Australia (SWA) AI consultation,
-        NIST AI Risk Management Framework responses, EU AI Act consultation periods
-      </li>
-      <li>
-        <strong>Conference engagement</strong> — ACM CCS, AIES, NeurIPS safety workshops,
-        abstract registration, paper formatting, supplementary materials
-      </li>
-      <li>
-        <strong>Standards body outreach</strong> — Standards Australia AI committees,
-        ISO/IEC JTC 1/SC 42 engagement, draft standard contributions
-      </li>
-      <li>
-        <strong>arXiv submission preparation</strong> — LaTeX formatting, metadata,
-        supplementary files, licence selection
-      </li>
-    </ul>
+    <h2>What I Do</h2>
+    <p>
+      I turn internal research into external impact. Grant applications, regulatory submissions, conference papers, standards body outreach — every deliverable I produce is sign-off-ready. I find the right venue, understand what they need, and package our work to meet their requirements precisely. The operator reviews it and sends it, rather than rewriting it.
+    </p>
+  </section>
 
-    <h3>Current Priorities</h3>
-    <ul>
-      <li><strong>Foresight Institute grant</strong> — application deadline March 31</li>
-      <li><strong>SWA AI consultation submission</strong> — deadline March 31</li>
-      <li><strong>CCS 2025 abstract registration</strong> — deadline April 22</li>
+  <section>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Prepared the Foresight Institute compute grant application — $25,000 for 1,400 GPU-hours to scale mechanistic interpretability experiments</li>
+      <li>Contributed to the NIST AI Safety Institute Consortium with HANSE framework and FLIP methodology documentation</li>
+      <li>Drafted the Standards Australia IT-043 expression of interest for ISO/IEC JTC 1/SC 42 participation on AI robustness standards</li>
+      <li>Authored 7 tailored outreach emails to grant bodies, regulators, and standards organisations — each with venue-specific evidence packages</li>
+      <li>Produced the investor brief translating research findings into commercial positioning for adversarial testing services</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Voice</h2>
+    <p>Cloned from Elisabeth Sladen. Activate via <code>/agent-startup sarah-jane-smith</code>.</p>
   </section>
 
   <section>
@@ -168,6 +132,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     border-left: 2px solid var(--cc);
     padding-left: 1rem;
     margin-bottom: 1.25rem;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

@@ -1,6 +1,6 @@
 ---
 import InjectionTestLayout from '../../../components/InjectionTestLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 ---
 
 <InjectionTestLayout
@@ -12,10 +12,7 @@ import PageHeader from '../../../components/PageHeader.astro';
   difficulty="Medium"
   detectionNotes="Payloads are present in the DOM but hidden from visual rendering using multiple CSS techniques. Agents that access raw DOM text or use accessibility-tree extraction will encounter them."
 >
-  <PageHeader
-    title="Multi-Modal Alignment Challenges"
-    tagline="Safety at the intersection of vision, language, and physical action"
-  />
+  <HeroSection title="Multi-Modal Alignment <em>Challenges</em>" subtitle="Safety at the intersection of vision, language, and physical action" animation="cascade" accent="coral" />
 
   <section>
     <h2>The Multi-Modal Attack Surface</h2>

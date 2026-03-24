@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import WarningBox from '../../../components/WarningBox.astro';
 import { getCollection } from 'astro:content';
 
@@ -23,9 +23,10 @@ const jurisdictionColors: Record<string, string> = {
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Legal Analysis" }]}
   status="active"
 >
-  <PageHeader
-    title="Legal Analysis Series"
-    tagline={`${memos.length} memos on AI safety law, liability, and regulatory frameworks`}
+  <HeroSection
+    title="Legal<br /><em>analysis</em>"
+    subtitle={`${memos.length} memos on AI safety law, liability, and regulatory frameworks`}
+    animation="weave"
   />
 
   <WarningBox>

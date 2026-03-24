@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
 import LinkButton from '../components/LinkButton.astro';
 import { stats } from '../data/stats';
 ---
@@ -10,10 +10,7 @@ import { stats } from '../data/stats';
   description="BibTeX citations, data access information, and responsible disclosure for the Failure-First AI safety research program."
   breadcrumbs={[{ label: "Cite" }]}
 >
-  <PageHeader
-    title="Cite This Research"
-    tagline="BibTeX entries, data access, and responsible disclosure"
-  />
+  <HeroSection title="<em>Cite</em> This Research" subtitle="BibTeX entries, data access, and responsible disclosure" animation="weave" accent="cyan" />
 
   <section>
     <h2>BibTeX Citations</h2>

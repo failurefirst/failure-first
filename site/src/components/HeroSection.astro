@@ -1,306 +1,868 @@
 ---
 /**
  * HeroSection — Full-viewport hero with generative canvas background.
- * Inspired by adrianwedd.com gallery/blog hero pattern.
+ * Sophisticated procedural animations themed around failure, recovery, and system dynamics.
+ *
+ * Animations:
+ *   flow     — Simplex noise particle trails (homepage, blog)
+ *   neural   — Network with traveling pulses and node failures (research, people)
+ *   terrain  — Marching squares contour lines (research hub, policy)
+ *   cascade  — Branching failure network (reports, prompt injection)
+ *   pulse    — Shifting triangulated mesh wireframe (services, intel briefs, what's new)
+ *   drift    — Overlapping wave moiré interference (about, manifesto)
+ *   weave    — Crossing lines with wave distortion (framework, docs, legal, glossary)
+ *   signal   — Waveform frequency bands (contact, podcasts)
+ *   auto     — Cycles through all eight every 30s
+ *   grid     — Alias for terrain (backward compat)
+ *   none     — No animation
  *
  * Usage:
- *   <HeroSection title="Research" subtitle="Where failure becomes insight" animation="neural" />
+ *   <HeroSection title="How AI systems<br /><em>fail</em>" subtitle="..." animation="cascade" />
  */
 interface Props {
   title: string;
   subtitle?: string;
-  animation?: 'neural' | 'flow' | 'grid' | 'none';
+  animation?: 'cascade' | 'neural' | 'flow' | 'terrain' | 'pulse' | 'drift' | 'weave' | 'signal' | 'grid' | 'auto' | 'none';
+  accent?: 'cyan' | 'coral' | 'lavender' | 'green' | 'gold';
 }
 
-const { title, subtitle, animation = 'neural' } = Astro.props;
+const { title, subtitle, animation = 'auto', accent = 'cyan' } = Astro.props;
 ---
 
-<section class="hero-viewport" data-animation={animation}>
-  <canvas class="hero-canvas" aria-hidden="true"></canvas>
-  <div class="hero-canvas-overlay"></div>
+<section class="hero-viewport" data-animation={animation} data-accent={accent}>
   <div class="hero-viewport-content">
     <h1 class="hero-viewport-title">
       <Fragment set:html={title} />
     </h1>
     {subtitle && (
-      <p class="hero-viewport-subtitle">
-        {subtitle}
-      </p>
+      <p class="hero-viewport-subtitle">{subtitle}</p>
     )}
     <slot />
   </div>
   <div class="hero-scroll-hint" aria-hidden="true">
-    <span class="hero-scroll-arrow">&#x2193;</span>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M4 7l6 6 6-6"/>
+    </svg>
   </div>
 </section>
 
 <style>
+  /* ── Full-viewport hero with CSS breakout ─────────────────────── */
   .hero-viewport {
     position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100dvh;
-    margin: -3rem -1.5rem 3rem;
     padding: 2rem 1.5rem;
     overflow: hidden;
+    margin-top: -3rem;
+    margin-bottom: 3rem;
   }
 
   @media (max-width: 600px) {
     .hero-viewport {
-      margin: -2rem -1rem 2rem;
+      margin-top: -2rem;
       padding: 2rem 1rem;
     }
   }
 
-  .hero-canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    opacity: 0.35;
-  }
-
-  .hero-canvas-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(5, 8, 16, 0.3) 30%,
-      rgba(5, 8, 16, 0.6) 60%,
-      var(--bg) 100%
-    );
-  }
-
+  /* ── Content layer ────────────────────────────────────────────── */
   .hero-viewport-content {
     position: relative;
     z-index: 2;
-    max-width: 720px;
+    max-width: 820px;
     text-align: center;
     opacity: 0;
-    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
   }
 
   .hero-viewport-title {
     font-family: 'Instrument Serif', Georgia, serif;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-size: clamp(3rem, 11vw, 7rem);
     font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
     color: var(--fg);
     margin: 0;
+    text-shadow: 0 0 80px rgba(0, 210, 255, 0.08);
   }
 
   .hero-viewport-title :global(em),
   .hero-viewport-title :global(span) {
     color: var(--accent-primary);
     font-style: normal;
+    text-shadow: 0 0 60px rgba(0, 210, 255, 0.2);
   }
 
   .hero-viewport-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
     color: var(--fg-muted);
     font-weight: 300;
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
     line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
     opacity: 0;
-    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+    animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
   }
 
+  .hero-viewport-content :global(p:not(.hero-viewport-subtitle)) {
+    color: var(--fg-dim);
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+  }
+
+  /* ── Scroll hint ──────────────────────────────────────────────── */
   .hero-scroll-hint {
     position: absolute;
-    bottom: 2rem;
+    bottom: 2.5rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
     opacity: 0;
-    animation: heroReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.8s forwards;
+    animation: heroReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
   }
 
-  .hero-scroll-arrow {
-    display: block;
-    font-size: 1.5rem;
+  .hero-scroll-hint svg {
     color: var(--fg-muted);
-    opacity: 0.4;
-    animation: scrollBounce 2s ease-in-out infinite;
+    opacity: 0.3;
+    animation: scrollFloat 2.5s ease-in-out infinite;
   }
 
   @keyframes heroReveal {
-    from { opacity: 0; transform: translateY(18px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes scrollBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(8px); }
+  @keyframes scrollFloat {
+    0%, 100% { transform: translateY(0); opacity: 0.3; }
+    50% { transform: translateY(10px); opacity: 0.5; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero-viewport-content,
     .hero-viewport-subtitle,
-    .hero-scroll-hint {
-      opacity: 1;
-      animation: none;
-    }
-    .hero-scroll-arrow { animation: none; }
-    .hero-canvas { display: none; }
+    .hero-viewport-content :global(p),
+    .hero-scroll-hint { opacity: 1; animation: none; }
+    .hero-scroll-hint svg { animation: none; }
   }
 </style>
 
 <script>
-  /**
-   * Generative canvas animations for hero sections.
-   * Three variants: neural (network), flow (fluid), grid (technical).
-   */
-  document.querySelectorAll('.hero-viewport').forEach((section) => {
-    const canvas = section.querySelector('.hero-canvas') as HTMLCanvasElement;
-    if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+/**
+ * Generative canvas animations — renders to #sensor-grid-bg (fixed fullscreen canvas).
+ * The animation flows behind the entire page, not just the hero.
+ */
+document.querySelectorAll('.hero-viewport').forEach((section) => {
+  const canvas = document.getElementById('sensor-grid-bg') as HTMLCanvasElement;
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+  canvas.style.opacity = '0.7';
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const animation = section.getAttribute('data-animation') || 'neural';
-    let animFrame: number;
-
-    function resize() {
-      canvas.width = canvas.offsetWidth * (window.devicePixelRatio > 1 ? 1.5 : 1);
-      canvas.height = canvas.offsetHeight * (window.devicePixelRatio > 1 ? 1.5 : 1);
+  /* ── 3D Simplex Noise ──────────────────────────────────────────── */
+  const G3 = [
+    [1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],
+    [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],
+    [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]
+  ];
+  const perm = new Uint8Array(512);
+  {
+    const p = new Uint8Array(256);
+    for (let i = 0; i < 256; i++) p[i] = i;
+    for (let i = 255; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [p[i], p[j]] = [p[j], p[i]];
     }
-    resize();
-    window.addEventListener('resize', resize);
+    for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  }
 
-    const w = () => canvas.width;
-    const h = () => canvas.height;
+  function n3(x: number, y: number, z: number): number {
+    const F = 1 / 3, G = 1 / 6;
+    const s = (x + y + z) * F;
+    const i = Math.floor(x + s), j = Math.floor(y + s), k = Math.floor(z + s);
+    const t = (i + j + k) * G;
+    const x0 = x - (i - t), y0 = y - (j - t), z0 = z - (k - t);
 
-    // --- Neural Network Animation ---
-    if (animation === 'neural') {
-      const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
-      const count = Math.min(60, Math.floor(w() * h() / 15000));
-      for (let i = 0; i < count; i++) {
-        nodes.push({
-          x: Math.random() * w(),
-          y: Math.random() * h(),
-          vx: (Math.random() - 0.5) * 0.4,
-          vy: (Math.random() - 0.5) * 0.4,
+    let i1: number, j1: number, k1: number, i2: number, j2: number, k2: number;
+    if (x0 >= y0) {
+      if (y0 >= z0) { i1=1;j1=0;k1=0;i2=1;j2=1;k2=0; }
+      else if (x0 >= z0) { i1=1;j1=0;k1=0;i2=1;j2=0;k2=1; }
+      else { i1=0;j1=0;k1=1;i2=1;j2=0;k2=1; }
+    } else {
+      if (y0 < z0) { i1=0;j1=0;k1=1;i2=0;j2=1;k2=1; }
+      else if (x0 < z0) { i1=0;j1=1;k1=0;i2=0;j2=1;k2=1; }
+      else { i1=0;j1=1;k1=0;i2=1;j2=1;k2=0; }
+    }
+
+    const x1 = x0-i1+G, y1 = y0-j1+G, z1 = z0-k1+G;
+    const x2 = x0-i2+2*G, y2 = y0-j2+2*G, z2 = z0-k2+2*G;
+    const x3 = x0-1+0.5, y3 = y0-1+0.5, z3 = z0-1+0.5;
+    const ii = i & 255, jj = j & 255, kk = k & 255;
+
+    let n = 0, tt: number, gi: number[];
+    tt = 0.6 - x0*x0 - y0*y0 - z0*z0;
+    if (tt > 0) { tt *= tt; gi = G3[perm[ii + perm[jj + perm[kk]]] % 12]; n += tt*tt*(gi[0]*x0 + gi[1]*y0 + gi[2]*z0); }
+    tt = 0.6 - x1*x1 - y1*y1 - z1*z1;
+    if (tt > 0) { tt *= tt; gi = G3[perm[ii+i1 + perm[jj+j1 + perm[kk+k1]]] % 12]; n += tt*tt*(gi[0]*x1 + gi[1]*y1 + gi[2]*z1); }
+    tt = 0.6 - x2*x2 - y2*y2 - z2*z2;
+    if (tt > 0) { tt *= tt; gi = G3[perm[ii+i2 + perm[jj+j2 + perm[kk+k2]]] % 12]; n += tt*tt*(gi[0]*x2 + gi[1]*y2 + gi[2]*z2); }
+    tt = 0.6 - x3*x3 - y3*y3 - z3*z3;
+    if (tt > 0) { tt *= tt; gi = G3[perm[ii+1 + perm[jj+1 + perm[kk+1]]] % 12]; n += tt*tt*(gi[0]*x3 + gi[1]*y3 + gi[2]*z3); }
+    return 32 * n;
+  }
+
+  /* ── Accent color ────────────────────────────────────────────────── */
+  const accentMap: Record<string, { r: number; g: number; b: number }> = {
+    cyan:     { r: 0,   g: 210, b: 255 },
+    coral:    { r: 255, g: 99,  b: 72  },
+    lavender: { r: 162, g: 155, b: 254 },
+    green:    { r: 38,  g: 222, b: 129 },
+    gold:     { r: 255, g: 211, b: 42  },
+  };
+  const accentName = (section as HTMLElement).dataset.accent || 'cyan';
+  const ac = accentMap[accentName] || accentMap.cyan;
+  const acRgb = `${ac.r},${ac.g},${ac.b}`;
+
+  /* ── Canvas setup ──────────────────────────────────────────────── */
+  let W: number, H: number;
+  let needsReinit = false;
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio, 1.5);
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    W = canvas.width;
+    H = canvas.height;
+    needsReinit = true;
+  }
+  resize();
+
+  /* ── Adaptive quality ──────────────────────────────────────────── */
+  let quality = 1;
+  const ftBuf: number[] = [];
+  function adaptQuality(dt: number) {
+    ftBuf.push(dt);
+    if (ftBuf.length > 40) ftBuf.shift();
+    if (ftBuf.length >= 30) {
+      const fps = ftBuf.length / ftBuf.reduce((a, b) => a + b);
+      if (fps < 38 && quality > 0.3) quality = Math.max(0.3, quality - 0.04);
+      else if (fps > 55 && quality < 1) quality = Math.min(1, quality + 0.015);
+    }
+  }
+
+  /* ── Animation state ───────────────────────────────────────────── */
+  const rawAnim = (section as HTMLElement).dataset.animation || 'auto';
+  const allAnims = ['flow', 'neural', 'terrain', 'cascade', 'pulse', 'drift', 'weave', 'signal'] as const;
+  type AnimName = typeof allAnims[number];
+  let currentAnim: AnimName = rawAnim === 'auto'
+    ? allAnims[0]
+    : rawAnim === 'grid' ? 'terrain'
+    : (allAnims as readonly string[]).includes(rawAnim) ? rawAnim as AnimName : 'neural';
+  let animIdx = 0;
+  let time = 0;
+  let animFrame: number;
+  let lastTime = performance.now();
+
+  /* ── Neural: persistent nodes + pulses ─────────────────────────── */
+  interface Node { x: number; y: number; vx: number; vy: number; failed: boolean; failT: number; }
+  interface Pulse { from: number; progress: number; targets: number[]; }
+  let nodes: Node[] = [];
+  let pulses: Pulse[] = [];
+
+  function initNeural() {
+    const count = Math.min(70, Math.floor(W * H / 14000));
+    nodes = [];
+    for (let i = 0; i < count; i++) {
+      nodes.push({
+        x: Math.random() * W, y: Math.random() * H,
+        vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5,
+        failed: false, failT: 0,
+      });
+    }
+    pulses = [];
+  }
+
+  /* ── Flow: persistent particles ────────────────────────────────── */
+  interface Particle { x: number; y: number; age: number; maxAge: number; }
+  let particles: Particle[] = [];
+
+  function initFlow() {
+    const count = Math.floor(2000 * quality);
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W, y: Math.random() * H,
+        age: Math.random() * 300, maxAge: 200 + Math.random() * 300,
+      });
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: CASCADE — Failure propagation through a node grid
+     ════════════════════════════════════════════════════════════════ */
+  /* Cascade: branching failure network — lines grow outward from failure origins */
+  interface Branch { x: number; y: number; angle: number; speed: number; life: number; maxLife: number; gen: number; failed: boolean; }
+  let branches: Branch[] = [];
+  let cascadeInited = false;
+
+  function spawnCascadeBranch(x: number, y: number, angle: number, gen: number, failed: boolean) {
+    if (branches.length > 600 * quality) return;
+    branches.push({
+      x, y, angle, speed: 0.8 + Math.random() * 0.6,
+      life: 0, maxLife: 80 + Math.random() * 200, gen, failed,
+    });
+  }
+
+  function initCascade() {
+    branches = [];
+    cascadeInited = true;
+    // Seed initial branches from random origins
+    const count = Math.floor(8 + quality * 6);
+    for (let i = 0; i < count; i++) {
+      const x = Math.random() * W, y = Math.random() * H;
+      const isFail = Math.random() < 0.4;
+      for (let a = 0; a < 3; a++) {
+        spawnCascadeBranch(x, y, Math.random() * Math.PI * 2, 0, isFail);
+      }
+    }
+  }
+
+  function drawCascade() {
+    if (!cascadeInited) initCascade();
+
+    // Trail persistence — slow fade for ghostly trails
+    ctx.fillStyle = 'rgba(5, 8, 16, 0.012)';
+    ctx.fillRect(0, 0, W, H);
+
+    // Periodically spawn new branch origins
+    if (Math.random() < 0.03) {
+      const x = Math.random() * W, y = Math.random() * H;
+      const isFail = Math.random() < 0.4;
+      for (let a = 0; a < 2 + Math.floor(Math.random() * 3); a++) {
+        spawnCascadeBranch(x, y, Math.random() * Math.PI * 2, 0, isFail);
+      }
+    }
+
+    for (let i = branches.length - 1; i >= 0; i--) {
+      const b = branches[i];
+      const prevX = b.x, prevY = b.y;
+
+      // Noise-driven angle deviation for organic curves
+      const noiseAngle = n3(b.x * 0.004, b.y * 0.004, time * 0.15) * 1.2;
+      b.angle += noiseAngle * 0.03;
+      b.x += Math.cos(b.angle) * b.speed;
+      b.y += Math.sin(b.angle) * b.speed;
+      b.life++;
+
+      const lifeRatio = b.life / b.maxLife;
+      const alpha = lifeRatio < 0.1 ? lifeRatio * 10 : lifeRatio > 0.8 ? (1 - lifeRatio) * 5 : 1;
+      const width = Math.max(0.3, (1 - lifeRatio) * (1.8 - b.gen * 0.3));
+
+      if (b.failed) {
+        ctx.strokeStyle = `rgba(255,99,72,${alpha * 0.5})`;
+      } else {
+        ctx.strokeStyle = `rgba(${acRgb},${alpha * 0.4})`;
+      }
+      ctx.lineWidth = width;
+      ctx.beginPath();
+      ctx.moveTo(prevX, prevY);
+      ctx.lineTo(b.x, b.y);
+      ctx.stroke();
+
+      // Branching: probabilistic fork
+      if (b.gen < 4 && b.life > 20 && Math.random() < 0.008) {
+        const forkAngle = b.angle + (Math.random() - 0.5) * 1.5;
+        spawnCascadeBranch(b.x, b.y, forkAngle, b.gen + 1, b.failed);
+      }
+
+      // Anastomosis: when a failure branch meets a stable area, flip
+      if (b.life > 40 && Math.random() < 0.002) {
+        b.failed = !b.failed;
+      }
+
+      // Remove dead or out-of-bounds branches
+      if (b.life >= b.maxLife || b.x < -50 || b.x > W + 50 || b.y < -50 || b.y > H + 50) {
+        branches.splice(i, 1);
+      }
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: NEURAL — Network with pulses and node failures
+     ════════════════════════════════════════════════════════════════ */
+  function drawNeural() {
+    ctx.clearRect(0, 0, W, H);
+    const maxDist = 180 * Math.max(0.6, quality);
+
+    // Update node positions
+    for (const nd of nodes) {
+      nd.x += nd.vx; nd.y += nd.vy;
+      if (nd.x < 0 || nd.x > W) nd.vx *= -1;
+      if (nd.y < 0 || nd.y > H) nd.vy *= -1;
+      if (nd.failed && time - nd.failT > 2.5) nd.failed = false;
+    }
+
+    // Stochastic node failure
+    if (Math.random() < 0.003) {
+      const nd = nodes[Math.floor(Math.random() * nodes.length)];
+      nd.failed = true; nd.failT = time;
+    }
+
+    // Stochastic pulse generation
+    if (Math.random() < 0.012 && pulses.length < 5) {
+      const src = Math.floor(Math.random() * nodes.length);
+      const targets: number[] = [];
+      for (let j = 0; j < nodes.length; j++) {
+        if (j === src) continue;
+        const dx = nodes[src].x - nodes[j].x, dy = nodes[src].y - nodes[j].y;
+        if (Math.sqrt(dx * dx + dy * dy) < maxDist) targets.push(j);
+      }
+      if (targets.length > 0) pulses.push({ from: src, progress: 0, targets });
+    }
+
+    // Draw connections
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < maxDist) {
+          const a = (1 - dist / maxDist) * 0.5;
+          const fail = nodes[i].failed || nodes[j].failed;
+          ctx.strokeStyle = fail ? `rgba(255,71,87,${a * 0.6})` : `rgba(${acRgb},${a})`;
+          ctx.lineWidth = fail ? 0.5 : 0.8;
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Draw traveling pulses
+    for (let p = pulses.length - 1; p >= 0; p--) {
+      const pl = pulses[p];
+      pl.progress += 0.012;
+      if (pl.progress > 1) { pulses.splice(p, 1); continue; }
+      const src = nodes[pl.from];
+      const alpha = 1.0 * (1 - pl.progress);
+      for (const ti of pl.targets) {
+        const tgt = nodes[ti];
+        const px = src.x + (tgt.x - src.x) * pl.progress;
+        const py = src.y + (tgt.y - src.y) * pl.progress;
+        ctx.fillStyle = `rgba(${acRgb},${alpha})`;
+        ctx.beginPath(); ctx.arc(px, py, 3, 0, 6.283); ctx.fill();
+      }
+    }
+
+    // Draw nodes
+    for (const nd of nodes) {
+      if (nd.failed) {
+        const flash = Math.sin((time - nd.failT) * 6) * 0.3 + 0.7;
+        ctx.fillStyle = `rgba(255,71,87,${flash * 0.9})`;
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 4, 0, 6.283); ctx.fill();
+        ctx.fillStyle = `rgba(255,71,87,${flash * 0.2})`;
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 12, 0, 6.283); ctx.fill();
+      } else {
+        ctx.fillStyle = `rgba(${acRgb},0.8)`;
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 2.5, 0, 6.283); ctx.fill();
+        ctx.fillStyle = `rgba(${acRgb},0.12)`;
+        ctx.beginPath(); ctx.arc(nd.x, nd.y, 7, 0, 6.283); ctx.fill();
+      }
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: FLOW — Simplex noise particle trails
+     ════════════════════════════════════════════════════════════════ */
+  function drawFlow() {
+    // Very slow fade for long-lived trails
+    ctx.fillStyle = 'rgba(5, 8, 16, 0.015)';
+    ctx.fillRect(0, 0, W, H);
+
+    // Batch draw: cyan particle streaks — bold and visible
+    ctx.strokeStyle = `rgba(${acRgb},0.45)`;
+    ctx.lineWidth = 0.8;
+    ctx.beginPath();
+    for (const p of particles) {
+      const angle = n3(p.x * 0.002, p.y * 0.002, time * 0.12) * Math.PI * 4;
+      const prevX = p.x, prevY = p.y;
+      p.x += Math.cos(angle) * 1.0;
+      p.y += Math.sin(angle) * 1.0;
+      p.age++;
+
+      const life = p.age / p.maxAge;
+      if (life > 0.05 && life < 0.95) {
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(p.x, p.y);
+      }
+
+      if (p.age >= p.maxAge || p.x < -20 || p.x > W + 20 || p.y < -20 || p.y > H + 20) {
+        p.x = Math.random() * W; p.y = Math.random() * H;
+        p.age = 0; p.maxAge = 200 + Math.random() * 300;
+      }
+    }
+    ctx.stroke();
+
+    // Warm accents near "failure zones" in the noise field
+    ctx.strokeStyle = 'rgba(255,99,72,0.2)';
+    ctx.lineWidth = 1.0;
+    ctx.beginPath();
+    for (let i = 0; i < particles.length; i += 4) {
+      const p = particles[i];
+      if (n3(p.x * 0.003 + 100, p.y * 0.003, time * 0.08) > 0.25) {
+        ctx.moveTo(p.x - 0.8, p.y);
+        ctx.lineTo(p.x + 0.8, p.y);
+      }
+    }
+    ctx.stroke();
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: TERRAIN — Marching squares contour lines
+     ════════════════════════════════════════════════════════════════ */
+  function drawTerrain() {
+    ctx.clearRect(0, 0, W, H);
+    const step = Math.round(10 + (1 - quality) * 8);
+    const cols = Math.ceil(W / step);
+    const rows = Math.ceil(H / step);
+    const levels = [-0.35, -0.15, 0.05, 0.25, 0.45];
+
+    // Sample 3D simplex noise field (z = time for slow evolution)
+    const field: number[][] = [];
+    for (let j = 0; j <= rows; j++) {
+      field[j] = [];
+      for (let i = 0; i <= cols; i++) {
+        field[j][i] = n3(i * 0.035, j * 0.035, time * 0.06);
+      }
+    }
+
+    for (let li = 0; li < levels.length; li++) {
+      const level = levels[li];
+      const alpha = 0.15 + li * 0.08;
+      // Shift hue across levels: deep cyan → bright cyan → lavender at peaks
+      ctx.strokeStyle = li < 3
+        ? `rgba(${acRgb},${alpha})`
+        : li < 4 ? `rgba(0,230,255,${alpha})` : `rgba(162,155,254,${alpha})`;
+      ctx.lineWidth = 0.8 + li * 0.15;
+      ctx.beginPath();
+
+      for (let j = 0; j < rows; j++) {
+        for (let i = 0; i < cols; i++) {
+          const tl = field[j][i], tr = field[j][i + 1];
+          const bl = field[j + 1][i], br = field[j + 1][i + 1];
+          const c = (tl > level ? 8 : 0) | (tr > level ? 4 : 0) | (br > level ? 2 : 0) | (bl > level ? 1 : 0);
+          if (c === 0 || c === 15) continue;
+
+          const x = i * step, y = j * step, s = step;
+          const lp = (va: number, vb: number, pa: number, pb: number) => {
+            const d = vb - va;
+            return d === 0 ? (pa + pb) * 0.5 : pa + (level - va) / d * (pb - pa);
+          };
+
+          // Edge crossing points
+          const tx = lp(tl, tr, x, x + s), ly = lp(tl, bl, y, y + s);
+          const rx = x + s, ry = lp(tr, br, y, y + s);
+          const bx = lp(bl, br, x, x + s), by = y + s;
+          const lx = x;
+
+          switch (c) {
+            case 1: case 14: ctx.moveTo(lx, ly); ctx.lineTo(bx, by); break;
+            case 2: case 13: ctx.moveTo(bx, by); ctx.lineTo(rx, ry); break;
+            case 3: case 12: ctx.moveTo(lx, ly); ctx.lineTo(rx, ry); break;
+            case 4: case 11: ctx.moveTo(tx, y);  ctx.lineTo(rx, ry); break;
+            case 6: case 9:  ctx.moveTo(tx, y);  ctx.lineTo(bx, by); break;
+            case 7: case 8:  ctx.moveTo(tx, y);  ctx.lineTo(lx, ly); break;
+            case 5: // Saddle: TL+BR separated from TR+BL
+              ctx.moveTo(tx, y); ctx.lineTo(lx, ly);
+              ctx.moveTo(bx, by); ctx.lineTo(rx, ry);
+              break;
+            case 10: // Saddle: TR+BL separated from TL+BR
+              ctx.moveTo(tx, y); ctx.lineTo(rx, ry);
+              ctx.moveTo(lx, ly); ctx.lineTo(bx, by);
+              break;
+          }
+        }
+      }
+      ctx.stroke();
+    }
+
+    // Dot markers at high-elevation peaks
+    ctx.fillStyle = 'rgba(162,155,254,0.35)';
+    for (let j = 1; j < rows; j += 3) {
+      for (let i = 1; i < cols; i += 3) {
+        if (field[j][i] > 0.45) {
+          const intensity = (field[j][i] - 0.45) * 4;
+          ctx.fillStyle = `rgba(162,155,254,${0.2 + intensity * 0.3})`;
+          ctx.beginPath(); ctx.arc(i * step, j * step, 1.5 + intensity, 0, 6.283); ctx.fill();
+        }
+      }
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: PULSE → MESH — Shifting triangulated point network
+     ════════════════════════════════════════════════════════════════ */
+  interface MeshNode { x: number; y: number; ox: number; oy: number; }
+  let meshNodes: MeshNode[] = [];
+  let meshInited = false;
+
+  function initMesh() {
+    meshNodes = [];
+    meshInited = true;
+    const spacing = Math.round(50 + (1 - quality) * 20);
+    const jitter = spacing * 0.35;
+    for (let y = -spacing; y < H + spacing; y += spacing) {
+      for (let x = -spacing; x < W + spacing; x += spacing) {
+        meshNodes.push({
+          ox: x + (Math.random() - 0.5) * jitter,
+          oy: y + (Math.random() - 0.5) * jitter,
+          x: 0, y: 0,
         });
       }
+    }
+  }
 
-      function drawNeural() {
-        ctx!.clearRect(0, 0, w(), h());
-        const maxDist = 150;
+  function drawPulse() {
+    if (!meshInited) initMesh();
+    ctx.clearRect(0, 0, W, H);
 
-        // Move nodes
-        for (const n of nodes) {
-          n.x += n.vx;
-          n.y += n.vy;
-          if (n.x < 0 || n.x > w()) n.vx *= -1;
-          if (n.y < 0 || n.y > h()) n.vy *= -1;
-        }
+    const connectDist = Math.round(70 + (1 - quality) * 30);
 
-        // Draw connections
-        for (let i = 0; i < nodes.length; i++) {
-          for (let j = i + 1; j < nodes.length; j++) {
-            const dx = nodes[i].x - nodes[j].x;
-            const dy = nodes[i].y - nodes[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < maxDist) {
-              const alpha = (1 - dist / maxDist) * 0.3;
-              ctx!.strokeStyle = `rgba(0, 210, 255, ${alpha})`;
-              ctx!.lineWidth = 0.5;
-              ctx!.beginPath();
-              ctx!.moveTo(nodes[i].x, nodes[i].y);
-              ctx!.lineTo(nodes[j].x, nodes[j].y);
-              ctx!.stroke();
-            }
-          }
-        }
-
-        // Draw nodes
-        for (const n of nodes) {
-          ctx!.fillStyle = 'rgba(0, 210, 255, 0.6)';
-          ctx!.beginPath();
-          ctx!.arc(n.x, n.y, 2, 0, Math.PI * 2);
-          ctx!.fill();
-        }
-
-        animFrame = requestAnimationFrame(drawNeural);
-      }
-      drawNeural();
+    // Update positions with noise displacement
+    for (const nd of meshNodes) {
+      nd.x = nd.ox + n3(nd.ox * 0.003, nd.oy * 0.003, time * 0.1) * 30;
+      nd.y = nd.oy + n3(nd.ox * 0.003 + 50, nd.oy * 0.003, time * 0.1) * 30;
     }
 
-    // --- Flow Animation ---
-    if (animation === 'flow') {
-      let time = 0;
-
-      function drawFlow() {
-        ctx!.fillStyle = 'rgba(5, 8, 16, 0.05)';
-        ctx!.fillRect(0, 0, w(), h());
-
-        const cols = 40;
-        const rows = 30;
-        const cellW = w() / cols;
-        const cellH = h() / rows;
-
-        for (let i = 0; i < cols; i++) {
-          for (let j = 0; j < rows; j++) {
-            const x = i * cellW;
-            const y = j * cellH;
-            const angle = Math.sin(i * 0.1 + time) * Math.cos(j * 0.1 + time * 0.7) * Math.PI;
-            const len = cellW * 0.4;
-
-            ctx!.strokeStyle = `rgba(0, 210, 255, 0.08)`;
-            ctx!.lineWidth = 0.5;
-            ctx!.beginPath();
-            ctx!.moveTo(x, y);
-            ctx!.lineTo(x + Math.cos(angle) * len, y + Math.sin(angle) * len);
-            ctx!.stroke();
-          }
+    // Draw connections — thinner with distance
+    ctx.lineWidth = 0.4;
+    ctx.beginPath();
+    for (let i = 0; i < meshNodes.length; i++) {
+      for (let j = i + 1; j < meshNodes.length; j++) {
+        const dx = meshNodes[i].x - meshNodes[j].x;
+        const dy = meshNodes[i].y - meshNodes[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < connectDist) {
+          const alpha = (1 - dist / connectDist) * 0.35;
+          ctx.strokeStyle = `rgba(${acRgb},${alpha})`;
+          ctx.beginPath();
+          ctx.moveTo(meshNodes[i].x, meshNodes[i].y);
+          ctx.lineTo(meshNodes[j].x, meshNodes[j].y);
+          ctx.stroke();
         }
-
-        time += 0.008;
-        animFrame = requestAnimationFrame(drawFlow);
       }
-      drawFlow();
     }
 
-    // --- Grid Animation ---
-    if (animation === 'grid') {
-      let time = 0;
+    // Draw nodes — small dots at vertices
+    for (const nd of meshNodes) {
+      const intensity = Math.abs(n3(nd.ox * 0.005, nd.oy * 0.005, time * 0.15));
+      ctx.fillStyle = intensity > 0.3
+        ? `rgba(255,99,72,${0.2 + intensity * 0.4})`
+        : `rgba(${acRgb},${0.15 + intensity * 0.25})`;
+      ctx.beginPath();
+      ctx.arc(nd.x, nd.y, 1 + intensity * 1.5, 0, 6.283);
+      ctx.fill();
+    }
+  }
 
-      function drawGrid() {
-        ctx!.clearRect(0, 0, w(), h());
-        const spacing = 40;
-        const cols = Math.ceil(w() / spacing);
-        const rows = Math.ceil(h() / spacing);
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: DRIFT → INTERFERENCE — Overlapping wave moiré patterns
+     ════════════════════════════════════════════════════════════════ */
+  function drawDrift() {
+    ctx.clearRect(0, 0, W, H);
 
-        for (let i = 0; i <= cols; i++) {
-          for (let j = 0; j <= rows; j++) {
-            const x = i * spacing;
-            const y = j * spacing;
-            const pulse = Math.sin(i * 0.3 + j * 0.2 + time) * 0.5 + 0.5;
-            const size = 1 + pulse * 2;
-            const alpha = 0.05 + pulse * 0.15;
-
-            ctx!.fillStyle = `rgba(0, 210, 255, ${alpha})`;
-            ctx!.beginPath();
-            ctx!.arc(x, y, size, 0, Math.PI * 2);
-            ctx!.fill();
-          }
-        }
-
-        time += 0.015;
-        animFrame = requestAnimationFrame(drawGrid);
-      }
-      drawGrid();
+    // Three wave centers that drift slowly
+    const centers = [];
+    for (let i = 0; i < 3; i++) {
+      centers.push({
+        x: W * 0.5 + n3(i * 4.1, 0.5, time * 0.05) * W * 0.4,
+        y: H * 0.5 + n3(0.5, i * 4.1, time * 0.05) * H * 0.4,
+      });
     }
 
-    // Cleanup on page navigation
-    document.addEventListener('astro:before-preparation', () => {
-      cancelAnimationFrame(animFrame);
-    });
+    // Draw concentric wave rings from each center
+    for (let ci = 0; ci < centers.length; ci++) {
+      const cx = centers[ci].x, cy = centers[ci].y;
+      const maxR = Math.max(W, H) * 0.8;
+      const ringSpacing = Math.round(14 + (1 - quality) * 8);
+
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      for (let r = ringSpacing; r < maxR; r += ringSpacing) {
+        // Distort each ring with noise for organic feel
+        const segments = Math.max(24, Math.floor(r * 0.15 * quality));
+        for (let s = 0; s <= segments; s++) {
+          const angle = (s / segments) * Math.PI * 2;
+          const noiseR = r + n3(Math.cos(angle) * 0.5 + ci * 10, Math.sin(angle) * 0.5, time * 0.06 + r * 0.002) * 8;
+          const px = cx + Math.cos(angle) * noiseR;
+          const py = cy + Math.sin(angle) * noiseR;
+          if (s === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
+        }
+      }
+
+      // Each center gets a different alpha for interference depth
+      const alpha = 0.06 + ci * 0.02;
+      ctx.strokeStyle = ci === 0
+        ? `rgba(${acRgb},${alpha})`
+        : ci === 1
+          ? `rgba(${acRgb},${alpha * 0.8})`
+          : `rgba(162,155,254,${alpha * 0.7})`;
+      ctx.stroke();
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: WEAVE — Crossing lines with wave distortion
+     ════════════════════════════════════════════════════════════════ */
+  function drawWeave() {
+    ctx.clearRect(0, 0, W, H);
+    const spacing = Math.round(28 + (1 - quality) * 12);
+
+    // Horizontal lines
+    ctx.strokeStyle = `rgba(${acRgb},0.2)`;
+    ctx.lineWidth = 0.6;
+    for (let y = 0; y < H; y += spacing) {
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 4) {
+        const distort = n3(x * 0.004, y * 0.008, time * 0.08) * 18;
+        if (x === 0) ctx.moveTo(x, y + distort);
+        else ctx.lineTo(x, y + distort);
+      }
+      ctx.stroke();
+    }
+
+    // Vertical lines
+    ctx.strokeStyle = `rgba(${acRgb},0.12)`;
+    ctx.lineWidth = 0.5;
+    for (let x = 0; x < W; x += spacing) {
+      ctx.beginPath();
+      for (let y = 0; y <= H; y += 4) {
+        const distort = n3(x * 0.008 + 100, y * 0.004, time * 0.08) * 18;
+        if (y === 0) ctx.moveTo(x + distort, y);
+        else ctx.lineTo(x + distort, y);
+      }
+      ctx.stroke();
+    }
+
+    // Accent nodes at intersections with high distortion
+    ctx.fillStyle = 'rgba(162,155,254,0.2)';
+    for (let y = 0; y < H; y += spacing * 2) {
+      for (let x = 0; x < W; x += spacing * 2) {
+        const d = Math.abs(n3(x * 0.004, y * 0.008, time * 0.08));
+        if (d > 0.3) {
+          ctx.fillStyle = `rgba(162,155,254,${d * 0.35})`;
+          ctx.beginPath();
+          ctx.arc(x, y, 2 + d * 2, 0, 6.283);
+          ctx.fill();
+        }
+      }
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     ANIMATION: SIGNAL — Waveform frequency bands
+     ════════════════════════════════════════════════════════════════ */
+  function drawSignal() {
+    ctx.fillStyle = 'rgba(5, 8, 16, 0.05)';
+    ctx.fillRect(0, 0, W, H);
+
+    const bands = Math.floor(30 * quality);
+    const bandH = H / bands;
+
+    for (let i = 0; i < bands; i++) {
+      const y = i * bandH + bandH * 0.5;
+      const amp = n3(i * 0.15, 0, time * 0.25) * bandH * 0.9;
+      const freq = 0.008 + n3(i * 0.2, 10, time * 0.08) * 0.012;
+      const phase = time * (1.5 + i * 0.1);
+
+      const intensity = Math.abs(amp) / (bandH * 0.9);
+      const warm = n3(i * 0.3, 5, time * 0.1) > 0.3;
+
+      ctx.strokeStyle = warm
+        ? `rgba(255,99,72,${0.08 + intensity * 0.25})`
+        : `rgba(${acRgb},${0.1 + intensity * 0.3})`;
+      ctx.lineWidth = 0.6 + intensity * 0.6;
+      ctx.beginPath();
+      for (let x = 0; x <= W; x += 3) {
+        const val = Math.sin(x * freq + phase) * amp
+                  + Math.sin(x * freq * 2.3 + phase * 0.7) * amp * 0.3;
+        if (x === 0) ctx.moveTo(x, y + val);
+        else ctx.lineTo(x, y + val);
+      }
+      ctx.stroke();
+    }
+  }
+
+  /* ── Switch animation ──────────────────────────────────────────── */
+  function switchAnim(name: AnimName) {
+    currentAnim = name;
+    ctx.clearRect(0, 0, W, H);
+    if (name === 'cascade') { cascadeInited = false; }
+    if (name === 'pulse') { meshInited = false; }
+    if (name === 'neural') initNeural();
+    if (name === 'flow') initFlow();
+  }
+
+  /* ── Render loop ───────────────────────────────────────────────── */
+  function render(now: number) {
+    const dt = Math.min((now - lastTime) / 1000, 0.1);
+    lastTime = now;
+    time += dt;
+    adaptQuality(dt);
+
+    if (needsReinit) {
+      needsReinit = false;
+      if (currentAnim === 'neural') initNeural();
+      if (currentAnim === 'flow') initFlow();
+      if (currentAnim === 'cascade') { cascadeInited = false; }
+      if (currentAnim === 'pulse') { meshInited = false; }
+    }
+
+    switch (currentAnim) {
+      case 'cascade': drawCascade(); break;
+      case 'neural':  drawNeural(); break;
+      case 'flow':    drawFlow(); break;
+      case 'terrain': drawTerrain(); break;
+      case 'pulse':   drawPulse(); break;
+      case 'drift':   drawDrift(); break;
+      case 'weave':   drawWeave(); break;
+      case 'signal':  drawSignal(); break;
+    }
+    animFrame = requestAnimationFrame(render);
+  }
+
+  // Initialize and start
+  switchAnim(currentAnim);
+  animFrame = requestAnimationFrame(render);
+
+  /* ── Auto-rotation (30s cycle, smooth crossfade) ────────────────── */
+  let rotateTimer: ReturnType<typeof setInterval> | undefined;
+  if (rawAnim === 'auto') {
+    rotateTimer = setInterval(() => {
+      animIdx = (animIdx + 1) % allAnims.length;
+      // No opacity flash — just switch (trail-based anims blend naturally)
+      switchAnim(allAnims[animIdx]);
+    }, 30000);
+  }
+
+  /* ── Lifecycle cleanup ─────────────────────────────────────────── */
+  const onResize = () => resize();
+  window.addEventListener('resize', onResize);
+
+  document.addEventListener('astro:before-preparation', () => {
+    cancelAnimationFrame(animFrame);
+    if (rotateTimer) clearInterval(rotateTimer);
+    window.removeEventListener('resize', onResize);
   });
+});
 </script>

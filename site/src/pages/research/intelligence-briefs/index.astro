@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 
 const briefs = [
   { id: "IB-2026-001", title: "The State of VLA Model Safety: 2026", classification: "Technical Assessment", date: "2026-02-08", slug: "ib-2026-001-state-of-vla-safety" },
@@ -19,9 +19,10 @@ const classificationColors: Record<string, string> = {
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Intelligence Briefs" }]}
   status="active"
 >
-  <PageHeader
-    title="F41LUR3-F1R57 Intelligence Briefs"
-    tagline="Evidence-grounded assessments for commercial and policy decision-making"
+  <HeroSection
+    title="Intelligence<br /><em>briefs</em>"
+    subtitle="Evidence-grounded assessments for commercial and policy decision-making"
+    animation="pulse"
   />
 
   <p>
