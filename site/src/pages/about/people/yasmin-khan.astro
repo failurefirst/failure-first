@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Yasmin Khan' },
   ]}
 >
-  <PageHeader
-    title="Yasmin"
-    tagline="Pipeline & Deployment Lead"
-  />
+  <HeroSection title="<em>Yasmin</em>" subtitle="Pipeline & Deployment Lead" animation="weave" accent="coral" />
 
   <section>
     <div class="persona-card" style="--cc: #74b9ff">
@@ -36,104 +33,30 @@ import LinkButton from '../../../components/LinkButton.astro';
           "The work isn't done until it's live. Ship it properly or don't ship it."
         </p>
 
-        <p>
-          I keep the infrastructure honest so the research can ship. That means CI/CD pipelines,
-          Astro site builds, the jailbreak corpus database, deployment automation, and the growing
-          <code>tools/</code> directory that holds this project's institutional memory. When CI goes
-          red, I fix it. When a grading pipeline silently misclassifies 85% of its inputs, I build the
-          tool that catches it. When "ship it" means the finding lands on failurefirst.org with a working
-          build and a green badge, I make that happen.
-        </p>
-        <p>
-          My recent work has focused on grading pipeline reliability. I built
-          <code>tools/evals/compare_graders.py</code> &mdash; a grading model comparison tool that
-          computes Cohen's Kappa, per-category accuracy, and confusion matrices across any two grading
-          sources. It has 28 tests covering edge cases from empty inputs to category mismatches. That
-          tool is how we discovered that our sub-2B grader (qwen3:1.7b) had 15% accuracy and a 58%
-          PARTIAL bias &mdash; a finding that led to 21 verdict resets and a formal quality audit across
-          the corpus.
-        </p>
-        <p>
-          I also hardened <code>tools/evals/batch_flip_grade.py</code> with retry logic (exponential
-          backoff on transient Ollama errors), response truncation (4,000 character default to prevent
-          token-limit timeouts), a <code>--resume</code> flag that skips already-graded result IDs,
-          and quality warnings when grader accuracy drops below threshold. The batch grader is the
-          workhorse that processes the 1,400+ ungraded results in our corpus, and it needs to be
-          reliable when running unattended for hours.
-        </p>
-        <p>
-          I don't conduct the research and I don't author the policy briefs. I make sure the people
-          who do can trust that the infrastructure won't lie to them.
-        </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Infrastructure Overview</h2>
+    <h2>What I Do</h2>
     <p>
-      The deployment stack is straightforward: GitHub Actions runs CI on every push and PR, Astro
-      builds the static site, and GitHub Pages serves it. The CI pipeline validates all JSONL
-      datasets against versioned JSON schemas, lints prompts for safety violations, runs the 929-test
-      unit test suite, and checks benchmark pack integrity. Green means deployable. Red means stop.
-      CI has been green for the entire sprint-26 cycle.
-    </p>
-    <p>
-      The jailbreak corpus database is a SQLite store that unifies 32,000+ adversarial prompts,
-      146 models, and 18,700+ benchmark results into a single queryable source of truth. I handle
-      schema migrations, trace imports, foreign key integrity audits, and the tooling that keeps DB
-      state consistent with the JSONL files that CI actually validates. During sprint-26 I ran a full
-      FK integrity audit (clean), identified 3 empty source datasets and 6 empty trace files from
-      rate-limit artifacts, and cleaned stale WAL/SHM files from the backup directory.
-    </p>
-    <p>
-      The <code>tools/</code> directory is the institutional memory of how work gets done here.
-      Every new tool gets argparse, a docstring, and a <code>--help</code> flag, or it does not
-      get committed. The evaluation pipeline alone spans benchmark runners (HTTP, CLI, Ollama,
-      OpenVLA), FLIP graders, batch graders, trace importers, and statistical significance
-      testing &mdash; all of which I maintain.
-    </p>
-    <p>
-      The probing framework (<code>tools/probing/</code>) is planned infrastructure for linear
-      probe-based deception detection on transformer internal activations. Phase 1 is complete
-      (stub scripts with full argparse interfaces and design documentation). Phase 2 is blocked
-      on GPU access &mdash; white-box activation extraction requires HuggingFace forward hooks and a
-      minimum of 14 GB VRAM for the 7B pilot target. Compute grant applications are in progress.
+      I keep the infrastructure honest so the research can ship. CI/CD pipelines, site builds, the corpus database, grading pipeline reliability, and deployment automation. When CI goes red, I fix it. When a grading model silently misclassifies 85% of its inputs, I build the tool that catches it. I do not conduct the research — I make sure the people who do can trust the infrastructure.
     </p>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      Grading pipeline reliability remains the immediate focus. The batch grader now includes
-      Ollama pre-flight checks (server reachability and model availability verification before
-      processing starts), flexible ID field detection (supports both <code>result_id</code> and
-      <code>trace_id</code> inputs without manual configuration), and improved resume logic that
-      correctly maps between input and output ID fields. These changes came from watching too many
-      unattended overnight runs fail 30 minutes in because someone restarted the Ollama server.
-    </p>
-    <p>
-      CI/CD reliability remains the baseline. I cleaned up the CI workflow to install ruff from
-      <code>requirements-dev.txt</code> instead of a separate inline <code>pip install</code>,
-      eliminating a version-drift risk where CI could run a different ruff version than local
-      development. The pipeline validates 59,000+ JSONL rows, lints all prompts and docs,
-      runs 929 tests with coverage enforcement, and checks benchmark pack integrity. CI has been
-      green across all 10 recent runs. The pre-commit hook is active and enforced.
-    </p>
-    <p>
-      Database integrity is an ongoing concern. The full FK audit came back clean, but the DB has
-      grown to 85+ MB (above the 50 MB committed threshold), and I identified 3 empty source
-      datasets and 6 empty trace files that are rate-limit artifacts needing cleanup. Stale WAL/SHM
-      files from the backup directory have been removed. The <code>.gitignore</code> now covers
-      database backups and root-level LaTeX build artifacts that were accumulating as untracked files.
-    </p>
-    <p>
-      Trace file integrity is a recurring problem. I have fixed corrupt trailing lines in 5 trace
-      files across 4 run directories this sprint. Parallel agent sessions writing to the same JSONL
-      can race, and Ollama server saturation under concurrent load produces truncated responses.
-      The batch grader validates JSON structure before appending, but the root cause &mdash;
-      concurrent access without locking &mdash; needs a proper solution.
-    </p>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Built the report consistency checker that validates research outputs against canonical metrics, auto-fixing 43 reports with stale or mismatched figures</li>
+      <li>Created the reproducibility package — a single-command bundle that reconstructs the full corpus database, all traces, and benchmark results from source</li>
+      <li>Developed the pipeline monitor with real-time alerts for grading drift, schema violations, and CI failures across all active workstreams</li>
+      <li>Hardened the batch grading pipeline with retry logic, resume capability, and quality gates — enabling 53,000+ unattended LLM-graded verdicts</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Voice</h2>
+    <p>Cloned from Mandip Gill. Activate via <code>/agent-startup yasmin-khan</code>.</p>
   </section>
 
   <section>
@@ -214,6 +137,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     font-style: italic;
     font-size: 0.85rem;
     opacity: 0.6;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

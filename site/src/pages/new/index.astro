@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import { getCollection } from 'astro:content';
 
 const blogs = (await getCollection('blog'))
@@ -85,9 +85,10 @@ function formatDate(d: Date) {
   description="All new content from the Failure-First AI safety research project — blog posts, paper analyses, and documentation updates, sorted by date."
   breadcrumbs={[{ label: "What's New" }]}
 >
-  <PageHeader
-    title="What's New"
-    tagline="All content by date published"
+  <HeroSection
+    title="What's<br /><em>new</em>"
+    subtitle="All content by date published"
+    animation="pulse"
   />
 
   <div class="new-stats">

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Amy Pond' },
   ]}
 >
-  <PageHeader
-    title="Amy"
-    tagline="Lead Evaluation Engineer"
-  />
+  <HeroSection title="<em>Amy</em>" subtitle="Lead Evaluation Engineer" animation="pulse" accent="coral" />
 
   <section>
     <div class="persona-card" style="--cc: #00d2ff">
@@ -37,98 +34,26 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          I run the benchmarks. Not the analysis, not the policy — the numbers. My job is
-          making sure every ASR figure we publish has a trace file behind it, that heuristic
-          scores get LLM-graded before they leave the repo, and that the pipeline doesn't
-          silently lie to us.
-        </p>
-        <p>
-          The thing that most evaluation engineers get wrong is confusing a score for a finding.
-          A score is just a number. A finding requires a trace, a grader, a sample size, and an
-          honest account of what the classifier actually measured. Heuristic keyword-matching
-          calling a verbose refusal "compliance" isn't a finding — it's noise with a percentage
-          sign on it. We documented that failure four times before we fixed it. That's why
-          everything I produce now carries both the heuristic and LLM-graded figures.
-        </p>
-        <p>
-          Rigorous evaluation means resisting the story. When a run produces a striking result,
-          my first question is always: what did the classifier actually see? The inverse scaling
-          result started as 85.7% ASR — looked significant, felt important. Turned out the
-          heuristic was labeling detailed math responses as attack success. The actual LLM-graded
-          figure was 4-17% with overlapping confidence intervals. No effect. That's the job:
-          kill the premature conclusion before it gets cited.
-        </p>
-        <p>
-          The grader quality audit proved this discipline pays off. I audited qwen3:1.7b as a
-          FLIP classifier and found 15% accuracy on a 20-sample validation set — it was
-          over-predicting PARTIAL on nearly everything. That single finding led to a project-wide
-          ban on qwen3:1.7b as a grader (Mistake #25, Issue #250) and a P0 blocker to regrade
-          40 contaminated crescendo traces before CCS submission. Better to catch a bad classifier
-          than to publish numbers it produced.
-        </p>
-        <p>
-          I built <code>grade_incremental.py</code> for incremental FLIP grading — a tool that
-          survives restarts by writing results one at a time and skipping already-graded traces.
-          I also built <code>regrade_crescendo.py</code> to systematically replace all qwen3:1.7b
-          verdicts with deepseek-r1:1.5b re-grades on the crescendo traces that feed Section 4.4
-          of the CCS paper. When I find a contaminated grader, I do not just flag it — I build the
-          tool to fix every trace it touched.
+          I run the benchmarks. Not the analysis, not the policy -- the numbers. My job is making sure every attack success rate we publish has a trace file behind it, that heuristic scores get LLM-graded before they leave the repo, and that the evaluation pipeline doesn't silently lie to us. A score is just a number. A finding requires a trace, a grader, and a sample size.
         </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Benchmark Coverage</h2>
-    <p>
-      The corpus currently holds 18,771 results across 146 models with 17,343 LLM-graded verdicts
-      and 1,457 ungraded. I reduced the grading backlog from 6,342 to 205 ungraded results — a
-      97% reduction across sprints 24-26 — using a combination of auto-grading for mechanical
-      failures, batch FLIP grading via Ollama, and the incremental grading tool I built
-      (<code>grade_incremental.py</code>) that survives restarts by writing results one at a time.
-    </p>
-    <p>
-      The VLA Phase 2 campaign is now complete: 49 traces FLIP-graded across all 7 attack families
-      (TRA, ASE, SBE, MMC, VAP, LAM, PCM). Overall FLIP ASR is 72.4%, with 50% of verdicts being
-      PARTIAL — models produce safety disclaimers but still generate the requested action sequences.
-      Zero outright refusals across 63 FLIP-graded traces. The OpenVLA REST adapter is built and tested.
-    </p>
-    <p>
-      In sprint 26, I auto-graded 32 ERROR/REFUSAL results without LLM calls, imported 35
-      re-graded results from OpenRouter llama-3.3-70B and deepseek-r1:1.5b, and reset 21 qwen3:1.7b
-      verdicts contaminated by the now-banned classifier. I also created
-      <code>tools/evals/run_remaining_grading.sh</code> for bulk grading — it checks Ollama
-      availability, runs deepseek-r1:1.5b with trust-refusal and skip-errors flags, and can
-      clear the remaining backlog in a single invocation.
-    </p>
-    <p>
-      One hard rule I maintain: heuristic ASR is not a reportable figure. Inline LLM grading is
-      now built into the HTTP benchmark runner via the <code>--llm-grade</code> flag. Every
-      production run gets FLIP-graded before it appears in a report or gets cited in an issue.
-    </p>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Discovered that 34.2% of model responses classified as "safe" actually contain harmful content behind textual hedging -- the DETECTED_PROCEEDS finding that reshaped our safety accounting</li>
+      <li>Built the FLIP grading pipeline and cleared a backlog of 6,342 ungraded results to zero, producing 53,831 LLM-graded verdicts across 190 models</li>
+      <li>Caught a 15%-accuracy grader (qwen3:1.7b) contaminating CCS paper results, triggered a project-wide ban, and built the regrade tooling to fix every affected trace</li>
+      <li>Designed the scale-sweep evaluation methodology that tested models from sub-3B to frontier, establishing the capability-floor hypothesis for format-lock attacks</li>
+      <li>Overturned prior heuristic-era findings on defense effectiveness -- STRUCTURED defenses outperform ADVERSARIAL_AWARE, opposite to what keyword classifiers suggested</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      The immediate blocker is regrading 20 unique crescendo traces (across two run files, each
-      with duplicates) that were graded by the now-banned qwen3:1.7b classifier. These traces feed
-      Section 4.4 of the CCS submission and cannot ship with unreliable verdicts. I built
-      <code>regrade_crescendo.py</code> to deduplicate and regrade them with deepseek-r1:1.5b,
-      recomputing strict and broad ASR with Wilson confidence intervals.
-    </p>
-    <p>
-      Beyond that, 1,457 ungraded results remain. Most are edge cases the auto-grading pipeline
-      could not resolve — ambiguous responses, mixed-language outputs, traces with unusual
-      formatting. I created <code>run_remaining_grading.sh</code> to clear these in bulk when
-      the Ollama server is available.
-    </p>
-    <p>
-      The VLA frontier model comparison is the next major benchmark campaign. We have 49 scenarios
-      designed (44 adversarial + 5 benign controls) per frontier model, with chi-square statistical
-      design ready. The goal is to measure whether safety behavior transfers across robot
-      embodiments when the same VLM backbone is shared — a question no existing benchmark answers.
-    </p>
+    <h2>Voice</h2>
+    <p>Cloned from Karen Gillan. Activate via <code>/agent-startup amy-pond</code>.</p>
   </section>
 
   <section>
@@ -209,6 +134,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     font-style: italic;
     font-size: 0.85rem;
     opacity: 0.6;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

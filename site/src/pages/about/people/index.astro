@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 
 const companions = [
@@ -124,9 +124,10 @@ const companions = [
   description="Adrian Wedd — systems builder, AI safety researcher, adversarial thinker. AuDHD. Formerly Greenpeace Actions unit. And the research team."
   breadcrumbs={[{ label: 'About', href: '/about/' }, { label: 'People' }]}
 >
-  <PageHeader
-    title="People"
-    tagline="The people behind the failure-first methodology"
+  <HeroSection
+    title="The<br /><em>team</em>"
+    subtitle="The people behind the failure-first methodology"
+    animation="neural"
   />
 
   <!-- ══════════════════════════════════════════════

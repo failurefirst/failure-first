@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <ContentLayout
@@ -8,10 +8,7 @@ import PageHeader from '../../components/PageHeader.astro';
   description="How failurefirst.org collects, uses, and protects visitor data."
   breadcrumbs={[{ label: "About", href: "/about/" }, { label: "Privacy" }]}
 >
-  <PageHeader
-    title="Privacy Policy"
-    tagline="How we handle your data"
-  />
+  <HeroSection title="<em>Privacy</em> Policy" subtitle="How we handle your data" animation="weave" accent="cyan" />
 
   <section>
     <p><strong>Effective date:</strong> 2 March 2026</p>

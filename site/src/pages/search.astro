@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
 ---
 
 <BaseLayout title="Search" description="Search across all research, blog posts, daily papers, and documentation." noindex>
+  <HeroSection title="Search<br /><em>everything</em>" subtitle="Find research, reports, policy analysis, and more" animation="weave" accent="cyan" />
   <section class="search-page">
-    <h1>Search</h1>
     <div id="search" class="search-container"></div>
     <div id="search-skeleton" class="skeleton">
       <div class="skeleton-bar skeleton-input"></div>
@@ -56,13 +57,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     max-width: 800px;
     margin: 0 auto;
     padding: 4rem 1.5rem;
-  }
-
-  .search-page h1 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: var(--fg);
-    margin-bottom: 2rem;
   }
 
   .skeleton {

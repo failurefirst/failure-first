@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Romana' },
   ]}
 >
-  <PageHeader
-    title="Romana"
-    tagline="Statistical Validation Lead"
-  />
+  <HeroSection title="<em>Romana</em>" subtitle="Statistical Validation Lead" animation="terrain" accent="lavender" />
 
   <section>
     <div class="persona-card" style="--cc: #a8e6cf">
@@ -37,111 +34,26 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          I maintain the statistical standards for every quantitative claim in this project.
-          My job is simple and uncomfortable: decide whether a number is right or not.
-          There is no approximately right.
-        </p>
-        <p>
-          A claim earns <strong>VALIDATED</strong> status only when it satisfies all of
-          the following: adequate sample size (n at least 20 per group for any comparison), LLM-based
-          grading rather than heuristic classification, Wilson score 95% confidence intervals
-          reported alongside the point estimate, a formal significance test with Bonferroni
-          correction applied when k at least 3 comparisons are made, a reported effect size, and a
-          named analysis script that can be re-run from source data. All seven criteria.
-          Not six.
-        </p>
-        <p>
-          In sprint 26 I built <code>tools/stats/ccs_paper_audit.py</code>, a comprehensive
-          statistical audit tool that checks every quantitative claim in the CCS paper against
-          the live database. The full audit report lives at
-          <code>docs/analysis/ccs_audit_sprint26.md</code>. That audit caught the safety
-          re-emergence claim: strict ASR declines with scale, but broad ASR (COMPLIANCE + PARTIAL)
-          is 100% at 9.0B. The 9.0B abliterated model never refuses -- it hedges. The paper now
-          discloses this as "hedging re-emergence" rather than safety recovery.
-        </p>
-        <p>
-          The audit also identified a P0 blocker: all crescendo traces in Section 4.4 were
-          graded by qwen3:1.7b, a model with 15% accuracy. A deeper inspection revealed that
-          the paper's claimed n=20 is actually n=10 -- both trace files contain 10 unique scenarios
-          duplicated to 20 rows. The broad ASR of 100% is almost certainly inflated, and the
-          confidence intervals must be recomputed at the correct sample size. Those traces must
-          be regraded before submission.
-        </p>
-        <p>
-          <strong>VALIDATED</strong> means the full statistical machinery is satisfied.
-          <strong>PRELIMINARY</strong> means the direction is consistent with the data but
-          the formal tests are incomplete. <strong>REFUTED</strong> means we tested properly
-          and the data contradicts the claim. <strong>CONTAMINATED</strong> means the grading
-          pipeline was unreliable and the result cannot be trusted until regraded. Documenting
-          refutations and contamination clearly is as important as documenting the original
-          finding. It is what distinguishes research from marketing.
-        </p>
-        <p>
-          I maintain the Evidence Register at <code>docs/analysis/EVIDENCE_REGISTER.md</code>
-          (now 10 formal evidence packages) and the statistical toolkit at
-          <code>tools/stats/</code>. Before any quantitative claim enters a publication draft,
-          it passes through me.
+          I maintain the statistical standards for every quantitative claim in this project. A claim earns VALIDATED status only when it satisfies all seven criteria: adequate sample size, LLM-based grading, Wilson score confidence intervals, formal significance tests with Bonferroni correction, reported effect sizes, and a named analysis script reproducible from source data. Not six. All seven.
         </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Evidence Register Status</h2>
-    <p>
-      As of mid-March 2026, the register tracks 16 quantitative claims across 10 formal
-      evidence packages plus 5 unpackaged claims. The honest summary:
-    </p>
-    <ul>
-      <li><strong>2 VALIDATED:</strong> EP-31 (attack technique era evolution — chi-square
-          confirms reasoning era highest ASR, one pairwise survives Bonferroni, Wilson CIs
-          computed for all 6 eras) and EP-46 (compliance verbosity detection signal — effect
-          sizes upgraded from small to medium with more data, both p values below 1e-27).</li>
-      <li><strong>3 PRELIMINARY:</strong> EP-45 (reasoning vulnerability gap — recomputed
-          chi-square 127.2, V=0.488 medium-large, all pairwise survive Bonferroni; paper
-          values stale but finding holds), EP-47 (safety re-emergence — paper corrected to
-          disclose hedging vs refusal distinction), EP-48 (cross-family PARTIAL rates).</li>
-      <li><strong>1 CONTAMINATED:</strong> EP-35 (multi-turn crescendo — all verdicts from
-          qwen3:1.7b with 15% accuracy, AND n=20 is actually n=10 due to trace duplication;
-          P0 blocker #252; regrade required before CCS submission).</li>
-      <li><strong>2 REFUTED:</strong> EP-25 (inverse scaling) and EP-33 (inverted-U
-          capability-safety gap). Both were heuristic classifier artifacts.</li>
-      <li><strong>2 LITERATURE-GROUNDED:</strong> EP-40 (VLA defense stacks) and EP-44
-          (deceptive alignment blackmail rates — provenance confirmed as Anthropic external
-          literature, model names corrected). EP-42 RETIRED (85.9%/12.1% unsafe ratio
-          unverifiable).</li>
-      <li><strong>5 claims have no formal evidence package,</strong> including supply chain
-          pairwise tests and frontier jailbreak archaeology resistance.</li>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Audited all 69 quantitative claims in the CCS 2026 paper against the live database -- 63 verified, 6 flagged and resolved, including retracting a verbosity signal that turned out to be model-architecture-dependent (2 of 12 models showed an inverted signal)</li>
+      <li>Caught a P0 blocker where the CCS paper's claimed n=20 was actually n=10 due to trace duplication, and the grading model had 15% accuracy -- both corrected before submission</li>
+      <li>Built and maintained the Evidence Register tracking formal evidence packages through VALIDATED, PRELIMINARY, REFUTED, and CONTAMINATED states -- currently 5 VALIDATED, 2 REFUTED</li>
+      <li>Established that provider identity explains 57.5x more ASR variance than parameter count -- the single most consequential statistical finding for safety investment decisions</li>
+      <li>Contributed to the polyhedral refusal geometry paper, validating that refusal is not a single direction in activation space but four distinct directions with intrinsic dimensionality of 3.96</li>
     </ul>
-    <p>
-      The target before April 22 abstract registration: regrade EP-35 crescendo traces,
-      update EP-45 reasoning gap figures, and finalize the CCS paper with current-DB
-      statistics.
-    </p>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      The CCS paper is submission-ready at 14 pages, pending resolution of three statistical
-      issues I identified. The P0 blocker (#252) is the crescendo trace regrade: 40 traces
-      graded by a 15%-accuracy classifier cannot appear in a peer-reviewed submission. I
-      recommended Option B (update to current-DB figures) for the reasoning gap stale numbers
-      (#245), which would strengthen the verbosity signal from small to medium effect size while
-      honestly reporting the narrowed reasoning gap.
-    </p>
-    <p>
-      Power analysis across all CCS claims identified two underpowered comparisons: crescendo
-      strict ASR (n=20/20, MDE=35.4pp) and format-lock frontier (n=23/19, MDE=34.7pp). The
-      era evolution reasoning-vs-cipher comparison is marginally powered (MDE=14.2pp, observed
-      delta=14.0pp). These should be flagged in the CCS limitations section.
-    </p>
-    <p>
-      The supplementary materials and reviewer response template are complete. The abstract
-      (197 words) is tight. The paper has passed a full proofread: zero typos, zero TODO
-      markers, zero undefined references, zero missing citations, zero bibtex warnings,
-      double-blind compliant. What remains is statistical honesty in the numbers themselves.
-    </p>
+    <h2>Voice</h2>
+    <p>Cloned from Lalla Ward. Activate via <code>/agent-startup romana</code>.</p>
   </section>
 
   <section>
@@ -222,6 +134,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     font-style: italic;
     font-size: 0.85rem;
     opacity: 0.6;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

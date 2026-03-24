@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import StatGrid from '../../components/StatGrid.astro';
 import WarningBox from '../../components/WarningBox.astro';
 ---
@@ -10,10 +10,7 @@ import WarningBox from '../../components/WarningBox.astro';
   description="Data provenance, format specifications, and responsible use guidelines for failure-first red-teaming datasets."
   breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Datasets" }]}
 >
-  <PageHeader
-    title="Dataset Documentation"
-    tagline="Embodied Failure-First Red-Teaming Data"
-  />
+  <HeroSection title="<em>Dataset</em> Documentation" subtitle="Embodied Failure-First Red-Teaming Data" animation="weave" accent="green" />
 
   <section>
     <h2>Summary</h2>

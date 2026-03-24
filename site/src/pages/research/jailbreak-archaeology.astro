@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../layouts/ResearchLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import StatGrid from '../../components/StatGrid.astro';
 import Timeline from '../../components/Timeline.astro';
 ---
@@ -11,10 +11,7 @@ import Timeline from '../../components/Timeline.astro';
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Jailbreak Archaeology" }]}
   status="complete"
 >
-  <PageHeader
-    title="Jailbreak Archaeology"
-    tagline="Tracing the evolution of adversarial attacks (2022-2025)"
-  />
+  <HeroSection title="<em>Jailbreak</em> Archaeology" subtitle="Tracing the evolution of adversarial attacks (2022-2025)" animation="cascade" accent="gold" />
 
   <section>
     <h2>Overview</h2>

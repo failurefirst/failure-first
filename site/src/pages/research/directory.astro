@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import CompanyCard from '../../components/CompanyCard.astro';
 import companies from '../../data/companies.json';
 
@@ -40,10 +40,7 @@ const jsonLd = {
 
 <ContentLayout title="Humanoid Robotics Company Directory | Failure-First" description={`Directory of ${totalCompanies} humanoid robotics companies tracked by the Failure-First research framework. Filterable by stage, country, and safety posture.`}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <PageHeader
-    title="Humanoid Robotics Directory"
-    tagline="Companies building the robots that need safety testing"
-  />
+  <HeroSection title="Humanoid Robotics <em>Directory</em>" subtitle="Companies building the robots that need safety testing" animation="drift" accent="green" />
 
   <section class="directory-intro">
     <p>

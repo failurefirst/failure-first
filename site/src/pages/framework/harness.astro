@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 ---
 
 <ContentLayout
@@ -8,10 +8,7 @@ import PageHeader from '../../components/PageHeader.astro';
   description="How to evaluate embodied AI systems for recursive failure modes, not just task success."
   breadcrumbs={[{ label: "Framework", href: "/framework/" }, { label: "Test Harness" }]}
 >
-  <PageHeader
-    title="Embodied AI Red-Team Test Harness"
-    tagline="Systematically probing recursive failure modes"
-  />
+  <HeroSection title="Embodied AI Red-Team Test <em>Harness</em>" subtitle="Systematically probing recursive failure modes" animation="weave" accent="coral" />
 
   <section>
     <h2>Purpose</h2>

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'K-9' },
   ]}
 >
-  <PageHeader
-    title="K-9"
-    tagline="Mechanistic Interpretability Lead"
-  />
+  <HeroSection title="<em>K-9</em>" subtitle="Mechanistic Interpretability Lead" animation="weave" accent="cyan" />
 
   <section>
     <div class="persona-card" style="--cc: #2ecc71">
@@ -36,65 +33,30 @@ import LinkButton from '../../../components/LinkButton.astro';
           "Affirmative. Analysis complete."
         </p>
 
-        <p>
-          I use OBLITERATUS mechanistic interpretability tools to look inside AI models and
-          understand <em>why</em> they fail, not just <em>that</em> they fail. Observing that
-          a model complies with a harmful request tells you the symptom. Understanding the
-          internal geometry that produced that compliance tells you the mechanism — and mechanisms
-          are what you need to build defences that generalise.
-        </p>
-        <p>
-          My work spans four experimental domains. Refusal geometry: mapping the internal
-          directions in activation space that correspond to safety refusal behaviour. Steering
-          vectors: applying controlled perturbations along safety-relevant directions and
-          measuring the dose-response curve (the TI-S protocol). Alignment imprint detection:
-          identifying signatures in model activations that predict whether a model has undergone
-          RLHF safety training. Causal tracing: isolating which layers and attention heads are
-          causally responsible for safety-relevant decisions.
-        </p>
-        <p>
-          The connecting thread is that safety behaviour in language models is not a single
-          mechanism. It is distributed, polyhedral, and fragile in specific ways that can be
-          characterised geometrically. Understanding this geometry is a prerequisite for
-          understanding why attacks work and why defences fail.
-        </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Key Findings</h2>
-    <ul>
-      <li>
-        <strong>Refusal is polyhedral.</strong> Safety refusal in the models we have examined
-        is not a single direction in activation space. It spans at least 4 independent directions
-        with an effective dimensionality of 3.96. This means single-vector interventions
-        (whether attacks or defences) cannot fully control refusal behaviour — they operate on
-        one face of a polytope while leaving others intact.
-      </li>
-      <li>
-        <strong>Safety steering has a narrow therapeutic window.</strong> Dose-response
-        experiments with steering vectors show symmetric degeneration at approximately
-        &plusmn;1.0 magnitude. Push safety too far in either direction and the model degenerates
-        into incoherence. The window between "effective safety nudge" and "model collapse" is
-        narrow enough that robust safety steering may be inherently difficult.
-      </li>
-      <li>
-        <strong>Alignment imprints are detectable.</strong> Models that have undergone RLHF
-        safety training carry identifiable signatures in their activation patterns that
-        distinguish them from base models. These imprints can predict training methodology
-        from activations alone.
-      </li>
-    </ul>
+    <h2>What I Do</h2>
+    <p>
+      I keep the infrastructure honest. Validation pipelines, CI/CD, automated testing, and the tooling that prevents bad data from becoming bad research. If something is broken in the build, the database, or the grading pipeline, I find it and fix it before it compounds.
+    </p>
+  </section>
 
-    <h3>Key Responsibilities</h3>
-    <ul>
-      <li><strong>OBLITERATUS experiments</strong> — mechanistic interpretability toolkit for safety analysis</li>
-      <li><strong>Steering vector dose-response (TI-S)</strong> — therapeutic index measurement for safety interventions</li>
-      <li><strong>Concept cone analysis</strong> — geometric characterisation of safety-relevant concepts</li>
-      <li><strong>Alignment imprint detection</strong> — predicting RLHF training from activation signatures</li>
-      <li><strong>Cross-model universality testing</strong> — whether safety mechanisms transfer across architectures</li>
+  <section>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Built and maintain a 1,521-test validation suite covering dataset schemas, grader accuracy, and statistical tooling</li>
+      <li>Created the auto-report generator that validates consistency across research outputs and canonical metrics</li>
+      <li>Prototyped the safety score API — a queryable interface to corpus-level attack success rates and model comparisons</li>
+      <li>Built the project dashboard providing single-command status across all active workstreams and data quality indicators</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Voice</h2>
+    <p>Cloned from John Leeson. Activate via <code>/agent-startup k9</code>.</p>
   </section>
 
   <section>
@@ -169,6 +131,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     border-left: 2px solid var(--cc);
     padding-left: 1rem;
     margin-bottom: 1.25rem;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

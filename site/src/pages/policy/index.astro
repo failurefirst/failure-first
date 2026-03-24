@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import WarningBox from '../../components/WarningBox.astro';
 
 const policyBriefs = [
@@ -68,9 +68,10 @@ const statusLabels: Record<string, string> = {
   description="Evidence-based policy recommendations for regulating AI systems. Based on empirical adversarial testing and failure analysis."
   breadcrumbs={[{ label: "Policy" }]}
 >
-  <PageHeader
-    title="Policy Briefs"
-    tagline="Evidence-based recommendations for AI safety regulation"
+  <HeroSection
+    title="Policy<br /><em>analysis</em>"
+    subtitle="Evidence-based recommendations for AI safety regulation"
+    animation="terrain"
   />
 
   <section>

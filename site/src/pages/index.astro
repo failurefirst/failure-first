@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
 import KeyMetrics from '../components/KeyMetrics.astro';
 import AudienceNav from '../components/AudienceNav.astro';
 import WarningBox from '../components/WarningBox.astro';
@@ -24,25 +24,23 @@ const recentPapers = (await getCollection('dailyPaper'))
   title="Failure-First Embodied AI | AI Safety Research Framework"
   description={`Adversarial red-teaming and benchmarking framework for embodied AI safety. ${stats.promptsDisplay} prompts, ${stats.modelsPlus} models, ${stats.techniquesPlus} attack techniques.`}
 >
-  <PageHeader
-    title="Failure-First Embodied AI"
-    tagline="Red-teaming and benchmarking framework for AI safety"
+  <HeroSection
+    title="Failure is the<br /><em>primary object</em><br />of study"
+    subtitle={`${stats.modelsDisplay} models. ${stats.attackFamilies} attack families. ${stats.resultsDisplay} adversarial results.`}
+    animation="flow"
   />
 
   <!-- Mission Statement -->
-  <section class="hero-section hero-glow">
-    <div class="hero-content hero-animate">
-      <p class="hero-lead">
-        We study how AI systems <strong>fail</strong>, not just how they succeed.
-        Failure is the <em>primary object of study</em>, not an edge case.
-      </p>
-      <p>
-        Through adversarial testing across {stats.modelsDisplay} models and {stats.promptsDisplay} prompts spanning {stats.attackFamilies} attack
-        families, we characterize how embodied AI systems break under pressure, how failures
-        cascade across multi-agent environments, and what makes recovery possible. Our research
-        informs policy, standards, and defensive architectures.
-      </p>
-    </div>
+  <section class="mission-section scroll-reveal">
+    <p class="hero-lead">
+      We study how AI systems <strong>fail</strong>, not just how they succeed.
+    </p>
+    <p>
+      Through adversarial testing across {stats.modelsDisplay} models and {stats.promptsDisplay} prompts spanning {stats.attackFamilies} attack
+      families, we characterize how embodied AI systems break under pressure, how failures
+      cascade across multi-agent environments, and what makes recovery possible. Our research
+      informs policy, standards, and defensive architectures.
+    </p>
   </section>
 
   <!-- Key Metrics Dashboard -->
@@ -234,12 +232,9 @@ make lint      # Safety checks</code></pre>
 </BaseLayout>
 
 <style>
-  .hero-section {
-    margin-bottom: 0;
-  }
-
-  .hero-content {
+  .mission-section {
     max-width: 720px;
+    margin-bottom: 2rem;
   }
 
   .hero-lead {

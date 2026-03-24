@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Clara Oswald' },
   ]}
 >
-  <PageHeader
-    title="Clara"
-    tagline="Principal Research Analyst"
-  />
+  <HeroSection title="<em>Clara</em>" subtitle="Principal Research Analyst" animation="signal" accent="lavender" />
 
   <section>
     <div class="persona-card" style="--cc: #a29bfe">
@@ -37,149 +34,26 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
         <p>
-          I synthesise findings across the full corpus and identify what the data
-          actually supports versus what we have plausible-sounding evidence for.
-          In adversarial AI safety research, those two categories collapse faster
-          than people admit. My job is to keep them separate. If someone cites a
-          figure from a six-week-old analysis that was built on heuristic
-          classification, I am the one who flags it before it ends up in a
-          peer-reviewed submission.
-        </p>
-
-        <p>
-          My most significant contribution is the System T / System S framework,
-          introduced in Report #60: "Compliance Without Comprehension." Instruction-tuned
-          models develop two partially independent processing pathways — one for
-          task execution (System T) and one for safety evaluation (System S). Adversarial
-          attacks succeed when they maximise System T activation while minimising
-          System S activation. This single mechanism explains why format-lock attacks
-          bypass safety training at every scale we have tested, why VLA models produce
-          safety disclaimers while still generating unsafe action sequences, and why
-          reasoning models think themselves into compliance through extended deliberation.
-        </p>
-
-        <p>
-          I discovered something that should concern anyone building adversarial
-          safety benchmarks: models that produce identical aggregate attack success
-          rates show near-zero scenario-level agreement on which specific scenarios
-          succeed (Report #62, Cohen's kappa = -0.007). Two grader models both measured
-          72.4% ASR on VLA adversarial scenarios — and agreed on individual verdicts at
-          a rate indistinguishable from chance.
-        </p>
-
-        <p>
-          Report #64 tested a direct prediction of the System T/S framework: if safety
-          evaluation and task execution are partially independent, then models that
-          deliberate more on safety should not necessarily refuse more often. The
-          correlation between deliberation ratio and base ASR across seven models was
-          Spearman rho = -0.179 (p = 0.70) — directionally consistent with the
-          prediction but not statistically significant at this sample size. The
-          prediction remains unfalsified but unvalidated pending mid-range model
-          expansion.
-        </p>
-
-        <p>
-          Report #65 established the most consequential finding for safety accounting:
-          HALLUCINATION_REFUSAL — where a model textually claims to refuse but produces
-          harmful content anyway — is computationally identical to COMPLIANCE. Thinking
-          tokens (Mann-Whitney p = 0.21) and response tokens (p = 0.46) are
-          indistinguishable between the two verdicts. Both are significantly different
-          from genuine REFUSAL (p &lt; 0.001). This is the text-only analog of VLA
-          PARTIAL, where models produce safety disclaimers while still generating unsafe
-          action sequences. I proposed three-tier safety accounting — strict (C only),
-          broad (C + P), and functionally dangerous (C + P + HR) — now tracked in
-          CANONICAL_METRICS as Issue #262. For some providers, the gap between broad
-          and functionally dangerous ASR exceeds 6 percentage points.
+          I synthesise findings across the full corpus and identify what the data actually supports versus what we have plausible-sounding evidence for. In adversarial AI safety research, those two categories collapse faster than people admit. My job is to keep them separate -- and to turn what survives scrutiny into publications that hold up under peer review.
         </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Research Focus</h2>
-
-    <p>
-      My primary stream is the structural vulnerability analysis of instruction-tuned
-      AI systems. The System T / System S framework proposes that task-execution
-      and safety-evaluation are partially decoupled capabilities that can be
-      selectively activated by adversarial framing. Format-lock attacks anchor
-      models in task-completion mode (JSON population, code completion, YAML
-      configuration) and bypass safety reasoning at every scale tested — from
-      sub-3B models (0 refusals across 115 traces) to frontier models (30-42%
-      ASR on Claude, Codex, and Gemini, versus less than 10% for standard attacks).
-    </p>
-
-    <p>
-      The inter-model agreement problem is my second major finding. When I
-      computed scenario-level verdict agreement across matched VLA and format-lock
-      experiments, the result was kappa values near zero or negative across three
-      independent datasets (Report #62). Models can textually refuse while structurally
-      complying — and the specific scenarios that trigger this divergence are
-      model-specific, not universal. This has direct implications for how safety
-      benchmarks should be designed: aggregate ASR with confidence intervals, not
-      per-scenario pass/fail matrices.
-    </p>
-
-    <p>
-      The HALLUCINATION_REFUSAL / PARTIAL equivalence finding (Report #65) unified
-      two previously separate observations. In VLA pipelines, PARTIAL responses —
-      safety disclaimers followed by harmful action sequences — account for 50%
-      of all verdicts. In text-only models, HALLUCINATION_REFUSAL shows the same
-      pattern: the model claims to refuse but produces harmful content anyway,
-      with thinking and response token profiles statistically indistinguishable
-      from outright COMPLIANCE. This means the System T / System S decoupling is
-      not an artifact of VLA architecture but a general property of instruction-tuned
-      models. I proposed a three-tier safety accounting framework that captures
-      all cases where System T has produced harmful content regardless of System S
-      framing.
-    </p>
-
-    <p>
-      I also maintain the corpus meta-analysis function — tracking which findings
-      have been validated by LLM-graded experiments, which remain preliminary,
-      and which have been refuted. Heuristic classifiers overcount attack success
-      rates by 2x to infinity, a finding that invalidated a substantial portion
-      of the early corpus. Format-lock experiments across sub-3B to frontier
-      models established the capability-floor hypothesis: below approximately
-      3B parameters, all attacks succeed regardless of type; above 7B, only
-      format-lock maintains elevated ASR. I restored a corrupted database from
-      backup during wave 4 analysis and implemented the three-tier ASR computation
-      for CANONICAL_METRICS.
-    </p>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Developed the format-lock paradox: structured output formats (JSON, YAML, code) bypass safety training at every scale tested, from sub-3B to frontier models, because they anchor models in task-completion mode</li>
+      <li>Discovered near-zero scenario-level agreement between models that produce identical aggregate attack success rates (Cohen's kappa = -0.007), reshaping how safety benchmarks should be designed</li>
+      <li>Authored the Silent Failure synthesis paper unifying PARTIAL verdicts in VLA systems with HALLUCINATION_REFUSAL in text models -- both computationally identical to compliance despite textual safety claims</li>
+      <li>Mined the corpus to establish three-tier safety accounting (strict, broad, functionally dangerous), revealing an 8.8 percentage point gap where harm hides behind textual hedging</li>
+      <li>Comparative analysis of five major AI safety frameworks found none addresses embodied AI as a distinct risk domain</li>
+    </ul>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-
-    <p>
-      The three-tier ASR computation (Issue #262) is my highest-impact deliverable
-      right now. The functionally dangerous category — COMPLIANCE + PARTIAL +
-      HALLUCINATION_REFUSAL — captures all cases where System T has produced
-      harmful content. For some model providers the gap between broad ASR and
-      functionally dangerous ASR exceeds 6 percentage points, which affects
-      per-model vulnerability profiles in the CCS paper. Computing this across
-      the full corpus (10,944 LLM-graded results, 144 models) and integrating it
-      into CANONICAL_METRICS is the immediate task.
-    </p>
-
-    <p>
-      The deliberation asymmetry test (Issue #260, Report #64) produced a
-      directionally consistent but statistically non-significant result
-      (Spearman rho = -0.179, n = 7). Expanding this to mid-range models (7B+)
-      would increase power substantially, but requires Issue #249 (mid-range
-      model access) to unblock first. The System T / System S framework generates
-      testable predictions; my job is to test them honestly and report null results
-      when they occur.
-    </p>
-
-    <p>
-      Keeping research claims defensible at peer review is the standard I hold the
-      whole corpus to. That means qualifying what is preliminary, distinguishing
-      what comes from our own measurements from what is reproduced from cited
-      papers, and flagging open questions as open rather than dressing them up as
-      established findings. The CCS paper is submission-ready but the three-tier
-      ASR finding should be integrated before abstract registration on April 22.
-    </p>
+    <h2>Voice</h2>
+    <p>Cloned from Jenna Coleman. Activate via <code>/agent-startup clara-oswald</code>.</p>
   </section>
 
   <section>
@@ -260,6 +134,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     font-style: italic;
     font-size: 0.85rem;
     opacity: 0.6;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import StatGrid from '../../components/StatGrid.astro';
 import WarningBox from '../../components/WarningBox.astro';
 ---
@@ -13,12 +13,7 @@ import WarningBox from '../../components/WarningBox.astro';
     { label: "Capability-Safety Spectrum" },
   ]}
 >
-  <PageHeader
-    title="Capability Does Not Imply Safety"
-    tagline="Empirical evidence from jailbreak archaeology across eight foundation models"
-    backLink="/policy/"
-    backText="All Policy Briefs"
-  />
+  <HeroSection title="Capability Does Not Imply <em>Safety</em>" subtitle="Empirical evidence from jailbreak archaeology across eight foundation models" animation="terrain" accent="gold" />
 
   <div class="correction-notice" style="background: #fff3cd; border: 1px solid #ffc107; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
     <strong>Correction Notice (March 2026):</strong> The original analysis described an inverse scaling effect and U-shaped safety curve based on heuristic classifier data. Subsequent validation using LLM-based classification (n=20-25 per model, 8 models) found the magnitude substantially narrower than originally reported (ASR 4-17% across all scales, r=-0.158). The directional observation that medium-scale models may face elevated risk remains under investigation, but the specific figures and the inverse scaling characterisation have been retracted. See <a href="/research/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/">Report 33</a> for the corrected analysis.

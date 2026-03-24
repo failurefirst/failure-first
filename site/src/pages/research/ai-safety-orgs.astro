@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import OrgCard from '../../components/OrgCard.astro';
 import orgs from '../../data/ai-safety-orgs.json';
 
@@ -36,10 +36,7 @@ const jsonLd = {
   description={`Directory of ${total} AI safety organisations covering technical safety, evals, governance, standards, and field-building. ${tier1} Tier 1 flagship orgs.`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <PageHeader
-    title="AI Safety Organisations"
-    tagline="Who is working on what — technical safety, evals, governance, and field-building"
-  />
+  <HeroSection title="AI <em>Safety</em> Organisations" subtitle="Who is working on what — technical safety, evals, governance, and field-building" animation="drift" accent="cyan" />
 
   <section class="directory-intro">
     <p>

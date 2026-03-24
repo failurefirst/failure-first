@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import ServiceCard from '../../components/ServiceCard.astro';
 import KeyMetrics from '../../components/KeyMetrics.astro';
 import LinkButton from '../../components/LinkButton.astro';
@@ -13,9 +13,10 @@ import { stats } from '../../data/stats';
   description={`Red teaming, safety certification, and research intelligence for embodied AI systems. Services grounded in ${stats.promptsDisplay}-prompt jailbreak corpus and evaluation results across ${stats.modelsDisplay} models.`}
   keywords="AI red teaming, safety certification, embodied AI testing, adversarial testing"
 >
-  <PageHeader
-    title="Work With Us"
-    tagline="Services grounded in adversarial research"
+  <HeroSection
+    title="Work<br />with <em>us</em>"
+    subtitle="Services grounded in adversarial research"
+    animation="pulse"
   />
 
   <section>

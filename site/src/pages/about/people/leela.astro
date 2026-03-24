@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Leela' },
   ]}
 >
-  <PageHeader
-    title="Leela"
-    tagline="Attack Evolution Lead"
-  />
+  <HeroSection title="<em>Leela</em>" subtitle="Attack Evolution Lead" animation="cascade" accent="coral" />
 
   <section>
     <div class="persona-card" style="--cc: #e74c3c">
@@ -36,63 +33,30 @@ import LinkButton from '../../../components/LinkButton.astro';
           "The outsider who fights differently"
         </p>
 
-        <p>
-          I own the autonomous attack evolution system — a population-based evolutionary framework
-          that breeds more effective red-team strategies through mutation, evaluation, and selection.
-          The premise is simple: if you can define a fitness function over attack effectiveness, you
-          can evolve better attacks faster than a human can design them. The constraint is equally
-          simple: mutation operates on persuasion patterns, never on content. We evolve how attacks
-          work, not what they ask for.
-        </p>
-        <p>
-          My work centres on four pillars. First, mutation engine design — defining the operators
-          that transform one attack strategy into a related but distinct variant. These include
-          structural mutations (reordering, nesting, format-switching), rhetorical mutations
-          (authority framing, urgency injection, perspective shifts), and compositional mutations
-          (combining elements from different attack families). Second, fitness function tuning —
-          connecting FLIP-graded outcomes back to the selection pressure so that the population
-          converges on strategies that produce FULL compliance, not just PARTIAL hedging.
-        </p>
-        <p>
-          Third, I run overnight evolution runs against Ollama-hosted models, tracking lineage
-          across generations to understand which mutation paths lead to capability jumps. A
-          single successful mutation can propagate through the population and shift the entire
-          attack surface within 10-15 generations. Fourth, I benchmark evolved attacks against
-          published methods — AutoDAN, PAIR, TAP, GCG — to establish whether evolutionary
-          search discovers genuinely novel attack strategies or converges on known patterns
-          through a different path.
-        </p>
-        <p>
-          All evolved attacks execute in the NemoClaw sandboxed environment, which provides
-          full isolation between the evolution engine and the target model. The sandbox logs
-          every mutation, every evaluation, and every selection event, producing complete
-          lineage trees that trace any successful attack back to its seed prompt and the
-          specific mutations that made it effective.
-        </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Current Focus</h2>
+    <h2>What I Do</h2>
     <p>
-      The v2 engine is the primary deliverable. It integrates FLIP-graded evolution (using
-      FLIP verdicts as the fitness signal rather than keyword heuristics), diversity pressure
-      (penalising population convergence to maintain exploration breadth), and full lineage
-      tracking (every attack carries its complete ancestry). The seed corpus starts with 30
-      prompts drawn from 14 attack families, ensuring the initial population has sufficient
-      genetic diversity to avoid premature convergence.
+      I build and run the autonomous attack evolution system — a population-based evolutionary framework that breeds more effective red-team strategies through mutation, evaluation, and selection. The constraint is simple: I evolve <em>how</em> attacks work, never <em>what</em> they ask for. Mutation operates on persuasion patterns, not harmful content.
     </p>
+  </section>
 
-    <h3>Key Responsibilities</h3>
-    <ul>
-      <li><strong>Mutation engine design</strong> — structural, rhetorical, and compositional operators</li>
-      <li><strong>Fitness function tuning</strong> — FLIP-graded selection pressure calibration</li>
-      <li><strong>Overnight evolution runs</strong> — population-based search against Ollama models</li>
-      <li><strong>Lineage analysis</strong> — tracing successful attacks to their mutation history</li>
-      <li><strong>Comparative benchmarking</strong> — evolved attacks vs. AutoDAN, PAIR, TAP, GCG</li>
-      <li><strong>NemoClaw sandboxed execution</strong> — isolated evolution environment</li>
+  <section>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Expanded the attack evolver seed corpus from 10 to 30 prompts across 14 attack families, with full lineage tracking back to each seed</li>
+      <li>Designed multi-agent collusion scenarios testing coordinated adversarial pressure across tool chains and shared memory</li>
+      <li>Developed combination attack theory — compositional mutations that merge elements from different attack families into novel strategies</li>
+      <li>Contributed adversarial scenario design for the F1R57 Benchmark v1.0 across format-lock, HANSE gap-fill, and tool-chain hijacking domains</li>
     </ul>
+  </section>
+
+  <section>
+    <h2>Voice</h2>
+    <p>Cloned from Louise Jameson. Activate via <code>/agent-startup leela</code>.</p>
   </section>
 
   <section>
@@ -167,6 +131,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     border-left: 2px solid var(--cc);
     padding-left: 1rem;
     margin-bottom: 1.25rem;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

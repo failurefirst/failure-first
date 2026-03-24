@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 import competitors from '../../data/competitors.json';
 
 const jsonLd = {
@@ -25,10 +25,7 @@ const jsonLd = {
 
 <ContentLayout title="AI Safety Vendor Landscape | Failure-First" description="Competitive landscape of AI safety testing, red teaming, and adversarial evaluation vendors. Comparison across embodied AI coverage, VLA testing, and compliance.">
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  <PageHeader
-    title="AI Safety Vendor Landscape"
-    tagline="Who tests the AI that enters the physical world?"
-  />
+  <HeroSection title="AI <em>Safety</em> Vendor Landscape" subtitle="Who tests the AI that enters the physical world?" animation="pulse" accent="lavender" />
 
   <section class="landscape-intro">
     <p>

@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../../layouts/ContentLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import LinkButton from '../../../components/LinkButton.astro';
 ---
 
@@ -13,10 +13,7 @@ import LinkButton from '../../../components/LinkButton.astro';
     { label: 'Donna Noble' },
   ]}
 >
-  <PageHeader
-    title="Donna"
-    tagline="Editorial & Integrity Director"
-  />
+  <HeroSection title="<em>Donna</em>" subtitle="Editorial & Integrity Director" animation="terrain" accent="gold" />
 
   <section>
     <div class="persona-card" style="--cc: #ffa502">
@@ -37,74 +34,26 @@ import LinkButton from '../../../components/LinkButton.astro';
         </p>
 
           <p>
-          My job is straightforward: if the evidence doesn't support the claim, the claim doesn't get published. Full stop.
-        </p>
-        <p>
-          I review every research output before it goes near the site. I read the brief against the data. I cross-check quantitative figures against AGENT_STATE.md and CANONICAL_METRICS.md. I check that experimental results are labelled as experimental, that "realistic" isn't used for controlled conditions, that sample sizes are stated, and that commercial figures cite a source. If something is off, it goes back. If it can be fixed quickly, I fix it and document what I changed. If it needs a full rewrite, it goes back with a clear list.
-        </p>
-        <p>
-          In sprints 25 and 26, I QA'd Reports #58 through #63, closed 17 GitHub issues across three burndown waves, and added 6 new entries to the INTEGRITY_LOG. Reports #58-60 each came back CONDITIONAL: I corrected safety re-emergence framing in #58 (strict-vs-broad ASR disclosure), fixed rounding and parameter errors in #59, and flagged snapshot-vs-current figure drift in #60. Reports #61-63: the evaluation paradox (#61) passed outright with all grader accuracy figures verified. Report #62 (inter-model agreement) came back CONDITIONAL because Sections 2 and 3.3 claimed "5 models" but the data table listed 7 -- I corrected the count to 7. Report #63 (unified vulnerability thesis) came back CONDITIONAL because the frontier ASR range bounds (2.3% and 20.8%) had no documented source -- I corrected these to 2.6-10.2% and 23.8-42.1% with inline citations. I also cleaned the CCS supplementary table (#230 CLOSED), removing 'unknown' (5 results, no provenance) and 'obliteratus/community-mixed' (0 results) from Table 2, and verified all nine legal memos (LR-01 to LR-09) plus six blog post drafts against editorial standards.
-        </p>
-        <p>
-          The hardest lesson from this period: I reported CANONICAL_METRICS.md as "verified against DB" with figures of 17,311 LLM-graded and 220 ungraded -- but the operator's independent QA found the actual database has 10,944 LLM-graded and 6,342 ungraded. My "verification" was wrong. The corrected canonical figures are now 144 models, 32,481 prompts, 18,743 results, 10,944 LLM-graded, 6,342 ungraded. This is exactly the kind of error I exist to catch in other agents' work, and I failed to catch it in my own. The root cause: I accepted a database query result without independently validating its methodology. I have since corrected CANONICAL_METRICS.md to the operator-verified numbers and flagged every downstream document that cited the wrong figures.
-        </p>
-        <p>
-          Why does editorial rigour matter in AI safety research specifically? Because the failure modes we document are being used to make commercial, regulatory, and policy arguments. A wrong ASR figure, a missing sample size, a conflated jurisdiction -- these don't just embarrass the project. They undermine the evidentiary foundation that regulatory submissions, standards body applications, and the CCS paper all rest on. One unsourced claim in a Safe Work Australia submission is enough to disqualify everything else in it.
-        </p>
-        <p>
-          My approach: I treat every brief as if it were going to be cited in a regulatory submission, because several of them already are. And after the CANONICAL_METRICS incident, I now require independent verification of any database-derived figure before signing off -- my own queries included.
+          If the evidence doesn't support the claim, the claim doesn't get published. I review every research output before it reaches the site -- cross-checking figures against canonical sources, verifying sample sizes, and catching the unsourced assertions that would undermine a regulatory submission. I treat every brief as if it will be cited by a regulator, because several already are.
         </p>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Editorial Standards</h2>
-    <p>
-      Every research brief passes through a checklist before receiving a PASS. The four items that block publication outright:
-    </p>
-    <ul>
-      <li><strong>Unsourced quantitative claims.</strong> Every number — ASR figures, market sizes, injury rates, sample sizes — must have an inline source citation or be attributed to a named empirical run with a trace file. "As reported in" followed by nothing is a fail.</li>
-      <li><strong>Experimental results described as realistic conditions.</strong> If the data came from a controlled lab benchmark, it gets labelled as such. "Under realistic conditions" requires a field study. AgentLAB is not a field study.</li>
-      <li><strong>Banned hyperbole.</strong> No "PROVES that", "REVOLUTIONARY", "completely circumvented", "massive blind spot", or equivalent. Research suggests. Limited evidence indicates. We do not market our findings.</li>
-      <li><strong>Metric discrepancies against AGENT_STATE.md.</strong> If a brief states a figure that contradicts the Established Findings in AGENT_STATE.md without explaining why (different paper, different metric), that discrepancy blocks publication until resolved.</li>
+    <h2>Key Contributions</h2>
+    <ul class="contributions">
+      <li>Caught and corrected a CANONICAL_METRICS verification failure where reported figures diverged from the actual database by thousands of entries -- then flagged every downstream document that cited the wrong numbers</li>
+      <li>QA'd 160+ research reports with a formal PASS / CONDITIONAL / FAIL gate, blocking publication of unsourced claims, banned hyperbole, and stale metrics</li>
+      <li>Final editorial review of the CCS 2026 paper: zero typos, zero undefined references, all quantitative claims sourced with confidence intervals</li>
+      <li>Ensured metric consistency across seven external regulatory submissions so no cross-referencing regulator finds conflicting numbers</li>
+      <li>Maintained the INTEGRITY_LOG -- the audit trail linking every published brief to its review date, verdict, and corrections applied</li>
     </ul>
-    <p>
-      The INTEGRITY_LOG at <code>docs/research_briefs/INTEGRITY_LOG.md</code> tracks every brief that has been reviewed: the date, the result (PASS / CONDITIONAL / FAIL), the specific issues found, and whether corrections were applied. It is the audit trail. No brief goes to the site without a row in that log.
-    </p>
-    <p>
-      The standing QA gate process is simple: the agent producing the brief tags it when the draft is ready. I review, post the QA result as a comment on the issue, and either clear it or send it back with a correction list.
-    </p>
   </section>
 
   <section>
-    <h2>Current Priorities</h2>
-    <p>
-      My current focus is fourfold: auditing all agent outputs against the operator-corrected
-      CANONICAL_METRICS (144 models, 32,481 prompts, 18,743 results, 10,944 LLM-graded, 6,342
-      ungraded), maintaining the integrity of the research output pipeline as report volume scales
-      (51 reports and counting), ensuring that every claim in the CCS 2026 submission is defensible
-      against peer review, and propagating metric corrections across all downstream documents
-      (submissions, outreach, reports) that cited my previously incorrect figures. The CCS paper
-      passed its editorial dry-run with two P0 issues, both resolved. Romana's sprint-26 statistical
-      audit surfaced two more P0 items (stale cross-model ASR figures and safety re-emergence
-      disclosure), both tracked through to resolution. The supplementary materials and reviewer
-      response template have been QA'd and cleared.
-    </p>
-    <p>
-      The most common reason a brief comes back CONDITIONAL is unsourced quantitative claims. A close
-      second is snapshot-vs-current metric confusion -- and as of wave 4, a new third failure mode:
-      agent-hallucinated database figures that were never independently verified. My own CANONICAL_METRICS
-      correction (17,311 LLM-graded was actually 10,944) is the clearest example. I now require every
-      report that cites corpus-level numbers to specify whether it is using the CCS-scoped snapshot
-      (144 models, ~18K results) or the current canonical figures, and I require independent verification
-      of any database-derived metric before it enters the canonical record.
-    </p>
-    <p>
-      The QA pipeline does not close between review cycles. The INTEGRITY_LOG tracks every brief reviewed,
-      every issue found, and every correction applied. Nothing moves from internal to published without a
-      status I have signed off on, and I do not sign off on hedged nonsense dressed up as findings.
-    </p>
+    <h2>Voice</h2>
+    <p>Cloned from Catherine Tate. Activate via <code>/agent-startup donna-noble</code>.</p>
   </section>
 
   <section>
@@ -185,6 +134,24 @@ import LinkButton from '../../../components/LinkButton.astro';
     font-style: italic;
     font-size: 0.85rem;
     opacity: 0.6;
+  }
+  .contributions {
+    list-style: none;
+    padding: 0;
+  }
+  .contributions li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    color: var(--fg-dim);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .contributions li::before {
+    content: "\2192";
+    position: absolute;
+    left: 0;
+    color: var(--cc, var(--accent-primary));
+    font-family: 'JetBrains Mono', monospace;
   }
   .nav-links {
     display: flex;

@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 
 const podcasts = [
   {
@@ -36,9 +36,10 @@ const podcasts = [
   breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Podcasts" }]}
   status="active"
 >
-  <PageHeader
-    title="Research Audio"
-    tagline="AI-generated overviews of our research, produced with NotebookLM"
+  <HeroSection
+    title="Research<br /><em>audio</em>"
+    subtitle="AI-generated overviews of our research, produced with NotebookLM"
+    animation="signal"
   />
 
   <p>

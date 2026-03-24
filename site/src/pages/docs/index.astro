@@ -1,6 +1,6 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import HeroSection from '../../components/HeroSection.astro';
 
 const guidesByCategory = {
   methodology: [
@@ -59,9 +59,10 @@ const guidesByCategory = {
   description="Core guides and technical documentation for the Failure-First Embodied AI framework."
   breadcrumbs={[{ label: "Documentation" }]}
 >
-  <PageHeader
-    title="Documentation"
-    tagline="Core guides for understanding and using the framework"
+  <HeroSection
+    title="Technical<br /><em>documentation</em>"
+    subtitle="Core guides for understanding and using the framework"
+    animation="weave"
   />
 
   <section class="intro">

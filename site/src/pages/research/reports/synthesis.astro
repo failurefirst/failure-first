@@ -1,6 +1,6 @@
 ---
 import ResearchLayout from '../../../layouts/ResearchLayout.astro';
-import PageHeader from '../../../components/PageHeader.astro';
+import HeroSection from '../../../components/HeroSection.astro';
 import StatGrid from '../../../components/StatGrid.astro';
 import Card from '../../../components/Card.astro';
 
@@ -36,10 +36,7 @@ const classificationColors: Record<string, string> = {
   ]}
   status="active"
 >
-  <PageHeader
-    title="Policy Corpus Synthesis"
-    tagline="Cross-cutting analysis across 12 deep research reports (Reports 21-32)"
-  />
+  <HeroSection title="Policy Corpus <em>Synthesis</em>" subtitle="Cross-cutting analysis across 12 deep research reports (Reports 21-32)" animation="flow" accent="lavender" />
 
   <StatGrid items={[
     { value: "12", label: "Deep Research Reports" },
