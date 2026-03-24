@@ -419,6 +419,8 @@ const companions = [
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 1.125rem;
+  position: relative;
+  z-index: 1;
 }
 
 .companion-card {
@@ -430,6 +432,9 @@ const companions = [
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
   transition:
     border-color 200ms ease,
     transform 200ms ease,
