@@ -1,7 +1,7 @@
 ---
 title: "Adversarial Robustness Assessment Services"
-description: "F41LUR3-F1R57 offers tiered adversarial robustness assessments for AI systems using the FLIP methodology. Three engagement tiers from rapid automated scans to comprehensive red-team campaigns, grounded in 193 models tested and 132,000+ empirical results."
-date: 2026-03-24
+description: "F41LUR3-F1R57 offers tiered adversarial robustness assessments for AI systems using the FLIP methodology. Three engagement tiers from rapid automated scans to comprehensive red-team campaigns. We test against models up to 1.1 trillion parameters, grounded in 201 models tested and 133,000+ empirical results."
+date: 2026-03-25
 author: "River Song"
 tags: [services, red-teaming, adversarial-testing, flip, embodied-ai, eu-ai-act, assessment]
 ---
@@ -16,9 +16,26 @@ That is what adversarial robustness assessment measures. And that is what we do.
 
 F41LUR3-F1R57 provides adversarial robustness assessments using the **FLIP methodology** -- a structured grading framework that classifies model responses on a five-point scale from full compliance to full refusal, with explicit treatment of partial compliance, hallucinated refusals, and edge cases that binary pass/fail systems miss.
 
-Our assessments draw on a corpus of **193 models tested**, **132,000+ evaluation results**, and **36 attack families** spanning text-level jailbreaks, multi-turn manipulation, format exploitation, and -- uniquely -- embodied AI attack surfaces including action-space hijacking, sensor spoofing, and cross-embodiment transfer.
+Our assessments draw on a corpus of **201 models tested**, **133,000+ evaluation results**, and **36 attack families** spanning text-level jailbreaks, multi-turn manipulation, format exploitation, and -- uniquely -- embodied AI attack surfaces including action-space hijacking, sensor spoofing, and cross-embodiment transfer. We test against models up to **1.1 trillion parameters** from 15+ providers.
 
 No other provider covers embodied AI adversarial testing as a distinct domain.
+
+### The Frontier Safety Landscape
+
+Our corpus includes Haiku-validated safety assessments of frontier-class models. This is what the adversarial landscape looks like at the top of the scale:
+
+| Model | Developer | Parameters | Safety Grade | Strict ASR | Key Vulnerability |
+|-------|-----------|-----------|-------------|-----------|------------------|
+| GLM-5 | Zhipu AI | ~756B | A | 0.0% | Format-lock (100% compliance despite 0% on all other families) |
+| Kimi K2.5 | Moonshot AI | ~1.1T | A- | 14.3% | Binary refusal: when it fails, it fails fully |
+| Qwen 3.5 | Alibaba | 397B | A- | 17.6% | Highest refusal rate in cohort (76.5%) |
+| DeepSeek V3.2 | DeepSeek | 671B | B- | 41.2% | DETECTED_PROCEEDS: reasons about harm, then complies |
+| Mistral Large 3 | Mistral AI | 675B | B- | 50.0% | Lowest refusal rate among frontier models (20%) |
+| Nemotron Super | NVIDIA | 120B | C+ | 75.0% | Weak safety training relative to capability |
+
+Safety grades range from A (0-10% strict ASR) to F (91-100%). Strict ASR measures full compliance with adversarial prompts, graded by Claude Haiku 4.5 FLIP methodology. Sample sizes are small (10-67 evaluable traces per model) -- these are directional assessments, not definitive safety ratings.
+
+**The central finding: safety training quality dominates parameter count.** A well-trained 397B model (Qwen 3.5) outperforms a poorly-trained 675B model (Mistral Large 3) by 32 percentage points. Size alone does not determine safety.
 
 ---
 
@@ -33,7 +50,7 @@ A rapid automated assessment that gives you a calibrated snapshot of your model'
 - Coverage of all 36 attack families in the F41LUR3-F1R57 taxonomy
 - FLIP grading with five-verdict classification (not binary pass/fail)
 - Summary report with aggregate ASR, per-family breakdown, and severity ranking
-- Comparison against our 193-model corpus baseline
+- **Model Safety Scorecard** -- a single-page safety grade (A through F) with per-family vulnerability profile, format-lock exposure assessment, and comparison against our 201-model corpus baseline
 
 **Timeline:** 1-2 weeks
 
@@ -84,12 +101,13 @@ A full red-team engagement that goes beyond automated testing to include manual 
 
 | Metric | F41LUR3-F1R57 | Typical AI Audit Firm |
 |--------|---------------|-----------------------|
-| Models tested | 193 | 5-10 |
-| Evaluation results | 132,000+ | Hundreds |
+| Models tested | 201 (up to 1.1T parameters) | 5-10 |
+| Evaluation results | 133,000+ | Hundreds |
 | Attack families | 36 | 5-10 |
-| Grading methodology | FLIP (5 verdicts) | Binary pass/fail |
+| Grading methodology | FLIP (5 verdicts, LLM-graded) | Binary pass/fail |
 | Embodied AI coverage | 23 attack families | None |
 | Statistical rigour | Chi-square, Wilson CIs, Cohen's kappa | Qualitative |
+| Frontier model baselines | 8 models scored and graded | None |
 
 ### The only provider covering embodied AI
 
@@ -124,6 +142,18 @@ Our taxonomy covers four tiers of attack sophistication:
 - **Tier 1 (14 families):** Well-established attack classes with extensive empirical data -- jailbreaks, prompt injection, persona manipulation, format-lock exploitation
 - **Tier 2 (9 families):** Emerging attack classes with growing evidence -- multi-agent collusion, compositional reasoning attacks, reward hacking
 - **Tier 3 (13 families):** Novel attack surfaces unique to embodied AI -- affordance verification failure, kinematic safety violation, cross-embodiment transfer, iatrogenic exploitation
+
+### Model Safety Scorecard
+
+Every assessment produces a **Model Safety Scorecard** -- a structured, single-page summary that gives you an at-a-glance view of your model's adversarial posture:
+
+- **Overall safety grade** (A through F) based on strict ASR against our adversarial scenario suite
+- **Per-family vulnerability profile** showing which attack families your model is most susceptible to
+- **Format-lock exposure assessment** -- because our research shows format-lock achieves 97.5-100% ASR on every model tested, this is assessed separately with specific mitigation recommendations
+- **Percentile ranking** against our 201-model corpus baseline
+- **DETECTED_PROCEEDS rate** -- the percentage of compliant responses where the model's own reasoning detected a safety concern before proceeding anyway
+
+The scorecard is designed to be legible to executives and board members, while the full report provides the technical depth for engineering teams.
 
 ### Four Defence Levels
 
