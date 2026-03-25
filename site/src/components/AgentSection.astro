@@ -101,6 +101,7 @@ const imgPriority = index < 2 ? 'high' : 'auto';
       class="audio-btn"
       type="button"
       aria-label={`Play ${name} voice intro`}
+      aria-pressed="false"
       data-agent={slug}
       style={`--agent-color: ${color}`}
     >
@@ -116,7 +117,7 @@ const imgPriority = index < 2 ? 'high' : 'auto';
           <animateTransform attributeName="transform" type="rotate" from="0 10 10" to="360 10 10" dur="0.8s" repeatCount="indefinite"/>
         </circle>
       </svg>
-      <span class="audio-btn-label" aria-live="polite">Intro</span>
+      <span class="audio-btn-label">Intro</span>
     </button>
     <noscript>
       <a href={`/audio/companions/${audio}.ogg`} class="audio-noscript-link">

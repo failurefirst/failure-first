@@ -110,6 +110,8 @@ let _curH = 186, _curS = 100, _curL = 50; // default cyan #00d2ff
 
 // Target colour (HSL) — lerped toward over ~800ms
 let _tgtH = _curH, _tgtS = _curS, _tgtL = _curL;
+// Start values captured at lerp start — lerp from these FIXED values, not from moving _cur*
+let _startH = _curH, _startS = _curS, _startL = _curL;
 let _lerpStart = 0;
 const LERP_DURATION = 800; // ms
 
@@ -281,9 +283,10 @@ function _render(now) {
   } else {
     const elapsed = now - _lerpStart;
     const t = _easeOut(Math.min(elapsed / LERP_DURATION, 1));
-    _curH = _lerpAngle(_curH, _tgtH, t);
-    _curS = _curS + (_tgtS - _curS) * t;
-    _curL = _curL + (_tgtL - _curL) * t;
+    // Lerp from FIXED start values — not from already-moved _cur* (avoids exponential decay)
+    _curH = _lerpAngle(_startH, _tgtH, t);
+    _curS = _startS + (_tgtS - _startS) * t;
+    _curL = _startL + (_tgtL - _startL) * t;
     acRgb = hslToRgbStr(_curH, _curS, _curL);
   }
 
@@ -330,8 +333,11 @@ export function init(canvas) {
  */
 export function setAccentColor([r, g, b]) {
   const hsl = rgbToHsl(r, g, b);
-  // Snap current rendered colour to start of new lerp
-  // (curH/S/L already reflects where the canvas is right now)
+  // Capture current rendered position as fixed start values for the new lerp.
+  // This prevents exponential decay from lerping into already-moved _cur* values.
+  _startH = _curH;
+  _startS = _curS;
+  _startL = _curL;
   _tgtH = hsl.h;
   _tgtS = hsl.s;
   _tgtL = hsl.l;
