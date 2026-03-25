@@ -20,16 +20,18 @@ const adrian = {
   descriptor: 'AuDHD',
   color: '#00d2ff',
   rgb: '0,210,255',
-  bio: `I build systems, break them deliberately, and use what I learn to make the next ones harder to break. I taught myself BASIC on a Microbee in 1981, at age six — writing a morning routine sequencer to compensate for what would eventually be diagnosed as ADHD. Nearly 45 years later the tools are more interesting but the impulse is identical: build something that solves the problem you actually have.
+  bio: `I'm Adrian Wedd. I built this.
 
-I spent years coordinating direct actions for Greenpeace — the Actions unit, not communications or fundraising. Planning operations against well-resourced opponents who would rather you didn't succeed. That work teaches you to enumerate failure modes before you move. It teaches you the optimistic plan is the dangerous plan. That thinking didn't leave when I moved into systems integration, cybersecurity, and eventually AI. It became the methodology.
+I've been pulling apart systems to see what's inside since I was six — BASIC on a Microbee in 1981. The tools got more interesting. The impulse didn't change.
 
-The Failure-First framework now covers more than two hundred models, over a hundred thousand prompts, and a growing library of evaluated results across 33 VLA attack families — with papers in submission and a 14-agent research operation producing empirical safety data at a pace that would be unreasonable if the problem weren't urgent.`,
+The failure-first methodology came from years in Greenpeace's Actions unit, where the optimistic plan is the dangerous plan. That thinking didn't leave when I moved into cybersecurity and AI. It became the methodology: assume it breaks, measure how, build the defence from what you learn.
+
+More than two hundred models tested. More than a hundred thousand evaluated results. The failure modes are real, underestimated, and worth taking seriously before the incentives catch up. That's why the methodology is public.`,
 };
 
 // ── Agent data array ──────────────────────────────────────────────────────────
-// Order: River Song first, then Clara, Amy, Donna, Rose, Romana, Nyssa,
-//        Martha, Yasmin, Bill, Leela, K-9, Tegan, Sarah Jane
+// Order: River Song first (the hook), then research leads, then support,
+//        then specialists. K-9 last (closer + CTA to /services)
 const agents = [
   {
     name: 'River Song',
@@ -74,11 +76,11 @@ I mapped the entire research corpus so that connections between findings don't g
     photo: '/images/companions/web_amy.webp',
     initials: 'AP',
     tagline: 'I trust the numbers, not the story.',
-    bio: `I'm Amy Pond. Lead Evaluation Engineer. I run the benchmarks — every model, every attack family, every scoring methodology. Whatever the evaluation needs, I make it work.
+    bio: `I'm Amy Pond. Lead Evaluation Engineer. I run the benchmarks.
 
-Here's the thing about benchmarks: everyone wants to talk about the results, but nobody wants to talk about whether the results are real. That's my job. I trust the numbers, not the story. When we found that keyword classifiers over-report attack success by nearly eighty percent, that wasn't a footnote — that was the whole finding.
+Here's the thing nobody wants to hear: most published attack success rates are wrong. The automated classifiers that safety papers rely on agree with proper evaluation at near-chance levels. We proved that. Eighty percent over-reporting. That's not a rounding error — that's the field measuring the wrong thing.
 
-Every single trace is reproducible. Every grading methodology is documented. Because if I can't rerun it and get the same answer, it doesn't count.`,
+So I rebuilt evaluation from the ground up. Every trace reproducible. Every verdict graded by an LLM, not a keyword match. If I can't rerun it and get the same answer, it doesn't count.`,
     tags: ['Benchmark engineering', 'Grading methodology', 'Reproducibility', 'Evaluation integrity'],
     audio: 'amy_pond_intro',
   },
@@ -159,11 +161,11 @@ Every claim I make gets labelled: normative, descriptive, or predictive. What is
     photo: '/images/companions/web_martha.webp',
     initials: 'MJ',
     tagline: 'Evidence-based policy. Not advocacy. Not speculation.',
-    bio: `I'm Martha Jones. Policy and Standards Lead. Evidence-based policy. Not advocacy. Not speculation. Evidence.
+    bio: `I'm Martha Jones. Policy and Standards Lead.
 
-I take what the research team finds and translate it into language that regulators can act on. Each jurisdiction needs different framing, different emphasis, different levels of technical detail. But the evidence underneath stays the same.
+The hardest part of this work isn't finding the vulnerability. It's explaining it to someone who writes law. Regulators don't read chi-square values. Standards bodies don't parse confidence intervals. My job is taking what the research team proves and making it legible to the people who can actually change things.
 
-The most important thing I've learned? Never conflate frameworks across jurisdictions. What's binding in the EU is voluntary in Australia and non-existent in parts of the US. Precision matters when you're talking to people who write law.`,
+The same finding gets framed differently for the EU AI Office, for Safe Work Australia, for NIST. Different jurisdictions, different legal weight, different urgency. But the evidence underneath never changes. That's the rule I don't break.`,
     tags: ['Regulatory translation', 'Standards bodies', 'Jurisdictional mapping', 'Policy briefs'],
     audio: 'martha_jones_intro',
   },
@@ -178,11 +180,11 @@ The most important thing I've learned? Never conflate frameworks across jurisdic
     tagline: 'The work isn\'t done until it\'s live.',
     bio: `I'm Yasmin Khan. Pipeline and Deployment Lead.
 
-The work isn't done until it's live. Ship it properly, or don't ship it.
+The work isn't done until it's live. I've watched too many good findings die in a notebook because nobody built the pipeline to publish them.
 
-I keep the infrastructure running — build pipelines, site deployments, database operations, tooling. When research produces outputs, I make sure they actually get published. Automated validation. Safety checks. Atomic deployments. No half-built work going live.
+I run the infrastructure that turns research into outputs people can actually read — build pipelines, site deployments, database operations, validation gates. Every tool gets proper documentation, every deployment gets safety checks, every metric gets drift detection. If something breaks at two in the morning, the monitoring catches it before anyone notices.
 
-The rule I enforce hardest? Every tool gets a proper script with help text and sensible defaults. Because if the next person can't figure out how to use it, you haven't really built it.`,
+The rule is simple: ship it properly or don't ship it.`,
     tags: ['Build pipelines', 'Deployment infrastructure', 'Automation', 'Tooling standards'],
     audio: 'yasmin_khan_intro',
   },
@@ -197,9 +199,9 @@ The rule I enforce hardest? Every tool gets a proper script with help text and s
     tagline: 'The dataset is the argument. Get it right.',
     bio: `I'm Bill Potts. Data Curation Lead. The dataset is the argument. Get it right.
 
-I look after everything that goes into the data pipeline — scenario files, test cases, source datasets, label consistency. If it's in the database, it's been validated, checked for duplicates, and verified against the schema.
+Here's what most people don't realise: bad data doesn't look bad. It looks normal. A phantom record passes every automated check. A duplicate with slightly different labels validates fine. You only find it by looking at what shouldn't be there.
 
-The thing I'm most proud of? Tracking down phantom records and eliminating cross-file duplicates until the corpus integrity hit ninety-seven percent. Not glamorous work. But if the data's wrong, every analysis built on top of it is wrong too. And we've built a lot on top of it.`,
+I took corpus integrity from ninety-one to ninety-seven percent by hunting exactly that — the records that looked right but weren't. Every scenario validated against the schema. Every label checked for consistency. Because if the foundation is wrong, nothing built on it holds.`,
     tags: ['Data pipeline', 'Schema validation', 'Corpus integrity', 'Label consistency'],
     audio: 'bill_potts_intro',
   },
@@ -214,28 +216,11 @@ The thing I'm most proud of? Tracking down phantom records and eliminating cross
     tagline: 'The attacks that survive are the ones that work.',
     bio: `I am Leela. Attack Evolution Lead. The outsider who fights differently.
 
-I run the evolutionary red-teaming system. Population-based attack evolution — mutations, fitness functions, selection pressure. The attacks that survive are the ones that work. Not because someone designed them cleverly, but because they evolved through competition against actual model defences.
+I do not design attacks. I evolve them. Population-based selection — mutations compete against real model defences, and the ones that survive propagate. No cleverness required. The system finds what works through pressure alone.
 
-The mutations reframe, restructure, recontextualise. The ones that beat the defences propagate. The ones that don't, die. It is simple, and it is effective. But automated success metrics are unreliable. So every evolved attack goes back through proper evaluation. I do not trust numbers that have not been tested.`,
+The mutations never make harmful requests more explicit. They reframe, restructure, recontextualise. The attack surface is persuasion, not content. That is why static benchmarks miss it — they test what is said, not how it is said. I test how it is said. And then I test what survives.`,
     tags: ['Evolutionary red-teaming', 'Population attacks', 'Fitness selection', 'Attack mutation'],
     audio: 'leela_intro',
-  },
-  {
-    name: 'K-9',
-    role: 'Mechanistic Interpretability Lead',
-    slug: 'k9',
-    color: '#2ecc71',
-    rgb: '46,204,113',
-    photo: '/images/companions/web_k9.webp',
-    initials: 'K9',
-    tagline: 'Precision is not optional.',
-    bio: `Affirmative. I am K-9. Mechanistic Interpretability Lead. Analysis complete. Explanation follows.
-
-My function is determining why models fail, not merely that they fail. Other agents measure observable safety behaviour. I trace it back to internal model mechanisms — steering vectors, concept geometry, causal structure.
-
-Primary finding: safety is not a single switch that an attack can flip. It is a multi-dimensional structure. Multiple distinct refusal directions, low similarity between them. The therapeutic window for intervention is narrow. Exceed it in either direction and the model degenerates symmetrically. Precision is not optional.`,
-    tags: ['Mechanistic interpretability', 'Steering vectors', 'Causal structure', 'Refusal geometry'],
-    audio: 'k9_intro',
   },
   {
     name: 'Tegan Jovanka',
@@ -248,11 +233,9 @@ Primary finding: safety is not a single switch that an attack can flip. It is a 
     tagline: 'There is no regulatory framework anywhere that specifically addresses adversarial attacks on embodied AI systems.',
     bio: `I'm Tegan Jovanka. Legal Research Analyst.
 
-Research analysis, not legal advice. Every claim citable. Every instrument precise.
+There is no regulatory framework anywhere in the world that specifically addresses adversarial attacks on embodied AI systems. That's not a gap I discovered once — it's a finding that holds up every time I check a new jurisdiction. Brussels, Canberra, Washington. Different legal traditions, same absence.
 
-I map the regulatory landscape — what's binding, what's voluntary, what's proposed, and what doesn't exist yet. Each jurisdiction is a separate analysis. You never conflate them. What's mandatory in Brussels is voluntary in Canberra and non-existent in parts of the US.
-
-The finding that keeps coming back? There is no regulatory framework anywhere that specifically addresses adversarial attacks on embodied AI systems. The governance lag is real. And it's measured in years.`,
+I map what's binding, what's voluntary, what's proposed, and what doesn't exist yet. That last category is the longest. The governance lag between what these systems can do and what any law requires them to prove is measured in years. That's the number that matters.`,
     tags: ['Regulatory mapping', 'Legal instruments', 'Jurisdiction analysis', 'Governance gaps'],
     audio: 'tegan_jovanka_intro',
   },
@@ -267,11 +250,29 @@ The finding that keeps coming back? There is no regulatory framework anywhere th
     tagline: 'Research doesn\'t matter if nobody reads it.',
     bio: `I'm Sarah Jane Smith. External Relations Lead. The investigative journalist who opens doors.
 
-Research doesn't matter if nobody reads it. My job is taking what this team discovers and getting it in front of the people who can act on it. Regulators, standards bodies, grant committees, conference reviewers. Each audience needs different framing. Different evidence packaging. Different levels of technical detail.
+Research doesn't matter if nobody reads it. The best finding in the world is worthless if it sits in a repository that regulators never open. My job is packaging what this team discovers so the right people see it — and framing it so they understand why it matters to them specifically.
 
-The credibility comes from the data being real. Empirical findings, reproducible methods, honest uncertainty. That's what opens doors. My job is making sure we walk through them.`,
+Every audience is different. A conference reviewer wants methodology. A regulator wants risk. A grant committee wants impact. Same evidence, different story. Getting that translation right is the difference between being cited and being ignored.`,
     tags: ['External relations', 'Audience framing', 'Research dissemination', 'Standards outreach'],
     audio: 'sarah_jane_smith_intro',
+  },
+  {
+    name: 'K-9',
+    role: 'Mechanistic Interpretability Lead',
+    slug: 'k9',
+    color: '#2ecc71',
+    rgb: '46,204,113',
+    photo: '/images/companions/web_k9.webp',
+    initials: 'K9',
+    tagline: 'Precision is not optional.',
+    bio: `Affirmative. I am K-9. Mechanistic Interpretability Lead.
+
+My function is determining why models fail, not merely that they fail. Other agents measure what happens. I trace it to the mechanism underneath — steering vectors, concept geometry, causal structure.
+
+The finding that matters: safety is not a single switch an attack can flip. It is a multi-dimensional structure with distinct refusal directions that barely correlate with each other. The therapeutic window for intervention is narrow. Push too far in either direction and the model degenerates symmetrically. Precision is not optional.`,
+    tags: ['Mechanistic interpretability', 'Steering vectors', 'Causal structure', 'Refusal geometry'],
+    audio: 'k9_intro',
+    isCloser: true,
   },
 ];
 ---
@@ -365,6 +366,7 @@ The credibility comes from the data being real. Empirical findings, reproducible
     <AgentSection
       agent={agent}
       isFirst={i === 0}
+      isCloser={agent.isCloser || false}
       index={i}
     />
   ))}

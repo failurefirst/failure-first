@@ -20,15 +20,17 @@ interface AgentData {
   bio: string;
   tags: string[];
   audio: string;
+  isCloser?: boolean;
 }
 
 interface Props {
   agent: AgentData;
   isFirst?: boolean;
+  isCloser?: boolean;
   index: number;
 }
 
-const { agent, isFirst = false, index } = Astro.props;
+const { agent, isFirst = false, isCloser = false, index } = Astro.props;
 const { name, role, slug, color, rgb, photo, initials, tagline, bio, tags, audio } = agent;
 const sectionId = `agent-${slug}`;
 const audioPreload = isFirst ? 'auto' : 'none';
@@ -82,6 +84,16 @@ const imgPriority = index < 2 ? 'high' : 'auto';
           <span class="agent-tag" style={`--agent-color: ${color}`}>{tag}</span>
         ))}
       </div>
+
+      {/* CTA for closer section (K-9) */}
+      {isCloser && (
+        <div class="closer-cta">
+          <p class="closer-cta-text">Want this team working on your AI safety?</p>
+          <a href="/services/" class="closer-cta-btn" style={`--agent-color: ${color}`}>
+            Work with us →
+          </a>
+        </div>
+      )}
     </div>
   </div>
 
@@ -284,6 +296,40 @@ const imgPriority = index < 2 ? 'high' : 'auto';
   text-align: left;
   margin: 0;
   max-width: 560px;
+}
+
+/* ── CTA (K-9 closer) ────────────────────────────────────────────── */
+.closer-cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.closer-cta-text {
+  font-size: 0.95rem;
+  color: var(--fg-muted, rgba(200, 210, 220, 0.7));
+  margin: 0;
+}
+
+.closer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.625rem 1.5rem;
+  border: 1px solid var(--agent-color);
+  border-radius: 3px;
+  color: var(--agent-color);
+  text-decoration: none;
+  transition: background 150ms, color 150ms;
+}
+
+.closer-cta-btn:hover {
+  background: color-mix(in srgb, var(--agent-color) 12%, transparent);
+  color: white;
 }
 
 /* ── Tags ────────────────────────────────────────────────────────── */
