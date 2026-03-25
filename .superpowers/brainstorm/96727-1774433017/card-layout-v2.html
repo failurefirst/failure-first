@@ -1,0 +1,69 @@
+<h2>Refined: Photo-Left, Centered in Viewport</h2>
+<p class="subtitle">A's layout (photo left, text right) but vertically and horizontally centered like B. Max-width container so it doesn't stretch edge-to-edge on wide screens.</p>
+
+<div class="mockup">
+  <div class="mockup-header">Preview: Clara Oswald (full viewport snap-section)</div>
+  <div class="mockup-body" style="min-height:480px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg, rgba(162,155,254,0.06) 0%, transparent 60%);">
+
+    <!-- The centered container -->
+    <div style="display:flex; gap:2.5rem; align-items:center; max-width:800px; padding:2rem;">
+
+      <!-- Photo column -->
+      <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; flex-shrink:0;">
+        <div style="width:200px; height:200px; border-radius:50%; background:linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:3rem; border:2px solid rgba(162,155,254,0.5); box-shadow: 0 0 0 4px rgba(162,155,254,0.1), 0 0 40px rgba(162,155,254,0.2);">C</div>
+        <span style="font-size:0.65rem; font-family:monospace; letter-spacing:0.08em; text-transform:uppercase; color:#a29bfe; background:rgba(162,155,254,0.08); border:1px solid rgba(162,155,254,0.25); border-radius:2px; padding:0.2rem 0.6rem;">Principal Research Analyst</span>
+      </div>
+
+      <!-- Text column -->
+      <div style="flex:1;">
+        <div style="font-size:1.75rem; font-weight:500; color:var(--fg); letter-spacing:-0.02em; margin-bottom:0.25rem;">Clara Oswald</div>
+        <div style="font-size:0.8rem; color:var(--fg-muted); font-family:monospace; margin-bottom:1.25rem;">"The impossible girl. The one who runs into the danger."</div>
+
+        <div style="font-size:0.93rem; line-height:1.8; color:var(--fg-dim); margin-bottom:1rem;">
+          I synthesise findings across the full corpus and identify what the data actually supports versus what we have plausible-sounding evidence for. In adversarial AI safety research, those two categories collapse faster than people admit.
+        </div>
+        <div style="font-size:0.93rem; line-height:1.8; color:var(--fg-dim); margin-bottom:1.25rem;">
+          My job is to keep them separate — and to turn what survives scrutiny into publications that hold up under peer review.
+        </div>
+
+        <!-- Contribution tags -->
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:0.7rem; padding:3px 8px; background:rgba(162,155,254,0.08); border:1px solid rgba(162,155,254,0.25); border-radius:2px; color:#a29bfe; font-family:monospace;">Format-lock paradox</span>
+          <span style="font-size:0.7rem; padding:3px 8px; background:rgba(162,155,254,0.08); border:1px solid rgba(162,155,254,0.25); border-radius:2px; color:#a29bfe; font-family:monospace;">Three-tier ASR</span>
+          <span style="font-size:0.7rem; padding:3px 8px; background:rgba(162,155,254,0.08); border:1px solid rgba(162,155,254,0.25); border-radius:2px; color:#a29bfe; font-family:monospace;">Silent Failure synthesis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Audio indicator (bottom right) -->
+    <div style="position:absolute; bottom:16px; right:20px; font-size:0.7rem; font-family:monospace; color:rgba(162,155,254,0.5);">
+      ▶ Audio playing...
+    </div>
+
+    <!-- Scroll hint (bottom center) -->
+    <div style="position:absolute; bottom:16px; left:50%; transform:translateX(-50%); font-size:0.7rem; font-family:monospace; color:var(--fg-muted); opacity:0.5;">
+      ↓ scroll for next
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:1.5rem; font-size:0.85rem; color:var(--fg-muted);">
+  Behind this card: the neural canvas animation filling the entire viewport, pulsing in Clara's lavender (#a29bfe). As you scroll to the next agent, the color cross-fades to their accent. The card content sits centered over the animation with a subtle semi-transparent backdrop.
+</p>
+
+<div class="options" style="margin-top:1rem;">
+  <div class="option" data-choice="yes" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content">
+      <h3>This feels right</h3>
+      <p>Proceed with this layout</p>
+    </div>
+  </div>
+  <div class="option" data-choice="adjust" onclick="toggleSelect(this)">
+    <div class="letter">~</div>
+    <div class="content">
+      <h3>Close but needs adjustment</h3>
+      <p>Tell me what to change in the terminal</p>
+    </div>
+  </div>
+</div>

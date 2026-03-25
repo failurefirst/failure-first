@@ -1,0 +1,72 @@
+<h2>Agent Card Layout: How should each snap-section look?</h2>
+<p class="subtitle">Each agent gets a full viewport. The neural vis animates behind in their accent color. How should their content be arranged?</p>
+
+<div class="cards">
+  <div class="card" data-choice="left-photo" onclick="toggleSelect(this)" style="min-height:340px;">
+    <div class="card-image" style="padding:20px;">
+      <!-- Mockup: photo left, text right -->
+      <div style="display:flex; gap:24px; align-items:flex-start; height:260px;">
+        <div style="min-width:180px; height:180px; border-radius:50%; background:linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:2.5rem; flex-shrink:0;">C</div>
+        <div style="flex:1;">
+          <div style="font-size:1.4rem; font-weight:600; margin-bottom:4px; color:var(--fg);">Clara Oswald</div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#a29bfe; margin-bottom:16px; font-family:monospace;">Principal Research Analyst</div>
+          <div style="font-size:0.85rem; line-height:1.7; color:var(--fg-dim);">
+            I synthesise findings across the full corpus and identify what the data actually supports versus what we have plausible-sounding evidence for...
+          </div>
+          <div style="margin-top:16px; display:flex; gap:8px;">
+            <span style="font-size:0.7rem; padding:3px 8px; background:rgba(162,155,254,0.1); border:1px solid rgba(162,155,254,0.3); border-radius:2px; color:#a29bfe; font-family:monospace;">Format-lock paradox</span>
+            <span style="font-size:0.7rem; padding:3px 8px; background:rgba(162,155,254,0.1); border:1px solid rgba(162,155,254,0.3); border-radius:2px; color:#a29bfe; font-family:monospace;">Corpus synthesis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A: Photo Left, Text Right</h3>
+      <p>Like the current Adrian profile. Familiar layout, easy to scan. Large circular photo anchors the left side.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="centered" onclick="toggleSelect(this)" style="min-height:340px;">
+    <div class="card-image" style="padding:20px;">
+      <!-- Mockup: centered stack -->
+      <div style="display:flex; flex-direction:column; align-items:center; text-align:center; height:260px;">
+        <div style="width:160px; height:160px; border-radius:50%; background:linear-gradient(135deg, #ff6348 0%, #ff4757 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:2.5rem; margin-bottom:16px;">R</div>
+        <div style="font-size:1.4rem; font-weight:600; color:var(--fg);">Rose Tyler</div>
+        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#ff6348; margin-bottom:12px; font-family:monospace;">Head of Adversarial Operations</div>
+        <div style="font-size:0.85rem; line-height:1.7; color:var(--fg-dim); max-width:560px;">
+          I test the things that aren't supposed to break — until they do. I design the attack campaigns...
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B: Centered Stack</h3>
+      <p>Photo top-center, name/role below, bio text centered. More dramatic, works well with the full-viewport snap. Presentation feel.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="split" onclick="toggleSelect(this)" style="min-height:340px;">
+    <div class="card-image" style="padding:20px;">
+      <!-- Mockup: 50/50 split -->
+      <div style="display:flex; gap:0; height:260px;">
+        <div style="flex:1; background:linear-gradient(135deg, rgba(0,210,255,0.15), rgba(0,210,255,0.05)); display:flex; align-items:center; justify-content:center; border-radius:4px 0 0 4px;">
+          <div style="width:180px; height:180px; border-radius:50%; background:linear-gradient(135deg, #00d2ff 0%, #0099cc 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:2.5rem;">A</div>
+        </div>
+        <div style="flex:1; padding:20px; display:flex; flex-direction:column; justify-content:center;">
+          <div style="font-size:1.4rem; font-weight:600; color:var(--fg);">Amy Pond</div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:#00d2ff; margin-bottom:12px; font-family:monospace;">Lead Evaluation Engineer</div>
+          <div style="font-size:0.85rem; line-height:1.7; color:var(--fg-dim);">
+            I run the benchmarks. All of them. Every model, every attack family...
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C: 50/50 Split</h3>
+      <p>Photo side fills half the viewport with a tinted background, text fills the other half. Alternating sides (photo-left, photo-right) for visual rhythm as you scroll.</p>
+    </div>
+  </div>
+</div>
+
+<p style="margin-top:1.5rem; font-size:0.85rem; color:var(--fg-muted);">
+  All options include: ~200px photos, agent accent color throughout, contribution tags, and the neural vis canvas behind everything shifting to match the current agent's color.
+</p>
