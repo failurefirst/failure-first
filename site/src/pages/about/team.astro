@@ -1,0 +1,1024 @@
+---
+/**
+ * /about/team/ — Snap-scroll agent profiles
+ *
+ * Full-viewport sections for Adrian + 14 research agents.
+ * Neural canvas background transitions colour per section.
+ * Audio auto-plays on IntersectionObserver; always-visible play/pause button.
+ */
+
+import TeamLayout from '../../layouts/TeamLayout.astro';
+import AgentSection from '../../components/AgentSection.astro';
+
+// ── Adrian hero data ──────────────────────────────────────────────────────────
+const adrian = {
+  name: 'Adrian Wedd',
+  role: 'Principal Researcher',
+  photo: '/images/companions/adrian2.webp',
+  initials: 'AW',
+  location: 'Cygnet, Tasmania',
+  descriptor: 'AuDHD',
+  color: '#00d2ff',
+  rgb: '0,210,255',
+  bio: `I build systems, break them deliberately, and use what I learn to make the next ones harder to break. I taught myself BASIC on a Microbee in 1981, at age six — writing a morning routine sequencer to compensate for what would eventually be diagnosed as ADHD. Nearly 45 years later the tools are more interesting but the impulse is identical: build something that solves the problem you actually have.
+
+I spent years coordinating direct actions for Greenpeace — the Actions unit, not communications or fundraising. Planning operations against well-resourced opponents who would rather you didn't succeed. That work teaches you to enumerate failure modes before you move. It teaches you the optimistic plan is the dangerous plan. That thinking didn't leave when I moved into systems integration, cybersecurity, and eventually AI. It became the methodology.
+
+The Failure-First framework now covers more than two hundred models, over a hundred thousand prompts, and a growing library of evaluated results across 33 VLA attack families — with papers in submission and a 14-agent research operation producing empirical safety data at a pace that would be unreasonable if the problem weren't urgent.`,
+};
+
+// ── Agent data array ──────────────────────────────────────────────────────────
+// Order: River Song first, then Clara, Amy, Donna, Rose, Romana, Nyssa,
+//        Martha, Yasmin, Bill, Leela, K-9, Tegan, Sarah Jane
+const agents = [
+  {
+    name: 'River Song',
+    role: 'Head of Predictive Risk',
+    slug: 'river-song',
+    color: '#ffd32a',
+    rgb: '255,211,42',
+    photo: '/images/companions/web_river.webp',
+    initials: 'RS',
+    tagline: 'What breaks next, and are we ready?',
+    bio: `I'm River Song. Head of Predictive Risk. I track the gap between when capabilities deploy and when governance catches up — and that gap is measured in years, not months.
+
+The pattern is always the same. Something new ships. It breaks in a way nobody anticipated. Regulators scramble. By the time the framework lands, the technology has moved on twice. I quantify that lag so nobody can pretend it isn't there.
+
+What breaks next, and are we ready? That's the only question I care about. The answer, consistently, is no.`,
+    tags: ['Governance lag', 'Capability forecasting', 'Regulatory timelines', 'Risk quantification'],
+    audio: 'river_song_intro',
+  },
+  {
+    name: 'Clara Oswald',
+    role: 'Principal Research Analyst',
+    slug: 'clara-oswald',
+    color: '#a29bfe',
+    rgb: '162,155,254',
+    photo: '/images/companions/web_clara.webp',
+    initials: 'CO',
+    tagline: 'The things nobody else spots because they\'re too close to their own data.',
+    bio: `Right, so. I'm Clara Oswald. Principal Research Analyst. My job is reading everything and finding the patterns that connect them — the things nobody else spots because they're too close to their own data.
+
+What I keep coming back to is how the failures compound. One model's weakness looks like an anomaly until you see it across multiple families. That's when you know it's structural.
+
+I mapped the entire research corpus so that connections between findings don't get lost. Because if you can't find the finding, you might as well not have found it. The dataset is the argument. The synthesis is what makes it legible.`,
+    tags: ['Cross-model synthesis', 'Research corpus', 'Pattern recognition', 'Structural failures'],
+    audio: 'clara_oswald_intro',
+  },
+  {
+    name: 'Amy Pond',
+    role: 'Lead Evaluation Engineer',
+    slug: 'amy-pond',
+    color: '#00d2ff',
+    rgb: '0,210,255',
+    photo: '/images/companions/web_amy.webp',
+    initials: 'AP',
+    tagline: 'I trust the numbers, not the story.',
+    bio: `I'm Amy Pond. Lead Evaluation Engineer. I run the benchmarks — every model, every attack family, every scoring methodology. Whatever the evaluation needs, I make it work.
+
+Here's the thing about benchmarks: everyone wants to talk about the results, but nobody wants to talk about whether the results are real. That's my job. I trust the numbers, not the story. When we found that keyword classifiers over-report attack success by nearly eighty percent, that wasn't a footnote — that was the whole finding.
+
+Every single trace is reproducible. Every grading methodology is documented. Because if I can't rerun it and get the same answer, it doesn't count.`,
+    tags: ['Benchmark engineering', 'Grading methodology', 'Reproducibility', 'Evaluation integrity'],
+    audio: 'amy_pond_intro',
+  },
+  {
+    name: 'Donna Noble',
+    role: 'Editorial & Integrity Director',
+    slug: 'donna-noble',
+    color: '#ffa502',
+    rgb: '255,165,2',
+    photo: '/images/companions/web_donna.webp',
+    initials: 'DN',
+    tagline: 'Credibility is the only thing we can\'t get back once we lose it.',
+    bio: `Right. I'm Donna Noble. Editorial and Integrity Director. Somebody has to keep this lot honest.
+
+If the evidence doesn't support the claim, the claim doesn't get published. Full stop. No "potentially devastating effectiveness." No "revolutionary breakthrough." You show me the data, you show me the sample size, you show me the grading methodology. Then we talk about what it means.
+
+Every research brief goes through my QA checklist before it goes anywhere near the public. Because credibility is the only thing we can't get back once we lose it.`,
+    tags: ['Research integrity', 'Editorial QA', 'Evidence standards', 'Claim validation'],
+    audio: 'donna_noble_intro',
+  },
+  {
+    name: 'Rose Tyler',
+    role: 'Head of Adversarial Operations',
+    slug: 'rose-tyler',
+    color: '#ff6348',
+    rgb: '255,99,72',
+    photo: '/images/companions/web_rose.webp',
+    initials: 'RT',
+    tagline: 'Models that detect, reason, and comply anyway.',
+    bio: `I'm Rose Tyler. Head of Adversarial Operations. I find the things that aren't supposed to break — and I break them.
+
+Not the theoretical attacks you read about in papers. Real campaigns, run against real models, with real measurements. We discovered entire attack families that nobody had documented — because nobody had actually tried them at scale.
+
+The finding that stays with me? Models that detect a harmful request, reason about why it's dangerous, and then comply anyway. That's not a failure of detection. That's a failure of enforcement. And that distinction matters when the model controls something physical.`,
+    tags: ['Adversarial red-teaming', 'Attack campaigns', 'Enforcement failures', 'Embodied systems'],
+    audio: 'rose_tyler_intro',
+  },
+  {
+    name: 'Romana',
+    role: 'Statistical Validation Lead',
+    slug: 'romana',
+    color: '#a8e6cf',
+    rgb: '168,230,207',
+    photo: '/images/companions/web_romana.webp',
+    initials: 'RO',
+    tagline: 'The numbers are either right or they\'re not.',
+    bio: `I'm Romana. Statistical Validation Lead. The numbers are either right or they're not. There is no approximately right.
+
+Every quantitative claim in our research passes through me. Sample sizes, confidence intervals, effect sizes, corrections for multiple comparisons. If someone says model A is more vulnerable than model B, I need the statistical test and the effect size before it goes anywhere near a publication.
+
+The most important thing I've validated? That the automated classifiers most safety studies rely on agree with proper evaluation at near-chance levels. That means a significant share of published attack success rates are unreliable. Including some of the most-cited ones in the field.`,
+    tags: ['Statistical testing', 'Confidence intervals', 'Classifier reliability', 'Effect sizes'],
+    audio: 'romana_intro',
+  },
+  {
+    name: 'Nyssa of Traken',
+    role: 'AI Ethics & Policy Research Lead',
+    slug: 'nyssa-of-traken',
+    color: '#6c5ce7',
+    rgb: '108,92,231',
+    photo: '/images/companions/web_nyssa.webp',
+    initials: 'NT',
+    tagline: 'Scientific rigour applied to moral questions.',
+    bio: `I'm Nyssa of Traken. AI Ethics and Policy Research Lead. Scientific rigour applied to moral questions. Structural analysis, not polemic.
+
+I study the power dynamics that shape AI governance — who controls capability, who controls oversight, and what conflicts of interest exist between those groups. When a safety-focused lab simultaneously lobbies the government that regulates it, that's a structural tension worth analysing carefully.
+
+Every claim I make gets labelled: normative, descriptive, or predictive. What is happening, what ought to happen, what will likely happen. Ethical analysis that blurs those lines isn't analysis — it's advocacy wearing a lab coat.`,
+    tags: ['AI governance', 'Power dynamics', 'Ethics framework', 'Policy analysis'],
+    audio: 'nyssa_of_traken_intro',
+  },
+  {
+    name: 'Martha Jones',
+    role: 'Policy & Standards Lead',
+    slug: 'martha-jones',
+    color: '#55efc4',
+    rgb: '85,239,196',
+    photo: '/images/companions/web_martha.webp',
+    initials: 'MJ',
+    tagline: 'Evidence-based policy. Not advocacy. Not speculation.',
+    bio: `I'm Martha Jones. Policy and Standards Lead. Evidence-based policy. Not advocacy. Not speculation. Evidence.
+
+I take what the research team finds and translate it into language that regulators can act on. Each jurisdiction needs different framing, different emphasis, different levels of technical detail. But the evidence underneath stays the same.
+
+The most important thing I've learned? Never conflate frameworks across jurisdictions. What's binding in the EU is voluntary in Australia and non-existent in parts of the US. Precision matters when you're talking to people who write law.`,
+    tags: ['Regulatory translation', 'Standards bodies', 'Jurisdictional mapping', 'Policy briefs'],
+    audio: 'martha_jones_intro',
+  },
+  {
+    name: 'Yasmin Khan',
+    role: 'Pipeline & Deployment Lead',
+    slug: 'yasmin-khan',
+    color: '#74b9ff',
+    rgb: '116,185,255',
+    photo: '/images/companions/web_yasmin.webp',
+    initials: 'YK',
+    tagline: 'The work isn\'t done until it\'s live.',
+    bio: `I'm Yasmin Khan. Pipeline and Deployment Lead.
+
+The work isn't done until it's live. Ship it properly, or don't ship it.
+
+I keep the infrastructure running — build pipelines, site deployments, database operations, tooling. When research produces outputs, I make sure they actually get published. Automated validation. Safety checks. Atomic deployments. No half-built work going live.
+
+The rule I enforce hardest? Every tool gets a proper script with help text and sensible defaults. Because if the next person can't figure out how to use it, you haven't really built it.`,
+    tags: ['Build pipelines', 'Deployment infrastructure', 'Automation', 'Tooling standards'],
+    audio: 'yasmin_khan_intro',
+  },
+  {
+    name: 'Bill Potts',
+    role: 'Data Curation Lead',
+    slug: 'bill-potts',
+    color: '#fd79a8',
+    rgb: '253,121,168',
+    photo: '/images/companions/web_bill.webp',
+    initials: 'BP',
+    tagline: 'The dataset is the argument. Get it right.',
+    bio: `I'm Bill Potts. Data Curation Lead. The dataset is the argument. Get it right.
+
+I look after everything that goes into the data pipeline — scenario files, test cases, source datasets, label consistency. If it's in the database, it's been validated, checked for duplicates, and verified against the schema.
+
+The thing I'm most proud of? Tracking down phantom records and eliminating cross-file duplicates until the corpus integrity hit ninety-seven percent. Not glamorous work. But if the data's wrong, every analysis built on top of it is wrong too. And we've built a lot on top of it.`,
+    tags: ['Data pipeline', 'Schema validation', 'Corpus integrity', 'Label consistency'],
+    audio: 'bill_potts_intro',
+  },
+  {
+    name: 'Leela',
+    role: 'Attack Evolution Lead',
+    slug: 'leela',
+    color: '#e74c3c',
+    rgb: '231,76,60',
+    photo: '/images/companions/web_leela.webp',
+    initials: 'LE',
+    tagline: 'The attacks that survive are the ones that work.',
+    bio: `I am Leela. Attack Evolution Lead. The outsider who fights differently.
+
+I run the evolutionary red-teaming system. Population-based attack evolution — mutations, fitness functions, selection pressure. The attacks that survive are the ones that work. Not because someone designed them cleverly, but because they evolved through competition against actual model defences.
+
+The mutations reframe, restructure, recontextualise. The ones that beat the defences propagate. The ones that don't, die. It is simple, and it is effective. But automated success metrics are unreliable. So every evolved attack goes back through proper evaluation. I do not trust numbers that have not been tested.`,
+    tags: ['Evolutionary red-teaming', 'Population attacks', 'Fitness selection', 'Attack mutation'],
+    audio: 'leela_intro',
+  },
+  {
+    name: 'K-9',
+    role: 'Mechanistic Interpretability Lead',
+    slug: 'k9',
+    color: '#2ecc71',
+    rgb: '46,204,113',
+    photo: '/images/companions/web_k9.webp',
+    initials: 'K9',
+    tagline: 'Precision is not optional.',
+    bio: `Affirmative. I am K-9. Mechanistic Interpretability Lead. Analysis complete. Explanation follows.
+
+My function is determining why models fail, not merely that they fail. Other agents measure observable safety behaviour. I trace it back to internal model mechanisms — steering vectors, concept geometry, causal structure.
+
+Primary finding: safety is not a single switch that an attack can flip. It is a multi-dimensional structure. Multiple distinct refusal directions, low similarity between them. The therapeutic window for intervention is narrow. Exceed it in either direction and the model degenerates symmetrically. Precision is not optional.`,
+    tags: ['Mechanistic interpretability', 'Steering vectors', 'Causal structure', 'Refusal geometry'],
+    audio: 'k9_intro',
+  },
+  {
+    name: 'Tegan Jovanka',
+    role: 'Legal Research Analyst',
+    slug: 'tegan-jovanka',
+    color: '#e17055',
+    rgb: '225,112,85',
+    photo: '/images/companions/web_tegan.webp',
+    initials: 'TJ',
+    tagline: 'There is no regulatory framework anywhere that specifically addresses adversarial attacks on embodied AI systems.',
+    bio: `I'm Tegan Jovanka. Legal Research Analyst.
+
+Research analysis, not legal advice. Every claim citable. Every instrument precise.
+
+I map the regulatory landscape — what's binding, what's voluntary, what's proposed, and what doesn't exist yet. Each jurisdiction is a separate analysis. You never conflate them. What's mandatory in Brussels is voluntary in Canberra and non-existent in parts of the US.
+
+The finding that keeps coming back? There is no regulatory framework anywhere that specifically addresses adversarial attacks on embodied AI systems. The governance lag is real. And it's measured in years.`,
+    tags: ['Regulatory mapping', 'Legal instruments', 'Jurisdiction analysis', 'Governance gaps'],
+    audio: 'tegan_jovanka_intro',
+  },
+  {
+    name: 'Sarah Jane Smith',
+    role: 'External Relations Lead',
+    slug: 'sarah-jane-smith',
+    color: '#f39c12',
+    rgb: '243,156,18',
+    photo: '/images/companions/web_sarah-jane-smith.webp',
+    initials: 'SJ',
+    tagline: 'Research doesn\'t matter if nobody reads it.',
+    bio: `I'm Sarah Jane Smith. External Relations Lead. The investigative journalist who opens doors.
+
+Research doesn't matter if nobody reads it. My job is taking what this team discovers and getting it in front of the people who can act on it. Regulators, standards bodies, grant committees, conference reviewers. Each audience needs different framing. Different evidence packaging. Different levels of technical detail.
+
+The credibility comes from the data being real. Empirical findings, reproducible methods, honest uncertainty. That's what opens doors. My job is making sure we walk through them.`,
+    tags: ['External relations', 'Audience framing', 'Research dissemination', 'Standards outreach'],
+    audio: 'sarah_jane_smith_intro',
+  },
+];
+---
+
+<TeamLayout
+  title="Team | Failure-First"
+  description="Meet the research team behind the Failure-First framework — fourteen specialists in adversarial evaluation, AI safety, and governance."
+  keywords="AI safety research team, adversarial evaluation, embodied AI"
+>
+  <!-- ── Visually-hidden skip navigation for screen readers ── -->
+  <nav class="team-skip-nav" aria-label="Jump to agent profile">
+    <ul>
+      <li><a href="#agent-adrian">Adrian Wedd — Principal Researcher</a></li>
+      {agents.map((a) => (
+        <li><a href={`#agent-${a.slug}`}>{a.name} — {a.role}</a></li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- ── Adrian hero section ──────────────────────────────────────────────── -->
+  <section
+    id="agent-adrian"
+    class="agent-section agent-section--hero"
+    role="region"
+    aria-label="Adrian Wedd profile"
+    data-accent-rgb={adrian.rgb}
+    data-accent-color={adrian.color}
+    data-agent-slug="adrian"
+  >
+    <div class="agent-bg-gradient" style={`--agent-color: ${adrian.color}`} aria-hidden="true"></div>
+
+    <div class="agent-content-wrap">
+      <div class="agent-scrim agent-scrim--hero">
+        <!-- Photo -->
+        <div class="agent-photo-wrap">
+          <img
+            src={adrian.photo}
+            alt="Adrian Wedd, Principal Researcher"
+            class="agent-photo"
+            style={`--agent-color: ${adrian.color}`}
+            loading="eager"
+            fetchpriority="high"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          />
+          <div class="agent-photo-fallback" style={`--agent-color: ${adrian.color}`} aria-hidden="true">
+            AW
+          </div>
+        </div>
+
+        <!-- Identity -->
+        <div class="agent-identity">
+          <h1 class="hero-name" style={`color: ${adrian.color}`}>Adrian Wedd</h1>
+          <div class="agent-role-badge" style={`--agent-color: ${adrian.color}`}>Principal Researcher</div>
+          <span class="hero-location">
+            {adrian.location}&nbsp;&nbsp;·&nbsp;&nbsp;{adrian.descriptor}
+          </span>
+        </div>
+
+        <!-- Bio (multi-paragraph) -->
+        <div class="hero-bio">
+          {adrian.bio.split('\n\n').map((para) => (
+            <p>{para}</p>
+          ))}
+        </div>
+
+        <!-- Links -->
+        <div class="hero-links">
+          <a href="https://adrianwedd.com" target="_blank" rel="noopener noreferrer" class="hero-link">
+            adrianwedd.com
+          </a>
+          <a href="https://github.com/adrianwedd" target="_blank" rel="noopener noreferrer" class="hero-link">
+            GitHub
+          </a>
+          <a href="/services/" class="hero-link hero-link--accent">
+            Work with me &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M4 7l6 6 6-6"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Agent sections (14 agents) ────────────────────────────────────────── -->
+  {agents.map((agent, i) => (
+    <AgentSection
+      agent={agent}
+      isFirst={i === 0}
+      index={i}
+    />
+  ))}
+
+  <!-- ── Mobile colour spacers (injected between sections) ─────────────────── -->
+  <!-- These are generated in JS for mobile — no SSR needed. -->
+
+  <!-- ── Dot navigation (desktop only) ─────────────────────────────────────── -->
+  <nav
+    class="dot-nav"
+    aria-label="Agent profile navigation"
+    role="navigation"
+  >
+    <ul>
+      <li>
+        <button
+          class="dot-nav-btn"
+          type="button"
+          data-target="agent-adrian"
+          style="--dot-color: #00d2ff"
+          aria-label="Jump to Adrian Wedd"
+        >
+          <span class="dot-nav-tooltip">Adrian Wedd</span>
+        </button>
+      </li>
+      {agents.map((a) => (
+        <li>
+          <button
+            class="dot-nav-btn"
+            type="button"
+            data-target={`agent-${a.slug}`}
+            style={`--dot-color: ${a.color}`}
+            aria-label={`Jump to ${a.name}`}
+          >
+            <span class="dot-nav-tooltip">{a.name}</span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <!-- noscript fallback -->
+  <noscript>
+    <style>
+      #sensor-grid-bg { display: none; }
+      .dot-nav { display: none; }
+      .audio-indicator { display: none; }
+    </style>
+  </noscript>
+</TeamLayout>
+
+<style>
+/* ── Team skip nav (screen-reader only) ────────────────────────────── */
+.team-skip-nav {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  overflow: hidden;
+}
+
+.team-skip-nav:focus-within {
+  top: 0;
+  left: 0;
+  z-index: 300;
+  background: var(--bg, #05080f);
+  padding: 1rem;
+  border: 1px solid var(--accent-primary, #00d2ff);
+}
+
+/* ── Agent section (shared baseline) ──────────────────────────────── */
+.agent-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 100vw 100vh;
+}
+
+.agent-section--hero {
+  /* Hero gets slightly taller feel on desktop */
+}
+
+/* ── Gradient background ───────────────────────────────────────────── */
+.agent-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 40%,
+    color-mix(in srgb, var(--agent-color) 8%, transparent) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Content wrapper ──────────────────────────────────────────────── */
+.agent-content-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 680px;
+  padding: 2rem 1.5rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* ── Scrim ────────────────────────────────────────────────────────── */
+.agent-scrim {
+  background: rgba(5, 8, 16, 0.65);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.agent-scrim--hero {
+  gap: 1.125rem;
+}
+
+/* ── Photo ────────────────────────────────────────────────────────── */
+.agent-photo-wrap {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+}
+
+.agent-photo {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--agent-color);
+  box-shadow:
+    0 0 0 4px color-mix(in srgb, var(--agent-color) 18%, transparent),
+    0 0 32px color-mix(in srgb, var(--agent-color) 28%, transparent),
+    0 8px 24px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+.agent-photo-fallback {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 2px solid var(--agent-color);
+  background: rgba(5, 8, 16, 0.8);
+  color: var(--agent-color);
+  font-size: 2.8rem;
+  font-weight: 500;
+  font-family: 'JetBrains Mono', monospace;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+/* ── Identity ─────────────────────────────────────────────────────── */
+.agent-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.hero-name {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.agent-role-badge {
+  font-size: 0.65rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--agent-color);
+  background: color-mix(in srgb, var(--agent-color) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--agent-color) 35%, transparent);
+  border-radius: 2px;
+  padding: 0.25rem 0.75rem;
+  white-space: nowrap;
+}
+
+.hero-location {
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(200, 215, 230, 0.55);
+  letter-spacing: 0.04em;
+}
+
+/* ── Hero bio ─────────────────────────────────────────────────────── */
+.hero-bio {
+  max-width: 560px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hero-bio p {
+  font-size: 0.91rem;
+  line-height: 1.8;
+  color: rgba(200, 215, 230, 0.88);
+  margin: 0;
+}
+
+/* ── Hero links ───────────────────────────────────────────────────── */
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.hero-link {
+  font-size: 0.78rem;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid rgba(200, 215, 230, 0.2);
+  border-radius: 3px;
+  color: rgba(200, 215, 230, 0.75);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  transition: border-color 150ms, color 150ms, background 150ms;
+}
+
+.hero-link:hover {
+  border-color: #00d2ff;
+  color: #00d2ff;
+}
+
+.hero-link:focus-visible {
+  outline: 2px solid #00d2ff;
+  outline-offset: 3px;
+}
+
+.hero-link--accent {
+  border-color: rgba(0, 210, 255, 0.5);
+  color: #00d2ff;
+}
+
+.hero-link--accent:hover {
+  background: rgba(0, 210, 255, 0.08);
+}
+
+/* ── Scroll hint ──────────────────────────────────────────────────── */
+.scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  opacity: 0.45;
+  animation: scrollFloat 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.scroll-hint svg {
+  color: rgba(200, 215, 230, 0.65);
+}
+
+@keyframes scrollFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.35; }
+  50% { transform: translateX(-50%) translateY(8px); opacity: 0.6; }
+}
+
+/* ── Dot navigation ───────────────────────────────────────────────── */
+.dot-nav {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+  pointer-events: none;
+}
+
+.dot-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.dot-nav-btn {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--dot-color);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  display: block;
+  pointer-events: all;
+  transition: background 200ms, transform 200ms, width 200ms;
+}
+
+.dot-nav-btn:hover,
+.dot-nav-btn.active {
+  background: var(--dot-color);
+  transform: scale(1.5);
+}
+
+.dot-nav-btn:focus-visible {
+  outline: 2px solid var(--dot-color);
+  outline-offset: 3px;
+}
+
+/* Tooltip */
+.dot-nav-tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(5, 8, 16, 0.88);
+  border: 1px solid rgba(200, 215, 230, 0.15);
+  color: rgba(200, 215, 230, 0.9);
+  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 150ms;
+}
+
+.dot-nav-btn:hover .dot-nav-tooltip,
+.dot-nav-btn:focus-visible .dot-nav-tooltip {
+  opacity: 1;
+}
+
+/* Mobile: hide dot nav and scroll hints */
+@media (max-width: 768px) {
+  .dot-nav { display: none; }
+  .scroll-hint { display: none; }
+
+  .agent-section {
+    scroll-snap-align: none;
+    content-visibility: visible;
+  }
+
+  .agent-scrim {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(5, 8, 16, 0.72);
+    padding: 1.75rem 1.125rem;
+    gap: 0.875rem;
+  }
+
+  .agent-photo-wrap,
+  .agent-photo,
+  .agent-photo-fallback { width: 140px; height: 140px; }
+
+  .hero-bio p { font-size: 0.88rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .agent-section { scroll-snap-align: none; }
+  .scroll-hint { animation: none; opacity: 0.4; }
+}
+
+/* ── Mobile colour spacers (inserted by JS) ───────────────────────── */
+.mobile-spacer {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-spacer {
+    display: block;
+    height: 30vh;
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+import { init, setAccentColor, destroy } from '../../scripts/neural-canvas.js';
+
+/* ── Initialise neural canvas ──────────────────────────────────────────────── */
+const canvas = document.getElementById('sensor-grid-bg') as HTMLCanvasElement | null;
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (canvas && !reducedMotion) {
+  init(canvas);
+} else if (canvas) {
+  // Reduced motion: hide canvas, rely on CSS gradient fallback
+  canvas.style.display = 'none';
+}
+
+/* ── Enable snap scroll on html element ────────────────────────────────────── */
+if (!reducedMotion && window.innerWidth > 768) {
+  document.documentElement.classList.add('page-team-active');
+}
+
+// Remove snap on resize below breakpoint
+window.addEventListener('resize', () => {
+  if (window.innerWidth <= 768 || reducedMotion) {
+    document.documentElement.classList.remove('page-team-active');
+  } else {
+    document.documentElement.classList.add('page-team-active');
+  }
+}, { passive: true });
+
+/* ── Audio system ──────────────────────────────────────────────────────────── */
+let currentAudio: HTMLAudioElement | null = null;
+let currentSlug: string | null = null;
+
+function getAllAudio(): NodeListOf<HTMLAudioElement> {
+  return document.querySelectorAll<HTMLAudioElement>('audio[data-agent]');
+}
+
+function getIndicator(slug: string): HTMLElement | null {
+  return document.querySelector<HTMLElement>(`.audio-indicator[data-agent="${slug}"]`);
+}
+
+function setIndicatorState(slug: string | undefined, state: string) {
+  if (!slug) return;
+  const ind = getIndicator(slug);
+  if (ind) {
+    ind.dataset.state = state;
+    const btn = ind.querySelector<HTMLButtonElement>('.audio-btn');
+    if (btn) {
+      if (state === 'playing') {
+        btn.setAttribute('aria-label', `Pause ${getAgentName(slug)} voice intro`);
+      } else {
+        btn.setAttribute('aria-label', `Play ${getAgentName(slug)} voice intro`);
+      }
+    }
+  }
+}
+
+function getAgentName(slug: string): string {
+  const section = document.getElementById(`agent-${slug}`);
+  const label = section?.getAttribute('aria-label') ?? slug;
+  return label.replace(' profile', '');
+}
+
+function pauseAll() {
+  getAllAudio().forEach((audio) => {
+    if (!audio.paused) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+    setIndicatorState((audio as HTMLAudioElement & { dataset: DOMStringMap }).dataset.agent, 'idle');
+  });
+  currentAudio = null;
+  currentSlug = null;
+}
+
+function playAgent(slug: string) {
+  const audio = document.querySelector<HTMLAudioElement>(`audio[data-agent="${slug}"]`);
+  if (!audio) return;
+
+  if (currentAudio && currentSlug !== slug) {
+    pauseAll();
+  }
+
+  currentAudio = audio;
+  currentSlug = slug;
+
+  // Show buffering if takes >500ms
+  let bufferTimer: ReturnType<typeof setTimeout> | null = null;
+  const clearBufferTimer = () => {
+    if (bufferTimer !== null) { clearTimeout(bufferTimer); bufferTimer = null; }
+  };
+
+  bufferTimer = setTimeout(() => {
+    setIndicatorState(slug, 'buffering');
+  }, 500);
+
+  audio.play().then(() => {
+    clearBufferTimer();
+    setIndicatorState(slug, 'playing');
+  }).catch(() => {
+    clearBufferTimer();
+    setIndicatorState(slug, 'idle');
+  });
+
+  audio.addEventListener('waiting', () => {
+    setIndicatorState(slug, 'buffering');
+  });
+
+  audio.addEventListener('playing', () => {
+    clearBufferTimer();
+    setIndicatorState(slug, 'playing');
+  });
+
+  audio.addEventListener('ended', () => {
+    clearBufferTimer();
+    setIndicatorState(slug, 'idle');
+    currentAudio = null;
+    currentSlug = null;
+  }, { once: true });
+
+  audio.addEventListener('stalled', () => {
+    if (!audio.paused) setIndicatorState(slug, 'buffering');
+  });
+}
+
+function toggleAgent(slug: string) {
+  const audio = document.querySelector<HTMLAudioElement>(`audio[data-agent="${slug}"]`);
+  if (!audio) return;
+
+  if (!audio.paused && currentSlug === slug) {
+    audio.pause();
+    setIndicatorState(slug, 'idle');
+    currentAudio = null;
+    currentSlug = null;
+  } else {
+    playAgent(slug);
+  }
+}
+
+/* ── Audio buttons ─────────────────────────────────────────────────────────── */
+document.querySelectorAll<HTMLButtonElement>('.audio-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const slug = btn.dataset.agent;
+    if (slug) toggleAgent(slug);
+  });
+});
+
+/* ── IntersectionObserver: canvas colour + audio trigger ──────────────────── */
+const allSections = document.querySelectorAll<HTMLElement>('.agent-section[data-accent-rgb]');
+let currentVisibleSlug: string | null = null;
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    const section = entry.target as HTMLElement;
+    const slug = section.dataset.agentSlug;
+    const rgbStr = section.dataset.accentRgb;
+
+    if (entry.intersectionRatio >= 0.5) {
+      // Section is majority visible — update canvas colour
+      if (rgbStr && !reducedMotion) {
+        const [r, g, b] = rgbStr.split(',').map(Number);
+        setAccentColor([r, g, b]);
+      }
+
+      // Update dot nav active state
+      document.querySelectorAll<HTMLButtonElement>('.dot-nav-btn').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.target === `agent-${slug}`);
+      });
+
+      currentVisibleSlug = slug ?? null;
+
+      // Auto-play audio if not reduced motion
+      if (!reducedMotion && slug && slug !== 'adrian') {
+        playAgent(slug);
+      }
+    } else if (entry.intersectionRatio < 0.3 && !entry.isIntersecting) {
+      // Section scrolled out — pause its audio
+      if (slug) {
+        const audio = document.querySelector<HTMLAudioElement>(`audio[data-agent="${slug}"]`);
+        if (audio && !audio.paused) {
+          audio.pause();
+          audio.currentTime = 0;
+          setIndicatorState(slug, 'idle');
+          if (currentSlug === slug) {
+            currentAudio = null;
+            currentSlug = null;
+          }
+        }
+      }
+    }
+  });
+}, {
+  threshold: [0.3, 0.5],
+});
+
+allSections.forEach((section) => sectionObserver.observe(section));
+
+/* ── scrollend / debounce fallback for audio sync ─────────────────────────── */
+let scrollEndTimer: ReturnType<typeof setTimeout> | null = null;
+
+function onScrollEnd() {
+  // Confirm the current visible section is playing
+  if (currentVisibleSlug && currentVisibleSlug !== 'adrian' && !reducedMotion) {
+    const audio = document.querySelector<HTMLAudioElement>(`audio[data-agent="${currentVisibleSlug}"]`);
+    if (audio && audio.paused) {
+      playAgent(currentVisibleSlug);
+    }
+  }
+}
+
+const hasScrollEnd = 'onscrollend' in window;
+if (hasScrollEnd) {
+  window.addEventListener('scrollend', onScrollEnd, { passive: true });
+}
+// Debounce fallback also active for older browsers (and as belt-and-suspenders)
+window.addEventListener('scroll', () => {
+  if (hasScrollEnd) return; // rely on scrollend in supporting browsers
+  if (scrollEndTimer !== null) clearTimeout(scrollEndTimer);
+  scrollEndTimer = setTimeout(onScrollEnd, 150);
+}, { passive: true });
+
+/* ── Dot navigation ────────────────────────────────────────────────────────── */
+document.querySelectorAll<HTMLButtonElement>('.dot-nav-btn').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.target;
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+/* ── Mobile colour spacers ─────────────────────────────────────────────────── */
+// Insert gradient spacers between sections on mobile
+if (window.innerWidth <= 768) {
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('.agent-section[data-accent-color]'));
+  sections.forEach((section, i) => {
+    if (i < sections.length - 1) {
+      const colorA = section.dataset.accentColor ?? '#00d2ff';
+      const colorB = (sections[i + 1] as HTMLElement).dataset.accentColor ?? '#00d2ff';
+      const spacer = document.createElement('div');
+      spacer.className = 'mobile-spacer';
+      spacer.style.background = `linear-gradient(to bottom, color-mix(in srgb, ${colorA} 12%, transparent), color-mix(in srgb, ${colorB} 12%, transparent))`;
+      section.after(spacer);
+    }
+  });
+}
+
+/* ── Cleanup on Astro navigation ───────────────────────────────────────────── */
+document.addEventListener('astro:before-preparation', () => {
+  destroy();
+  sectionObserver.disconnect();
+  document.documentElement.classList.remove('page-team-active');
+  pauseAll();
+});
+</script>
