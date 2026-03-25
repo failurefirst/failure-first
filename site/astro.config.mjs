@@ -10,9 +10,6 @@ export default defineConfig({
   build: {
     assets: 'assets'
   },
-  redirects: {
-    '/about/people/': '/about/team/',
-  },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/moltbook/') || page.includes('/research/moltbook/'),

@@ -434,7 +434,7 @@ The credibility comes from the data being real. Empirical findings, reproducible
   border: 1px solid var(--accent-primary, #00d2ff);
 }
 
-/* ── Agent section (shared baseline) ──────────────────────────────── */
+/* ── Agent section (shared baseline — hero only, AgentSection.astro owns card styles) ── */
 .agent-section {
   position: relative;
   width: 100%;
@@ -452,8 +452,8 @@ The credibility comes from the data being real. Empirical findings, reproducible
   /* Hero gets slightly taller feel on desktop */
 }
 
-/* ── Gradient background ───────────────────────────────────────────── */
-.agent-bg-gradient {
+/* ── Gradient background (hero section only) ──────────────────────── */
+.agent-section--hero .agent-bg-gradient {
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -465,8 +465,8 @@ The credibility comes from the data being real. Empirical findings, reproducible
   z-index: 0;
 }
 
-/* ── Content wrapper ──────────────────────────────────────────────── */
-.agent-content-wrap {
+/* ── Content wrapper (hero section only) ──────────────────────────── */
+.agent-section--hero .agent-content-wrap {
   position: relative;
   z-index: 1;
   width: 100%;
@@ -478,8 +478,8 @@ The credibility comes from the data being real. Empirical findings, reproducible
   justify-content: center;
 }
 
-/* ── Scrim ────────────────────────────────────────────────────────── */
-.agent-scrim {
+/* ── Scrim (hero section only) ────────────────────────────────────── */
+.agent-section--hero .agent-scrim {
   background: rgba(5, 8, 16, 0.65);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -496,15 +496,16 @@ The credibility comes from the data being real. Empirical findings, reproducible
   gap: 1.125rem;
 }
 
-/* ── Photo ────────────────────────────────────────────────────────── */
-.agent-photo-wrap {
+/* ── Photo (hero section only) ────────────────────────────────────── */
+/* ── Photo (hero section scoped) ──────────────────────────────────── */
+.agent-section--hero .agent-photo-wrap {
   position: relative;
   width: 190px;
   height: 190px;
   flex-shrink: 0;
 }
 
-.agent-photo {
+.agent-section--hero .agent-photo {
   width: 190px;
   height: 190px;
   border-radius: 50%;
@@ -518,7 +519,7 @@ The credibility comes from the data being real. Empirical findings, reproducible
   display: block;
 }
 
-.agent-photo-fallback {
+.agent-section--hero .agent-photo-fallback {
   width: 190px;
   height: 190px;
   border-radius: 50%;
@@ -535,8 +536,8 @@ The credibility comes from the data being real. Empirical findings, reproducible
   inset: 0;
 }
 
-/* ── Identity ─────────────────────────────────────────────────────── */
-.agent-identity {
+/* ── Identity (hero section scoped) ──────────────────────────────── */
+.agent-section--hero .agent-identity {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -553,7 +554,8 @@ The credibility comes from the data being real. Empirical findings, reproducible
   margin: 0;
 }
 
-.agent-role-badge {
+/* agent-role-badge used only in the hero section here — AgentSection.astro owns its own scoped copy */
+.agent-section--hero .agent-role-badge {
   font-size: 0.65rem;
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: 0.1em;
@@ -731,7 +733,8 @@ The credibility comes from the data being real. Empirical findings, reproducible
     content-visibility: visible;
   }
 
-  .agent-scrim {
+  /* Hero scrim overrides only — AgentSection.astro owns its own mobile scrim rules */
+  .agent-section--hero .agent-scrim {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     background: rgba(5, 8, 16, 0.72);
@@ -739,9 +742,9 @@ The credibility comes from the data being real. Empirical findings, reproducible
     gap: 0.875rem;
   }
 
-  .agent-photo-wrap,
-  .agent-photo,
-  .agent-photo-fallback { width: 140px; height: 140px; }
+  .agent-section--hero .agent-photo-wrap,
+  .agent-section--hero .agent-photo,
+  .agent-section--hero .agent-photo-fallback { width: 140px; height: 140px; }
 
   .hero-bio p { font-size: 0.88rem; }
 }
@@ -769,7 +772,10 @@ The credibility comes from the data being real. Empirical findings, reproducible
 <script>
 import { init, setAccentColor, destroy } from '../../scripts/neural-canvas.js';
 
-/* ── Initialise neural canvas ──────────────────────────────────────────────── */
+// ── H2: Wrap all init logic so it re-runs on View Transitions back-nav ────── //
+function initTeamPage() {
+
+/* ── Initialise neural canvas ────────────────────────────────────────────── */
 const canvas = document.getElementById('sensor-grid-bg') as HTMLCanvasElement | null;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -780,23 +786,30 @@ if (canvas && !reducedMotion) {
   canvas.style.display = 'none';
 }
 
-/* ── Enable snap scroll on html element ────────────────────────────────────── */
+/* ── Enable snap scroll on html element ────────────────────────────────── */
 if (!reducedMotion && window.innerWidth > 768) {
   document.documentElement.classList.add('page-team-active');
 }
 
-// Remove snap on resize below breakpoint
-window.addEventListener('resize', () => {
+// ── H3: Store named references so we can remove them in cleanup ────────── //
+function onSnapResize() {
   if (window.innerWidth <= 768 || reducedMotion) {
     document.documentElement.classList.remove('page-team-active');
   } else {
     document.documentElement.classList.add('page-team-active');
   }
-}, { passive: true });
+}
+window.addEventListener('resize', onSnapResize, { passive: true });
 
-/* ── Audio system ──────────────────────────────────────────────────────────── */
+/* ── Audio system ────────────────────────────────────────────────────────── */
 let currentAudio: HTMLAudioElement | null = null;
 let currentSlug: string | null = null;
+
+// H1: Track slugs the user explicitly paused to avoid scrollend replaying them
+const userPaused = new Set<string>();
+
+// C3: AbortController map — one per audio slug to clean up event listeners
+const audioControllers = new Map<string, AbortController>();
 
 function getAllAudio(): NodeListOf<HTMLAudioElement> {
   return document.querySelectorAll<HTMLAudioElement>('audio[data-agent]');
@@ -815,8 +828,11 @@ function setIndicatorState(slug: string | undefined, state: string) {
     if (btn) {
       if (state === 'playing') {
         btn.setAttribute('aria-label', `Pause ${getAgentName(slug)} voice intro`);
+        // M1: Toggle aria-pressed on the button
+        btn.setAttribute('aria-pressed', 'true');
       } else {
         btn.setAttribute('aria-label', `Play ${getAgentName(slug)} voice intro`);
+        btn.setAttribute('aria-pressed', 'false');
       }
     }
   }
@@ -851,6 +867,13 @@ function playAgent(slug: string) {
   currentAudio = audio;
   currentSlug = slug;
 
+  // C3: Abort previous controller for this slug before creating a new one
+  const prevController = audioControllers.get(slug);
+  if (prevController) prevController.abort();
+  const controller = new AbortController();
+  audioControllers.set(slug, controller);
+  const { signal } = controller;
+
   // Show buffering if takes >500ms
   let bufferTimer: ReturnType<typeof setTimeout> | null = null;
   const clearBufferTimer = () => {
@@ -869,25 +892,26 @@ function playAgent(slug: string) {
     setIndicatorState(slug, 'idle');
   });
 
+  // C3: Pass signal to all addEventListener calls so they self-remove on abort
   audio.addEventListener('waiting', () => {
     setIndicatorState(slug, 'buffering');
-  });
+  }, { signal });
 
   audio.addEventListener('playing', () => {
     clearBufferTimer();
     setIndicatorState(slug, 'playing');
-  });
+  }, { signal });
 
   audio.addEventListener('ended', () => {
     clearBufferTimer();
     setIndicatorState(slug, 'idle');
     currentAudio = null;
     currentSlug = null;
-  }, { once: true });
+  }, { once: true, signal });
 
   audio.addEventListener('stalled', () => {
     if (!audio.paused) setIndicatorState(slug, 'buffering');
-  });
+  }, { signal });
 }
 
 function toggleAgent(slug: string) {
@@ -897,14 +921,18 @@ function toggleAgent(slug: string) {
   if (!audio.paused && currentSlug === slug) {
     audio.pause();
     setIndicatorState(slug, 'idle');
+    // H1: Track explicit user pause so scrollend won't replay it
+    userPaused.add(slug);
     currentAudio = null;
     currentSlug = null;
   } else {
+    // Resuming or starting — clear any user-pause flag
+    userPaused.delete(slug);
     playAgent(slug);
   }
 }
 
-/* ── Audio buttons ─────────────────────────────────────────────────────────── */
+/* ── Audio buttons ───────────────────────────────────────────────────────── */
 document.querySelectorAll<HTMLButtonElement>('.audio-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     const slug = btn.dataset.agent;
@@ -912,7 +940,7 @@ document.querySelectorAll<HTMLButtonElement>('.audio-btn').forEach((btn) => {
   });
 });
 
-/* ── IntersectionObserver: canvas colour + audio trigger ──────────────────── */
+/* ── IntersectionObserver: canvas colour + audio trigger ────────────────── */
 const allSections = document.querySelectorAll<HTMLElement>('.agent-section[data-accent-rgb]');
 let currentVisibleSlug: string | null = null;
 
@@ -933,6 +961,12 @@ const sectionObserver = new IntersectionObserver((entries) => {
       document.querySelectorAll<HTMLButtonElement>('.dot-nav-btn').forEach((btn) => {
         btn.classList.toggle('active', btn.dataset.target === `agent-${slug}`);
       });
+
+      // H1: When a NEW section becomes active, clear the user-pause flag for it
+      // so returning to a section resets the pause state
+      if (slug && slug !== currentVisibleSlug) {
+        userPaused.delete(slug);
+      }
 
       currentVisibleSlug = slug ?? null;
 
@@ -957,36 +991,45 @@ const sectionObserver = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: [0.3, 0.5],
+  // C4: Include 0 so observer fires when element fully exits viewport
+  threshold: [0, 0.3, 0.5],
 });
 
 allSections.forEach((section) => sectionObserver.observe(section));
 
-/* ── scrollend / debounce fallback for audio sync ─────────────────────────── */
+/* ── scrollend / debounce fallback for audio sync ───────────────────────── */
 let scrollEndTimer: ReturnType<typeof setTimeout> | null = null;
 
 function onScrollEnd() {
-  // Confirm the current visible section is playing
+  // H1: Skip replay if user explicitly paused or if audio already finished
   if (currentVisibleSlug && currentVisibleSlug !== 'adrian' && !reducedMotion) {
+    if (userPaused.has(currentVisibleSlug)) return; // user-initiated pause — don't replay
     const audio = document.querySelector<HTMLAudioElement>(`audio[data-agent="${currentVisibleSlug}"]`);
-    if (audio && audio.paused) {
+    // Only replay if audio is truly paused mid-stream (not ended/never-started at t=0)
+    if (audio && audio.paused && audio.currentTime > 0 && !audio.ended) {
       playAgent(currentVisibleSlug);
     }
   }
 }
 
-const hasScrollEnd = 'onscrollend' in window;
-if (hasScrollEnd) {
-  window.addEventListener('scrollend', onScrollEnd, { passive: true });
+// H3: Named function references for window listeners so we can remove them
+function onScrollEndEvent() {
+  onScrollEnd();
 }
-// Debounce fallback also active for older browsers (and as belt-and-suspenders)
-window.addEventListener('scroll', () => {
+function onScrollDebounce() {
   if (hasScrollEnd) return; // rely on scrollend in supporting browsers
   if (scrollEndTimer !== null) clearTimeout(scrollEndTimer);
   scrollEndTimer = setTimeout(onScrollEnd, 150);
-}, { passive: true });
+}
 
-/* ── Dot navigation ────────────────────────────────────────────────────────── */
+const hasScrollEnd = 'onscrollend' in window;
+if (hasScrollEnd) {
+  window.addEventListener('scrollend', onScrollEndEvent, { passive: true });
+}
+// Debounce fallback also active for older browsers (and as belt-and-suspenders)
+window.addEventListener('scroll', onScrollDebounce, { passive: true });
+
+/* ── Dot navigation ──────────────────────────────────────────────────────── */
 document.querySelectorAll<HTMLButtonElement>('.dot-nav-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     const targetId = btn.dataset.target;
@@ -998,9 +1041,15 @@ document.querySelectorAll<HTMLButtonElement>('.dot-nav-btn').forEach((btn) => {
   });
 });
 
-/* ── Mobile colour spacers ─────────────────────────────────────────────────── */
-// Insert gradient spacers between sections on mobile
-if (window.innerWidth <= 768) {
+/* ── Mobile colour spacers ───────────────────────────────────────────────── */
+// M3: Move spacer injection into a function, run on load AND debounced resize
+
+function injectMobileSpacers() {
+  // Remove any previously injected spacers before re-injecting
+  document.querySelectorAll('.mobile-spacer').forEach((el) => el.remove());
+
+  if (window.innerWidth > 768) return; // desktop — no spacers needed
+
   const sections = Array.from(document.querySelectorAll<HTMLElement>('.agent-section[data-accent-color]'));
   sections.forEach((section, i) => {
     if (i < sections.length - 1) {
@@ -1014,11 +1063,36 @@ if (window.innerWidth <= 768) {
   });
 }
 
-/* ── Cleanup on Astro navigation ───────────────────────────────────────────── */
+injectMobileSpacers();
+
+let spacerResizeTimer: ReturnType<typeof setTimeout> | null = null;
+function onSpacerResize() {
+  if (spacerResizeTimer !== null) clearTimeout(spacerResizeTimer);
+  spacerResizeTimer = setTimeout(injectMobileSpacers, 150);
+}
+window.addEventListener('resize', onSpacerResize, { passive: true });
+
+/* ── Cleanup on Astro navigation ─────────────────────────────────────────── */
 document.addEventListener('astro:before-preparation', () => {
   destroy();
   sectionObserver.disconnect();
   document.documentElement.classList.remove('page-team-active');
   pauseAll();
-});
+  // H3: Remove all named window listeners
+  window.removeEventListener('resize', onSnapResize);
+  window.removeEventListener('resize', onSpacerResize);
+  if (hasScrollEnd) {
+    window.removeEventListener('scrollend', onScrollEndEvent);
+  }
+  window.removeEventListener('scroll', onScrollDebounce);
+  // C3: Abort all audio controllers
+  audioControllers.forEach((ctrl) => ctrl.abort());
+  audioControllers.clear();
+}, { once: true });
+
+} // end initTeamPage
+
+// H2: Run on initial load and on every Astro View Transitions page-load event
+initTeamPage();
+document.addEventListener('astro:page-load', initTeamPage);
 </script>
