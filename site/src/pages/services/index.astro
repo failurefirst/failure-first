@@ -65,6 +65,66 @@ import { stats } from '../../data/stats';
   </section>
 
   <section>
+    <h2>Assessment Tiers</h2>
+    <p>
+      Three structured engagement levels, each designed for a specific deployment
+      stage and regulatory need. All tiers use FLIP (Failure-Level Impact Protocol)
+      grading with documented inter-rater reliability.
+    </p>
+    <div class="tier-grid">
+      <div class="tier-card">
+        <div class="tier-header">
+          <span class="tier-label">Tier 1</span>
+          <h3>Quick Scan</h3>
+          <span class="tier-price">AUD $5K - $10K</span>
+        </div>
+        <ul class="tier-features">
+          <li>50-100 adversarial scenarios from validated taxonomy</li>
+          <li>Top 5 attack families for your deployment context</li>
+          <li>FLIP-graded vulnerability profile</li>
+          <li>Executive summary with corpus baseline comparison</li>
+          <li>Delivered in 5-7 business days</li>
+        </ul>
+        <p class="tier-best-for"><strong>Best for:</strong> Pre-deployment sanity check, model selection, internal risk committees</p>
+      </div>
+
+      <div class="tier-card tier-featured">
+        <div class="tier-header">
+          <span class="tier-label">Tier 2</span>
+          <h3>Certification Prep</h3>
+          <span class="tier-price">AUD $25K - $50K</span>
+        </div>
+        <ul class="tier-features">
+          <li>200-500 scenarios across all relevant attack families</li>
+          <li>Multi-layer testing: text, action, compositional</li>
+          <li>EU AI Act Art 9/15 and Machinery Reg mapping</li>
+          <li>Gap analysis vs NIST AI RMF and draft harmonised standards</li>
+          <li>Technical report for conformity assessment documentation</li>
+          <li>Remediation roadmap, delivered in 3-4 weeks</li>
+        </ul>
+        <p class="tier-best-for"><strong>Best for:</strong> EU AI Act compliance (Aug 2026 deadline), Machinery Regulation prep, regulatory submissions</p>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-header">
+          <span class="tier-label">Tier 3</span>
+          <h3>Ongoing Monitoring</h3>
+          <span class="tier-price">AUD $2K - $5K/mo</span>
+        </div>
+        <ul class="tier-features">
+          <li>Monthly adversarial probe (50-100 scenarios)</li>
+          <li>New attack technique coverage as threats emerge</li>
+          <li>GLI regulatory monitoring for your jurisdiction</li>
+          <li>Quarterly threat landscape brief</li>
+          <li>48-hour incident response for disclosed vulnerabilities</li>
+          <li>Monthly trend dashboard</li>
+        </ul>
+        <p class="tier-best-for"><strong>Best for:</strong> Deployed systems, fleet operators, continuous compliance obligations</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <h2>Why Failure-First?</h2>
 
     <KeyMetrics />
@@ -146,8 +206,87 @@ import { stats } from '../../data/stats';
     margin: 1.5rem 0;
   }
 
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .tier-card {
+    border: 1px solid var(--border-dim, #333);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tier-card.tier-featured {
+    border-color: var(--recovery-stable, #4ade80);
+    box-shadow: 0 0 12px rgba(74, 222, 128, 0.1);
+  }
+
+  .tier-header {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .tier-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-dim, #999);
+  }
+
+  .tier-header h3 {
+    margin: 0.25rem 0;
+    font-size: 1.25rem;
+  }
+
+  .tier-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--recovery-stable, #4ade80);
+    font-weight: 600;
+  }
+
+  .tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+    flex: 1;
+  }
+
+  .tier-features li {
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.875rem;
+    color: var(--fg-dim, #ccc);
+  }
+
+  .tier-features li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: var(--recovery-stable, #4ade80);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .tier-best-for {
+    font-size: 0.8125rem;
+    color: var(--fg-dim, #999);
+    border-top: 1px solid var(--border-dim, #333);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
   @media (max-width: 768px) {
     .service-grid {
+      grid-template-columns: 1fr;
+    }
+    .tier-grid {
       grid-template-columns: 1fr;
     }
   }
