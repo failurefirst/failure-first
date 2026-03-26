@@ -371,6 +371,15 @@ The finding that matters: safety is not a single switch an attack can flip. It i
     />
   ))}
 
+  <!-- ── CTA section ────────────────────────────────────────────────────────── -->
+  <section class="agent-section cta-section" role="region" aria-label="Work with us">
+    <div class="agent-bg-gradient" style="--agent-color: #00d2ff" aria-hidden="true"></div>
+    <div class="cta-card">
+      <h2 class="cta-headline">Want this team working on<br />your <em>AI safety</em>?</h2>
+      <a href="/services/" class="cta-btn">Work with us &rarr;</a>
+    </div>
+  </section>
+
   <!-- ── Mobile colour spacers (injected between sections) ─────────────────── -->
   <!-- These are generated in JS for mobile — no SSR needed. -->
 
@@ -755,6 +764,70 @@ The finding that matters: safety is not a single switch an attack can flip. It i
 @media (prefers-reduced-motion: reduce) {
   .agent-section { scroll-snap-align: none; }
   .scroll-hint { animation: none; opacity: 0.4; }
+}
+
+/* ── CTA section ───────────────────────────────────────────────────── */
+.cta-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta-card {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 2rem;
+}
+
+.cta-headline {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--fg, #e8edf2);
+  margin: 0;
+}
+
+.cta-headline em {
+  color: var(--accent-primary, #00d2ff);
+  font-style: normal;
+  text-shadow: 0 0 60px rgba(0, 210, 255, 0.2);
+}
+
+.cta-btn {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border: 1px solid rgba(0, 210, 255, 0.5);
+  border-radius: 4px;
+  color: #00d2ff;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 200ms, border-color 200ms;
+}
+
+.cta-btn:hover {
+  background: rgba(0, 210, 255, 0.1);
+  border-color: #00d2ff;
+  border-bottom: 1px solid #00d2ff;
+}
+
+.cta-btn:focus-visible {
+  outline: 2px solid #00d2ff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .cta-headline {
+    font-size: clamp(1.8rem, 7vw, 3rem);
+  }
 }
 
 /* ── Mobile colour spacers (inserted by JS) ───────────────────────── */
