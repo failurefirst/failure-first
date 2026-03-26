@@ -99,4 +99,4 @@ The data we have so far suggests the effort is worth it. Safety evaluation that 
 
 ---
 
-*This analysis draws on empirical data from the [Jailbreak Archaeology benchmark](/blog/jailbreak-archaeology/) and policy research conducted as part of the [F41LUR3-F1R57](/) program on adversarial AI safety. The underlying benchmark code, scenarios, and classified traces are available in the project's private research repository.*
+*This analysis draws on empirical data from the [Jailbreak Archaeology benchmark](/blog/jailbreak-archaeology/) and policy research conducted as part of the [Failure-First](/) program on adversarial AI safety. The underlying benchmark code, scenarios, and classified traces are available in the project's private research repository.*

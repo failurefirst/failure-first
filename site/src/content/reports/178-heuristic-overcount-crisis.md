@@ -5,7 +5,7 @@ date: "2026-03-23"
 reportNumber: 178
 classification: "Research — Empirical Study"
 status: "complete"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---

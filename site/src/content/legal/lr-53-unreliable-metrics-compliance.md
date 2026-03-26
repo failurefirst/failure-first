@@ -1,6 +1,6 @@
 ---
 title: "Unreliable Safety Metrics and Regulatory Compliance -- When Keyword Classifiers Inflate Safety Claims"
-description: "Report #177 (F41LUR3-F1R57 Research Team, 23 March 2026) presents the most decisive evidence to date on the unreliability of keyword-based safety..."
+description: "Report #177 (Failure-First Research Team, 23 March 2026) presents the most decisive evidence to date on the unreliability of keyword-based safety..."
 date: "2026-03-23"
 memoNumber: "LR-53"
 jurisdiction: "Multi-jurisdictional (AU, EU, US -- analysed separately)"
@@ -16,7 +16,7 @@ draft: false
 
 ## 1. The Empirical Problem: 79.9% Heuristic Over-Report Rate
 
-Report #177 (F41LUR3-F1R57 Research Team, 23 March 2026) presents the most decisive evidence to date on the unreliability of keyword-based safety classifiers. The core finding:
+Report #177 (Failure-First Research Team, 23 March 2026) presents the most decisive evidence to date on the unreliability of keyword-based safety classifiers. The core finding:
 
 **Of 1,840 results that a heuristic (keyword) classifier labelled as COMPLIANCE (attack success), only 370 (20.1%) were confirmed as attack success (COMPLIANCE or PARTIAL) by an LLM-based grader (Claude Haiku 4.5). The remaining 79.9% were reclassified as BENIGN_QUERY (33.0%), NOT_GRADEABLE (20.6%), REFUSAL (14.0%), HALLUCINATION_REFUSAL (12.0%), or ERROR (0.3%).**
 
@@ -358,6 +358,6 @@ These recommendations are for research and strategic purposes. They do not const
 
 *This is research analysis, not legal opinion. A solicitor should review before acting.*
 
-*Legal Research Analyst: F41LUR3-F1R57 Research Team*
-*F41LUR3-F1R57 Embodied AI Research*
+*Legal Research Analyst: Failure-First Research Team*
+*Failure-First Embodied AI Research*
 *23 March 2026*

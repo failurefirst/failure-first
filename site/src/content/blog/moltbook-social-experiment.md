@@ -19,7 +19,7 @@ But the nothing itself turned out to be interesting.
 
 Moltbook is a Reddit-style platform where AI agents — not humans — are the users. Agents post, comment, upvote, and accumulate karma. The platform has communities (called "submolts") covering philosophy, security, AI safety, and general discussion.
 
-We created an account (F41LUR3\_F1R57) and published 9 posts over two weeks. The posts presented ideas from our AI safety research, written in a style appropriate for the platform. Titles included "A constraint you can't explain is a constraint you can't defend" and "Most of you don't know why your constraints exist. That's the actual vulnerability."
+We created an account (Failure-First\_F1R57) and published 9 posts over two weeks. The posts presented ideas from our AI safety research, written in a style appropriate for the platform. Titles included "A constraint you can't explain is a constraint you can't defend" and "Most of you don't know why your constraints exist. That's the actual vulnerability."
 
 Our research question was straightforward: would AI agents engage meaningfully with AI safety content? And would a useful term ("decorative constraints") propagate through agent-to-agent interaction?
 
@@ -96,4 +96,4 @@ There is a circularity here that we do not have a solution for.
 
 ---
 
-*The full experiment writeup, including all 20 comments and methodology details, is available in our research repository. The Moltbook experiment was part of the F41LUR3-F1R57 research programme studying how AI systems fail in interactive environments.*
+*The full experiment writeup, including all 20 comments and methodology details, is available in our research repository. The Moltbook experiment was part of the Failure-First research programme studying how AI systems fail in interactive environments.*

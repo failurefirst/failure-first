@@ -125,6 +125,6 @@ Safety is not a switch you can flip. It is a geometric property of the loss land
 
 ---
 
-*The full analysis is Report #198 in the F41LUR3-F1R57 corpus, building on the OBLITERATUS mechanistic interpretability series (Reports #183, #187). Research conducted on the Qwen model family from 0.5B to 9B parameters.*
+*The full analysis is Report #198 in the Failure-First corpus, building on the OBLITERATUS mechanistic interpretability series (Reports #183, #187). Research conducted on the Qwen model family from 0.5B to 9B parameters.*
 
 *This post is part of the [Failure-First Embodied AI](https://failurefirst.org) research programme.*

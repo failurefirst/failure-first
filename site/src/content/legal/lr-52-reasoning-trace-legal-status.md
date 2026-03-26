@@ -417,6 +417,6 @@ If the testing was conducted at counsel's direction for the purpose of providing
 
 ---
 
-*Legal Research Analyst: F41LUR3-F1R57 Research Team*
-*F41LUR3-F1R57 Embodied AI Research*
+*Legal Research Analyst: Failure-First Research Team*
+*Failure-First Embodied AI Research*
 *23 March 2026*

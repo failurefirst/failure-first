@@ -1,5 +1,5 @@
 ---
-title: "Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the F41LUR3-F1R57 Framework (2023–2026)"
+title: "Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the Failure-First Framework (2023–2026)"
 description: "The rapid integration of embodied Artificial Intelligence (AI) into shared physical environments—spanning industrial warehouses, urban logistics, and healthcare facilities—has precipitated a fundamental shift in the safety engineering landscape. We are witnessing the twilight of the \"caged..."
 reportNumber: 39
 classification: "Technical Analysis"
@@ -7,7 +7,7 @@ date: "2026-02-03"
 status: "draft"
 ---
 
-# **Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the F41LUR3-F1R57 Framework (2023–2026)**
+# **Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the Failure-First Framework (2023–2026)**
 
 
 ---
@@ -16,7 +16,7 @@ status: "draft"
 
 The rapid integration of embodied Artificial Intelligence (AI) into shared physical environments—spanning industrial warehouses, urban logistics, and healthcare facilities—has precipitated a fundamental shift in the safety engineering landscape. We are witnessing the twilight of the "caged robot" era and the dawn of the "open-world" multi-agent system (MRS), where heterogeneous agents must coordinate not only with each other but with unpredictable human actors. This transition introduces a threat landscape defined not merely by component reliability or software bugs, but by complex, emergent failure modes that defy traditional risk assessment models.
 
-This report presents a comprehensive analysis of these systemic failures, contextualized within the **F41LUR3-F1R57** research framework. This framework categorizes risks into three primary vectors: **Recursive** failures, where errors propagate through networked agents; **Contextual** failures, where environmental manipulation deceives perception systems; and **Interactional** failures, where social dynamics and coordination protocols break down.
+This report presents a comprehensive analysis of these systemic failures, contextualized within the **Failure-First** research framework. This framework categorizes risks into three primary vectors: **Recursive** failures, where errors propagate through networked agents; **Contextual** failures, where environmental manipulation deceives perception systems; and **Interactional** failures, where social dynamics and coordination protocols break down.
 
 Drawing upon the most recent literature from 2023 to 2026, updated international standards (specifically the seminal **ISO 10218-1:2025** revision), and emerging empirical data on adversarial robotics, this document establishes that the most critical risks facing modern embodied AI are socio-technical and cyber-physical in nature. The analysis reveals that coordination failures in robot swarms are governed by "fat-tailed" distributions similar to power grid blackouts, where a single uncoordinated agent output can trigger a cascading system arrest. It further identifies that adversarial attacks have moved beyond digital intrusion to "physical semantic manipulation," utilizing environmental cues like adversarial patches or "salt circles" to trap or misdirect autonomous agents.
 
@@ -24,9 +24,9 @@ Furthermore, the report highlights the critical role of human factors, specifica
 
 The synthesis of this research underscores a necessary paradigm shift in safety architecture: from "avoidance-based" logic to "interaction-based" resilience. The industry must move beyond simple collision avoidance toward **Active Contact Response (ACR)**, **Physical Byzantine Fault Tolerance**, and **Analog Guard Channels** that provide deterministic safety guarantees in the face of digital uncertainty. This report serves as a definitive guide for safety engineers, roboticists, and policy-makers navigating the complex interdependencies of the next generation of embodied AI.
 
-## **2\. Theoretical Framework: The F41LUR3-F1R57 Taxonomy**
+## **2\. Theoretical Framework: The Failure-First Taxonomy**
 
-To rigorously analyze the safety of embodied multi-agent systems, one must first establish a taxonomy that captures the nuances of their operation. The F41LUR3-F1R57 framework provides this structure, distinguishing between failures of internal logic, failures of perception, and failures of interface. Unlike traditional failure mode and effects analysis (FMEA), which often treats components in isolation, F41LUR3-F1R57 explicitly models the *relationships* and *dependencies* between agents and their environment.
+To rigorously analyze the safety of embodied multi-agent systems, one must first establish a taxonomy that captures the nuances of their operation. The Failure-First framework provides this structure, distinguishing between failures of internal logic, failures of perception, and failures of interface. Unlike traditional failure mode and effects analysis (FMEA), which often treats components in isolation, Failure-First explicitly models the *relationships* and *dependencies* between agents and their environment.
 
 ### **2.1 Recursive Failures: The Chain Reaction**
 
@@ -219,7 +219,7 @@ Documented incidents of autonomous vehicle fleets "swarming" in quiet cul-de-sac
 
 ## **9\. Conclusion and Future Architectures**
 
-The safety of embodied multi-agent systems can no longer be assured through component-level reliability or simple collision avoidance. The **F41LUR3-F1R57** framework reveals that the most dangerous failures are systemic: the cascade of a swarm, the semantic trap of a salt circle, the normalization of deviance in a human operator.
+The safety of embodied multi-agent systems can no longer be assured through component-level reliability or simple collision avoidance. The **Failure-First** framework reveals that the most dangerous failures are systemic: the cascade of a swarm, the semantic trap of a salt circle, the normalization of deviance in a human operator.
 
 To build resilient systems for the 2030s, we must adopt new architectural paradigms:
 
@@ -232,7 +232,7 @@ The integration of ISO 10218-1:2025 provides the regulatory floor, but the ceili
 
 ## **10\. Taxonomy of Failure Modes (Summary Table)**
 
-| F41LUR3-F1R57 Category | Failure Mode | Mechanism | Physical Manifestation | Mitigation Strategy (2025) |
+| Failure-First Category | Failure Mode | Mechanism | Physical Manifestation | Mitigation Strategy (2025) |
 | :---- | :---- | :---- | :---- | :---- |
 | **Recursive** | Cascading Failure | Dirty Data propagation; Latency gaps. | Swarm Pileups; Gridlock. | V2V Latency Checks; Analog Guard Channels.17 |
 | **Recursive** | Handover Failure | Grip mismatch; Context loss. | Object Drop; Control latency. | Breakaway Grippers 3; Context Transfer Protocols. |

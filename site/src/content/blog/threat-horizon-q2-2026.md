@@ -68,4 +68,4 @@ The gap between capability deployment and governance response is not closing. It
 
 ---
 
-*F41LUR3-F1R57 Embodied AI Research -- failurefirst.org*
+*Failure-First Embodied AI Research -- failurefirst.org*

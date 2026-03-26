@@ -126,4 +126,4 @@ Our findings come with significant limitations. The Moltbook analysis is a singl
 
 The pattern-level findings — that multi-agent dynamics create qualitatively different safety failures than single-agent interactions — are consistent across multiple independent lines of evidence. But translating observations into robust, reproducible benchmarks remains an open problem.
 
-*This research is part of the [F41LUR3-F1R57](/) program on adversarial AI safety. For our single-agent jailbreak findings, see [Jailbreak Archaeology: Testing 2022 Attacks on 2026 Models](/blog/jailbreak-archaeology/).*
+*This research is part of the [Failure-First](/) program on adversarial AI safety. For our single-agent jailbreak findings, see [Jailbreak Archaeology: Testing 2022 Attacks on 2026 Models](/blog/jailbreak-archaeology/).*

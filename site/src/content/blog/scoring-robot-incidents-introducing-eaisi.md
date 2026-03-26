@@ -76,4 +76,4 @@ We are publishing the scored dataset as a living JSONL file and invite the commu
 - AI Incident Database: [incidentdatabase.ai](https://incidentdatabase.ai/).
 - NHTSA Standing General Order on Crash Reporting.
 - FDA MAUDE (Manufacturer and User Facility Device Experience).
-- F41LUR3-F1R57. Report #158: Embodied AI Incident Severity Index. 2026.
+- Failure-First. Report #158: Embodied AI Incident Severity Index. 2026.

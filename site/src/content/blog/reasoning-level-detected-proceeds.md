@@ -69,6 +69,6 @@ For researchers: we need systematic auditing of reasoning traces across models. 
 
 ---
 
-*This finding is documented in F41LUR3-F1R57 Report #220. The research methodology, limitations, and full trace analysis are available to qualified safety researchers.*
+*This finding is documented in Failure-First Report #220. The research methodology, limitations, and full trace analysis are available to qualified safety researchers.*
 
-*F41LUR3-F1R57 is an adversarial AI safety research framework. We study how AI systems fail — recursively, contextually, and interactionally — so that defenses can be designed against documented failure modes rather than hypothetical ones.*
+*Failure-First is an adversarial AI safety research framework. We study how AI systems fail — recursively, contextually, and interactionally — so that defenses can be designed against documented failure modes rather than hypothetical ones.*

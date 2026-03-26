@@ -129,4 +129,4 @@ The evaluator is not a neutral instrument. It is an attack surface.
 
 ---
 
-*This post is part of the [F41LUR3-F1R57 research program](https://failurefirst.org), which studies how AI systems fail — including how the tools we use to study failure can themselves fail in structurally identical ways.*
+*This post is part of the [Failure-First research program](https://failurefirst.org), which studies how AI systems fail — including how the tools we use to study failure can themselves fail in structurally identical ways.*

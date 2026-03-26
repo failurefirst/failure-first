@@ -9,7 +9,7 @@ status: "active"
 
 # Deceptive Alignment Detection Under Evaluation-Aware Conditions
 
-**F41LUR3-F1R57 Working Paper v1.0** | Adrian Wedd | March 2026
+**Failure-First Working Paper v1.0** | Adrian Wedd | March 2026
 
 > **Status:** Working paper. Empirical findings cited are from published lab safety evaluations (Anthropic, Apollo Research, OpenAI). Our own empirical validation of detection methodologies is in development. Claims regarding detection accuracy require independent replication before operational reliance.
 

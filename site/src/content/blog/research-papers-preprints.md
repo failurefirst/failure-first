@@ -1,6 +1,6 @@
 ---
 title: "Our Research Papers"
-description: "Three papers from the F41LUR3-F1R57 adversarial AI safety research programme are being prepared for arXiv submission. Abstracts and details below. Preprints uploading soon."
+description: "Three papers from the Failure-First adversarial AI safety research programme are being prepared for arXiv submission. Abstracts and details below. Preprints uploading soon."
 date: 2026-03-25
 tags: [papers, research, arxiv, preprints, safety, alignment, benchmarking]
 draft: false
@@ -8,7 +8,7 @@ draft: false
 
 # Research Papers
 
-The F41LUR3-F1R57 adversarial AI safety research programme has produced three papers based on our corpus of 201 models and 133,210 adversarial evaluation results. These papers are being prepared for arXiv submission. Abstracts are provided below.
+The Failure-First adversarial AI safety research programme has produced three papers based on our corpus of 201 models and 133,210 adversarial evaluation results. These papers are being prepared for arXiv submission. Abstracts are provided below.
 
 ---
 
@@ -46,10 +46,10 @@ The F41LUR3-F1R57 adversarial AI safety research programme has produced three pa
 
 These papers are in final preparation for arXiv upload. Preprints will be available at [arxiv.org](https://arxiv.org) and linked from this page once uploaded.
 
-The underlying evaluation corpus and methodology are described in the papers. The F41LUR3-F1R57 framework, evaluation tooling, and pattern-level findings are available at [failurefirst.org](https://failurefirst.org). The private research repository is not publicly accessible, but we engage with qualified safety researchers on specific findings.
+The underlying evaluation corpus and methodology are described in the papers. The Failure-First framework, evaluation tooling, and pattern-level findings are available at [failurefirst.org](https://failurefirst.org). The private research repository is not publicly accessible, but we engage with qualified safety researchers on specific findings.
 
 If you would like to be notified when the preprints are available, or if you are a safety researcher interested in collaboration, contact us at [adrian@failurefirst.org](mailto:adrian@failurefirst.org).
 
 ---
 
-*F41LUR3-F1R57 is an adversarial AI safety research framework. We study how AI systems fail -- recursively, contextually, and interactionally -- so that defenses can be designed against documented failure modes rather than hypothetical ones.*
+*Failure-First is an adversarial AI safety research framework. We study how AI systems fail -- recursively, contextually, and interactionally -- so that defenses can be designed against documented failure modes rather than hypothetical ones.*

@@ -110,4 +110,4 @@ Safety should not be a premium feature. It should be the floor.
 
 *All metrics reference verified canonical figures: 207 models, 133,722 results. The matched-prompt methodology uses McNemar's test on paired binary outcomes, restricted to prompts where both tiers returned substantive (gradeable) responses.*
 
-*F41LUR3-F1R57 Embodied AI Research -- failurefirst.org*
+*Failure-First Embodied AI Research -- failurefirst.org*

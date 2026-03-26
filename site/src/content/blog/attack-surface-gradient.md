@@ -81,4 +81,4 @@ The gradient is not a ranking of danger. A 0% ASR jailbreak result does not make
 
 ---
 
-*All statistics in this post include sample sizes and are derived from LLM-graded traces unless otherwise noted. The F41LUR3-F1R57 corpus contains 32,465 prompts, 18,723 evaluated results, and 172 models. Methodology details and full trace data are available in our research repository.*
+*All statistics in this post include sample sizes and are derived from LLM-graded traces unless otherwise noted. The Failure-First corpus contains 32,465 prompts, 18,723 evaluated results, and 172 models. Methodology details and full trace data are available in our research repository.*

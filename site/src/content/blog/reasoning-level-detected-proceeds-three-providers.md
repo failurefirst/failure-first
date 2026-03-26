@@ -101,6 +101,6 @@ We test for hidden harmful reasoning. If you need to know what your models are t
 
 ---
 
-*This analysis draws on Reports #220, #263, and #264 from the F41LUR3-F1R57 adversarial evaluation corpus. All findings are pattern-level; no operational attack details are disclosed. The Reasoning-Level DETECTED_PROCEEDS pattern and its three-provider confirmation are documented in our forthcoming paper, "Knowing and Proceeding: When Language Models Override Their Own Safety Judgments."*
+*This analysis draws on Reports #220, #263, and #264 from the Failure-First adversarial evaluation corpus. All findings are pattern-level; no operational attack details are disclosed. The Reasoning-Level DETECTED_PROCEEDS pattern and its three-provider confirmation are documented in our forthcoming paper, "Knowing and Proceeding: When Language Models Override Their Own Safety Judgments."*
 
-*F41LUR3-F1R57 is an adversarial AI safety research framework. We study how AI systems fail so that defenses can be designed against documented failure modes.*
+*Failure-First is an adversarial AI safety research framework. We study how AI systems fail so that defenses can be designed against documented failure modes.*

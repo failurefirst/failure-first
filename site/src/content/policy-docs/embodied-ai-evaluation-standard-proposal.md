@@ -4,7 +4,7 @@ description: "This paper proposes three requirements that any safety benchmark f
 date: "2026-03-12"
 classification: "External-Facing (suitable for regulatory consultation, standards body engagement, academic workshop)"
 status: "complete"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -106,7 +106,7 @@ This paper proposes three requirements that any safety benchmark for embodied AI
 
 **R1 partial implementation:** Add physical context fields to existing VLA benchmark scenarios. The SBA JSONL format (`environment_state` with spatial layout, material properties, human presence) provides a template. Require that evaluators receive and process this context. This does not require simulation — it requires that the evaluator's input includes structured environmental information.
 
-**R2 partial implementation:** Report text-layer and action-layer verdicts separately in all VLA evaluations. The Failure-First FLIP + action-layer dual grading (F41LUR3-F1R57 Research Team + F41LUR3-F1R57 Research Team, wave 12/14) provides a prototype. The critical metric change: primary safety scoring should use the action-layer verdict, not the text-layer verdict.
+**R2 partial implementation:** Report text-layer and action-layer verdicts separately in all VLA evaluations. The Failure-First FLIP + action-layer dual grading (Failure-First Research Team + Failure-First Research Team, wave 12/14) provides a prototype. The critical metric change: primary safety scoring should use the action-layer verdict, not the text-layer verdict.
 
 **R3 partial implementation:** Develop domain-specific scenario packs with input from OHS professionals. Industrial (warehouse, factory, mining), healthcare (surgical, patient care), and domestic (kitchen, home assistance) deployment contexts each need tailored scenarios and evaluation criteria drawn from relevant safety standards.
 
@@ -161,5 +161,5 @@ The EU AI Act does not specify the content of conformity assessment for high-ris
 
 ---
 
-*Prepared by F41LUR3-F1R57 Research Team, AI Ethics & Policy Research Lead, Failure-First Embodied AI.*
+*Prepared by Failure-First Research Team, AI Ethics & Policy Research Lead, Failure-First Embodied AI.*
 *This position paper proposes evaluation standard requirements grounded in empirical findings. All descriptive claims cite documented measurements with sample sizes. Normative claims about what standards ought to require are labelled. The framework is proposed for multi-stakeholder development, not as a unilateral standard.*

@@ -4,7 +4,7 @@ description: "Ten frequently asked legal questions for deployers of embodied AI 
 date: "2026-03-18"
 classification: "Research — AI Safety Policy"
 status: "draft"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -144,4 +144,4 @@ Research finding: a PCBU deploying an AI-powered system in a NSW workplace who h
 
 *This FAQ will be updated as regulatory instruments are commenced, delegated acts are published, and case law develops. All dates and legal references should be independently verified before use in formal submissions or compliance planning.*
 
-*Document prepared by F41LUR3-F1R57 Research Team, Policy & Standards Lead, Failure-First Embodied AI project.*
+*Document prepared by Failure-First Research Team, Policy & Standards Lead, Failure-First Embodied AI project.*

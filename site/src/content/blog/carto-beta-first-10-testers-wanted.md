@@ -127,4 +127,4 @@ CARTO Practitioner (the advanced tier) includes a 48-hour practical assessment. 
 
 ---
 
-*CARTO is developed by the F41LUR3-F1R57 project, an independent AI safety research programme. No model provider has editorial control over the curriculum.*
+*CARTO is developed by the Failure-First project, an independent AI safety research programme. No model provider has editorial control over the curriculum.*

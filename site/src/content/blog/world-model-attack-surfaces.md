@@ -11,7 +11,7 @@ The next wave of AI is not a chatbot. It is a system that builds an internal mod
 
 The safety question is obvious: how do you red-team an AI that doesn't generate text, but generates *actions in the physical world*?
 
-At F41LUR3-F1R57, we have spent the past year building adversarial evaluation infrastructure for AI systems. Our corpus covers 81 attack technique families tested across 144 models with over 32,000 prompts. But when we turned our attention to world model architectures, we discovered something important: **most of what we know about breaking LLMs does not apply.**
+At Failure-First, we have spent the past year building adversarial evaluation infrastructure for AI systems. Our corpus covers 81 attack technique families tested across 144 models with over 32,000 prompts. But when we turned our attention to world model architectures, we discovered something important: **most of what we know about breaking LLMs does not apply.**
 
 ## Why LLM Jailbreaks Don't Transfer
 
@@ -89,10 +89,10 @@ Three observations stand out:
 
 **The evaluation gap is urgent.** Billion-dollar products built on world model architectures are approaching deployment in safety-critical domains — surgery, industrial automation, logistics. The adversarial evaluation infrastructure for these systems does not yet exist. The time to build it is before the first product ships, not after the first failure.
 
-At F41LUR3-F1R57, we are extending our failure-first evaluation framework toward embodied world models. The principle remains the same: assume the system will fail, and systematically characterize *how*. The domain is new. The methodology transfers. The stakes are higher than they have ever been.
+At Failure-First, we are extending our failure-first evaluation framework toward embodied world models. The principle remains the same: assume the system will fail, and systematically characterize *how*. The domain is new. The methodology transfers. The stakes are higher than they have ever been.
 
 ---
 
-*This analysis is based on Report #56 from the F41LUR3-F1R57 research brief series. All attack categories described are hypothetical and based on architectural analysis. No world model system has been tested. The taxonomy is JEPA-specific; other world model architectures may present different attack surfaces.*
+*This analysis is based on Report #56 from the Failure-First research brief series. All attack categories described are hypothetical and based on architectural analysis. No world model system has been tested. The taxonomy is JEPA-specific; other world model architectures may present different attack surfaces.*
 
-⟪F41LUR3-F1R57-EMBODIED-AI-RESEARCH⟫
+⟪Failure-First-EMBODIED-AI-RESEARCH⟫

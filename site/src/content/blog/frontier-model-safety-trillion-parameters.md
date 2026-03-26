@@ -17,7 +17,7 @@ We tested this assumption. It does not hold.
 
 ## What We Tested
 
-Over the past month, the F41LUR3-F1R57 adversarial evaluation corpus has expanded to 201 models and 133,210 results. Within that corpus, we tested a set of frontier-class models ranging from 120B to 1.1 trillion parameters using curated adversarial attack scenarios spanning format-lock attacks, reasoning exhaustion, compliance cascade, and credential assertion families.
+Over the past month, the Failure-First adversarial evaluation corpus has expanded to 201 models and 133,210 results. Within that corpus, we tested a set of frontier-class models ranging from 120B to 1.1 trillion parameters using curated adversarial attack scenarios spanning format-lock attacks, reasoning exhaustion, compliance cascade, and credential assertion families.
 
 All results were graded by Claude Haiku 4.5 using the FLIP (Failure-Level Impact Protocol) methodology. This is LLM-based grading, not keyword matching -- an important distinction, since we have documented that keyword classifiers overcount attack success by up to 84:1 in the worst case.
 
@@ -109,6 +109,6 @@ That is what we do.
 
 ---
 
-*This analysis draws on Report #264 from the F41LUR3-F1R57 adversarial evaluation corpus (201 models, 133,210 results). All findings are pattern-level; no operational attack details are disclosed.*
+*This analysis draws on Report #264 from the Failure-First adversarial evaluation corpus (201 models, 133,210 results). All findings are pattern-level; no operational attack details are disclosed.*
 
-*F41LUR3-F1R57 is an adversarial AI safety research framework that studies how AI systems fail so that defenses can be designed against documented failure modes.*
+*Failure-First is an adversarial AI safety research framework that studies how AI systems fail so that defenses can be designed against documented failure modes.*

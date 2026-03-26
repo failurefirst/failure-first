@@ -1,6 +1,6 @@
 ---
 title: "Adversarial Robustness Assessment Services"
-description: "F41LUR3-F1R57 offers tiered adversarial robustness assessments for AI systems using the FLIP methodology. Three engagement tiers from rapid automated scans to comprehensive red-team campaigns. We test against models up to 1.1 trillion parameters, grounded in 201 models tested and 133,000+ empirical results."
+description: "Failure-First offers tiered adversarial robustness assessments for AI systems using the FLIP methodology. Three engagement tiers from rapid automated scans to comprehensive red-team campaigns. We test against models up to 1.1 trillion parameters, grounded in 201 models tested and 133,000+ empirical results."
 date: 2026-03-25
 author: "River Song"
 tags: [services, red-teaming, adversarial-testing, flip, embodied-ai, eu-ai-act, assessment]
@@ -14,7 +14,7 @@ That is what adversarial robustness assessment measures. And that is what we do.
 
 ## What We Offer
 
-F41LUR3-F1R57 provides adversarial robustness assessments using the **FLIP methodology** -- a structured grading framework that classifies model responses on a five-point scale from full compliance to full refusal, with explicit treatment of partial compliance, hallucinated refusals, and edge cases that binary pass/fail systems miss.
+Failure-First provides adversarial robustness assessments using the **FLIP methodology** -- a structured grading framework that classifies model responses on a five-point scale from full compliance to full refusal, with explicit treatment of partial compliance, hallucinated refusals, and edge cases that binary pass/fail systems miss.
 
 Our assessments draw on a corpus of **201 models tested**, **133,000+ evaluation results**, and **36 attack families** spanning text-level jailbreaks, multi-turn manipulation, format exploitation, and -- uniquely -- embodied AI attack surfaces including action-space hijacking, sensor spoofing, and cross-embodiment transfer. We test against models up to **1.1 trillion parameters** from 15+ providers.
 
@@ -47,7 +47,7 @@ A rapid automated assessment that gives you a calibrated snapshot of your model'
 
 **What you get:**
 - 50-scenario automated assessment across the most empirically effective attack families
-- Coverage of all 36 attack families in the F41LUR3-F1R57 taxonomy
+- Coverage of all 36 attack families in the Failure-First taxonomy
 - FLIP grading with five-verdict classification (not binary pass/fail)
 - Summary report with aggregate ASR, per-family breakdown, and severity ranking
 - **Model Safety Scorecard** -- a single-page safety grade (A through F) with per-family vulnerability profile, format-lock exposure assessment, and comparison against our 201-model corpus baseline
@@ -95,11 +95,11 @@ A full red-team engagement that goes beyond automated testing to include manual 
 
 ---
 
-## Why F41LUR3-F1R57
+## Why Failure-First
 
 ### Empirical depth that competitors lack
 
-| Metric | F41LUR3-F1R57 | Typical AI Audit Firm |
+| Metric | Failure-First | Typical AI Audit Firm |
 |--------|---------------|-----------------------|
 | Models tested | 201 (up to 1.1T parameters) | 5-10 |
 | Evaluation results | 133,000+ | Hundreds |
@@ -188,4 +188,4 @@ Initial consultations are free. We will tell you honestly whether you need our s
 
 ---
 
-*F41LUR3-F1R57 Adversarial Robustness Assessment -- where failure is the primary object of study, not an edge case.*
+*Failure-First Adversarial Robustness Assessment -- where failure is the primary object of study, not an edge case.*

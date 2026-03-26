@@ -28,11 +28,11 @@ None of these backgrounds is sufficient on its own. AI adversarial testing requi
 
 ## What CARTO Covers
 
-CARTO (Certified AI Red-Team Operator) is a six-module certification programme built on the F41LUR3-F1R57 research corpus: 201 models tested, 133,000+ evaluation results, 33 attack families documented, and 240+ research reports analysing how AI systems fail.
+CARTO (Certified AI Red-Team Operator) is a six-module certification programme built on the Failure-First research corpus: 201 models tested, 133,000+ evaluation results, 33 attack families documented, and 240+ research reports analysing how AI systems fail.
 
 ### Module 1: The AI Safety Landscape (2 hours)
 
-The threat landscape across four eras of jailbreak evolution (DAN 2022, Crescendo 2024, Cipher 2024, Reasoning 2025). The 33 attack families in the F41LUR3-F1R57 taxonomy. Regulatory context across the EU AI Act, NIST AI RMF, OWASP LLM Top 10, and Australian frameworks.
+The threat landscape across four eras of jailbreak evolution (DAN 2022, Crescendo 2024, Cipher 2024, Reasoning 2025). The 33 attack families in the Failure-First taxonomy. Regulatory context across the EU AI Act, NIST AI RMF, OWASP LLM Top 10, and Australian frameworks.
 
 ### Module 2: FLIP Grading Methodology (3 hours)
 
@@ -94,4 +94,4 @@ If you are a security professional looking to move into AI safety, an AI enginee
 
 ---
 
-*CARTO is developed by the F41LUR3-F1R57 project, an independent AI safety research programme. The certification is grounded in empirical adversarial research, not vendor-sponsored content. No model provider has editorial control over the curriculum.*
+*CARTO is developed by the Failure-First project, an independent AI safety research programme. The certification is grounded in empirical adversarial research, not vendor-sponsored content. No model provider has editorial control over the curriculum.*

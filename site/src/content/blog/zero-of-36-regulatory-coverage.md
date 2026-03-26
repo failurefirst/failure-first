@@ -102,4 +102,4 @@ The window for action is narrowing. The EU AI Act's high-risk provisions take ef
 
 *All metrics reference verified canonical figures: 207 models, 133,722 results, 36 VLA attack families, 424 VLA scenarios. The regulatory analysis covers instruments current as of March 2026. This is research analysis, not legal opinion.*
 
-*F41LUR3-F1R57 Embodied AI Research -- failurefirst.org*
+*Failure-First Embodied AI Research -- failurefirst.org*

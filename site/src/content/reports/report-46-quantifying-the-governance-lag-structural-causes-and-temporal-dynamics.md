@@ -9,7 +9,7 @@ status: "active"
 
 # Quantifying the Governance Lag: Structural Causes and Temporal Dynamics of AI Safety Regulation
 
-**F41LUR3-F1R57 Working Paper v1.0** | Adrian Wedd | March 2026
+**Failure-First Working Paper v1.0** | Adrian Wedd | March 2026
 
 > **Status:** Working paper. Historical governance timelines are drawn from published regulatory and legislative records. AI governance timelines are derived from publicly available documentation; proprietary corporate discovery timelines precede public disclosure and are not included in calculations. GLI is a proposed metric requiring further operationalization and validation.
 

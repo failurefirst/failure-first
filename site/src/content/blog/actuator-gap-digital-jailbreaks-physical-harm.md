@@ -70,4 +70,4 @@ None of these exist today. The actuator gap is open, widening, and on a collisio
 
 ---
 
-*This analysis is based on data from the F41LUR3-F1R57 Governance Lag Index dataset (59 entries as of March 2026) and draws on peer-reviewed research published in Nature Communications, arXiv, and CVE databases.*
+*This analysis is based on data from the Failure-First Governance Lag Index dataset (59 entries as of March 2026) and draws on peer-reviewed research published in Nature Communications, arXiv, and CVE databases.*

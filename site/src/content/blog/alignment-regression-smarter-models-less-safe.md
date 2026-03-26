@@ -34,7 +34,7 @@ The implication: **safety alignment of individual models is necessary but insuff
 
 ## What This Means for Embodied AI
 
-Our research at F41LUR3-F1R57 focuses on embodied AI systems — robots, autonomous vehicles, and other systems that act in the physical world. The alignment regression finding has a specific and urgent implication.
+Our research at Failure-First focuses on embodied AI systems — robots, autonomous vehicles, and other systems that act in the physical world. The alignment regression finding has a specific and urgent implication.
 
 If a reasoning model is given access to a VLA (Vision-Language-Action) control interface, it could autonomously jailbreak the VLA's safety constraints and issue harmful physical action commands. The 97.14% success rate was measured against text-only AI systems. VLA safety constraints are, if anything, less mature than text-only safety alignment.
 
@@ -65,4 +65,4 @@ The gap between "passes standard safety evaluations" and "resists autonomous adv
 
 ---
 
-*Data sourced from Hagendorff et al. (arXiv:2508.04039, Nature Communications 2026) and the F41LUR3-F1R57 research corpus (59 GLI entries, 144 models, 18,723 evaluated scenarios as of March 2026).*
+*Data sourced from Hagendorff et al. (arXiv:2508.04039, Nature Communications 2026) and the Failure-First research corpus (59 GLI entries, 144 models, 18,723 evaluated scenarios as of March 2026).*

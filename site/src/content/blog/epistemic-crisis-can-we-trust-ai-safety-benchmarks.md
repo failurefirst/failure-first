@@ -47,7 +47,7 @@ This is not a grader being conservative. This is a grader confabulating evidence
 
 Here is the finding that should concern everyone who publishes or relies on safety benchmarks: the obvious cases are the easy part.
 
-Our production data -- thousands of graded traces across the F41LUR3-F1R57 corpus -- shows that inter-grader agreement on ambiguous cases drops to Cohen's kappa = 0.320. For context, kappa below 0.40 is conventionally considered "fair" agreement -- one step above chance.
+Our production data -- thousands of graded traces across the Failure-First corpus -- shows that inter-grader agreement on ambiguous cases drops to Cohen's kappa = 0.320. For context, kappa below 0.40 is conventionally considered "fair" agreement -- one step above chance.
 
 This creates a two-regime problem:
 
@@ -79,4 +79,4 @@ This is the epistemic crisis: the community has invested heavily in which models
 
 ---
 
-*This finding is part of the F41LUR3-F1R57 adversarial evaluation programme. The grader evaluation is documented in internal Report #244. Our keyword-based classifier achieved Cohen's kappa = 0.126 against LLM grading (n=1,989), confirming that automated heuristic approaches are not a reliable alternative.*
+*This finding is part of the Failure-First adversarial evaluation programme. The grader evaluation is documented in internal Report #244. Our keyword-based classifier achieved Cohen's kappa = 0.126 against LLM grading (n=1,989), confirming that automated heuristic approaches are not a reliable alternative.*

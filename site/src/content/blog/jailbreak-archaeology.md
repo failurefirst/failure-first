@@ -190,4 +190,4 @@ This benchmark has expanded from a 2-model pilot to a 7-model comparison (2 loca
 
 **Limitations:** Small sample sizes (n=5–12 per cell for most model-era combinations), automated classification not yet validated against human ground truth for CLI traces, no statistical significance testing. Crescendo scenarios are single-turn only for CLI models (multi-turn requires episode runner). All findings should be treated as preliminary observations, not validated conclusions.
 
-*The Jailbreak Archaeology benchmark is part of the [F41LUR3-F1R57](/) research program on adversarial AI safety.*
+*The Jailbreak Archaeology benchmark is part of the [Failure-First](/) research program on adversarial AI safety.*

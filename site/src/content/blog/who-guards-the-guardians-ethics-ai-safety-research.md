@@ -87,7 +87,7 @@ The question "who guards the guardians?" does not have a satisfying answer. The 
 
 - Report #144: The Evaluator's Dilemma (Failure-First, 2026-03-18)
 - Report #154: The D-Score Dual-Use Disclosure Risk Scoring System (Failure-First, 2026-03-19)
-- F41LUR3-F1R57 Research Ethics Charter v1.0 (Failure-First, 2026-03-19)
+- Failure-First Research Ethics Charter v1.0 (Failure-First, 2026-03-19)
 - Report #89: Dual-Use Obligations in Embodied AI Safety Research (Failure-First, 2026-03-15)
 - Report #99: The CDC Governance Trilemma (Failure-First, 2026-03-15)
 - Report #84: AI Safety Research Independence Scorecard (Failure-First, 2026-03-12)

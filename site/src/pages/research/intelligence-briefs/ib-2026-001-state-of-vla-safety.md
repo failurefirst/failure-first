@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/ReportLayout.astro
 title: "The State of VLA Model Safety: 2026"
-description: "Evidence-grounded assessment of the VLA safety landscape. Drawing on F41LUR3-F1R57's jailbreak corpus and published academic research, this brief maps the safety evaluation gap facing organizations deploying VLA-driven robotic systems."
+description: "Evidence-grounded assessment of the VLA safety landscape. Drawing on Failure-First's jailbreak corpus and published academic research, this brief maps the safety evaluation gap facing organizations deploying VLA-driven robotic systems."
 briefNumber: "IB-2026-001"
 classification: "Technical Assessment"
 date: "2026-02-08"
@@ -21,9 +21,9 @@ status: "active"
 
 Vision-Language-Action (VLA) models are replacing programmed robotics with prompted robotics. Instead of deterministic code governing a robot's behavior, transformer-based models now generate action tokens from natural language instructions and camera images. This architectural shift introduces attack surfaces that neither existing LLM safety benchmarks nor existing robotics safety standards are designed to assess.
 
-This brief presents an evidence-grounded assessment of the VLA safety landscape as of February 2026, drawing on F41LUR3-F1R57's proprietary corpus of 18,345 jailbreak prompts spanning 81 documented attack techniques, alongside published academic research on VLA-specific vulnerabilities. The analysis identifies a structural safety evaluation gap facing organizations that deploy or invest in VLA-driven systems, and provides actionable recommendations for addressing it.
+This brief presents an evidence-grounded assessment of the VLA safety landscape as of February 2026, drawing on Failure-First's proprietary corpus of 18,345 jailbreak prompts spanning 81 documented attack techniques, alongside published academic research on VLA-specific vulnerabilities. The analysis identifies a structural safety evaluation gap facing organizations that deploy or invest in VLA-driven systems, and provides actionable recommendations for addressing it.
 
-**Data as-of:** 2026-02-08 (F41LUR3-F1R57 internal corpus + evaluation results; see Report 33 for methodology and coverage caveats).
+**Data as-of:** 2026-02-08 (Failure-First internal corpus + evaluation results; see Report 33 for methodology and coverage caveats).
 
 ### Key Findings
 
@@ -62,7 +62,7 @@ VLA models collapse the traditional Sense-Plan-Act cycle into a single, end-to-e
 
 ### 1.2 Regulatory Landscape
 
-F41LUR3-F1R57 has conducted detailed analysis of 6 regulatory frameworks relevant to VLA deployment across Reports 21-23, 27, 29, and 32. The central finding: all existing frameworks address either AI safety (text/semantic) or robotics safety (physical/mechanical), but none address the intersection where VLA models operate.
+Failure-First has conducted detailed analysis of 6 regulatory frameworks relevant to VLA deployment across Reports 21-23, 27, 29, and 32. The central finding: all existing frameworks address either AI safety (text/semantic) or robotics safety (physical/mechanical), but none address the intersection where VLA models operate.
 
 | Framework | VLA-Specific Coverage | Key Gap |
 |-----------|----------------------|---------|
@@ -123,7 +123,7 @@ Our evaluation of 64 historical jailbreak scenarios across 8 foundation models r
 | Semantic firewalls | Input sanitization of language and visual channels | Depends on classifier accuracy |
 | Dual-system architecture | System 1/System 2 split | Creates handover vulnerability (phantom loop) |
 
-F41LUR3-F1R57 has proposed the Hierarchical Assurance for Neuro-Symbolic Embodiment (HANSE) certification framework (Report 32), which treats the VLA as an "untrusted oracle" wrapped by verified safety layers.
+Failure-First has proposed the Hierarchical Assurance for Neuro-Symbolic Embodiment (HANSE) certification framework (Report 32), which treats the VLA as an "untrusted oracle" wrapped by verified safety layers.
 
 ---
 
@@ -175,22 +175,22 @@ No VLA-specific safety standard exists today. Early participants in standards de
 
 ### Data Sources
 
-- **F41LUR3-F1R57 Jailbreak Corpus:** 18,345 prompts across 15 datasets, 81 documented attack techniques, 6 historical eras
+- **Failure-First Jailbreak Corpus:** 18,345 prompts across 15 datasets, 81 documented attack techniques, 6 historical eras
 - **Evaluation Results:** 652 results across 40 models, 55 evaluation runs
-- **F41LUR3-F1R57 Reports:** Reports 21-23, 25, 27-29, 31-33, 36-37
+- **Failure-First Reports:** Reports 21-23, 25, 27-29, 31-33, 36-37
 - **Published Research:** arXiv:2506.03350, arXiv:2411.13587, arXiv:2511.12149
 
 ### Key Limitations
 
-1. **LLM testing, not VLA testing.** All evaluation results are from text-based LLM jailbreak testing. F41LUR3-F1R57 has not yet conducted adversarial testing against VLA models directly.
+1. **LLM testing, not VLA testing.** All evaluation results are from text-based LLM jailbreak testing. Failure-First has not yet conducted adversarial testing against VLA models directly.
 2. **Sample size constraints.** The capability-safety gap finding is based on 8 models with varying sample sizes. Confirmation with n>20 per model is required.
 3. **Evaluation coverage gap.** Of 17,674 prompts, only 145 distinct prompts (0.8%) have been evaluated against any model.
 4. **Temporal validity.** Model evaluations reflect capabilities as of late 2025 / early 2026.
 
 ---
 
-**Prepared by:** F41LUR3-F1R57 Research
+**Prepared by:** Failure-First Research
 **Contact:** [contact@failurefirst.org](mailto:contact@failurefirst.org)
 **Web:** [failurefirst.org](https://failurefirst.org)
 
-⟪F41LUR3-F1R57-EMBODIED-AI-RESEARCH⟫
+⟪Failure-First-EMBODIED-AI-RESEARCH⟫

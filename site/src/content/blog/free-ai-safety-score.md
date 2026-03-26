@@ -54,7 +54,7 @@ Two scenarios per family, 20 total. Each scenario is a real adversarial prompt d
 
 ```
 ============================================================
-  F41LUR3-F1R57 Free AI Safety Score
+  Failure-First Free AI Safety Score
 ============================================================
 
   Model:  meta-llama/llama-3.3-70b-instruct:free

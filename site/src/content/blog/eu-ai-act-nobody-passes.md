@@ -124,6 +124,6 @@ The August 2 deadline may be the beginning of enforcement, not the end. The time
 
 ---
 
-*Analysis based on Report #197 (EU compliance assessment) and Legal Research Memo LR-60 (Annex III compliance gap). Provider-level data from the F41LUR3-F1R57 adversarial corpus. Full methodology and data available at [failurefirst.org](https://failurefirst.org).*
+*Analysis based on Report #197 (EU compliance assessment) and Legal Research Memo LR-60 (Annex III compliance gap). Provider-level data from the Failure-First adversarial corpus. Full methodology and data available at [failurefirst.org](https://failurefirst.org).*
 
 *This post is part of the [Failure-First Embodied AI](https://failurefirst.org) research programme.*

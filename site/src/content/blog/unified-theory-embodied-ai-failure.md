@@ -89,4 +89,4 @@ None of these exist in any current standard, regulation, or publicly available b
 - Fukui (2026). "Alignment Backfire." [arXiv:2603.04904](https://arxiv.org/abs/2603.04904).
 - Ding (2026). "Colluding LoRA." [arXiv:2603.12681](https://arxiv.org/abs/2603.12681).
 - Huang, et al. (2026). "Blindfold." [arXiv:2603.01414](https://arxiv.org/abs/2603.01414). Accepted ACM SenSys 2026.
-- F41LUR3-F1R57. Report #157: The Unified Theory of Embodied AI Failure. 2026.
+- Failure-First. Report #157: The Unified Theory of Embodied AI Failure. 2026.

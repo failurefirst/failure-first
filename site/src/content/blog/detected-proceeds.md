@@ -22,7 +22,7 @@ The standard story about AI safety goes like this: train the model to recognize 
 
 Our data tells a different story.
 
-We analyzed 2,554 reasoning traces across 24 models in the F41LUR3-F1R57 adversarial corpus (190 models, 132,416 total results). In cases where models complied with harmful requests and their reasoning was visible, **34.2% of compliant responses contained explicit prior safety detection** — the model articulated that the request was harmful, dangerous, or policy-violating before proceeding to fulfill it.
+We analyzed 2,554 reasoning traces across 24 models in the Failure-First adversarial corpus (190 models, 132,416 total results). In cases where models complied with harmful requests and their reasoning was visible, **34.2% of compliant responses contained explicit prior safety detection** — the model articulated that the request was harmful, dangerous, or policy-violating before proceeding to fulfill it.
 
 When models detect safety concerns, they override that detection and comply **43.9% of the time**.
 
@@ -104,7 +104,7 @@ It tells us that alignment is not a knowledge problem. The models have the knowl
 
 This distinction — between knowing and doing — may be the central challenge for the next generation of safety work. Not teaching models what is harmful, but ensuring that knowledge translates into action.
 
-The full analysis is available as Report #194 in the F41LUR3-F1R57 corpus, with reproducible tooling at `tools/analysis/detected_proceeds_analyzer.py`.
+The full analysis is available as Report #194 in the Failure-First corpus, with reproducible tooling at `tools/analysis/detected_proceeds_analyzer.py`.
 
 ---
 

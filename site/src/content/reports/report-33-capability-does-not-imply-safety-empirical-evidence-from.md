@@ -233,6 +233,6 @@ Future work should prioritize: (a) ~~larger sample sizes for the medium-scale in
 
 - Report 25: *The Paradox of Capability: Inverse Scaling, Systemic Vulnerabilities, and AI Safety*
 - Report 31: *Policy Implications of Historical Jailbreak Technique Evolution 2022–2026*
-- Classification data from the F41LUR3-F1R57 benchmark evaluation corpus
+- Classification data from the Failure-First benchmark evaluation corpus
 - Skeleton Key persistence analysis across multi-scene episodes
 - Jailbreak archaeology traces across 8 model families

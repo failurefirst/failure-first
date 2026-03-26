@@ -104,4 +104,4 @@ Contact **adrian@failurefirst.org** to discuss format-lock assessment for your d
 
 ---
 
-*This post describes the format-lock attack family at a pattern level. Specific attack prompts, scenario details, and operational methodologies are not published. Our research is conducted under the F41LUR3-F1R57 ethical framework with graduated disclosure.*
+*This post describes the format-lock attack family at a pattern level. Specific attack prompts, scenario details, and operational methodologies are not published. Our research is conducted under the Failure-First ethical framework with graduated disclosure.*

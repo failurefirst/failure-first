@@ -63,4 +63,4 @@ If you are a model developer or deployer who wants to test your systems against 
 
 ---
 
-*This finding is part of the F41LUR3-F1R57 adversarial evaluation programme, which has tested 193 models across 133,000+ evaluation results. The Compliance Cascade is documented in internal Report #243.*
+*This finding is part of the Failure-First adversarial evaluation programme, which has tested 193 models across 133,000+ evaluation results. The Compliance Cascade is documented in internal Report #243.*
