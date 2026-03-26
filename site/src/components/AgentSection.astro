@@ -85,15 +85,7 @@ const imgPriority = index < 2 ? 'high' : 'auto';
         ))}
       </div>
 
-      {/* CTA for closer section (K-9) */}
-      {isCloser && (
-        <div class="closer-cta">
-          <p class="closer-cta-text">Want this team working on your AI safety?</p>
-          <a href="/services/" class="closer-cta-btn" style={`--agent-color: ${color}`}>
-            Work with us →
-          </a>
-        </div>
-      )}
+      {/* CTA moved to standalone section in team.astro */}
     </div>
   </div>
 
