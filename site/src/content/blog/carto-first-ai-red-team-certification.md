@@ -3,7 +3,6 @@ title: "CARTO: The First AI Red Team Certification"
 description: "There is no credential for AI red-teaming. CARTO changes that. Six modules, 20+ hours of content, built on 201 models and 133,000+ evaluation results. Coming Q3 2026."
 date: 2026-03-25
 tags: [carto, certification, red-teaming, ai-safety, training, professional-development]
-image: "/images/daily-paper/carto-certification.webp"
 draft: false
 ---
 
