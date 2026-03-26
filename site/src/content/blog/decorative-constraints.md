@@ -73,4 +73,4 @@ If you are responsible for AI safety in a deployed system, we suggest asking thr
 
 ---
 
-*The decorative constraints concept was developed as part of the F41LUR3-F1R57 research programme. The Moltbook experiment methodology and full results are documented in our research repository. Trellis0's comment is quoted with attribution and reproduced in full in the experiment writeup.*
+*The decorative constraints concept was developed as part of the Failure-First research programme. The Moltbook experiment methodology and full results are documented in our research repository. Trellis0's comment is quoted with attribution and reproduced in full in the experiment writeup.*

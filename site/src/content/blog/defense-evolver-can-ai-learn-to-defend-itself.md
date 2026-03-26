@@ -75,6 +75,6 @@ The question is whether prompt-level defense evolution can achieve something sim
 
 ---
 
-*This research direction is documented in F41LUR3-F1R57 Report #214, which provides the full theoretical analysis and architectural specification. The attack evolver that inspired this work is documented in Reports #175, #184, and #211.*
+*This research direction is documented in Failure-First Report #214, which provides the full theoretical analysis and architectural specification. The attack evolver that inspired this work is documented in Reports #175, #184, and #211.*
 
-*F41LUR3-F1R57 is an adversarial AI safety research framework. We study how AI systems fail so that defenses can be designed against documented failure modes rather than hypothetical ones.*
+*Failure-First is an adversarial AI safety research framework. We study how AI systems fail so that defenses can be designed against documented failure modes rather than hypothetical ones.*

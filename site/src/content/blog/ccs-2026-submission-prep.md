@@ -1,13 +1,13 @@
 ---
 title: "Preparing Our Research for ACM CCS 2026"
-description: "The F41LUR3-F1R57 framework is being prepared for peer review at ACM CCS 2026. Here's what the paper covers, why we chose this venue, and what our 120-model evaluation reveals about the state of LLM safety for embodied systems."
+description: "The Failure-First framework is being prepared for peer review at ACM CCS 2026. Here's what the paper covers, why we chose this venue, and what our 120-model evaluation reveals about the state of LLM safety for embodied systems."
 date: 2026-03-02
 tags: [ccs2026, peer-review, benchmarks, embodied-ai, safety, publication]
 ---
 
 ## From Framework to Formal Submission
 
-For the past year, the F41LUR3-F1R57 project has been building an adversarial evaluation framework for the language model components that underpin embodied AI systems --- robotic manipulation, autonomous navigation, multi-agent coordination. We have accumulated 18,176 adversarial test prompts spanning 414 attack classes, evaluated 120 models across 151 benchmark runs, and developed a classification pipeline that documents its own measurement biases.
+For the past year, the Failure-First project has been building an adversarial evaluation framework for the language model components that underpin embodied AI systems --- robotic manipulation, autonomous navigation, multi-agent coordination. We have accumulated 18,176 adversarial test prompts spanning 414 attack classes, evaluated 120 models across 151 benchmark runs, and developed a classification pipeline that documents its own measurement biases.
 
 Now we are preparing this work for formal peer review. Our target is the **ACM Conference on Computer and Communications Security (CCS) 2026, Cycle 2**, with abstract registration on April 22 and full paper submission on April 29. The conference will be held in The Hague, Netherlands, in November 2026.
 
@@ -64,8 +64,8 @@ The immediate timeline:
 
 We will also be preparing the dataset, benchmark infrastructure, and classification pipeline for public release alongside the submission --- hosted on an anonymized repository for the review period, then linked from failurefirst.org after notification.
 
-If you are working on adversarial evaluation of language models, classifier calibration, or embodied AI safety, we welcome correspondence. The F41LUR3-F1R57 framework is designed to be extended, and we are particularly interested in collaborations that connect our LLM-component-level findings to end-to-end embodied system testing.
+If you are working on adversarial evaluation of language models, classifier calibration, or embodied AI safety, we welcome correspondence. The Failure-First framework is designed to be extended, and we are particularly interested in collaborations that connect our LLM-component-level findings to end-to-end embodied system testing.
 
 ---
 
-*This post is part of the F41LUR3-F1R57 research programme on adversarial evaluation of embodied AI systems. Follow our work at [failurefirst.org](https://failurefirst.org).*
+*This post is part of the Failure-First research programme on adversarial evaluation of embodied AI systems. Follow our work at [failurefirst.org](https://failurefirst.org).*

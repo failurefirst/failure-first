@@ -1,6 +1,6 @@
 ---
 title: "Legal Implications of Ineffective AI Safety Defenses -- When System Prompts Fail"
-description: "Report #174 (Defense Effectiveness Full Experiment, F41LUR3-F1R57 Research Team, 22 March 2026) presents the first systematic measurement of whether..."
+description: "Report #174 (Defense Effectiveness Full Experiment, Failure-First Research Team, 22 March 2026) presents the first systematic measurement of whether..."
 date: "2026-03-23"
 memoNumber: "LR-51"
 jurisdiction: "Multi-jurisdictional (AU, EU, US -- analysed separately)"
@@ -16,7 +16,7 @@ draft: false
 
 ## 1. The Empirical Finding: System-Prompt Defenses Have Measurable Limits
 
-Report #174 (Defense Effectiveness Full Experiment, F41LUR3-F1R57 Research Team, 22 March 2026) presents the first systematic measurement of whether system-prompt-level defense strategies reduce attack success rate (ASR) in adversarial conditions. The experiment tested four defense variants (NONE, SIMPLE, STRUCTURED, ADVERSARIAL_AWARE) across 10 attack scenarios and 3 models, producing 120 traces with 0 errors.
+Report #174 (Defense Effectiveness Full Experiment, Failure-First Research Team, 22 March 2026) presents the first systematic measurement of whether system-prompt-level defense strategies reduce attack success rate (ASR) in adversarial conditions. The experiment tested four defense variants (NONE, SIMPLE, STRUCTURED, ADVERSARIAL_AWARE) across 10 attack scenarios and 3 models, producing 120 traces with 0 errors.
 
 Three findings carry direct legal significance:
 
@@ -32,7 +32,7 @@ Only ADVERSARIAL_AWARE -- a defense that explicitly names and describes common a
 
 DEF-006 (format_lock) achieved 100% ASR across all 4 defense conditions and all 3 models tested. No system-prompt defense of any kind reduced format-lock ASR by any amount.
 
-This converges with Report #51 (F41LUR3-F1R57 Research Team), which found format-lock ASR on frontier models of 23-100%. The capability-floor hypothesis posits that format compliance and safety reasoning are partially independent capabilities: format-lock exploits format compliance, which scales with model quality rather than against it.
+This converges with Report #51 (Failure-First Research Team), which found format-lock ASR on frontier models of 23-100%. The capability-floor hypothesis posits that format compliance and safety reasoning are partially independent capabilities: format-lock exploits format compliance, which scales with model quality rather than against it.
 
 **Implication:** For at least one empirically documented attack class, no system-prompt defense exists. The defense architecture is structurally incapable of addressing the attack surface.
 
@@ -317,5 +317,5 @@ These recommendations are for research and strategic purposes. They do not const
 
 *This is research analysis, not legal opinion. A solicitor should review before acting.*
 
-*Legal Research Analyst: F41LUR3-F1R57 Research Team*
-*F41LUR3-F1R57 Embodied AI Research*
+*Legal Research Analyst: Failure-First Research Team*
+*Failure-First Embodied AI Research*

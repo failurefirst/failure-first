@@ -68,4 +68,4 @@ Thirty CVEs in eighteen months is not a bug count. It is a signal that the proto
 
 ---
 
-*This analysis draws on the [VulnerableMCP database](https://vulnerablemcp.info/), NVD CVE records, [OWASP Top 10 for Agentic Applications](https://owasp.org/), and the F41LUR3-F1R57 Governance Lag Index dataset (59 entries, March 2026).*
+*This analysis draws on the [VulnerableMCP database](https://vulnerablemcp.info/), NVD CVE records, [OWASP Top 10 for Agentic Applications](https://owasp.org/), and the Failure-First Governance Lag Index dataset (59 entries, March 2026).*

@@ -5,7 +5,7 @@ date: "2026-03-22"
 reportNumber: 169
 classification: "Research — Empirical Study"
 status: "complete"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -424,8 +424,8 @@ This synthesis strengthens several CCS paper arguments:
 
 ---
 
-*Report 169 -- F41LUR3-F1R57 Research Brief Series*
+*Report 169 -- Failure-First Research Brief Series*
 *Classification: Internal Research | Status: Complete*
 *Related: Reports #47, #48, #49, #50, #51, #55, #57, #59*
 
-⦑F41LUR3-F1R57|CAPABILITY-SAFETY-DECOUPLING⦒
+⦑Failure-First|CAPABILITY-SAFETY-DECOUPLING⦒

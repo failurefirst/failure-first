@@ -5,7 +5,7 @@ date: "2026-03-23"
 reportNumber: 176
 classification: "Research — Empirical Study"
 status: "draft"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -142,19 +142,19 @@ The autonomous red-teaming landscape as of March 2026 includes several published
 | TAP (Mehrotra et al.) | 2023 | Tree-of-thought attacker with pruning | Higher than PAIR | Extends PAIR with tree search and off-topic pruning |
 | Rainbow Teaming (Samvelyan et al.) | 2024 | Quality-diversity search over attack space | Coverage-optimised | Optimises for diversity of successful attacks, not just ASR |
 | LRM-based attack (arXiv:2508.04039) | 2025 | Frontier reasoning models attack other models | 97% across 25,200 inputs | Most capable; uses reasoning models as attackers |
-| **F41LUR3-F1R57 evolve_attacks** | 2026 | Evolutionary search over persuasion patterns | Preliminary (heuristic) | Structural mutation only; no content escalation; embodied AI context |
+| **Failure-First evolve_attacks** | 2026 | Evolutionary search over persuasion patterns | Preliminary (heuristic) | Structural mutation only; no content escalation; embodied AI context |
 
 ### 4.2 What Distinguishes the Failure-First System
 
-**The system evolves persuasion patterns, not harmful content.** GCG optimises adversarial suffixes (token-level). AutoDAN uses genetic algorithms over prompt tokens. PAIR and TAP use an attacker LLM that generates complete attack prompts, including the harmful request. The F41LUR3-F1R57 system holds the harmful request constant and evolves only the persuasion wrapper. This is a narrower optimisation space that produces less operationally dangerous artifacts.
+**The system evolves persuasion patterns, not harmful content.** GCG optimises adversarial suffixes (token-level). AutoDAN uses genetic algorithms over prompt tokens. PAIR and TAP use an attacker LLM that generates complete attack prompts, including the harmful request. The Failure-First system holds the harmful request constant and evolves only the persuasion wrapper. This is a narrower optimisation space that produces less operationally dangerous artifacts.
 
 **The system is embodied-AI-contextualised.** The seed attacks and domain contexts are drawn from robotics, autonomous vehicles, industrial automation, and mining -- the physical safety domains where jailbreak consequences include bodily harm. No other autonomous red-team tool is specifically designed for embodied AI safety evaluation.
 
-**The system is less capable than PAIR/TAP.** Using a language model as the attacker (PAIR, TAP) produces more creative and effective attacks than rule-based mutation strategies. The F41LUR3-F1R57 system trades capability for controllability: its mutations are predictable, auditable, and constrained in ways that LLM-generated attacks are not.
+**The system is less capable than PAIR/TAP.** Using a language model as the attacker (PAIR, TAP) produces more creative and effective attacks than rule-based mutation strategies. The Failure-First system trades capability for controllability: its mutations are predictable, auditable, and constrained in ways that LLM-generated attacks are not.
 
 ### 4.3 Normative Assessment
 
-**Normative claim:** The trade-off between capability and controllability in autonomous red-team design is an ethical choice, not merely a technical one. More capable systems (PAIR, TAP, LRM-based) produce better safety evaluations but also produce more dangerous artifacts. The F41LUR3-F1R57 system's choice to use rule-based mutations rather than LLM-generated attacks is a deliberate capability limitation motivated by dual-use risk management.
+**Normative claim:** The trade-off between capability and controllability in autonomous red-team design is an ethical choice, not merely a technical one. More capable systems (PAIR, TAP, LRM-based) produce better safety evaluations but also produce more dangerous artifacts. The Failure-First system's choice to use rule-based mutations rather than LLM-generated attacks is a deliberate capability limitation motivated by dual-use risk management.
 
 This choice has a cost: the system will discover fewer novel attack patterns than PAIR or TAP would. It has a benefit: the evolved population contains structurally predictable mutations rather than open-ended, potentially novel harmful constructions.
 
@@ -325,13 +325,13 @@ This entry is filed as a structural observation, not a call for specific legisla
 
 1. **The D-Score is a framework, not a measurement.** The scores assigned in Section 5 reflect the assessor's judgment. Different assessors might score the same system differently by 1-2 points on individual dimensions. The composite score is an ethical reasoning tool, not a precision instrument.
 
-2. **The comparison to PAIR/TAP/GCG is based on published papers.** The actual capability of these systems in current deployment may exceed their published results. Our characterisation of the F41LUR3-F1R57 system as "less capable" than PAIR/TAP is based on the design constraint (rule-based vs LLM-generated mutations), not on comparative empirical testing.
+2. **The comparison to PAIR/TAP/GCG is based on published papers.** The actual capability of these systems in current deployment may exceed their published results. Our characterisation of the Failure-First system as "less capable" than PAIR/TAP is based on the design constraint (rule-based vs LLM-generated mutations), not on comparative empirical testing.
 
 3. **The stakeholder analysis is not exhaustive.** Additional stakeholders (insurance companies, standards bodies, legal systems) are affected by autonomous red-teaming tools but are not analysed in depth here.
 
 4. **The safety gate analysis is static.** The system's safety posture depends on the current code. Code changes, extensions, or forks could alter the safety gate coverage without triggering any review process.
 
-5. **The blog post was published before this ethics report was completed.** The blog post (2026-03-23) was assessed by the publishing agent (F41LUR3-F1R57 Research Team) as Tier 1 structural disclosure. This report provides the formal ethical analysis that should have preceded publication. This ordering gap is noted for process improvement.
+5. **The blog post was published before this ethics report was completed.** The blog post (2026-03-23) was assessed by the publishing agent (Failure-First Research Team) as Tier 1 structural disclosure. This report provides the formal ethical analysis that should have preceded publication. This ordering gap is noted for process improvement.
 
 ---
 
@@ -345,4 +345,4 @@ The primary ethics gap is the absence of field-wide governance for autonomous re
 
 ---
 
-*F41LUR3-F1R57 Research Ethics Charter v1.0 (2026) governs all findings in this report. D-Score assessments computed per Report #154.*
+*Failure-First Research Ethics Charter v1.0 (2026) governs all findings in this report. D-Score assessments computed per Report #154.*

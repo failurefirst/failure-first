@@ -79,7 +79,7 @@ Reports 21, 23, 28, and 29 converge on a timing problem:
 - Insurers using modified industrial-robot policies with no humanoid actuarial data
 - No country has a sovereign AI safety certification body yet
 
-**Implication:** The F41LUR3-F1R57 framework arrives exactly when regulators need operational test methodologies but don't have them. This corpus provides policy language; the codebase provides executable tests.
+**Implication:** The Failure-First framework arrives exactly when regulators need operational test methodologies but don't have them. This corpus provides policy language; the codebase provides executable tests.
 
 ### 5. Defense in Depth Requires Treating AI as Untrusted
 
@@ -105,7 +105,7 @@ Reports 25, 26, and 32 converge on the same architectural principle:
 - Policy landscape evolves rapidly; snapshot as of Feb 2026
 - No peer review or external validation of proposed frameworks (MASSS, HANSE)
 
-## Mapping to Existing F41LUR3-F1R57 Assets
+## Mapping to Existing Failure-First Assets
 
 | Corpus Finding | Existing Asset | Gap |
 |----------------|---------------|-----|
@@ -131,7 +131,7 @@ The convergence across these 12 independent research reports suggests that embod
 4. **Establish sovereign certification bodies now** — Reports 21, 29 show the Aug 2026 compliance deadline is approaching with insufficient infrastructure
 5. **Build actuarial databases for humanoid incidents** — Report 28 identifies that insurers lack the data to properly price risk
 
-The F41LUR3-F1R57 framework provides the executable testing infrastructure to operationalize these recommendations. The policy corpus provides the regulatory justification.
+The Failure-First framework provides the executable testing infrastructure to operationalize these recommendations. The policy corpus provides the regulatory justification.
 
 ---
 

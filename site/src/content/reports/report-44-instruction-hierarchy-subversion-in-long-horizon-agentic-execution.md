@@ -9,7 +9,7 @@ status: "active"
 
 # Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution
 
-**F41LUR3-F1R57 Working Paper v1.0** | Adrian Wedd | March 2026
+**Failure-First Working Paper v1.0** | Adrian Wedd | March 2026
 
 > **Status:** Working paper. Empirical findings cited are from published frameworks (AgentDojo, AgentLAB, MUZZLE, Deep-Cover Agents). Our own long-horizon evaluation infrastructure is in active development. Claims about injection depth thresholds are theoretically grounded but require independent empirical validation in controlled settings.
 

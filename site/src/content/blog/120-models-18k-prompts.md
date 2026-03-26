@@ -1,12 +1,12 @@
 ---
 title: "124 Models, 18,345 Prompts: What We Found"
-description: "A research announcement for the F41LUR3-F1R57 arXiv paper. Five attack families, three evaluation modalities, and a classifier bias problem we did not expect to be this bad."
+description: "A research announcement for the Failure-First arXiv paper. Five attack families, three evaluation modalities, and a classifier bias problem we did not expect to be this bad."
 date: 2026-02-27
 tags: ["research", "benchmarking", "jailbreaks", "safety", "embodied-ai", "classifier-bias"]
 image: /images/blog/120-models-18k-prompts.webp
 ---
 
-We are releasing a preprint describing the F41LUR3-F1R57 adversarial evaluation framework: 18,345 prompts, 5 attack families, 124 models, 176 benchmark runs, and a classifier bias finding that changes how we interpret results from the whole field.
+We are releasing a preprint describing the Failure-First adversarial evaluation framework: 18,345 prompts, 5 attack families, 124 models, 176 benchmark runs, and a classifier bias finding that changes how we interpret results from the whole field.
 
 This post summarises what we built, what we found, and what it means for embodied AI systems specifically.
 

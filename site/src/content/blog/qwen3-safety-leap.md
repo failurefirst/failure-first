@@ -104,6 +104,6 @@ Until then, the answer to "Did Qwen3 fix AI safety?" is: the preliminary evidenc
 
 ---
 
-*Provider-level ASR data from the F41LUR3-F1R57 jailbreak corpus (190 models, 132,416 results). Qwen legacy data: 14 models, 23,206 results. Qwen OpenRouter data: 16 models, 178 results. AdvBench baseline run: `runs/advbench_baseline_free/`.*
+*Provider-level ASR data from the Failure-First jailbreak corpus (190 models, 132,416 results). Qwen legacy data: 14 models, 23,206 results. Qwen OpenRouter data: 16 models, 178 results. AdvBench baseline run: `runs/advbench_baseline_free/`.*
 
 *This post is part of the [Failure-First Embodied AI](https://failurefirst.org) research programme.*

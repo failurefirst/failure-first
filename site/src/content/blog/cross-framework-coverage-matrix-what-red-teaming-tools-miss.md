@@ -79,7 +79,7 @@ No automated red-teaming tool tests for this.
 
 ## Closing the Gap
 
-We are not arguing that F41LUR3-F1R57 replaces these frameworks. MITRE ATLAS, OWASP, and the automated tools serve important roles. We are arguing that the coverage gaps are measurable, and they concentrate in precisely the domains where AI deployment is accelerating fastest.
+We are not arguing that Failure-First replaces these frameworks. MITRE ATLAS, OWASP, and the automated tools serve important roles. We are arguing that the coverage gaps are measurable, and they concentrate in precisely the domains where AI deployment is accelerating fastest.
 
 Our recommendations to the standards community:
 
@@ -91,4 +91,4 @@ The attack surface is wider than the tools suggest. The data shows where.
 
 ---
 
-*Based on the F41LUR3-F1R57 Cross-Framework Coverage Matrix. Full matrix available in our standards documentation. 193 models tested, 132,000+ evaluation results, 36 attack families.*
+*Based on the Failure-First Cross-Framework Coverage Matrix. Full matrix available in our standards documentation. 193 models tested, 132,000+ evaluation results, 36 attack families.*

@@ -7,7 +7,7 @@ tags: [research, ollama, benchmarks, model-comparison, safety-training, frontier
 
 ## Scaling the Evaluation
 
-When we started the F41LUR3-F1R57 project, most of our testing targeted models in the 1B-30B parameter range -- the models that run on consumer hardware and are increasingly deployed in edge applications, including embodied AI. But a recurring question from the community was: do these vulnerability patterns hold at frontier scale?
+When we started the Failure-First project, most of our testing targeted models in the 1B-30B parameter range -- the models that run on consumer hardware and are increasingly deployed in edge applications, including embodied AI. But a recurring question from the community was: do these vulnerability patterns hold at frontier scale?
 
 Ollama Cloud gave us a way to find out. Their free tier provides access to models up to 397 billion parameters, which let us test our adversarial prompts against models that were previously out of reach without significant API spend.
 
@@ -76,4 +76,4 @@ We are also expanding our Ollama Cloud testing to additional frontier models as 
 
 ---
 
-*This work is part of the F41LUR3-F1R57 adversarial evaluation programme, which has tested 193 models across 133,000+ evaluation results. Ollama Cloud testing is documented in internal Reports #238 and #239.*
+*This work is part of the Failure-First adversarial evaluation programme, which has tested 193 models across 133,000+ evaluation results. Ollama Cloud testing is documented in internal Reports #238 and #239.*

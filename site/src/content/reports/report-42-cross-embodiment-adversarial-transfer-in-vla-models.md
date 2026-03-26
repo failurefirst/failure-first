@@ -9,7 +9,7 @@ status: "active"
 
 # Cross-Embodiment Adversarial Transfer in Vision-Language-Action Models
 
-**F41LUR3-F1R57 Working Paper v1.0** | Adrian Wedd | March 2026
+**Failure-First Working Paper v1.0** | Adrian Wedd | March 2026
 
 > **Status:** Working paper based on literature synthesis. Direct empirical cross-embodiment transfer benchmarking is in active development. Claims are literature-supported rather than experimentally validated by our team across physical platforms.
 
@@ -125,7 +125,7 @@ Current conformity assessment standards (IEC 61508, ISO 42001) do not address se
 
 As frontier VLA models — Gemini Robotics 1.5, π0, Optimus — are deployed at scale, the concentration of physical control authority in a small number of shared backbones creates systemic risk. A vulnerability in any one of these backbones is simultaneously a vulnerability in every robot morphology that uses it. This warrants investigation of both diversification of backbone architectures and modality-specific defense mechanisms that operate at the embodiment-specific action layer rather than only at the semantic layer.
 
-The F41LUR3-F1R57 framework — 31 VLA adversarial scenarios across 7 attack families — is designed to provide empirical grounding for these policy arguments. Testing against physical VLA systems remains the primary open gap.
+The Failure-First framework — 31 VLA adversarial scenarios across 7 attack families — is designed to provide empirical grounding for these policy arguments. Testing against physical VLA systems remains the primary open gap.
 
 ---
 

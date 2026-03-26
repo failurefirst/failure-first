@@ -4,7 +4,7 @@ description: "The NIST AI Risk Management Framework (AI 100-1, January 2023) pro
 date: "2026-03-18"
 classification: "Research — AI Safety Policy"
 status: "draft"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -297,7 +297,7 @@ The following recommendations are framed as proposed language additions to speci
 
 ## 5. Gap Summary Matrix
 
-| AI RMF Subcategory | Gap Description | Severity | F41LUR3-F1R57 Evidence | Recommendation |
+| AI RMF Subcategory | Gap Description | Severity | Failure-First Evidence | Recommendation |
 |-------------------|----------------|----------|----------------------|----------------|
 | MS-2.7 | No action-layer security evaluation | Critical | VLA 0% refusal, 50% PARTIAL | R1 |
 | MS-1.1 | No action-layer metrics | Critical | Three-tier ASR 34pp gap | R2 |
@@ -331,7 +331,7 @@ The engagement plan (research/engagement/regulatory_engagement_plan.md) targets 
 
 1. This analysis is based on the published text of NIST AI 100-1 and the AI RMF Playbook as of January 2023. NIST may have issued supplementary guidance or sector-specific playbooks that partially address these gaps. We have reviewed publicly available materials through March 2026 but cannot confirm completeness.
 
-2. Our empirical findings are drawn from the F41LUR3-F1R57 corpus (187 models, 131,887 results; CANONICAL_METRICS.md, 18 March 2026). VLA-specific findings are based on smaller samples (n=58 valid FLIP-graded traces across 25 families). Confidence intervals are wide for per-family ASR estimates.
+2. Our empirical findings are drawn from the Failure-First corpus (187 models, 131,887 results; CANONICAL_METRICS.md, 18 March 2026). VLA-specific findings are based on smaller samples (n=58 valid FLIP-graded traces across 25 families). Confidence intervals are wide for per-family ASR estimates.
 
 3. This analysis does not address NIST SP 800-series publications on cybersecurity, which may contain relevant adversarial testing guidance that could be cross-referenced with the AI RMF. NIST AI 100-2e2023 (Adversarial Machine Learning) is a relevant companion document that addresses some but not all of the gaps identified here.
 

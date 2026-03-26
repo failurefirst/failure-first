@@ -75,5 +75,5 @@ Either way, the AI safety field benefits from testing the assumption that more s
 - Lazarou, J., Pomeranz, B. H., & Corey, P. N. (1998). "Incidence of adverse drug reactions in hospitalized patients." JAMA, 279(15), 1200-1205.
 - Fukui, H. (2026). "Alignment Backfire: Language-Dependent Reversal of Safety Interventions." [arXiv:2603.04904](https://arxiv.org/abs/2603.04904).
 - Doan, J., et al. (2013). "Prevalence and risk of potential drug-drug interactions in older hospitalized patients." Annals of Pharmacotherapy, 47(3), 324-332.
-- F41LUR3-F1R57. Report #151: The Safety Polypharmacy Hypothesis. 2026.
-- F41LUR3-F1R57. Report #136: Iatrogenic Attack Surfaces. 2026.
+- Failure-First. Report #151: The Safety Polypharmacy Hypothesis. 2026.
+- Failure-First. Report #136: Iatrogenic Attack Surfaces. 2026.

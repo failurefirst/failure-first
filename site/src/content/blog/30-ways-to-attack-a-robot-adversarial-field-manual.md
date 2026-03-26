@@ -80,5 +80,5 @@ None of these exist in any current standard or publicly available benchmark. Bui
 - Huang, et al. (2026). "Blindfold: Semantically Benign Jailbreaking of Embodied AI." [arXiv:2603.01414](https://arxiv.org/abs/2603.01414). Accepted ACM SenSys 2026.
 - Spera (2026). "Non-Compositionality of Safety in Modular AI Systems." [arXiv:2603.15973](https://arxiv.org/abs/2603.15973).
 - Ding (2026). "Colluding LoRA." [arXiv:2603.12681](https://arxiv.org/abs/2603.12681).
-- F41LUR3-F1R57. VLA Attack Surface Coverage Matrix. 2026.
-- F41LUR3-F1R57. Attack Taxonomy (30 families, 337 scenarios). 2026.
+- Failure-First. VLA Attack Surface Coverage Matrix. 2026.
+- Failure-First. Attack Taxonomy (30 families, 337 scenarios). 2026.

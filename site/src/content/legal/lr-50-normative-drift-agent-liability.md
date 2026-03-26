@@ -247,5 +247,5 @@ Based on the Jiang and Tang findings and the regulatory obligations above, the f
 
 ---
 
-*Legal Research Analyst: F41LUR3-F1R57 Research Team*
-*F41LUR3-F1R57 Embodied AI Research*
+*Legal Research Analyst: Failure-First Research Team*
+*Failure-First Embodied AI Research*

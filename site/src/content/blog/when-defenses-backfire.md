@@ -112,4 +112,4 @@ The iatrogenic safety paradox is not a reason to give up on AI safety. It is a r
 
 *All corpus metrics reference verified canonical figures: 207 models, 133,722 results. The iatrogenic safety framework draws on Illich (1976) and Beauchamp & Childress's principlist ethics.*
 
-*F41LUR3-F1R57 Embodied AI Research -- failurefirst.org*
+*Failure-First Embodied AI Research -- failurefirst.org*

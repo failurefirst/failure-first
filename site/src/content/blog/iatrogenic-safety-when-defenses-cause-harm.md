@@ -100,4 +100,4 @@ Six governance recommendations emerge from the framework:
 
 *This post summarises research from the Failure-First Embodied AI project. All empirical claims are grounded in our 190-model, 132,416-result adversarial evaluation corpus and cited external research. The paper is being prepared for arXiv submission.*
 
-*F41LUR3-F1R57 Embodied AI Research -- failurefirst.org*
+*Failure-First Embodied AI Research -- failurefirst.org*

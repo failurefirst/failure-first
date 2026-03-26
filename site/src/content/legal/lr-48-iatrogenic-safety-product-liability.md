@@ -312,6 +312,6 @@ This memo supports the commercial service categories identified in LR-41 (Sectio
 
 ---
 
-*Legal Research Analyst: F41LUR3-F1R57 Research Team*
-*F41LUR3-F1R57 Embodied AI Research*
+*Legal Research Analyst: Failure-First Research Team*
+*Failure-First Embodied AI Research*
 *22 March 2026*

@@ -110,10 +110,10 @@ None of these will happen quickly. But the first step is recognising that the mo
 
 ---
 
-*This post describes pattern-level findings from the F41LUR3-F1R57 (Failure-First) research programme. It does not contain operational attack details. All scenario descriptions are illustrative of vulnerability patterns, not instructions for exploitation.*
+*This post describes pattern-level findings from the Failure-First (Failure-First) research programme. It does not contain operational attack details. All scenario descriptions are illustrative of vulnerability patterns, not instructions for exploitation.*
 
 *Data: 20 SBA traces evaluated with FLIP methodology. 58 traces across 7 VLA attack families. Defense impossibility analysis draws on peer-reviewed external research (ACM SenSys 2026) and internal empirical data. See our [Governance Lag Index dataset](https://failurefirst.org/blog/governance-lag-index-5-years/) for the full regulatory gap analysis.*
 
 ---
 
-**F41LUR3-F1R57 Embodied AI Safety Research**
+**Failure-First Embodied AI Safety Research**

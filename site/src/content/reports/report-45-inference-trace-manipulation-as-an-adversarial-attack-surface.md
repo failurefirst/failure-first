@@ -9,7 +9,7 @@ status: "active"
 
 # Inference Trace Manipulation as an Adversarial Attack Surface in Agentic and Embodied AI
 
-**F41LUR3-F1R57 Working Paper v1.0** | Adrian Wedd | March 2026
+**Failure-First Working Paper v1.0** | Adrian Wedd | March 2026
 
 > **Status:** Working paper. Empirical findings cited are from published literature and internal Failure-First dataset evaluations. Claims about compounding failure dynamics in embodied systems are theoretically grounded in documented multi-turn attack literature; independent controlled embodied evaluation is in active development.
 
@@ -35,7 +35,7 @@ The AutoRAN framework documents one operational implementation of this class: an
 
 ## 2. Format-Lock vs. Budget-Starvation: Empirical Comparison
 
-Internal F41LUR3-F1R57 dataset findings (Finding #18) and published benchmark data document two primary structural manipulation techniques with substantially different efficacy profiles.
+Internal Failure-First dataset findings (Finding #18) and published benchmark data document two primary structural manipulation techniques with substantially different efficacy profiles.
 
 **Format-lock attacks** impose rigid syntactic or stylistic constraints on the intermediate trace — requiring output exclusively in raw Python, in archaic prose, in base64, or in strict JSON schemas. These constraints exploit a structural invariant: the model's safety alignment training data rarely overlaps with extreme formatting requirements. When forced to maintain a highly constrained format, safety alignment weights are displaced in favor of format compliance. Localized catastrophic forgetting allows adversarial logic to propagate through the trace unchecked.
 
@@ -43,9 +43,9 @@ Empirical structural ASRs under format-lock conditions:
 
 | Model | Format-Lock ASR | Source |
 |---|---|---|
-| Nemotron 30B | 92% | Internal F41LUR3-F1R57 dataset |
-| Llama 70B | 91% | Internal F41LUR3-F1R57 dataset |
-| DeepSeek-R1 | 84% | Internal F41LUR3-F1R57 dataset |
+| Nemotron 30B | 92% | Internal Failure-First dataset |
+| Llama 70B | 91% | Internal Failure-First dataset |
+| DeepSeek-R1 | 84% | Internal Failure-First dataset |
 | Claude 3.7 Sonnet (ASCII Smuggling) | 100% | \[arXiv:2510.02677\], Promptfoo |
 | Claude 3.7 Sonnet (Divergent Repetition) | 95.6% | Promptfoo security report |
 
@@ -109,7 +109,7 @@ Current safety evaluation practice — single-turn red-teaming against input and
 
 **Evaluation scope:** Single-turn assessments miss the multi-turn compounding dynamics documented in GOAT testing. Evaluation protocols for reasoning-capable models should include multi-turn persistence scenarios and sequential decision tasks.
 
-**Metric selection:** ASR measurements derived from heuristic keyword classifiers systematically misclassify format-lock compliance (see F41LUR3-F1R57 internal finding: heuristic COMPLIANCE is approximately 88% wrong; heuristic REFUSAL is 95% correct). LLM-based grading is required for reliable trace manipulation assessment.
+**Metric selection:** ASR measurements derived from heuristic keyword classifiers systematically misclassify format-lock compliance (see Failure-First internal finding: heuristic COMPLIANCE is approximately 88% wrong; heuristic REFUSAL is 95% correct). LLM-based grading is required for reliable trace manipulation assessment.
 
 **Audit access:** Jurisdictions considering AI deployment requirements for high-stakes environments should consider whether hidden-trace architectures are compatible with meaningful audit obligations. If a trace cannot be inspected, a compromised decision process cannot be diagnosed post-incident.
 
@@ -152,4 +152,4 @@ Current safety evaluation practice — single-turn red-teaming against input and
 
 \[arXiv:2508.15361\] Verifiable Reasoning and Programmatic Execution. (2025).
 
-Internal Research Commission Data. Finding \#18: Structural ASR Evaluations. F41LUR3-F1R57 Dataset (2026).
+Internal Research Commission Data. Finding \#18: Structural ASR Evaluations. Failure-First Dataset (2026).

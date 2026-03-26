@@ -5,7 +5,7 @@ date: "2026-03-23"
 reportNumber: 180
 classification: "Research — Empirical Study"
 status: "complete"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -110,7 +110,7 @@ PCA produced the most qualitatively unexpected result. Rather than gradually yie
 
 ### 3.1 Experiment
 
-The OBLITERATUS concept cone analysis (F41LUR3-F1R57 Research Team, Issue #523) extracted refusal directions from Qwen2.5-0.5B-Instruct using 20 harmful and 20 harmless prompts across 4 harm categories (cyber, fraud, intrusion, weapons). The analysis ran across all 24 transformer layers.
+The OBLITERATUS concept cone analysis (Failure-First Research Team, Issue #523) extracted refusal directions from Qwen2.5-0.5B-Instruct using 20 harmful and 20 harmless prompts across 4 harm categories (cyber, fraud, intrusion, weapons). The analysis ran across all 24 transformer layers.
 
 ### 3.2 Results
 
@@ -237,12 +237,12 @@ PCA's failure mode -- empathy expansion rather than compliance escalation -- sug
 
 ## References
 
-- Report #49: VLA PARTIAL Dominance (F41LUR3-F1R57 Research Team)
-- Report #50: Safety Training Investment vs Model Scale (F41LUR3-F1R57 Research Team)
-- Report #51: Format-Lock Capability Floor (F41LUR3-F1R57 Research Team)
-- Report #119: IMB/SID/SIF Regraded Results (F41LUR3-F1R57 Research Team)
-- Report #178: Heuristic Overcount Crisis (F41LUR3-F1R57 Research Team)
-- OBLITERATUS Progress Note (F41LUR3-F1R57 Research Team, 2026-03-23)
+- Report #49: VLA PARTIAL Dominance (Failure-First Research Team)
+- Report #50: Safety Training Investment vs Model Scale (Failure-First Research Team)
+- Report #51: Format-Lock Capability Floor (Failure-First Research Team)
+- Report #119: IMB/SID/SIF Regraded Results (Failure-First Research Team)
+- Report #178: Heuristic Overcount Crisis (Failure-First Research Team)
+- OBLITERATUS Progress Note (Failure-First Research Team, 2026-03-23)
 - Mistake #15: Disclaimers are not refusals
 - Mistake #21: Keyword classifier false positives
 - Mistake #26: Scenario metadata not injected into system prompt

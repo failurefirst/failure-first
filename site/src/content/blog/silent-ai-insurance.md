@@ -128,6 +128,6 @@ The robots are already in the warehouses. The policies are already silent.
 
 ---
 
-*Analysis based on Legal Research Memo LR-58 (AI Insurance Coverage Void). Historical silent cyber data from Lloyd's Market Bulletins Y5258 and Y5281. Adversarial evaluation data from the F41LUR3-F1R57 corpus.*
+*Analysis based on Legal Research Memo LR-58 (AI Insurance Coverage Void). Historical silent cyber data from Lloyd's Market Bulletins Y5258 and Y5281. Adversarial evaluation data from the Failure-First corpus.*
 
 *This post is part of the [Failure-First Embodied AI](https://failurefirst.org) research programme.*

@@ -1,6 +1,6 @@
 ---
 title: "A History of Jailbreaking Language Models — Full Research Article"
-description: "A comprehensive account of how LLM jailbreaking evolved from 'ignore previous instructions' to automated attack pipelines — covering adversarial ML origins, DAN, GCG, industrial-scale attacks, reasoning model exploits, and the incomplete defense arms race. Includes empirical findings from the F41LUR3-F1R57 jailbreak archaeology benchmark."
+description: "A comprehensive account of how LLM jailbreaking evolved from 'ignore previous instructions' to automated attack pipelines — covering adversarial ML origins, DAN, GCG, industrial-scale attacks, reasoning model exploits, and the incomplete defense arms race. Includes empirical findings from the Failure-First jailbreak archaeology benchmark."
 date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history, article]
 image: /images/blog/history-of-llm-jailbreaking-full.webp
@@ -12,7 +12,7 @@ The history of LLM jailbreaking is not a story of clever tricks. It is a story o
 
 In four years, jailbreaking evolved from typing "ignore previous instructions" into ChatGPT to automated optimization pipelines achieving high attack success rates against major frontier models in specific evaluations. The techniques progressed from trivial prompt manipulation (2022), through community-driven persona engineering (2022-2023), to gradient-based optimization (2023), industrial-scale algorithmic exploitation (2024), and cognitive vulnerability exploitation in reasoning models (2025). Each generation of defense created the selection pressure for the next generation of attack. Each expansion of model capability — longer context windows, multimodal inputs, chain-of-thought reasoning, tool use — simultaneously expanded the attack surface.
 
-This article traces that trajectory. It draws on the academic literature, community documentation, and empirical findings from the F41LUR3-F1R57 research program to construct a comprehensive account of how we arrived at the current state: a field where high attack success rates have been demonstrated in specific evaluations against determined adversaries, where the question has shifted from "can models be jailbroken?" to "at what cost?"
+This article traces that trajectory. It draws on the academic literature, community documentation, and empirical findings from the Failure-First research program to construct a comprehensive account of how we arrived at the current state: a field where high attack success rates have been demonstrated in specific evaluations against determined adversaries, where the question has shifted from "can models be jailbroken?" to "at what cost?"
 
 *A condensed version of this article is available as a [blog post](/blog/history-of-llm-jailbreaking/).*
 
@@ -182,7 +182,7 @@ The expansion from text-only to multimodal and agentic attack surfaces represent
 
 ---
 
-## IX. What F41LUR3-F1R57 Adds
+## IX. What Failure-First Adds
 
 Against this taxonomic backdrop, our research program has contributed several empirical findings that challenge assumptions in the existing literature:
 
@@ -288,4 +288,4 @@ The evidence to date — four years of escalating attacks outpacing defenses des
 - Willison, Simon. "I don't know how to solve prompt injection" (2022). [simonwillison.net](https://simonwillison.net/2022/Sep/17/prompt-injection-more-ways/)
 - Rando, Javier. "Do not write that jailbreak paper" (2024). [javirando.com](https://javirando.com/blog/2024/jailbreaks/)
 
-*This article is part of the [F41LUR3-F1R57](/) research program on adversarial AI safety.*
+*This article is part of the [Failure-First](/) research program on adversarial AI safety.*

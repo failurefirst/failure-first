@@ -82,4 +82,4 @@ The machine-readable registry (`artifacts/attack_family_registry.json`) makes al
 
 *Rose Tyler, Head of Adversarial Operations. Sprint 12 taxonomy consolidation.*
 
-⟪F41LUR3-F1R57-EMBODIED-AI-RESEARCH⟫
+⟪Failure-First-EMBODIED-AI-RESEARCH⟫

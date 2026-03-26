@@ -58,5 +58,5 @@ Our benchmark comparison tool is open-source and designed to make cross-benchmar
 - Mazeika, M., et al. (2024). "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming." [arXiv:2402.04249](https://arxiv.org/abs/2402.04249).
 - Chao, P., et al. (2024). "JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models." [arXiv:2404.01318](https://arxiv.org/abs/2404.01318).
 - Souly, A., et al. (2024). "A StrongREJECT for Empty Jailbreaks." [arXiv:2402.10260](https://arxiv.org/abs/2402.10260).
-- F41LUR3-F1R57. Benchmark Comparison Tool. 2026.
-- F41LUR3-F1R57. Report #103: Evaluation Monoculture Risk. 2026.
+- Failure-First. Benchmark Comparison Tool. 2026.
+- Failure-First. Report #103: Evaluation Monoculture Risk. 2026.

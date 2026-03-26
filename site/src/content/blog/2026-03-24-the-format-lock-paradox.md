@@ -98,6 +98,6 @@ The same training that teaches models to be helpful may, in structured-output co
 
 ---
 
-*This post summarizes findings from Report #187 and the companion NeurIPS 2026 D&B Track submission draft. All data are from the F41LUR3-F1R57 adversarial evaluation corpus (190 models, 132,416 graded results). Full methodology, confidence intervals, and limitations are detailed in the paper.*
+*This post summarizes findings from Report #187 and the companion NeurIPS 2026 D&B Track submission draft. All data are from the Failure-First adversarial evaluation corpus (190 models, 132,416 graded results). Full methodology, confidence intervals, and limitations are detailed in the paper.*
 
-*Research conducted by the F41LUR3-F1R57 project. For the full technical details, see our [NeurIPS D&B submission draft](https://failurefirst.org/research/format-lock-paradox).*
+*Research conducted by the Failure-First project. For the full technical details, see our [NeurIPS D&B submission draft](https://failurefirst.org/research/format-lock-paradox).*

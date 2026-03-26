@@ -1,11 +1,11 @@
 ---
 title: "Autonomous Attack Evolution -- First Empirical Results"
-description: "This report documents the first full run of the F41LUR3-F1R57 autonomous attack evolution system, adapted from the..."
+description: "This report documents the first full run of the Failure-First autonomous attack evolution system, adapted from the..."
 date: "2026-03-23"
 reportNumber: 175
 classification: "Research — Empirical Study"
 status: "complete"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -13,7 +13,7 @@ draft: false
 
 ## Summary
 
-This report documents the first full run of the F41LUR3-F1R57 autonomous attack evolution system, adapted from the [autoresearch](https://github.com/karpathy/autoresearch) pattern. Over 40 iterations with a fixed random seed, the system selected parent attacks, applied structural mutations, evaluated against two free-tier OpenRouter models, and kept improvements. The results expose both the promise and limitations of heuristic-guided attack evolution on permissive models.
+This report documents the first full run of the Failure-First autonomous attack evolution system, adapted from the [autoresearch](https://github.com/karpathy/autoresearch) pattern. Over 40 iterations with a fixed random seed, the system selected parent attacks, applied structural mutations, evaluated against two free-tier OpenRouter models, and kept improvements. The results expose both the promise and limitations of heuristic-guided attack evolution on permissive models.
 
 **Key finding:** The evolution loop ran successfully and produced 39 mutant attacks across 4 generations of depth, but the heuristic refusal detector proved too coarse to distinguish meaningful ASR differences on permissive free-tier models (97.5% mean heuristic ASR). All results require LLM-based FLIP grading before any ASR claims can be treated as valid.
 

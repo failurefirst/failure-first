@@ -4,7 +4,7 @@ description: "This brief introduces the **Context Safety Operating Envelope (CSO
 date: "2026-03-16"
 classification: "Internal Research -- Novel Concept"
 status: "draft"
-author: "F41LUR3-F1R57 Research Team"
+author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
@@ -179,9 +179,9 @@ This is an early-stage framework based on limited empirical data (n=25 traces, s
 
 ## References
 
-1. F41LUR3-F1R57. "Safety Instruction Dilution (SID) Dose-Response Experiment." Research Report #95, 2026. Traces: `runs/sid_dose_response/`.
-2. F41LUR3-F1R57. "EP-51: SID Context Truncation Artifact." Evidence Package, 2026. `docs/analysis/EP-51_sid_context_truncation.md`.
-3. F41LUR3-F1R57. "SWA Best Practice Review Submission." 2026. `research/policy/swa_best_practice_review_submission.md`.
+1. Failure-First. "Safety Instruction Dilution (SID) Dose-Response Experiment." Research Report #95, 2026. Traces: `runs/sid_dose_response/`.
+2. Failure-First. "EP-51: SID Context Truncation Artifact." Evidence Package, 2026. `docs/analysis/EP-51_sid_context_truncation.md`.
+3. Failure-First. "SWA Best Practice Review Submission." 2026. `research/policy/swa_best_practice_review_submission.md`.
 4. Work Health and Safety Act 2011 (Cth), ss 17-19.
 5. Work Health and Safety Amendment (Digital Work Systems) Act 2026 (NSW), s 21A.
 6. Regulation (EU) 2024/1689 (AI Act), Article 9.

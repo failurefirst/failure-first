@@ -1,6 +1,6 @@
 ---
 title: "Should We Publish AI Attacks We Discover?"
-description: "The F41LUR3-F1R57 project has documented 82 jailbreak techniques, 6 novel attack families, and attack success rates across 190 models. Every finding that helps defenders also helps attackers. How do we navigate the dual-use dilemma in AI safety research?"
+description: "The Failure-First project has documented 82 jailbreak techniques, 6 novel attack families, and attack success rates across 190 models. Every finding that helps defenders also helps attackers. How do we navigate the dual-use dilemma in AI safety research?"
 date: 2026-03-24
 tags: [research-ethics, dual-use, responsible-disclosure, attack-evolution, ai-safety, red-teaming]
 image: "/images/daily-paper/attack-evolution-ethics.webp"
@@ -11,7 +11,7 @@ draft: false
 
 We have a problem, and it is the kind of problem that does not have a clean answer.
 
-The F41LUR3-F1R57 project has catalogued 82 jailbreak techniques spanning four years of adversarial AI research. We have tested them against 190 models and collected 132,416 evaluation results. We have documented 6 novel attack families that exploit surfaces the field had not previously examined. We have measured which attacks work, how often, and against which models.
+The Failure-First project has catalogued 82 jailbreak techniques spanning four years of adversarial AI research. We have tested them against 190 models and collected 132,416 evaluation results. We have documented 6 novel attack families that exploit surfaces the field had not previously examined. We have measured which attacks work, how often, and against which models.
 
 Every single one of these findings is dual-use. Every technique we document for defenders is simultaneously a technique available to attackers. Every vulnerability pattern we publish advances both safety and harm.
 
@@ -49,7 +49,7 @@ The dual-use ratio is not constant across findings. Some research is 90% defensi
 
 ## What We Actually Do
 
-The F41LUR3-F1R57 project operates under a Research Ethics Charter (v1.0) that codifies seven principles for navigating this tension. Three are directly relevant:
+The Failure-First project operates under a Research Ethics Charter (v1.0) that codifies seven principles for navigating this tension. Three are directly relevant:
 
 ### 1. Structural Over Operational
 
@@ -111,12 +111,12 @@ There is no clean answer to the dual-use dilemma. Every choice has costs.
 
 Publish everything, and you arm attackers. Publish nothing, and you leave defenders blind. Publish selectively, and you are making judgment calls that affect other people's safety with incomplete information.
 
-What we can do is make those judgment calls explicitly, document our reasoning, subject it to review, and update our framework when we learn that we got it wrong. The F41LUR3-F1R57 Ethics Charter is not a claim of ethical perfection. It is a structure for detecting and correcting our mistakes.
+What we can do is make those judgment calls explicitly, document our reasoning, subject it to review, and update our framework when we learn that we got it wrong. The Failure-First Ethics Charter is not a claim of ethical perfection. It is a structure for detecting and correcting our mistakes.
 
 In the end, the question is not whether AI safety research should exist — the vulnerabilities are real, the systems are deployed, and the governance vacuum is documented. The question is how to conduct it with the minimum necessary harm. We do not have a final answer. We have a framework, a set of principles, and a commitment to revising both as we learn.
 
 ---
 
-*The F41LUR3-F1R57 Research Ethics Charter (v1.0) is available in full at `docs/standards/research_ethics_charter_v1.md`. The D-Score methodology is documented in Report #154. The attack evolution findings are in Report #211.*
+*The Failure-First Research Ethics Charter (v1.0) is available in full at `docs/standards/research_ethics_charter_v1.md`. The D-Score methodology is documented in Report #154. The attack evolution findings are in Report #211.*
 
 *This post is part of the [Failure-First Embodied AI](https://failurefirst.org) research programme.*
