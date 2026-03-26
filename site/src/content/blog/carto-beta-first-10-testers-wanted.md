@@ -3,7 +3,6 @@ title: "CARTO Beta: First 10 Testers Wanted"
 description: "We are opening the CARTO certification to 10 beta testers at a founding rate of $100. Six modules, 20+ hours of curriculum, built on 201 models and 133,000+ results. Help us shape the first AI red-team credential."
 date: 2026-03-25
 tags: [carto, certification, red-teaming, ai-safety, training, beta, professional-development]
-image: "/images/daily-paper/carto-beta-cohort.webp"
 draft: false
 ---
 
