@@ -2,6 +2,7 @@
 title: "The Compliance Paradox: When AI Says No But Does It Anyway"
 description: "Half of all adversarial VLA traces produce models that textually refuse while structurally complying. In embodied AI, the action decoder ignores disclaimers and executes the unsafe action. This is the compliance paradox — and current safety evaluations cannot detect it."
 date: 2026-03-11
+image: /images/blog/compliance-paradox.png
 tags: [embodied-ai, alignment, safety, vla, compliance, ethics, evaluation]
 ---
 

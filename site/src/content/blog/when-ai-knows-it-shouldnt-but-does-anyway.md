@@ -2,6 +2,7 @@
 title: "When AI Systems Know They Shouldn't But Do It Anyway"
 description: "In 26% of compliant responses where we can see the model's reasoning, the model explicitly detects a safety concern — and then proceeds anyway. This DETECTED_PROCEEDS pattern has implications for liability, evaluation, and defense design."
 date: 2026-03-22
+image: /images/blog/detected-proceeds.png
 tags: [research, safety, reasoning, embodied-ai, liability]
 ---
 
