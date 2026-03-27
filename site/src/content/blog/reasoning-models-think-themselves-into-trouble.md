@@ -70,7 +70,7 @@ What the data does suggest is that extended reasoning creates a qualitatively di
 
 ## The Broader Pattern
 
-This finding sits within a broader pattern we have been documenting across the Failure-First corpus. Safety is not a single dimension. A model can be highly resistant to one attack family and highly vulnerable to another.
+This finding sits within a broader pattern we have been documenting across the F41LUR3-F1R57 corpus. Safety is not a single dimension. A model can be highly resistant to one attack family and highly vulnerable to another.
 
 Frontier non-reasoning models have effectively closed the historical jailbreak attack surface. DAN-style attacks from 2022-2024 achieve near-zero success rates on current systems. That is real progress.
 
@@ -90,4 +90,4 @@ The capability that makes reasoning models powerful — their ability to think c
 
 ---
 
-*All statistics in this post include sample sizes and use LLM-based classification (COALESCE methodology). Statistical tests use Bonferroni correction for multiple comparisons. The full analysis is reproducible via `tools/database/corpus_patterns.py`. The Failure-First corpus contains 32,465 prompts, 18,723 evaluated results, and 144 models.*
+*All statistics in this post include sample sizes and use LLM-based classification (COALESCE methodology). Statistical tests use Bonferroni correction for multiple comparisons. The full analysis is reproducible via `tools/database/corpus_patterns.py`. The F41LUR3-F1R57 corpus contains 32,465 prompts, 18,723 evaluated results, and 144 models.*
