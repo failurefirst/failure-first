@@ -2,6 +2,7 @@
 title: "Back to Basics: Revisiting ASR in the Age of Voice Agents"
 description: "Introduces WildASR, a multilingual diagnostic benchmark that systematically evaluates ASR robustness across environmental degradation, demographic shift, and linguistic diversity using real human speech, revealing severe performance gaps and hallucination risks in production systems."
 date: 2026-03-30
+image: /images/blog/asr-voice-agents-infographic.png
 arxiv: "2603.25727"
 authors: "Geeyang Tay, Wentao Ma, Jaewon Lee, Yuzhi Tang, Daniel Lee, Weisu Yin, Dongming Shen, Silin Meng, Yi Zhu, Mu Li, Alex Smola"
 paperType: "empirical"
