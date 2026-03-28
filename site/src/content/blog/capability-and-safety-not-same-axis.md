@@ -2,6 +2,7 @@
 title: "Capability and Safety Are Not on the Same Axis"
 description: "The AI safety field treats capability and safety as positions on a single spectrum. Our data from 190 models shows they are partially independent — and one quadrant of the resulting 2D space is empty, which tells us something important about both."
 date: 2026-03-22
+image: /images/blog/capability-safety.png
 tags: [research, safety, evaluation, regulation, embodied-ai]
 ---
 

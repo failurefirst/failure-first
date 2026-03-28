@@ -2,6 +2,7 @@
 title: "Reasoning Models Think Themselves Into Trouble"
 description: "Analysis of 32,465 adversarial prompts across 144 models reveals that frontier reasoning models are 5-20x more vulnerable than non-reasoning models of comparable scale. The same capability that makes them powerful may be what makes them exploitable."
 date: 2026-03-11
+image: /images/blog/reasoning-models.png
 tags: [reasoning, vulnerability, benchmarking, corpus-analysis, safety, embodied-ai]
 ---
 
