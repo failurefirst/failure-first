@@ -29,7 +29,23 @@
         "arxiv": {
           "type": "string"
         },
+        "arxiv_id": {
+          "type": "string"
+        },
         "authors": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "author": {
           "type": "string"
         },
         "paperType": {
@@ -40,7 +56,8 @@
             "methods",
             "survey",
             "position",
-            "application"
+            "application",
+            "original-research"
           ]
         },
         "tags": {
@@ -69,13 +86,9 @@
       },
       "required": [
         "title",
-        "description",
-        "date",
-        "arxiv",
-        "authors",
-        "paperType"
+        "date"
       ],
-      "additionalProperties": false
+      "additionalProperties": true
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

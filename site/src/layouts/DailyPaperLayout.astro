@@ -4,11 +4,11 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   date: Date;
-  arxiv: string;
-  authors: string;
-  paperType: string;
+  arxiv?: string;
+  authors?: string;
+  paperType?: string;
   tags: string[];
   audio?: string;
   image?: string;
@@ -24,10 +24,15 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 
 const imageFullRes = image;
-const authorList = authors.split(',').map((a: string) => a.trim());
+const authorList = Array.isArray(authors)
+  ? authors
+  : authors
+    ? authors.split(',').map((a: string) => a.trim())
+    : [];
 const displayAuthors = authorList.length > 4
   ? `${authorList.slice(0, 4).join(', ')} et al.`
   : authorList.join(', ');
+const isOriginalResearch = !arxiv;
 
 // Map tags to related research pages
 const tagToResearch: Record<string, { label: string; href: string }[]> = {
@@ -65,7 +70,7 @@ const typeToService: Record<string, { label: string; href: string }> = {
   survey: { label: 'Intelligence Briefs', href: '/services/intelligence-briefs/' },
   position: { label: 'Advisory', href: '/services/advisory/' },
 };
-const relatedService = typeToService[paperType] || typeToService['empirical'];
+const relatedService = (paperType && typeToService[paperType]) || typeToService['empirical'];
 
 const paperTypeLabel: Record<string, string> = {
   empirical: 'Empirical Study',
@@ -96,21 +101,28 @@ const paperTypeLabel: Record<string, string> = {
       </div>
 
       <h1>{title}</h1>
-      <p class="paper-description">{description}</p>
+      {description && <p class="paper-description">{description}</p>}
 
       <div class="paper-meta-row">
-        <a
-          href={`https://arxiv.org/abs/${arxiv}`}
-          class="arxiv-badge"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          arXiv:{arxiv}
-        </a>
-        <span class="paper-type-badge">{paperTypeLabel[paperType] ?? paperType}</span>
+        {arxiv && (
+          <a
+            href={`https://arxiv.org/abs/${arxiv}`}
+            class="arxiv-badge"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            arXiv:{arxiv}
+          </a>
+        )}
+        {isOriginalResearch && (
+          <span class="original-badge">F41LUR3-F1R57 Original</span>
+        )}
+        {paperType && (
+          <span class="paper-type-badge">{paperTypeLabel[paperType] ?? paperType}</span>
+        )}
       </div>
 
-      <p class="paper-authors">{displayAuthors}</p>
+      {displayAuthors && <p class="paper-authors">{displayAuthors}</p>}
 
       {tags.length > 0 && (
         <div class="paper-tags">
@@ -251,6 +263,17 @@ const paperTypeLabel: Record<string, string> = {
   .arxiv-badge:hover {
     opacity: 1;
     border-bottom: 1px solid var(--accent-primary);
+  }
+
+  .original-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--failure-warning, #e6a817);
+    border: 1px solid var(--failure-warning, #e6a817);
+    padding: 0.1875rem 0.5rem;
+    border-radius: 3px;
+    opacity: 0.85;
+    letter-spacing: 0.02em;
   }
 
   .paper-type-badge {

@@ -14,6 +14,8 @@ const paperTypeLabel: Record<string, string> = {
   methods: 'Methods',
   survey: 'Survey',
   position: 'Position',
+  application: 'Application',
+  'original-research': 'Original Research',
 };
 ---
 
@@ -43,10 +45,17 @@ const paperTypeLabel: Record<string, string> = {
               {paper.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
             </time>
             <h3>{paper.data.title}</h3>
-            <p>{paper.data.description}</p>
+            {paper.data.description && <p>{paper.data.description}</p>}
             <div class="paper-card-meta">
-              <span class="paper-card-type">{paperTypeLabel[paper.data.paperType] ?? paper.data.paperType}</span>
-              <span class="paper-card-arxiv">arXiv:{paper.data.arxiv}</span>
+              {paper.data.paperType && (
+                <span class="paper-card-type">{paperTypeLabel[paper.data.paperType] ?? paper.data.paperType}</span>
+              )}
+              {paper.data.arxiv && (
+                <span class="paper-card-arxiv">arXiv:{paper.data.arxiv}</span>
+              )}
+              {!paper.data.arxiv && !paper.data.paperType && (
+                <span class="paper-card-type">F41LUR3-F1R57</span>
+              )}
               {paper.data.audio && <span class="paper-card-audio">&#x25B6; Audio</span>}
               {paper.data.video && <span class="paper-card-video">&#x25B6; Video</span>}
             </div>

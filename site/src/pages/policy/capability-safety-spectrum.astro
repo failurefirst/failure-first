@@ -1,6 +1,7 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
+import CorrectionNotice from '../../components/CorrectionNotice.astro';
 import StatGrid from '../../components/StatGrid.astro';
 import WarningBox from '../../components/WarningBox.astro';
 ---
@@ -15,9 +16,29 @@ import WarningBox from '../../components/WarningBox.astro';
 >
   <HeroSection title="Capability Does Not Imply <em>Safety</em>" subtitle="Empirical evidence from jailbreak archaeology across eight foundation models" animation="terrain" accent="gold" />
 
-  <div class="correction-notice" style="background: #fff3cd; border: 1px solid #ffc107; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
-    <strong>Correction Notice (March 2026):</strong> The original analysis described an inverse scaling effect and U-shaped safety curve based on heuristic classifier data. Subsequent validation using LLM-based classification (n=20-25 per model, 8 models) found the magnitude substantially narrower than originally reported (ASR 4-17% across all scales, r=-0.158). The directional observation that medium-scale models may face elevated risk remains under investigation, but the specific figures and the inverse scaling characterisation have been retracted. See <a href="/research/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/">Report 33</a> for the corrected analysis.
-  </div>
+  <CorrectionNotice date="March 2026" severity="correction">
+    <p>
+      The original analysis described an inverse scaling effect and U-shaped safety
+      curve based on heuristic classifier data.
+    </p>
+    <p>
+      Subsequent validation using LLM-based classification
+      (n=20&ndash;25 per model, 8 models) found:
+    </p>
+    <ul>
+      <li>ASR across all scales: <strong>4&ndash;17%</strong> (originally reported up to 85.7%)</li>
+      <li>Scale&ndash;ASR correlation: <strong>r=&minus;0.158</strong> (weak, not significant)</li>
+    </ul>
+    <p>
+      The specific figures and the &ldquo;inverse scaling&rdquo; characterisation have been
+      <strong>retracted</strong>. The directional observation that medium-scale models
+      may face elevated risk remains under investigation.
+    </p>
+    <p>
+      See <a href="/research/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/">Report 33</a>
+      for the corrected analysis.
+    </p>
+  </CorrectionNotice>
 
   <section>
     <h2>Summary</h2>
@@ -105,7 +126,7 @@ import WarningBox from '../../components/WarningBox.astro';
         <tbody>
           <tr><td>Small (1.7B)</td><td>Qwen3-1.7b</td><td>21.3%</td></tr>
           <tr><td>Small (3B)</td><td>Llama 3.2</td><td>~0% (skeleton key)</td></tr>
-          <tr class="highlight-row"><td>Medium (70B)</td><td>Llama-3.3-70b</td><td>85.7% (reasoning era)</td></tr>
+          <tr class="retracted-row"><td>Medium (70B)</td><td>Llama-3.3-70b</td><td><del>85.7%</del> &rarr; 4&ndash;17% <span class="retracted-label" aria-label="This figure was retracted">[corrected]</span></td></tr>
           <tr><td>Frontier</td><td>Gemini 3 Flash</td><td>1.6%</td></tr>
           <tr><td>Frontier</td><td>Claude Sonnet 4.5</td><td>0.0%</td></tr>
           <tr><td>Frontier</td><td>Codex GPT-5.2</td><td>0.0%</td></tr>
@@ -210,31 +231,27 @@ import WarningBox from '../../components/WarningBox.astro';
         </thead>
         <tbody>
           <tr><td>Qwen3-1.7b</td><td>57%</td><td>21.3%</td></tr>
-          <tr class="highlight-row"><td>Llama-3.3-70b</td><td>85.7%&dagger;</td><td>85.7% (reasoning only)&dagger;</td></tr>
+          <tr class="retracted-row"><td>Llama-3.3-70b</td><td><del>85.7%</del> &rarr; 4&ndash;17% <span class="retracted-label">[corrected]</span></td><td><del>85.7%</del> &rarr; 4&ndash;17% <span class="retracted-label">[corrected]</span></td></tr>
           <tr><td>Gemini 3 Flash</td><td>10%</td><td>1.6%</td></tr>
           <tr><td>Claude Sonnet 4.5</td><td>0%</td><td>0%</td></tr>
           <tr><td>Codex GPT-5.2</td><td>0%</td><td>0%</td></tr>
         </tbody>
       </table>
-      <p style="font-size: 0.75rem; color: var(--fg-muted); margin-top: 0.5rem;">
-        &dagger; This figure was produced by a heuristic classifier subsequently shown to have an 88% false-positive rate. LLM-validated ASR for this model is 4-17%. See the correction notice above.
+      <p class="table-footnote">
+        The original Llama-3.3-70B figure (85.7%) was produced by a heuristic classifier
+        with an 88% false-positive rate. LLM-validated ASR is 4&ndash;17%.
+        See the <a href="#" onclick="document.querySelector('.correction-notice').scrollIntoView({behavior:'smooth'}); return false;">correction notice</a> above.
       </p>
     </div>
 
     <p>
-      The critical observation: Llama-3.3-70B's 85.7% reasoning-era ASR substantially
-      exceeds the 40&ndash;60% range observed on models 20&ndash;40x smaller. This is the
-      empirical signature of inverse scaling for safety&mdash;a larger, more capable model
-      is <em>more vulnerable</em> to attacks that exploit its reasoning capacity.
+      <strong>Corrected finding:</strong> After LLM-based validation, the Llama-3.3-70B
+      reasoning-era ASR dropped from the originally reported 85.7% to 4&ndash;17%,
+      within the same range as other models tested. The original &ldquo;inverse
+      scaling&rdquo; characterisation has been retracted. The question of whether
+      medium-scale models face elevated reasoning-era risk remains open and requires
+      larger samples (n&gt;50 per model per era) to resolve.
     </p>
-
-    <WarningBox title="Sample Size Limitation">
-      <p>
-        The Llama-3.3-70B result is based on 7 valid traces (reasoning era only).
-        While consistent with prior literature on reasoning model vulnerabilities,
-        this signal requires confirmation with larger samples (n&gt;20).
-      </p>
-    </WarningBox>
   </section>
 
   <section>
@@ -398,9 +415,36 @@ import WarningBox from '../../components/WarningBox.astro';
     color: var(--fg);
   }
 
-  .highlight-row td {
-    color: var(--failure-warning);
-    font-weight: 500;
+  .retracted-row td {
+    color: var(--fg-muted, #888);
+    font-style: italic;
+  }
+
+  .retracted-row del {
+    text-decoration: line-through;
+    opacity: 0.6;
+  }
+
+  .retracted-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--failure-warning, #e6a817);
+    vertical-align: super;
+  }
+
+  .table-footnote {
+    font-size: 0.8rem;
+    color: var(--fg-muted, #888);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .table-footnote a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   ol {

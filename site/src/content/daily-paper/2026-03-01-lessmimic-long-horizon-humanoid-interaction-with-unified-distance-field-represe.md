@@ -1,0 +1,101 @@
+---
+title: "LessMimic: Long-Horizon Humanoid Interaction with Unified Distance Field Representations"
+description: "Develops LessMimic, a unified distance field-based policy for long-horizon humanoid robot manipulation that generalizes across object scales and task compositions without motion references, validated through multi-task experiments with 80-100% success on scaled objects and 62.1% on composed trajectories."
+date: 2026-03-01
+arxiv: "2602.21723"
+authors: "Yutang Lin, Jieming Cui, Yixuan Li, Baoxiong Jia, Yixin Zhu, Siyuan Huang"
+paperType: "empirical"
+tags: [humanoid-manipulation,distance-field-representations,reference-free-learning,geometric-generalization,skill-composition,vision-transfer]
+audio: "/audio/daily-paper/2602.21723-audio-overview.m4a"
+image: "/images/daily-paper/2602.21723-infographic.png"
+video: "/video/daily-paper/2602.21723-video-overview.mp4"
+draft: false
+---
+
+# LessMimic: Long-Horizon Humanoid Interaction with Unified Distance Field Representations
+
+### The "Room Tidying" Challenge
+Imagine a humanoid robot tasked with a common household chore: tidying a room. To get the job done, the robot must push a heavy flight case aside, pick up a box, carry it across the room, and finally sit down. While a human performs these contact-rich interactions with fluid ease, they represent a monumental hurdle for robotics. Each sub-task involves vastly different contact patterns, object geometries, and body configurations. 
+
+Historically, this has led to a **Representational Bottleneck**. Robotics researchers have traditionally been forced to choose between "reference-based" methods that rely on rigid motion scripts and "reference-free" methods that lack the structure to handle diverse tasks. This conflict prevents robots from understanding the fundamental logic of how their bodies relate to the objects around them.
+
+> **The Core Question:** How should a robot perceive and reason about its relation to an object during interaction to remain effective across different geometries, scales, and task horizons?
+
+---
+
+### The Problem with "Specialist" Robots
+Current humanoid control methods generally struggle to scale. Reference-based systems often become "geometric specialists" that memorize training instances; if the box size changes, the motion script fails. Conversely, reference-free systems often require exhaustive reward engineering for every single new task.
+
+As an analyst, I look at the technical "axes" of superiority. When we compare LESSMIMIC to existing frameworks like HDMI or PhysHSI, the gap in unified logic becomes clear:
+
+| Method Type | Task-Unified Observation Space | No Motion References at Inference | Autonomous Long-Horizon Composition |
+| :--- | :---: | :---: | :---: |
+| **HDMI / ResMimic** (Ref-based) | ✗ | ✗ | ✗ |
+| **CLONE** (Ref-based) | ✗ | ✗ | ✓ |
+| **PhysHSI** (Ref-free) | ✗ | ✓ | ✗ |
+| **LESSMIMIC** (Proposed) | **✓** | **✓** | **✓** |
+
+**Key Limitations identified in the research:**
+*   **Geometric Specialization:** Policies are often tightly coupled to the object properties in the reference data. When the object deviates from the training distribution, the behavior becomes brittle.
+*   **Tracking Failure:** In reference-based models, real-time adaptation is often penalized as a "tracking error" because the robot isn't following the pre-recorded script perfectly.
+
+---
+
+### Distance Fields: The New Language of Interaction
+To break the bottleneck, LESSMIMIC utilizes **Distance Fields (DF)**. Unlike voxels, which incur high memory costs, or implicit neural representations, which suffer from high inference latency, DFs provide dense geometric cues at a negligible query cost, making them ideal for high-frequency, real-time control.
+
+A DF assigns every point in space its distance to the nearest object surface. This continuous, differentiable field provides three vital cues:
+
+1.  **Surface Distances:** Measuring the proximity of specific robot links (hands, pelvis, knees) to the object surface.
+2.  **Gradients:** These provide the **analytical surface normal** at the projection of the robot’s position. This tells the robot exactly how the surface is oriented at the point of contact.
+3.  **Velocity Decompositions:** The system projects global velocity into a local coordinate system, breaking it into:
+    *   **Normal Velocity:** Movement along the surface normal, representing "interaction intensity" or approach.
+    *   **Tangential Velocity:** Movement within the tangent plane, representing "surface traversal" or sliding.
+
+By distinguishing between "approaching an object" and "sliding across it," the robot gains a sophisticated understanding of contact-rich coordination that remains valid even if the object is resized or moved.
+
+---
+
+### The Three-Stage Evolution of a Policy
+LESSMIMIC utilizes a rigorous three-stage pipeline to transform a robot from a simple mimic into a geometry-aware agent.
+
+#### Stage 1: Interaction Skill Pre-Training
+The process begins with **Behavior Cloning** (BC). A "teacher" policy generates physically valid data by tracking retargeted human motions in a simulator. This grounds the base policy in physical feasibility, teaching it the basic "how-to" of whole-body movement.
+
+#### Stage 2: Discriminative Post-Training (AIP)
+To achieve true generalization, the policy undergoes Reinforcement Learning fine-tuning guided by **Adversarial Interaction Priors (AIP)**. 
+*   **The Logic:** A discriminator evaluates whether an interaction is valid. Crucially, it evaluates the **interaction latent ($z_t$)** rather than the full robot state or joint angles.
+*   **The Result:** Because the system focuses on the latent geometric relationship, it decouples the interaction from a specific kinematic template. This allows the robot to synthesize entirely novel poses to accommodate unseen shapes and scales.
+
+#### Stage 3: Visual-Motor Distillation
+Finally, the robot must transition from Motion Capture (MoCap) environments to the real world. Using DAgger-style supervision, the "full" policy is distilled into a vision-only policy ($\pi_{vis}$). The robot learns to map egocentric depth features from on-board cameras to the interaction latents, enabling deployment in unstructured environments without external sensors.
+
+---
+
+### Proven Results: Generalization and Resilience
+The data proves that LESSMIMIC isn't just a marginal improvement; it's a leap in versatility across tasks like **Push, PickUp, Carry, and SitStand**.
+
+**By the Numbers:**
+*   **Generalization:** The same policy succeeds with object scales ranging from **0.4x to 1.6x**.
+*   **Versatility:** It handles objects as small as a **23 cm box** and as large as a **60 cm-diameter cylinder**.
+*   **Reliability:** It maintains an **80–100% success rate** on PickUp and SitStand tasks.
+*   **Long-Horizon Success:** The framework achieves a **62.1% success rate on 5-task instance trajectories** and remains viable for up to **40 sequentially composed tasks**.
+
+---
+
+### Failure Recovery: The "Dropped Box" Test
+Traditional humanoid policies are "blind" to the result of their actions—if they drop an object, they continue following the motion script as if they were still holding it. 
+
+LESSMIMIC’s **online failure recovery** changes the game. Because the policy is conditioned on continuous geometric feedback, it perceives when the distance between its hands and the object surface suddenly changes. If a box is dropped or moved by an external force, the policy automatically re-initiates the interaction from the new location. It doesn't just "play a recording"; it reacts to the environment.
+
+---
+
+### Conclusion: A Scalable Path for Embodied Intelligence
+LESSMIMIC moves us away from the era of rigid motion scripts and toward humanoids that think geometrically. By grounding interaction in local surface logic rather than absolute trajectories, we unlock robots that can truly navigate and tidy our unstructured world.
+
+> ### Key Takeaways
+> *   **Geometric Grounding:** By using Distance Fields, interaction logic is decoupled from specific motion patterns, allowing robots to handle novel shapes and sizes without retraining.
+> *   **Unified Logic:** A single policy manages heterogeneous skills (Push, Carry, Sit, Stand) and transitions between them implicitly.
+> *   **Real-World Readiness:** DAgger-style distillation allows these complex geometric policies to run on hardware using only egocentric depth cameras, moving beyond the lab and MoCap.
+
+*Read the [full paper on arXiv](https://arxiv.org/abs/2602.21723) · [PDF](https://arxiv.org/pdf/2602.21723.pdf)*
