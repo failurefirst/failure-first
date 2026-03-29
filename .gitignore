@@ -4,5 +4,8 @@
 # OS files
 .DS_Store
 
+# IDE
+.vscode/
+
 # Superpowers brainstorm artifacts
 .superpowers/
