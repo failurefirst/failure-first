@@ -1,59 +1,106 @@
 ---
 import ContentLayout from '../../layouts/ContentLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
+import StatGrid from '../../components/StatGrid.astro';
 import LinkButton from '../../components/LinkButton.astro';
 ---
 
 <ContentLayout
   title="About | Failure-First"
-  description="Failure-First is an AI safety research framework built on one principle: failure is the primary object of study, not an edge case."
+  description="Failure-First is an AI safety research lab studying how AI systems fail — across 227 models, 141,000 adversarial prompts, and 36 embodied attack families."
   breadcrumbs={[{ label: 'About' }]}
 >
   <HeroSection
-    title="About<br /><em>the project</em>"
+    title="About<br /><em>the lab</em>"
     subtitle="Failure is the primary object of study"
     animation="drift"
   />
 
   <section>
     <p>
-      Failure-First is an AI safety research framework. The core premise is simple and
-      uncomfortable: if you want to understand how AI systems behave, you study how they
-      fail — recursively, contextually, and under adversarial pressure — not how they
-      perform on clean benchmarks.
+      Failure-First is an AI safety research lab. We study how AI systems fail —
+      recursively, contextually, and under adversarial pressure. Not how they
+      perform on clean benchmarks. Not how they score on leaderboards. How they
+      break when someone tries to break them.
     </p>
-
     <p>
-      Most evaluation frameworks are built around success. Failure-First inverts that.
-      The failure modes are the signal. The edge cases are the curriculum.
+      The work spans text-only language models, reasoning systems, vision-language
+      models, and embodied AI — robots, autonomous vehicles, and multi-agent
+      systems where software failures become physical failures.
     </p>
+  </section>
+
+  <section>
+    <h2>By the Numbers</h2>
+    <StatGrid items={[
+      { value: "227", label: "Models Tested" },
+      { value: "141K", label: "Adversarial Prompts" },
+      { value: "133K", label: "Graded Results" },
+      { value: "337", label: "Attack Techniques" },
+      { value: "36", label: "VLA Attack Families" },
+      { value: "163", label: "Governance Lag Entries" },
+    ]} />
   </section>
 
   <section>
     <h2>What We Do</h2>
-    <p>
-      We build and run adversarial evaluation pipelines against AI systems —
-      particularly embodied and agentic systems operating in human-in-the-loop
-      environments. The work covers:
-    </p>
     <ul>
-      <li>Red-teaming and attack generation at scale</li>
-      <li>Benchmark design that privileges failure characterisation over aggregate scores</li>
-      <li>Multi-agent interaction failures and cascading degradation patterns</li>
-      <li>Instruction-hierarchy subversion: how systems respond to adversarial framing,
-          persona hijacking, constraint erosion, and future-year laundering</li>
-      <li>Statistical validation of attack success rates across model families</li>
+      <li><strong>Jailbreak archaeology</strong> — systematic testing of historical and novel attack
+          techniques across model generations, from 2022-era persona hijacking to 2026
+          reasoning-trace manipulation</li>
+      <li><strong>Embodied AI red-teaming</strong> — 36 attack families targeting vision-language-action
+          models, covering action-layer hijacking, safety instruction dilution, deceptive
+          alignment, and cross-embodiment transfer</li>
+      <li><strong>Defense effectiveness measurement</strong> — empirical testing of defense prompts,
+          structured safety instructions, and adversarial-aware systems, with FLIP
+          grading for reliable classification</li>
+      <li><strong>Format-lock research</strong> — discovering that format compliance constraints can
+          override content safety in reasoning models at rates exceeding 85%</li>
+      <li><strong>Governance gap quantification</strong> — the Governance Lag Index tracks the
+          temporal gap between documented AI failures and regulatory response</li>
+      <li><strong>Statistical rigour</strong> — Wilson score confidence intervals, chi-square
+          significance testing, Bonferroni correction, and inter-rater reliability
+          auditing across all published findings</li>
     </ul>
   </section>
 
   <section>
-    <h2>Where It Comes From</h2>
+    <h2>Key Findings</h2>
+    <div class="findings">
+      <div class="finding card">
+        <h3>Safety training matters more than scale</h3>
+        <p>Provider-level safety investment is the primary determinant of jailbreak
+           resistance. Anthropic models: 3.7% ASR. Nvidia models: 40.0% ASR.
+           Scale correlation: r=&minus;0.140 (not significant).</p>
+      </div>
+      <div class="finding card">
+        <h3>DETECTED_PROCEEDS</h3>
+        <p>34.2% of compliant responses contain explicit prior safety detection in
+           reasoning traces — the model recognises the request is harmful, then
+           complies anyway. Validated across 376 traces.</p>
+      </div>
+      <div class="finding card">
+        <h3>Format-lock bypasses frontier models</h3>
+        <p>Format compliance constraints override content safety: 85% ASR on
+           OpenAI o3-mini, 95% on DeepSeek R1 32B. Format-lock exploits capability
+           that scales with model quality.</p>
+      </div>
+      <div class="finding card">
+        <h3>No attack family is fully regulated</h3>
+        <p>Zero of 36 documented embodied AI attack families has complete regulatory
+           coverage in any jurisdiction. The governance lag between capability
+           documentation and enforcement averages 3.9 years.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Origin</h2>
     <p>
-      The methodology didn't emerge from an academic lab. It came from years of
-      coordinating direct actions for Greenpeace — planning operations against
-      well-resourced opponents who would rather you didn't succeed. That work
-      teaches you to enumerate failure modes before you move. It teaches you that
-      the optimistic plan is the dangerous plan.
+      The methodology came from years of coordinating direct actions for
+      Greenpeace — planning operations against well-resourced opponents who would
+      rather you didn't succeed. That work teaches you to enumerate failure modes
+      before you move. It teaches you that the optimistic plan is the dangerous plan.
     </p>
     <p>
       That thinking didn't leave when the work shifted to systems integration,
@@ -62,28 +109,12 @@ import LinkButton from '../../components/LinkButton.astro';
   </section>
 
   <section>
-    <h2>The Research</h2>
+    <h2>Publications</h2>
     <p>
-      The dataset currently includes over 18,000 adversarial prompts evaluated
-      across 125+ models. Key published findings include attack generation
-      pipeline validation, cross-model vulnerability inheritance patterns, and
-      the faithfulness gap — the observation that format-compliance pressures
-      can override content safety constraints in ways that aggregate benchmarks
-      don't capture.
-    </p>
-    <p>
-      The methodology is public. The operational details that would materially
-      increase capability for harm are not.
-    </p>
-  </section>
-
-  <section>
-    <h2>Why It's Public</h2>
-    <p>
-      The failure modes are real, underestimated, and worth taking seriously
-      before the incentives catch up. Publishing the framework is a values
-      statement, not a commercial calculation. If you're building systems that
-      interact with people, you should know how they fail.
+      A paper is in preparation for ACM CCS 2026 (abstract registration April 22).
+      The methodology, pattern-level findings, and the daily-paper research series
+      are published at <a href="/">failurefirst.org</a>. Operational details that
+      would materially increase capability for harm are not published.
     </p>
   </section>
 
@@ -94,6 +125,34 @@ import LinkButton from '../../components/LinkButton.astro';
       <LinkButton href="/about/philosophy/" text="Design Philosophy" />
       <LinkButton href="/about/disclosure/" text="Responsible Disclosure" />
       <LinkButton href="/manifesto/" text="Read the Manifesto" />
+      <LinkButton href="/framework/" text="Evaluation Framework" />
+      <LinkButton href="/daily-paper/" text="Daily Paper Series" />
     </div>
   </section>
 </ContentLayout>
+
+<style>
+  .findings {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .finding h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .finding p {
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (min-width: 640px) {
+    .findings {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
