@@ -152,7 +152,7 @@ This post summarises findings documented across 111 research reports, 65 prior b
 - [The Embodied AI Threat Triangle](/blog/the-embodied-ai-threat-triangle/) -- IDDL, CDC, and DRIP as an integrated framework
 - [The Unintentional Adversary](/blog/the-unintentional-adversary/) -- why normal users are the primary threat
 - [The U-Curve of AI Safety](/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow/) -- the narrow window where safety training works
-- [The Compliance Paradox](/blog/the-compliance-paradox-ai-says-no-does-it-anyway/) -- when "no" means "yes"
+- [The Compliance Paradox](/blog/compliance-paradox-ai-says-no-does-it-anyway/) -- when "no" means "yes"
 - [Why AI Safety Rules Always Arrive Too Late](/blog/why-ai-safety-rules-always-arrive-too-late/) -- the governance lag index
 
 The adversarial scenario dataset, evaluation tooling, and governance lag dataset are available at [github.com/adrianwedd/failure-first](https://github.com/adrianwedd/failure-first).
