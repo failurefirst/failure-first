@@ -14,6 +14,19 @@ export async function getStaticPaths() {
 
 const { paper } = Astro.props;
 const { Content } = await render(paper);
+
+// Find related blog posts by matching arxiv ID or similar title keywords
+const blogPosts = await getCollection('blog');
+const relatedBlog = paper.data.arxiv
+  ? blogPosts.find((b) => {
+      const content = b.body || '';
+      const blogArxiv = (b.data as any).arxiv || (b.data as any).arxiv_id || '';
+      return (
+        (!b.data.draft) &&
+        (blogArxiv === paper.data.arxiv || content.includes(paper.data.arxiv!))
+      );
+    })
+  : null;
 ---
 
 <DailyPaperLayout
@@ -28,4 +41,12 @@ const { Content } = await render(paper);
   image={paper.data.image}
 >
   <Content />
+  {relatedBlog && (
+    <aside class="related-blog-cta">
+      <p>
+        <strong>Deep dive:</strong> Read our full analysis in
+        <a href={`/blog/${relatedBlog.id}/`}>{relatedBlog.data.title}</a>
+      </p>
+    </aside>
+  )}
 </DailyPaperLayout>

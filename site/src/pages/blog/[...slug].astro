@@ -14,6 +14,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// Find related daily-paper post by matching arxiv ID
+const postData = post.data as any;
+const blogArxiv = postData.arxiv || postData.arxiv_id || '';
+let relatedPaper = null;
+if (blogArxiv) {
+  const papers = await getCollection('dailyPaper');
+  relatedPaper = papers.find((p) => !p.data.draft && p.data.arxiv === blogArxiv);
+}
 ---
 
 <BlogPostLayout
@@ -25,5 +34,14 @@ const { Content } = await render(post);
   audio={post.data.audio}
   video={post.data.video}
 >
+  {relatedPaper && (
+    <aside class="related-paper-cta">
+      <p>
+        <strong>Paper overview:</strong> See the Daily Paper entry for
+        <a href={`/daily-paper/${relatedPaper.id}/`}>arXiv:{blogArxiv}</a>
+        — includes audio overview and infographic.
+      </p>
+    </aside>
+  )}
   <Content />
 </BlogPostLayout>
