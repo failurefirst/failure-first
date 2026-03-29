@@ -31,17 +31,19 @@ const dailyPaper = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/daily-paper' }),
   schema: z.object({
     title: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     date: z.coerce.date(),
-    arxiv: z.string(),
-    authors: z.string(),
-    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position', 'application']),
+    arxiv: z.string().optional(),
+    arxiv_id: z.string().optional(),
+    authors: z.union([z.string(), z.array(z.string())]).optional(),
+    author: z.string().optional(),
+    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position', 'application', 'original-research']).optional(),
     tags: z.array(z.string()).default([]),
     audio: z.string().optional(),
     video: z.string().optional(),
     image: z.string().optional(),
     draft: z.boolean().default(false),
-  }),
+  }).passthrough(),
 });
 
 const reports = defineCollection({

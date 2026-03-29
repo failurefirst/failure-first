@@ -1,0 +1,89 @@
+---
+interface Props {
+  date: string;
+  severity?: 'correction' | 'retraction' | 'update';
+}
+
+const { date, severity = 'correction' } = Astro.props;
+
+const labels: Record<string, string> = {
+  correction: 'Correction Notice',
+  retraction: 'Retraction Notice',
+  update: 'Update Notice',
+};
+---
+
+<aside class={`correction-notice correction-notice--${severity}`} role="alert" aria-label={labels[severity]}>
+  <div class="correction-notice__header">
+    <svg class="correction-notice__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M10 2L18 17H2L10 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M10 8V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="10" cy="14" r="0.75" fill="currentColor"/>
+    </svg>
+    <strong>{labels[severity]} ({date})</strong>
+  </div>
+  <div class="correction-notice__body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .correction-notice {
+    border-left: 4px solid var(--failure-warning, #e6a817);
+    background: color-mix(in srgb, var(--failure-warning, #e6a817) 8%, transparent);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .correction-notice--retraction {
+    border-left-color: var(--failure-critical, #d32f2f);
+    background: color-mix(in srgb, var(--failure-critical, #d32f2f) 6%, transparent);
+  }
+
+  .correction-notice__header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .correction-notice__icon {
+    color: var(--failure-warning, #e6a817);
+    flex-shrink: 0;
+  }
+
+  .correction-notice--retraction .correction-notice__icon {
+    color: var(--failure-critical, #d32f2f);
+  }
+
+  .correction-notice__body :global(p) {
+    margin: 0.5rem 0;
+  }
+
+  .correction-notice__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .correction-notice__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .correction-notice__body :global(a) {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .correction-notice__body :global(ul) {
+    margin: 0.5rem 0;
+    padding-left: 1.25rem;
+  }
+
+  .correction-notice__body :global(li) {
+    margin-bottom: 0.25rem;
+  }
+</style>
