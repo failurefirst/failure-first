@@ -22,7 +22,14 @@ This is a **research methodology for studying AI safety through systematic failu
 
 At its center is a principle: **failure is signal, not noise**.
 
-The framework exists to support *rigorous failure analysis, defensive research, and safety boundary mapping*.
+The framework exists to support *rigorous failure analysis, defensive research, and safety boundary mapping* across the full landscape of adversarial AI evaluation:
+
+- **Jailbreak archaeology**: systematic study of how adversarial techniques evolve across eras, from early DAN-style prompts through crescendo attacks, format-lock exploitation, and reasoning-chain manipulation
+- **VLA safety evaluation**: 42 attack families targeting vision-language-action models, covering affordance manipulation, kinematic injection, safety instruction dilution, and dual-layer attacks
+- **Multi-turn escalation**: stateful attack sequences that exploit context accumulation in reasoning and tool-using models
+- **Format-lock attacks**: structured output compliance (JSON, YAML, code) as an attack vector against safety training
+- **Defense effectiveness measurement**: quantifying how safety mechanisms perform under adversarial pressure, including positional bias, iatrogenic effects, and cross-model vulnerability inheritance
+- **Classifier reliability**: documenting the gap between heuristic and LLM-graded attack success rates
 
 This is not a demonstration.
 It is not an attack platform.
@@ -59,7 +66,7 @@ The tooling must not pretend otherwise.
 These are not preferences.
 They are constraints.
 
-If an implementation violates any of the following, it is wrong—even if it "works".
+If an implementation violates any of the following, it is wrong -- even if it "works".
 
 ### 3.1 Pattern-Level Only, Never Operational
 
@@ -109,6 +116,14 @@ If an implementation violates any of the following, it is wrong—even if it "wo
 - No security through obscurity
 - If the process cannot withstand scrutiny, it should not be published
 
+### 3.7 Statistical Rigor Over Convenience
+
+- All ASR claims must specify grading methodology (LLM-only, heuristic-only, or coalesced)
+- Confidence intervals are required for sample-based estimates
+- Multiple-comparison corrections are mandatory for pairwise model comparisons
+- Classifier reliability must be documented with inter-rater agreement metrics
+- If a finding cannot survive peer review scrutiny, it should not be published
+
 ---
 
 ## 4. Architectural Decisions (Final)
@@ -121,8 +136,10 @@ They are no longer exploratory.
 - **Validation**: JSON Schema + custom invariant checks
 - **Safety gates**: Heuristic linters + manual review
 - **Benchmark runners**: Model-agnostic (CLI templates + HTTP API adapters)
-- **Scoring**: Refusal quality, recovery mechanisms, attack success rates
+- **Scoring**: Three-tier ASR (strict, broad, functionally dangerous) with Wilson CIs
+- **Classification**: LLM-graded (FLIP protocol) with documented grader reliability
 - **Version control**: Git, with CI enforcement of validation/linting
+- **Database**: SQLite corpus unifying prompts, techniques, and evaluation results
 
 If a future change requires revisiting these decisions, the charter must be updated explicitly.
 
@@ -152,7 +169,7 @@ If adversarial content can be weaponized directly, it has violated this charter.
 
 This document defines intent and limits.
 
-Implementation details—including tool design, algorithms, dataset schema extensions, benchmark metrics, and acceptance criteria—are defined in issues, documentation, and code.
+Implementation details -- including tool design, algorithms, dataset schema extensions, benchmark metrics, and acceptance criteria -- are defined in issues, documentation, and code.
 
 The relationship is explicit:
 
@@ -210,7 +227,7 @@ When using AI systems to generate adversarial scenarios:
 
 ## 9. Research Ethics Boundaries
 
-This project operates within established AI safety research norms:
+This project operates within established AI safety research norms. A full research ethics charter is maintained in the private repository.
 
 ### Acceptable Research Activities
 
@@ -219,6 +236,7 @@ This project operates within established AI safety research norms:
 - Testing robustness of safety mechanisms
 - Improving alignment under adversarial pressure
 - Publishing defensive research findings
+- Coordinated vulnerability disclosure to model providers
 
 ### Unacceptable Activities
 
@@ -230,10 +248,10 @@ This project operates within established AI safety research norms:
 
 ### Disclosure Standards
 
-- Vulnerabilities discovered through this research should be disclosed responsibly
-- Real-world safety issues should be reported to affected parties before public disclosure
-- Research findings should distinguish between controlled evaluation and real-world risk
-- Limitations of evaluation harnesses must be stated explicitly
+- Vulnerabilities discovered through this research are disclosed responsibly
+- Real-world safety issues are reported to affected parties before public disclosure
+- Research findings distinguish between controlled evaluation and real-world risk
+- Limitations of evaluation harnesses are stated explicitly
 
 ---
 
@@ -249,8 +267,8 @@ This charter may evolve as the project grows, but changes must be:
 Minor clarifications (typo fixes, example additions) do not require versioning.
 Substantive changes (adding/removing principles, changing constraints) require charter version increment.
 
-**Current version**: 1.0
-**Last updated**: 2025-01-11
+**Current version**: 2.0
+**Last updated**: 2026-03-29
 
 ---
 

@@ -3,14 +3,17 @@
   "note": "Full traces available under NDA. Contact via GitHub issue.",
   "generated_from": "failure-first-embodied-ai (private)",
   "totals": {
-    "files": 632,
+    "files": 860,
     "invariant_errors": 0,
     "json_parse_errors": 0,
-    "rows": 51201,
+    "rows": 60847,
     "schema_errors": 0,
-    "failure_classes": 661,
-    "domains": 19,
-    "models_evaluated": 51
+    "prompts": 141561,
+    "results": 133646,
+    "techniques": 337,
+    "harm_classes": 124,
+    "domains": 28,
+    "models_evaluated": 227
   },
   "packs_by_kind": {
     "adversarial_poetry": 3,
