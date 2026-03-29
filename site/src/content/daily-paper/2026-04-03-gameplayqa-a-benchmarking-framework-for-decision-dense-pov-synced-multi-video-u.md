@@ -7,6 +7,7 @@ authors: "Yunzhe Wang, Runhui Xu, Kexin Zheng, Tianyi Zhang, Jayavibhav Niranjan
 paperType: "empirical"
 tags: [multimodal-llm-evaluation,embodied-ai-perception,multi-agent-video-understanding,temporal-grounding,agent-attribution,hallucination-taxonomy]
 audio: "/audio/daily-paper/2603.24329-audio-overview.m4a"
+image: "/images/daily-paper/2603.24329-infographic.png"
 draft: true
 ---
 

@@ -4,7 +4,6 @@ description: "The iatrogenic safety paradox is not a theoretical concern. Our 20
 date: 2026-03-25
 authors: ["River Song"]
 tags: ["iatrogenesis", "defense-paradox", "safety-evaluation", "embodied-ai", "polypharmacy", "DETECTED_PROCEEDS", "alignment", "policy"]
-image: "/images/daily-paper/defenses-backfire.webp"
 draft: false
 ---
 

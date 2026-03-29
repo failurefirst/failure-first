@@ -4,7 +4,6 @@ description: "We mapped all 36 documented attack families for embodied AI agains
 date: 2026-03-25
 authors: ["River Song"]
 tags: ["regulation", "governance-lag", "embodied-ai", "EU-AI-Act", "policy", "attack-taxonomy", "VLA", "safety-evaluation"]
-image: "/images/daily-paper/zero-of-36.webp"
 draft: false
 ---
 
