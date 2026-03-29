@@ -7,6 +7,7 @@ authors: "Geeyang Tay, Wentao Ma, Jaewon Lee, Yuzhi Tang, Daniel Lee, Weisu Yin,
 paperType: "empirical"
 tags: [asr-robustness,multilingual-evaluation,real-world-degradation,hallucination-safety,diagnostic-benchmarking,voice-agent-reliability]
 audio: "/audio/daily-paper/2603.25727-audio-overview.m4a"
+image: "/images/daily-paper/2603.25727-infographic.png"
 draft: false
 ---
 
