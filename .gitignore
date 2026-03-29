@@ -1,2 +1,8 @@
 # Afterwords TTS voice override
 .afterwords
+
+# OS files
+.DS_Store
+
+# Superpowers brainstorm artifacts
+.superpowers/
