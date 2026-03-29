@@ -7,6 +7,7 @@ authors: "Hanbyel Cho, Sang-Hun Kim, Jeonguk Kang, Donghan Koo"
 paperType: "empirical"
 tags: [text-driven-motion-generation,physics-aware-trajectory-optimization,safety-gating-mechanisms,humanoid-robot-control,out-of-distribution-detection,diffusion-model-acceleration]
 audio: "/audio/daily-paper/2603.23983-audio-overview.m4a"
+image: "/images/daily-paper/2603.23983-infographic.png"
 draft: false
 ---
 

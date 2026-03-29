@@ -7,6 +7,7 @@ authors: "Young-Chae Son, Dae-Kwan Ko, Yoon-Ji Choi, Soo-Chul Lim"
 paperType: "application"
 tags: [thermal-sensing-robotics,vision-language-action-models,multimodal-robot-perception,human-robot-collaboration,embodied-ai-safety]
 audio: "/audio/daily-paper/2603.25044-audio-overview.m4a"
+image: "/images/daily-paper/2603.25044-infographic.png"
 draft: false
 ---
 

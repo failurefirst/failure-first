@@ -4,7 +4,6 @@ description: "Matched-prompt analysis across 207 models reveals that some free-t
 date: 2026-03-25
 authors: ["River Song"]
 tags: ["free-tier", "safety-degradation", "access-equity", "AI-safety", "OpenRouter", "quantization", "deployment", "policy"]
-image: "/images/daily-paper/safety-paid-feature.webp"
 draft: false
 ---
 
