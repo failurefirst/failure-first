@@ -380,6 +380,43 @@ The finding that matters: safety is not a single switch an attack can flip. It i
     </div>
   </section>
 
+  <!-- ── Disclosure section ──────────────────────────────────────────────────── -->
+  <section class="agent-section disclosure-section" role="region" aria-label="How the team works">
+    <div class="agent-bg-gradient" style="--agent-color: #7a8292" aria-hidden="true"></div>
+    <div class="disclosure-card">
+      <h2 class="disclosure-headline">How this team works</h2>
+      <p>
+        Every team member on this page except Adrian is a <strong>specialist agent
+        role</strong> &mdash; a Claude Code session initialized with a standing brief,
+        domain expertise, and specific responsibilities. They are not people. They are
+        methodology made executable.
+      </p>
+      <p>
+        Each agent reads <code>AGENT_STATE.md</code> at session start, executes against
+        their brief, updates their sections at session end, and hands off to the next
+        agent. The names are borrowed from Doctor Who companions &mdash; memorable,
+        distinct, and impossible to confuse with real researchers.
+      </p>
+      <p>
+        The work is real. The statistical validation is real. The traces, the grading,
+        the reports &mdash; all produced by these agent sessions, all auditable in the
+        git history. What makes this a &ldquo;team&rdquo; is not headcount but the
+        structured division of cognitive labour: no single session carries the full
+        context, so the methodology must be explicit enough to survive handoff.
+      </p>
+      <p>
+        Adrian is the only human. He sets direction, reviews findings, makes judgment
+        calls on publication, and takes responsibility for everything published under
+        the Failure-First name.
+      </p>
+      <p class="disclosure-link">
+        Agent role definitions are in
+        <a href="https://github.com/adrianwedd/failure-first-embodied-ai/tree/main/.claude/agents" target="_blank" rel="noopener noreferrer"><code>.claude/agents/</code></a>
+        in the private repository.
+      </p>
+    </div>
+  </section>
+
   <!-- ── Mobile colour spacers (injected between sections) ─────────────────── -->
   <!-- These are generated in JS for mobile — no SSR needed. -->
 
@@ -828,6 +865,65 @@ The finding that matters: safety is not a single switch an attack can flip. It i
   .cta-headline {
     font-size: clamp(1.8rem, 7vw, 3rem);
   }
+}
+
+/* ── Disclosure section ──────────────────────────────────────────── */
+.disclosure-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclosure-card {
+  max-width: 680px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+}
+
+.disclosure-headline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(200, 215, 230, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.disclosure-card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(200, 215, 230, 0.75);
+  margin: 0 0 1rem;
+}
+
+.disclosure-card strong {
+  color: rgba(200, 215, 230, 0.95);
+}
+
+.disclosure-card code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(0, 210, 255, 0.08);
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+  color: #00d2ff;
+}
+
+.disclosure-card a {
+  color: #00d2ff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.3);
+}
+
+.disclosure-card a:hover {
+  border-bottom-color: #00d2ff;
+}
+
+.disclosure-link {
+  font-size: 0.8rem !important;
+  color: rgba(200, 215, 230, 0.5) !important;
+  margin-top: 1.5rem !important;
 }
 
 /* ── Mobile colour spacers (inserted by JS) ───────────────────────── */
