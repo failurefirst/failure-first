@@ -73,6 +73,26 @@ const {
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906"
          crossorigin="anonymous"></script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
+         data-cf-beacon='{"token": "REPLACE_WITH_CF_WEB_ANALYTICS_TOKEN"}'></script>
+
+    <!-- Sentry Error Tracking -->
+    <script is:inline>
+      (function() {
+        var dsn = "REPLACE_WITH_SENTRY_DSN";
+        if (dsn.indexOf("REPLACE") !== -1) return;
+        var s = document.createElement("script");
+        s.src = "https://js.sentry-cdn.com/" + dsn.split("@")[0].split("//")[1] + ".min.js";
+        s.crossOrigin = "anonymous";
+        s.setAttribute("data-lazy", "no");
+        document.head.appendChild(s);
+        s.onload = function() {
+          Sentry.init({ dsn: dsn, tracesSampleRate: 0.1 });
+        };
+      })();
+    </script>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to content</a>
