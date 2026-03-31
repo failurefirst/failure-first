@@ -6,6 +6,7 @@ arxiv: "2602.21531"
 authors: "Yue Yang, Shuo Cheng, Yu Fang, Homanga Bharadhwaj, Mingyu Ding, Gedas Bertasius, Daniel Szafir"
 paperType: "empirical"
 tags: [long-horizon-manipulation,vision-language-action-models,modular-robotics,object-centric-policies,failure-recovery,zero-shot-generalization]
+image: "https://cdn.failurefirst.org/images/daily-paper/2602.21531-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21531-audio-overview.m4a"
 video: "https://cdn.failurefirst.org/video/daily-paper/2602.21531-video-overview.mp4"
 draft: false
