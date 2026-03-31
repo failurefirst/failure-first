@@ -89,4 +89,19 @@ const policyDocs = defineCollection({
   }),
 });
 
-export const collections = { blog, docs, dailyPaper, reports, legal, policyDocs };
+const papers = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/papers' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    authors: z.string(),
+    venue: z.string(),
+    status: z.enum(['draft', 'submitted', 'preprint', 'published']),
+    pdfUrl: z.string(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs, dailyPaper, reports, legal, policyDocs, papers };

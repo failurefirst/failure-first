@@ -1,0 +1,244 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import { getCollection } from 'astro:content';
+
+const papers = await getCollection('papers');
+const publishedPapers = papers
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => {
+    // Sort by status priority: submitted > preprint > published > draft
+    const statusOrder: Record<string, number> = { submitted: 0, preprint: 1, published: 2, draft: 3 };
+    const statusDiff = (statusOrder[a.data.status] ?? 9) - (statusOrder[b.data.status] ?? 9);
+    if (statusDiff !== 0) return statusDiff;
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
+
+const statusLabels: Record<string, string> = {
+  draft: 'Draft',
+  submitted: 'Submitted',
+  preprint: 'Preprint',
+  published: 'Published',
+};
+
+const statusClass: Record<string, string> = {
+  draft: 'in-progress',
+  submitted: 'submitted',
+  preprint: 'preprint',
+  published: 'published',
+};
+---
+
+<ContentLayout
+  title="Papers & Submissions | Failure-First"
+  description="Academic papers and research submissions from the Failure-First adversarial AI safety research program."
+  breadcrumbs={[{ label: "Papers" }]}
+>
+  <HeroSection title="<em>Papers</em> & Submissions" subtitle="Academic research from the Failure-First program" animation="signal" accent="lavender" />
+
+  <section>
+    <p>
+      The Failure-First research program produces peer-reviewed papers, preprints, and policy submissions
+      documenting how embodied AI systems fail under adversarial pressure. Click any paper title to read
+      the full text online.
+    </p>
+  </section>
+
+  <section class="papers-list">
+    {publishedPapers.map((paper) => (
+      <article class="paper-card">
+        <div class={`paper-status ${statusClass[paper.data.status]}`}>
+          {statusLabels[paper.data.status]}
+        </div>
+        <h2>
+          <a href={`/papers/${paper.id}/`} class="paper-title-link">
+            {paper.data.title}
+          </a>
+        </h2>
+        <p class="paper-venue"><strong>Venue:</strong> {paper.data.venue}</p>
+        <p class="paper-abstract">{paper.data.description}</p>
+        <div class="paper-downloads">
+          <a href={`/papers/${paper.id}/`} class="read-link">Read Online</a>
+          <a href={paper.data.pdfUrl} class="download-link">Download PDF</a>
+        </div>
+        {paper.data.tags.length > 0 && (
+          <p class="paper-tags">
+            {paper.data.tags.map((tag: string) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </p>
+        )}
+      </article>
+    ))}
+  </section>
+
+  <section>
+    <h2>Citation</h2>
+    <p>If you use our research, data, or methodology, please cite:</p>
+    <pre><code>@article&#123;wedd2026failurefirst,
+  title=&#123;Failure-First Evaluation of Embodied AI Safety:
+         Adversarial Benchmarking Across 227 Models&#125;,
+  author=&#123;Wedd, Adrian&#125;,
+  year=&#123;2026&#125;,
+  note=&#123;Available at https://failurefirst.org&#125;
+&#125;</code></pre>
+    <p>See our <a href="/cite/">citation guide</a> for venue-specific formats.</p>
+  </section>
+
+</ContentLayout>
+
+<style>
+  .papers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .paper-card {
+    position: relative;
+    border: 1px solid var(--border, #333);
+    border-radius: 12px;
+    padding: 2rem;
+    background: var(--surface, #111);
+    transition: border-color 0.2s;
+  }
+
+  .paper-card:hover {
+    border-color: var(--accent, #8b5cf6);
+  }
+
+  .paper-card h2 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 1rem;
+    line-height: 1.4;
+  }
+
+  .paper-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .paper-title-link:hover {
+    color: var(--accent, #8b5cf6);
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  .paper-venue {
+    font-size: 0.95rem;
+    margin: 0.4rem 0;
+    color: var(--text-muted, #999);
+  }
+
+  .paper-abstract {
+    margin: 1rem 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .paper-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .paper-status.submitted {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .paper-status.in-progress {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+  }
+
+  .paper-status.preprint {
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .paper-status.published {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .paper-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--text-muted, #aaa);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .paper-downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .read-link {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(139, 92, 246, 0.25);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.5);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .read-link:hover {
+    background: rgba(139, 92, 246, 0.4);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.5);
+  }
+
+  .download-link {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .download-link:hover {
+    background: rgba(139, 92, 246, 0.25);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  pre {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border, #333);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+  }
+</style>

@@ -1,0 +1,422 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  authors: string;
+  venue: string;
+  status: 'draft' | 'submitted' | 'preprint' | 'published';
+  pdfUrl: string;
+  tags: string[];
+}
+
+const { title, description, date, authors, venue, status, pdfUrl, tags } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const statusLabels: Record<string, string> = {
+  draft: 'Draft',
+  submitted: 'Submitted',
+  preprint: 'Preprint',
+  published: 'Published',
+};
+---
+
+<BaseLayout title={`${title} | Papers | Failure-First`} description={description} type="article" publishedDate={date.toISOString().split('T')[0]}>
+  <Breadcrumbs items={[
+    { label: "Papers", href: "/papers/" },
+    { label: title },
+  ]} />
+
+  <article class="paper-article">
+    <header class="paper-header">
+      <div class="paper-meta-top">
+        <span class={`status-badge ${status}`}>{statusLabels[status]}</span>
+        <time class="paper-date" datetime={date.toISOString()}>{formattedDate}</time>
+      </div>
+      <h1>{title}</h1>
+      <p class="paper-authors">{authors}</p>
+      <p class="paper-venue">{venue}</p>
+      <p class="paper-description">{description}</p>
+
+      <div class="paper-actions">
+        <a href={pdfUrl} class="pdf-button" download>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8 1v10M8 11L4.5 7.5M8 11l3.5-3.5M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+
+      {tags.length > 0 && (
+        <div class="paper-tags">
+          {tags.map((tag) => (
+            <span class="tag">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="paper-body">
+      <div class="paper-content">
+        <slot />
+      </div>
+    </div>
+
+    <footer class="paper-footer">
+      <div class="citation-block">
+        <h2>Cite this paper</h2>
+        <pre><code>@article&#123;wedd2026failurefirst,
+  title=&#123;{title}&#125;,
+  author=&#123;{authors}&#125;,
+  year=&#123;{date.getFullYear()}&#125;,
+  note=&#123;Available at https://failurefirst.org&#125;
+&#125;</code></pre>
+      </div>
+      <div class="paper-back-link">
+        <a href="/papers/">&larr; All Papers</a>
+      </div>
+    </footer>
+  </article>
+</BaseLayout>
+
+<style>
+  .paper-article {
+    max-width: 100%;
+  }
+
+  .paper-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .paper-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .status-badge.submitted {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .status-badge.preprint {
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+  }
+
+  .status-badge.published {
+    background: rgba(59, 130, 246, 0.15);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .status-badge.draft {
+    background: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+  }
+
+  .paper-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .paper-header h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .paper-authors {
+    font-size: 1.0625rem;
+    color: var(--fg-dim);
+    margin: 0 0 0.25rem;
+    font-weight: 500;
+  }
+
+  .paper-venue {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    margin: 0 0 1rem;
+  }
+
+  .paper-description {
+    font-size: 1rem;
+    color: var(--fg-dim);
+    line-height: 1.6;
+    margin: 0 0 1.25rem;
+  }
+
+  .paper-actions {
+    margin-bottom: 1.25rem;
+  }
+
+  .pdf-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .pdf-button:hover {
+    background: rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.6);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.6);
+  }
+
+  .paper-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.1875rem 0.5rem;
+    border: 1px solid var(--border);
+    color: var(--fg-muted);
+    border-radius: 3px;
+  }
+
+  /* Paper body — academic reading layout */
+  .paper-body {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .paper-content {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.8;
+    font-size: 1.0125rem;
+  }
+
+  .paper-content :global(h1) {
+    font-size: 1.75rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .paper-content :global(h2) {
+    font-size: 1.375rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .paper-content :global(h3) {
+    font-size: 1.125rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .paper-content :global(h4) {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .paper-content :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .paper-content :global(ul),
+  .paper-content :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .paper-content :global(li) {
+    margin-bottom: 0.375rem;
+    color: var(--fg-dim);
+  }
+
+  .paper-content :global(strong) {
+    color: var(--fg);
+  }
+
+  .paper-content :global(em) {
+    font-style: italic;
+  }
+
+  .paper-content :global(a) {
+    color: var(--accent-primary);
+  }
+
+  .paper-content :global(blockquote) {
+    border-left: 3px solid var(--border-emphasis);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: var(--fg-dim);
+    font-style: italic;
+  }
+
+  .paper-content :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.875em;
+    background: var(--bg-elevated);
+    padding: 0.125rem 0.375rem;
+    border-radius: 3px;
+  }
+
+  .paper-content :global(pre) {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .paper-content :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .paper-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .paper-content :global(th),
+  .paper-content :global(td) {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .paper-content :global(th) {
+    background: var(--bg-elevated);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .paper-content :global(figure) {
+    margin: 2rem 0;
+  }
+
+  .paper-content :global(figcaption) {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  .paper-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+  }
+
+  /* Footnotes */
+  .paper-content :global(.footnotes) {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.875rem;
+    color: var(--fg-dim);
+  }
+
+  .paper-content :global(sup) {
+    font-size: 0.75em;
+  }
+
+  /* Paper footer */
+  .paper-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .citation-block h2 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .citation-block pre {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .paper-back-link {
+    margin-top: 2rem;
+  }
+
+  .paper-back-link a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .paper-back-link a:hover {
+    color: var(--accent-primary);
+  }
+
+  @media (max-width: 600px) {
+    .paper-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .paper-body {
+      flex-direction: column;
+    }
+  }
+</style>
