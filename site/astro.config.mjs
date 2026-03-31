@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import sentry from '@sentry/astro';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,6 +12,14 @@ export default defineConfig({
     assets: 'assets'
   },
   integrations: [
+    sentry({
+      dsn: 'https://dae8d5e1210ff8aeb35006a7d443415f@o4510818923053056.ingest.de.sentry.io/4511138848505936',
+      sourceMapsUploadOptions: {
+        project: 'failurefirst',
+        org: 'adrian-wedd',
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+      },
+    }),
     sitemap({
       filter: (page) => !page.includes('/moltbook/') || page.includes('/research/moltbook/'),
       changefreq: 'weekly',
