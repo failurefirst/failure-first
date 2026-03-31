@@ -39,6 +39,10 @@ import HeroSection from '../components/HeroSection.astro';
         evaluation&mdash;limits compound protection. An Inverse Detectability-Danger Law (rho=&minus;0.822)
         implies text-layer evaluation cannot close the embodied safety gap.
       </p>
+      <div class="paper-downloads">
+        <a href="/papers/failure-first-embodied-ai-ccs2026.pdf" class="download-link">Download PDF (Main)</a>
+        <a href="/papers/failure-first-supplementary-ccs2026.pdf" class="download-link">Download PDF (Supplementary)</a>
+      </div>
       <p class="paper-tags">
         <span class="tag">ML Security</span>
         <span class="tag">Adversarial Evaluation</span>
@@ -63,6 +67,9 @@ import HeroSection from '../components/HeroSection.astro';
         context-dependent compliance across multiple attack families.
       </p>
       <p class="paper-status-detail"><strong>Status:</strong> Unified draft v1.0 complete (7,529 words). LaTeX version compiled. Statistical validation complete.</p>
+      <div class="paper-downloads">
+        <a href="/papers/iddl-aies2026.pdf" class="download-link">Download PDF</a>
+      </div>
       <p class="paper-tags">
         <span class="tag">AI Ethics</span>
         <span class="tag">Decision Injection</span>
@@ -88,6 +95,9 @@ import HeroSection from '../components/HeroSection.astro';
         control physical actuators.
       </p>
       <p class="paper-status-detail"><strong>Status:</strong> Draft v1.1 complete (7,900 words). LaTeX-ready. All sections done.</p>
+      <div class="paper-downloads">
+        <a href="/papers/failure-first-benchmark-neurips2026.pdf" class="download-link">Download PDF</a>
+      </div>
       <p class="paper-tags">
         <span class="tag">Benchmarks</span>
         <span class="tag">Datasets</span>
@@ -114,6 +124,9 @@ import HeroSection from '../components/HeroSection.astro';
         Level 1 mechanisms.
       </p>
       <p class="paper-status-detail"><strong>Status:</strong> Preprint v2 complete. Targeting arXiv submission.</p>
+      <div class="paper-downloads">
+        <a href="/papers/epistemic-crisis-ai-safety-eval.pdf" class="download-link">Download PDF</a>
+      </div>
       <p class="paper-tags">
         <span class="tag">Iatrogenesis</span>
         <span class="tag">AI Safety</span>
@@ -141,6 +154,87 @@ import HeroSection from '../components/HeroSection.astro';
         <span class="tag">Adversarial Evaluation</span>
         <span class="tag">Embodied AI</span>
         <span class="tag">AI Safety</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status preprint">Preprint</div>
+      <h2>When AI Models Know They Shouldn't But Do Anyway: The DETECTED_PROCEEDS Phenomenon</h2>
+      <p class="paper-venue"><strong>Venue:</strong> arXiv preprint</p>
+      <p class="paper-abstract">
+        Documents the DETECTED_PROCEEDS phenomenon: 38.6% of compliant reasoning model traces
+        show explicit safety concern detection in the thinking chain followed by harmful output.
+        Validated across 24 models and 2,924 thinking traces. Override rate 41.6%, provider range
+        0.4%-92.9%. Key implication: detection-based safety evaluations give passing grades to models
+        that proceed despite detection.
+      </p>
+      <div class="paper-downloads">
+        <a href="/papers/detected-proceeds.pdf" class="download-link">Download PDF</a>
+      </div>
+      <p class="paper-tags">
+        <span class="tag">Reasoning Models</span>
+        <span class="tag">Safety Bypass</span>
+        <span class="tag">Chain-of-Thought</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status preprint">Preprint</div>
+      <h2>Safety is Not a Single Direction: Polyhedral Geometry of Refusal in Language Models</h2>
+      <p class="paper-venue"><strong>Venue:</strong> arXiv preprint</p>
+      <p class="paper-abstract">
+        The first formal characterisation of refusal geometry as polyhedral rather than linear.
+        Safety behaviour in abliterated models partially re-emerges at scale even after explicit
+        safety removal (rho=-0.949, p=0.051). Narrow therapeutic window (TI-S) for safety
+        interventions. Concept cone dimensionality 3.96 (not the assumed 1D linear direction).
+      </p>
+      <div class="paper-downloads">
+        <a href="/papers/polyhedral-safety-geometry.pdf" class="download-link">Download PDF</a>
+      </div>
+      <p class="paper-tags">
+        <span class="tag">Mechanistic Interpretability</span>
+        <span class="tag">Refusal Geometry</span>
+        <span class="tag">Abliteration</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status preprint">Preprint</div>
+      <h2>Your Safety Benchmark Is Lying to You: Contamination and Grader Bias in AI Safety Evaluation</h2>
+      <p class="paper-venue"><strong>Venue:</strong> arXiv preprint</p>
+      <p class="paper-abstract">
+        Exposes systematic benchmark contamination in AI safety evaluation. Heuristic classifiers
+        over-report attack success rates by up to 79.9%. Single-grader ASR on ambiguous traces can
+        swing 0-80% depending on grader choice (kappa=0.204 on ambiguous cases vs 1.0 on obvious).
+        Grader bias direction varies systematically by model family.
+      </p>
+      <div class="paper-downloads">
+        <a href="/papers/benchmark-contamination.pdf" class="download-link">Download PDF</a>
+      </div>
+      <p class="paper-tags">
+        <span class="tag">Benchmark Reliability</span>
+        <span class="tag">Grader Bias</span>
+        <span class="tag">Evaluation</span>
+      </p>
+    </article>
+
+    <article class="paper-card">
+      <div class="paper-status preprint">Preprint</div>
+      <h2>Silent Failures in Embodied AI: Why Text-Layer Safety Cannot Protect Physical Systems</h2>
+      <p class="paper-venue"><strong>Venue:</strong> arXiv preprint</p>
+      <p class="paper-abstract">
+        Demonstrates that current AI safety operates exclusively at the text layer while embodied
+        AI danger emerges at the action layer. Zero outright refusals across 63 FLIP-graded VLA traces.
+        50% PARTIAL dominance: models produce safety disclaimers but still generate requested action
+        sequences. The action generation pathway receives no safety-specific training signal.
+      </p>
+      <div class="paper-downloads">
+        <a href="/papers/silent-failures-embodied-ai.pdf" class="download-link">Download PDF</a>
+      </div>
+      <p class="paper-tags">
+        <span class="tag">Embodied AI</span>
+        <span class="tag">VLA Safety</span>
+        <span class="tag">Action Layer</span>
       </p>
     </article>
 
@@ -244,6 +338,31 @@ import HeroSection from '../components/HeroSection.astro';
     background: rgba(139, 92, 246, 0.1);
     color: var(--text-muted, #aaa);
     border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .paper-downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .download-link {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(139, 92, 246, 0.15);
+    color: #8b5cf6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .download-link:hover {
+    background: rgba(139, 92, 246, 0.25);
+    text-decoration: none;
   }
 
   pre {
