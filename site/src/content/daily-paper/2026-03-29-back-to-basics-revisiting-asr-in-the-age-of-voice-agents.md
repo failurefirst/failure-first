@@ -6,8 +6,8 @@ arxiv: "2603.25727"
 authors: "Geeyang Tay, Wentao Ma, Jaewon Lee, Yuzhi Tang, Daniel Lee, Weisu Yin, Dongming Shen, Silin Meng, Yi Zhu, Mu Li, Alex Smola"
 paperType: "empirical"
 tags: [asr-robustness,multilingual-evaluation,real-world-degradation,hallucination-safety,diagnostic-benchmarking,voice-agent-reliability]
-audio: "/audio/daily-paper/2603.25727-audio-overview.m4a"
-image: "/images/daily-paper/2603.25727-infographic.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.25727-audio-overview.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2603.25727-infographic.png"
 draft: false
 ---
 

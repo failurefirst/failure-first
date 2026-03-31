@@ -6,8 +6,8 @@ arxiv: "2602.21595"
 authors: "Hyungmin Kim, Hobeom Jeon, Dohyung Kim, Minsu Jang, Jeahong Kim"
 paperType: "empirical"
 tags: [embodied-task-planning,safety-constraints,partial-observability,llm-benchmarking,household-hazards,physical-constraints]
-audio: "/audio/daily-paper/2602.21595-audio-overview.m4a"
-video: "/video/daily-paper/2602.21595-video-overview.mp4"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21595-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/2602.21595-video-overview.mp4"
 draft: false
 ---
 

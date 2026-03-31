@@ -6,9 +6,9 @@ arxiv: "2311.03191"
 authors: "Xuan Li, Zhanke Zhou, Jianing Zhu, Jiangchao Yao, Tongliang Liu, Bo Han"
 paperType: "empirical"
 tags: [llm-jailbreaking,adversarial-prompting,safety-guardrails,personification-exploitation,nested-scene-construction,continuous-jailbreak]
-audio: "/audio/daily-paper/2311.03191-audio-overview.m4a"
-image: "/images/daily-paper/2311.03191-infographic.png"
-video: "/video/daily-paper/2311.03191-video-overview.mp4"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2311.03191-audio-overview.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2311.03191-infographic.png"
+video: "https://cdn.failurefirst.org/video/daily-paper/2311.03191-video-overview.mp4"
 draft: false
 ---
 

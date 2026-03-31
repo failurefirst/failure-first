@@ -3,7 +3,7 @@ title: "Format-Lock: The Universal AI Jailbreak"
 description: "One attack family achieves 97.5-100% success rates on every model we have tested, from 4B to 1.1 trillion parameters. Even the safest model in our corpus -- which resists every other attack -- falls to format-lock. Here is what deployers need to know."
 date: 2026-03-25
 tags: [research, format-lock, jailbreak, adversarial-testing, ai-safety, embodied-ai, vulnerability]
-image: "/images/daily-paper/format-lock-universal.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/format-lock-universal.webp"
 draft: false
 ---
 

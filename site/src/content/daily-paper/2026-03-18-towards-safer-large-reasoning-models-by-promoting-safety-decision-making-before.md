@@ -6,9 +6,9 @@ arxiv: "2603.17368"
 authors: "Jianan Chen, Zhifang Zhang, Shuo He, Linan Yue, Lei Feng, Minling Zhang"
 paperType: "methods"
 tags: [chain-of-thought-safety-tradeoff,safety-alignment,large-reasoning-models,auxiliary-supervision,safety-decision-making]
-audio: "/audio/daily-paper/2603.17368-audio-overview.m4a"
-image: "/images/daily-paper/2603.17368-infographic.png"
-video: "/video/daily-paper/2603.17368-video-overview.mp4"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.17368-audio-overview.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2603.17368-infographic.png"
+video: "https://cdn.failurefirst.org/video/daily-paper/2603.17368-video-overview.mp4"
 draft: false
 ---
 

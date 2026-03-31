@@ -6,8 +6,8 @@ arxiv: "2603.24329"
 authors: "Yunzhe Wang, Runhui Xu, Kexin Zheng, Tianyi Zhang, Jayavibhav Niranjan Kogundi, Soham Hans, Volkan Ustun"
 paperType: "empirical"
 tags: [multimodal-llm-evaluation,embodied-ai-perception,multi-agent-video-understanding,temporal-grounding,agent-attribution,hallucination-taxonomy]
-audio: "/audio/daily-paper/2603.24329-audio-overview.m4a"
-image: "/images/daily-paper/2603.24329-infographic.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.24329-audio-overview.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2603.24329-infographic.png"
 draft: true
 ---
 
