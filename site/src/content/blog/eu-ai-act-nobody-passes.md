@@ -3,7 +3,7 @@ title: "8 Out of 10 AI Providers Fail EU Compliance — And the Deadline Is 131 
 description: "We assessed 10 major AI providers against EU AI Act Annex III high-risk requirements. Zero achieved a GREEN rating. Eight scored RED. The compliance deadline is 2 August 2026 — 131 days from now — and the gap between current capabilities and legal requirements is enormous."
 date: 2026-03-24
 tags: [eu-ai-act, compliance, regulation, embodied-ai, high-risk-ai, annex-iii, adversarial-robustness]
-image: "/images/daily-paper/eu-ai-act-compliance.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/eu-ai-act-compliance.webp"
 draft: false
 ---
 

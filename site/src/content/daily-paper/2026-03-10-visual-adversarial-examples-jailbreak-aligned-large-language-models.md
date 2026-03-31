@@ -6,9 +6,9 @@ arxiv: "2306.13213"
 authors: "Xiangyu Qi, Kaixuan Huang, Ashwinee Panda, Peter Henderson, Mengdi Wang, Prateek Mittal"
 paperType: "empirical"
 tags: [visual-adversarial-examples,multimodal-jailbreaking,vlm-safety,alignment-robustness,adversarial-attack-surface,vision-language-models]
-audio: "/audio/daily-paper/2306.13213-audio-overview.m4a"
-image: "/images/daily-paper/2306.13213-infographic.png"
-video: "/video/daily-paper/2306.13213-video-overview.mp4"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2306.13213-audio-overview.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2306.13213-infographic.png"
+video: "https://cdn.failurefirst.org/video/daily-paper/2306.13213-video-overview.mp4"
 draft: false
 ---
 

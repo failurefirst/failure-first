@@ -6,8 +6,8 @@ arxiv: "2602.23109"
 authors: "Kai Chen, Yuyao Huang, Guang Chen"
 paperType: "empirical"
 tags: [active-inference,occluded-pedestrian-detection,autonomous-driving-safety,belief-state-estimation,model-predictive-control,long-tail-scenarios]
-audio: "/audio/daily-paper/2602.23109-audio-overview.m4a"
-video: "/video/daily-paper/2602.23109-video-overview.mp4"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.23109-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/2602.23109-video-overview.mp4"
 draft: false
 ---
 

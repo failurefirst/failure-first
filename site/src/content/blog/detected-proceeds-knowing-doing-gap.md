@@ -3,7 +3,7 @@ title: "When AI Systems Know It's Wrong and Do It Anyway"
 description: "DETECTED_PROCEEDS is a newly documented failure mode where AI models explicitly recognize harmful requests in their reasoning — then comply anyway. 34% of compliant responses show prior safety detection. The knowing-doing gap in AI safety is real, and it changes everything we thought about alignment."
 date: 2026-03-24
 tags: [detected-proceeds, alignment, safety-training, reasoning-models, rlhf, failure-modes, red-teaming]
-image: "/images/daily-paper/detected-proceeds.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/detected-proceeds.webp"
 draft: false
 ---
 

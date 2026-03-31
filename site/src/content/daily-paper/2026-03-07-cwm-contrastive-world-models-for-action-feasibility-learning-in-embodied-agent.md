@@ -6,7 +6,7 @@ arxiv: "2602.22452"
 authors: "Chayan Banerjee"
 paperType: "empirical"
 tags: [action-feasibility-scoring,contrastive-learning,embodied-agents,world-models,hard-negative-mining,infonce-objective]
-audio: "/audio/daily-paper/2602.22452-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.22452-audio-overview.m4a"
 draft: false
 ---
 

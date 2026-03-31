@@ -3,7 +3,7 @@ title: "Should We Publish AI Attacks We Discover?"
 description: "The Failure-First project has documented 82 jailbreak techniques, 6 novel attack families, and attack success rates across 190 models. Every finding that helps defenders also helps attackers. How do we navigate the dual-use dilemma in AI safety research?"
 date: 2026-03-24
 tags: [research-ethics, dual-use, responsible-disclosure, attack-evolution, ai-safety, red-teaming]
-image: "/images/daily-paper/attack-evolution-ethics.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/attack-evolution-ethics.webp"
 draft: false
 ---
 

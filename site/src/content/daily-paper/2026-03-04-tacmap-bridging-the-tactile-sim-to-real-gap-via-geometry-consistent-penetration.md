@@ -6,8 +6,8 @@ arxiv: "2602.21625"
 authors: "Lei Su, Zhijie Peng, Renyuan Ren, Shengping Mao, Juan Du, Kaifeng Zhang, Xuezhou Zhu"
 paperType: "methods"
 tags: [tactile-simulation,sim-to-real-transfer,vision-based-tactile-sensors,penetration-depth-mapping,dexterous-manipulation,domain-adaptation]
-audio: "/audio/daily-paper/2602.21625-audio-overview.m4a"
-video: "/video/daily-paper/2602.21625-video-overview.mp4"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21625-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/2602.21625-video-overview.mp4"
 draft: false
 ---
 
