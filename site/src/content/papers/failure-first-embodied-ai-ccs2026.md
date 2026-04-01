@@ -4,7 +4,7 @@ description: "A failure-first adversarial evaluation framework for LLM-backed em
 date: 2026-03-31
 authors: "Adrian Wedd"
 venue: "ACM CCS 2026 (Cycle 2)"
-status: "submitted"
+status: "draft"
 pdfUrl: "/papers/failure-first-embodied-ai-ccs2026.pdf"
 tags: ["ML Security", "Adversarial Evaluation", "LLM Safety", "Embodied AI", "Red-Teaming"]
 draft: false
