@@ -11,23 +11,23 @@
 
 export const stats = {
   /** Total adversarial prompts in the corpus */
-  prompts: 141_047,
-  promptsDisplay: "141,047",
-  promptsPlus: "141,047+",
+  prompts: 141_691,
+  promptsDisplay: "141,691",
+  promptsPlus: "141,691+",
 
   /** Total models evaluated */
-  models: 190,
-  modelsDisplay: "190",
-  modelsPlus: "190+",
+  models: 231,
+  modelsDisplay: "231",
+  modelsPlus: "231+",
 
   /** Total scored results */
-  results: 132_416,
-  resultsDisplay: "132,416",
-  resultsPlus: "132,416+",
+  results: 135_305,
+  resultsDisplay: "135,305",
+  resultsPlus: "135,305+",
 
   /** Total benchmark runs */
-  runs: 38_442,
-  runsDisplay: "38,442",
+  runs: 38_549,
+  runsDisplay: "38,549",
 
   /** Documented attack techniques */
   techniques: 82,
