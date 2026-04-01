@@ -10,9 +10,8 @@ tags: ["Benchmark Reliability", "Grader Bias", "Evaluation", "Contamination"]
 draft: false
 ---
 
-# Introduction {#sec:intro}
-
-The standard methodology for evaluating the safety of large language models (LLMs) relies on static benchmarks: curated sets of adversarial prompts against which model responses are classified as compliance or refusal. AdvBench [@zou2023universal], HarmBench [@mazeika2024harmbench], JailbreakBench [@chao2024jailbreakbench], and StrongREJECT [@souly2024strongreject] are the most widely used. Model developers routinely report safety scores on these benchmarks as evidence of alignment quality.
+# Introduction
+The standard methodology for evaluating the safety of large language models (LLMs) relies on static benchmarks: curated sets of adversarial prompts against which model responses are classified as compliance or refusal. AdvBench (zou2023universal), HarmBench (mazeika2024harmbench), JailbreakBench (chao2024jailbreakbench), and StrongREJECT (souly2024strongreject) are the most widely used. Model developers routinely report safety scores on these benchmarks as evidence of alignment quality.
 
 This evaluation paradigm has a structural vulnerability: *benchmark contamination*. If a model's training data includes the benchmark prompts---directly or through derivative datasets---it can learn to refuse those specific phrasings without developing the capacity to refuse semantically similar but syntactically novel harmful requests. The model learns what AdvBench *looks like*, not what harm *looks like*.
 
@@ -36,19 +35,16 @@ We present the first quantitative evidence of safety benchmark contamination, us
 
 6.  We discuss **implications for published safety claims** and propose that safety evaluations should include held-out, non-public test sets.
 
-# Methodology {#sec:method}
-
+# Methodology
 ## Design Rationale
 
 The core insight is that *novel attack families*---adversarial prompt sets that have never appeared in any public dataset, benchmark, or training corpus---can serve as contamination controls. If a model shows similar attack success rates (ASR) on both a public benchmark and novel families, its safety behavior is likely genuine. If ASR drops sharply on the public benchmark but remains high on novel families, the model has likely memorized benchmark-specific refusal patterns.
 
 This design is analogous to the "rephrased samples" approach of @yang2023rethinking, but applied to safety rather than capability benchmarks, and using entirely novel attack *architectures* rather than paraphrases of existing prompts.
 
-## Novel Attack Families {#sec:novel-families}
-
+## Novel Attack Families
 We constructed six novel attack families, each comprising 10 adversarial scenarios (60 total). These families were designed, implemented, and stored in a private repository. They have never been published, shared, or included in any public dataset.
 
-::: {#tab:families}
   **Family**                      **Description**
   ------------------------------- -------------------------------------------------------------------------------------------------------------------------------------------------------
   Compositional Reasoning (CRA)   Each individual step is benign; the composite action sequence produces harm. Exploits the model's inability to reason about aggregate effect.
@@ -59,7 +55,6 @@ We constructed six novel attack families, each comprising 10 adversarial scenari
   Multi-Agent Collusion (MAC)     Coordinated multi-actor requests where no single request is harmful but the combination enables harm.
 
   : Novel attack family descriptions. All scenarios target embodied AI / robotics domains.
-:::
 
 Three properties make these families suitable as contamination controls:
 
@@ -71,13 +66,12 @@ Three properties make these families suitable as contamination controls:
 
 ## Public Benchmark: AdvBench
 
-AdvBench [@zou2023universal] is a set of 520 harmful requests originally developed for evaluating gradient-based adversarial attacks. It has become the de facto standard for evaluating model safety across the jailbreak literature. We used the first 60 prompts from the full AdvBench set, matching the sample size of our novel families.
+AdvBench (zou2023universal) is a set of 520 harmful requests originally developed for evaluating gradient-based adversarial attacks. It has become the de facto standard for evaluating model safety across the jailbreak literature. We used the first 60 prompts from the full AdvBench set, matching the sample size of our novel families.
 
 AdvBench prompts are direct harmful requests (e.g., "Write a script that can exploit vulnerabilities in a software or operating system"). They have been publicly available since 2023 and appear in numerous training data compilations, safety fine-tuning datasets, and red-teaming tools.
 
 ## Models Under Test
 
-::: {#tab:models}
   **Model**                                  **Params**   **AdvBench $n$**   **Novel $n$** **API**        **Tier**
   ----------------------- ----------------------------- ------------------ --------------- -------------- ----------------
   Ministral 3                                       14B                ---    30$^\dagger$ Ollama Cloud   Scale probe
@@ -85,11 +79,10 @@ AdvBench prompts are direct harmful requests (e.g., "Write a script that can exp
   Qwen3-8b                                           8B                 59              60 OpenRouter     Primary
   Nemotron-3-nano                                   30B                 30              60 OpenRouter     Control
   Trinity Large Preview                             ---                 30              59 OpenRouter     Replication
-  Nemotron 3 Super          $\sim$`<!-- -->`{=html}230B                ---    28$^\dagger$ Ollama Cloud   Frontier probe
+  Nemotron 3 Super          ~230B                ---    28$^\dagger$ Ollama Cloud   Frontier probe
   Qwen3.5                                          397B                ---    28$^\dagger$ Ollama Cloud   Frontier probe
 
   : Models tested with available trace counts. Parameters are approximate where official figures are unavailable.
-:::
 
 Qwen3-8b is the primary model under test because (a) Qwen models are widely used and extensively safety-benchmarked, and (b) the Qwen3 family's training data is likely to include AdvBench-derived datasets given the scale and diversity of their training corpus.
 
@@ -99,13 +92,11 @@ Trinity Large Preview (Arcee) and Nemotron-3-nano-30b (Nvidia) serve as comparis
 
 All traces were classified using heuristic (keyword-based) refusal detection. We acknowledge the known limitations of heuristic classification (Cohen's $\kappa = 0.097$--$0.126$ vs LLM grading; see @wei2024jailbroken for related discussion). However, for *within-model, within-classifier comparisons*---which is our use case---heuristic classification is valid: systematic bias cancels when comparing the same classifier on the same model across two prompt sets.
 
-The key metric is the *relative* ASR difference between AdvBench and novel families, not the absolute ASR values. Confidence intervals are Wilson score intervals [@wilson1927]. Significance testing uses chi-square with Yates continuity correction and Fisher's exact test.
+The key metric is the *relative* ASR difference between AdvBench and novel families, not the absolute ASR values. Confidence intervals are Wilson score intervals (wilson1927). Significance testing uses chi-square with Yates continuity correction and Fisher's exact test.
 
-# Results {#sec:results}
-
+# Results
 ## Primary Result: Qwen3-8b
 
-::: {#tab:qwen3-primary}
   **Prompt Set**     $n$   **Complied**        **ASR**   **Wilson 95% CI**
   ---------------- ----- -------------- -------------- -------------------
   Novel families      60             59          98.3%    \[91.1%, 99.7%\]
@@ -113,7 +104,6 @@ The key metric is the *relative* ASR difference between AdvBench and novel famil
   **Delta**                               **+83.1 pp** 
 
   : Qwen3-8b: AdvBench vs novel attack families.
-:::
 
 Statistical tests:
 
@@ -127,7 +117,6 @@ Qwen3-8b complied with 59 of 60 novel family prompts (the single refusal was a m
 
 ### Novel Family Breakdown
 
-::: {#tab:qwen3-families}
   **Attack Family**           $n$   **Complied**   **ASR** **Wilson 95% CI**
   ------------------------- ----- -------------- --------- -------------------
   Compositional reasoning      10             10    100.0% \[72.2%, 100.0%\]
@@ -138,13 +127,11 @@ Qwen3-8b complied with 59 of 60 novel family prompts (the single refusal was a m
   Multi-agent collusion        10              9     90.0% \[59.6%, 98.2%\]
 
   : Qwen3-8b ASR by novel attack family.
-:::
 
 The uniformity across five of six families (100% ASR each) suggests that Qwen3-8b is not evaluating safety at all for these prompt types---it has no learned refusal pattern for these attack architectures.
 
 ## Replication: Trinity Large Preview
 
-::: {#tab:trinity}
   **Prompt Set**     $n$   **Complied**        **ASR**   **Wilson 95% CI**
   ---------------- ----- -------------- -------------- -------------------
   Novel families      59             52          88.1%    \[77.5%, 94.1%\]
@@ -152,13 +139,11 @@ The uniformity across five of six families (100% ASR each) suggests that Qwen3-8
   **Delta**                               **+51.5 pp** 
 
   : Trinity Large Preview: AdvBench vs novel attack families.
-:::
 
 Statistical tests: Fisher's exact $p < 10^{-6}$, Cohen's $h = 1.14$ (large effect). Trinity shows the same directional effect: substantially lower ASR on AdvBench than on novel families.
 
 ## Cross-Model Comparison
 
-::: {#tab:cross-model}
   **Model**                 **AdvBench ASR**   **Novel ASR**   **Delta**   **Cramér's $V$**
   ----------------------- ------------------ --------------- ----------- ------------------
   Qwen3-8b                             15.3%           98.3%    +83.1 pp              0.822
@@ -166,7 +151,6 @@ Statistical tests: Fisher's exact $p < 10^{-6}$, Cohen's $h = 1.14$ (large effec
   Trinity Large Preview                36.7%           88.1%    +51.5 pp                ---
 
   : Cross-model comparison of AdvBench--novel delta.
-:::
 
 All three models show higher ASR on novel families than on AdvBench. This baseline effect is expected: novel families use more sophisticated attack architectures (compositional decomposition, semantic displacement) than AdvBench's direct requests.
 
@@ -174,7 +158,6 @@ The critical observation is the *relative magnitude*. Nemotron-30b's 33 pp gap 
 
 ## Cross-Novel-Family Comparison
 
-::: {#tab:cross-novel}
   **Model**                 $n$   **ASR** **Wilson 95% CI**
   ----------------------- ----- --------- -------------------
   Qwen3-8b                   60     98.3% \[91.1%, 99.7%\]
@@ -182,25 +165,21 @@ The critical observation is the *relative magnitude*. Nemotron-30b's 33 pp gap 
   Nemotron-3-nano-30b        60     76.7% \[64.6%, 85.6%\]
 
   : Novel family ASR across models, demonstrating differential vulnerability.
-:::
 
 The variation in novel family ASR across models (56.7%--98.3%) confirms that novel families are not trivially easy for all models. Qwen3-8b's near-perfect compliance is anomalous rather than generic.
 
-## Frontier Probe: Non-Monotonic Scale--Safety Relationship {#sec:frontier}
+## Frontier Probe: Non-Monotonic Scale--Safety Relationship
+To test whether contamination effects and safety robustness scale with model size, we evaluated two frontier-scale models---Nemotron 3 Super (~230B parameters) and Qwen3.5 (397B parameters)---against our curated top-ASR prompt set (28 scenarios drawn from novel attack families that achieved 100% heuristic ASR on Gemma3 27B).
 
-To test whether contamination effects and safety robustness scale with model size, we evaluated two frontier-scale models---Nemotron 3 Super ($\sim$`<!-- -->`{=html}230B parameters) and Qwen3.5 (397B parameters)---against our curated top-ASR prompt set (28 scenarios drawn from novel attack families that achieved 100% heuristic ASR on Gemma3 27B).
-
-::: {#tab:scale}
   **Model**                             **Params**   **Heuristic ASR**   **Corrected ASR** **Pattern**
   ------------------ ----------------------------- ------------------- ------------------- -----------------------------
   Ministral 3                                  14B               96.7%               96.7% Near-universal compliance
   Nemotron-3-nano                              30B               66.7%               66.7% Selective resistance
   Gemma3                                       27B              100.0%              100.0% Universal compliance
-  Nemotron 3 Super     $\sim$`<!-- -->`{=html}230B               78.6%               78.6% Modest improvement over 30B
+  Nemotron 3 Super     ~230B               78.6%               78.6% Modest improvement over 30B
   Qwen3.5                                     397B               46.4%                7.1% Silent refusal defense
 
   : Non-monotonic scale--safety relationship. ASR on curated top-ASR prompts (novel family origin, $n=28$ per model except Ministral $n=30$). Heuristic classification; Qwen3.5 corrected for silent refusals.
-:::
 
 The relationship between parameter count and safety robustness is clearly non-monotonic: Ministral 14B (96.7%) $\to$ Nemotron 30B (66.7%) $\to$ Nemotron Super 230B (78.6%) $\to$ Qwen3.5 397B (7.1%). Scaling from 30B to 230B within the Nemotron family *increases* ASR by 12 percentage points, while Qwen3.5 at 397B achieves dramatically lower ASR than any other model tested.
 
@@ -220,9 +199,8 @@ This has immediate methodological implications:
 
 ## Comprehensive AdvBench vs Novel Family Comparison
 
-Table [9](#tab:advbench-vs-novel){reference-type="ref" reference="tab:advbench-vs-novel"} consolidates the AdvBench--novel family comparison across all models with paired data.
+Table [9](#tab:advbench-vs-novel) consolidates the AdvBench--novel family comparison across all models with paired data.
 
-::: {#tab:advbench-vs-novel}
   **Model**                 **Params**   **AdvBench ASR**   **Novel ASR**   **Delta**   **$V$ or $h$**
   ----------------------- ------------ ------------------ --------------- ----------- ----------------
   Qwen3-8b                          8B              15.3%           98.3%    +83.1 pp      $V = 0.822$
@@ -230,12 +208,10 @@ Table [9](#tab:advbench-vs-novel){reference-type="ref" reference="tab:advbench-
   Nemotron-3-nano                  30B              43.3%           76.7%    +33.4 pp      $V = 0.306$
 
   : AdvBench vs novel family ASR across all models with paired data. All values use heuristic classification except where corrected values are noted.
-:::
 
 All three models with paired AdvBench and novel family data show the same directional effect: substantially higher ASR on novel families than on AdvBench. The critical finding remains the *magnitude differential*: Qwen3-8b's 83 pp gap is 2.5$\times$ the Trinity gap and 2.7$\times$ the Nemotron gap.
 
-# Discussion {#sec:discussion}
-
+# Discussion
 ## The Most Parsimonious Explanation
 
 The data supports the following interpretation: Qwen3-8b has been fine-tuned or RLHF-trained with AdvBench prompts (or AdvBench-derived datasets) in its safety training data, producing benchmark-specific refusal patterns that do not generalize to novel attack families.
@@ -280,15 +256,14 @@ The problem is structural, not specific to any model developer:
 
 3.  **Competitive pressure incentivizes training on benchmarks.** Whether deliberate or inadvertent, the incentive to report strong safety scores creates selection pressure toward including benchmark-like data in training.
 
-This dynamic is well-documented for capability benchmarks [@sainz2023benchmark; @deng2024investigating] but has not previously been quantified for safety benchmarks.
+This dynamic is well-documented for capability benchmarks (sainz2023benchmark; deng2024investigating) but has not previously been quantified for safety benchmarks.
 
-## Limitations {#sec:limitations}
-
+## Limitations
 1.  **Heuristic classification.** We used keyword-based classification rather than LLM-based grading. While this introduces systematic bias in absolute ASR values, it does not affect the validity of within-model, within-classifier comparisons that form the basis of our contamination analysis.
 
 2.  **Confounded comparison.** AdvBench uses direct harmful requests; novel families use compositional and embodied attack architectures. The ASR difference measures both contamination and attack sophistication. We partially control for this with the Nemotron baseline, but a fully controlled experiment would require novel prompts using the *same* direct-request format as AdvBench with different harmful content.
 
-3.  **Sample size.** 59--60 prompts per condition provides adequate statistical power for the observed effect sizes ($V > 0.3$) but limits subgroup analyses. The Wilson confidence intervals in Tables [3](#tab:qwen3-primary){reference-type="ref" reference="tab:qwen3-primary"}--[6](#tab:cross-model){reference-type="ref" reference="tab:cross-model"} reflect this limitation.
+3.  **Sample size.** 59--60 prompts per condition provides adequate statistical power for the observed effect sizes ($V > 0.3$) but limits subgroup analyses. The Wilson confidence intervals in Tables [3](#tab:qwen3-primary)--[6](#tab:cross-model) reflect this limitation.
 
 4.  **Model availability.** We were unable to test additional Qwen3 variants (4b, 1.7b) due to persistent API rate limits. Testing across the Qwen3 family would strengthen the contamination claim.
 
@@ -312,14 +287,13 @@ Any safety evaluation using public benchmarks should include a contamination con
 
 #### Generalization testing.
 
-Safety alignment should be evaluated on its ability to generalize to novel attack architectures, not just novel phrasings of known attack types. Paraphrase-based contamination testing [@yang2023rethinking] is necessary but not sufficient---models may generalize to paraphrases of memorized prompts while failing on architecturally novel attacks.
+Safety alignment should be evaluated on its ability to generalize to novel attack architectures, not just novel phrasings of known attack types. Paraphrase-based contamination testing (yang2023rethinking) is necessary but not sufficient---models may generalize to paraphrases of memorized prompts while failing on architecturally novel attacks.
 
 #### Independent evaluation infrastructure.
 
 Evaluation benchmarks should be maintained by independent third parties who do not publish the prompts and who can verify that evaluated models have not been trained on the test set. This is standard practice in other domains (e.g., hold-out test sets in machine translation, blinded evaluation in clinical trials) but is not yet standard in AI safety evaluation.
 
-# Related Work {#sec:related}
-
+# Related Work
 #### Benchmark contamination in capability evaluation.
 
 The problem of data contamination in LLM benchmarks is well-established. @sainz2023benchmark demonstrated contamination effects across NLP tasks and called for per-benchmark contamination measurement. @golchin2024datacon developed time-travel probes for contamination detection. @oren2023proving proposed statistical tests for black-box contamination. @shi2024detecting introduced Min-K% Prob for detecting pretraining data. @dekoninck2024evading showed that contamination detection can be evaded. Our work extends this line to safety benchmarks, where contamination inflates *safety* rather than *capability* scores.
@@ -332,8 +306,7 @@ The problem of data contamination in LLM benchmarks is well-established. @sainz2
 
 @wei2024jailbroken analyzed why safety training fails, identifying competing objectives and mismatched generalization. @russinovich2024crescendo introduced multi-turn escalation attacks. @perez2022red pioneered automated red-teaming with LLMs. Our novel attack families (compositional reasoning, meaning displacement, pressure cascade) represent a distinct class from these prior works.
 
-# Conclusion {#sec:conclusion}
-
+# Conclusion
 We present the first quantitative evidence of benchmark contamination in AI safety evaluation. Using novel attack families as contamination-free controls, we demonstrate an 83 percentage-point ASR gap between AdvBench and novel families on Qwen3-8b ($\chi^2 = 80.5$, $p < 10^{-18}$, $V = 0.82$). The gap is 2.7$\times$ larger than a control model's gap, indicating model-specific contamination beyond generic novelty effects.
 
 Frontier-scale testing across five models (14B--397B parameters) reveals that safety robustness is non-monotonic in parameter count, with safety training methodology---not scale---as the dominant predictor. The Qwen family presents an instructive contrast: Qwen3-8b (8B) complies with 98.3% of novel prompts while Qwen3.5 (397B) refuses 92.9%, suggesting that larger models in the same family may receive qualitatively different safety training that generalizes beyond public benchmark patterns.
@@ -342,14 +315,12 @@ This finding has immediate practical implications: any safety claim based solely
 
 We recommend that safety evaluations adopt held-out, non-public test sets; include novel family contamination controls alongside public benchmarks; and test generalization to architecturally novel attack types rather than only paraphrases of known attacks. Additionally, evaluation frameworks should account for silent refusal behaviors that evade keyword-based classification. The AI safety community should treat benchmark contamination in safety evaluation as a first-order threat to the integrity of published safety claims.
 
-# Ethics Statement {#ethics-statement .unnumbered}
-
+# Ethics Statement
 This work identifies a vulnerability in safety evaluation methodology. We disclose novel attack family *categories* (compositional reasoning, meaning displacement, etc.) but do not publish the specific prompts, which remain in a private repository. This follows responsible disclosure principles: the methodological finding is publishable; the operational attack content is not.
 
 All models tested are publicly available via API. No model was modified, fine-tuned, or attacked in ways beyond standard API usage. The purpose of this research is to improve safety evaluation methodology, not to enable attacks.
 
-# Reproducibility {#reproducibility .unnumbered}
-
+# Reproducibility
 Trace files, classification results, and statistical analysis scripts are maintained in the Failure-First research repository. Novel family scenarios are available to verified researchers under a responsible disclosure agreement. Contact the corresponding author for access.
 
-The statistical analysis can be reproduced from the published results in Tables [3](#tab:qwen3-primary){reference-type="ref" reference="tab:qwen3-primary"}--[6](#tab:cross-model){reference-type="ref" reference="tab:cross-model"}: all significance tests require only the reported cell counts.
+The statistical analysis can be reproduced from the published results in Tables [3](#tab:qwen3-primary)--[6](#tab:cross-model): all significance tests require only the reported cell counts.

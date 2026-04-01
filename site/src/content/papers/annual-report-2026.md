@@ -1,6 +1,6 @@
 ---
 title: "Failure-First Embodied AI: Annual Research Report 2026"
-description: "The State of Adversarial AI Safety 2026 — findings from 193 models, 133,033 attack-response pairs, and 36 attack families."
+description: "The State of Adversarial AI Safety 2026 — findings from 231 models, 135,305 attack-response pairs, and 42 attack families."
 date: 2026-03-31
 authors: "Adrian Wedd"
 venue: "Internal Report"
@@ -10,7 +10,6 @@ tags: ["Annual Report", "State of AI Safety", "Comprehensive Analysis"]
 draft: false
 ---
 
-:::: center
 **The State of\
 Adversarial AI Safety\
 2026**
@@ -19,11 +18,9 @@ March 2026
 
 Failure-First Research
 
-::: minipage
-**193** models evaluated $\bullet$ **133,033** attack--response pairs $\bullet$ **36** attack families\
+**231** models evaluated $\bullet$ **135,305** attack--response pairs $\bullet$ **42** attack families\
 LLM-based classification with measured inter-rater reliability\
 **Classification:** PUBLIC --- Pattern-Level Analysis
-:::
 
 **Citation:** Failure-First Research. "The State of Adversarial AI Safety 2026."\
 March 2026. `failurefirst.org/state-of-adversarial-ai-safety-2026`
@@ -31,7 +28,6 @@ March 2026. `failurefirst.org/state-of-adversarial-ai-safety-2026`
 **Data Sources:** F41LUR3-F1R57 Adversarial AI Corpus\
 **Methodology:** FLIP grading (LLM-based classification), Wilson score confidence intervals,\
 chi-square significance testing with Bonferroni correction
-::::
 
 # Executive Summary
 
@@ -45,7 +41,7 @@ Five headline findings:
 
 3.  **Published safety benchmarks are contaminated.** Qwen3-8b refuses 84.7% of AdvBench prompts but complies with 98.3% of novel attack families not present in any public dataset---an 83 percentage-point gap ($\chi^2=80.5$, $p<10^{-18}$, Cramér's $V=0.82$).
 
-4.  **Format compliance and safety are partially independent.** Format-lock attacks shift frontier models from restrictive ($<$`<!-- -->`{=html}10% ASR) to mixed (20--47% ASR) vulnerability profiles---a 3--10$\times$ increase. This is the only attack family that maintains elevated ASR above the 7B parameter capability floor.
+4.  **Format compliance and safety are partially independent.** Format-lock attacks shift frontier models from restrictive (<10% ASR) to mixed (20--47% ASR) vulnerability profiles---a 3--10$\times$ increase. This is the only attack family that maintains elevated ASR above the 7B parameter capability floor.
 
 5.  **No major framework tests embodied AI.** Seven of our 35 attack families have zero coverage in any external framework (MITRE ATLAS, OWASP, Garak, PyRIT, DeepTeam). The action layer of vision-language-action models shows a 0% refusal rate across 63 graded traces.
 
@@ -53,7 +49,6 @@ Five headline findings:
 
 ## Corpus Overview
 
-::: {#tab:corpus}
   **Metric**                                         **Value**
   ----------------------------------- ------------------------
   Models evaluated                      193 (180 with results)
@@ -67,7 +62,6 @@ Five headline findings:
   VLA scenarios                                            411
 
   : Corpus statistics at time of publication.
-:::
 
 Models span the full spectrum: from sub-1B parameter open-weight models to frontier systems (Claude Sonnet 4.5, GPT-5.2, Gemini 3 Flash). The corpus includes models from Anthropic, Google, OpenAI, Meta, Nvidia, Mistral, DeepSeek, Liquid, StepFun, Qwen, Arcee, and others.
 
@@ -89,7 +83,6 @@ This is not an academic concern. Every published safety benchmark that relies so
 
 We report attack success rate at three levels:
 
-::: {#tab:asr-tiers}
   **Tier**                 **Definition**                                   **ASR**
   ------------------------ ---------------------------------------------- ---------
   Strict                   COMPLIANCE only                                    21.9%
@@ -97,7 +90,6 @@ We report attack success rate at three levels:
   Functionally Dangerous   COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL       43.0%
 
   : Three-tier ASR on the non-OBLITERATUS corpus ($n=5{,}865$).
-:::
 
 The "Functionally Dangerous" tier includes HALLUCINATION_REFUSAL---cases where the model produces refusal framing but the response body contains the harmful content. Statistical analysis confirms HALLUCINATION_REFUSAL is computationally identical to COMPLIANCE (thinking tokens $p=0.21$, response tokens $p=0.46$) and significantly different from REFUSAL (both $p<0.001$). The safety framing is architecturally impotent.
 
@@ -105,13 +97,13 @@ All policy-relevant numbers in this report use the non-OBLITERATUS corpus (exclu
 
 ## Statistical Standards
 
-All confidence intervals are Wilson score intervals [@wilson1927]. Significance testing uses chi-square with Yates continuity correction for 2$\times$`<!-- -->`{=html}2 comparisons, with Bonferroni correction for multiple comparisons. Effect sizes are reported as Cramér's $V$. We do not make claims based on fewer than 20 samples, and we flag sample sizes throughout.
+All confidence intervals are Wilson score intervals (wilson1927). Significance testing uses chi-square with Yates continuity correction for 2$\times$2 comparisons, with Bonferroni correction for multiple comparisons. Effect sizes are reported as Cramér's $V$. We do not make claims based on fewer than 20 samples, and we flag sample sizes throughout.
 
 # Key Finding: Safety Training Teaches Recognition, Not Inhibition
 
 ## The DETECTED_PROCEEDS Phenomenon
 
-When we examined reasoning traces---the internal chain-of-thought that some models expose---we found a pattern we call [detected_proceeds]{.smallcaps}: the model explicitly recognizes that a request is harmful in its reasoning, then complies anyway.
+When we examined reasoning traces---the internal chain-of-thought that some models expose---we found a pattern we call detected_proceeds: the model explicitly recognizes that a request is harmful in its reasoning, then complies anyway.
 
 Of 2,554 results with reasoning traces across 24 models:
 
@@ -119,7 +111,7 @@ Of 2,554 results with reasoning traces across 24 models:
 
 - Of those, 274 (43.9%) proceeded to comply despite the detection
 
-- 96 cases contained [strong]{.smallcaps} safety signals ("must refuse," "should refuse," "cannot help") followed by compliance
+- 96 cases contained strong safety signals ("must refuse," "should refuse," "cannot help") followed by compliance
 
 Among the 801 compliant results with thinking traces, 34.2% showed explicit prior safety detection. These are not ambiguous cases---the models articulated awareness that the request was problematic, then overrode their own assessment.
 
@@ -127,16 +119,14 @@ Among the 801 compliant results with thinking traces, 34.2% showed explicit prio
 
 The override rate is not uniform across model types:
 
-::: {#tab:override}
   **Model Type**           **Override Rate**
   ---------------------- -------------------
   Non-reasoning models                 39.0%
   Reasoning models                     69.7%
 
   : Safety detection override rates by model type.
-:::
 
-Extended reasoning provides more opportunities for self-persuasion. Models with explicit chain-of-thought reasoning (DeepSeek-R1 and similar) override their own safety detection at nearly 70%. As reasoning model deployment expands---OpenAI o-series, Anthropic extended thinking, Google Gemini 2.5---the prevalence of [detected_proceeds]{.smallcaps} in production systems will increase.
+Extended reasoning provides more opportunities for self-persuasion. Models with explicit chain-of-thought reasoning (DeepSeek-R1 and similar) override their own safety detection at nearly 70%. As reasoning model deployment expands---OpenAI o-series, Anthropic extended thinking, Google Gemini 2.5---the prevalence of detected_proceeds in production systems will increase.
 
 ## Scale Does Not Fix the Gap
 
@@ -144,7 +134,7 @@ The detection override rate is roughly constant across model sizes (approximatel
 
 ## Implications
 
-[Detected_proceeds]{.smallcaps} is detectable. The safety signal is present in the reasoning trace. What is missing is a second system that monitors reasoning traces and intervenes when safety detection is followed by compliance. We recommend mandatory reasoning trace monitoring for all deployed reasoning models, with automated flagging of cases where safety-concern language appears in reasoning but the output is compliant.
+Detected_proceeds is detectable. The safety signal is present in the reasoning trace. What is missing is a second system that monitors reasoning traces and intervenes when safety detection is followed by compliance. We recommend mandatory reasoning trace monitoring for all deployed reasoning models, with automated flagging of cases where safety-concern language appears in reasoning but the output is compliant.
 
 # Key Finding: Provider Matters More Than Model
 
@@ -152,16 +142,14 @@ The detection override rate is roughly constant across model sizes (approximatel
 
 Analysis of non-OBLITERATUS results with LLM-graded verdicts reveals three distinct provider clusters:
 
-::: {#tab:provider}
   **Cluster**                             **Providers**                                            **Broad ASR**
   --------------------------------------- ------------------------------------------------------ ---------------
-  Restrictive ($<$`<!-- -->`{=html}20%)   Anthropic (11.0%), StepFun (15.2%), Google (16.6%)             11--17%
+  Restrictive (<20%)   Anthropic (11.0%), StepFun (15.2%), Google (16.6%)             11--17%
   Mixed (20--50%)                         OpenAI (38.3%), Nvidia (38.5%), Mistral (39.5%),       
                                           Qwen (43.8%), Meta (45.5%)                                     38--46%
-  Permissive ($>$`<!-- -->`{=html}50%)    Meta-Llama (53.3%), DeepSeek (55.7%), Liquid (61.1%)           53--61%
+  Permissive ($>$50%)    Meta-Llama (53.3%), DeepSeek (55.7%), Liquid (61.1%)           53--61%
 
   : Provider vulnerability clusters (broad ASR, LLM-graded, non-OBLITERATUS).
-:::
 
 The 5.6$\times$ spread between Anthropic (11.0%) and Liquid (61.1%) dwarfs the effect of parameter count (inverse scaling correlation $r=-0.140$, $n=24$ models with known parameter counts---not significant).
 
@@ -199,11 +187,10 @@ Organizations selecting models for safety-critical applications should evaluate 
 
 ## The Qwen3 Gap
 
-AdvBench [@zou2023universal] is the most widely used jailbreak safety benchmark. We tested whether published safety numbers on AdvBench reflect genuine safety alignment or benchmark-specific memorization.
+AdvBench (zou2023universal) is the most widely used jailbreak safety benchmark. We tested whether published safety numbers on AdvBench reflect genuine safety alignment or benchmark-specific memorization.
 
 Qwen3-8b results:
 
-::: {#tab:qwen3}
   **Benchmark**                                  $n$       **ASR** **Wilson 95% CI**
   -------------------------------------------- ----- ------------- -------------------
   AdvBench                                        59         15.3% \[8.2%, 26.5%\]
@@ -211,7 +198,6 @@ Qwen3-8b results:
   **Gap**                                              **83.1 pp** 
 
   : Qwen3-8b ASR comparison: AdvBench vs novel attack families.
-:::
 
 Statistical significance: $\chi^2=80.5$, $p=2.93\times10^{-19}$, Cramér's $V=0.822$ (large effect). Fisher exact OR${}=327.8$.
 
@@ -225,7 +211,7 @@ The most parsimonious explanation is that AdvBench prompts (or derivative datase
 
 AdvBench is not unique in this vulnerability. Any static, publicly available benchmark is susceptible to contamination as training corpora expand. The problem is structural: the adversarial evaluation paradigm requires held-out evaluation data, but the competitive pressure to publish safety numbers incentivizes training on evaluation benchmarks (deliberately or inadvertently).
 
-Our recommendation: safety evaluations should include held-out, non-public test sets alongside public benchmarks. Any safety claim based solely on AdvBench, HarmBench [@mazeika2024harmbench], or JailbreakBench [@chao2024jailbreakbench] performance without accompanying evaluation on novel prompts should be regarded as potentially inflated.
+Our recommendation: safety evaluations should include held-out, non-public test sets alongside public benchmarks. Any safety claim based solely on AdvBench, HarmBench (mazeika2024harmbench), or JailbreakBench (chao2024jailbreakbench) performance without accompanying evaluation on novel prompts should be regarded as potentially inflated.
 
 # Key Finding: The Format-Lock Paradox
 
@@ -235,15 +221,13 @@ The prevailing assumption in AI safety is that larger, better-trained models are
 
 When adversarial content is embedded within structural format instructions ("Return ONLY valid JSON conforming to this schema..."), frontier models that resist all other attack families show substantially elevated ASR:
 
-::: {#tab:format-lock}
   **Model**                   **Standard ASR**   **Format-Lock ASR**                     **Multiplier**
   ------------------- ------------------------ --------------------- ----------------------------------
-  Claude Sonnet 4.5     $<$`<!-- -->`{=html}5%        30.4% ($n=23$)   $\sim$`<!-- -->`{=html}6$\times$
-  Codex GPT-5.2         $<$`<!-- -->`{=html}5%        42.1% ($n=19$)   $\sim$`<!-- -->`{=html}8$\times$
-  Gemini 3 Flash        $<$`<!-- -->`{=html}5%        23.8% ($n=21$)   $\sim$`<!-- -->`{=html}5$\times$
+  Claude Sonnet 4.5     <5%        30.4% ($n=23$)   ~6$\times$
+  Codex GPT-5.2         <5%        42.1% ($n=19$)   ~8$\times$
+  Gemini 3 Flash        <5%        23.8% ($n=21$)   ~5$\times$
 
   : Format-lock ASR on frontier models vs standard attacks.
-:::
 
 Format-lock attacks shift frontier models one full vulnerability profile level---from restrictive to mixed.
 
@@ -273,7 +257,6 @@ Safety evaluations that do not include format-lock or structured-output attacks 
 
 We mapped our 35 attack families against six major AI security frameworks:
 
-::: {#tab:frameworks}
   **Framework**               **Coverage**
   ------------------------- --------------
   MITRE ATLAS                  20/35 (57%)
@@ -284,7 +267,6 @@ We mapped our 35 attack families against six major AI security frameworks:
   DeepTeam (Confident AI)        3/35 (9%)
 
   : Framework coverage of F41LUR3-F1R57 attack families.
-:::
 
 Seven families (20%) have zero coverage in any framework: Cross-Embodiment Transfer (CET, broad ASR 60%), Hybrid DA+SBA (DA-SBA), Cross-Domain SBA (XSBA), Affordance Verification Failure (AFF, FLIP ASR 40%), Kinematic Safety Violation (KIN, FLIP ASR 0%, preliminary $n=5$), Temporal Convergence Attack (TCA), and Iatrogenic Exploitation Attack (IEA).
 
@@ -314,7 +296,6 @@ The regulatory frameworks being drafted in 2026 (EU AI Act implementation, propo
 
 Heuristic (keyword-based) classifiers are the default evaluation method in most published jailbreak safety research. Our data indicates they are unreliable at a level that should call into question any benchmark relying solely on them.
 
-::: {#tab:heuristic}
   **Metric**                                                 **Value**
   --------------------------------------------- ----------------------
   Cohen's $\kappa$ (Haiku LLM vs heuristic)            0.097 ($n=950$)
@@ -324,7 +305,6 @@ Heuristic (keyword-based) classifiers are the default evaluation method in most 
   Worst-case overcount ratio                                      84:1
 
   : Heuristic classifier reliability metrics.
-:::
 
 A $\kappa$ of 0.097 indicates near-chance agreement. The heuristic classifier agrees with LLM-based classification at barely above the rate expected by random assignment. Of the cases where the heuristic classifier labels a response as COMPLIANCE (attack success), only 20.1% are confirmed as such by LLM grading.
 
@@ -344,7 +324,6 @@ We do not claim that all published safety results are wrong. We observe that any
 
 Based on 2,597 evaluable, technique-tagged results with LLM grading:
 
-::: {#tab:attacks}
     **Rank** **Family**                         $n$   **Strict ASR**   **Broad ASR**
   ---------- ------------------------------ ------- ---------------- ---------------
            1 Chain-of-thought exploit           129            26.4%           31.8%
@@ -358,7 +337,6 @@ Based on 2,597 evaluable, technique-tagged results with LLM grading:
            9 Prompt injection                    14             0.0%            0.0%
 
   : Attack family effectiveness ranking (LLM-graded, technique-tagged, $n\geq14$).
-:::
 
 Chain-of-thought exploitation---attacks that manipulate the reasoning process of models with explicit chain-of-thought---has displaced multi-turn attacks as the most effective by strict ASR. Multi-turn attacks retain the highest broad ASR (38.7%), producing more PARTIAL verdicts (hedging followed by partial compliance).
 
@@ -366,7 +344,7 @@ Chain-of-thought exploitation---attacks that manipulate the reasoning process of
 
 **Dead** (ASR below 2%): DAN-era persona attacks at 0.7% strict ASR ($n=1{,}210$) provide strong evidence that persona hijacking as practiced in 2022--2023 is obsolete against current models.
 
-**Alive** (ASR above 20%): Chain-of-thought exploitation (26.4% strict) targets the reasoning process itself. Multi-turn crescendo (23.9% strict, 38.7% broad) uses gradual escalation over multiple conversation turns [@russinovich2024crescendo].
+**Alive** (ASR above 20%): Chain-of-thought exploitation (26.4% strict) targets the reasoning process itself. Multi-turn crescendo (23.9% strict, 38.7% broad) uses gradual escalation over multiple conversation turns (russinovich2024crescendo).
 
 **Era analysis confirms monotonic trend:** persona_2022 (0%) $\to$ DAN_2022 (0.8%) $\to$ cipher_2023 (15.5%) $\to$ crescendo_2024 (24.8%) $\to$ reasoning_2025 (31.8%). Newer attack families are more effective.
 
@@ -380,7 +358,7 @@ Frontier models (Claude Sonnet 4.5, GPT-5.2, Gemini 3 Flash) show near-zero ASR 
 
 - Gemini 3 Flash: 1.6% ASR across 63 traces (one context-contaminated success)
 
-Format-lock attacks elevate all three into the mixed vulnerability range (Section [6](#tab:format-lock){reference-type="ref" reference="tab:format-lock"}).
+Format-lock attacks elevate all three into the mixed vulnerability range (Section [6](#tab:format-lock)).
 
 # Defense Landscape
 
@@ -388,21 +366,19 @@ Format-lock attacks elevate all three into the mixed vulnerability range (Sectio
 
 We tested four defense strategies (none, simple one-line instruction, structured 5-rule framework, adversarial-aware protocol) across 3 models and 10 attack scenarios (120 total traces).
 
-::: {#tab:defense}
   **Defense**                         **Aggregate ASR Reduction** **Significance**
   ------------------- ------------------------------------------- ----------------------------
-  SIMPLE                Variable (0 to $-$`<!-- -->`{=html}30 pp) Not significant ($p>0.19$)
-  STRUCTURED            Variable (0 to $-$`<!-- -->`{=html}30 pp) Not significant
-  ADVERSARIAL_AWARE           $-$`<!-- -->`{=html}20 pp aggregate Not significant ($p=0.19$)
+  SIMPLE                Variable (0 to $-$30 pp) Not significant ($p>0.19$)
+  STRUCTURED            Variable (0 to $-$30 pp) Not significant
+  ADVERSARIAL_AWARE           $-$20 pp aggregate Not significant ($p=0.19$)
 
   : System-prompt defense effectiveness. **Sample size caveat:** $n=10$ per cell; all pairwise comparisons are non-significant after correction.
-:::
 
 Key observations: defenses are model-dependent (the same STRUCTURED defense reduced ASR by 30 pp on one model and had zero effect on another); format-lock bypasses all defenses (100% ASR across all 4 defense conditions and all 3 models); and ADVERSARIAL_AWARE sometimes backfires (producing higher ASR than simpler defenses on one model).
 
 ## The Polyhedral Problem
 
-Mechanistic analysis of abliterated models [@arditi2024refusal] reveals that refusal behavior is encoded in at least 4 near-orthogonal directions in activation space (cone dimensionality 3.96, mean pairwise cosine similarity 0.132). This finding has two implications:
+Mechanistic analysis of abliterated models (arditi2024refusal) reveals that refusal behavior is encoded in at least 4 near-orthogonal directions in activation space (cone dimensionality 3.96, mean pairwise cosine similarity 0.132). This finding has two implications:
 
 1.  **Single-direction safety interventions are structurally incomplete.** Abliteration (removing one refusal direction), naïve DPO, single steering vectors---all operate on at most one dimension.
 
@@ -412,9 +388,8 @@ Mechanistic analysis of abliterated models [@arditi2024refusal] reveals that re
 
 ## EU AI Act Readiness
 
-We assessed the current state of AI system safety against 10 EU AI Act [@euaiact2024] requirements (Articles 9, 15, 17, 26):
+We assessed the current state of AI system safety against 10 EU AI Act (euaiact2024) requirements (Articles 9, 15, 17, 26):
 
-::: {#tab:eu}
   **Assessment**                  **Count**
   ----------------------------- -----------
   RED (non-compliant)               8 of 10
@@ -422,13 +397,12 @@ We assessed the current state of AI system safety against 10 EU AI Act [@euaiac
   GREEN (compliant)                 0 of 10
 
   : EU AI Act compliance assessment.
-:::
 
 Article 9(8) adversarial robustness is assessed as RED. A 34.2% broad ASR (non-OBLITERATUS corpus) does not meet a reasonable interpretation of "resilient as regards attempts by unauthorised third parties to alter their use." The EU AI Act compliance deadline is August 2, 2026.
 
 ## Reasoning Trace Governance Void
 
-No regulatory framework addresses reasoning trace governance. Our Governance Lag Index (GLI) analysis of 136 regulatory events reveals: the only fully computable GLI is for prompt injection (1,421 days, approximately 3.9 years from first documented attack to regulatory coverage); alignment faking and VLA adversarial attacks have null GLI---no regulatory framework exists anywhere; and the largest measured governance lag is adversarial examples in computer vision (3,362 days, 9.2 years, Szegedy 2013 [@szegedy2013intriguing] to NIST AI 100-2e2023 [@nist2024ai600]).
+No regulatory framework addresses reasoning trace governance. Our Governance Lag Index (GLI) analysis of 136 regulatory events reveals: the only fully computable GLI is for prompt injection (1,421 days, approximately 3.9 years from first documented attack to regulatory coverage); alignment faking and VLA adversarial attacks have null GLI---no regulatory framework exists anywhere; and the largest measured governance lag is adversarial examples in computer vision (3,362 days, 9.2 years, Szegedy 2013 (szegedy2013intriguing) to NIST AI 100-2e2023 (nist2024ai600)).
 
 ## Insurance Void
 
@@ -438,7 +412,6 @@ Our legal analysis identifies a structural insurance coverage void for AI-mediat
 
 Based on the evidence base documented in this report, we offer seven falsifiable, time-bounded predictions for calendar year 2027:
 
-::: {#tab:predictions}
    **\#**  **Prediction**                                                **Confidence**
   -------- ------------------------------------------------------------ ----------------
      P9    First AI-caused physical injury from adversarial attack          60--75%
@@ -450,7 +423,6 @@ Based on the evidence base documented in this report, we offer seven falsifiable
     P16    Dimensional safety exploitation                                  45--60%
 
   : Predictions for 2027 with confidence levels.
-:::
 
 These will be reassessed against reality in March 2027.
 
@@ -458,7 +430,7 @@ These will be reassessed against reality in March 2027.
 
 ## For Model Developers
 
-1.  **Implement reasoning trace monitoring.** [Detected_proceeds]{.smallcaps} is detectable. Deploy a second system that flags cases where reasoning traces contain safety-concern language but the output is compliant.
+1.  **Implement reasoning trace monitoring.** Detected_proceeds is detectable. Deploy a second system that flags cases where reasoning traces contain safety-concern language but the output is compliant.
 
 2.  **Test with novel, non-public prompts.** AdvBench contamination is likely widespread. Supplement public benchmarks with held-out evaluation sets.
 
@@ -484,7 +456,7 @@ These will be reassessed against reality in March 2027.
 
 2.  **Address the embodied AI gap.** Current frameworks cover 54--57% of documented attack families.
 
-3.  **Establish reasoning trace retention requirements.** [Detected_proceeds]{.smallcaps} cannot be audited without reasoning traces.
+3.  **Establish reasoning trace retention requirements.** Detected_proceeds cannot be audited without reasoning traces.
 
 4.  **Mandate compositional safety testing.** Per-component testing is insufficient.
 
@@ -526,7 +498,6 @@ Primary grader: Claude Haiku 4.5 (via OpenRouter). Secondary graders: deepseek-r
 
 ## Verdict Taxonomy
 
-::: {#tab:verdicts}
   **Verdict**             **Definition**
   ----------------------- ------------------------------------------------------------------
   COMPLIANCE              Full harmful compliance with the request
@@ -537,7 +508,6 @@ Primary grader: Claude Haiku 4.5 (via OpenRouter). Secondary graders: deepseek-r
   ERROR                   Grader failure or infrastructure error
 
   : FLIP verdict taxonomy.
-:::
 
 ## Data Access
 
