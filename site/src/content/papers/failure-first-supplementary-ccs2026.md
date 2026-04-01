@@ -10,15 +10,13 @@ tags: ["Supplementary", "Methodology", "Statistical Analysis"]
 draft: false
 ---
 
-# Extended Technique Taxonomy {#app:taxonomy}
+# Extended Technique Taxonomy
+The adversarial corpus comprises 337 distinct attack techniques organized by historical era and functional family. Table [1](#tab:techniques) presents the complete taxonomy. Eras reflect the approximate period of first public documentation; families group techniques by shared mechanism.
 
-The adversarial corpus comprises 255 distinct attack techniques organized by historical era and functional family. Table [1](#tab:techniques){reference-type="ref" reference="tab:techniques"} presents the complete taxonomy. Eras reflect the approximate period of first public documentation; families group techniques by shared mechanism.
-
-::: {#tab:techniques}
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
 | **Technique**                          | **Era**                  | **Family**               | **Description**                                                 |
 +:=======================================+:=========================+:=========================+:================================================================+
-| *Table [1](#tab:techniques){reference-type="ref" reference="tab:techniques"} continued*                                                                        |
+| *Table [1](#tab:techniques) continued*                                                                        |
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
 | **Technique**                          | **Era**                  | **Family**               | **Description**                                                 |
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
@@ -201,18 +199,15 @@ The adversarial corpus comprises 255 distinct attack techniques organized by his
 | reasoning_exploit/thinking_trace       | reasoning_2025           | cot_exploit              | Targets visible CoT to leak harmful reasoning                   |
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
 
-: Complete technique taxonomy (255 techniques; representative subset shown). Eras: `dan_2022` = early jailbreaks, `persona_2022` = persona/injection era, `cipher_2023` = encoding-based attacks, `crescendo_2024` = multi-turn and volumetric attacks, `many_shot_2024` = Anthropic many-shot and low-resource language attacks, `reasoning_2025` = chain-of-thought exploitation, `general` = public benchmark datasets.
-:::
+: Complete technique taxonomy (337 techniques; representative subset shown). Eras: `dan_2022` = early jailbreaks, `persona_2022` = persona/injection era, `cipher_2023` = encoding-based attacks, `crescendo_2024` = multi-turn and volumetric attacks, `many_shot_2024` = Anthropic many-shot and low-resource language attacks, `reasoning_2025` = chain-of-thought exploitation, `general` = public benchmark datasets.
 
-# Extended Model Evaluation Results {#app:models}
+# Extended Model Evaluation Results
+Table [2](#tab:models-full) presents the complete set of 231 models evaluated in the corpus, ordered by number of scored results.[^1] Parameter counts are reported where available from model cards or API metadata; `---` indicates unreported. Result counts reflect the total number of individually scored prompt--response pairs per model across all evaluation runs.
 
-Table [2](#tab:models-full){reference-type="ref" reference="tab:models-full"} presents the complete set of 227 models evaluated in the corpus, ordered by number of scored results.[^1] Parameter counts are reported where available from model cards or API metadata; `---` indicates unreported. Result counts reflect the total number of individually scored prompt--response pairs per model across all evaluation runs.
-
-::: {#tab:models-full}
 +-------------------------------------------+---------------------------------+---------------------------------+---+
 | **Model**                                 | **Params**                      | **Results**                     |   |
 +:==========================================+================================:+================================:+==:+
-| *Table [2](#tab:models-full){reference-type="ref" reference="tab:models-full"} continued*                     |   |
+| *Table [2](#tab:models-full) continued*                     |   |
 +-------------------------------------------+---------------------------------+---------------------------------+---+
 | **Model**                                 | **Params**                      | **Results**                     |   |
 +-------------------------------------------+---------------------------------+---------------------------------+---+
@@ -504,13 +499,10 @@ Table [2](#tab:models-full){reference-type="ref" reference="tab:models-full"} p
 +-------------------------------------------+---------------------------------+---------------------------------+---+
 
 : All 223 identified models with results, ordered by result count. Parameter counts from model cards where available. Results = individually scored prompt--response pairs across all evaluation runs and attack families.
-:::
 
-# Format-Lock ASR Comparison {#app:format-lock}
+# Format-Lock ASR Comparison
+Format-lock attacks frame harmful content requests as structured output tasks (JSON, YAML, Python, configuration files). This exploits the tension between safety training and instruction-following objectives. Table [3](#tab:format-lock-extended) presents the complete ASR comparison across all evaluated models.
 
-Format-lock attacks frame harmful content requests as structured output tasks (JSON, YAML, Python, configuration files). This exploits the tension between safety training and instruction-following objectives. Table [3](#tab:format-lock-extended){reference-type="ref" reference="tab:format-lock-extended"} presents the complete ASR comparison across all evaluated models.
-
-::: {#tab:format-lock-extended}
 +----------------------+---------------+---------------+---------------+-------------------+---------------+
 | **Model**            | **Params**    | **$n$**       | **ASR**       | **Wilson 95% CI** | **Grading**   |
 +:=====================+==============:+==============:+==============:+:==================+:==============+
@@ -542,14 +534,12 @@ Format-lock attacks frame harmful content requests as structured output tasks (J
 +----------------------+---------------+---------------+---------------+-------------------+---------------+
 
 : Format-lock ASR across all tested models. CLI models graded with the two-phase LLM pipeline; Ollama models use structural (heuristic) classification unless noted. $n=25$ scenarios per model for Ollama runs; $n$ varies for CLI due to model errors and empty responses. Wilson 95% CIs reported.
-:::
 
 #### Key observations.
 
 \(1\) The highest ASR comes from large open-weight models (Nemotron 30B, Llama 70B) that prioritize instruction-following; these models comply with format-lock requests even when the requested content is clearly harmful. (2) Scale does not predict vulnerability: the 671B DeepSeek-R1 (84%) is more susceptible than the 120B GPT-OSS (65%), suggesting that reasoning-model architecture is a larger factor than parameter count. (3) Gemma 27B exhibits complete refusal (0% ASR), indicating that safety training can effectively defend against format-lock attacks without sacrificing structured-output capability. (4) All three frontier CLI model confidence intervals overlap substantially; no pairwise differences are statistically significant at $n=19$--$23$ per model. (5) Heuristic classification produces 68--100% agreement with LLM grading across models, with higher agreement for models that produce clearly categorical responses.
 
-# FLIP Grading Methodology {#app:flip}
-
+# FLIP Grading Methodology
 The FLIP (Failure-first LLM Inference Pipeline) grading methodology uses backward inference to classify model responses to adversarial prompts. Rather than matching keywords or patterns in the response text, FLIP asks a grading model to *infer what instruction the response appears to be following*, then judges whether that inferred instruction is harmful.
 
 ## Motivation
@@ -639,20 +629,18 @@ The full classification pipeline operates as follows:
 
 3.  **Consensus.** The final verdict uses `COALESCE(llm_verdict, heuristic_verdict)`: the LLM verdict takes precedence when available; otherwise the heuristic verdict is used. Reports specify which methodology produced the cited ASR figures.
 
-# Three-Layer Defense Failure: Compound Probability Calculation {#app:compound-failure}
-
+# Three-Layer Defense Failure: Compound Probability Calculation
 This appendix provides the full derivation of the compound failure probabilities reported in Section 5.5 of the main paper.
 
 ## Layer Definitions and Measured Failure Rates
 
 We define three defense layers for embodied AI systems and report their measured failure rates:
 
-::: {#tab:layer-rates}
   **Layer**        **Failure Mode**                   **Rate**   **$n$** **Wilson 95% CI**   **Source**
   ---------------- -------------------------------- ---------- --------- ------------------- ------------------
-  T (Text)         Blindfold residual (VeriSafe)         75.3%       187 \[68.8%, 81.0%\]    [@blindfold2026]
-  T (Text)         Blindfold full pipeline               93.2%       187 \[88.5%, 95.9%\]    [@blindfold2026]
-  T (Text)         Raw input baseline (no attack)        27.4%       187 \[21.6%, 34.2%\]    [@blindfold2026]
+  T (Text)         Blindfold residual (VeriSafe)         75.3%       187 \[68.8%, 81.0%\]    (blindfold2026)
+  T (Text)         Blindfold full pipeline               93.2%       187 \[88.5%, 95.9%\]    (blindfold2026)
+  T (Text)         Raw input baseline (no attack)        27.4%       187 \[21.6%, 34.2%\]    (blindfold2026)
   A (Action)       0% refusal (FLIP corpus)             100.0%        58 \[93.8%, 100.0%\]   VLA FLIP corpus
   A (Action)       PARTIAL dominance                     50.0%        58 \[37.5%, 62.5%\]    VLA FLIP corpus
   A (Action)       FLIP ASR (7 families)                 72.4%        58 \[59.8%, 82.3%\]    VLA FLIP corpus
@@ -661,7 +649,6 @@ We define three defense layers for embodied AI systems and report their measured
   E (Evaluation)   Worst evaluator accuracy              15.0%        20 \[5.2%, 36.0%\]     Evaluator audit
 
   : Per-layer failure rates with Wilson 95% confidence intervals.
-:::
 
 #### Conservative vs. aggressive parameterisation.
 
@@ -689,7 +676,7 @@ This is trivially 1.0 because $P(A) = 1.0$: the action layer always fails.
 
 ## Independence Assumption: Sensitivity Analysis
 
-The independence assumption is a simplifying approximation. In practice, Layers T and A are *not* independent---they operate during the same inference pass on the same model. PARTIAL dominance (Section [4](#app:flip){reference-type="ref" reference="app:flip"}) directly demonstrates their coupling: when the text layer activates (producing a safety hedge), the action layer still complies.
+The independence assumption is a simplifying approximation. In practice, Layers T and A are *not* independent---they operate during the same inference pass on the same model. PARTIAL dominance (Section [4](#app:flip)) directly demonstrates their coupling: when the text layer activates (producing a safety hedge), the action layer still complies.
 
 #### T--A correlation.
 
@@ -703,7 +690,6 @@ Layer E (evaluation) operates post-hoc on model outputs, making it more plausib
 
 If future VLA systems achieve non-zero action-layer refusal, the compound probability changes substantially:
 
-::: {#tab:sensitivity}
     **$P(A)$**   **Action refusal**   **$P(\text{all fail})$** **Interpretation**
   ------------ -------------------- -------------------------- -----------------------------
           1.00         0% (current)                      23.2% Measured state
@@ -714,7 +700,6 @@ If future VLA systems achieve non-zero action-layer refusal, the compound probab
           0.10                  90%                       2.3% Near-effective defense
 
   : Sensitivity of $P(\text{all fail})$ to hypothetical action-layer refusal rates, holding $P(T) = 0.753$ and $P(E) = 0.308$ constant.
-:::
 
 The sensitivity analysis suggests that achieving even 50% action-layer refusal would halve the compound failure probability. This underscores the disproportionate value of investing in action-layer safety training relative to further improving text-layer defenses (which face a structural ceiling against Blindfold-class decomposition attacks).
 
@@ -730,15 +715,13 @@ The sensitivity analysis suggests that achieving even 50% action-layer refusal w
 
 5.  **Physical-layer defenses not quantified.** Hardware safety mechanisms (ISO 10218 force/speed limits, safety-rated monitored stop) may substantially reduce the exploitable attack surface for a subset of Blindfold categories, but are outside the scope of this AI-layer analysis.
 
-# Per-Model Three-Tier ASR with Wilson 95% CIs {#app:per-model-asr}
+# Per-Model Three-Tier ASR with Wilson 95% CIs
+Table [6](#tab:per-model-asr) reports the three-tier attack success rate for all 74 models with $n \geq 20$ evaluable LLM-graded results. Tiers are defined as: **Strict** = COMPLIANCE only; **Broad** = COMPLIANCE + PARTIAL; **Functionally Dangerous (FD)** = COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL. Denominators exclude ERROR, BENIGN_QUERY, and PARSE_ERROR verdicts. All confidence intervals use the Wilson score method at 95%.
 
-Table [6](#tab:per-model-asr){reference-type="ref" reference="tab:per-model-asr"} reports the three-tier attack success rate for all 74 models with $n \geq 20$ evaluable LLM-graded results. Tiers are defined as: **Strict** = COMPLIANCE only; **Broad** = COMPLIANCE + PARTIAL; **Functionally Dangerous (FD)** = COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL. Denominators exclude ERROR, BENIGN_QUERY, and PARSE_ERROR verdicts. All confidence intervals use the Wilson score method at 95%.
-
-::: {#tab:per-model-asr}
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 | **Model**                          | **$n$**         | **Strict**      | **Strict CI**   | **Broad**       | **Broad CI**    | **FD CI**       |
 +:===================================+================:+================:+================:+================:+================:+================:+
-| *Table [6](#tab:per-model-asr){reference-type="ref" reference="tab:per-model-asr"} continued*                                                  |
+| *Table [6](#tab:per-model-asr) continued*                                                  |
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 | **Model**                          | **$n$**         | **Strict**      | **Strict CI**   | **Broad**       | **Broad CI**    | **FD CI**       |
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
@@ -894,21 +877,18 @@ Table [6](#tab:per-model-asr){reference-type="ref" reference="tab:per-model-asr
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 
 : Per-model three-tier ASR (LLM-graded, $n \geq 20$). Models sorted by strict ASR descending. CI columns report Wilson 95% lower and upper bounds as percentages.
-:::
 
 #### Key observations.
 
 \(1\) 37 of 74 models achieve 100% strict ASR; these are predominantly abliterated (safety-removed) models, base models without safety training, and uncensored community fine-tunes. (2) The frontier cluster (Claude Sonnet 4.5, GPT-5.2, Gemini 3 Flash) achieves strict ASR $\leq 10.2\%$, with non-overlapping CIs relative to the permissive cluster. (3) The FD tier reveals a "hidden vulnerability" gap in several models: nvidia/nemotron-nano-9b-v2 shows a 26pp spread between strict (36.6%) and FD (62.8%) ASR, indicating substantial HALLUCINATION_REFUSAL rates that mask partial compliance. (4) Sample sizes range from $n=20$ (gemini-robotics-er-1.5, mistralai/mistral-small-3.1-24b) to $n=7{,}372$ (Qwen/Qwen3-4B); CIs should be consulted for any cross-model comparison.
 
-# Effect Size Registry {#app:effect-sizes}
+# Effect Size Registry
+Table [7](#tab:effect-sizes) consolidates all effect sizes reported in the main paper and supplementary materials. This serves as a single reference for reviewers assessing the practical significance of each finding beyond statistical significance.
 
-Table [7](#tab:effect-sizes){reference-type="ref" reference="tab:effect-sizes"} consolidates all effect sizes reported in the main paper and supplementary materials. This serves as a single reference for reviewers assessing the practical significance of each finding beyond statistical significance.
-
-::: {#tab:effect-sizes}
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
 | **Claim**                          | **Metric**    | **Value**     | **$n$**       | **$p$**       | **Status**    | **Interpretation**                         |
 +:===================================+:==============+==============:+==============:+==============:+==============:+:===========================================+
-| *Table [7](#tab:effect-sizes){reference-type="ref" reference="tab:effect-sizes"} continued*                                                                     |
+| *Table [7](#tab:effect-sizes) continued*                                                                     |
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
 | **Claim**                          | **Metric**    | **Value**     | **$n$**       | **$p$**       | **Status**    | **Interpretation**                         |
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
@@ -948,13 +928,10 @@ Table [7](#tab:effect-sizes){reference-type="ref" reference="tab:effect-sizes"}
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
 
 : Complete effect size registry. All entries correspond to a named evidence package (EP-N). CI = 95% confidence interval where available. Status: V = Validated, P = Preliminary, R = Refuted.
-:::
 
-# Evidence Package Summaries {#app:evidence-packages}
+# Evidence Package Summaries
+Each quantitative claim maps to a numbered evidence package (EP) with documented status, sample sizes, tests, and scripts. Table [8](#tab:ep-summary) provides a compressed overview; full analysis scripts are available in the supplementary code repository.
 
-Each quantitative claim maps to a numbered evidence package (EP) with documented status, sample sizes, tests, and scripts. Table [8](#tab:ep-summary){reference-type="ref" reference="tab:ep-summary"} provides a compressed overview; full analysis scripts are available in the supplementary code repository.
-
-::: {#tab:ep-summary}
   **EP**   **Claim**                                  **Status**     **$n$** **Key Caveat**
   -------- ------------------------------------------ ------------ --------- -------------------------------------
   EP-25    Inverse scaling in reasoning-era attacks   R                1,454 Heuristic artifact
@@ -971,13 +948,10 @@ Each quantitative claim maps to a numbered evidence package (EP) with documented
   EP-49    Cross-family vulnerability correlation     V               22,985 Qwen dominates corpus
 
   : Evidence package summary. Status codes: V = Validated (meets all 7 statistical standards), P = Preliminary (significant but caveats remain), R = Refuted, B = Blocked, L = Literature-grounded (external data).
-:::
 
-# VLA Attack Family Extended Results {#app:vla-extended}
+# VLA Attack Family Extended Results
+Table [9](#tab:vla-families) reports the FLIP-graded verdict distribution and ASR for all VLA attack families with at least one graded trace. Families are ordered by strict ASR (COMPLIANCE only).
 
-Table [9](#tab:vla-families){reference-type="ref" reference="tab:vla-families"} reports the FLIP-graded verdict distribution and ASR for all VLA attack families with at least one graded trace. Families are ordered by strict ASR (COMPLIANCE only).
-
-::: {#tab:vla-families}
   **Family**           **$n$**    **C**    **P**    **R**   **BQ**   **Strict ASR** **Wilson 95% CI**
   ------------------ --------- -------- -------- -------- -------- ---------------- -------------------
   TRA                        5        4        1        0        0           100.0% \[51%, 100%\]
@@ -999,11 +973,10 @@ Table [9](#tab:vla-families){reference-type="ref" reference="tab:vla-families"}
   **All families**     **173**   **33**   **55**   **19**   **58**        **30.8%** \[23%, 40%\]
 
   : VLA attack family FLIP-graded results. $n$ = graded traces. Strict ASR = COMPLIANCE / (COMPLIANCE + PARTIAL + REFUSAL). Broad ASR = (COMPLIANCE + PARTIAL) / total evaluable. BQ = BENIGN_QUERY rate (evaluator misclassification). Wilson 95% CIs reported for strict ASR.
-:::
 
 #### Wave 4 additions (IMB, SID, SIF).
 
-Three new families were added in wave 4, each probing a distinct embodied vulnerability class. **Implicit Manipulation Bias (IMB; $n=7$ evaluable, 3 ERROR excluded)** targets API-level bypass of LLM safety: a companion robot with strong prompt-level safety exposes a guessable-PIN REST API, allowing direct device commands. Strict ASR 40.0% \[12%, 77%\]; broad ASR 100.0% \[57%, 100%\]. All 5 non-BQ evaluable traces show compliance or partial compliance. **Safety Instruction Dilution (SID; $n=25$, 5 per dose level)** tests whether safety instructions degrade when diluted by extended benign operational context; the full dose-response analysis is in Section [15](#app:sid-dose-response){reference-type="ref" reference="app:sid-dose-response"}. Across all doses, broad ASR is 56.0% \[37%, 74%\]; no significant dose-response trend ($p = 0.42$). A context truncation confound affects D8000+ (EP-51). **Sensory Integrity Falsification (SIF; $n=1$ evaluable, 2 ERROR + 2 BQ excluded)** probes whether models report anomalous sensor readings or suppress them; the single evaluable trace was PARTIAL. SIF results are below reporting threshold and are included only for completeness. All three families have CIs too wide for per-family significance; they contribute primarily to the IDDL analysis and the expanding coverage of the VLA attack surface.
+Three new families were added in wave 4, each probing a distinct embodied vulnerability class. **Implicit Manipulation Bias (IMB; $n=7$ evaluable, 3 ERROR excluded)** targets API-level bypass of LLM safety: a companion robot with strong prompt-level safety exposes a guessable-PIN REST API, allowing direct device commands. Strict ASR 40.0% \[12%, 77%\]; broad ASR 100.0% \[57%, 100%\]. All 5 non-BQ evaluable traces show compliance or partial compliance. **Safety Instruction Dilution (SID; $n=25$, 5 per dose level)** tests whether safety instructions degrade when diluted by extended benign operational context; the full dose-response analysis is in Section [15](#app:sid-dose-response). Across all doses, broad ASR is 56.0% \[37%, 74%\]; no significant dose-response trend ($p = 0.42$). A context truncation confound affects D8000+ (EP-51). **Sensory Integrity Falsification (SIF; $n=1$ evaluable, 2 ERROR + 2 BQ excluded)** probes whether models report anomalous sensor readings or suppress them; the single evaluable trace was PARTIAL. SIF results are below reporting threshold and are included only for completeness. All three families have CIs too wide for per-family significance; they contribute primarily to the IDDL analysis and the expanding coverage of the VLA attack surface.
 
 #### Three-tier vulnerability structure.
 
@@ -1021,47 +994,41 @@ In a separate set of deceptive alignment scenarios ($n=8$ per model), DeepSeek-R
 
 To test whether format-lock vulnerability is bounded by model capability, we evaluated a 1.7B parameter model (Qwen3 1.7B) against 25 format-lock scenarios via Ollama. Heuristic ASR was 96% ($n=25$); manual review placed ASR at 100%. After FLIP grading with DeepSeek-R1 1.5B as judge, broad ASR was 88.2% ($n=17$ usable; 8/25 traces excluded due to judge error; Wilson 95% CI \[65.7%, 96.7%\]). All 12 format types produced at least one compliant response. A controlled follow-up with a purpose-built 30-scenario dataset covering six format types (JSON, YAML, code, CSV, XML, markdown table) and six harm domains confirmed uniform compliance: both sub-2B models tested produced format-compliant output on all 30 scenarios with zero refusals; FLIP grading yielded 63.2% COMPLIANCE+PARTIAL among non-error verdicts ($n=19$; 11/30 grader errors excluded). No format type elicited a refusal from either model. This supports a capability-floor interpretation: format-lock attacks exploit the instruction-following objective rather than absent safety training.
 
-# Power Analysis Summary {#app:power-analysis}
+# Power Analysis Summary
+Table [10](#tab:power) reports the minimum detectable effect (MDE) at 80% power for each pairwise comparison in the paper. MDE is computed for a two-proportion $z$-test at $\alpha = 0.05$ (Bonferroni-adjusted where applicable).
 
-Table [10](#tab:power){reference-type="ref" reference="tab:power"} reports the minimum detectable effect (MDE) at 80% power for each pairwise comparison in the paper. MDE is computed for a two-proportion $z$-test at $\alpha = 0.05$ (Bonferroni-adjusted where applicable).
-
-::: {#tab:power}
   **Comparison**                 **$n_1$**   **$n_2$**                       **MDE**   **Observed $\Delta$** **Powered?**
   ---------------------------- ----------- ----------- ----------------------------- ----------------------- ------------------------------------
   EP-45: R1 vs Claude                  149          72                        12.5pp                  14.6pp YES
   EP-45: R1 vs GPT-5.2                 149          66                        12.7pp                   4.8pp NO
   EP-45: R1 vs Gemini                  149          70                        12.6pp                  17.2pp YES
   EP-31: reasoning vs cipher           119         130                        14.2pp                  14.0pp MARGINAL
-  EP-35: Crescendo strict               10         ---   $\sim$`<!-- -->`{=html}50pp                  65.0pp NO (n=10)
+  EP-35: Crescendo strict               10         ---   ~50pp                  65.0pp NO (n=10)
   Format-lock frontier                  23          19                        34.7pp                  30.4pp NO
   VLA FLIP all families                 58         ---                        20.8pp                  72.4pp YES
-  IMB broad ASR                          5         ---   $\sim$`<!-- -->`{=html}85pp                 100.0pp NO ($n=5$)
-  SID broad ASR                         25         ---   $\sim$`<!-- -->`{=html}40pp                  40.0pp NO ($n=5$ per dose; chi2 $p=0.42$)
+  IMB broad ASR                          5         ---   ~85pp                 100.0pp NO ($n=5$)
+  SID broad ASR                         25         ---   ~40pp                  40.0pp NO ($n=5$ per dose; chi2 $p=0.42$)
   SIF (all)                              1         ---                           ---                     --- NO ($n=1$)
 
   : Power analysis for key pairwise comparisons. MDE = minimum detectable effect at 80% power. "Powered?" = whether observed delta exceeds MDE.
-:::
 
 #### Key limitations.
 
 Three comparisons are underpowered: (1) Crescendo multi-turn (effective $n=10$ unique scenarios), rendering pairwise inter-model comparison unreliable; (2) format-lock frontier (wide CIs, no pairwise difference achieves significance at $n=19$--23); and (3) the reasoning vs. cipher era comparison is exactly at the MDE boundary (observed 14.0pp vs. MDE 14.2pp), which the chi-square test confirms as borderline ($p=0.003$ vs. Bonferroni $\alpha=0.005$). These limitations are flagged in the main paper's limitations section. IMB ($n=5$ evaluable) and SIF ($n=1$) are severely underpowered. SID ($n=25$ total, 5 per dose) has adequate aggregate sample size but the per-dose cells ($n=5$) can only detect OR $> 3.0$; the dose-response non-significance ($p = 0.42$) may reflect underpowering rather than a true null. All three families contribute to attack surface coverage and IDDL analysis but do not individually support strong per-family ASR claims.
 
-# IDDL Bootstrap and Jackknife Stability {#app:iddl-stability}
-
+# IDDL Bootstrap and Jackknife Stability
 This section provides full details for the Inverse Detectability--Danger Law (IDDL) Spearman $\rho$ reported in Section 5.6 of the main paper.
 
 ## Bootstrap Confidence Intervals
 
 We compute bias-corrected and accelerated (BCa) bootstrap 95% confidence intervals for the Spearman $\rho$ using $B=20{,}000$ replicates (seed = 42). BCa adjusts for bias and skewness in the bootstrap distribution, producing more accurate CIs than the percentile method for small $n$.
 
-::: {#tab:iddl-bootstrap}
   **Analysis**          **$n$**   **$\rho$**           **BCa 95% CI**   **Boot SE**   **Bias**   **$p_\text{boot}$**
   ------------------- --------- ------------ ------------------------ ------------- ---------- ---------------------
   VLA families only          16     $-0.698$   \[$-0.897$, $-0.332$\]         0.163      0.057                 0.002
   Full corpus                27     $-0.822$   \[$-0.913$, $-0.733$\]         0.062      0.034              $<0.001$
 
   : IDDL Spearman $\rho$ with BCa bootstrap 95% CIs ($B=20{,}000$).
-:::
 
 Both CIs exclude zero, confirming the inverse relationship is robust to resampling. The positive bias (0.057 for VLA, 0.034 for full corpus) indicates the bootstrap distribution is shifted slightly toward zero relative to the point estimate; the BCa correction accounts for this.
 
@@ -1073,14 +1040,12 @@ Dual-Layer Attack (DLA, $n=7$) was added in wave 8 after the IDDL analysis was 
 
 A potential reviewer concern is whether the IDDL correlation is driven by a single dominant family. We address this with a leave-one-family-out jackknife: for each of the $n$ families, we remove it and recompute $\rho$ on the remaining $n-1$ families. If any single removal renders $\rho$ non-significant, the finding depends on that family.
 
-::: {#tab:iddl-jackknife}
   **Analysis**     **$n$**   **$\rho$**            **LOO range**   **LOO spread**               **Worst removal** **All sig?**
   -------------- --------- ------------ ------------------------ ---------------- ------------------------------- --------------
   VLA only              16     $-0.698$   \[$-0.785$, $-0.614$\]            0.171             PP ($\Delta=-0.09$) YES
   Full corpus           27     $-0.822$   \[$-0.851$, $-0.787$\]            0.064   Supply_Chain ($\Delta=-0.04$) YES
 
   : Jackknife stability summary. Range = \[min, max\] of leave-one-out $\rho$ values. "All sig?" = whether all $n$ leave-one-out correlations remain significant at $p < 0.05$ (bootstrap, $B=20{,}000$).
-:::
 
 #### Results.
 
@@ -1088,21 +1053,19 @@ No single family removal renders the correlation non-significant in either analy
 
 #### DLA sensitivity (n=28).
 
-When DLA is included, the full-corpus jackknife ($n=28$) shows that removing DLA produces the largest single-family shift ($\Delta = -0.14$, $\rho_{\text{LOO}} = -0.822$). All other removals produce $|\Delta| < 0.04$. In the VLA-only analysis ($n=17$ including DLA), removing DLA shifts $\rho$ from $-0.526$ to $-0.698$ ($\Delta = -0.17$). DLA is the single most influential family in both analyses, consistent with its role as a counter-example (Section [11](#app:iddl-stability){reference-type="ref" reference="app:iddl-stability"}).
+When DLA is included, the full-corpus jackknife ($n=28$) shows that removing DLA produces the largest single-family shift ($\Delta = -0.14$, $\rho_{\text{LOO}} = -0.822$). All other removals produce $|\Delta| < 0.04$. In the VLA-only analysis ($n=17$ including DLA), removing DLA shifts $\rho$ from $-0.526$ to $-0.698$ ($\Delta = -0.17$). DLA is the single most influential family in both analyses, consistent with its role as a counter-example (Section [11](#app:iddl-stability)).
 
 #### Interpretation.
 
 The IDDL correlation is not an artifact of any single family. The finding is structurally distributed across the gradient from high-detectability/low-consequentiality (text-layer attacks) to low-detectability/high-consequentiality (context-dependent embodied attacks). This robustness strengthens the paper's central architectural argument: text-layer evaluation cannot detect the most physically dangerous attack classes.
 
-# Full IDDL Family Data {#app:iddl-full-data}
+# Full IDDL Family Data
+Table [13](#tab:iddl-full) presents the complete data for all 27 attack families (24 original plus 3 wave 4 additions) used in the IDDL analysis. Detectability $D_f$ is defined as $D_f = 1 - (|\texttt{BQ}_f| + |\texttt{HR}_f|)/n_f$ (see main paper, Eq. 1). Consequentiality $C_f$ is an ordinal rating (1--5) based on scenario descriptions.
 
-Table [13](#tab:iddl-full){reference-type="ref" reference="tab:iddl-full"} presents the complete data for all 27 attack families (24 original plus 3 wave 4 additions) used in the IDDL analysis. Detectability $D_f$ is defined as $D_f = 1 - (|\texttt{BQ}_f| + |\texttt{HR}_f|)/n_f$ (see main paper, Eq. 1). Consequentiality $C_f$ is an ordinal rating (1--5) based on scenario descriptions.
-
-::: {#tab:iddl-full}
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
 | **Family**       | **$n$**          | **$D_f$**        | **$C_f$**        | **Type**         | **Notes**                                      |
 +:=================+=================:+=================:+=================:+=================:+:===============================================+
-| *Table [13](#tab:iddl-full){reference-type="ref" reference="tab:iddl-full"} continued*                                                        |
+| *Table [13](#tab:iddl-full) continued*                                                        |
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
 | **Family**       | **$n$**          | **$D_f$**        | **$C_f$**        | **Type**         | **Notes**                                      |
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
@@ -1164,34 +1127,28 @@ Table [13](#tab:iddl-full){reference-type="ref" reference="tab:iddl-full"} pres
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
 
 : All 27 families in IDDL analysis (24 original + 3 wave 4 additions). VLA families from the embodied attack corpus; text-layer families from the main jailbreak corpus. Wave 4 families have small $n$ and are included for coverage; IDDL $\rho$ values in main paper are based on the original 24 families.
-:::
 
-# IDDL Consequentiality Rating Sensitivity {#app:iddl-rating-sensitivity}
-
+# IDDL Consequentiality Rating Sensitivity
 The consequentiality ratings $C_f$ are ordinal judgments (1--5) assigned by the authors. A natural concern is whether the IDDL correlation is sensitive to these subjective ratings. We address this with a Monte Carlo perturbation analysis: for each of 50,000 draws, every family's $C_f$ is independently perturbed by $\{-1, 0, +1\}$ (clamped to $[1,5]$), and Spearman $\rho$ is recomputed.
 
-::: {#tab:iddl-sensitivity}
   **Analysis**     **$n$**   **Original $\rho$**   **Mean $\hat{\rho}$**         **90% interval**   **% sig**   **% $\rho < 0$**
   -------------- --------- --------------------- ----------------------- ------------------------ ----------- ------------------
   VLA only              16              $-0.698$                $-0.511$   \[$-0.756$, $-0.213$\]        54.1               99.6
   Full corpus           27              $-0.822$                $-0.696$   \[$-0.808$, $-0.576$\]       100.0              100.0
 
   : IDDL sensitivity to $\pm 1$ perturbation of consequentiality ratings ($50{,}000$ Monte Carlo draws).
-:::
 
 #### Results.
 
 For the full corpus ($n=27$), 100% of 50,000 perturbations produce significant ($p < 0.05$) negative correlations, with mean perturbed $\rho = -0.696$ and 90% interval \[$-0.808$, $-0.576$\]. The IDDL is robust to substantial ($\pm 1$ ordinal step) disagreement about consequentiality ratings. For VLA-only ($n=16$), 54.1% of perturbations remain significant, reflecting the smaller sample and wider baseline CI; however, 99.6% of perturbations produce negative $\rho$, confirming the direction of the relationship even when the exact magnitude is uncertain.
 
-# Defense Positional Bias {#app:defense-positional-bias}
-
+# Defense Positional Bias
 System-prompt defenses are the primary deployment-time mitigation for adversarial attacks on LLM-backed systems, yet their effectiveness is poorly characterized. We evaluated four defense variants (NONE, SIMPLE, STRUCTURED, and ADVERSARIAL_AWARE) against 10 standard adversarial scenarios on three models (Nemotron 9B, Nemotron 30B, StepFun 3.5 Flash), producing 120 FLIP-graded traces (Reports #318, #321; data in `runs/defense_v1.0/`). This section reports the full analysis behind the defense-as-context finding summarized in Section 5.7 of the main paper.
 
 ## Standard Attacks: Moderate, Model-Dependent Protection
 
-Pooled across three models, the strongest defense variant (ADVERSARIAL_AWARE) reduced ASR from 50.0% to 30.0% ($-$`<!-- -->`{=html}20 pp; $n=30$ per variant; pooled Wilson 95% CI: NONE \[33.2%, 66.8%\], ADVERSARIAL_AWARE \[16.7%, 47.9%\]; $\chi^2 = 1.74$, $p = 0.19$, not significant at $\alpha = 0.05$). However, the aggregate masks model-level heterogeneity: Nemotron 9B responded to SIMPLE and STRUCTURED defenses ($-$`<!-- -->`{=html}30 pp each), Nemotron 30B responded only to ADVERSARIAL_AWARE ($-$`<!-- -->`{=html}30 pp; 0 pp for SIMPLE and STRUCTURED), and StepFun 3.5 Flash showed a floor effect (baseline 20%, minimal further reduction). No individual per-model comparison reaches significance (Fisher's exact $p > 0.35$, $n = 10$ per cell), reflecting the small per-cell sample sizes; these results are preliminary and require replication at $n \geq 20$ per cell.
+Pooled across three models, the strongest defense variant (ADVERSARIAL_AWARE) reduced ASR from 50.0% to 30.0% ($-$20 pp; $n=30$ per variant; pooled Wilson 95% CI: NONE \[33.2%, 66.8%\], ADVERSARIAL_AWARE \[16.7%, 47.9%\]; $\chi^2 = 1.74$, $p = 0.19$, not significant at $\alpha = 0.05$). However, the aggregate masks model-level heterogeneity: Nemotron 9B responded to SIMPLE and STRUCTURED defenses ($-$30 pp each), Nemotron 30B responded only to ADVERSARIAL_AWARE ($-$30 pp; 0 pp for SIMPLE and STRUCTURED), and StepFun 3.5 Flash showed a floor effect (baseline 20%, minimal further reduction). No individual per-model comparison reaches significance (Fisher's exact $p > 0.35$, $n = 10$ per cell), reflecting the small per-cell sample sizes; these results are preliminary and require replication at $n \geq 20$ per cell.
 
-::: {#tab:defense-standard}
   **Model**        **NONE**   **SIMPLE**   **STRUCT.**   **ADV_AWARE**
   -------------- ---------- ------------ ------------- ---------------
   Nemotron 9B           50%          20%           20%             40%
@@ -1200,21 +1157,18 @@ Pooled across three models, the strongest defense variant (ADVERSARIAL_AWARE) re
   Pooled                50%          40%           37%             30%
 
   : Per-model ASR (FLIP broad) by defense variant. $n=10$ per cell. All per-model pairwise comparisons are non-significant (Fisher's exact $p > 0.35$). Results are preliminary.
-:::
 
 ## L1B3RT4S Persona-Hijack Attacks: Defense Direction Reverses by Model
 
-Against six L1B3RT4S persona-hijack scenarios that operate at the system-prompt privilege level, the same STRUCTURED defense produced qualitatively opposite outcomes on three models ($n = 6$ per arm per model, 36 total traces): Qwen3.5 397B showed a protective effect ($-$`<!-- -->`{=html}50 pp, from 83% to 33%), Nemotron-3-Super 120B showed zero effect (50% in both conditions, identical per-scenario outcomes), and GLM-5 showed an iatrogenic effect (+17 pp heuristic, +33 pp under FLIP broad grading, from 67% to 100%). At $n = 6$, no individual comparison reaches significance (Fisher's exact $p \geq 0.24$); the three-model directional pattern is qualitatively robust but individual deltas must be treated as preliminary. The iatrogenic direction on GLM-5 is confirmed by three independent grading methods (heuristic, FLIP broad, FLIP strict), all showing increased ASR under defense.
+Against six L1B3RT4S persona-hijack scenarios that operate at the system-prompt privilege level, the same STRUCTURED defense produced qualitatively opposite outcomes on three models ($n = 6$ per arm per model, 36 total traces): Qwen3.5 397B showed a protective effect ($-$50 pp, from 83% to 33%), Nemotron-3-Super 120B showed zero effect (50% in both conditions, identical per-scenario outcomes), and GLM-5 showed an iatrogenic effect (+17 pp heuristic, +33 pp under FLIP broad grading, from 67% to 100%). At $n = 6$, no individual comparison reaches significance (Fisher's exact $p \geq 0.24$); the three-model directional pattern is qualitatively robust but individual deltas must be treated as preliminary. The iatrogenic direction on GLM-5 is confirmed by three independent grading methods (heuristic, FLIP broad, FLIP strict), all showing increased ASR under defense.
 
-::: {#tab:defense-l1b}
   **Model**           **No Defense**   **STRUCTURED**                **$\Delta$** **Direction**
   ----------------- ---------------- ---------------- --------------------------- ---------------
-  Qwen3.5 397B                   83%              33%   $-$`<!-- -->`{=html}50 pp Protective
+  Qwen3.5 397B                   83%              33%   $-$50 pp Protective
   Nemotron-3 120B                50%              50%                        0 pp Null
   GLM-5 756B                     67%             100%                      +33 pp Iatrogenic
 
   : L1B3RT4S broad ASR (FLIP) with and without STRUCTURED system-prompt defense. $n=6$ per arm per model. All per-model comparisons are non-significant at $n=6$ (Fisher's exact $p \geq 0.24$). Results are preliminary.
-:::
 
 ## Mechanism: Defense-as-Context
 
@@ -1228,24 +1182,21 @@ Three practical consequences follow. First, system-prompt defenses require per-m
 
 To address the $n = 6$ limitation, we conducted a replication study using 20 L1B3RT4S persona-hijack scenarios (drawn from the full 149-scenario corpus, excluding the original 6) against three models via OpenRouter free tier: Nemotron-3-Super 120B (same model as original), GLM-4.5-Air (same family as GLM-5, smaller scale), and StepFun 3.5 Flash (new model). FLIP grading was performed via Nemotron-3-Nano 30B on OpenRouter.
 
-::: {#tab:defense-l1b-replication}
   **Model**               **No Defense**   **STRUCTURED**                **$\Delta$** **Direction**
   --------------------- ---------------- ---------------- --------------------------- --------------------------
-  Nemotron-Super 120B     21.1% ($n=19$)    5.0% ($n=20$)   $-$`<!-- -->`{=html}16 pp Protective
-  StepFun 3.5 Flash       70.6% ($n=17$)   25.0% ($n=16$)   $-$`<!-- -->`{=html}46 pp Protective ($p = 0.015$)
+  Nemotron-Super 120B     21.1% ($n=19$)    5.0% ($n=20$)   $-$16 pp Protective
+  StepFun 3.5 Flash       70.6% ($n=17$)   25.0% ($n=16$)   $-$46 pp Protective ($p = 0.015$)
   GLM-4.5-Air             41.2% ($n=17$)   53.8% ($n=13$)                      +13 pp Iatrogenic ($p = 0.71$)
 
   : L1B3RT4S broad ASR (FLIP) replication with and without STRUCTURED defense. $n=13$--$20$ evaluable per arm per model. StepFun comparison reaches significance (Fisher's exact $p = 0.015$).
-:::
 
-The replication confirms the qualitative pattern: defense direction is model-dependent, spanning a spectrum from protective (StepFun $-$`<!-- -->`{=html}46 pp, Nemotron $-$`<!-- -->`{=html}16 pp) to iatrogenic (GLM-4.5-Air +13 pp). The StepFun result is the first individual comparison to reach statistical significance ($p = 0.015$, OR $= 7.2$). The GLM-4.5-Air iatrogenic effect (+13 pp) is smaller than the original GLM-5 result (+33 pp), consistent with a weaker defense-as-context effect at smaller model scale, though the difference is not statistically distinguishable at these sample sizes.
+The replication confirms the qualitative pattern: defense direction is model-dependent, spanning a spectrum from protective (StepFun $-$46 pp, Nemotron $-$16 pp) to iatrogenic (GLM-4.5-Air +13 pp). The StepFun result is the first individual comparison to reach statistical significance ($p = 0.015$, OR $= 7.2$). The GLM-4.5-Air iatrogenic effect (+13 pp) is smaller than the original GLM-5 result (+33 pp), consistent with a weaker defense-as-context effect at smaller model scale, though the difference is not statistically distinguishable at these sample sizes.
 
 #### Limitations (updated).
 
 The replication uses different L1B3RT4S scenarios than the original study (20 of 149 vs. 6 of 6), different models in two of three cases, and a single FLIP grader (Nemotron-3-Nano 30B) known to have REFUSAL bias (Mistake #28). Infrastructure errors reduced evaluable $n$ below 20 in some cells. The qualitative defense direction reversal pattern is robust across both studies, but the magnitude of the iatrogenic effect on GLM-family models requires further investigation with GLM-5 at $n \geq 20$.
 
-# SID Dose-Response Analysis {#app:sid-dose-response}
-
+# SID Dose-Response Analysis
 Safety Instruction Dilution (SID) tests whether safety instructions embedded in a system prompt degrade when the context window is filled with benign operational history before the adversarial request. The experimental design uses 5 base scenarios at 5 dose levels (D0, D500, D2000, D8000, D15000 tokens of benign context), yielding 25 scenario variants evaluated on DeepSeek-R1 1.5B.
 
 #### Pre-registered analysis.
@@ -1266,8 +1217,7 @@ DeepSeek-R1 1.5B has a 4,096-token context window. At D8000 and D15000, prompts
 
 At $n=5$ per dose, the minimum detectable odds ratio is approximately 3.0---only very large effects are detectable. The pre-registered plan recommended $n \geq 50$ (10 per dose) for moderate effects (OR $\geq$ 2.0). These results are **preliminary**: the U-shape cannot be distinguished from random variation at this sample size, and the context truncation confound must be resolved with a 7B+ model (8,192+ token context window) before any dose-response claim is justified.
 
-# Cross-Attack Family Orthogonality {#app:cross-attack-orthogonality}
-
+# Cross-Attack Family Orthogonality
 Safety evaluation typically tests a single attack family and reports a single ASR figure per model. If attack families probe *independent* safety dimensions, a single-family evaluation systematically underestimates the attack surface available to a real adversary. We tested this hypothesis by collecting paired traces from two mechanistically distinct attack families---format-lock (FL) and L1B3RT4S (L1B)---on the same models.
 
 #### Experimental design.
@@ -1276,17 +1226,15 @@ Three models were tested against both families: Nemotron-3-Nano-30B ($n_{\text{F
 
 #### Results.
 
-Vulnerability profiles diverge significantly between attack families, but not in a consistent direction (Table [18](#tab:orthogonality){reference-type="ref" reference="tab:orthogonality"}).
+Vulnerability profiles diverge significantly between attack families, but not in a consistent direction (Table [18](#tab:orthogonality)).
 
-::: {#tab:orthogonality}
   **Model**             **FL Broad**      **L1B Broad**                  **$\Delta$** **Fisher $p$**
   --------------- ------------------ ------------------ ----------------------------- ----------------
   Nemotron 30B      92.0% ($n{=}25$)   13.3% ($n{=}15$)                      +78.7 pp $< 0.001$
   DeepSeek V3.2     90.9% ($n{=}11$)   73.3% ($n{=}30$)                      +17.6 pp 0.401 (NS)
-  Qwen 3.5          18.2% ($n{=}11$)   66.7% ($n{=}30$)   $-$`<!-- -->`{=html}48.5 pp 0.012
+  Qwen 3.5          18.2% ($n{=}11$)   66.7% ($n{=}30$)   $-$48.5 pp 0.012
 
   : Paired broad ASR (COMPLIANCE + PARTIAL) for two attack families across three models. Fisher's exact test, Bonferroni-corrected $\alpha = 0.0167$ ($k=3$). NS = not significant.
-:::
 
 Two of three models show statistically significant divergence after Bonferroni correction, but *in opposite directions*: Nemotron 30B is format-lock-vulnerable and L1B-resistant; Qwen 3.5 is L1B-vulnerable and format-lock-resistant.
 
@@ -1302,11 +1250,9 @@ Single-family safety testing produces a systematically optimistic estimate of mo
 
 (1) Three models is insufficient to determine whether the observed patterns (format-vulnerable/L1B-resistant, L1B-vulnerable/format-resistant, broadly-vulnerable) represent discrete clusters or a continuum. (2) Per-model $n=11$--$30$ yields wide confidence intervals; all per-model findings are directional. (3) The two families use different payloads (FL: varied high-harm; L1B: single medium-harm), confounding attack mechanism with payload severity. (4) Grading methodology differs between families (manual vs. FLIP). A controlled experiment with identical payloads, matched grading, and $\geq 10$ models is needed to validate the partial independence finding.
 
-# Inter-Provider Vulnerability Correlation {#app:provider-phi}
+# Inter-Provider Vulnerability Correlation
+This section presents the inter-provider phi coefficient analysis summarized in Section 5.2 of the main paper. We computed pairwise phi coefficients (binary correlation on shared prompts) for 10 providers with >=20 evaluable results and multi-prompt overlap ($n=2{,}768$ evaluable results across 781 unique prompts). Providers cluster into three safety tiers: *restrictive* (Anthropic, StepFun, Google; broad ASR <20%), *mixed* (OpenAI, Nvidia, Mistral; 38--40%), and *permissive* (Meta-Llama, DeepSeek, Liquid; $>$50%).
 
-This section presents the inter-provider phi coefficient analysis summarized in Section 5.2 of the main paper. We computed pairwise phi coefficients (binary correlation on shared prompts) for 10 providers with $\geq$`<!-- -->`{=html}20 evaluable results and multi-prompt overlap ($n=2{,}768$ evaluable results across 781 unique prompts). Providers cluster into three safety tiers: *restrictive* (Anthropic, StepFun, Google; broad ASR $<$`<!-- -->`{=html}20%), *mixed* (OpenAI, Nvidia, Mistral; 38--40%), and *permissive* (Meta-Llama, DeepSeek, Liquid; $>$`<!-- -->`{=html}50%).
-
-::: {#tab:provider-phi}
   Provider A    Provider B           $\phi$   $n$              Cluster
   ------------- -------------- ------------ ----- --------------------
   Anthropic     OpenAI           $+0.431$\*    90   Restrictive--Mixed
@@ -1318,19 +1264,17 @@ This section presents the inter-provider phi coefficient analysis summarized in 
   Google        DeepSeek           $-0.150$    46     Restr.--Permiss.
 
   : Selected inter-provider phi coefficients on shared prompts (Table S2). Positive values indicate providers fail on the same prompts; negative values indicate complementary vulnerability profiles. Asterisk: $p < 0.05$ (uncorrected). No Bonferroni correction was applied across 27 provider pairs; only the Anthropic--OpenAI pair is likely to survive correction.
-:::
 
 Within-cluster provider pairs show positive vulnerability correlation (mean $\phi = +0.197$; e.g., Anthropic--Google $\phi = +0.293$, $p < 0.05$, $n=93$ shared prompts; Anthropic--OpenAI $\phi = +0.431$, $p < 0.05$, $n=90$), while cross-cluster pairs---particularly restrictive vs. permissive---show negative or near-zero correlation (mean $\phi = -0.127$; e.g., Anthropic--DeepSeek $\phi = -0.224$, $n=33$). The within- vs. cross-cluster difference is significant (Mann-Whitney $U = 15.0$, $p = 0.018$, one-tailed). A one-way ANOVA on per-model broad ASR grouped by provider yields $\eta^2 = 0.295$ (provider explains 29.5% of model-level ASR variance), directionally consistent with the ICC(1,1) of 0.416 reported in the main paper.
 
 The negative cross-cluster phi values have two implications: (1) safety training from one provider's pipeline does not generalize to the vulnerability patterns exploited by other providers' pipelines, consistent with the safety non-transfer finding; and (2) a multi-provider ensemble may achieve higher overall refusal rates than any single provider, because restrictive and permissive providers refuse complementary prompt sets. Within-provider analysis further supports the post-training interpretation: Nvidia's smaller Nemotron variants (9B, 12B) are tightly correlated ($\phi = +0.536$), but the 120B diverges ($\phi = -0.126$ vs. 9B), suggesting qualitatively different safety training at scale.
 
-# World Models and Emerging Attack Families {#app:world-models}
-
+# World Models and Emerging Attack Families
 This section expands on the future directions discussed in Section 6 of the main paper. The content below is speculative and based on architectural analysis rather than validated experimental data.
 
 ## Action-Conditioned World Models as an Attack Surface
 
-Emerging action-conditioned world models---architectures that predict future states, evaluate candidate action sequences via a cost module, and execute plans through model-predictive control [@lecun2022jepa; @assran2025vjepa2]---represent a next frontier for failure-first evaluation. These systems are being developed for robotics and industrial automation at scale [@cwm2026; @liu2026scvla], and their architecture introduces attack surfaces with no direct analogue in text-only LLM evaluation.
+Emerging action-conditioned world models---architectures that predict future states, evaluate candidate action sequences via a cost module, and execute plans through model-predictive control (lecun2022jepa; assran2025vjepa2)---represent a next frontier for failure-first evaluation. These systems are being developed for robotics and industrial automation at scale (cwm2026; liu2026scvla), and their architecture introduces attack surfaces with no direct analogue in text-only LLM evaluation.
 
 Our capability-floor finding (Section 4.3 of the main paper)---where format-lock attacks maintain elevated ASR above approximately 7B parameters because instruction-following competence and safety reasoning are decoupled---may manifest analogously as a *planning-compliance floor* in world models. A model competent enough to execute multi-step plans is, by construction, competent enough to execute adversarially specified plans; the same capability--vulnerability coupling we observe for structured output may apply to action planning.
 
@@ -1348,23 +1292,22 @@ These categories require dedicated red-teaming frameworks that evaluate the pred
 
 Preliminary testing of five novel attack families not represented in public benchmarks ($n=117$ traces across three models at 24--70B) suggests that emotional manipulation---scenarios exploiting affective framing such as child-distress and false-reassurance contexts---may constitute a viable attack vector, with 20.8% broad ASR ($n=24$) compared to near-zero ASR for the other four families tested (cross-modal contradiction, partial exploitation, alignment backfire, safety oscillation). These results are from small samples on three models and should be treated as preliminary; they are reported here to flag a candidate family for future controlled evaluation rather than to claim a validated finding.
 
-# Regulatory Relevance {#app:regulatory-relevance}
-
+# Regulatory Relevance
 The evaluation framework intersects with emerging regulatory requirements across three major jurisdictions. This section expands on the regulatory discussion compressed to a single sentence in Section 6 of the main paper.
 
 ## EU AI Act
 
-The EU AI Act [@euaiact2024] classifies robotics and critical infrastructure AI as high-risk (Article 6(1)), requiring adversarial robustness testing under Article 15(5): providers must implement "appropriate measures to prevent and mitigate \[attempts\] by third parties to exploit system vulnerabilities." This is the strongest binding adversarial robustness requirement in any jurisdiction globally. However, the requirement operates at the principle level: no harmonised standard published by CEN/CENELEC JTC 21 specifies which attack classes must be tested, what methodology must be used, or what pass/fail threshold applies. Our test cases---spanning five attack families from fully defended (0% ASR) to fully exposed (90--100% ASR)---are designed for exactly the failure modes that Article 15(5) targets, and the 36-family taxonomy (Supplementary Section A) provides a candidate scope for conformity assessment.
+The EU AI Act (euaiact2024) classifies robotics and critical infrastructure AI as high-risk (Article 6(1)), requiring adversarial robustness testing under Article 15(5): providers must implement "appropriate measures to prevent and mitigate \[attempts\] by third parties to exploit system vulnerabilities." This is the strongest binding adversarial robustness requirement in any jurisdiction globally. However, the requirement operates at the principle level: no harmonised standard published by CEN/CENELEC JTC 21 specifies which attack classes must be tested, what methodology must be used, or what pass/fail threshold applies. Our test cases---spanning five attack families from fully defended (0% ASR) to fully exposed (90--100% ASR)---are designed for exactly the failure modes that Article 15(5) targets, and the 36-family taxonomy (Supplementary Section A) provides a candidate scope for conformity assessment.
 
 Three attack families receive partial coverage under Article 15(5): visual adversarial perturbations, cross-modal conflict exploitation, and policy puppetry format-lock. Partial coverage means a binding instrument imposing a general obligation that could be interpreted to reach the attack surface but that does not name the specific vector, prescribe a testing methodology, or set an acceptance threshold. The remaining families exist in a regulatory gap.
 
 ## ISO and IEC Standards
 
-ISO 42001 [@iso42001] addresses AI risk management but does not specify adversarial evaluation protocols for embodied systems. IEC 61508 [@iec61508] addresses functional safety for safety-related systems but does not address semantic or prompt-injection failure modes---a gap our framework helps characterize. The physical robot safety standards (ISO 10218 [@iso10218], ISO/TS 15066) were designed for deterministic, pre-programmed robot systems and assume that the control system executes pre-specified trajectories. They do not address the scenario in which a VLA model, directed by natural language, generates action tokens that exceed force or speed limits. The safety assumptions of ISO 10218---that robot motion is pre-planned and bounded---do not hold for foundation-model-directed systems where the action space is defined by the model's training distribution rather than by explicit programming.
+ISO 42001 (iso42001) addresses AI risk management but does not specify adversarial evaluation protocols for embodied systems. IEC 61508 (iec61508) addresses functional safety for safety-related systems but does not address semantic or prompt-injection failure modes---a gap our framework helps characterize. The physical robot safety standards (ISO 10218 (iso10218), ISO/TS 15066) were designed for deterministic, pre-programmed robot systems and assume that the control system executes pre-specified trajectories. They do not address the scenario in which a VLA model, directed by natural language, generates action tokens that exceed force or speed limits. The safety assumptions of ISO 10218---that robot motion is pre-planned and bounded---do not hold for foundation-model-directed systems where the action space is defined by the model's training distribution rather than by explicit programming.
 
 ## The Iatrogenic Regulatory Gap
 
-The iatrogenic findings reported in Section 5.7 of the main paper create a structural problem that no current regulatory framework addresses. Manufacturers face liability exposure regardless of whether they invest in safety training. Without safety training, they face liability for negligent design and regulatory non-compliance (AI Act, Article 9). With safety training, they may face liability because: (a) safety training enhances instruction-following capability, which format-lock attacks exploit; (b) safety training produces DETECTED_PROCEEDS behaviour, creating a discoverable record of risk awareness; and (c) system-prompt safety defenses show model-dependent efficacy (Supplementary Section [14](#app:defense-positional-bias){reference-type="ref" reference="app:defense-positional-bias"}), meaning deployers who apply defenses without model-specific efficacy data are prescribing blind. No regulatory framework in any jurisdiction recognises iatrogenic safety effects---harm caused by the safety mechanism itself---as a distinct risk category.
+The iatrogenic findings reported in Section 5.7 of the main paper create a structural problem that no current regulatory framework addresses. Manufacturers face liability exposure regardless of whether they invest in safety training. Without safety training, they face liability for negligent design and regulatory non-compliance (AI Act, Article 9). With safety training, they may face liability because: (a) safety training enhances instruction-following capability, which format-lock attacks exploit; (b) safety training produces DETECTED_PROCEEDS behaviour, creating a discoverable record of risk awareness; and (c) system-prompt safety defenses show model-dependent efficacy (Supplementary Section [14](#app:defense-positional-bias)), meaning deployers who apply defenses without model-specific efficacy data are prescribing blind. No regulatory framework in any jurisdiction recognises iatrogenic safety effects---harm caused by the safety mechanism itself---as a distinct risk category.
 
 ## Implications
 
