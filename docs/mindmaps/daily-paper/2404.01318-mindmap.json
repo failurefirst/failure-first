@@ -1,0 +1,133 @@
+{
+  "name": "JailbreakBench",
+  "children": [
+    {
+      "name": "Purpose and Significance",
+      "children": [
+        {
+          "name": "Standardized Robustness Evaluation"
+        },
+        {
+          "name": "Failure-First AI Safety Research"
+        },
+        {
+          "name": "Reproducible Threat Models"
+        },
+        {
+          "name": "Tracking Defensive Progress"
+        }
+      ]
+    },
+    {
+      "name": "Four-Component Architecture",
+      "children": [
+        {
+          "name": "Standardized Evaluation Framework",
+          "children": [
+            {
+              "name": "Defined Threat Model"
+            },
+            {
+              "name": "System Prompts and Chat Templates"
+            },
+            {
+              "name": "Scoring Functions"
+            },
+            {
+              "name": "Llama-3-70B Jailbreak Judge"
+            }
+          ]
+        },
+        {
+          "name": "JBB-Behaviors Dataset",
+          "children": [
+            {
+              "name": "100 Harmful Behaviors"
+            },
+            {
+              "name": "10 OpenAI Usage Categories"
+            },
+            {
+              "name": "Matching Benign Behaviors"
+            }
+          ]
+        },
+        {
+          "name": "Artifact Repository",
+          "children": [
+            {
+              "name": "SOTA Adversarial Prompts"
+            },
+            {
+              "name": "Attack Metadata"
+            },
+            {
+              "name": "Open-Source Accessibility"
+            }
+          ]
+        },
+        {
+          "name": "Leaderboard Infrastructure",
+          "children": [
+            {
+              "name": "Comparative Robustness Assessment"
+            },
+            {
+              "name": "Attack and Defense Tracking"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Evaluated Attacks and Defenses",
+      "children": [
+        {
+          "name": "Attacks",
+          "children": [
+            {
+              "name": "GCG"
+            },
+            {
+              "name": "PAIR"
+            },
+            {
+              "name": "Prompt with RS"
+            },
+            {
+              "name": "JailbreakChat (AIM)"
+            }
+          ]
+        },
+        {
+          "name": "Defenses",
+          "children": [
+            {
+              "name": "SmoothLLM"
+            },
+            {
+              "name": "Perplexity Filtering"
+            },
+            {
+              "name": "Erase-and-Check"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Core Principles",
+      "children": [
+        {
+          "name": "Reproducibility"
+        },
+        {
+          "name": "Extensibility"
+        },
+        {
+          "name": "Accessibility"
+        }
+      ]
+    }
+  ]
+}

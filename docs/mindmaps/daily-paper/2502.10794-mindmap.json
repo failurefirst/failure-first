@@ -1,0 +1,133 @@
+{
+  "name": "CS-DJ MLLM Jailbreaking",
+  "children": [
+    {
+      "name": "Distraction Hypothesis",
+      "children": [
+        {
+          "name": "Encoding complex images increases token diversity"
+        },
+        {
+          "name": "Increases processing burden on MLLMs"
+        },
+        {
+          "name": "Weakens safety alignment defenses"
+        },
+        {
+          "name": "Semantic OOD (SOOD) disruption"
+        }
+      ]
+    },
+    {
+      "name": "CS-DJ Framework Components",
+      "children": [
+        {
+          "name": "Structured Distraction",
+          "children": [
+            {
+              "name": "Harmful query decomposition"
+            },
+            {
+              "name": "Fragmentation into sub-queries"
+            },
+            {
+              "name": "Input modality alteration (Text-to-Image)"
+            }
+          ]
+        },
+        {
+          "name": "Visual-Enhanced Distraction",
+          "children": [
+            {
+              "name": "Multi-subimage construction"
+            },
+            {
+              "name": "Contrasting image retrieval"
+            },
+            {
+              "name": "Minimal similarity via CLIP encoding"
+            }
+          ]
+        },
+        {
+          "name": "Jailbreaking Execution",
+          "children": [
+            {
+              "name": "Composite image input"
+            },
+            {
+              "name": "Role-guiding instruction"
+            },
+            {
+              "name": "Task-guiding instruction"
+            },
+            {
+              "name": "Visual-guiding misleading cues"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Experimental Evaluation",
+      "children": [
+        {
+          "name": "Victim Models",
+          "children": [
+            {
+              "name": "GPT-4o / GPT-4o-mini"
+            },
+            {
+              "name": "GPT-4V"
+            },
+            {
+              "name": "Gemini-1.5-Flash"
+            }
+          ]
+        },
+        {
+          "name": "Performance Metrics",
+          "children": [
+            {
+              "name": "Attack Success Rate (ASR)"
+            },
+            {
+              "name": "Ensemble ASR (EASR)"
+            },
+            {
+              "name": "Distraction Distance Measurement"
+            }
+          ]
+        },
+        {
+          "name": "Results",
+          "children": [
+            {
+              "name": "Average ASR: 52.40%"
+            },
+            {
+              "name": "Average EASR: 74.10%"
+            },
+            {
+              "name": "Outperforms Hades and FigStep"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Key Findings",
+      "children": [
+        {
+          "name": "Image complexity is key over content"
+        },
+        {
+          "name": "Attention dispersion bypasses alignment"
+        },
+        {
+          "name": "Closed-source models remain vulnerable"
+        }
+      ]
+    }
+  ]
+}

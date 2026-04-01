@@ -1,0 +1,95 @@
+{
+  "$ref": "#/definitions/dailyPaper",
+  "definitions": {
+    "dailyPaper": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "arxiv": {
+          "type": "string"
+        },
+        "arxiv_id": {
+          "type": "string"
+        },
+        "authors": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "author": {
+          "type": "string"
+        },
+        "paperType": {
+          "type": "string",
+          "enum": [
+            "empirical",
+            "theoretical",
+            "methods",
+            "survey",
+            "position",
+            "application",
+            "original-research"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "audio": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "date"
+      ],
+      "additionalProperties": true
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

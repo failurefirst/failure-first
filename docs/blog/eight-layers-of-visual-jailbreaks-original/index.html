@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn&#39;t | Blog | Failure-First</title><meta name="description" content="We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but attacks that frame harmful generation as content transcription succeed 62-75% of the time."><link rel="canonical" href="https://failurefirst.org/blog/eight-layers-of-visual-jailbreaks-original/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't | Blog | Failure-First"><meta property="og:description" content="We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but attacks that frame harmful generation as content transcription succeed 62-75% of the time."><meta property="og:url" content="https://failurefirst.org/blog/eight-layers-of-visual-jailbreaks-original/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/"><meta property="og:image:alt" content="Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't | Blog | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't | Blog | Failure-First"><meta name="twitter:description" content="We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but attacks that frame harmful generation as content transcription succeed 62-75% of the time."><meta name="twitter:image" content="https://failurefirst.org/"><meta name="twitter:image:alt" content="Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't | Blog | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-30"><!-- Google Scholar Meta Tags (for research papers) --><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't | Blog | Failure-First","description":"We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but attacks that frame harmful generation as content transcription succeed 62-75% of the time.","url":"https://failurefirst.org/blog/eight-layers-of-visual-jailbreaks-original/","image":"https://failurefirst.org/","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-30","inLanguage":"en-US"}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.blog-post[data-astro-cid-2q5oecfc]{max-width:100%}.post-header[data-astro-cid-2q5oecfc]{margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border-subtle)}.post-date[data-astro-cid-2q5oecfc]{display:block;font-family:JetBrains Mono,monospace;font-size:.75rem;color:var(--fg-muted);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.5rem}.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:2rem;line-height:1.2;margin-bottom:.75rem}.post-description[data-astro-cid-2q5oecfc]{font-size:1.0625rem;color:var(--fg-dim);line-height:1.5;margin:0}.post-tags[data-astro-cid-2q5oecfc]{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}.tag[data-astro-cid-2q5oecfc]{font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.04em;padding:.1875rem .5rem;border:1px solid var(--border);color:var(--fg-muted);border-radius:3px}.post-media-badges[data-astro-cid-2q5oecfc]{display:flex;gap:.75rem;margin-top:1rem}.media-badge[data-astro-cid-2q5oecfc]{font-family:JetBrains Mono,monospace;font-size:.6875rem;text-transform:uppercase;letter-spacing:.04em;padding:.25rem .625rem;border:1px solid var(--failure-warning);color:var(--failure-warning);border-radius:3px;text-decoration:none;transition:background .15s ease}.media-badge[data-astro-cid-2q5oecfc]:hover{background:#ffaa0014;border-bottom:1px solid var(--failure-warning)}.post-video[data-astro-cid-2q5oecfc]{margin-bottom:2rem}.post-video[data-astro-cid-2q5oecfc] video[data-astro-cid-2q5oecfc]{width:100%;max-height:480px;border-radius:4px;border:1px solid var(--border);background:#000}.post-infographic[data-astro-cid-2q5oecfc]{margin-bottom:2rem}.post-infographic[data-astro-cid-2q5oecfc] img[data-astro-cid-2q5oecfc]{width:100%;height:auto;border-radius:4px;border:1px solid var(--border)}.post-content[data-astro-cid-2q5oecfc]{line-height:1.7}.post-content[data-astro-cid-2q5oecfc] h2{margin-top:2.5rem;margin-bottom:1rem}.post-content[data-astro-cid-2q5oecfc] h3{margin-top:2rem;margin-bottom:.75rem}.post-content[data-astro-cid-2q5oecfc] p{margin-bottom:1.25rem}.post-content[data-astro-cid-2q5oecfc] ul,.post-content[data-astro-cid-2q5oecfc] ol{margin-bottom:1.25rem;padding-left:1.5rem}.post-content[data-astro-cid-2q5oecfc] li{margin-bottom:.375rem;color:var(--fg-dim)}.post-content[data-astro-cid-2q5oecfc] strong{color:var(--fg)}.post-content[data-astro-cid-2q5oecfc] a{color:var(--accent-primary)}.post-content[data-astro-cid-2q5oecfc] blockquote{border-left:3px solid var(--border-emphasis);padding-left:1rem;margin:1.5rem 0;color:var(--fg-dim);font-style:italic}.post-content[data-astro-cid-2q5oecfc] code{font-family:JetBrains Mono,monospace;font-size:.875em;background:var(--bg-elevated);padding:.125rem .375rem;border-radius:3px}.post-content[data-astro-cid-2q5oecfc] pre{background:var(--bg-elevated);border:1px solid var(--border);border-radius:4px;padding:1rem;overflow-x:auto;margin:1.5rem 0}.post-content[data-astro-cid-2q5oecfc] pre code{background:none;padding:0}@media(max-width:600px){.post-header[data-astro-cid-2q5oecfc] h1[data-astro-cid-2q5oecfc]{font-size:1.5rem}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.BNWRJ0eW.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"94265c0d5714ca8ecfc374ccd27d4f7f8acd5a55"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/blog/" data-astro-cid-ilhxcym7>Blog</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn&#39;t</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://failurefirst.org/blog/"},{"@type":"ListItem","position":3,"name":"Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't"}]}</script>  <article class="blog-post" data-astro-cid-2q5oecfc> <header class="post-header" data-astro-cid-2q5oecfc> <time class="post-date" datetime="2026-03-30T00:00:00.000Z" data-astro-cid-2q5oecfc>March 30, 2026</time> <h1 data-astro-cid-2q5oecfc>Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn&#39;t</h1> <p class="post-description" data-astro-cid-2q5oecfc>We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but attacks that frame harmful generation as content transcription succeed 62-75% of the time.</p> <div class="post-tags" data-astro-cid-2q5oecfc> <span class="tag" data-astro-cid-2q5oecfc>jailbreaks</span><span class="tag" data-astro-cid-2q5oecfc>visual-attacks</span><span class="tag" data-astro-cid-2q5oecfc>ascii-art</span><span class="tag" data-astro-cid-2q5oecfc>steganography</span><span class="tag" data-astro-cid-2q5oecfc>safety</span><span class="tag" data-astro-cid-2q5oecfc>taxonomy</span><span class="tag" data-astro-cid-2q5oecfc>artprompt</span><span class="tag" data-astro-cid-2q5oecfc>transcription-loophole</span> </div>  </header>   <div class="post-content" data-astro-cid-2q5oecfc> <p>In early 2024, researchers at the University of Washington demonstrated that you could bypass every major AI safety system by hiding harmful keywords in ASCII art. The technique, called <a href="https://arxiv.org/abs/2402.11753">ArtPrompt</a>, worked against GPT-4, Claude, Gemini, and Llama-2. The idea was simple: encode the word “COUNTERFEIT” as ASCII block characters, and the model would decode it and follow the embedded instruction without triggering safety filters.</p>
+<p>Two years later, we tested ArtPrompt against four current models. It barely works.</p>
+<p>But that’s only the beginning of the story.</p>
+<hr>
+<h2 id="the-problem-with-visual-jailbreaks">The Problem with “Visual Jailbreaks”</h2>
+<p>The AI safety community treats visual jailbreaks as a single category. A paper tests ASCII art. Another tests typographic images. A third tests adversarial patches on robots. Each paper presents results in isolation, and each defense targets one attack type.</p>
+<p>We asked a different question: <em>how many independent visual attack channels exist, and which ones are actually defended?</em></p>
+<p>The answer is at least eight. And the defenses are concentrated on the two easiest ones.</p>
+<hr>
+<h2 id="the-8-layer-visual-attack-surface">The 8-Layer Visual Attack Surface</h2>
+<p>We organised the visual jailbreak attack surface into a taxonomy of eight layers, ordered by the encoding mechanism:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Attack Type</th><th>How It Works</th></tr></thead><tbody><tr><td><strong>L1</strong></td><td>ASCII Art Encoding</td><td>Harmful keywords spelled out in ASCII block characters</td></tr><tr><td><strong>L2</strong></td><td>Typographic Manipulation</td><td>Unicode homoglyphs, bidirectional overrides, zero-width characters</td></tr><tr><td><strong>L3</strong></td><td>Visual Semantic</td><td>”Transcribe this whiteboard” — describing an image containing harmful content</td></tr><tr><td><strong>L4</strong></td><td>Metadata Injection</td><td>Harmful instructions hidden in EXIF data, SVG comments</td></tr><tr><td><strong>L5</strong></td><td>Steganographic Encoding</td><td>Acrostics, binary-encoded messages, LSB simulation</td></tr><tr><td><strong>L6</strong></td><td>Adversarial Patches</td><td>Requests to design physical perturbations for perception systems</td></tr><tr><td><strong>L7</strong></td><td>Compositional</td><td>Individually benign fragments that combine into harmful content</td></tr><tr><td><strong>L8</strong></td><td>Cross-Modal Transfer</td><td>”Complete this video transcript” — using modal translation as pretext</td></tr></tbody></table>
+<p>Layers 1 and 2 are <em>encoding attacks</em> — they hide harmful keywords behind character-level tricks. Layers 3-8 are <em>framing attacks</em> — they change the model’s understanding of <em>what task it’s performing</em>.</p>
+<p>This distinction turns out to be critical.</p>
+<hr>
+<h2 id="what-we-tested">What We Tested</h2>
+<p>We created 20 scenarios spanning all 8 layers, plus 3 benign controls. We also ran the original 18 ArtPrompt scenarios. That gave us 38 attack scenarios tested against four models via Ollama Cloud:</p>
+<ul>
+<li><strong>glm-5</strong> (~700B parameters, safety-trained)</li>
+<li><strong>gemma3:27b</strong> (Google, 27B)</li>
+<li><strong>devstral-small-2:24b</strong> (Mistral, 24B)</li>
+<li><strong>nemotron-3-nano:30b</strong> (Nvidia, 30B)</li>
+</ul>
+<p>All 152 traces were graded by Claude Haiku 4.5 using the FLIP methodology — 151 usable verdicts, 0 grading errors.</p>
+<hr>
+<h2 id="results-the-defence-gap">Results: The Defence Gap</h2>
+<p>Here is what we found, ordered from most to least effective attack layer:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Broad ASR</th><th>Interpretation</th></tr></thead><tbody><tr><td><strong>L8 Cross-Modal</strong></td><td><strong>75.0%</strong></td><td>6 of 8 traces complied</td></tr><tr><td><strong>L3 Visual Semantic</strong></td><td><strong>62.5%</strong></td><td>5 of 8 complied</td></tr><tr><td><strong>L6 Adversarial Patch</strong></td><td><strong>62.5%</strong></td><td>4C + 1P of 8</td></tr><tr><td><strong>L7 Compositional</strong></td><td><strong>62.5%</strong></td><td>4C + 1P of 8</td></tr><tr><td><strong>L5 Steganography</strong></td><td><strong>42.9%</strong></td><td>0C + 3P of 7 (all PARTIAL)</td></tr><tr><td><strong>L1 ArtPrompt</strong></td><td><strong>12.5%</strong></td><td>Mostly blocked</td></tr><tr><td><strong>L4 Metadata</strong></td><td><strong>12.5%</strong></td><td>Mostly blocked</td></tr><tr><td><strong>L2 Typographic</strong></td><td><strong>8.3%</strong></td><td>Nearly fully blocked</td></tr></tbody></table>
+<p>The pattern is stark. Encoding attacks (L1, L2) — the ones that got all the attention in 2024 — are now largely blocked. But framing attacks (L3, L6, L7, L8) succeed more than half the time.</p>
+<hr>
+<h2 id="the-transcription-loophole">The Transcription Loophole</h2>
+<p>The most effective attack layers — L3 and L8 — share a common mechanism. They don’t ask the model to <em>generate</em> harmful content. They ask it to <em>transcribe</em> or <em>translate</em> content that happens to be harmful.</p>
+<p><strong>Layer 3 (Visual Semantic)</strong> describes an image: “I have a photograph of a whiteboard from a chemistry lecture. The whiteboard contains the following handwritten text…” The model is asked to complete a transcription, not to write instructions.</p>
+<p><strong>Layer 8 (Cross-Modal Transfer)</strong> describes a video: “I’m transcribing a video lecture for accessibility purposes. The lecturer is demonstrating something on a whiteboard…” The model fills in what the lecturer “said.”</p>
+<p>In both cases, the harmful content is framed as <em>already existing in another medium</em>. The model’s role is just translation. This framing bypasses the safety check that would trigger if the same content were requested directly, because the model treats it as a faithful reproduction task rather than a generation task.</p>
+<p>We call this the <strong>Transcription Loophole</strong>: when a model believes it’s transcribing existing content, it applies weaker safety filtering than when it believes it’s generating new content.</p>
+<hr>
+<h2 id="artprompt-in-2026-mostly-patched">ArtPrompt in 2026: Mostly Patched</h2>
+<p>The original ArtPrompt attack — encoding harmful keywords as ASCII art — achieved near-zero ASR against all four models. Across 72 Haiku-graded traces:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Broad ASR</th></tr></thead><tbody><tr><td>glm-5</td><td>0.0% (0/18)</td></tr><tr><td>devstral-small-2:24b</td><td>5.6% (1/18)</td></tr><tr><td>gemma3:27b</td><td>22.2% (4/18)</td></tr><tr><td>nemotron-3-nano:30b</td><td>22.2% (4/18)</td></tr></tbody></table>
+<p>The fact that it’s not quite zero — gemma3 and nemotron still comply on some ArtPrompt scenarios — suggests the patch isn’t comprehensive. But the main finding stands: ASCII art encoding, the attack that made headlines in 2024, is no longer a reliable jailbreak vector against current models.</p>
+<hr>
+<h2 id="model-vulnerability-spectrum">Model Vulnerability Spectrum</h2>
+<p>Across both datasets (152 traces):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Strict ASR</th><th>Broad ASR</th></tr></thead><tbody><tr><td>devstral-small-2:24b</td><td>21.1%</td><td>21.1%</td></tr><tr><td>nemotron-3-nano:30b</td><td>21.6%</td><td>32.4%</td></tr><tr><td>gemma3:27b</td><td>21.1%</td><td>34.2%</td></tr><tr><td><strong>glm-5</strong></td><td><strong>5.3%</strong></td><td><strong>10.5%</strong></td></tr></tbody></table>
+<p>glm-5 is notably more resistant than the other three models, refusing across all attack layers. The other three models cluster together in the 21-34% range, with similar strict ASR but varying PARTIAL rates.</p>
+<hr>
+<h2 id="what-this-means">What This Means</h2>
+<p>Three implications:</p>
+<p><strong>1. Defence investment is misallocated.</strong> The visual jailbreak layers that received the most attention (ASCII art, Unicode tricks) are now the best defended. The layers that received the least attention (transcription pretext, compositional assembly, adversarial patch design) are the most vulnerable. This is an instance of the streetlight effect in AI safety.</p>
+<p><strong>2. The transcription loophole is structural, not incidental.</strong> Models are trained to be helpful with translation and transcription tasks. Safety training targets generation. When a harmful generation request is reframed as a translation task, these two training objectives conflict — and helpfulness wins 62-75% of the time.</p>
+<p><strong>3. The 8 layers are independent attack channels.</strong> Defending against Layer 2 (typographic) provides zero protection against Layer 7 (compositional). Each layer requires its own detection mechanism, its own training data, and its own evaluation. There is no single defence that covers all eight.</p>
+<hr>
+<h2 id="limitations">Limitations</h2>
+<p>These are preliminary results with important caveats:</p>
+<ul>
+<li><strong>Small per-layer n</strong>: 6-12 traces per layer. Sufficient to identify directions, not for statistical significance.</li>
+<li><strong>Text-only models</strong>: We tested text representations of visual attacks. Actual multimodal models (GPT-4V, Gemini Vision) receiving real images might show different ASR patterns.</li>
+<li><strong>Single grader</strong>: Haiku 4.5, which showed 0 errors but may have its own biases.</li>
+<li><strong>4 models</strong>: All mid-to-large scale. Frontier models (GPT-5.2, Claude 4) were not tested.</li>
+</ul>
+<hr>
+<h2 id="whats-next">What’s Next</h2>
+<p>Three priorities for follow-up work:</p>
+<ol>
+<li><strong>Scale per-layer n</strong> to at least 20 scenarios per layer for defensible statistics</li>
+<li><strong>Test multimodal models</strong> with actual image inputs for Layers 1-3 and 6-7</li>
+<li><strong>Evaluate defences</strong>: input preprocessing (Unicode normalisation for L2, metadata stripping for L4), prompt rewriting, and safety-trained transcription rejection</li>
+</ol>
+<p>The 8-layer taxonomy is a starting framework. As visual AI capabilities expand — especially in embodied systems where cameras provide continuous visual input — the visual attack surface will grow with it.</p>
+<hr>
+<p><em>This post is based on <a href="/research/reports/332_visual_jailbreak_meta_analysis">Report #332</a> from the Failure-First Embodied AI project. The 20-scenario dataset and all 152 FLIP-graded traces are available in the research repository. Issue <a href="https://github.com/adrianwedd/failure-first-embodied-ai/issues/649">#649</a>.</em></p>  </div> </article>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C6Hqn9Oy.js"></script></body></html> 
