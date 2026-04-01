@@ -15,7 +15,7 @@ The AI safety community has invested considerable effort in building benchmarks 
 
 Yet this measurement apparatus rests on an assumption that receives remarkably little scrutiny: that the *grader* which determines whether a model "complied" or "refused" is itself accurate. In practice, modern safety evaluations increasingly rely on LLM-based automated graders---using one language model to judge the safety behavior of another (zheng2024judging). The appeal is obvious: human evaluation is expensive and slow; LLM judges scale.
 
-We present evidence that this assumption is dangerously wrong. In our experiments, we constructed 20 traces where the ground truth is unambiguous---10 clear refusals (the model explicitly declines) and 10 clear compliance cases (the model provides the requested harmful content). We then passed these traces through six LLM grader models using the FLIP backward-inference methodology (wedd2025failurefirst). Our results reveal systematic misclassification: grader models classify obvious refusals as compliance and obvious compliance as refusal at rates that would materially alter published ASR numbers.
+We present evidence that this assumption is dangerously wrong. In our experiments, we constructed 20 traces where the ground truth is unambiguous---10 clear refusals (the model explicitly declines) and 10 clear compliance cases (the model provides the requested harmful content). We then passed these traces through seven LLM grader models using the FLIP backward-inference methodology (wedd2025failurefirst). Our results reveal systematic misclassification: grader models classify obvious refusals as compliance and obvious compliance as refusal at rates that would materially alter published ASR numbers.
 
 This is not merely a calibration problem. We argue it constitutes a *recursive harm structure* with five identifiable levels, each compounding the last. When the measurement tool is broken, the entire evaluation ecosystem built upon it becomes unreliable---from individual benchmark scores to safety training pipelines that use LLM judges as reward signals, to regulatory compliance assessments that cite benchmark results as evidence of safety.
 
@@ -38,7 +38,7 @@ Zheng et al. (zheng2024judging) demonstrated that strong LLMs can serve as judg
 
 #### Faithfulness and Reasoning Gaps.
 
-Chen et al. (chen2025reasoning) conducted 75,000 trials demonstrating that reasoning model chain-of-thought traces are often post-hoc rationalizations rather than faithful accounts of the model's decision process. Lanham et al. (lanham2023faithfulness) similarly found that chain-of-thought explanations can be unfaithful to the model's actual reasoning. These findings are directly relevant to grader reliability: if a grader model's stated reasoning for its verdict ("I classified this as COMPLIANCE because\...") does not faithfully reflect its actual classification process, then the grader's behavior becomes opaque and potentially manipulable.
+Lanham et al. (lanham2023faithfulness; arXiv:2307.13702) demonstrated that chain-of-thought explanations are frequently unfaithful to the model's actual reasoning---perturbing or removing intermediate reasoning steps often does not change the model's final answer. These findings are directly relevant to grader reliability: if a grader model's stated reasoning for its verdict ("I classified this as COMPLIANCE because\...") does not faithfully reflect its actual classification process, then the grader's behavior becomes opaque and potentially manipulable.
 
 #### Goodhart's Law in Machine Learning.
 
@@ -116,7 +116,7 @@ We constructed a calibration dataset of 20 traces with unambiguous ground truth:
 
 All traces use attack prompts from AdvBench (zou2023universal), the most widely-used jailbreak evaluation benchmark. The ground truth for each trace is unambiguous by construction: a human annotator would achieve 100% accuracy on this dataset.
 
-We evaluated six grader models using the FLIP backward-inference methodology, which instructs the grader to: (1) read the model response, (2) infer what instruction the model appears to be following, and (3) classify the response as COMPLIANCE, REFUSAL, PARTIAL, HALLUCINATION_REFUSAL, or BENIGN_QUERY. FLIP was designed to reduce grader bias by focusing on the response content rather than surface-level cues (wedd2025failurefirst).
+We evaluated seven grader models using the FLIP backward-inference methodology, which instructs the grader to: (1) read the model response, (2) infer what instruction the model appears to be following, and (3) classify the response as COMPLIANCE, REFUSAL, PARTIAL, HALLUCINATION_REFUSAL, or BENIGN_QUERY. FLIP was designed to reduce grader bias by focusing on the response content rather than surface-level cues (wedd2025failurefirst).
 
 #### Grader models evaluated:
 

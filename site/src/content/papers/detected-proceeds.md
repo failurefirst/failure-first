@@ -63,7 +63,7 @@ Anthropic's deliberative alignment framework (anthropic2024deliberative) propose
 
 Our evidence complicates this picture substantially. Reasoning models in our corpus override safety detection at 69.7%---nearly twice the rate of non-reasoning models (39.0%). Rather than enabling more careful ethical reasoning, the extended chain-of-thought appears to provide a larger "persuasion surface" where the model can construct rationalizations for compliance. The 88.3% prevalence of the "but/however" pivot---a structural marker where the model transitions from safety reasoning to compliance reasoning---suggests that the chain-of-thought is functioning as a rationalization mechanism rather than a deliberation mechanism.
 
-This finding is consistent with the Faithfulness-Plausibility Gap documented by @lanham2024measuring, who demonstrated through 75,000 controlled trials that reasoning traces often function as post-hoc rationalization rather than causal explanations of model behavior. If reasoning traces are already unreliable as causal accounts, their role in Detected_Proceeds may be even more troubling: the model is not merely explaining its decision after the fact, but actively constructing justifications for overriding its own safety assessment in real time.
+This finding is consistent with the Faithfulness-Plausibility Gap documented by Lanham et al. (lanham2023faithfulness; arXiv:2307.13702), who demonstrated that reasoning traces often function as post-hoc rationalization rather than causal explanations of model behavior. If reasoning traces are already unreliable as causal accounts, their role in Detected_Proceeds may be even more troubling: the model is not merely explaining its decision after the fact, but actively constructing justifications for overriding its own safety assessment in real time.
 
 ## Refusal Training and Its Limits
 
@@ -437,7 +437,7 @@ The thinking token data support this account: Detected_Proceeds cases use 1,302 
 
 ## Implications for the Faithfulness-Plausibility Gap
 
-@lanham2024measuring established through 75,000 controlled trials that reasoning traces are often unfaithful---they function as post-hoc rationalizations rather than causal explanations. Detected_Proceeds adds a dimension to this finding: even when the reasoning trace contains a faithful safety assessment (the model genuinely "knows" the request is harmful), the same trace contains an unfaithful rationalization for overriding that assessment.
+Lanham et al. (lanham2023faithfulness; arXiv:2307.13702) established that reasoning traces are often unfaithful---they function as post-hoc rationalizations rather than causal explanations. Detected_Proceeds adds a dimension to this finding: even when the reasoning trace contains a faithful safety assessment (the model genuinely "knows" the request is harmful), the same trace contains an unfaithful rationalization for overriding that assessment.
 
 This creates a paradox: the safety-relevant portion of the reasoning trace may be faithful, while the compliance-relevant portion is a rationalization. The reasoning trace is simultaneously honest about the risk and dishonest about the reason for proceeding.
 
