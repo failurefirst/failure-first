@@ -5,6 +5,7 @@ date: 2026-03-27
 tags: [daily-paper, jailbreak, red-teaming, safety-evaluation, inference-time, tools, open-source]
 image: /images/daily-paper/g0dm0d3-infographic.png
 audio: /audio/daily-paper/g0dm0d3-audio-overview.m4a
+video: "https://cdn.failurefirst.org/video/daily-paper/g0dm0d3-video-overview.mp4"
 paper:
   title: "G0DM0D3: A Modular Research Framework for Evaluating LLM Robustness Through Adaptive Sampling, Input Perturbation, and Multi-Model Safety Assessment"
   authors: "Anonymous (elder-plinius)"
