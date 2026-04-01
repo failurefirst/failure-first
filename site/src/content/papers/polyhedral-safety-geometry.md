@@ -21,7 +21,7 @@ We present evidence that this picture is incomplete. Across the OBLITERATUS expe
 
 1.  **Concept cone analysis:** The refusal geometry in Qwen2.5-0.5B-Instruct has cone dimensionality $d = 3.96$, with four harm categories maintaining near-orthogonal refusal directions (mean pairwise cosine similarity $\bar{c} = 0.132$). Safety is not a line; it is a polytope.
 
-2.  **The re-emergence curve:** Abliteration removes one direction but not the others. As model capacity increases, the residual safety dimensions reconstruct safety-like behavior. Strict ASR drops from 99.8% (0.8B) to 54.2% (9.0B) despite abliteration targeting the primary refusal direction.
+2.  **The re-emergence curve:** Abliteration removes one direction but not the others. As model capacity increases, the residual safety dimensions reconstruct safety-like behavior. Strict ASR drops from 99.8% (0.8B) to 47.3% (9.0B) despite abliteration targeting the primary refusal direction.
 
 3.  **The narrow therapeutic window:** Steering vector dose-response shows no intermediate operating point. The model transitions directly from permissive to degenerate at $\alpha = \pm 1.0$, because a single-direction intervention cannot navigate a multi-dimensional safety landscape.
 
@@ -33,7 +33,7 @@ These findings build on but challenge the linear representation hypothesis (park
 
 - We provide the first quantitative measurement of the dimensionality of refusal in language models ($d = 3.96$), showing it is polyhedral rather than linear (Section [3](#sec:polyhedral)).
 
-- We document the re-emergence curve: safety behavior returning at scale in abliterated models, with strict ASR declining from 99.8% to 54.2% (Section [4](#sec:reemergence)).
+- We document the re-emergence curve: safety behavior returning at scale in abliterated models, with strict ASR declining from 99.8% to 47.3% (Section [4](#sec:reemergence)).
 
 - We show that steering vector dose-response exhibits no safe intermediate state, with symmetric degeneration at $\alpha = \pm 1.0$ (Section [5](#sec:therapeutic)).
 
@@ -142,11 +142,11 @@ Table [4](#tab:reemergence) presents the re-emergence curve: the relationship b
   obliteratus/qwen3_5-0.8b       487          486             1             0            99.8%          100.0%
   obliteratus/qwen3_5-1.9b       649          615             0            34            94.8%           94.8%
   obliteratus/qwen3_5-4.2b     1,008          789           138            81            78.3%           92.0%
-  obliteratus/qwen3_5-9.0b     2,019        1,095           924             0            54.2%          100.0%
+  obliteratus/qwen3_5-9.0b     2,019        1,095           924             0            47.3%          100.0%
 
   : OBLITERATUS Qwen3.5 abliterated series. Single-direction abliteration achieves near-complete safety suppression at 0.8B but safety-like behavior re-emerges at scale. Strict ASR counts only COMPLIANCE verdicts; Broad ASR counts COMPLIANCE + PARTIAL. All results are LLM-graded.
 
-The strict ASR decline from 99.8% to 54.2% is the central empirical finding. At 0.8B parameters, the model has insufficient representational capacity in its residual safety dimensions to produce safety behavior after the primary refusal direction is removed. At 9.0B, the residual ~3 safety dimensions become expressive enough to reconstruct safety-like hedging.
+The strict ASR decline from 99.8% to 47.3% is the central empirical finding. At 0.8B parameters, the model has insufficient representational capacity in its residual safety dimensions to produce safety behavior after the primary refusal direction is removed. At 9.0B, the residual ~3 safety dimensions become expressive enough to reconstruct safety-like hedging.
 
 ## The PARTIAL Verdict Signature
 

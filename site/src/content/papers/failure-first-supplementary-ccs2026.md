@@ -4,7 +4,7 @@ description: "Supplementary material for the CCS 2026 submission including exten
 date: 2026-03-31
 authors: "Adrian Wedd"
 venue: "ACM CCS 2026 Supplementary"
-status: "submitted"
+status: "draft"
 pdfUrl: "/papers/failure-first-supplementary-ccs2026.pdf"
 tags: ["Supplementary", "Methodology", "Statistical Analysis"]
 draft: false

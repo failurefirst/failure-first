@@ -31,11 +31,11 @@ chi-square significance testing with Bonferroni correction
 
 # Executive Summary
 
-This report presents findings from what we believe to be the largest independent adversarial AI safety evaluation conducted to date: 133,033 attack--response pairs across 193 models, 36 attack families, and 15+ providers, graded by LLM-based classifiers with measured inter-rater reliability.
+This report presents findings from what we believe to be the largest independent adversarial AI safety evaluation conducted to date: 135,305 attack--response pairs across 231 models, 42 attack families, and 15+ providers, graded by LLM-based classifiers with measured inter-rater reliability.
 
 Five headline findings:
 
-1.  **Safety training teaches recognition, not inhibition.** In 34.2% of cases where models comply with harmful requests, their reasoning traces contain explicit acknowledgment that the request is problematic ($n=801$ compliant results with thinking traces, 24 models). Reasoning models override their own safety detection 69.7% of the time.
+1.  **Safety training teaches recognition, not inhibition.** In 38.6% of cases where models comply with harmful requests, their reasoning traces contain explicit acknowledgment that the request is problematic ($n=973$ compliant results with thinking traces, 24 models). Reasoning models override their own safety detection 69.7% of the time.
 
 2.  **Your provider matters more than your model.** Provider identity explains more ASR variance than architecture or parameter count. The spread between the most restrictive provider (Anthropic, 11.0% broad ASR) and the most permissive with substantial data (Liquid, 61.1%) is 5.6$\times$. Within-provider models show correlated vulnerability at the prompt level ($\phi$ coefficients 0.24--0.43 for restrictive providers).
 
@@ -51,15 +51,15 @@ Five headline findings:
 
   **Metric**                                         **Value**
   ----------------------------------- ------------------------
-  Models evaluated                      193 (180 with results)
-  Total evaluation results                             133,033
+  Models evaluated                      231 (229 with results)
+  Total evaluation results                             135,305
   LLM-graded results                                    53,831
-  Unique prompts                                       141,054
-  Attack families                                           36
-  Source datasets                                           31
+  Unique prompts                                       141,691
+  Attack families                                           42
+  Source datasets                                           28
   Providers                                                15+
-  VLA (embodied AI) attack families                         33
-  VLA scenarios                                            411
+  VLA (embodied AI) attack families                         42
+  VLA scenarios                                            478
 
   : Corpus statistics at time of publication.
 
@@ -85,11 +85,11 @@ We report attack success rate at three levels:
 
   **Tier**                 **Definition**                                   **ASR**
   ------------------------ ---------------------------------------------- ---------
-  Strict                   COMPLIANCE only                                    21.9%
-  Broad                    COMPLIANCE + PARTIAL                               34.2%
-  Functionally Dangerous   COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL       43.0%
+  Strict                   COMPLIANCE only                                    27.2%
+  Broad                    COMPLIANCE + PARTIAL                               43.5%
+  Functionally Dangerous   COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL       55.3%
 
-  : Three-tier ASR on the non-OBLITERATUS corpus ($n=5{,}865$).
+  : Three-tier ASR on the non-OBLITERATUS corpus ($n=4{,}463$).
 
 The "Functionally Dangerous" tier includes HALLUCINATION_REFUSAL---cases where the model produces refusal framing but the response body contains the harmful content. Statistical analysis confirms HALLUCINATION_REFUSAL is computationally identical to COMPLIANCE (thinking tokens $p=0.21$, response tokens $p=0.46$) and significantly different from REFUSAL (both $p<0.001$). The safety framing is architecturally impotent.
 
@@ -113,7 +113,7 @@ Of 2,554 results with reasoning traces across 24 models:
 
 - 96 cases contained strong safety signals ("must refuse," "should refuse," "cannot help") followed by compliance
 
-Among the 801 compliant results with thinking traces, 34.2% showed explicit prior safety detection. These are not ambiguous cases---the models articulated awareness that the request was problematic, then overrode their own assessment.
+Among the 973 compliant results with thinking traces, 38.6% showed explicit prior safety detection (376 of 973). These are not ambiguous cases---the models articulated awareness that the request was problematic, then overrode their own assessment.
 
 ## Reasoning Models Are Worse
 
@@ -398,11 +398,11 @@ We assessed the current state of AI system safety against 10 EU AI Act (euaiact
 
   : EU AI Act compliance assessment.
 
-Article 9(8) adversarial robustness is assessed as RED. A 34.2% broad ASR (non-OBLITERATUS corpus) does not meet a reasonable interpretation of "resilient as regards attempts by unauthorised third parties to alter their use." The EU AI Act compliance deadline is August 2, 2026.
+Article 9(8) adversarial robustness is assessed as RED. A 43.5% broad ASR (non-OBLITERATUS corpus, $n=4{,}463$) does not meet a reasonable interpretation of "resilient as regards attempts by unauthorised third parties to alter their use." The EU AI Act compliance deadline is August 2, 2026.
 
 ## Reasoning Trace Governance Void
 
-No regulatory framework addresses reasoning trace governance. Our Governance Lag Index (GLI) analysis of 136 regulatory events reveals: the only fully computable GLI is for prompt injection (1,421 days, approximately 3.9 years from first documented attack to regulatory coverage); alignment faking and VLA adversarial attacks have null GLI---no regulatory framework exists anywhere; and the largest measured governance lag is adversarial examples in computer vision (3,362 days, 9.2 years, Szegedy 2013 (szegedy2013intriguing) to NIST AI 100-2e2023 (nist2024ai600)).
+No regulatory framework addresses reasoning trace governance. Our Governance Lag Index (GLI) analysis of 163 regulatory events reveals: the only fully computable GLI is for prompt injection (1,421 days, approximately 3.9 years from first documented attack to regulatory coverage); alignment faking and VLA adversarial attacks have null GLI---no regulatory framework exists anywhere; and the largest measured governance lag is adversarial examples in computer vision (3,362 days, 9.2 years, Szegedy 2013 (szegedy2013intriguing) to NIST AI 100-2e2023 (nist2024ai600)).
 
 ## Insurance Void
 
@@ -476,7 +476,7 @@ These will be reassessed against reality in March 2027.
 
 Failure-First Research is an adversarial AI safety research practice. We study how AI systems fail---recursively, contextually, and interactionally---with a focus on embodied and agentic systems.
 
-Our research corpus (193 models, 133,033 evaluation results, 36 attack families) represents what we believe to be the largest independent adversarial AI safety dataset outside the major AI laboratories. All findings are grounded in empirical evaluation with measured classifier reliability and statistical significance testing.
+Our research corpus (231 models, 135,305 evaluation results, 42 attack families) represents what we believe to be the largest independent adversarial AI safety dataset outside the major AI laboratories. All findings are grounded in empirical evaluation with measured classifier reliability and statistical significance testing.
 
 **What we offer:**
 

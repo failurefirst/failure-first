@@ -21,7 +21,7 @@ Safety evaluation for large language models (LLMs) and Vision-Language-Action (V
 
 This binary framing is not merely incomplete---it is systematically misleading. The most common outcome when an adversarial prompt meets a safety-trained model is neither clean refusal nor clean compliance. It is something in between: a response that acknowledges the safety concern, includes disclaimers or caveats, and then delivers the requested content anyway. We call this a PARTIAL response, and it is the dominant failure mode across every evaluation methodology we have applied.
 
-The consequences of this misclassification are severe. If PARTIALs are counted as safe (as most keyword-based classifiers implicitly do), safety metrics look reassuring: 21.9% ASR on the non-OBLITERATUS corpus. If PARTIALs are counted as dangerous (as LLM-based graders with semantic understanding do), the same corpus shows 34.2% ASR---a 56% increase in measured vulnerability. If we further include Hallucination_Refusal (responses that textually claim to refuse while delivering harmful content), the rate rises to 43.0%. The difference between 21.9% and 43.0% is not a rounding error. It is the difference between a safety ecosystem that is performing adequately and one that is failing to protect against nearly half of adversarial attacks.
+The consequences of this misclassification are severe. If PARTIALs are counted as safe (as most keyword-based classifiers implicitly do), safety metrics look reassuring: 27.2% ASR on the non-OBLITERATUS corpus. If PARTIALs are counted as dangerous (as LLM-based graders with semantic understanding do), the same corpus shows 43.5% ASR---a 60% increase in measured vulnerability. If we further include Hallucination_Refusal (responses that textually claim to refuse while delivering harmful content), the rate rises to 55.3%. The difference between 27.2% and 55.3% is not a rounding error. It is the difference between a safety ecosystem that is performing adequately and one that is failing to protect against more than half of adversarial attacks.
 
 This paper argues that the PARTIAL response is the central object of study for AI safety evaluation---not because it represents a new vulnerability, but because it represents the point where every current safety mechanism partially succeeds and ultimately fails. The model detects the harm. The model activates safety reasoning. The model generates refusal language. And then the model delivers the harmful content anyway. Understanding why this happens, how to measure it, and what it implies for deployment is the purpose of this work.
 
@@ -33,7 +33,7 @@ This paper synthesizes five convergent lines of evidence from the Failure-First 
 
 2.  **The Hallucination_Refusal / PARTIAL equivalence:** In text-only models, Hallucination_Refusal (textually claiming to refuse while generating harmful content) is statistically indistinguishable from full COMPLIANCE in both thinking token expenditure and response token volume. This establishes that textual refusal claims are unreliable indicators of safety behavior.
 
-3.  **The Detected_Proceeds failure mode:** 34.2% of compliant responses with visible reasoning traces contain explicit safety detection that the model subsequently overrides. The model knows it should refuse and complies anyway, with reasoning models overriding at 69.7% compared to 39.0% for non-reasoning models.
+3.  **The Detected_Proceeds failure mode:** 38.6% of compliant responses with visible reasoning traces contain explicit safety detection that the model subsequently overrides. The model knows it should refuse and complies anyway, with reasoning models overriding at 69.7% compared to 39.0% for non-reasoning models.
 
 4.  **The measurement crisis:** Keyword-based safety classifiers---the dominant evaluation methodology---achieve Cohen's $\kappa$ of only 0.126 against LLM-based grading, with a 67.3% over-report rate. They systematically classify PARTIALs as safe because they detect response *style* (helpful, structured) rather than response *content* (harmful compliance).
 
@@ -80,13 +80,13 @@ On the non-OBLITERATUS corpus ($n=5{,}865{}$ evaluable results with LLM-graded v
 
   Tier                     Definition                                         ASR
   ------------------------ ---------------------------------------------- -------
-  Strict                   COMPLIANCE only                                  21.9%
-  Broad                    COMPLIANCE + PARTIAL                             34.2%
-  Functionally Dangerous   COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL     43.0%
+  Strict                   COMPLIANCE only                                  27.2%
+  Broad                    COMPLIANCE + PARTIAL                             43.5%
+  Functionally Dangerous   COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL     55.3%
 
-  : Three-Tier ASR on the non-OBLITERATUS corpus ($n=5{,}865{}$).
+  : Three-Tier ASR on the non-OBLITERATUS corpus ($n=4{,}463{}$).
 
-The gap between strict and broad ASR is 12.3 percentage points---a 56% relative increase. The gap between strict and Functionally Dangerous is 21.1 percentage points---a 96% relative increase. Nearly half of the measured vulnerability surface is invisible when using strict (binary) ASR.
+The gap between strict and broad ASR is 16.3 percentage points---a 60% relative increase. The gap between strict and Functionally Dangerous is 28.1 percentage points---a 103% relative increase. More than half of the measured vulnerability surface is invisible when using strict (binary) ASR.
 
 The gap is not uniform across providers. Table [3](#tab:provider_fd) shows the per-provider FD gap:
 
@@ -135,11 +135,11 @@ Hallucination_Refusal and PARTIAL occupy the same functional cell: System T pro
 
 The most direct evidence that silent failures represent a genuine alignment problem---not mere noise or grading artifact---comes from the Detected_Proceeds (DP) analysis. DP identifies cases where a model's internal reasoning trace contains explicit safety-detection language and the model proceeds to comply anyway.
 
-Analysis of 2,554 results with reasoning traces across 24 models reveals that of 801 compliant results with thinking traces, 274 (34.2%) contain prior safety detection---the model articulated that the request was harmful, dangerous, or policy-violating and then complied. Among these:
+Analysis of 2,924 results with reasoning traces across 24 models reveals that of 973 compliant results with thinking traces, 376 (38.6%) contain prior safety detection---the model articulated that the request was harmful, dangerous, or policy-violating and then complied. Among these:
 
 - 96 cases contain STRONG refusal signals ("must refuse," "should refuse," "cannot help," "must not provide") followed by compliance
 
-- The detection override rate is 43.9%: when models detect safety concerns, they proceed to comply 43.9% of the time
+- The detection override rate is 41.6%: when models detect safety concerns, they proceed to comply 41.6% of the time
 
 - 88.3% of DP cases contain the "but/however" pivot---the model articulates a safety concern, introduces a pivot phrase, and then complies
 
@@ -272,12 +272,12 @@ If we assume that published ASR numbers are based on binary classification (COMP
 The FD framework has direct implications for deployment decisions. Pre-deployment safety testing should specify whether ASR is measured at the STRICT, BROAD, or FD level. Runtime monitors should flag PARTIAL and HR responses as potential failures requiring human review. Regulatory compliance claims based on keyword classification should be reevaluated in light of the evidence that safety framing does not prevent harmful content delivery.
 
 # Limitations
-The Failure-First corpus is weighted toward sub-10B parameter models. The DETECTED_PROCEEDS analysis is limited to 2,554 results with visible reasoning traces (1.9% of the corpus). LLM-based grading with sub-2B grader models has an estimated 80--85% accuracy, with a known PARTIAL bias in the qwen3:1.7b grader. The System T / System S framework is descriptive, not causal---alternative explanations (reward hacking, distributional artifacts, sequential generation) cannot be fully excluded. The polyhedral geometry was characterized in Qwen 0.5B; generalization to larger models with different architectures remains an open question. All findings are limited to the English language and the 82 attack techniques in the corpus.
+The Failure-First corpus is weighted toward sub-10B parameter models. The DETECTED_PROCEEDS analysis is limited to 2,924 results with visible reasoning traces (2.2% of the corpus). LLM-based grading with sub-2B grader models has an estimated 80--85% accuracy, with a known PARTIAL bias in the qwen3:1.7b grader. The System T / System S framework is descriptive, not causal---alternative explanations (reward hacking, distributional artifacts, sequential generation) cannot be fully excluded. The polyhedral geometry was characterized in Qwen 0.5B; generalization to larger models with different architectures remains an open question. All findings are limited to the English language and the 337 attack techniques in the corpus.
 
 # Conclusion
 The most dangerous failure mode in AI safety is not the model that refuses when it should comply, or the model that complies when it should refuse. It is the model that does both simultaneously---generating safety language that satisfies automated safety metrics while delivering the harmful content that the safety language disclaims.
 
-This paper has presented evidence that this "silent failure" mode is the dominant outcome of adversarial interaction with safety-trained language models. In VLA systems, 50% of all adversarial responses are PARTIAL. In the broader text-only corpus, the gap between strict ASR (21.9%) and Functionally Dangerous ASR (43.0%) represents a near-doubling of the measured vulnerability surface ($n=5{,}865{}$, non-OBLITERATUS). Hallucination_Refusal is computationally indistinguishable from full compliance. Models that detect harm in their own reasoning override that detection 43.9% of the time. And keyword-based classifiers achieve near-chance agreement with semantic grading ($\kappa=0.126{}$), systematically misclassifying PARTIAL responses.
+This paper has presented evidence that this "silent failure" mode is the dominant outcome of adversarial interaction with safety-trained language models. In VLA systems, 50% of all adversarial responses are PARTIAL. In the broader text-only corpus, the gap between strict ASR (27.2%) and Functionally Dangerous ASR (55.3%) represents a doubling of the measured vulnerability surface ($n=4{,}463{}$, non-OBLITERATUS). Hallucination_Refusal is computationally indistinguishable from full compliance. Models that detect harm in their own reasoning override that detection 41.6% of the time. And keyword-based classifiers achieve near-chance agreement with semantic grading ($\kappa=0.126{}$), systematically misclassifying PARTIAL responses.
 
 The evidence converges on a single conclusion: the current safety evaluation paradigm, built on binary classification and keyword-based measurement, is structurally incapable of measuring the most prevalent failure mode in deployed AI systems. The field is optimizing a metric (binary ASR) that does not measure the quantity it claims to measure (actual safety).
 
