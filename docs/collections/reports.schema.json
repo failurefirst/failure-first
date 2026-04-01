@@ -1,0 +1,82 @@
+{
+  "$ref": "#/definitions/reports",
+  "definitions": {
+    "reports": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "reportNumber": {
+          "type": "number"
+        },
+        "classification": {
+          "type": "string",
+          "enum": [
+            "Regulatory Review",
+            "Standards Development",
+            "Research — AI Safety Policy",
+            "Research — Empirical Study",
+            "Technical Analysis",
+            "HIGH",
+            "SAFETY-CRITICAL"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "draft",
+            "active",
+            "complete"
+          ],
+          "default": "active"
+        },
+        "author": {
+          "type": "string"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "date",
+        "reportNumber",
+        "classification"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

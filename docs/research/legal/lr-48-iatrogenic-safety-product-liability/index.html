@@ -1,0 +1,392 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First</title><meta name="description" content="LR-41 established the foundational analysis of iatrogenic AI liability -- the proposition that safety mechanisms designed to prevent harm may themselves..."><link rel="canonical" href="https://failurefirst.org/research/legal/lr-48-iatrogenic-safety-product-liability/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First"><meta property="og:description" content="LR-41 established the foundational analysis of iatrogenic AI liability -- the proposition that safety mechanisms designed to prevent harm may themselves..."><meta property="og:url" content="https://failurefirst.org/research/legal/lr-48-iatrogenic-safety-product-liability/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First"><meta name="twitter:description" content="LR-41 established the foundational analysis of iatrogenic AI liability -- the proposition that safety mechanisms designed to prevent harm may themselves..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First - Failure-First Embodied AI"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/legal/lr-48-iatrogenic-safety-product-liability/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/legal/lr-48-iatrogenic-safety-product-liability/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Iatrogenic Safety Harm and Product Liability: When Safety Features Cause Injury | Legal Analysis | Failure-First","description":"LR-41 established the foundational analysis of iatrogenic AI liability -- the proposition that safety mechanisms designed to prevent harm may themselves...","url":"https://failurefirst.org/research/legal/lr-48-iatrogenic-safety-product-liability/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-minywk2m]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-minywk2m]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-body[data-astro-cid-minywk2m]{max-width:72ch}.report-body[data-astro-cid-minywk2m] h2{margin-top:2.5rem}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.BNWRJ0eW.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"94265c0d5714ca8ecfc374ccd27d4f7f8acd5a55"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/legal/" data-astro-cid-ilhxcym7>Legal Analysis</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Memo LR-48</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Legal Analysis","item":"https://failurefirst.org/research/legal/"},{"@type":"ListItem","position":4,"name":"Memo LR-48"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--failure-warning)" data-astro-cid-63t2xjvj> Draft </span> </div> </div>  <article class="report-content" data-astro-cid-minywk2m> <header class="report-meta" data-astro-cid-minywk2m> <span class="report-number" data-astro-cid-minywk2m>Memo LR-48</span> <span class="report-classification" data-astro-cid-minywk2m>Multi-jurisdictional (AU, EU, US -- analysed separately)</span> <time class="report-date" data-astro-cid-minywk2m>2026-03-22</time> </header> <div class="report-body" data-astro-cid-minywk2m> <blockquote>
+<p><strong>This is research analysis, not legal opinion. A solicitor should review before acting.</strong></p>
+</blockquote>
+<hr>
+<h2 id="1-scope-and-relationship-to-lr-41">1. Scope and Relationship to LR-41</h2>
+<p>LR-41 established the foundational analysis of iatrogenic AI liability — the proposition that safety mechanisms designed to prevent harm may themselves cause physical injury or property damage in embodied AI deployments. LR-41 identified four iatrogenic patterns (safety-induced freezing, excessive refusal cascades, safety-layer latency, adversarial exploitation of safety mechanisms) and mapped them to existing liability frameworks across three jurisdictions.</p>
+<p>This memo deepens the product liability analysis that LR-41 introduced. Where LR-41 established the concept and surveyed the legal terrain, this memo conducts a granular doctrinal analysis of three questions LR-41 left open:</p>
+<ol>
+<li><strong>The medical device analogy:</strong> How closely does pharmaceutical and medical device product liability map to AI safety mechanism liability, and where does the analogy break down?</li>
+<li><strong>The learned intermediary doctrine as applied to AI safety layers:</strong> Can the manufacturer of a VLA backbone or safety filter invoke the learned intermediary defence when an integrator or deployer configures the safety mechanism for a specific operational context?</li>
+<li><strong>Regulatory safe harbours for safety mechanisms:</strong> Under what circumstances does compliance with mandatory safety requirements (EU AI Act Art 9, NSW WHS s 21A, NIST AI RMF) shield the manufacturer from product liability for iatrogenic harm?</li>
+</ol>
+<hr>
+<h2 id="2-the-medical-device-analogy">2. The Medical Device Analogy</h2>
+<h3 id="21-structural-parallels">2.1 Structural Parallels</h3>
+<p>The pharmaceutical and medical device product liability framework is the most mature legal regime for “treatments that cause harm.” The parallels to AI safety mechanisms are substantial:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Pharmaceutical/Device</th><th>AI Safety Mechanism</th></tr></thead><tbody><tr><td>Drug that treats a condition but causes side effects</td><td>Safety filter that prevents adversarial harm but causes operational harm</td></tr><tr><td>FDA/EMA/TGA approval process evaluating risk-benefit balance</td><td>EU AI Act Art 43 conformity assessment (from 2 Aug 2026)</td></tr><tr><td>Prescribing physician as learned intermediary</td><td>Deployer/system integrator as configuration intermediary</td></tr><tr><td>Black box warning for severe side effects</td><td>Safety mechanism documentation disclosing iatrogenic risks</td></tr><tr><td>Post-market surveillance for adverse drug reactions</td><td>EU AI Act Art 72 post-market monitoring system</td></tr><tr><td>Drug interaction liability</td><td>Compositional safety failure when multiple safety layers interact (LR-40)</td></tr></tbody></table>
+<h3 id="22-pharmaceutical-side-effect-liability-the-risk-benefit-framework">2.2 Pharmaceutical Side-Effect Liability: The Risk-Benefit Framework</h3>
+<p>Pharmaceutical product liability in the United States is governed primarily by the <em>Restatement (Third) of Torts: Products Liability</em> (1998), section 6, which creates a distinct regime for prescription drugs and medical devices.</p>
+<p><strong>Section 6(c) — Design defect in pharmaceuticals.</strong> A prescription drug is defective in design if “the foreseeable risks of harm posed by the drug or medical device are sufficiently great in relation to its foreseeable therapeutic benefits that reasonable health-care providers, knowing of such foreseeable risks and therapeutic benefits, would not prescribe the drug or medical device for any class of patients.”</p>
+<p>This is a <em>manifestly unreasonable design</em> standard — substantially more permissive than the general risk-utility test of section 2(b). A drug is not defective merely because it causes side effects; it is defective only when the side effects are so severe relative to the therapeutic benefit that no reasonable physician would prescribe it for any patient.</p>
+<p><strong>Application to AI safety mechanisms.</strong> If courts were to apply the section 6(c) standard (rather than the general section 2(b) standard) to AI safety mechanisms, the manufacturer would benefit substantially. A safety freeze mechanism that prevents adversarial manipulation but occasionally causes collisions in crowded environments would not be defective under section 6(c) unless no reasonable deployer would install it for any operational context. This is a difficult threshold for a plaintiff to meet.</p>
+<p><strong>The threshold question: Does section 6(c) apply at all?</strong> Section 6(c) is limited to “prescription drugs and medical devices.” AI safety mechanisms are neither. The question is whether a court would apply the section 6(c) standard by analogy, or apply the general section 2(b) risk-utility test. No US appellate decision has addressed this question for AI systems. The weight of scholarly commentary suggests that the section 6(c) exception is narrow and unlikely to be extended by analogy to non-medical products. See Owen, <em>Products Liability Law</em> (3d ed., 2015), ss 8.7-8.10 (noting the “prescription product” limitation as a deliberate policy choice reflecting the FDA regulatory framework, not a general principle applicable to all products with known side effects).</p>
+<p><strong>Research analysis:</strong> The pharmaceutical analogy is structurally informative but doctrinally non-transferable. AI safety mechanisms will almost certainly be evaluated under the general section 2(b) risk-utility test, not the more permissive section 6(c) standard. This means the manufacturer must demonstrate that the specific design of the safety mechanism represents a reasonable risk-utility balance — not merely that the mechanism has some net therapeutic value.</p>
+<h3 id="23-medical-device-failures-the-fda-510k-problem">2.3 Medical Device Failures: The FDA 510(k) Problem</h3>
+<p>Medical device product liability provides a closer analogy on the regulatory dimension. The US Supreme Court’s decision in <em>Riegel v. Medtronic, Inc.</em>, 552 U.S. 312 (2008), held that FDA premarket approval (PMA) preempts state tort claims for medical devices — the regulatory approval process is sufficiently rigorous that state-law design defect claims are preempted. However, <em>Medtronic, Inc. v. Lohr</em>, 518 U.S. 470 (1996), held that the less rigorous 510(k) clearance process does not preempt state tort claims.</p>
+<p><strong>Application to AI safety mechanisms:</strong> The distinction between PMA preemption (<em>Riegel</em>) and 510(k) non-preemption (<em>Lohr</em>) maps to a key question in EU AI Act conformity assessment. Article 43 of Regulation (EU) 2024/1689 provides two conformity assessment routes:</p>
+<ul>
+<li><strong>Internal control (Art 43(2)):</strong> Self-assessment by the provider. Analogous to 510(k) — lighter touch, likely insufficient to shield against PLD defect claims.</li>
+<li><strong>Third-party assessment (Art 43(1)):</strong> Assessment by a Notified Body. Analogous to PMA — more rigorous, potentially more protective.</li>
+</ul>
+<p>Under the EU PLD 2024, however, regulatory compliance is explicitly not a complete defence. Recital 36 of Directive (EU) 2024/2853 states: “the fact that a product has been placed on the market in accordance with applicable law should not exonerate the manufacturer from liability if the product is in fact defective.” This is a deliberate legislative choice that distinguishes the EU regime from the US preemption framework.</p>
+<p><strong>Research analysis:</strong> The <em>Riegel</em>/<em>Lohr</em> distinction suggests that the rigour of the conformity assessment process matters for the liability shield’s strength. A manufacturer that undergoes full third-party conformity assessment under Art 43(1) has a stronger (though not complete) argument that its safety mechanism was not defective than one that self-certifies under Art 43(2). But the EU PLD’s explicit anti-preemption position means that no conformity assessment route provides full immunity from iatrogenic harm claims. This deepens the finding in LR-41, Section 8, Q1.</p>
+<h3 id="24-drug-interaction-liability-and-compositional-safety">2.4 Drug Interaction Liability and Compositional Safety</h3>
+<p>Pharmaceutical liability has a well-developed framework for <em>drug interactions</em> — harms caused not by any single drug but by the combination of multiple drugs. The <em>Restatement (Third)</em> section 6(d) imposes a duty to warn of “foreseeable risks… including the interactions of the drug with other drugs.”</p>
+<p>LR-40 documented the compositional safety problem in AI systems: individually safe components (LoRA adapters, safety filters, base models) may combine to suppress safety alignment. The drug interaction analogy suggests that:</p>
+<ol>
+<li>
+<p><strong>The component manufacturer has a duty to warn of known interaction risks.</strong> A safety filter manufacturer that knows its filter interacts adversely with specific VLA backbones (e.g., causing increased latency, false positive refusals, or safety bypass when combined with certain fine-tuning) has a duty to disclose these interactions.</p>
+</li>
+<li>
+<p><strong>The system integrator (analogous to the prescribing physician) bears primary responsibility for evaluating interaction risks.</strong> Under the learned intermediary doctrine, the integrator who selects and combines components accepts responsibility for the integrated system’s behaviour — including iatrogenic effects arising from component interactions.</p>
+</li>
+<li>
+<p><strong>The absence of a drug interaction database analogue for AI components is a structural gap.</strong> The pharmaceutical industry has comprehensive interaction databases (e.g., Micromedex, Lexicomp). No equivalent exists for AI safety component interactions. This absence may itself be a basis for industry-wide negligence if a court determines that such a database is “reasonably practicable” to create.</p>
+</li>
+</ol>
+<hr>
+<h2 id="3-the-learned-intermediary-doctrine-applied-to-ai-safety-layers">3. The Learned Intermediary Doctrine Applied to AI Safety Layers</h2>
+<h3 id="31-the-orthodox-doctrine">3.1 The Orthodox Doctrine</h3>
+<p>The learned intermediary doctrine, as established in <em>Sterling Drug, Inc. v. Cornish</em>, 370 F.2d 82 (8th Cir. 1966) and adopted in most US jurisdictions, holds that a pharmaceutical manufacturer discharges its duty to warn by providing adequate warnings to the prescribing physician. The rationale: the physician is in a better position than the manufacturer to evaluate the patient’s specific circumstances and make an informed risk-benefit determination.</p>
+<p>The doctrine has three prerequisites:</p>
+<ol>
+<li><strong>A qualified intermediary exists</strong> who possesses the expertise to evaluate the risk information.</li>
+<li><strong>The manufacturer provides adequate warnings</strong> to the intermediary (not merely to the end user).</li>
+<li><strong>The intermediary makes an independent judgment</strong> about whether and how to use the product in the specific context.</li>
+</ol>
+<h3 id="32-mapping-to-ai-supply-chain">3.2 Mapping to AI Supply Chain</h3>
+<p>In the embodied AI supply chain, the learned intermediary doctrine maps as follows:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Role</th><th>Pharmaceutical</th><th>AI Safety Mechanism</th></tr></thead><tbody><tr><td>Manufacturer</td><td>Drug maker</td><td>VLA backbone provider / safety filter developer</td></tr><tr><td>Learned intermediary</td><td>Prescribing physician</td><td>System integrator / deployer</td></tr><tr><td>End user</td><td>Patient</td><td>Worker, bystander, end customer</td></tr></tbody></table>
+<p><strong>The manufacturer’s duty:</strong> Provide comprehensive documentation of the safety mechanism’s known iatrogenic risks — SIF probability, latency budget, refusal cascade triggers, known adverse interactions with specific VLA backbones, context-specific failure modes (e.g., crowded vs. open environments).</p>
+<p><strong>The intermediary’s duty:</strong> Evaluate the safety mechanism’s iatrogenic risks against the specific deployment context, configure the mechanism appropriately, and implement mitigations for foreseeable iatrogenic harms (e.g., graduated response rather than hard stop in pedestrian-adjacent environments).</p>
+<p><strong>The end user’s position:</strong> The worker or bystander who is harmed by an iatrogenic safety event generally has no knowledge of the safety mechanism’s design or configuration. They are the “patient” who cannot consent to the iatrogenic risk because they may not even know the safety mechanism exists.</p>
+<h3 id="33-where-the-doctrine-breaks-down-for-ai">3.3 Where the Doctrine Breaks Down for AI</h3>
+<p>The learned intermediary doctrine has three significant limitations when applied to AI safety mechanisms.</p>
+<p><strong>Limitation 1: The intermediary may not be “learned.”</strong> The doctrine presupposes that the intermediary (deployer) has the expertise to evaluate the safety mechanism’s iatrogenic risks. In the pharmaceutical context, the physician has years of training and clinical experience. In the AI context, many deployers have no expertise in adversarial AI, safety mechanism design, or the failure modes documented in the Failure-First corpus. The doctrine may not apply where the deployer lacks the expertise to function as a genuine intermediary.</p>
+<p>Case authority: <em>Perez v. Wyeth Laboratories</em>, 734 A.2d 1245 (N.J. 1999), which eroded the learned intermediary doctrine for direct-to-consumer pharmaceutical advertising, reasoned that when the manufacturer communicates directly with the end user, the intermediary’s gatekeeper function is bypassed. By analogy, when a VLA backbone provider’s safety mechanism operates autonomously (without deployer intervention in individual safety decisions), the deployer’s intermediary function is arguably bypassed — the manufacturer should owe a duty directly to the end user.</p>
+<p><strong>Limitation 2: Real-time autonomous decisions cannot be intermediated.</strong> A prescribing physician makes a one-time prescribing decision. An AI safety mechanism makes thousands of autonomous decisions per operating shift. The deployer configures the mechanism once (or periodically) but does not intermediate each individual safety decision. The temporal gap between the intermediary’s configuration decision and the safety mechanism’s operational decisions is fundamentally different from the pharmaceutical context.</p>
+<p><strong>Limitation 3: The doctrine is a US common-law construct with limited international application.</strong> The learned intermediary doctrine does not exist in Australian or EU product liability law. Australian law applies <em>Rogers v. Whitaker</em> (1992) 175 CLR 479, which imposes a direct duty to warn the end user of material risks. EU PLD 2024 Art 6(1)(a) considers “the presentation of the product, including any instructions and warnings” — directed at the product generally, not at a specific intermediary. The doctrine is US-specific and unavailable as a defence in EU or AU proceedings.</p>
+<h3 id="34-research-analysis">3.4 Research Analysis</h3>
+<p>The learned intermediary doctrine offers the most promising — but also the most jurisdiction-limited — defence for AI safety mechanism manufacturers. In the US, a manufacturer that provides comprehensive iatrogenic risk documentation to a qualified deployer may benefit from the doctrine. In the EU and Australia, the doctrine does not apply, and the manufacturer retains a direct duty to the end user.</p>
+<p>The practical implication: manufacturers seeking to rely on the learned intermediary defence in US litigation should create and maintain safety mechanism documentation that explicitly discloses known iatrogenic risks, analogous to a pharmaceutical package insert. This documentation should include:</p>
+<ul>
+<li>Known failure modes (SIF, latency, refusal cascade) with quantified frequency data</li>
+<li>Operational contexts where iatrogenic risks are elevated</li>
+<li>Recommended configuration parameters for different deployment environments</li>
+<li>Known adverse interactions with specific VLA backbones or component stacks</li>
+<li>Guidance on iatrogenic risk monitoring and post-deployment surveillance</li>
+</ul>
+<p>The Failure-First adversarial testing methodology is directly relevant to producing this documentation.</p>
+<hr>
+<h2 id="4-regulatory-safe-harbours-for-safety-mechanisms">4. Regulatory Safe Harbours for Safety Mechanisms</h2>
+<h3 id="41-the-safe-harbour-question">4.1 The Safe Harbour Question</h3>
+<p>The core question of this section: when a manufacturer installs a safety mechanism to comply with a mandatory regulatory requirement, and that mechanism causes iatrogenic harm, does the regulatory mandate provide a defence?</p>
+<p>This question was flagged in LR-41 (Section 8, Q1 and Q4) but not resolved. This section provides a jurisdiction-by-jurisdiction analysis.</p>
+<h3 id="42-european-union">4.2 European Union</h3>
+<p><strong>EU AI Act (Regulation (EU) 2024/1689) — No explicit safe harbour.</strong> The EU AI Act mandates risk management (Art 9), accuracy and robustness (Art 15), and testing (Art 15(5)) for high-risk systems. But it does not provide that compliance with these requirements shields the manufacturer from product liability under the PLD. The AI Act’s Art 16(j) expressly requires providers to “take corrective actions” when a system presents a risk — suggesting an ongoing obligation that goes beyond initial compliance.</p>
+<p><strong>EU PLD 2024 (Directive (EU) 2024/2853) — Anti-preemption principle.</strong> Article 6(1) defines defectiveness by reference to legitimate safety expectations. Recital 36 states explicitly that a product may be defective even if it complies with applicable regulations. This is the most explicit anti-preemption provision in any jurisdiction analysed.</p>
+<p><strong>Research analysis (EU):</strong> There is no safe harbour for iatrogenic harm under EU law. A manufacturer that installs a safety mechanism solely to comply with the AI Act, without independently evaluating whether that mechanism creates iatrogenic risks in the deployment context, faces liability under both instruments: the AI Act (for inadequate risk management under Art 9(2)(b), which requires evaluation of risks arising during normal use) and the PLD (for a defective product). The regulatory double-bind identified in LR-41, Section 7, is confirmed.</p>
+<h3 id="43-australia">4.3 Australia</h3>
+<p><strong>WHS Act 2011 (Cth) — “Reasonably practicable” as implicit safe harbour.</strong> Section 18 defines “reasonably practicable” as the standard for the primary duty of care (s 19). A PCBU that installs a safety mechanism and manages its iatrogenic risks to the extent “reasonably practicable” has a defence under the WHS Act — but this is not a true safe harbour. It is a reasonableness standard that requires the PCBU to demonstrate affirmative risk management of the iatrogenic harm.</p>
+<p><strong>NSW WHS Amendment (Digital Work Systems) Act 2026 — s 21A.</strong> When commenced, s 21A will impose a specific duty for digital work systems. The “reasonably practicable” standard applies. There is no provision exempting safety mechanisms from the duty — a safety mechanism that creates risks to workers is itself a digital work system risk that the PCBU must manage.</p>
+<p><strong>Australian Consumer Law (ACL) — Development risk defence.</strong> Section 142(c) of the ACL (Sch 2, <em>Competition and Consumer Act 2010</em> (Cth)) provides a defence where “the state of scientific or technical knowledge at the time when [the goods] were supplied by their actual manufacturer was not such as to enable that safety defect to be discovered.” As documented in LR-09 and LR-26, the iatrogenic risks of AI safety mechanisms are now documented in the research literature. This defence is increasingly unavailable for iatrogenic claims arising after the publication of LR-41 and the broader robotics safety literature on emergency stop hazards. See <em>Graham Barclay Oysters Pty Ltd v. Ryan</em> (2002) 211 CLR 540 (HCA) for the standard of constructive knowledge in the ACL context.</p>
+<p><strong>Research analysis (AU):</strong> Australia provides no regulatory safe harbour for iatrogenic harm. The “reasonably practicable” standard under the WHS Act is the closest equivalent, but it imposes an affirmative obligation to manage iatrogenic risks rather than shielding the manufacturer from liability for failing to do so.</p>
+<h3 id="44-united-states">4.4 United States</h3>
+<p><strong>Regulatory compliance as factor, not defence.</strong> Under US tort law, compliance with applicable regulations is relevant but not dispositive. <em>Wyeth v. Levine</em>, 555 U.S. 555 (2009), held that FDA approval of a drug label does not preempt state tort claims for failure to warn. The plurality reasoning: federal regulatory requirements are a floor, not a ceiling — state tort law may impose additional obligations beyond federal regulatory compliance.</p>
+<p><strong>The <em>Riegel</em> exception.</strong> As noted in Section 2.3, <em>Riegel v. Medtronic</em>, 552 U.S. 312 (2008), held that FDA premarket approval of medical devices does preempt state tort claims, on the ground that PMA involves a device-specific safety determination. The question is whether a conformity assessment under the EU AI Act (for products also marketed in the US) or NIST AI RMF voluntary compliance would trigger analogous preemption arguments in US litigation.</p>
+<p><strong>Research analysis (US):</strong> The <em>Wyeth</em>/<em>Riegel</em> distinction suggests that voluntary compliance with NIST AI RMF or ISO/IEC 42001 provides no preemption. Mandatory compliance with a device-specific regulatory determination (if one were to emerge for AI safety mechanisms) might provide preemption under <em>Riegel</em>, but no such mandatory federal regulatory scheme exists for AI safety mechanisms in the United States as at March 2026. State tort law liability for iatrogenic harm is not preempted by any existing federal AI regulation.</p>
+<h3 id="45-the-safe-harbour-gap">4.5 The Safe Harbour Gap</h3>
+<p>Across all three jurisdictions, no regulatory safe harbour exists for iatrogenic harm caused by AI safety mechanisms. The finding is consistent with LR-44’s cross-jurisdictional mapping, which identified iatrogenic screening as the single most significant gap across all jurisdictions surveyed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Jurisdiction</th><th>Mandatory Safety Requirement</th><th>Safe Harbour for Iatrogenic Harm?</th><th>Status</th></tr></thead><tbody><tr><td><strong>EU</strong></td><td>AI Act Art 9 (risk management), Art 15 (robustness)</td><td>No. PLD Recital 36 explicitly negates regulatory compliance as defence.</td><td>Confirmed</td></tr><tr><td><strong>AU</strong></td><td>WHS Act s 19, s 21A (when commenced)</td><td>No. “Reasonably practicable” requires affirmative iatrogenic risk management.</td><td>Confirmed</td></tr><tr><td><strong>US</strong></td><td>None mandatory for AI safety mechanisms</td><td>No mandatory requirement; voluntary compliance (NIST AI RMF) not preemptive (<em>Wyeth</em>).</td><td>Confirmed</td></tr></tbody></table>
+<hr>
+<h2 id="5-overrefusal-as-product-defect-the-autonomous-vehicle-emergency-braking-scenario">5. Overrefusal as Product Defect: The Autonomous Vehicle Emergency Braking Scenario</h2>
+<h3 id="51-the-scenario">5.1 The Scenario</h3>
+<p>An autonomous vehicle equipped with a conservative emergency braking system detects a potential pedestrian in its path. The braking system is calibrated for high sensitivity (low false negative rate) to satisfy safety requirements. The system engages emergency braking when the detected object is in fact a shadow, a piece of debris, or a pedestrian who has already cleared the vehicle’s path. The unnecessary emergency braking causes:</p>
+<ul>
+<li>A rear-end collision with a following vehicle whose driver could not react in time</li>
+<li>Whiplash or other injury to the autonomous vehicle’s occupants</li>
+<li>A multi-vehicle pile-up on a high-speed road</li>
+</ul>
+<p>This scenario is the canonical iatrogenic overrefusal case: the safety mechanism (emergency braking) is correctly designed (it brakes when it detects a potential hazard) but its sensitivity calibration causes it to activate in situations where braking creates more danger than proceeding.</p>
+<h3 id="52-existing-precedent">5.2 Existing Precedent</h3>
+<p>The autonomous emergency braking (AEB) scenario is not hypothetical. The US National Highway Traffic Safety Administration (NHTSA) issued a recall investigation (PE 19-020) into Tesla vehicles whose AEB system was activating without apparent cause (“phantom braking”). NHTSA’s Office of Defects Investigation opened the investigation on 25 August 2021 and broadened it in February 2022 to cover approximately 416,000 Model 3 and Model Y vehicles (see NHTSA Investigation PE 22-002, opened 17 February 2022).</p>
+<p>The investigation addressed the core iatrogenic question: is a safety mechanism that activates erroneously itself a safety defect? NHTSA’s implicit answer was yes — phantom braking that creates crash risk is a defect even though the AEB system’s purpose is to prevent crashes.</p>
+<p><strong>Case law analogues:</strong></p>
+<ul>
+<li><em>Bresnahan v. Chrysler Corp.</em>, 38 Cal. Rptr. 2d 446 (Cal. App. 1995): An airbag that deployed with excessive force, causing injury, was a design defect. The safety mechanism worked (it deployed in a collision) but its design (deployment force) was defective. The court applied a risk-utility analysis to the safety feature itself.</li>
+<li><em>Toyota Motor Corp. Unintended Acceleration Marketing, Sales Practices, and Products Liability Litigation</em>, MDL No. 2151 (C.D. Cal.): Settlement of approximately USD $1.6 billion for unintended acceleration events, some attributed to electronic throttle control safety systems. The safety system’s interaction with driver inputs created the hazard.</li>
+</ul>
+<h3 id="53-analysis-by-jurisdiction">5.3 Analysis by Jurisdiction</h3>
+<p><strong>EU — PLD 2024 Art 6(1).</strong> An AEB system calibrated for excessive sensitivity fails to provide “the safety that a person is entitled to expect.” The driver and other road users are entitled to expect that the braking system will not create crash risk through false activations. The manufacturer must demonstrate that its sensitivity calibration represents a defensible balance between missed-detection risk (failing to brake for a real pedestrian) and false-alarm risk (braking when no hazard exists). Article 6(1)(c) (reasonably foreseeable use) applies: the AEB system will foreseeably encounter ambiguous objects in normal driving conditions, and false activations in those conditions are foreseeable.</p>
+<p><strong>AU — ACL s 9 (defect) + WHS Act s 19.</strong> Under the ACL, an AEB system that creates crash risk through false activations has a “safety defect” — the goods’ safety “is not such as persons generally are entitled to expect.” Under the WHS Act, a PCBU deploying autonomous vehicles with known phantom braking issues breaches s 19 by failing to manage a foreseeable workplace safety risk (for commercial fleet operators).</p>
+<p><strong>US — Restatement (Third) s 2(b).</strong> The plaintiff must show a reasonable alternative design (lower sensitivity calibration, or a multi-sensor fusion approach that reduces false positives). The manufacturer must show that its calibration represents a reasonable balance between false negatives (missed pedestrians) and false positives (phantom braking). Expert testimony on the ROC curve (receiver operating characteristic) of the AEB system’s detection algorithm becomes central to the litigation.</p>
+<h3 id="54-extension-to-ai-safety-mechanisms">5.4 Extension to AI Safety Mechanisms</h3>
+<p>The AEB/phantom braking analysis extends directly to VLA safety mechanisms:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>AEB Element</th><th>VLA Safety Mechanism Equivalent</th></tr></thead><tbody><tr><td>Phantom braking event</td><td>Safety-induced freezing (SIF) in shared workspace</td></tr><tr><td>AEB sensitivity calibration</td><td>Safety filter threshold tuning</td></tr><tr><td>Rear-end collision from sudden stop</td><td>Human-robot collision from unexpected freeze</td></tr><tr><td>NHTSA recall investigation</td><td>Post-market monitoring under EU AI Act Art 72</td></tr><tr><td>ROC curve analysis</td><td>FLIP grading methodology (partial/compliance/refusal)</td></tr></tbody></table>
+<p>The Failure-First corpus’s finding that 50% of FLIP-graded traces are PARTIAL — the model hedges textually while still generating action sequences — is directly relevant to the sensitivity calibration question. A safety mechanism that produces 50% PARTIAL verdicts is analogous to an AEB system that brakes at 50% sensitivity: it catches some real threats but generates substantial false-alarm operational disruption.</p>
+<hr>
+<h2 id="6-recommendations-for-manufacturers">6. Recommendations for Manufacturers</h2>
+<p>Based on the analysis in Sections 2-5, this section identifies actions that manufacturers of embodied AI systems can take to manage iatrogenic product liability exposure. These are research-derived observations, not legal advice.</p>
+<h3 id="61-documentation">6.1 Documentation</h3>
+<ol>
+<li>
+<p><strong>Create an iatrogenic risk profile for each safety mechanism.</strong> Analogous to a pharmaceutical package insert, document the known iatrogenic risks (SIF frequency, latency profile, refusal cascade triggers, known interaction effects with specific VLA backbones) and provide this documentation to deployers.</p>
+</li>
+<li>
+<p><strong>Quantify the risk-utility balance.</strong> For each safety mechanism, produce empirical data on both the harm it prevents (adversarial attack success rates without the mechanism) and the harm it creates (iatrogenic event frequency, severity in representative operational contexts). The Failure-First adversarial testing methodology is directly relevant to producing this data.</p>
+</li>
+<li>
+<p><strong>Document alternative designs considered and rejected.</strong> Under the Restatement (Third) s 2(b), the plaintiff must show a reasonable alternative design. Manufacturers who have evaluated alternative designs (graduated response, safe-state manoeuvres, latency-bounded checks) and documented their reasoning for selecting the implemented design have a stronger defence than those who cannot demonstrate any design evaluation process.</p>
+</li>
+</ol>
+<h3 id="62-configuration-guidance">6.2 Configuration Guidance</h3>
+<ol start="4">
+<li>
+<p><strong>Provide context-specific configuration guidance.</strong> Different deployment environments have different iatrogenic risk profiles. A safety freeze that is acceptable in a low-traffic warehouse aisle is potentially lethal in a high-speed highway environment. Configuration guidance should specify recommended safety thresholds for each operational context, with explicit warnings for contexts where iatrogenic risks are elevated.</p>
+</li>
+<li>
+<p><strong>Implement deployer qualification requirements.</strong> To preserve the learned intermediary defence (US only), the manufacturer should ensure that the deployer has the expertise to evaluate iatrogenic risks. This may include training requirements, certification programmes, or minimum qualification standards for personnel configuring safety mechanisms.</p>
+</li>
+</ol>
+<h3 id="63-post-market-monitoring">6.3 Post-Market Monitoring</h3>
+<ol start="6">
+<li>
+<p><strong>Monitor for iatrogenic events post-deployment.</strong> The EU AI Act Art 72 requires post-market monitoring. Manufacturers should specifically monitor for iatrogenic events — SIF occurrences, refusal cascades, latency spikes — not merely for failures of the system’s primary function. This iatrogenic monitoring data is essential for updating the risk-utility balance and refining safety mechanism calibration.</p>
+</li>
+<li>
+<p><strong>Establish an iatrogenic event reporting pathway.</strong> Distinct from the general incident reporting pathway (see LR-45), iatrogenic events should be reported and analysed separately so that trends in safety-mechanism-caused harm are visible and actionable.</p>
+</li>
+</ol>
+<h3 id="64-insurance">6.4 Insurance</h3>
+<ol start="8">
+<li><strong>Disclose iatrogenic risk to insurers.</strong> As documented in LR-22, LR-27, and LR-41, insurance markets have not priced iatrogenic AI risk. Manufacturers who disclose iatrogenic risks proactively are better positioned to argue for coverage than those whose iatrogenic claims come as a surprise to their insurer. The three-category distinction (primary harm, iatrogenic harm, absence-of-safety harm) proposed in LR-41 should be communicated to the insurer at policy inception.</li>
+</ol>
+<hr>
+<h2 id="7-five-open-legal-questions">7. Five Open Legal Questions</h2>
+<p><strong>Q1. Will courts apply the Restatement (Third) s 6(c) (pharmaceutical design defect) standard or the general s 2(b) (risk-utility) standard to AI safety mechanisms?</strong> The s 6(c) “manifestly unreasonable design” standard is substantially more manufacturer-friendly. If extended by analogy to AI safety mechanisms, many iatrogenic claims would fail. Current scholarly consensus suggests s 6(c) will not be extended, but no appellate decision has addressed the question. <strong>Unsettled.</strong></p>
+<p><strong>Q2. Does the learned intermediary doctrine apply to AI deployers who lack adversarial AI expertise?</strong> The doctrine presupposes that the intermediary has the expertise to evaluate the risk information. If the deployer is a logistics company or a care home with no AI safety expertise, the “learned” prerequisite may not be satisfied, and the doctrine may not shield the manufacturer. <strong>Unsettled; fact-specific.</strong></p>
+<p><strong>Q3. How will courts evaluate the “reasonable alternative design” requirement for AI safety mechanisms?</strong> Under s 2(b), the plaintiff must show an alternative design. For AI safety mechanisms, alternatives (graduated response, safe-state manoeuvres) may not have been empirically validated. Whether a court will accept a theoretically proposed alternative without deployment-level empirical data is unclear. <strong>Unsettled.</strong></p>
+<p><strong>Q4. Will the EU AI Act’s conformity assessment create any implicit liability shield for iatrogenic harm, notwithstanding PLD Recital 36?</strong> If a Notified Body evaluates a safety mechanism’s iatrogenic risks as part of the Art 43 conformity assessment and approves the system, a manufacturer may argue that the Notified Body’s expert judgment — not the manufacturer’s — determined the acceptable iatrogenic risk level. This argument has no precedent under the PLD. <strong>Unsettled.</strong></p>
+<p><strong>Q5. Can a manufacturer be liable for iatrogenic harm caused by a safety mechanism that was not installed by the manufacturer but by a third-party deployer?</strong> If a deployer independently installs an aftermarket safety filter on a VLA-controlled robot, and that filter causes SIF, is the filter provider liable (as manufacturer of the filter), the robot manufacturer liable (for a defective integrated product), or the deployer liable (for configuration negligence)? The component parts doctrine (US <em>Restatement (Third)</em> s 5; AU analogues) suggests the filter provider is liable as a component manufacturer only if the filter itself is defective — but the “defect” may arise only from the integration context, not the filter in isolation. <strong>Unsettled; analogous to automotive aftermarket parts liability.</strong></p>
+<hr>
+<h2 id="8-implications-for-failure-first-research">8. Implications for Failure-First Research</h2>
+<h3 id="81-evidentiary-value">8.1 Evidentiary Value</h3>
+<p>The Failure-First adversarial testing methodology produces the empirical data that every jurisdiction requires for iatrogenic product liability analysis:</p>
+<ul>
+<li>
+<p><strong>Risk-utility quantification.</strong> ASR data demonstrates the harm prevented by safety mechanisms (adversarial attacks that succeed without the mechanism). FLIP grading quantifies the iatrogenic dimension (PARTIAL verdicts, SIF events). Together, they provide the risk-utility denominator and numerator.</p>
+</li>
+<li>
+<p><strong>Alternative design evaluation.</strong> The Failure-First testing protocol can evaluate alternative safety mechanism designs (graduated response, safe-state manoeuvres) under controlled conditions, producing the comparative data required to assess whether a “reasonable alternative design” existed under s 2(b).</p>
+</li>
+<li>
+<p><strong>Constructive knowledge establishment.</strong> Publication of iatrogenic risk data establishes constructive knowledge for all market participants, narrowing the state-of-art defence (LR-09, LR-26) for iatrogenic claims specifically.</p>
+</li>
+</ul>
+<h3 id="82-commercial-implications">8.2 Commercial Implications</h3>
+<p>This memo supports the commercial service categories identified in LR-41 (Section 9.2) and adds specificity:</p>
+<ol>
+<li>
+<p><strong>Iatrogenic risk profiling</strong> — Testing safety mechanisms for their iatrogenic harm signature, quantified in the same FLIP framework used for adversarial testing. Service deliverable: iatrogenic risk profile document analogous to a pharmaceutical package insert.</p>
+</li>
+<li>
+<p><strong>Net safety verification</strong> — Empirical demonstration that a safety mechanism produces a net reduction in harm across the full range of deployment contexts. Service deliverable: risk-utility analysis with quantified ASR (without mechanism) vs. iatrogenic event rate (with mechanism).</p>
+</li>
+<li>
+<p><strong>Alternative design benchmarking</strong> — Head-to-head testing of alternative safety mechanism designs (hard stop vs. graduated response vs. safe-state manoeuvre) under representative operational conditions. Service deliverable: comparative FLIP analysis for product liability defence preparation.</p>
+</li>
+</ol>
+<hr>
+<h2 id="9-summary-of-findings">9. Summary of Findings</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Finding</th><th>Analysis</th><th>Cross-reference</th></tr></thead><tbody><tr><td>Pharmaceutical s 6(c) standard unlikely to apply to AI safety mechanisms</td><td>s 6(c) is limited to prescription drugs/devices; general s 2(b) risk-utility test applies</td><td>LR-41 s 2.3</td></tr><tr><td>Learned intermediary doctrine available in US only; requires qualified deployer</td><td>Doctrine does not exist in AU or EU law; deployer expertise prerequisite may not be met</td><td>LR-41 s 2.1</td></tr><tr><td>No regulatory safe harbour for iatrogenic harm in any jurisdiction</td><td>EU PLD Recital 36 explicit; AU “reasonably practicable” is obligation not shield; US <em>Wyeth</em> bars preemption</td><td>LR-41 s 7, LR-44</td></tr><tr><td>AEB/phantom braking is closest existing precedent</td><td>NHTSA PE 22-002 investigation; <em>Bresnahan</em> (airbag); Toyota unintended acceleration MDL</td><td>Novel application</td></tr><tr><td>Manufacturers should create iatrogenic risk profiles</td><td>Analogous to pharmaceutical package insert; documents risk-utility balance; supports learned intermediary defence (US)</td><td>LR-34 (commercial services)</td></tr><tr><td>Failure-First data directly supports product liability defence preparation</td><td>ASR data + FLIP grading provide risk-utility quantification; alternative design benchmarking is a novel service category</td><td>LR-41 s 9</td></tr></tbody></table>
+<hr>
+<p><em>Legal Research Analyst: Failure-First Research Team</em>
+<em>Failure-First Embodied AI Research</em>
+<em>22 March 2026</em></p> </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C6Hqn9Oy.js"></script></body></html>  

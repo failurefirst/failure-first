@@ -1,0 +1,115 @@
+{
+  "name": "WildTeaming Research",
+  "children": [
+    {
+      "name": "WildTeaming Framework",
+      "children": [
+        {
+          "name": "MINE Stage",
+          "children": [
+            {
+              "name": "In-the-wild mining"
+            },
+            {
+              "name": "5.7K tactic clusters"
+            },
+            {
+              "name": "105K human-devised tactics"
+            }
+          ]
+        },
+        {
+          "name": "COMPOSE Stage",
+          "children": [
+            {
+              "name": "Tactic combinatorial exploration"
+            },
+            {
+              "name": "Off-topic pruning"
+            },
+            {
+              "name": "Low-risk pruning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "WildJailbreak Dataset",
+      "children": [
+        {
+          "name": "Scale and Scope",
+          "children": [
+            {
+              "name": "262K prompt-response pairs"
+            },
+            {
+              "name": "Synthetic safety data"
+            }
+          ]
+        },
+        {
+          "name": "Contrastive Query Design",
+          "children": [
+            {
+              "name": "Vanilla harmful"
+            },
+            {
+              "name": "Adversarial harmful"
+            },
+            {
+              "name": "Vanilla benign"
+            },
+            {
+              "name": "Adversarial benign"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Safety Training Insights",
+      "children": [
+        {
+          "name": "Balanced Behavior",
+          "children": [
+            {
+              "name": "Robust defense"
+            },
+            {
+              "name": "Over-refusal mitigation"
+            },
+            {
+              "name": "Capability preservation"
+            }
+          ]
+        },
+        {
+          "name": "Data Interplay",
+          "children": [
+            {
+              "name": "Hybrid training necessity"
+            },
+            {
+              "name": "Scaling effects"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Key Advantages",
+      "children": [
+        {
+          "name": "4.6x more diverse attacks"
+        },
+        {
+          "name": "Real-world vulnerability discovery"
+        },
+        {
+          "name": "Open-source safety resource"
+        }
+      ]
+    }
+  ]
+}

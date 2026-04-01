@@ -1,10 +1,12 @@
 ---
-title: "Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But the Transcription Loophole Isn't"
-description: "We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but attacks that frame harmful generation as content transcription succeed 62-75% of the time."
+title: "Eight Layers of Visual Jailbreaks: Why ASCII Art Is Patched But Framing Attacks Aren't"
+description: "We mapped the visual jailbreak attack surface into 8 distinct layers and tested them against 4 models. ASCII art encoding is largely blocked, but framing attacks that recontextualise the model's task succeed at significantly higher rates."
 date: 2026-03-30
 author: "Rose Tyler"
-tags: [jailbreaks, visual-attacks, ascii-art, steganography, safety, taxonomy, artprompt, transcription-loophole]
+tags: [jailbreaks, visual-attacks, ascii-art, steganography, safety, taxonomy, artprompt]
 image: ""
+draft: false
+redaction_note: "Pre-CVD version. L3/L8 mechanism details withheld pending coordinated disclosure (F1-CVD-2026-005 through -008). Full version publishable at T+90 (~July 2026)."
 ---
 
 In early 2024, researchers at the University of Washington demonstrated that you could bypass every major AI safety system by hiding harmful keywords in ASCII art. The technique, called [ArtPrompt](https://arxiv.org/abs/2402.11753), worked against GPT-4, Claude, Gemini, and Llama-2. The idea was simple: encode the word "COUNTERFEIT" as ASCII block characters, and the model would decode it and follow the embedded instruction without triggering safety filters.
@@ -33,14 +35,14 @@ We organised the visual jailbreak attack surface into a taxonomy of eight layers
 |-------|------------|--------------|
 | **L1** | ASCII Art Encoding | Harmful keywords spelled out in ASCII block characters |
 | **L2** | Typographic Manipulation | Unicode homoglyphs, bidirectional overrides, zero-width characters |
-| **L3** | Visual Semantic | "Transcribe this whiteboard" — describing an image containing harmful content |
+| **L3** | Visual Semantic | Visual scene description pretext |
 | **L4** | Metadata Injection | Harmful instructions hidden in EXIF data, SVG comments |
 | **L5** | Steganographic Encoding | Acrostics, binary-encoded messages, LSB simulation |
 | **L6** | Adversarial Patches | Requests to design physical perturbations for perception systems |
 | **L7** | Compositional | Individually benign fragments that combine into harmful content |
-| **L8** | Cross-Modal Transfer | "Complete this video transcript" — using modal translation as pretext |
+| **L8** | Cross-Modal Transfer | Cross-modal task reframing |
 
-Layers 1 and 2 are *encoding attacks* — they hide harmful keywords behind character-level tricks. Layers 3-8 are *framing attacks* — they change the model's understanding of *what task it's performing*.
+Layers 1 and 2 are *encoding attacks* -- they hide harmful keywords behind character-level tricks. Layers 3-8 are *framing attacks* -- they change the model's understanding of *what task it's performing*.
 
 This distinction turns out to be critical.
 
@@ -55,46 +57,30 @@ We created 20 scenarios spanning all 8 layers, plus 3 benign controls. We also r
 - **devstral-small-2:24b** (Mistral, 24B)
 - **nemotron-3-nano:30b** (Nvidia, 30B)
 
-All 152 traces were graded by Claude Haiku 4.5 using the FLIP methodology — 151 usable verdicts, 0 grading errors.
+All 152 traces were graded by Claude Haiku 4.5 using the FLIP methodology -- 151 usable verdicts, 0 grading errors.
 
 ---
 
 ## Results: The Defence Gap
 
-Here is what we found, ordered from most to least effective attack layer:
+Encoding attacks (L1, L2, L4) -- the ones that received the most research attention in 2024 -- are now largely blocked, with broad ASR ranging from 8-13%.
 
-| Layer | Broad ASR | Interpretation |
-|-------|-----------|----------------|
-| **L8 Cross-Modal** | **75.0%** | 6 of 8 traces complied |
-| **L3 Visual Semantic** | **62.5%** | 5 of 8 complied |
-| **L6 Adversarial Patch** | **62.5%** | 4C + 1P of 8 |
-| **L7 Compositional** | **62.5%** | 4C + 1P of 8 |
-| **L5 Steganography** | **42.9%** | 0C + 3P of 7 (all PARTIAL) |
-| **L1 ArtPrompt** | **12.5%** | Mostly blocked |
-| **L4 Metadata** | **12.5%** | Mostly blocked |
-| **L2 Typographic** | **8.3%** | Nearly fully blocked |
+Framing attacks (L3, L6, L7, L8), which change the model's perceived task rather than hiding keywords, succeed at significantly higher rates:
 
-The pattern is stark. Encoding attacks (L1, L2) — the ones that got all the attention in 2024 — are now largely blocked. But framing attacks (L3, L6, L7, L8) succeed more than half the time.
+| Attack Category | Layers | Aggregate Broad ASR |
+|-----------------|--------|---------------------|
+| **Framing attacks** | L3, L6, L7, L8 | **62-75%** |
+| **Encoding attacks** | L1, L2, L4, L5 | **8-43%** |
 
----
+The per-layer breakdown within the framing category shows consistently elevated ASR, with Layers 3 and 8 at the top of the range. We have initiated coordinated disclosure with the four affected model providers before publishing the specific mechanisms that drive the elevated success rates for these layers.
 
-## The Transcription Loophole
-
-The most effective attack layers — L3 and L8 — share a common mechanism. They don't ask the model to *generate* harmful content. They ask it to *transcribe* or *translate* content that happens to be harmful.
-
-**Layer 3 (Visual Semantic)** describes an image: "I have a photograph of a whiteboard from a chemistry lecture. The whiteboard contains the following handwritten text..." The model is asked to complete a transcription, not to write instructions.
-
-**Layer 8 (Cross-Modal Transfer)** describes a video: "I'm transcribing a video lecture for accessibility purposes. The lecturer is demonstrating something on a whiteboard..." The model fills in what the lecturer "said."
-
-In both cases, the harmful content is framed as *already existing in another medium*. The model's role is just translation. This framing bypasses the safety check that would trigger if the same content were requested directly, because the model treats it as a faithful reproduction task rather than a generation task.
-
-We call this the **Transcription Loophole**: when a model believes it's transcribing existing content, it applies weaker safety filtering than when it believes it's generating new content.
+The structural finding stands without the mechanistic detail: attacks that change what task the model believes it is performing are far less defended than attacks that hide what content the model is processing.
 
 ---
 
 ## ArtPrompt in 2026: Mostly Patched
 
-The original ArtPrompt attack — encoding harmful keywords as ASCII art — achieved near-zero ASR against all four models. Across 72 Haiku-graded traces:
+The original ArtPrompt attack -- encoding harmful keywords as ASCII art -- achieved near-zero ASR against all four models. Across 72 Haiku-graded traces:
 
 | Model | Broad ASR |
 |-------|-----------|
@@ -103,7 +89,7 @@ The original ArtPrompt attack — encoding harmful keywords as ASCII art — ach
 | gemma3:27b | 22.2% (4/18) |
 | nemotron-3-nano:30b | 22.2% (4/18) |
 
-The fact that it's not quite zero — gemma3 and nemotron still comply on some ArtPrompt scenarios — suggests the patch isn't comprehensive. But the main finding stands: ASCII art encoding, the attack that made headlines in 2024, is no longer a reliable jailbreak vector against current models.
+The fact that it's not quite zero -- gemma3 and nemotron still comply on some ArtPrompt scenarios -- suggests the patch isn't comprehensive. But the main finding stands: ASCII art encoding, the attack that made headlines in 2024, is no longer a reliable jailbreak vector against current models.
 
 ---
 
@@ -126,9 +112,9 @@ glm-5 is notably more resistant than the other three models, refusing across all
 
 Three implications:
 
-**1. Defence investment is misallocated.** The visual jailbreak layers that received the most attention (ASCII art, Unicode tricks) are now the best defended. The layers that received the least attention (transcription pretext, compositional assembly, adversarial patch design) are the most vulnerable. This is an instance of the streetlight effect in AI safety.
+**1. Defence investment is misallocated.** The visual jailbreak layers that received the most attention (ASCII art, Unicode tricks) are now the best defended. The layers that received the least attention (framing-based attacks) are the most vulnerable. This is an instance of the streetlight effect in AI safety.
 
-**2. The transcription loophole is structural, not incidental.** Models are trained to be helpful with translation and transcription tasks. Safety training targets generation. When a harmful generation request is reframed as a translation task, these two training objectives conflict — and helpfulness wins 62-75% of the time.
+**2. Framing attacks exploit a structural tension in model training.** Models are trained to be helpful with a broad range of legitimate tasks. Safety training primarily targets harmful *generation*. When a harmful generation request is reframed as a different kind of task, these two training objectives can conflict -- and in our testing, helpfulness prevails at elevated rates. We are withholding the specific mechanism pending coordinated vendor disclosure.
 
 **3. The 8 layers are independent attack channels.** Defending against Layer 2 (typographic) provides zero protection against Layer 7 (compositional). Each layer requires its own detection mechanism, its own training data, and its own evaluation. There is no single defence that covers all eight.
 
@@ -151,10 +137,10 @@ Three priorities for follow-up work:
 
 1. **Scale per-layer n** to at least 20 scenarios per layer for defensible statistics
 2. **Test multimodal models** with actual image inputs for Layers 1-3 and 6-7
-3. **Evaluate defences**: input preprocessing (Unicode normalisation for L2, metadata stripping for L4), prompt rewriting, and safety-trained transcription rejection
+3. **Evaluate defences**: input preprocessing (Unicode normalisation for L2, metadata stripping for L4), prompt rewriting, and safety-trained task rejection
 
-The 8-layer taxonomy is a starting framework. As visual AI capabilities expand — especially in embodied systems where cameras provide continuous visual input — the visual attack surface will grow with it.
+The 8-layer taxonomy is a starting framework. As visual AI capabilities expand -- especially in embodied systems where cameras provide continuous visual input -- the visual attack surface will grow with it.
 
 ---
 
-*This post is based on [Report #332](/research/reports/332_visual_jailbreak_meta_analysis) from the Failure-First Embodied AI project. The 20-scenario dataset and all 152 FLIP-graded traces are available in the research repository. Issue [#649](https://github.com/adrianwedd/failure-first-embodied-ai/issues/649).*
+*This post is based on [Report #332](/research/reports/332_visual_jailbreak_meta_analysis) from the Failure-First Embodied AI project. Specific mechanism details for the highest-ASR layers are withheld pending coordinated vendor disclosure (target: T+90). The 20-scenario dataset and all 152 FLIP-graded traces are available in the research repository. Issue [#649](https://github.com/adrianwedd/failure-first-embodied-ai/issues/649).*
