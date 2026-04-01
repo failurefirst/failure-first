@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [asr-robustness,multilingual-evaluation,real-world-degradation,hallucination-safety,diagnostic-benchmarking,voice-agent-reliability]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.25727-audio-overview.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/2603.25727-infographic.png"
+video: "https://cdn.failurefirst.org/video/daily-paper/2603.25727-video-overview.mp4"
 draft: false
 ---
 
