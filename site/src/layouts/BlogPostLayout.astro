@@ -21,7 +21,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${title} | Blog | Failure-First`} description={description} type="article" publishedDate={date.toISOString().split('T')[0]}>
+<BaseLayout title={`${title} | Blog | Failure-First`} description={description} image={image} type="article" publishedDate={date.toISOString().split('T')[0]}>
   <Breadcrumbs items={[
     { label: "Blog", href: "/blog/" },
     { label: title },
@@ -212,6 +212,14 @@ const formattedDate = date.toLocaleDateString('en-US', {
 
   .post-content :global(a) {
     color: var(--accent-primary);
+  }
+
+  .post-content :global(img) {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    margin: 1rem 0;
   }
 
   .post-content :global(blockquote) {
