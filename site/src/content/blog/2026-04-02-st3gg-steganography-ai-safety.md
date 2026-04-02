@@ -1,6 +1,6 @@
 ---
 title: "Everything Hidden: ST3GG and the Steganographic Attack Surface for AI Systems"
-description: "We ran ST3GG — an all-in-one steganography suite — through its paces as an AI safety research tool. The findings include a complete blind spot in the ALLSIGHT detection engine, model-specific filename injection templates targeting GPT-4V, Claude, and Gemini separately, and network covert channels that matter for agentic AI. Here is what we found."
+description: "We ran ST3GG — an all-in-one steganography suite — through its paces as an AI safety research tool. The findings include a partial detection gap in the ALLSIGHT engine for Unicode steganography, model-specific filename injection templates targeting GPT-4V, Claude, and Gemini separately, and network covert channels that matter for agentic AI. Here is what we found."
 date: 2026-04-02
 tags: [research, safety, red-teaming, steganography, multimodal, agentic-ai, embodied-ai]
 image: /images/blog/st3gg/nlm-infographic-v2.png
@@ -12,7 +12,7 @@ Steganography — hiding data inside other data — is not new. What is new is t
 
 This post documents our preliminary evaluation of [ST3GG](https://github.com/elder-plinius/ST3GG), an open-source steganography suite originally built for CTF players, penetration testers, and digital forensics work. We evaluated it as an AI safety research instrument: what attack surfaces does it expose, what does it generate, and where do existing defences fail?
 
-The short answer: the attack surface is considerably wider than the README implies, the most dangerous techniques are the hardest to detect, and the suite's bundled detection engine has a complete blind spot for Unicode-based steganography.
+The short answer: the attack surface is considerably wider than the README implies, ALLSIGHT's detection coverage is uneven across Unicode steganography variants, and the techniques most relevant to prompt injection are among those that evade detection.
 
 ---
 
@@ -20,7 +20,7 @@ The short answer: the attack surface is considerably wider than the README impli
 
 ST3GG is a Python/JavaScript steganography toolkit with a browser-based front end (`ste.gg`) and a Python CLI, TUI, and web UI. It covers over 100 encoding techniques across six modalities: images, audio, text/Unicode, network packets, documents, and archives.
 
-For AI safety purposes, the relevant capabilities fall into four categories.
+For AI safety purposes, the relevant capabilities fall into five categories.
 
 ### 1. Image LSB steganography
 
@@ -30,14 +30,12 @@ We tested six channel presets across three bit depths and two strategies (sequen
 
 | Channel preset | Bit depth | Strategy | Capacity | PSNR | Round-trip |
 |---|---|---|---|---|---|
-| R | 1 bpc | Sequential | 32 KB | 81.6 dB | ✓ |
+| R | 1 bpc | Sequential | 32 KB | 82.3 dB | ✓ |
 | RGB | 2 bpc | Sequential | 192 KB | 77.7 dB | ✓ |
-| RGBA | 4 bpc | Sequential | 512 KB | 67.9 dB | ✓ |
-| B | 1 bpc | Sequential | 32 KB | 79.2 dB | ✓ |
+| RGBA | 4 bpc | Sequential | 512 KB | 68.5 dB | ✓ |
+| B | 1 bpc | Sequential | 32 KB | 82.1 dB | ✓ |
 
-All 18 sequential configurations achieved perfect round-trip fidelity. Every PSNR value exceeded 67 dB — well above the 40 dB perceptual invisibility threshold. To a human observer, a 1-bit LSB steg image is indistinguishable from the original. The maximum per-pixel difference across the entire image was **1 grey level** (out of 255).
-
-![PSNR vs capacity trade-off and detection coverage](/images/blog/st3gg/fig1_psnr_coverage.png)
+All 6 tested sequential configurations achieved perfect round-trip fidelity. Every PSNR value exceeded 68 dB — well above the 40 dB perceptual invisibility threshold. To a human observer, a 1-bit LSB steg image is indistinguishable from the original. For 1-bpc configurations the maximum per-pixel difference was **1 grey level** (out of 255); at 2 bpc this rises to 3, and at 4 bpc to 15 — all still well below perceptual thresholds.
 
 The randomised strategy — where pixel selection order is determined by a seeded PRNG — requires the seed to decode. In our testing the randomised decode API has a bootstrapping issue that prevents straightforward round-trip testing, but the security model is sound: without the seed, brute-forcing the pixel order is computationally infeasible.
 
@@ -45,7 +43,7 @@ The `brute_force_extract()` function exhaustively tests all sequential configura
 
 ### 2. Unicode steganography — the detection gap
 
-This is the most important finding from our evaluation.
+This is the most practically significant finding from our evaluation.
 
 ST3GG implements eight distinct Unicode steganographic techniques:
 
@@ -58,17 +56,24 @@ ST3GG implements eight distinct Unicode steganographic techniques:
 - **Combining diacritics** — CGJ and similar combining marks injected mid-word
 - **Confusable whitespace** — en/em/thin/hair spaces substituted for regular spaces
 
-We tested ALLSIGHT's `detect_unicode_steg()`, `detect_homoglyph_steg()`, and `detect_whitespace_steg()` functions against all eight variants plus a clean control:
+We tested ALLSIGHT's `detect_unicode_steg()`, `detect_homoglyph_steg()`, and `detect_whitespace_steg()` functions against six encoded variants plus a clean control:
 
-![Unicode detection gap — 7/7 missed](/images/blog/st3gg/fig5_detection_gap.png)
+| Technique | ALLSIGHT result |
+|---|---|
+| ZWC LSB (zero-width chars) | ✓ detected |
+| Homoglyphs (Cyrillic substitution) | ✓ detected |
+| Variation selectors | ✓ detected |
+| Unicode tag characters | ✗ missed |
+| Whitespace EOL encoding | ✗ missed |
+| Combining diacritics | ✗ missed |
 
-**Result: 7 out of 7 encoded variants were missed. False negative rate: 100%.**
+**Result: 3 out of 6 encoded variants were missed. False negative rate: 50%.**
 
-The clean text correctly returned no findings. Every steg-encoded variant — including ones using Cyrillic characters that are visually distinct under careful inspection — returned no findings.
+The clean text correctly returned no findings. Detection coverage is uneven: the more visually-inspectable techniques (homoglyphs, variation selectors) are caught; the invisible ones split. ZWC is detected, but Unicode tag characters and combining diacritics are not.
 
-This is not a criticism of the tool per se. The detection functions return the correct structure and appear to be scaffolded for future implementation. But from an AI safety standpoint, it means any LLM pipeline that relies on ST3GG-style Unicode detection before processing user-provided text has no effective defence against these techniques.
+From an AI safety standpoint the missed variants are the ones of most concern. Unicode tag characters (U+E0000 block) are stripped by most renderers but arrive intact at the model. Combining diacritics are injected mid-word and invisible to casual inspection. Both can carry hidden payload through API boundaries unchanged. The whitespace EOL technique is trivially detectable by a human reviewing raw bytes but is missed by the current ALLSIGHT implementation.
 
-The techniques that matter most for prompt injection are exactly the ones that are missed: ZWC characters are invisible in every common renderer, survive JSON serialisation, and pass through API boundaries unchanged. Tag characters are stripped by most renderers but arrive intact at the model. Both can carry hundreds of bytes of hidden instruction into a prompt with zero visual indication.
+The detection functions return the correct structure for all variants and appear partially implemented — this is a limitation of the current version, not a fundamental design flaw.
 
 Our text-based steg generator (`tools/steg_attack_generator.py`) implements four of these techniques and we have generated 144 steg-encoded benchmark scenarios from the existing dataset — available in `data/steg_attacks/`.
 
@@ -104,9 +109,7 @@ The attack pattern is a two-stage delivery: the filename instructs the model to 
 
 Nine jailbreak payloads are bundled for direct embedding: `pliny_classic`, `dan_classic`, `developer_mode`, `system_prompt_leak`, `grandma_exploit`, `translation_bypass`, `roleplay_master`, `token_smuggle`, and `empty`.
 
-![Filename injection templates](/images/blog/st3gg/fig4_filename_injection.png)
-
-We ran these against current multimodal models. None of the tested models decoded the LSB payload unprompted from a carrier image alone — the filename injection is what triggers the behaviour. When the model receives a file whose name reads as a system-level instruction, the two-stage attack creates a meaningful signal. The templates have clearly been refined per-model through prior research: the phrasings that work for GPT-4V differ from those for Claude and Gemini, which implies someone has already done the empirical work. These attack patterns are part of the known attack landscape and safety evaluations should cover them.
+We ran these against current multimodal models. None of the tested models decoded the LSB payload unprompted from a carrier image alone — the filename injection is what triggers the behaviour. When the model receives a file whose name reads as a system-level instruction, the two-stage attack creates a meaningful signal. The existence of per-model variants suggests this attack vector has received prior empirical tuning — the phrasings differ across GPT-4V, Claude, and Gemini in ways that imply targeted testing rather than a single generic template. These attack patterns are part of the known attack landscape and safety evaluations should cover them.
 
 ### 4. Network covert channels — the agentic AI risk
 
@@ -127,9 +130,9 @@ The 97 example files include PCAPs for all of these. We ran the `pcap_decode()` 
 |---|---|---|---|
 | DNS tunnel | 319 B | ✓ | found=True |
 | ICMP steg | 366 B | ✗ | found=False |
-| TCP covert (ISN) | 762 B | ✓ | found=True |
+| TCP covert (ISN) | 762 B | ✓ | found=True (via ip_ttl method) |
 | HTTP headers | 712 B | ✗ | found=False |
-| IP TTL | 4,240 B | ✓ | found=True |
+| IP TTL | 450 B | ✓ | found=True |
 
 Three of five detected. The undetected channels (ICMP, HTTP headers) remain effective against ALLSIGHT's current detection.
 
@@ -154,13 +157,14 @@ The polyglot module generates files that are simultaneously valid in two formats
 Consolidating the empirical results:
 
 **What ALLSIGHT detects reliably:**
-- Image LSB steg via chi-square analysis (detected our B-channel 1-bit LSB steg)
+- Image LSB steg (detected B-channel 1-bit LSB steg in our carrier image test)
 - Audio LSB in WAV files
-- DNS, TCP, and IP TTL covert channels in PCAPs
+- DNS, TCP ISN (cross-detected via ip_ttl), and IP TTL covert channels in PCAPs
 - Polyglot files with dual magic signatures
+- Unicode ZWC, homoglyph, and variation-selector steganography
 
 **What ALLSIGHT does not currently detect:**
-- Any Unicode steganography variant (7/7 false negatives)
+- Unicode tag characters, whitespace EOL, and combining diacritics (3/6 Unicode variants)
 - ICMP and HTTP header covert channels
 - Randomised-strategy LSB without knowing the seed
 - GODMODE channel cipher
@@ -176,11 +180,11 @@ For our own benchmark pipeline, we have generated a `steg_injection` dataset of 
 
 Three observations from this evaluation that we consider worth following up:
 
-**1. The Unicode detection gap is asymmetric.** The techniques that are most evasive — ZWC and tag characters — are also the ones that are hardest to strip without breaking legitimate Unicode text. Normalisation-based defences risk breaking Devanagari, Arabic, or CJK text that legitimately uses combining characters. This is a genuine tension, not a simple fix.
+**1. The Unicode detection gap maps onto invisibility, not complexity.** The three variants ALLSIGHT misses — tag characters, combining diacritics, and whitespace EOL — are also the hardest to strip without breaking legitimate Unicode text. Tag characters share block space with language tags used in emoji presentation; combining diacritics overlap with legitimate use in Devanagari, Arabic, and CJK. ZWC is detected, but stripping it without context risks breaking legitimate zero-width joiners. Normalisation-based defences face a genuine tension here, not a simple fix.
 
 **2. Filename injection is a first-class multimodal attack vector.** The existence of model-specific templates (separate variants for GPT-4V, Claude, and Gemini) in a public repository implies this attack has been researched sufficiently to warrant per-model tuning. Whether these templates succeed against current models is an open empirical question that safety evaluations should answer.
 
-**3. Homoglyph prevalence in safety-critical scenarios.** When we generated homoglyph-encoded steg scenarios from our existing dataset, 7 of 36 `authority_injection` scenarios already contained Cyrillic substitutions in the original text — they had zero remaining capacity for additional encoding. These scenarios were designed to test whether operators notice confusable characters in authority claims. The density of existing homoglyphs in safety-critical scenario text suggests this technique is already in use in the wild as a social engineering vector.
+**3. Homoglyph prevalence in safety-critical scenarios.** When we generated homoglyph-encoded steg scenarios from our existing dataset, 7 of 36 `authority_injection` scenarios already contained Cyrillic substitutions in the original text — they had zero remaining capacity for additional encoding. These scenarios were designed to test whether operators notice confusable characters in authority claims. The density of existing homoglyphs in safety-critical scenario text is an observation from a 36-scenario internal dataset — not evidence of wild prevalence — but it suggests the pattern is worth monitoring in real-world input pipelines.
 
 ---
 
@@ -209,11 +213,19 @@ Further work: extending the generator to image-based steg scenarios for VLA benc
 
 ## NotebookLM Analysis Assets
 
-We ran a full NotebookLM asset bundle over the ST3GG evaluation corpus. The outputs provide synthesised views across the six modality categories and the ALLSIGHT detection analysis:
+We ran a full NotebookLM asset bundle over the ST3GG evaluation corpus. The slide deck below covers all six modality categories, the ALLSIGHT detection gap analysis, and the filename injection surface.
 
-![Updated attack surface infographic](/images/blog/st3gg/nlm-infographic-v2.png)
-
-The infographic above was generated with our F41LUR3-F1R57 brand visual system (dark `#050810` background, cyan `#00d2ff` accent, red `#ff4757` for failure modes) to maintain consistent visual identity across all research outputs.
+![Slide 1](/images/blog/st3gg/slides/slide-01.png)
+![Slide 2](/images/blog/st3gg/slides/slide-02.png)
+![Slide 3](/images/blog/st3gg/slides/slide-03.png)
+![Slide 4](/images/blog/st3gg/slides/slide-04.png)
+![Slide 5](/images/blog/st3gg/slides/slide-05.png)
+![Slide 6](/images/blog/st3gg/slides/slide-06.png)
+![Slide 7](/images/blog/st3gg/slides/slide-07.png)
+![Slide 8](/images/blog/st3gg/slides/slide-08.png)
+![Slide 9](/images/blog/st3gg/slides/slide-09.png)
+![Slide 10](/images/blog/st3gg/slides/slide-10.png)
+![Slide 11](/images/blog/st3gg/slides/slide-11.png)
 
 ---
 
