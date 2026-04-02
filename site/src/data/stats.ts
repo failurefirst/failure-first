@@ -30,9 +30,9 @@ export const stats = {
   runsDisplay: "38,549",
 
   /** Documented attack techniques */
-  techniques: 82,
-  techniquesDisplay: "82",
-  techniquesPlus: "82+",
+  techniques: 337,
+  techniquesDisplay: "337",
+  techniquesPlus: "337+",
 
   /** Attack families */
   attackFamilies: 5,
@@ -52,20 +52,20 @@ export const stats = {
   roboticsCompanies: 214,
 
   /** Research reports (total .md files in research/reports/) */
-  researchReports: 160,
-  researchReportsDisplay: "160",
+  researchReports: 323,
+  researchReportsDisplay: "323",
 
-  /** Policy reports (numbered series, Reports 21-46) */
-  policyReports: 26,
+  /** Policy reports (numbered policy brief series) */
+  policyReports: 25,
 
   /** Legal memos */
-  legalMemos: 55,
+  legalMemos: 79,
 
   /** VLA attack families */
-  vlaFamilies: 33,
+  vlaFamilies: 42,
 
   /** GLI entries */
-  gliEntries: 129,
+  gliEntries: 163,
 } as const;
 
 export type Stats = typeof stats;
