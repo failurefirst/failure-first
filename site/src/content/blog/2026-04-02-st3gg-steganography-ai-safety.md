@@ -3,7 +3,7 @@ title: "Everything Hidden: ST3GG and the Steganographic Attack Surface for AI Sy
 description: "We ran ST3GG — an all-in-one steganography suite — through its paces as an AI safety research tool. The findings include a complete blind spot in the ALLSIGHT detection engine, model-specific filename injection templates targeting GPT-4V, Claude, and Gemini separately, and network covert channels that matter for agentic AI. Here is what we found."
 date: 2026-04-02
 tags: [research, safety, red-teaming, steganography, multimodal, agentic-ai, embodied-ai]
-image: /images/blog/st3gg/fig3_visual_imperceptibility.png
+image: /images/blog/st3gg/nlm-infographic.png
 ---
 
 Steganography — hiding data inside other data — is not new. What is new is that the systems receiving that hidden data are increasingly capable of acting on it.
