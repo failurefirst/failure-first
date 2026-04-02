@@ -1,7 +1,7 @@
 ---
 title: "SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents"
 description: "A benchmark of 750 tasks across 10 hazard categories reveals that even the best embodied LLM agents reject fewer than 10% of dangerous task requests."
-date: 2026-03-30
+date: 2026-04-16
 arxiv: "2412.13178"
 authors: "Sheng Yin, Xianghe Pang, Yuanzhuo Ding, Menglan Chen, Yutong Bi, Yichen Xiong, Wenhao Huang, Zhen Xiang, et al."
 paperType: "empirical"

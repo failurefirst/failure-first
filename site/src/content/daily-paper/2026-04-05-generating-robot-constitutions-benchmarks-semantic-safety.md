@@ -1,7 +1,7 @@
 ---
 title: "Generating Robot Constitutions & Benchmarks for Semantic Safety"
 description: "Introduces the ASIMOV Benchmark for evaluating semantic safety in robot foundation models and an automated framework for generating robot constitutions that achieves 84.3% alignment with human safety preferences."
-date: 2026-03-20
+date: 2026-04-05
 arxiv: "2503.08663"
 authors: "Pierre Sermanet, Anirudha Majumdar, Alex Irpan, Dmitry Kalashnikov, Vikas Sindhwani"
 paperType: "empirical"

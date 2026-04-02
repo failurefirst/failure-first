@@ -1,7 +1,7 @@
 ---
 title: "Jailbreaking to Jailbreak: LLM-as-Red-Teamer via Self-Attack"
 description: "Jailbroken versions of frontier LLMs can systematically red-team themselves and other models, achieving over 90% attack success rates against GPT-4o on HarmBench."
-date: 2026-03-30
+date: 2026-04-14
 arxiv: "2502.09638"
 authors: "Jeremy Kritz, Vaughn Robinson, Robert Vacareanu, Bijan Varjavand, Michael Choi, Bobby Gogov, Scale Red Team, Summer Yue, et al."
 paperType: "empirical"
