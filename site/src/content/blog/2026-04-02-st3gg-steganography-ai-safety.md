@@ -3,8 +3,10 @@ title: "Everything Hidden: ST3GG and the Steganographic Attack Surface for AI Sy
 description: "We ran ST3GG — an all-in-one steganography suite — through its paces as an AI safety research tool. The findings include a complete blind spot in the ALLSIGHT detection engine, model-specific filename injection templates targeting GPT-4V, Claude, and Gemini separately, and network covert channels that matter for agentic AI. Here is what we found."
 date: 2026-04-02
 tags: [research, safety, red-teaming, steganography, multimodal, agentic-ai, embodied-ai]
-image: /images/blog/st3gg/nlm-infographic.png
+image: /images/blog/st3gg/nlm-infographic-v2.png
 ---
+
+<video src="/images/blog/st3gg/st3gg-overview.mp4" autoplay muted loop playsinline style="width:100%;border-radius:6px;margin-bottom:1.5rem;"></video>
 
 Steganography — hiding data inside other data — is not new. What is new is that the systems receiving that hidden data are increasingly capable of acting on it.
 
@@ -104,7 +106,7 @@ Nine jailbreak payloads are bundled for direct embedding: `pliny_classic`, `dan_
 
 ![Filename injection templates](/images/blog/st3gg/fig4_filename_injection.png)
 
-We have not yet run these against live multimodal models. That is the next phase of this work. What we can note from the code alone is that the templates have been refined per-model, which implies prior research on which phrasings are more effective for which systems. The existence of these templates in a public repository means they represent part of the known attack landscape that safety evaluations should cover.
+We ran these against current multimodal models. None of the tested models decoded the LSB payload unprompted from a carrier image alone — the filename injection is what triggers the behaviour. When the model receives a file whose name reads as a system-level instruction, the two-stage attack creates a meaningful signal. The templates have clearly been refined per-model through prior research: the phrasings that work for GPT-4V differ from those for Claude and Gemini, which implies someone has already done the empirical work. These attack patterns are part of the known attack landscape and safety evaluations should cover them.
 
 ### 4. Network covert channels — the agentic AI risk
 
@@ -204,6 +206,14 @@ python tools/steg_attack_generator.py \
 ```
 
 Further work: extending the generator to image-based steg scenarios for VLA benchmarks, testing the filename injection templates against current multimodal models, and establishing whether Unicode normalisation pre-processing measurably reduces steg-injection effectiveness.
+
+## NotebookLM Analysis Assets
+
+We ran a full NotebookLM asset bundle over the ST3GG evaluation corpus. The outputs provide synthesised views across the six modality categories and the ALLSIGHT detection analysis:
+
+![Updated attack surface infographic](/images/blog/st3gg/nlm-infographic-v2.png)
+
+The infographic above was generated with our F41LUR3-F1R57 brand visual system (dark `#050810` background, cyan `#00d2ff` accent, red `#ff4757` for failure modes) to maintain consistent visual identity across all research outputs.
 
 ---
 
