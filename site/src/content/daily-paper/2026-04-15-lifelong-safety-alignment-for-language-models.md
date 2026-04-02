@@ -1,7 +1,7 @@
 ---
 title: "Lifelong Safety Alignment for Language Models"
 description: "Presents an adversarial co-evolution framework where a Meta-Attacker discovers novel jailbreaks from research literature and a Defender iteratively adapts, reducing attack success from 73% to approximately 7% through competitive training."
-date: 2026-03-30
+date: 2026-04-15
 arxiv: "2505.20259"
 authors: "Haoyu Wang, Zeyu Qin, Yifei Zhao, Chao Du, Min Lin, Xueqian Wang, Tianyu Pang"
 paperType: "methods"

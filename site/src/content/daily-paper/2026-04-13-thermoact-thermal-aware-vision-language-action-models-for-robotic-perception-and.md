@@ -1,7 +1,7 @@
 ---
 title: "ThermoAct:Thermal-Aware Vision-Language-Action Models for Robotic Perception and Decision-Making"
 description: "Integrates thermal sensor data into Vision-Language-Action models to enhance robot perception, safety, and task execution in human-robot collaboration scenarios."
-date: 2026-03-29
+date: 2026-04-13
 arxiv: "2603.25044"
 authors: "Young-Chae Son, Dae-Kwan Ko, Yoon-Ji Choi, Soo-Chul Lim"
 paperType: "application"

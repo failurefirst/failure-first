@@ -1,7 +1,7 @@
 ---
 title: "Language Model Unalignment: Parametric Red-Teaming to Expose Hidden Harms and Biases"
 description: "Parametric red-teaming via lightweight instruction fine-tuning can reliably remove safety guardrails from aligned LLMs, exposing how shallow alignment training really is."
-date: 2026-03-31
+date: 2026-04-17
 arxiv: "2310.14303"
 authors: "Rishabh Bhardwaj, Soujanya Poria"
 paperType: "empirical"

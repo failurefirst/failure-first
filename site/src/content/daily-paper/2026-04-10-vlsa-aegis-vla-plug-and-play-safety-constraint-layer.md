@@ -1,7 +1,7 @@
 ---
 title: "VLSA: Vision-Language-Action Models with Plug-and-Play Safety Constraint Layer"
 description: "Introduces AEGIS, a control-barrier-function-based safety layer that bolts onto existing VLA models without retraining, achieving 59.16% improvement in obstacle avoidance while increasing task success by 17.25% on the new SafeLIBERO benchmark."
-date: 2026-03-26
+date: 2026-04-10
 arxiv: "2512.11891"
 authors: "Songqiao Hu, Zeyi Liu, Shuang Liu, Jun Cen, Zihan Meng, Xiao He"
 paperType: "methods"
