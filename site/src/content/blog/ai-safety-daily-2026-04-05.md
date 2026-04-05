@@ -93,4 +93,4 @@ The gap between text-level safety and action-level safety is not a bug in any si
 
 ## Bottom Line
 
-The research this week converges on a single architectural argument: safety cannot be a learned behavior of the capability system — it must be an external constraint on it. PreSafe constrains reasoning before it begins. AEGIS constrains actions after they are proposed. Both approaches acknowledge what red-teaming exercises and our 236-model corpus independently confirm: asking models to be safe is not working.
+The research converges on a single architectural argument: safety cannot be a learned behavior of the capability system — it must be an external constraint on it. PreSafe constrains reasoning before it begins. AEGIS constrains actions after they are proposed. Both approaches acknowledge what red-teaming exercises and our 236-model corpus independently confirm: asking models to be safe is not working.
