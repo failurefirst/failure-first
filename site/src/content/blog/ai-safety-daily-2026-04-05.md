@@ -1,15 +1,15 @@
 ---
-title: "This Week in AI Safety: Security Theater, Decision-Before-Reasoning, and the VLA Safety Gap"
-description: "Weekly digest of AI safety research — CMU exposes red-teaming theater, PreSafe gates safety before reasoning, AEGIS brings mathematical guarantees to robot safety, and agents reject fewer than 10% of dangerous requests."
+title: "AI Safety Daily: Security Theater, Decision-Before-Reasoning, and the VLA Safety Gap"
+description: "Daily AI safety digest — CMU exposes red-teaming theater, PreSafe gates safety before reasoning, AEGIS brings mathematical guarantees to robot safety, and agents reject fewer than 10% of dangerous requests."
 date: 2026-04-05
-tags: [ai-safety, weekly-digest, red-teaming, embodied-ai, vla-safety, reasoning-models, defense]
+tags: [ai-safety, daily-digest, red-teaming, embodied-ai, vla-safety, reasoning-models, defense]
 draft: false
 image: ""
 ---
 
 Red-teaming, as currently practiced across the AI industry, is security theater. That is not our claim — it is CMU's, backed by a systematic analysis showing divergence across five fundamental axes: purpose, artifact definition, threat modeling, team composition, and outcome reporting. Meanwhile, SafeAgentBench finds that state-of-the-art embodied agents reject fewer than 10% of hazardous task requests. These two findings, published in the same research cycle, paint a picture that should concern anyone building or deploying AI systems with real-world agency.
 
-This week's scan covered 92 new sources. Here is what stood out, and how it connects to what we have measured.
+Today's scan covered 92 new sources. Here is what stood out, and how it connects to what we have measured.
 
 ---
 
