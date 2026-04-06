@@ -4,7 +4,7 @@ description: "Introduces Anthropic's Responsible Scaling Policy (RSP), a framewo
 date: 2025-09-08
 arxiv: "2309.08956"
 authors: "Dario Amodei, Daniela Amodei, Tom Brown, Jared Kaplan, Sam McCandlish, Chris Olah, Darnell Wix"
-paperType: "policy"
+paperType: "position"
 tags: ["responsible-scaling", "alignment-as-scaling", "red-teaming", "uncertainty", "scalable-oversight", "rsp"]
 draft: false
 ---
