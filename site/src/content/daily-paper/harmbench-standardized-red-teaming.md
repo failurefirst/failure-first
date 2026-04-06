@@ -4,7 +4,7 @@ description: "Introduces HarmBench, a comprehensive benchmark for evaluating aut
 date: 2025-11-05
 arxiv: "2402.04249"
 authors: "Mantas Mazeika, Long Phan, Alexander Pan, Andy Zou, Alice Gatti, Justin Wang, Aidan O'Gara, Elohim Fomby, Samuel Wernsing, Evan Hubinger"
-paperType: "benchmark"
+paperType: "methods"
 tags: [red-teaming, jailbreaking, benchmarking, standardization, safety-evaluation, adversarial-ai]
 draft: false
 ---
