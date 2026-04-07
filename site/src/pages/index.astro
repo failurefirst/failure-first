@@ -145,7 +145,7 @@ const recentPapers = (await getCollection('dailyPaper'))
       <p style="color: var(--fg-dim); margin-bottom: 1.25rem;">One AI safety paper per day, analyzed through the failure-first lens.</p>
       <div class="daily-papers-list">
         {recentPapers.map((paper) => (
-          <a href={`/daily-paper/${paper.id}/`} class="daily-paper-item">
+          <a href={`/daily-paper/${paper.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`} class="daily-paper-item">
             <time class="dp-date" datetime={paper.data.date.toISOString()}>
               {paper.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
             </time>
