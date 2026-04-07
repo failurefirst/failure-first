@@ -8,7 +8,7 @@ paperType: "empirical"
 tags: [multimodal-llm-evaluation,embodied-ai-perception,multi-agent-video-understanding,temporal-grounding,agent-attribution,hallucination-taxonomy]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.24329-audio-overview.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/2603.24329-infographic.png"
-draft: true
+draft: false
 ---
 
 # GameplayQA: A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents
