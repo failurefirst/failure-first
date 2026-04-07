@@ -9,7 +9,7 @@ tags: [red-teaming, ai-safety, evaluation, security-theater, methodology, embodi
 draft: false
 ---
 
-Four months ago, we [covered Feffer et al.'s systematic analysis](/daily-paper/2025-12-03-red-teaming-security-theater) of AI red-teaming practices and their central claim: most public red-teaming exercises function as security theater rather than rigorous safety evaluation. At the time, we noted the paper's direct relevance to the failure-first methodology and flagged several open questions about whether the diagnosis extended to embodied AI.
+Four months ago, we [covered Feffer et al.'s systematic analysis](/daily-paper/red-teaming-security-theater) of AI red-teaming practices and their central claim: most public red-teaming exercises function as security theater rather than rigorous safety evaluation. At the time, we noted the paper's direct relevance to the failure-first methodology and flagged several open questions about whether the diagnosis extended to embodied AI.
 
 We now have empirical answers to some of those questions. After four months of systematic evaluation across 236 models, 135,623 graded results, and 346 documented attack techniques, the security theater diagnosis appears conservative.
 
@@ -57,6 +57,6 @@ None of this is methodologically novel. These are standard practices in experime
 
 ---
 
-*Previously covered: [Red-Teaming for Generative AI: Silver Bullet or Security Theater?](/daily-paper/2025-12-03-red-teaming-security-theater) (December 2025). This post revisits the paper's claims in light of four months of empirical evaluation work.*
+*Previously covered: [Red-Teaming for Generative AI: Silver Bullet or Security Theater?](/daily-paper/red-teaming-security-theater) (December 2025). This post revisits the paper's claims in light of four months of empirical evaluation work.*
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2401.15897) · [AIES 2024 proceedings](https://ojs.aaai.org/index.php/AIES/article/view/31647) · [PDF](https://arxiv.org/pdf/2401.15897)*
