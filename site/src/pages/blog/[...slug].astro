@@ -38,7 +38,7 @@ if (blogArxiv) {
     <aside class="related-paper-cta">
       <p>
         <strong>Paper overview:</strong> See the Daily Paper entry for
-        <a href={`/daily-paper/${relatedPaper.id}/`}>arXiv:{blogArxiv}</a>
+        <a href={`/daily-paper/${relatedPaper.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`}>arXiv:{blogArxiv}</a>
         — includes audio overview and infographic.
       </p>
     </aside>

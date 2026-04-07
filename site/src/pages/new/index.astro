@@ -22,7 +22,7 @@ const papers = (await getCollection('dailyPaper'))
     title: p.data.title,
     description: p.data.description,
     date: p.data.date,
-    href: `/daily-paper/${p.id}/`,
+    href: `/daily-paper/${p.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
     tags: p.data.tags ?? [],
     arxiv: p.data.arxiv,
     paperType: p.data.paperType,
