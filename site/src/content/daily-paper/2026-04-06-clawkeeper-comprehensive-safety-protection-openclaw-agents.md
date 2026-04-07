@@ -1,7 +1,7 @@
 ---
 title: "ClawKeeper: Comprehensive Safety Protection for OpenClaw Agents Through Skills, Plugins, and Watchers"
 description: "A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware."
-date: 2026-04-20
+date: 2026-04-06
 arxiv: "2603.24414"
 authors: "Songyang Liu, Chaozhuo Li, Chenxu Wang, Jinyu Hou, Zejian Chen, Litian Zhang, Zheng Liu, Qiwei Ye, Yiming Hei, Xi Zhang, Zhongyuan Wang"
 paperType: "empirical"

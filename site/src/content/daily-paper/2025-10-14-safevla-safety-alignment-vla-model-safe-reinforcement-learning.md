@@ -1,7 +1,7 @@
 ---
 title: "SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Constrained Learning"
 description: "Proposes the first systematic safety alignment method for VLA models using constrained Markov decision processes, reducing safety violation costs by 83.58% while maintaining task performance on mobile manipulation tasks."
-date: 2026-04-09
+date: 2025-10-14
 arxiv: "2503.03480"
 authors: "Borong Zhang, Yuhao Zhang, Jiaming Ji, Yingshan Lei, Josef Dai, Yuanpei Chen, Yaodong Yang"
 paperType: "methods"

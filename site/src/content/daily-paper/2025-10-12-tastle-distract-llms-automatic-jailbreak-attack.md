@@ -1,7 +1,7 @@
 ---
 title: "Tastle: Distract Large Language Models for Automatic Jailbreak Attack"
 description: "A black-box jailbreak framework that uses malicious content concealing and memory reframing to automatically bypass LLM safety guardrails at scale."
-date: 2026-04-19
+date: 2025-10-12
 arxiv: "2403.08424"
 authors: "Zeguan Xiao, Yan Yang, Guanhua Chen, Yun Chen"
 paperType: "empirical"

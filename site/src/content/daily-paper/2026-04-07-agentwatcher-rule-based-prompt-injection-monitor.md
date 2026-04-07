@@ -1,7 +1,7 @@
 ---
 title: "AgentWatcher: A Rule-based Prompt Injection Monitor"
 description: "A scalable and explainable prompt injection detection system that uses causal attribution to identify influential context segments and explicit rule evaluation to flag injections in LLM-based agents."
-date: 2026-04-20
+date: 2026-04-07
 arxiv: "2604.01194"
 authors: "Yanting Wang, Wei Zou, Runpeng Geng, Jinyuan Jia"
 paperType: "methods"

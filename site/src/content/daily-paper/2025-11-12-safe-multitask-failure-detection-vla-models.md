@@ -1,7 +1,7 @@
 ---
 title: "SAFE: Multitask Failure Detection for Vision-Language-Action Models"
 description: "A failure detection framework that leverages internal VLA features to predict imminent task failures across unseen tasks and policy architectures."
-date: 2026-04-08
+date: 2025-11-12
 arxiv: "2506.09937"
 authors: "Qiao Gu, Yuanliang Ju, Shengxiang Sun, Igor Gilitschenski, Haruki Nishimura, Masha Itkina, Florian Shkurti"
 paperType: "empirical"
