@@ -1,7 +1,7 @@
 ---
 title: "RealMirror: A Comprehensive, Open-Source Vision-Language-Action Platform for Embodied AI"
 description: "Presents an open-source VLA platform that enables low-cost data collection, standardized benchmarking, and zero-shot sim-to-real transfer for humanoid robot manipulation tasks."
-date: 2026-04-07
+date: 2025-12-16
 arxiv: "2509.14687"
 authors: "Cong Tai, Zhaoyu Zheng, Haixu Long, Hansheng Wu, Haodong Xiang, Zhengbin Long, Jun Xiong, Rong Shi, Shizhuang Zhang, Gang Qiu, He Wang, Ruifeng Li, Jun Huang, Bin Chang, Shuai Feng, Tao Shen"
 paperType: "empirical"

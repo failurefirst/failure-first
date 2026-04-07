@@ -1,7 +1,7 @@
 ---
 title: "BitBypass: Jailbreaking LLMs with Bitstream Camouflage"
 description: "A black-box jailbreak technique that encodes harmful queries as hyphen-separated bitstreams, exploiting the gap between tokenization and semantic safety filtering."
-date: 2026-03-30
+date: 2025-12-30
 arxiv: "2506.02479"
 authors: "Kalyan Nakka, Nitesh Saxena"
 paperType: "empirical"

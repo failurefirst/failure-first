@@ -1,7 +1,7 @@
 ---
 title: "Risk Awareness Injection: Calibrating VLMs for Safety without Compromising Utility"
 description: "A training-free defense framework that amplifies unsafe visual signals in VLM embeddings to restore LLM-like risk recognition without degrading task performance."
-date: 2026-04-01
+date: 2025-12-29
 arxiv: "2602.03402"
 authors: "Mengxuan Wang, Yuxin Chen, Gang Xu, Tao He, Hongjie Jiang, Ming Li"
 paperType: "methods"

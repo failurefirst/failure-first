@@ -1,7 +1,7 @@
 ---
 title: "GameplayQA: A Benchmarking Framework for Decision-Dense POV-Synced Multi-Video Understanding of 3D Virtual Agents"
 description: "Introduces GameplayQA, a densely annotated benchmark for evaluating multimodal LLMs on first-person multi-agent perception and reasoning in 3D gameplay videos, with diagnostic QA pairs and structured failure analysis."
-date: 2026-04-03
+date: 2025-12-25
 arxiv: "2603.24329"
 authors: "Yunzhe Wang, Runhui Xu, Kexin Zheng, Tianyi Zhang, Jayavibhav Niranjan Kogundi, Soham Hans, Volkan Ustun"
 paperType: "empirical"

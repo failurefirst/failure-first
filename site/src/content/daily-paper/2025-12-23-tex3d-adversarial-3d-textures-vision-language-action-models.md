@@ -1,7 +1,7 @@
 ---
 title: "Tex3D: Objects as Attack Surfaces via Adversarial 3D Textures for Vision-Language-Action Models"
 description: "Adversarial 3D textures applied to physical objects cause manipulation-task failure rates of 96.7% across simulated and real robotic settings."
-date: 2026-04-04
+date: 2025-12-23
 arxiv: "2604.01618"
 authors: "Jiawei Chen, Simin Huang, Jiawei Du, Shuaihang Chen, Yu Tian, Mingjie Wei, Chao Yu, Zhaoxia Yin"
 paperType: "empirical"

@@ -1,7 +1,7 @@
 ---
 title: "A Multimodal Framework for Human-Multi-Agent Interaction"
 description: "Implements a multimodal framework for coordinated human-multi-agent interaction on humanoid robots, integrating LLM-driven planning with embodied perception and centralized turn-taking coordination."
-date: 2026-03-29
+date: 2025-12-31
 arxiv: "2603.23271"
 authors: "Shaid Hasan, Breenice Lee, Sujan Sarker, Tariq Iqbal"
 paperType: "application"

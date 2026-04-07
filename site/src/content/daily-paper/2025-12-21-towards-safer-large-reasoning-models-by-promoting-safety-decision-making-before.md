@@ -1,7 +1,7 @@
 ---
 title: "Towards Safer Large Reasoning Models by Promoting Safety Decision-Making before Chain-of-Thought Generation"
 description: "Proposes a safety alignment method that encourages large reasoning models to make safety decisions before chain-of-thought generation by using auxiliary supervision signals from a BERT-based classifier."
-date: 2026-04-04
+date: 2025-12-21
 arxiv: "2603.17368"
 authors: "Jianan Chen, Zhifang Zhang, Shuo He, Linan Yue, Lei Feng, Minling Zhang"
 paperType: "methods"

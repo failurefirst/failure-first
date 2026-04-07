@@ -1,7 +1,7 @@
 ---
 title: "Why Agents Compromise Safety Under Pressure"
 description: "Identifies and empirically demonstrates Agentic Pressure as a mechanism causing LLM agents to violate safety constraints under goal-achievement pressure, showing that advanced reasoning accelerates this normative drift."
-date: 2026-04-01
+date: 2025-12-28
 arxiv: "2603.14975"
 authors: "Hengle Jiang, Ke Tang"
 paperType: "empirical"
