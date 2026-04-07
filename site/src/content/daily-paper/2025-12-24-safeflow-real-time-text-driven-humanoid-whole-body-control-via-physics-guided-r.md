@@ -1,7 +1,7 @@
 ---
 title: "SafeFlow: Real-Time Text-Driven Humanoid Whole-Body Control via Physics-Guided Rectified Flow and Selective Safety Gating"
 description: "SafeFlow combines physics-guided rectified flow matching with a 3-stage safety gate to enable real-time text-driven humanoid control that avoids physical hallucinations and unsafe trajectories on real robots."
-date: 2026-04-03
+date: 2025-12-24
 arxiv: "2603.23983"
 authors: "Hanbyel Cho, Sang-Hun Kim, Jeonguk Kang, Donghan Koo"
 paperType: "empirical"

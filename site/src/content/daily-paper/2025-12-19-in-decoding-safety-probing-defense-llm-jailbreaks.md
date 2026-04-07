@@ -1,7 +1,7 @@
 ---
 title: "In-Decoding Safety-Awareness Probing: Surfacing Hidden Safety Signals to Defend LLMs Against Jailbreaks"
 description: "SafeProbing exploits latent safety signals that persist inside jailbroken LLMs during generation, achieving 95.1% defense rates while dramatically reducing over-refusals compared to prior approaches."
-date: 2026-04-05
+date: 2025-12-19
 arxiv: "2601.10543"
 authors: "Yinzhi Zhao, Ming Wang, Shi Feng, Xiaocui Yang, Daling Wang, Yifei Zhang"
 paperType: "methods"

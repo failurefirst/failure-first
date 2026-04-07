@@ -1,7 +1,7 @@
 ---
 title: "Red Teaming as Security Theater: What 236 Models and 135,000 Results Taught Us"
 description: "Revisiting Feffer et al.'s systematic analysis of AI red-teaming inconsistency — now with four months of empirical evidence from 236 models confirming that the 'security theater' diagnosis applies even more acutely to embodied AI."
-date: 2026-04-05
+date: 2025-12-18
 arxiv: "2401.15897"
 authors: "Michael Feffer, Anusha Sinha, Wesley Hanwen Deng, Zachary C. Lipton, Hoda Heidari"
 paperType: "empirical"

@@ -1,7 +1,7 @@
 ---
 title: "Layer-Specific Lipschitz Modulation for Fault-Tolerant Multimodal Representation Learning"
 description: "Proposes a layer-specific Lipschitz modulation framework for fault-tolerant multimodal representation learning that detects and corrects sensor failures through self-supervised pretraining and learnable correction blocks."
-date: 2026-04-02
+date: 2025-12-26
 arxiv: "2603.25103"
 authors: "Diyar Altinses, Andreas Schwung"
 paperType: "methods"
