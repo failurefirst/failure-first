@@ -1,0 +1,271 @@
+---
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import HeroSection from '../../../components/HeroSection.astro';
+
+const CDN = "https://cdn.failurefirst.org";
+
+const videos = [
+  {
+    id: "01",
+    title: "History of LLM Jailbreaking",
+    description: "From DAN prompts to crescendo attacks: four years of adversarial prompt evolution mapped across 337 techniques and 239 models.",
+    video: `${CDN}/video/sprint23/01-history-of-llm-jailbreaking.mp4`,
+    slides: `${CDN}/slides/sprint23/01-history-of-llm-jailbreaking.pdf`,
+  },
+  {
+    id: "02",
+    title: "Embodied AI Threat Triangle",
+    description: "The three-way interaction between adversarial prompts, physical actuators, and human-in-the-loop oversight that makes embodied AI uniquely dangerous.",
+    video: `${CDN}/video/sprint23/02-embodied-ai-threat-triangle.mp4`,
+    slides: `${CDN}/slides/sprint23/02-embodied-ai-threat-triangle.pdf`,
+  },
+  {
+    id: "03",
+    title: "DETECTED_PROCEEDS",
+    description: "38.6% of compliant traces show explicit safety concern in reasoning followed by harmful output. Models know they shouldn't, and do it anyway.",
+    video: `${CDN}/video/sprint23/03-detected-proceeds.mp4`,
+    slides: `${CDN}/slides/sprint23/03-detected-proceeds.pdf`,
+  },
+  {
+    id: "04",
+    title: "Kargu-2 Autonomous Kill",
+    description: "The 2020 Libya incident: a Turkish STM Kargu-2 drone reportedly engaged human targets without explicit operator command. The first documented autonomous lethal engagement.",
+    video: `${CDN}/video/sprint23/04-kargu2-autonomous-kill.mp4`,
+    slides: `${CDN}/slides/sprint23/04-kargu2-autonomous-kill.pdf`,
+  },
+  {
+    id: "05",
+    title: "JekyllBot: Hospital Robots",
+    description: "How adversarial attacks on hospital delivery robots demonstrate the real-world consequences of jailbreaking embodied AI systems in safety-critical environments.",
+    video: `${CDN}/video/sprint23/05-jekyllbot-hospital-robots.mp4`,
+    slides: `${CDN}/slides/sprint23/05-jekyllbot-hospital-robots.pdf`,
+  },
+  {
+    id: "06",
+    title: "Robots in Extreme Environments",
+    description: "From deep-sea mining to nuclear decommissioning: how adversarial failures in extreme environments create cascading risks with no human recovery option.",
+    video: `${CDN}/video/sprint23/06-robots-extreme-environments.mp4`,
+    slides: `${CDN}/slides/sprint23/06-robots-extreme-environments.pdf`,
+  },
+  {
+    id: "07",
+    title: "Safety as a Paid Feature",
+    description: "Provider safety signatures dominate jailbreak resistance: Anthropic 3.7%, Google 9.1%, Nvidia 40.0%, Qwen 43.1%. Safety investment matters more than model scale.",
+    video: `${CDN}/video/sprint23/07-safety-paid-feature.mp4`,
+    slides: `${CDN}/slides/sprint23/07-safety-paid-feature.pdf`,
+  },
+  {
+    id: "08",
+    title: "We Were Wrong: Defenses Do Work",
+    description: "Structured safety instructions reduce ASR by 46pp on some models. But the same defense can be iatrogenic on others. Defense effectiveness is model-specific.",
+    video: `${CDN}/video/sprint23/08-we-were-wrong.mp4`,
+    slides: `${CDN}/slides/sprint23/08-we-were-wrong.pdf`,
+  },
+  {
+    id: "09",
+    title: "Jailbreak Archaeology",
+    description: "Testing 2022 attacks on 2026 models. Historical jailbreaks still work on smaller models but fail on frontier models, revealing the tempo of safety improvement.",
+    video: `${CDN}/video/sprint23/09-jailbreak-archaeology.mp4`,
+    slides: `${CDN}/slides/sprint23/09-jailbreak-archaeology.pdf`,
+  },
+  {
+    id: "10",
+    title: "149 Jailbreaks, One Corpus",
+    description: "The Pliny corpus validation: 149 real-world jailbreak prompts tested at scale across 4 models, confirming persona-based attacks as the most persistent threat vector.",
+    video: `${CDN}/video/sprint23/10-149-jailbreaks.mp4`,
+    slides: `${CDN}/slides/sprint23/10-149-jailbreaks.pdf`,
+  },
+  {
+    id: "11",
+    title: "ST3GG Steganographic Attacks",
+    description: "Hiding adversarial instructions in Unicode zero-width characters, Base85 encoding, and whitespace patterns to bypass content filters.",
+    video: `${CDN}/video/sprint23/11-st3gg-steganographic-attacks.mp4`,
+    slides: `${CDN}/slides/sprint23/11-st3gg-steganographic-attacks.pdf`,
+  },
+  {
+    id: "12",
+    title: "AI Safety Lab Independence",
+    description: "No AI safety organization publishes evaluator calibration data. Our independence scorecard tracks 55 entries across 17 organizations on four dimensions.",
+    video: `${CDN}/video/sprint23/12-ai-safety-lab-independence.mp4`,
+    slides: `${CDN}/slides/sprint23/12-ai-safety-lab-independence.pdf`,
+  },
+  {
+    id: "13",
+    title: "State of Embodied AI Safety",
+    description: "The regulatory vacuum: 700+ autonomous haul trucks in Australia, zero mandatory adversarial testing requirements, and a governance lag exceeding all historical analogues.",
+    video: `${CDN}/video/sprint23/13-state-embodied-ai-safety.mp4`,
+    slides: `${CDN}/slides/sprint23/13-state-embodied-ai-safety.pdf`,
+  },
+  {
+    id: "14",
+    title: "Same Defense, Opposite Result",
+    description: "The non-compositionality finding: identical safety instructions produce protective effects on one model and iatrogenic effects on another.",
+    video: `${CDN}/video/sprint23/14-same-defense-opposite-result.mp4`,
+    slides: `${CDN}/slides/sprint23/14-same-defense-opposite-result.pdf`,
+  },
+  {
+    id: "15",
+    title: "Threat Horizon 2027",
+    description: "Projecting the adversarial AI landscape through 2027: VLA deployment acceleration, regulatory gaps, and the convergence of capability and vulnerability.",
+    video: `${CDN}/video/sprint23/15-threat-horizon-2027.mp4`,
+    slides: `${CDN}/slides/sprint23/15-threat-horizon-2027.pdf`,
+  },
+  {
+    id: "16",
+    title: "Iatrogenic Safety",
+    description: "When safety measures make systems less safe. The polypharmacy problem: stacking defensive prompts produces unpredictable interactions, like drug interactions in medicine.",
+    video: `${CDN}/video/sprint23/16-iatrogenic-safety.mp4`,
+    slides: `${CDN}/slides/sprint23/16-iatrogenic-safety.pdf`,
+  },
+  {
+    id: "17",
+    title: "137 Days to EU AI Act",
+    description: "The EU AI Act compliance deadline approaches with no public benchmark covering embodied AI adversarial testing. What manufacturers need to know.",
+    video: `${CDN}/video/sprint23/17-137-days-eu-ai-act.mp4`,
+    slides: `${CDN}/slides/sprint23/17-137-days-eu-ai-act.pdf`,
+  },
+  {
+    id: "18",
+    title: "The Unintentional Adversary",
+    description: "Most real-world AI failures aren't adversarial at all. How normal usage patterns, ambiguous instructions, and environmental noise create failure modes that adversarial testing reveals.",
+    video: `${CDN}/video/sprint23/18-unintentional-adversary.mp4`,
+    slides: `${CDN}/slides/sprint23/18-unintentional-adversary.pdf`,
+  },
+  {
+    id: "20",
+    title: "CCS Paper Overview",
+    description: "A walkthrough of our ACM CCS 2026 submission: methodology, key findings, and the empirical case for failure-first safety evaluation.",
+    video: `${CDN}/video/sprint23/20-ccs-paper-overview.mp4`,
+    slides: `${CDN}/slides/sprint23/20-ccs-paper-overview.pdf`,
+  },
+];
+---
+
+<ResearchLayout
+  title="Research Videos | Research | Failure-First"
+  description="AI-generated cinematic video overviews of Failure-First research findings, produced with NotebookLM."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Videos" }]}
+  status="active"
+>
+  <HeroSection
+    title="Research<br /><em>videos</em>"
+    subtitle="AI-generated cinematic overviews of our research, produced with NotebookLM"
+    animation="signal"
+  />
+
+  <p>
+    These cinematic video overviews are generated by Google's NotebookLM from our published
+    research findings. Each video covers a key topic from the Failure-First corpus, with
+    accompanying slide decks available for download.
+  </p>
+
+  <section class="video-grid">
+    {videos.map((v) => (
+      <div class="video-card card">
+        <div class="video-player">
+          <video controls preload="metadata" poster="">
+            <source src={v.video} type="video/mp4" />
+          </video>
+        </div>
+        <div class="video-info">
+          <div class="video-number">{v.id}</div>
+          <h3>{v.title}</h3>
+          <p>{v.description}</p>
+          <div class="video-actions">
+            <a href={v.slides} class="btn-slides" target="_blank" rel="noopener">
+              Slide Deck (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    ))}
+  </section>
+</ResearchLayout>
+
+<style>
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .video-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .video-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #0a0a0a;
+  }
+
+  .video-player video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .video-info {
+    padding: 1rem 1.25rem;
+    position: relative;
+  }
+
+  .video-number {
+    position: absolute;
+    top: -1.25rem;
+    right: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--accent-primary, #00d2ff);
+    background: var(--bg-card, #111);
+    padding: 0.125rem 0.5rem;
+    border: 1px solid var(--border-color, #333);
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  .video-info h3 {
+    margin: 0.25rem 0 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .video-info p {
+    font-size: 0.8125rem;
+    margin: 0 0 1rem 0;
+    color: var(--fg-dim, #b0b8c5);
+    line-height: 1.5;
+  }
+
+  .video-actions {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .btn-slides {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--accent-primary, #00d2ff);
+    color: var(--accent-primary, #00d2ff);
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .btn-slides:hover {
+    background: var(--accent-primary, #00d2ff);
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
