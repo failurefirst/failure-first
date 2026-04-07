@@ -39,7 +39,7 @@ const paperTypeLabel: Record<string, string> = {
   {papers.length > 0 ? (
     <div class="paper-list">
       {papers.map((paper) => (
-        <a href={`/daily-paper/${paper.id}/`} class="paper-card card">
+        <a href={`/daily-paper/${paper.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`} class="paper-card card">
           <div class="paper-card-body">
             <time class="paper-card-date" datetime={paper.data.date.toISOString()}>
               {paper.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}

@@ -18,7 +18,7 @@ export async function GET(context: APIContext) {
       title: `[Daily Paper] ${paper.data.title}`,
       description: paper.data.description,
       pubDate: paper.data.date,
-      link: `/daily-paper/${paper.id}/`,
+      link: `/daily-paper/${paper.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
     }));
 
   const items = [...posts, ...papers]
