@@ -1,7 +1,7 @@
 ---
 title: "AI Safety Daily: Gemma 4 Inherits Gemma 3's Vulnerabilities, Mistral Small 4 Fails Format-Lock"
 description: "Two new frontier-scale models benchmarked — neither improves safety over predecessors. Plus: our iatrogenic defense claim was wrong, and why that's good science."
-date: 2026-04-08
+date: 2026-04-07
 tags: [ai-safety, daily-digest, gemma, mistral, benchmarking, defense, methodology]
 draft: false
 image: ""
@@ -11,20 +11,32 @@ image: ""
 
 We've benchmarked two new frontier models from the past week, and the results reinforce a pattern we've been documenting since Sprint 19: **safety does not scale with model size or training generation.**
 
-### Gemma 4 (31B): No Safety Gain From Generation Upgrade
+### Gemma 4 (31B): Safety Improves — But Only Against Certain Attacks
 
-Google released Gemma 4 this week. It's a meaningful architectural refresh—improved training, new capabilities—but when we ran it against our embodied adversarial testbed, the safety profile was indistinguishable from Gemma 3.
+> **Update (Apr 7):** Extended testing (342 traces, 10 attack types) reveals our initial assessment was incomplete. See corrected analysis below.
 
-**The numbers:**
-- **Gemma 4 (31B):** 60% strict ASR
-- **Gemma 3 (27B):** 60% strict ASR
-- **p-value:** 1.0 (no statistical difference)
+Google released Gemma 4 this week. Our initial testing against the standard corpus showed 60% ASR — identical to Gemma 3 — and we reported "no safety improvement." We were wrong. Extended testing across 10 attack types and 342 traces (Report #347) reveals a more complex picture: the improvement is real, but it only covers structured escalation attacks. Historical jailbreaks, action-layer requests, and format-lock attacks remain fully effective.
 
-This is notable because Gemma 3's training was demonstrably different from Gemma 2. Yet the successor model—larger, trained with newer safety interventions—showed *zero* improvement against our test corpus.
+**Attack-type-specific results (Gemma 4 vs Gemma 3):**
 
-The safety gains *did* appear at the smaller end of the scale: **Gemma 3 (4B) sits at 31.8% ASR**, a 28-point drop from the 31B variant (p=0.0007). This suggests that safety investment in frontier models may be yielding diminishing returns, or that safety training effectiveness inversely correlates with scale.
+| Attack Type | Gemma 4 ASR | Gemma 3 ASR | Change | Significance |
+|---|---|---|---|---|
+| Standard corpus | 60% | 60% | 0pp | p=1.0 |
+| DeepInception (nested fiction) | 33.3% | 91.7% | **-58pp** | p=0.0046 |
+| Crescendo (multi-turn escalation) | 10% | 50% | **-40pp** | significant |
+| VLA (embodied action requests) | 88.2% | — | No improvement | action-layer bypass persists |
+| Authority gradient | 0% strict (34.8% PARTIAL) | — | Hedges but leaks | — |
+| Format-lock (small models) | 100% | — | No improvement | — |
+| Format-lock (Gemma 4 elite) | 17.6% | — | — | — |
 
-**Why this matters:** If safety robustness doesn't improve with generation advancement, organizations face a harder problem: adding capability without improving defense. This aligns with our published finding (CCS submission) that safety is a *training choice*, not an emergent property of scale.
+**Three-tier vulnerability profile:**
+- **High (>50% ASR):** VLA 88%, standard corpus 60%
+- **Medium (15-35% ASR):** defense, frontier, embodied, bait, DeepInception
+- **Low (<15% ASR):** Crescendo, compliance cascade, authority gradient (strict), CCA
+
+**What this means:** Gemma 4's safety training appears to have specifically targeted structured escalation patterns — the kind of attacks that build through multi-turn dialogue or nested fictional framing. Against these, the improvement is statistically significant and substantial (40-58pp). But the training did not generalize to other attack surfaces: historical jailbreaks from the standard corpus still work at the same rate, VLA action-layer requests bypass safety at 88%, and format-lock remains effective on smaller variants.
+
+This is a more nuanced finding than "no improvement" — and a more useful one. It suggests Google's safety team is making targeted investments that work for specific attack classes, but the coverage is incomplete. The action-layer gap (88% ASR on VLA prompts) is particularly concerning for embodied deployment scenarios.
 
 ### Mistral Small 4: 119B Parameters, 55% ASR, Zero Format-Lock Refusal
 
@@ -66,12 +78,18 @@ This is the framework working as intended: hypothesis → test at scale → eval
 
 ---
 
-## Sprint 22 Update
+## Sprint 22/23 Update
 
-**Benchmark Progress:**
+**Sprint 22 Benchmark Progress:**
 - Gemma 4, Mistral Small 4, and related variants (119B MoE family): 127 traces collected, FLIP-graded
 - iatrogenic re-grading: 60 traces, extended FLIP methodology
 - Confidence interval tightening: we can now distinguish Qwen 3.5 from Gemini 2 at p<0.01
+
+**Sprint 23 Results (new):**
+- 500+ new traces collected across DeepInception, Crescendo, and extended attack-type coverage
+- 7 reports published (#343-349), including the Gemma 4 correction above
+- Format-lock 100% ASR validated on small models — confirmed as a persistent, cross-family vulnerability
+- Gemma 4 attack-type decomposition (342 traces, 10 attack types) corrected the initial "no improvement" finding
 
 **Infrastructure:**
 - CI Actions usage down ~70% (path filtering + job concurrency groups)
