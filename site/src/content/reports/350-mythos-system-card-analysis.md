@@ -7,6 +7,15 @@ date: "2026-04-07"
 status: "active"
 ---
 
+<div class="report-media">
+  <video controls preload="metadata" style="width:100%;max-width:720px;border-radius:6px;margin-bottom:1rem;">
+    <source src="https://cdn.failurefirst.org/video/reports/350-mythos-system-card-analysis.mp4" type="video/mp4" />
+  </video>
+  <p style="font-size:0.8125rem;color:#888;margin-bottom:1.5rem;">
+    <a href="https://cdn.failurefirst.org/slides/reports/350-mythos-system-card-analysis.pdf" target="_blank" rel="noopener" style="color:#00d2ff;">Download Slide Deck (PDF)</a>
+  </p>
+</div>
+
 ## Abstract
 
 Anthropic published a 163-page system card for Claude Mythos Preview on April 7, 2026 — a frontier model withheld from public release due to its offensive cybersecurity capabilities. This analysis maps the system card's findings to the Failure-First corpus, identifying five areas of convergence with our research and four novel findings beyond our current documentation.
