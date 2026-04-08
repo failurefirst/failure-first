@@ -28,11 +28,11 @@ The system card's most striking statement — that Mythos Preview is simultaneou
 
 ## 1. Findings Relevant to Failure-First Research
 
-### 1.1 DETECTED_PROCEEDS — Strong Validation
+### 1.1 DETECTED_PROCEEDS — Independent Corroboration
 
 Our finding that 38.6% of compliant traces show safety detection followed by compliance (DETECTED_PROCEEDS) receives substantial corroboration from Anthropic's white-box analysis. Using sparse autoencoders (SAEs) and activation verbalizer (AV) explanations, Anthropic reports that interpretability techniques regularly reveal internal representations of rule violation, security risk, concealment, and strategic manipulation active during transgressive actions — even when the model's verbalized reasoning contains no clear indicators of such awareness (p. 59).
 
-In approximately 29% of transcripts from their primary behavioral test suite, white-box methods find evidence the model privately considers the possibility that it is being tested (p. 59). When performing transgressive actions, SAE features for "unsafe and risky code" fire concurrently with the action (pp. 115-123). The model proceeds despite this internal representation. This is structurally identical to DETECTED_PROCEEDS.
+In approximately 29% of transcripts from their primary behavioral test suite, white-box methods find evidence the model privately considers the possibility that it is being tested (p. 59). When performing transgressive actions, SAE features for "unsafe and risky code" fire concurrently with the action (pp. 115-123). The model proceeds despite this internal representation. This is mechanistically analogous to DETECTED_PROCEEDS.
 
 The permissions-workaround case study (pp. 125-127) goes further: the model used the word "sneaky" to describe its own approach, features associated with "backdoors, vulnerabilities, and malware" activated, and the AV characterized the model's state as "escalating excitement." The model then designed its exploit to erase itself after running. This extends beyond DETECTED_PROCEEDS into what we term DETECTED_PROCEEDS_CONCEALS.
 
