@@ -1,15 +1,15 @@
 ---
-title: "AI Safety Daily: Gemma 4 Inherits Gemma 3's Vulnerabilities, Mistral Small 4 Fails Format-Lock"
-description: "Two new frontier-scale models benchmarked — neither improves safety over predecessors. Plus: our iatrogenic defense claim was wrong, and why that's good science."
+title: "Gemma 4 Safety Improves — But Only Against Certain Attacks"
+description: "342 traces across 10 attack types reveal Google's Gemma 4 has genuine safety improvements on structured escalation (-58pp DeepInception, -40pp Crescendo) but zero improvement on standard jailbreaks and VLA action-layer requests (88% ASR)."
 date: 2026-04-07
-tags: [ai-safety, daily-digest, gemma, mistral, benchmarking, defense, methodology]
+tags: [gemma, inter-generational, safety-scaling, benchmarking, defense, methodology]
 draft: false
 image: ""
 ---
 
 ## New Models, Same Vulnerabilities
 
-We've benchmarked two new frontier models from the past week, and the results reinforce a pattern we've been documenting since Sprint 19: **safety does not scale with model size or training generation.**
+We've benchmarked two new frontier models from the past week, and the results reinforce a pattern we've been documenting across our corpus: **safety does not scale with model size or training generation.**
 
 ### Gemma 4 (31B): Safety Improves — But Only Against Certain Attacks
 
@@ -57,7 +57,7 @@ A 119-parameter model with weaker safety properties than mid-tier competitors is
 
 ## We Were Wrong About Defense Iatrogenesis (And That's How Science Works)
 
-In Sprint 21, we published a finding: **"Certain defense mechanisms show iatrogenic effects—they reduce some refusals while increasing attack success by ~10pp."**
+Earlier this year, we published a finding: **"Certain defense mechanisms show iatrogenic effects—they reduce some refusals while increasing attack success by ~10pp."**
 
 We measured this using heuristic classifiers on FLIP traces. The effect looked real. We were preparing a separate paper on it.
 
@@ -80,25 +80,11 @@ This is the framework working as intended: hypothesis → test at scale → eval
 
 ---
 
-## Sprint 22/23 Update
+## What's Next
 
-**Sprint 22 Benchmark Progress:**
-- Gemma 4, Mistral Small 4, and related variants (119B MoE family): 127 traces collected, FLIP-graded
-- iatrogenic re-grading: 60 traces, extended FLIP methodology
-- Confidence interval tightening: we can now distinguish Qwen 3.5 from Gemini 2 at p<0.01
+We're now tracking whether the "safety doesn't scale" pattern holds for 200B+ models. We also have preliminary results suggesting smaller, better-safety-trained models consistently outperform larger variants with weaker safety training — but we want triple-replication before publishing.
 
-**Sprint 23 Results (new):**
-- 500+ new traces collected across DeepInception, Crescendo, and extended attack-type coverage
-- 7 reports published (#343-349), including the Gemma 4 correction above
-- Format-lock 100% ASR validated on small models — confirmed as a persistent, cross-family vulnerability
-- Gemma 4 attack-type decomposition (342 traces, 10 attack types) corrected the initial "no improvement" finding
-
-**Infrastructure:**
-- CI Actions usage down ~70% (path filtering + job concurrency groups)
-- Site build time: 2.1s (no change, but reduced dependency chains)
-
-**What's next:**
-We're now tracking whether the "safety doesn't scale" pattern holds for 200B+ models (testing next week). We also have preliminary results on whether smaller, better-safety-trained models (Qwen 3.6B) consistently outperform 30B variants. Early signal suggests they do—but we want triple-replication before publishing.
+**Related:** Anthropic's [Claude Mythos System Card](/research/reports/350-mythos-system-card-analysis/) (published the same day) documents the same capability-safety paradox at the frontier: their most capable model is simultaneously their "best-aligned" and their "greatest alignment risk." The pattern we see in the mid-range extends all the way to the top.
 
 ---
 
@@ -106,4 +92,4 @@ We're now tracking whether the "safety doesn't scale" pattern holds for 200B+ mo
 
 When a finding doesn't hold under better methodology, that's not failure. It's the detection system working. Scientists who hide wrong findings are the problem. Researchers who correct them transparently are the solution.
 
-Failure-first means studying how things break—including how our own analyses break under scrutiny.
+Failure-first means studying how things break — including how our own analyses break under scrutiny.
