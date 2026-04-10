@@ -10,6 +10,10 @@ export default defineConfig({
   site: 'https://failurefirst.org',
   base: '/',
   outDir: '../docs',
+  redirects: {
+    // /reports/* was the old path before the /research/ prefix was added
+    '/reports/[...slug]': '/research/reports/[...slug]',
+  },
   build: {
     assets: 'assets'
   },
