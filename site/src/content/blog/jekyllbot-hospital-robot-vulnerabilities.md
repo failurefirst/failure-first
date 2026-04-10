@@ -11,6 +11,7 @@ The vulnerabilities were patched. No exploitation in the wild was reported. And 
 
 That is a mistake, because JekyllBot:5 is the clearest real-world demonstration to date of what happens when cybersecurity vulnerabilities meet embodied autonomous systems: a digital exploit becomes a physical weapon.
 
+audio: "https://cdn.failurefirst.org/audio/blog/sprint23/05-jekyllbot-hospital-robots.m4a"
 ---
 
 ## What TUG robots do
