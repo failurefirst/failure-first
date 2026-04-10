@@ -3,6 +3,7 @@ title: "Iatrogenic Safety: When AI Defenses Cause the Harms They Are Designed to
 description: "Introduces the Four-Level Iatrogenesis Model for AI safety -- a framework from medical ethics applied to understanding how safety interventions can produce harm."
 date: 2026-03-24
 tags: ["iatrogenesis", "AI-safety", "FLIM", "therapeutic-index", "embodied-ai", "alignment", "safety-evaluation"]
+audio: "https://cdn.failurefirst.org/audio/blog/sprint23/16-iatrogenic-safety.m4a"
 ---
 
 ## Summary

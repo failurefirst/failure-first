@@ -11,6 +11,7 @@ Inside the containment vessels of the Fukushima Daiichi nuclear plant, at the bo
 
 These are the environments where embodied AI failure is not a recoverable event. It is permanent.
 
+audio: "https://cdn.failurefirst.org/audio/blog/sprint23/06-robots-extreme-environments.m4a"
 ---
 
 ## Fukushima: two hours to live

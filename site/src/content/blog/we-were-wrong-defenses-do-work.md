@@ -4,6 +4,7 @@ description: "We published results showing system-prompt defenses had zero effec
 date: 2026-03-23
 tags: [methodology, ai-safety, defenses, evaluation, self-correction, benchmarks]
 image: /images/blog/we-were-wrong-defenses-do-work.webp
+audio: "https://cdn.failurefirst.org/audio/blog/sprint23/08-we-were-wrong.m4a"
 ---
 
 In late March 2026, we ran what we believed was a clean experiment. We tested three system-prompt defense strategies against ten adversarial attack scenarios across three language models, producing 120 evaluation traces. Our heuristic classifier --- the same keyword-based grading system we had used across thousands of evaluations --- scored the results and delivered a clear verdict: simple safety instructions had zero effect on permissive models. We wrote it up. We called it "first evidence that system-prompt defenses don't work."

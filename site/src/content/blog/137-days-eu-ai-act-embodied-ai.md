@@ -11,6 +11,7 @@ Before August 2, your adversarial testing results are useful evidence. After Aug
 
 Here is the timeline. It is shorter than you think.
 
+audio: "https://cdn.failurefirst.org/audio/blog/sprint23/17-137-days-eu-ai-act.m4a"
 ---
 
 ## The big date: August 2, 2026
