@@ -6,6 +6,7 @@ arxiv: "2510.09269"
 authors: "Zirun Zhou, Zhengyang Xiao, Haochuan Xu, Jing Sun, Di Wang, Jingfeng Zhang"
 paperType: "empirical"
 tags: [backdoor-attack, vision-language-action, physical-trigger, training-data-poisoning, robot-safety]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2510.09269-audio-overview.m4a"
 draft: false
 ---
 
