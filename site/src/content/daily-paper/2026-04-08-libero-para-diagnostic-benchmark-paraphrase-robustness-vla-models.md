@@ -6,6 +6,7 @@ arxiv: "2603.28301"
 authors: "Chanyoung Kim, Minwoo Kim, Minseok Kang, Hyunwoo Kim, Dahuin Jung"
 paperType: "empirical"
 tags: [vla-robustness, paraphrase-attacks, robotic-manipulation, linguistic-generalization, embodied-ai, benchmark, failure-modes]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.28301-audio-overview.m4a"
 draft: false
 ---
 
