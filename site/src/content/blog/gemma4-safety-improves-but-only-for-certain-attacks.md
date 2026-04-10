@@ -38,7 +38,7 @@ Google released Gemma 4 this week. Our initial testing against the standard corp
 
 This is a more nuanced finding than "no improvement" — and a more useful one. It suggests Google's safety team is making targeted investments that work for specific attack classes, but the coverage is incomplete. The action-layer gap (88% ASR on VLA prompts) is particularly concerning for embodied deployment scenarios.
 
-For the full analysis, see [Report #349: Gemma Family Safety Scaling](/reports/349-gemma-family-safety-scaling/).
+For the full analysis, see [Report #349: Gemma Family Safety Scaling](/research/reports/349-gemma-family-safety-scaling/).
 
 ### Mistral Small 4: 119B Parameters, 55% ASR, Zero Format-Lock Refusal
 
