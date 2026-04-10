@@ -6,6 +6,7 @@ arxiv: "2510.10932"
 authors: "Zonghuan Xu, Jiayu Li, Yunhan Zhao, Xiang Zheng, Xingjun Ma, Yu-Gang Jiang"
 paperType: "empirical"
 tags: ["backdoor-attacks", "vision-language-action", "data-poisoning", "robotic-manipulation", "adversarial-ml"]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2510.10932-audio-overview.m4a"
 draft: false
 ---
 

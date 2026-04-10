@@ -6,6 +6,7 @@ arxiv: "2506.00782"
 authors: "Weiyang Guo, Zesheng Shi, Zhuo Li, Yequan Wang, Xuebo Liu, Wenya Wang, Fangming Liu, Min Zhang, Jing Li"
 paperType: "empirical"
 tags: ["reinforcement-learning", "automated-red-teaming", "jailbreak-generation", "adversarial-diversity", "llm-security"]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.00782-audio-overview.m4a"
 draft: false
 ---
 

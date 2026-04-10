@@ -6,6 +6,7 @@ arxiv: "2509.19870"
 authors: "Xin Wang, Jie Li, Zejia Weng, Yixu Wang, Yifeng Gao, Tianyu Pang, Chao Du, Yan Teng, Yingchun Wang, Zuxuan Wu, Xingjun Ma, Yu-Gang Jiang"
 paperType: "empirical"
 tags: ["vla-adversarial-attack", "action-freezing", "embodied-ai-safety", "transferability", "robotic-manipulation"]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2509.19870-audio-overview.m4a"
 draft: false
 ---
 

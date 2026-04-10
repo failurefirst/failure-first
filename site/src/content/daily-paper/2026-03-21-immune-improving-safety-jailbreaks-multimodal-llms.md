@@ -6,6 +6,7 @@ arxiv: "2411.18688"
 authors: "Soumya Suvra Ghosal, Souradip Chakraborty, Vaibhav Singh, Tianrui Guan, Mengdi Wang, Alvaro Velasquez, Ahmad Beirami, Furong Huang, Dinesh Manocha, Amrit Singh Bedi"
 paperType: "empirical"
 tags: ["multimodal-safety", "jailbreak-defense", "inference-time-alignment", "controlled-decoding", "reward-models"]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2411.18688-audio-overview.m4a"
 draft: false
 ---
 

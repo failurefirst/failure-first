@@ -7,6 +7,7 @@ authors: "Chenyv Liu, Wentao Tan, Lei Zhu, Fengling Li, Jingjing Li, Guoli Yang,
 paperType: "empirical"
 tags: [vision-language-action-models,world-models,self-correction,robot-manipulation,action-refinement,sparse-imagination]
 image: "https://cdn.failurefirst.org/images/daily-paper/2602.21633-infographic.webp"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21633-audio-overview.m4a"
 draft: false
 ---
 
