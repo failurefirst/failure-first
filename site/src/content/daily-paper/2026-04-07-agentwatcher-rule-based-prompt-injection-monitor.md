@@ -6,6 +6,7 @@ arxiv: "2604.01194"
 authors: "Yanting Wang, Wei Zou, Runpeng Geng, Jinyuan Jia"
 paperType: "methods"
 tags: [prompt-injection, llm-security, causal-attribution, rule-based-detection, agent-safety, explainability, adversarial-inputs]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.01194-audio-overview.m4a"
 draft: false
 ---
 

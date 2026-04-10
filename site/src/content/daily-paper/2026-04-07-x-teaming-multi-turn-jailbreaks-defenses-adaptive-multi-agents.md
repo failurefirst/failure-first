@@ -6,6 +6,7 @@ arxiv: "2504.13203"
 authors: "Salman Rahman, Liwei Jiang, James Shiffer, Genglin Liu, Sheriff Issaka, Md Rizwan Parvez, Hamid Palangi, Kai-Wei Chang, Yejin Choi, Saadia Gabriel"
 paperType: "empirical"
 tags: [jailbreak, red-teaming, multi-turn, safety-alignment, llm-safety, adversarial-agents, multi-agent]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2504.13203-audio-overview.m4a"
 draft: false
 ---
 

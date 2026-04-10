@@ -6,6 +6,7 @@ arxiv: "2603.24414"
 authors: "Songyang Liu, Chaozhuo Li, Chenxu Wang, Jinyu Hou, Zejian Chen, Litian Zhang, Zheng Liu, Qiwei Ye, Yiming Hei, Xi Zhang, Zhongyuan Wang"
 paperType: "empirical"
 tags: [agent-safety, autonomous-agents, privilege-escalation, runtime-security, prompt-injection, threat-detection, agentic-systems]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.24414-audio-overview.m4a"
 draft: false
 ---
 

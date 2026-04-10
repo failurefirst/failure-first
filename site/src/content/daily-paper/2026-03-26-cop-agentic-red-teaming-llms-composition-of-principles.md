@@ -6,6 +6,7 @@ arxiv: "2506.00781"
 authors: "Chen Xiong, Pin-Yu Chen, Tsung-Yi Ho"
 paperType: "methods"
 tags: [red-teaming, jailbreak, agentic-attacks, attack-composition, llm-safety]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.00781-audio-overview.m4a"
 draft: false
 ---
 

@@ -6,6 +6,7 @@ arxiv: "2509.03383"
 authors: "Yiyang Huang, Zixuan Wang, Zishen Wan, Yapeng Tian, Haobo Xu, Yinhe Han, Yiming Gan"
 paperType: "empirical"
 tags: [embodied-ai, adversarial-attacks, vla-models, robot-safety, red-teaming]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2509.03383-audio-overview.m4a"
 draft: false
 ---
 

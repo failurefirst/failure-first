@@ -6,6 +6,7 @@ arxiv: "2603.21697"
 authors: "Rui Yang Tan, Yujia Hu, Roy Ka-Wei Lee"
 paperType: "empirical"
 tags: [jailbreak, multimodal-safety, visual-narratives, safety-alignment, comic-attacks]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.21697-audio-overview.m4a"
 draft: false
 ---
 
