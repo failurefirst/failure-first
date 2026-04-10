@@ -6,6 +6,7 @@ arxiv: "2506.16402"
 authors: "Xiaoya Lu, Zeren Chen, Xuhao Hu, Yijin Zhou, Weichen Zhang, Dongrui Liu, Lu Sheng, Jing Shao"
 paperType: "empirical"
 tags: ["embodied-ai-benchmark", "interactive-safety", "household-robotics", "process-oriented-evaluation", "vlm-safety"]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.16402-audio-overview.m4a"
 draft: false
 ---
 

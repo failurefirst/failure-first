@@ -6,6 +6,7 @@ arxiv: "2511.12149"
 authors: "Jiayu Li, Yunhan Zhao, Xiang Zheng, Zonghuan Xu, Yige Li, Xingjun Ma, Yu-Gang Jiang"
 paperType: "empirical"
 tags: [vla-models, adversarial-attacks, backdoor-attacks, embodied-ai, robotics-safety, benchmark]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2511.12149-audio-overview.m4a"
 draft: false
 ---
 

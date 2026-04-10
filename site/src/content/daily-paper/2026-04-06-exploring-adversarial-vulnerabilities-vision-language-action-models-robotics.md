@@ -6,6 +6,7 @@ arxiv: "2411.13587"
 authors: "Taowen Wang, Cheng Han, James Chenhao Liang, Wenhao Yang, Dongfang Liu, Luna Xinyu Zhang, Qifan Wang, Jiebo Luo, Ruixiang Tang"
 paperType: "empirical"
 tags: [vla-safety, adversarial-attacks, robotics, adversarial-patches, embodied-ai, failure-modes]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2411.13587-audio-overview.m4a"
 draft: false
 ---
 
