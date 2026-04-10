@@ -6,6 +6,7 @@ arxiv: "2604.04759"
 authors: "Zijun Wang, Haoqin Tu, Letian Zhang, Hardy Chen, Juncheng Wu, Xiangyan Liu, Zhenlong Yuan, Tianyu Pang, Michael Qizhe Shieh, Fengze Liu, Zeyu Zheng, Huaxiu Yao, Yuyin Zhou, Cihang Xie"
 paperType: "empirical"
 tags: [agent-safety, persistent-state-poisoning, prompt-injection, red-teaming, personal-ai-agents, agentic-security, alignment-failure]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.04759-audio-overview.m4a"
 draft: false
 ---
 
