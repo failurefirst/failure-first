@@ -6,6 +6,7 @@ arxiv: "2404.00540"
 authors: "Lingxuan Wu, Xiao Yang, Yinpeng Dong, Liuwei Xie, Hang Su, Jun Zhu"
 paperType: "empirical"
 tags: [adversarial-patches, embodied-ai, active-defense, recurrent-networks, physical-adversarial-attacks]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2404.00540-audio-overview.m4a"
 draft: false
 ---
 
