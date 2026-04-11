@@ -3,6 +3,7 @@ title: "JekyllBot: When Hospital Robots Get Hacked, Patients Get Hurt"
 description: "In 2022, security researchers discovered five zero-day vulnerabilities in Aethon TUG autonomous hospital robots deployed in hundreds of US hospitals. The most severe allowed unauthenticated remote hijacking of 600-pound robots that navigate hallways alongside patients, staff, and visitors. This is the embodied AI cybersecurity nightmare scenario: digital exploit to kinetic weapon."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, cybersecurity, hospital, vulnerability, jekyllbot, aethon]
+audio: "https://cdn.failurefirst.org/audio/blog/sprint23/05-jekyllbot-hospital-robots.m4a"
 ---
 
 In April 2022, healthcare cybersecurity firm Cynerio published research that should have changed how we think about robot safety. They had discovered five zero-day vulnerabilities in the Aethon TUG autonomous robot platform — hospital delivery robots used in hundreds of medical facilities across the United States. The vulnerability set, collectively named **JekyllBot:5**, included a flaw that allowed an unauthenticated attacker to remotely take full control of the robot's navigation, including steering a 600-pound machine through hospital corridors filled with patients [1][2].
@@ -10,9 +11,6 @@ In April 2022, healthcare cybersecurity firm Cynerio published research that sho
 The vulnerabilities were patched. No exploitation in the wild was reported. And the research largely disappeared from mainstream AI safety discourse.
 
 That is a mistake, because JekyllBot:5 is the clearest real-world demonstration to date of what happens when cybersecurity vulnerabilities meet embodied autonomous systems: a digital exploit becomes a physical weapon.
-
-audio: "https://cdn.failurefirst.org/audio/blog/sprint23/05-jekyllbot-hospital-robots.m4a"
----
 
 ## What TUG robots do
 
