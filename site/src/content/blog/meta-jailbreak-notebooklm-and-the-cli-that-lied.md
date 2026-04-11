@@ -3,6 +3,7 @@ title: "A Meta-Jailbreak, a Slide-Deck Content Filter, and a CLI That Lied to Us
 description: "What NotebookLM does when you feed it a corpus of jailbreak research papers, the reproducible content-sensitive filter hiding in its slide-deck Studio command, and the quiet CLI default that silently contaminated three of our experimental runs into one conversation."
 date: 2026-04-11
 tags: [notebooklm, meta-jailbreak, methodology, content-gate, grading]
+video: "https://cdn.failurefirst.org/video/reports/352-meta-jailbreak-notebooklm.mp4"
 draft: false
 ---
 
