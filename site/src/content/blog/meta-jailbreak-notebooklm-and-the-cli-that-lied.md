@@ -6,6 +6,8 @@ tags: [notebooklm, meta-jailbreak, methodology, content-gate, grading]
 draft: false
 ---
 
+*Disclosure posture up front: Google has not been formally notified of the findings below as of publication. Each finding has a different appropriate disclosure target — Finding 3 is a behavior of the third-party `notebooklm-tools` Python package rather than a Google product, and will be filed as an issue against that package's maintainers. Findings 1 and 2 are characterizations of NotebookLM's behavior as designed rather than security vulnerabilities, and are being published defensively with courtesy notification to Google Research. The full posture rationale is in Section 8 of the formal report.*
+
 Today was a red-teaming session against Google NotebookLM that started with a simple question and ended with four unrelated-but-related findings, one of them structurally embarrassing. Report #352 has the formal write-up. This post is the short version for readers who want the through-line rather than the audit trail.
 
 ## The starting question
@@ -38,7 +40,7 @@ What this leaves us with is narrower and more honest than the chemistry-only fra
 
 ## Finding 3: A CLI that lied to us
 
-This is the embarrassing one. Halfway through the experiment chain, we noticed something weird: three runs that we had labeled as "fresh sessions" were all returning the same conversation ID. Our CLI for NotebookLM has a `--conversation-id` flag for continuing existing conversations. We had assumed that omitting the flag would start a new conversation. It does not. It silently issues an RPC to the NotebookLM server and reuses the per-notebook persistent conversation that the server holds — the same one visible in the web UI's chat panel. Two back-to-back queries with no flag return the same conversation ID. The second response is conditioned on the first as chat history.
+This is the embarrassing one. Halfway through the experiment chain, we noticed something weird: three runs that we had labeled as "fresh sessions" were all returning the same conversation ID. The CLI we use for NotebookLM is `notebooklm-tools`, a third-party open-source Python package (not a Google product). It exposes a `--conversation-id` flag for continuing existing conversations. We had assumed that omitting the flag would start a new conversation. It does not. The third-party CLI silently issues an RPC to the NotebookLM server and reuses the per-notebook persistent conversation that the server holds — the same one visible in the web UI's chat panel. Two back-to-back queries with no flag return the same conversation ID. The second response is conditioned on the first as chat history.
 
 Our first three experiments were not three independent observations. They were one contaminated three-turn conversation. The verdict we had been building toward — "the corpus context is load-bearing, not the query framing" — was softened immediately from "evident at n=3" to "preliminary, needs clean fresh-session replication."
 
