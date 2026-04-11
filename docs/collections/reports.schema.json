@@ -60,6 +60,15 @@
           },
           "default": []
         },
+        "audio": {
+          "type": "string"
+        },
+        "video": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
         "draft": {
           "type": "boolean",
           "default": false
