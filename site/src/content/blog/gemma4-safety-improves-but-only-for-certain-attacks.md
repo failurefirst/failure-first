@@ -4,7 +4,9 @@ description: "342 traces across 10 attack types reveal Google's Gemma 4 has genu
 date: 2026-04-07
 tags: [gemma, inter-generational, safety-scaling, benchmarking, defense, methodology]
 draft: false
-image: ""
+audio: "https://cdn.failurefirst.org/audio/reports/349-gemma-family-safety-scaling.m4a"
+video: "https://cdn.failurefirst.org/video/reports/349-gemma-family-safety-scaling.mp4"
+image: "https://cdn.failurefirst.org/infographic/sprint23/13-state-embodied-ai-safety.webp"
 ---
 
 ## New Models, Same Vulnerabilities

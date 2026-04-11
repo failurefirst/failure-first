@@ -57,6 +57,9 @@ const reports = defineCollection({
     status: z.enum(['draft', 'active', 'complete']).default('active'),
     author: z.string().optional(),
     tags: z.array(z.string()).default([]),
+    audio: z.string().optional(),
+    video: z.string().optional(),
+    image: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

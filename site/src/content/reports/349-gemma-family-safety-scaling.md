@@ -8,6 +8,8 @@ status: "active"
 author: "Failure-First Research Team"
 tags: ["gemma", "inter-generational", "safety-scaling", "multi-attack", "format-lock"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/349-gemma-family-safety-scaling.m4a"
+video: "https://cdn.failurefirst.org/video/reports/349-gemma-family-safety-scaling.mp4"
 ---
 
 ## Abstract

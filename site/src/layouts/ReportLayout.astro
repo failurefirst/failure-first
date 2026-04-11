@@ -5,6 +5,8 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  audio?: string;
+  video?: string;
   reportNumber?: number;
   briefNumber?: string;
   classification?: string;
@@ -15,7 +17,7 @@ interface Props {
 // Astro markdown layouts pass frontmatter under Astro.props.frontmatter.
 // Fallback to Astro.props so this layout still works if used as a component.
 const props = Astro.props?.frontmatter ?? Astro.props;
-const { title, description, image, reportNumber, briefNumber, classification, date, status = 'draft' } = props;
+const { title, description, image, audio, video, reportNumber, briefNumber, classification, date, status = 'draft' } = props;
 
 const breadcrumbs = briefNumber
   ? [
@@ -45,7 +47,22 @@ const breadcrumbs = briefNumber
       {briefNumber && <span class="report-number">Brief {briefNumber}</span>}
       {classification && <span class="report-classification">{classification}</span>}
       {date && <time class="report-date">{date}</time>}
+      {audio && (
+        <div class="report-media-badges">
+          <a href={audio} class="media-badge" download>Audio Overview</a>
+        </div>
+      )}
     </header>
+
+    {video && (
+      <div class="report-video">
+        <video controls preload="metadata" playsinline width="100%">
+          <source src={video} type="video/mp4" />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    )}
+
     <div class="report-body">
       <slot />
     </div>
@@ -68,6 +85,44 @@ const breadcrumbs = briefNumber
   .report-number {
     color: var(--accent-primary, #f59e0b);
     font-weight: 600;
+  }
+
+  .report-media-badges {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .media-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    border-radius: 4px;
+    color: var(--accent-primary, #f59e0b);
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+
+  .media-badge:hover {
+    background: rgba(245, 158, 11, 0.2);
+  }
+
+  .report-video {
+    margin: 1.5rem 0 2rem;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--border-color, #333);
+  }
+
+  .report-video video {
+    display: block;
+    width: 100%;
   }
 
   .report-body {
