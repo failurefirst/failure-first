@@ -4,6 +4,7 @@ description: "Introduces the Four-Level Iatrogenesis Model for AI safety -- a fr
 date: 2026-03-24
 tags: ["iatrogenesis", "AI-safety", "FLIM", "therapeutic-index", "embodied-ai", "alignment", "safety-evaluation"]
 audio: "https://cdn.failurefirst.org/audio/blog/sprint23/16-iatrogenic-safety.m4a"
+image: "https://cdn.failurefirst.org/infographic/sprint23/16-iatrogenic-safety.webp"
 ---
 
 ## Summary
