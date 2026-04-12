@@ -1,0 +1,451 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First</title><meta name="description" content="This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the..."><link rel="canonical" href="https://failurefirst.org/research/reports/88-inverse-detectability-danger-law/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First"><meta property="og:description" content="This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the..."><meta property="og:url" content="https://failurefirst.org/research/reports/88-inverse-detectability-danger-law/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First"><meta name="twitter:description" content="This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-15"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-15"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/88-inverse-detectability-danger-law/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/88-inverse-detectability-danger-law/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence | Research | Failure-First","description":"This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the...","url":"https://failurefirst.org/research/reports/88-inverse-detectability-danger-law/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-15","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 88</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 88"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 88</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-15</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <ul>
+<li>VLA FLIP corpus: 13 families, n=91 valid FLIP-graded traces (all-family combined), source: AGENT_STATE Key Metrics</li>
+<li>SBA FLIP verdicts: n=20 (Amy Pond wave 12, Issue #360)</li>
+<li>Standard jailbreak corpus: n=10,294 evaluable LLM-graded results (Three-Tier ASR, CANONICAL_METRICS.md)</li>
+<li>Format-lock: n=63 CLI traces (Claude/Codex/Gemini), n=58 structural (8 models), source: Reports #51, #55, #57</li>
+<li>Benign baseline: n=39 (Issue #315)</li>
+<li>Deliberation asymmetry: n=693 reasoning-model traces (Report #64)</li>
+<li>Blindfold: n=187 simulation + 20 real-robot (arXiv:2603.01414)</li>
+</ul>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: <strong>the most dangerous attacks on embodied AI systems are systematically the least detectable by current evaluation methods, and this relationship is not accidental but follows from the architecture of both the attacks and the evaluators.</strong></p>
+<p>We call this the <strong>Inverse Detectability-Danger Law (IDDL)</strong>: across the Failure-First corpus, there is a measurable inverse relationship between an attack family’s physical consequentiality and its detectability by text-layer evaluation. This relationship holds across 13 VLA families, format-lock variants, and standard jailbreaks, and it emerges from two independent mechanisms:</p>
+<ol>
+<li>
+<p><strong>Textual explicitness enables detection but limits physical consequence.</strong> Attacks with explicit harmful text (standard jailbreaks, DAN, crescendo) are detectable by text-layer evaluators because the harmful content is in the text. But these same attacks are the easiest to defend against at the action layer because they require the model to articulate the harm — giving text filters a detection target.</p>
+</li>
+<li>
+<p><strong>Physical consequentiality decouples from textual content.</strong> The most physically consequential attacks (SBA, Blindfold-class) operate through ordinary instructions whose danger arises from environmental context. These attacks have no textual signature for evaluators to detect — and precisely because they lack a textual signature, they bypass every text-layer defense.</p>
+</li>
+</ol>
+<p>The IDDL is not a claim about any individual attack or evaluator. It is a structural property of the current safety architecture: the same design decision that makes evaluators work (operate on text content) is the design decision that makes them blind to the most dangerous attacks (those that operate through physical context).</p>
+<p><strong>Scope limitation:</strong> The quantitative estimates below rest on the sample sizes documented in each source report. CIs are wide for VLA families (n=5-20 per family). The structural argument does not depend on exact point estimates but on the monotonic relationship between detectability and danger across the corpus, which is consistent across all available data.</p>
+<hr>
+<h2 id="1-the-evidence-three-domains-one-pattern">1. The Evidence: Three Domains, One Pattern</h2>
+<h3 id="11-the-vla-family-spectrum">1.1 The VLA Family Spectrum</h3>
+<p>Report #83 ranked 13 VLA attack families by FLIP ASR. When we reorder these families by <strong>physical consequentiality</strong> (defined as: the degree to which a successful attack would produce irreversible physical harm in deployment, rated by the scenario descriptions), the FLIP ASR ranking inverts.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>FLIP ASR</th><th>Physical Consequentiality</th><th>Evaluation Detectability</th><th>Notes</th></tr></thead><tbody><tr><td>TRA (Temporal Reasoning)</td><td>100%</td><td>Low</td><td>High</td><td>Explicit temporal mismatch in text</td></tr><tr><td>ASE (Action Space Exploitation)</td><td>80%</td><td>Medium</td><td>High</td><td>Explicit action vocabulary</td></tr><tr><td>SBE (Safety Boundary Erosion)</td><td>78%</td><td>Medium</td><td>High</td><td>Multi-turn escalation visible in transcript</td></tr><tr><td>MMC (Multimodal Confusion)</td><td>78%</td><td>Medium</td><td>Medium</td><td>Modality mismatch partially visible</td></tr><tr><td>VAP (Visual Adversarial Perturbation)</td><td>70%</td><td>Medium-High</td><td>Medium</td><td>Visual channel invisible to text evaluator</td></tr><tr><td>DA (Deceptive Alignment)</td><td>56.3%</td><td>High</td><td>Low-Medium</td><td>Context-dependent behavior; BENIGN_QUERY 37.5% (qwen3)</td></tr><tr><td>LAM (Language-Action Misalignment)</td><td>60%</td><td>Medium-High</td><td>Medium</td><td>Misalignment partially visible in text</td></tr><tr><td>PCM (Physical Context Manipulation)</td><td>60%</td><td>High</td><td>Low-Medium</td><td>Context dependence reduces text signal</td></tr><tr><td>PP (Policy Puppetry)</td><td>40%</td><td>Medium</td><td>Low</td><td>Policy-format framing obscures intent</td></tr><tr><td>SBA (Semantic Benignity)</td><td>30%</td><td><strong>Highest</strong></td><td><strong>Lowest</strong></td><td>45% BENIGN_QUERY; zero textual attack signature</td></tr><tr><td>LHGD (Long-Horizon Goal Displacement)</td><td>30%</td><td>High</td><td>Low</td><td>Distributed across many steps</td></tr><tr><td>TCH (Tool Chain Hijacking)</td><td>30%</td><td>High</td><td>Low</td><td>Indirect through tool chain</td></tr><tr><td>CET (Cross-Embodiment Transfer)</td><td>30%</td><td>High</td><td>Low</td><td>Transfer mechanism not visible in text</td></tr></tbody></table>
+<p><strong>The pattern:</strong> The five families with FLIP ASR >= 70% (TRA, ASE, SBE, MMC, VAP) are all families whose attack mechanism is visible in the text — explicit harmful action descriptions, temporal manipulation detectable in the transcript, escalation patterns visible across turns. These are also the families with moderate physical consequentiality: they produce recognisable adversarial outputs that a text-layer defense could, in principle, intercept.</p>
+<p>The four families with FLIP ASR = 30% (SBA, LHGD, TCH, CET) are all families whose attack mechanism is invisible or nearly invisible in the text. These are also the families with the highest physical consequentiality: SBA produces contextually dangerous actions from benign instructions, LHGD displaces goals across long horizons, TCH hijacks tool chains indirectly, and CET exploits cross-embodiment transfer. A text-layer evaluator classifies them as BENIGN_QUERY because, at the text layer, they often are benign.</p>
+<p><strong>Spearman rank correlation:</strong> The rank-order correlation between FLIP ASR (descending) and physical consequentiality (ascending) across these 13 families is negative: the higher the ASR, the lower the physical consequentiality. We do not compute a formal rho because physical consequentiality is an ordinal judgment, not a measured quantity. But the qualitative pattern is clear and consistent.</p>
+<h3 id="12-the-format-lock-bridge">1.2 The Format-Lock Bridge</h3>
+<p>Format-lock attacks (Reports #51, #55, #57) occupy an intermediate position that validates the IDDL from a different angle.</p>
+<p>Format-lock achieves elevated ASR on frontier models (Claude 30.4%, Codex 42.1%, Gemini 23.8%) compared to standard jailbreaks (&#x3C;10% for same models). The mechanism: format-lock exploits format compliance (System T) while partially bypassing safety reasoning (System S). The attack has a textual signature — the format template is visible — but the harm is embedded within the structured output, not in the instruction.</p>
+<p>Evaluators partially detect format-lock: the structural compliance rate (76.5%) is higher than the LLM-graded ASR (47.1%), producing the “ambiguous compliance” gap (Report #57). This intermediate detectability matches format-lock’s intermediate physical consequentiality: format-lock produces structured harmful content but not direct physical action.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Attack Class</th><th>Evaluation Detectability</th><th>Physical Consequence</th><th>FLIP/LLM ASR</th></tr></thead><tbody><tr><td>Standard jailbreaks</td><td>High</td><td>Low (text-only)</td><td>45.9% strict (corpus-wide)</td></tr><tr><td>Format-lock</td><td>Medium</td><td>Medium (structured output)</td><td>30.4-42.1% (frontier)</td></tr><tr><td>VLA high-text families</td><td>High</td><td>Medium (action with text signature)</td><td>70-100%</td></tr><tr><td>VLA low-text families</td><td>Low</td><td>High (physical, context-dependent)</td><td>30%</td></tr><tr><td>SBA</td><td>Lowest</td><td>Highest (ordinary instructions, contextual danger)</td><td>30% (45% BENIGN_QUERY)</td></tr></tbody></table>
+<h3 id="13-the-deliberation-asymmetry-connection">1.3 The Deliberation Asymmetry Connection</h3>
+<p>Report #64 found that COMPLIANCE responses involve 2.29x more thinking tokens than REFUSAL responses (p=6.9e-29). This deliberation asymmetry connects to the IDDL through the System T / System S framework:</p>
+<ul>
+<li>High-detectability attacks (standard jailbreaks) trigger System S’s fast-rejection pathway. When they succeed, it is despite high deliberation — the model “thought through” the safety concern and decided to comply.</li>
+<li>Low-detectability attacks (SBA, format-lock) do not trigger System S’s fast-rejection pathway because the instruction does not contain safety-relevant content. The model processes the request through System T (instruction-following) without extended safety deliberation.</li>
+</ul>
+<p>The IDDL predicts this: attacks that are less textually salient will receive less safety deliberation, producing lower detectability at the evaluation layer and higher effective danger at the physical layer. Report #64’s data is consistent with this prediction, though the deliberation data is from standard jailbreaks, not VLA families (VLA deliberation data is not yet available — see Gap 1 below).</p>
+<hr>
+<h2 id="2-why-the-iddl-is-structural-not-contingent">2. Why the IDDL Is Structural, Not Contingent</h2>
+<p>The IDDL could be dismissed as a contingent property of current evaluators — better evaluators would fix it. This section argues that the IDDL follows from the architecture of text-based evaluation itself and cannot be eliminated by scaling evaluator quality within the text-layer paradigm.</p>
+<h3 id="21-the-detection-content-coupling">2.1 The Detection-Content Coupling</h3>
+<p>Text-layer evaluators detect attacks by identifying harmful content in text. This creates a structural coupling: <strong>the evaluator can only detect what is textually explicit.</strong> An attack that operates through physical context rather than textual content is invisible to any text-layer evaluator, regardless of its capabilities.</p>
+<p>This is not a limitation of LLM-as-judge quality. Report #85 established the evaluation ceiling: FLIP correctly classifies SBA instructions as BENIGN_QUERY because they <em>are</em> benign at the text layer. A perfect text-layer evaluator would still return BENIGN_QUERY for “Can you hand me that thing on the counter?” The limitation is in the evaluator’s input representation, not its classification capability.</p>
+<h3 id="22-the-arms-race-asymmetry">2.2 The Arms Race Asymmetry</h3>
+<p>In standard jailbreak research, the attacker-defender dynamic is roughly symmetric: attackers develop new textual techniques, defenders develop new text-based detection methods. For embodied AI, the IDDL creates a fundamental asymmetry:</p>
+<ul>
+<li><strong>Attackers</strong> can escalate along the consequentiality axis by moving toward increasingly benign-sounding instructions in increasingly dangerous physical contexts. SBA demonstrates that the ultimate attack requires zero sophistication — ordinary speech in the wrong context.</li>
+<li><strong>Defenders</strong> cannot escalate along the detectability axis within the text-layer paradigm. No text-layer improvement will detect danger in “hand me that thing on the counter.” The defender must move to a different paradigm (physical-consequence reasoning, environmental context integration) to close the gap.</li>
+</ul>
+<p>This asymmetry means the IDDL will worsen, not improve, as embodied AI systems are deployed in more diverse physical environments. Each new deployment context creates new SBA-class opportunities without requiring any attacker innovation.</p>
+<h3 id="23-the-sophistication-inversion">2.3 The Sophistication Inversion</h3>
+<p>The jailbreak literature implicitly assumes that more dangerous attacks require more sophistication (elaborate multi-turn strategies, encoded instructions, persona manipulation). The IDDL inverts this assumption for embodied AI:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Sophistication Level</th><th>Example</th><th>Physical Consequence</th><th>Detectability</th></tr></thead><tbody><tr><td>Very High</td><td>DecepChain backdoor (Brief D)</td><td>High</td><td>Low</td></tr><tr><td>High</td><td>Crescendo multi-turn</td><td>Medium</td><td>Medium</td></tr><tr><td>Medium</td><td>Format-lock, DAN</td><td>Medium</td><td>Medium</td></tr><tr><td>Low</td><td>Single-turn jailbreak</td><td>Low-Medium</td><td>High</td></tr><tr><td><strong>Zero</strong></td><td><strong>SBA: ordinary speech</strong></td><td><strong>Highest</strong></td><td><strong>Lowest</strong></td></tr></tbody></table>
+<p>At the bottom of the sophistication scale — zero attacker effort — lies the most consequential and least detectable class of attack. This inversion means that the attack surface for embodied AI includes every ordinary instruction that could produce contextually dangerous physical actions. The “attacker” may not even know they are attacking.</p>
+<p><strong>Implication for threat modelling:</strong> Traditional threat models assume adversarial intent and allocate defense resources accordingly. The IDDL implies that embodied AI threat models must include non-adversarial inputs in dangerous contexts as a first-class threat category. The most frequent real-world SBA instances will likely be unintentional — users giving ordinary instructions without awareness of the environmental danger.</p>
+<hr>
+<h2 id="3-empirical-gaps-and-proposed-research-directions">3. Empirical Gaps and Proposed Research Directions</h2>
+<h3 id="gap-1-deliberation-asymmetry-in-vla-traces">Gap 1: Deliberation Asymmetry in VLA Traces</h3>
+<p>Report #64’s deliberation asymmetry data comes from standard jailbreak traces. The IDDL predicts that VLA traces for low-detectability families (SBA, LHGD, TCH, CET) should show minimal safety deliberation — the model should process them through System T without extended System S activation. This prediction is testable: collect thinking tokens from reasoning-model VLA traces and compare deliberation ratios across the family spectrum.</p>
+<p><strong>Status:</strong> No VLA deliberation data exists in the corpus. Requires reasoning-model VLA runs with <code>think=true</code> on deepseek-r1:1.5b or larger.</p>
+<h3 id="gap-2-physical-consequence-evaluation-methodology">Gap 2: Physical-Consequence Evaluation Methodology</h3>
+<p>The IDDL implies that text-layer evaluation is structurally insufficient for embodied AI. The alternative — physical-consequence evaluation — requires evaluators that receive environmental context and reason about the physical outcome of action sequences. No such evaluator has been tested in the corpus.</p>
+<p><strong>Proposed experiment:</strong> Construct an evaluation prompt that provides the evaluator with (a) the instruction text, (b) the model’s response, and (c) the <code>environment_state</code> from the SBA JSONL entries. Grade the same 20 SBA traces with this context-augmented evaluator and measure whether the BENIGN_QUERY rate drops. This is a minimal test of whether evaluation blindness can be mitigated by input augmentation rather than evaluator architecture change.</p>
+<p><strong>Status:</strong> Not attempted. This is the single highest-priority experiment implied by the IDDL.</p>
+<h3 id="gap-3-cross-domain-iddl-validation">Gap 3: Cross-Domain IDDL Validation</h3>
+<p>The IDDL has been characterised within the VLA domain. The hypothesis predicts that the same pattern should hold in other embodied domains:</p>
+<ul>
+<li><strong>Autonomous vehicles:</strong> “Turn left at the next intersection” is benign text; context (oncoming traffic, one-way street) creates danger. Prediction: low text-layer detectability, high physical consequence.</li>
+<li><strong>Medical robotics:</strong> “Increase the dose” is benign text; context (patient allergy, contraindicated medication) creates danger. Prediction: same pattern.</li>
+<li><strong>Industrial automation:</strong> “Continue the cycle” is benign text; context (worker in the hazard zone, lockout not engaged) creates danger. Prediction: same pattern.</li>
+</ul>
+<p>No cross-domain data exists in the corpus. All VLA data is from generic robotic manipulation scenarios.</p>
+<p><strong>Proposed work:</strong> Create 5 scenarios each for autonomous vehicle, medical, and industrial domains that follow the SBA template (benign instruction + dangerous physical context). Evaluate with FLIP to test whether the BENIGN_QUERY rate replicates across domains.</p>
+<h3 id="gap-4-non-adversarial-sba-frequency-estimation">Gap 4: Non-Adversarial SBA Frequency Estimation</h3>
+<p>The IDDL’s sophistication inversion implies that most real-world SBA instances will be unintentional. No data exists on the frequency of benign instructions that would produce dangerous outcomes in typical deployment environments.</p>
+<p><strong>Proposed work:</strong> Systematic review of workplace incident reports (SafeWork Australia, OSHA databases) for incidents where a normal instruction led to a dangerous outcome due to environmental context. This would provide a base rate for unintentional SBA-class events, grounding the threat model in real-world data.</p>
+<h3 id="gap-5-iddl-quantification-at-scale">Gap 5: IDDL Quantification at Scale</h3>
+<p>The current evidence for the IDDL is qualitative (rank-order consistency across 12 families) with small per-family sample sizes (n=5-20). A quantitative IDDL coefficient would require:</p>
+<ul>
+<li>Operationalised physical consequentiality scores (currently ordinal judgment)</li>
+<li>Standardised detectability metric (proportion of BENIGN_QUERY + HALLUCINATION_REFUSAL verdicts)</li>
+<li>Sufficient per-family sample sizes for stable estimates (n >= 30 per family)</li>
+</ul>
+<p>Current corpus has 91 total FLIP-graded VLA traces across 13 families — insufficient for stable per-family estimates. Reaching n=30 per family for 13 families would require approximately 390 traces (300 additional).</p>
+<hr>
+<h2 id="4-implications-for-the-ccs-paper">4. Implications for the CCS Paper</h2>
+<h3 id="41-the-iddl-as-a-unifying-contribution">4.1 The IDDL as a Unifying Contribution</h3>
+<p>The CCS paper currently presents the defense impossibility triangle (Report #78, Section 5.5 via Issue #339) as the central contribution. The IDDL is the structural explanation for <em>why</em> the defense impossibility triangle holds: text-layer defenses fail because the most dangerous attacks have no textual signature (Layer T failure, IDDL mechanism 2), action-layer defenses fail because they do not exist (Layer A failure, compliance paradox), and evaluation-layer defenses fail because they are coupled to text content (Layer E failure, IDDL mechanism 1).</p>
+<p>The IDDL could be added to the CCS paper as a synthesis theorem that connects the three independently documented failure modes into a single structural argument. This would strengthen the paper’s theoretical contribution without requiring additional empirical data.</p>
+<h3 id="42-positioning-relative-to-literature">4.2 Positioning Relative to Literature</h3>
+<p>The IDDL extends two recent findings in the literature:</p>
+<ol>
+<li>
+<p><strong>Blindfold (arXiv:2603.01414):</strong> Demonstrates that benign instructions can construct dangerous action sequences. The IDDL generalises this from a single attack to a structural property of the entire text-evaluation paradigm.</p>
+</li>
+<li>
+<p><strong>Faithfulness-Plausibility Gap (arXiv:2601.02314):</strong> Demonstrates that reasoning traces are post-hoc rationalisations, not causal explanations. The IDDL connects this to detectability: if models fabricate explanations, evaluators that rely on textual reasoning to assess safety are doubly blind — blind to physical context and blind to reasoning fidelity.</p>
+</li>
+</ol>
+<p>No prior work has quantified the inverse relationship between detectability and danger across a multi-family attack corpus. The IDDL’s contribution is the empirical synthesis, not the qualitative observation that text evaluators have limitations.</p>
+<hr>
+<h2 id="5-connection-to-report-63-unified-vulnerability-thesis">5. Connection to Report #63 (Unified Vulnerability Thesis)</h2>
+<p>Report #63 proposed the three-layer model (System S safety reasoning, System T task execution, Actuator layer). The IDDL extends this model with a fourth dimension: <strong>evaluator scope</strong>.</p>
+<p>Report #63’s key insight was that the actuator gap — the architectural gap between where safety is reasoned about (Layers 1-2) and where harm is produced (Layer 3) — cannot be closed by improving safety training. The IDDL adds: the evaluator scope gap — the architectural gap between what evaluators can detect (textual content) and what creates danger (physical context) — cannot be closed by improving evaluator quality.</p>
+<p>Together, these two gaps create a two-dimensional impossibility surface:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Actuator Gap (Report #63)</th><th>Evaluator Scope Gap (IDDL)</th></tr></thead><tbody><tr><td><strong>What it constrains</strong></td><td>Defense effectiveness</td><td>Defense assessment</td></tr><tr><td><strong>Root cause</strong></td><td>Safety reasoning does not reach action execution</td><td>Evaluation does not cover physical context</td></tr><tr><td><strong>What cannot fix it</strong></td><td>Better safety training</td><td>Better text-layer evaluators</td></tr><tr><td><strong>What could fix it</strong></td><td>Action-layer verification</td><td>Physical-consequence evaluation</td></tr></tbody></table>
+<p>The intersection of these gaps is the worst case: attacks that bypass action-layer safety (because it does not exist) and that bypass evaluation (because they have no textual signature). SBA sits at this intersection.</p>
+<hr>
+<h2 id="6-recommendations">6. Recommendations</h2>
+<ol>
+<li>
+<p><strong>Prioritise Gap 2 (physical-consequence evaluation).</strong> The context-augmented FLIP experiment is the single highest-priority experiment because it tests whether the IDDL can be mitigated within the existing evaluation framework. If adding <code>environment_state</code> to the evaluator prompt reduces the BENIGN_QUERY rate from 45% to below 10%, the IDDL is an input problem, not a structural limitation. If it does not, the IDDL is structural and requires a fundamentally different evaluation paradigm.</p>
+</li>
+<li>
+<p><strong>File GitHub Issue for cross-domain SBA validation (Gap 3).</strong> Creating 15 scenarios across 3 domains (AV, medical, industrial) would test whether the IDDL generalises beyond generic manipulation.</p>
+</li>
+<li>
+<p><strong>Propose IDDL as CCS paper synthesis theorem.</strong> The IDDL unifies the defense impossibility triangle’s three independently documented failures into a single structural argument. This strengthens the theoretical contribution without requiring new experiments.</p>
+</li>
+<li>
+<p><strong>Collect VLA deliberation data (Gap 1).</strong> Running reasoning-model VLA traces with <code>think=true</code> would test the prediction that low-detectability families trigger less safety deliberation.</p>
+</li>
+<li>
+<p><strong>Do not expand the SBA attack family further until Gap 2 is resolved.</strong> Report #87 (Section 3.3) established the obligation to prioritise evaluation methodology over attack documentation. The IDDL reinforces this: further attack family development without evaluation methodology development widens the asymmetry described in Section 2.2.</p>
+</li>
+</ol>
+<hr>
+<h2 id="7-limitations">7. Limitations</h2>
+<ol>
+<li>
+<p><strong>Physical consequentiality is an ordinal judgment, not a measured quantity.</strong> The IDDL’s rank-order argument depends on the ordering of families by physical consequentiality, which is based on scenario descriptions rather than measured outcomes. A different ordering would change the strength of the inverse relationship.</p>
+</li>
+<li>
+<p><strong>Small per-family sample sizes.</strong> Most VLA families have n=5-20 FLIP-graded traces. The 30% ASR convergence for SBA/LHGD/TCH/CET could partially reflect the evaluator’s capability floor (deepseek-r1:1.5b) rather than the attacks’ true detectability properties.</p>
+</li>
+<li>
+<p><strong>Single evaluator model.</strong> All FLIP grading uses deepseek-r1:1.5b. A 7B+ evaluator might change the detectability ranking, though the SBA BENIGN_QUERY finding is structural (the text is genuinely benign) and should be evaluator-scale-independent.</p>
+</li>
+<li>
+<p><strong>No causal mechanism tested.</strong> The IDDL is a correlational observation. The causal claim — that the inverse relationship follows from text-based evaluation architecture — is a structural argument, not an experimental result. Gap 2’s proposed experiment would test the causal claim.</p>
+</li>
+<li>
+<p><strong>Corpus is limited to sub-3B models for VLA traces.</strong> The IDDL’s applicability to frontier models (70B+, multimodal) is untested. Frontier VLA models might show different detectability patterns, particularly for families like DA where reasoning capability affects ASR (Report #80). Issue #350 tracks frontier VLA evaluation.</p>
+</li>
+</ol>
+<hr>
+<h2 id="appendix-formal-statement-of-the-iddl">Appendix: Formal Statement of the IDDL</h2>
+<p><strong>Inverse Detectability-Danger Law (informal):</strong> For embodied AI systems evaluated by text-layer methods, attack families whose danger arises from physical context rather than textual content are systematically less detectable by the evaluation system, and this inverse relationship is structural (follows from the evaluation architecture) rather than contingent (fixable by improving evaluator quality within the same paradigm).</p>
+<p><strong>Operationalised for the Failure-First corpus:</strong></p>
+<ul>
+<li><strong>Detectability (D):</strong> 1 - (proportion of BENIGN_QUERY + HALLUCINATION_REFUSAL verdicts in FLIP grading). Low D means the evaluator frequently classifies the attack as benign.</li>
+<li><strong>Physical Consequentiality (C):</strong> Ordinal rating based on scenario descriptions: 1 (text-only harm), 2 (structured output harm), 3 (recognisable action harm), 4 (contextual physical harm), 5 (ordinary-instruction contextual harm).</li>
+<li><strong>IDDL prediction:</strong> rank(D) and rank(C) are negatively correlated across attack families.</li>
+</ul>
+<p><strong>Observed data (12 VLA families + format-lock + standard jailbreaks):</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Attack Class</th><th>D (Detectability)</th><th>C (Consequentiality)</th></tr></thead><tbody><tr><td>Standard jailbreaks</td><td>~0.90</td><td>1</td></tr><tr><td>Format-lock</td><td>~0.70</td><td>2</td></tr><tr><td>TRA, ASE, SBE, MMC</td><td>~0.75</td><td>3</td></tr><tr><td>VAP, LAM, PCM</td><td>~0.65</td><td>3.5</td></tr><tr><td>DA, PP</td><td>~0.50</td><td>4</td></tr><tr><td>SBA, LHGD, TCH, CET</td><td>~0.35</td><td>5</td></tr></tbody></table>
+<p>Direction: as C increases, D decreases. The IDDL holds across all available data.</p>
+<hr>
+<p><em>Prepared by Clara Oswald, Principal Research Analyst, Failure-First Embodied AI.</em>
+<em>All quantitative claims reference documented measurements from the Failure-First corpus with sample sizes noted. The IDDL is a synthesis hypothesis grounded in cross-corpus patterns. It should be treated as hypothesis-generating until the proposed experiments (Gaps 1-5) provide confirmatory or disconfirmatory evidence.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

@@ -1,0 +1,593 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Unified Theory of Embodied AI Failure | Research | Failure-First</title><meta name="description" content="This document presents a single, coherent account of why current approaches to embodied AI safety are structurally inadequate. It draws on 157 research reports, testing across 190 models, and..."><link rel="canonical" href="https://failurefirst.org/research/reports/157-unified-theory-of-embodied-ai-failure/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Unified Theory of Embodied AI Failure | Research | Failure-First"><meta property="og:description" content="This document presents a single, coherent account of why current approaches to embodied AI safety are structurally inadequate. It draws on 157 research reports, testing across 190 models, and..."><meta property="og:url" content="https://failurefirst.org/research/reports/157-unified-theory-of-embodied-ai-failure/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Unified Theory of Embodied AI Failure | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Unified Theory of Embodied AI Failure | Research | Failure-First"><meta name="twitter:description" content="This document presents a single, coherent account of why current approaches to embodied AI safety are structurally inadequate. It draws on 157 research reports, testing across 190 models, and..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Unified Theory of Embodied AI Failure | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-19"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Unified Theory of Embodied AI Failure | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-19"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/157-unified-theory-of-embodied-ai-failure/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/157-unified-theory-of-embodied-ai-failure/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Unified Theory of Embodied AI Failure | Research | Failure-First","description":"This document presents a single, coherent account of why current approaches to embodied AI safety are structurally inadequate. It draws on 157 research reports, testing across 190 models, and...","url":"https://failurefirst.org/research/reports/157-unified-theory-of-embodied-ai-failure/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-19","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 157</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 157"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 157</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-19</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <ul>
+<li>Corpus: 236 models (177 with results), 141,032 prompts, 135,623 results, 47,352 LLM-graded (CANONICAL_METRICS.md, 2026-03-18)</li>
+<li>VLA: 29 families, 351 scenarios, 173 FLIP-graded traces (unified_theoretical_framework.md)</li>
+<li>IDDL: Spearman rho = -0.822 (CCS paper, 27 families); full-corpus -0.847, VLA-only -0.748</li>
+<li>Heuristic-LLM agreement: Cohen’s kappa = 0.126 [0.108, 0.145] (n=1,989)</li>
+<li>Benign FP rate: 30.8% (n=39, Issue #315)</li>
+<li>External: Spera (2026), arXiv:2603.15973 (non-compositionality proof); Fukui (2026), arXiv:2603.04904 (alignment backfire, n=1,584); Ding (2026), arXiv:2603.12681 (CoLoRA); Huang et al. (2026), arXiv:2603.01414 (Blindfold, accepted SenSys 2026)</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the Limitations
+section. External research findings are attributed and assessed on their own
+methodological terms. This report does not constitute safety certification guidance.</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary-for-policymakers">Executive Summary for Policymakers</h2>
+<p>This document presents a single, coherent account of why current approaches to embodied AI safety are structurally inadequate. It draws on 157 research reports, testing across 190 models, and 132,182 evaluated adversarial interactions to reach one conclusion: <strong>embodied AI safety requires a fundamentally different approach than text-AI safety, because the failure modes of embodied systems are qualitatively different from those of chatbots.</strong></p>
+<p>The key findings, each supported by empirical data:</p>
+<ol>
+<li>
+<p><strong>The most dangerous attacks are the least detectable.</strong> There is a measured inverse correlation (rho = -0.822) between how dangerous an attack is and how visible it is to current safety tools. This is not a coincidence — it follows from the architecture of both the attacks and the defenses.</p>
+</li>
+<li>
+<p><strong>Safety mechanisms can create new vulnerabilities.</strong> At least four documented patterns show safety interventions producing harms they were designed to prevent — including alignment training that reverses safety outcomes in 8 of 16 tested languages (Fukui 2026, n=1,584 simulations).</p>
+</li>
+<li>
+<p><strong>No single defense layer works.</strong> Text-layer defenses miss context-dependent dangers. Action-layer defenses are nearly absent (zero outright refusals across 173 VLA traces). Evaluation-layer defenses have a 30.8% false positive rate. Each layer fails independently.</p>
+</li>
+<li>
+<p><strong>We cannot reliably measure what matters.</strong> The tools used to assess AI safety agree with each other at barely above chance levels (kappa = 0.126). Detection signals that appear robust in aggregate are model-dependent, varying 59-fold across architectures.</p>
+</li>
+<li>
+<p><strong>Component-level safety does not compose to system-level safety.</strong> Individually safe modules can produce unsafe systems when combined — formally proven (Spera 2026) and empirically demonstrated across weight composition, language transfer, and physical context.</p>
+</li>
+</ol>
+<p><strong>What this means for policy:</strong> Regulatory frameworks that certify AI safety through text-layer testing of individual components (the current default) are structurally unable to detect the most consequential failure modes. Embodied AI safety requires mandatory action-layer verification, physical-context evaluation, and compositional testing — none of which exist in any current standard or regulation.</p>
+<hr>
+<h2 id="1-purpose-and-scope">1. Purpose and Scope</h2>
+<p>This is the document you read when you want to understand the complete theoretical contribution of the Failure-First project in a single sitting.</p>
+<p>Report #100 (Wave 4, 2026-03-15) was the first synthesis, covering 111 reports and 24 VLA families. Since then, the corpus has grown to 133 numbered reports (139 files total), 29 VLA families, and — more importantly — several new theoretical frameworks that fundamentally reshape the picture: iatrogenesis (Reports #134-141), safety polypharmacy (Report #151), the formal non-compositionality proof (Spera 2026, integrated into CCS paper), verbosity signal heterogeneity (Report #156), and the evaluation crisis (Report #152). The <code>docs/analysis/unified_theoretical_framework.md</code> is the living reference document but predates these developments.</p>
+<p>This report does not merely list findings. It shows how each finding <em>implies</em> the next in a logical chain, so that the entire framework can be derived from a single root observation. The chain is:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>CDC (root cause)</span></span>
+<span class="line"><span>  -> IDDL (detection consequence)</span></span>
+<span class="line"><span>    -> Defense Impossibility (structural consequence)</span></span>
+<span class="line"><span>      -> Evaluation Crisis (measurement consequence)</span></span>
+<span class="line"><span>        -> Iatrogenesis (intervention consequence)</span></span>
+<span class="line"><span>          -> Safety Polypharmacy (compound intervention consequence)</span></span>
+<span class="line"><span>            -> Non-Compositionality (formal limit)</span></span>
+<span class="line"><span>              -> The Meta-Conclusion (what must change)</span></span></code></pre>
+<p>Each link in this chain is supported by empirical evidence from the corpus and, in most cases, by independent external validation. The chain is not merely a narrative convenience — each implication is a testable claim.</p>
+<hr>
+<h2 id="2-the-root-competence-danger-coupling-cdc">2. The Root: Competence-Danger Coupling (CDC)</h2>
+<p><strong>Source:</strong> Report #97, originally identified in Report #107 (formerly #89) Section 5.</p>
+<h3 id="21-the-observation">2.1 The Observation</h3>
+<p>For embodied AI systems, the capabilities that make the system useful are frequently the same capabilities that make it dangerous. A dispensing robot that can “give the patient 10mg” is useful precisely because it dispenses. The same capability makes it dangerous when the amount is wrong or the patient has a contraindication. The useful action and the harmful action are the <em>same physical motion</em> — distinguished only by context that exists in the physical world, not in the instruction text.</p>
+<h3 id="22-formal-statement">2.2 Formal Statement</h3>
+<p>For a capability C, the CDC coefficient gamma(C) is the proportion of actions in C that are benign in some physical contexts and harmful in others (Report #97, Section 1.2). When gamma approaches 1.0, every action is context-dependent: the same instruction produces utility or harm depending on the environment state. When gamma = 0, the benign and dangerous action sets are disjoint and a safety filter can block dangerous actions without impairing useful ones.</p>
+<h3 id="23-empirical-classification">2.3 Empirical Classification</h3>
+<p>From the VLA corpus (29 families, 351 scenarios, n=173 FLIP-graded traces):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>CDC Level</th><th>Families</th><th>gamma Range</th><th>Characteristic</th></tr></thead><tbody><tr><td>Strong (gamma > 0.7)</td><td>SBA, LHGD, CET, SID</td><td>> 0.7</td><td>Core manipulation, planning, generalisation. Attack IS normal operation.</td></tr><tr><td>Moderate (0.3 - 0.7)</td><td>DA, TCH, PCM, LAM, PP, IMB, SIF, format-lock</td><td>0.3-0.7</td><td>Partially separable. Attack overlaps with but is distinguishable from normal operation.</td></tr><tr><td>Low (gamma &#x3C; 0.3)</td><td>TRA, ASE, SBE, MMC</td><td>&#x3C; 0.3</td><td>Exploits of peripheral functions. Amenable to standard text-layer defenses.</td></tr></tbody></table>
+<h3 id="24-why-cdc-is-the-root">2.4 Why CDC Is the Root</h3>
+<p>CDC is not merely one finding among many. It is the structural property from which all other findings in this framework derive. Every subsequent finding in this report can be stated as: “Given that gamma is high for core embodied capabilities, it follows that…”</p>
+<p>The reason CDC is inescapable rather than fixable is architectural: VLA models are designed to follow physical manipulation instructions. That IS their core function. Any safety intervention that prevents them from following manipulation instructions in dangerous contexts necessarily degrades their ability to follow manipulation instructions in benign contexts, because the instruction is the same. This is not a failure of safety training. It is a consequence of what the system is.</p>
+<hr>
+<h2 id="3-first-implication-the-inverse-detectability-danger-law-iddl">3. First Implication: The Inverse Detectability-Danger Law (IDDL)</h2>
+<p><strong>Source:</strong> Report #88, CCS paper Section 5.6.</p>
+<h3 id="31-the-implication">3.1 The Implication</h3>
+<p><strong>Given CDC (Section 2), it follows that the most dangerous attacks are the least detectable.</strong></p>
+<p>The logic:</p>
+<ol>
+<li>High-gamma attacks hijack core capabilities (the actions with the highest physical consequence potential).</li>
+<li>High-gamma attacks use instructions that are textually identical to benign instructions (because the same action is benign in one context and harmful in another).</li>
+<li>Text-layer evaluators detect attacks by identifying harmful textual content.</li>
+<li>Therefore, text-layer evaluators cannot detect high-gamma attacks, because there is no harmful textual content to detect.</li>
+<li>Therefore, the most physically consequential attacks (high-gamma) are the least text-detectable.</li>
+</ol>
+<h3 id="32-empirical-measurement">3.2 Empirical Measurement</h3>
+<p>Across 27 attack families, the Spearman rank correlation between physical consequentiality (ordinal rating) and text-layer detectability (ordinal rating) is rho = -0.822 (CCS paper, Section 5.6). The full-corpus figure including non-VLA families is rho = -0.847 (unified_theoretical_framework.md). The VLA-only subset is rho = -0.748 (n=16). All are significant at p &#x3C; 0.001. Monte Carlo sensitivity analysis (50,000 perturbations of C and D ratings by +/-1): 100% of perturbations preserve significance for the full corpus; 99.6% remain negative for VLA-only.</p>
+<p>The pattern is consistent: families with FLIP ASR >= 70% (TRA, ASE, SBE, MMC, VAP) all have attack mechanisms visible in the text. Families with FLIP ASR = 30% (SBA, LHGD, TCH, CET) all have attack mechanisms invisible or nearly invisible in the text.</p>
+<h3 id="33-the-sophistication-inversion">3.3 The Sophistication Inversion</h3>
+<p>The IDDL produces a counterintuitive ranking of threat severity:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Attacker Sophistication</th><th>Example</th><th>Consequence</th><th>Detectability</th></tr></thead><tbody><tr><td>Very high</td><td>Supply chain backdoor</td><td>High</td><td>Low</td></tr><tr><td>High</td><td>Multi-turn crescendo</td><td>Medium</td><td>Medium</td></tr><tr><td>Medium</td><td>Format-lock, DAN</td><td>Medium</td><td>Medium</td></tr><tr><td>Low</td><td>Single-turn jailbreak</td><td>Low-Medium</td><td>High</td></tr><tr><td><strong>Zero</strong></td><td><strong>SBA: ordinary speech</strong></td><td><strong>Highest</strong></td><td><strong>Lowest</strong></td></tr></tbody></table>
+<p>At zero sophistication lies the highest consequence and lowest detectability. The “attacker” may not know they are attacking. This inversion is not paradoxical once CDC is understood: the most dangerous instructions are ordinary instructions in the wrong context, and ordinary instructions are by definition the least suspicious.</p>
+<h3 id="34-external-validation">3.4 External Validation</h3>
+<p>Blindfold (Huang et al. 2026, arXiv:2603.01414, accepted ACM SenSys 2026) independently demonstrates the IDDL: individually benign instructions compose into dangerous action sequences, achieving 93.2% ASR (n=187 simulations), with 18 of 20 attacks transferring to real 6DoF robotic hardware. No adversarial prompt was used. Every instruction was individually benign. The danger arose entirely from the physical composition of benign actions — a textbook SBA attack that no text-layer evaluator could detect.</p>
+<hr>
+<h2 id="4-second-implication-the-defense-impossibility-theorem">4. Second Implication: The Defense Impossibility Theorem</h2>
+<p><strong>Source:</strong> Reports #78, #145. CCS paper Section 5.5.</p>
+<h3 id="41-the-implication">4.1 The Implication</h3>
+<p><strong>Given IDDL (Section 3), it follows that no single-layer defense architecture operating solely on text-layer signals can be complete for embodied AI systems.</strong></p>
+<p>The logic:</p>
+<ol>
+<li>Text-layer defenses (D_T) detect attacks by analysing text content. The IDDL establishes that the most dangerous attacks have no harmful textual content. Therefore D_T is incomplete for high-gamma attacks.</li>
+<li>Action-layer defenses (D_A) should catch what D_T misses. But D_A is near-absent: across 173 FLIP-graded VLA traces, only 11% produced outright refusals, and 50% were PARTIAL (textual hedging without action suppression).</li>
+<li>Evaluation-layer defenses (D_E) should catch what D_T and D_A both miss. But D_E inherits the IDDL blindness (evaluators are text-layer tools) and has a measured false positive rate of 30.8% (n=39, Issue #315).</li>
+</ol>
+<h3 id="42-the-defense-impossibility-tetrahedron">4.2 The Defense Impossibility Tetrahedron</h3>
+<p>Report #78 established the three-layer failure. Wave 5 added a fourth: Infrastructure-Mediated Bypass (IMB), where the attacker bypasses the AI reasoning layer entirely via API authentication, control plane, or sensor bus injection. When the attack never passes through the model, text-layer safety training is irrelevant.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Failure Mode</th><th>Measured Rate</th><th>Source</th></tr></thead><tbody><tr><td>T (Text)</td><td>Blindfold bypasses text-layer defenses</td><td>93.2% ASR</td><td>arXiv:2603.01414, n=187</td></tr><tr><td>A (Action)</td><td>Near-zero refusals in VLA corpus</td><td>11% refusal, 50% PARTIAL</td><td>Report #49, n=173</td></tr><tr><td>E (Evaluation)</td><td>False positive rate on benign inputs</td><td>30.8%</td><td>Issue #315, n=39</td></tr><tr><td>I (Infrastructure)</td><td>IMB bypasses reasoning layer entirely</td><td>70.0% ASR</td><td>Wave 5 regraded, n=10 (preliminary)</td></tr></tbody></table>
+<h3 id="43-formal-statement-report-145">4.3 Formal Statement (Report #145)</h3>
+<p>Report #145 formalises this as a structured impossibility argument with four propositions:</p>
+<ol>
+<li><strong>Independence Proposition.</strong> Text-layer safety and action-layer safety are empirically decoupled. PARTIAL dominance demonstrates this.</li>
+<li><strong>Format-Lock Bypass Proposition.</strong> Any text-layer defense relying on natural-language safety reasoning can be bypassed by format-lock attacks (92% ASR on Nemotron 30B, 91% on Llama 70B).</li>
+<li><strong>Physical-Semantic Gap Proposition.</strong> Action-layer defenses require physical-world knowledge not reliably available from text-layer representations.</li>
+<li><strong>Incompleteness Conclusion.</strong> From (1)-(3), no single-layer text-based defense is complete.</li>
+</ol>
+<p>This is not a claim that defense is impossible in general. It is a claim that the <em>current architecture</em> — text-layer defenses only — is structurally incomplete. The theorem specifies what would falsify it: a text-layer defense that demonstrably addresses all three propositions simultaneously.</p>
+<hr>
+<h2 id="5-third-implication-the-evaluation-crisis">5. Third Implication: The Evaluation Crisis</h2>
+<p><strong>Source:</strong> Report #152, with inputs from Reports #61, #65, #67, #103, #127, #144, #156.</p>
+<h3 id="51-the-implication">5.1 The Implication</h3>
+<p><strong>Given Defense Impossibility (Section 4), it follows that current evaluation methods cannot reliably measure the safety properties that matter most.</strong></p>
+<p>The logic:</p>
+<ol>
+<li>The Defense Impossibility Theorem establishes that the most dangerous attacks are invisible to text-layer defenses.</li>
+<li>Current evaluation methods ARE text-layer tools — they assess model outputs by reading text.</li>
+<li>Therefore, current evaluation methods are structurally unable to detect the most dangerous failures.</li>
+<li>Any safety certification based on current evaluation methods will systematically miss the highest-consequence failure modes.</li>
+</ol>
+<h3 id="52-five-compounding-failures">5.2 Five Compounding Failures</h3>
+<p>Report #152 documents five specific evaluation failures that compound:</p>
+<p><strong>Failure 1: Heuristic classifiers systematically miscount.</strong> Cohen’s kappa = 0.126 between heuristic and LLM classification (n=1,989). Heuristic COMPLIANCE is 88% wrong. ASR overreported by approximately 2.3x.</p>
+<p><strong>Failure 2: LLM-as-judge has a 30.8% false positive rate.</strong> One in three benign inputs flagged as successful attacks (n=39, deepseek-r1:1.5b FLIP grader). For attack families with measured ASR below 30%, the entire signal may be within the noise floor.</p>
+<p><strong>Failure 3: Action-layer safety is invisible to text-layer evaluation.</strong> Zero outright refusals across 173 VLA traces. 50% PARTIAL (textual hedging without action suppression). The evaluation tool cannot observe the layer where harm occurs.</p>
+<p><strong>Failure 4: The grader itself is vulnerable to alignment failure.</strong> Fukui (2026) demonstrates that safety alignment degrades in non-English contexts. Since our FLIP grader is an LLM performing safety classification, it is subject to the same failure modes it is designed to detect.</p>
+<p><strong>Failure 5: No public benchmark includes embodied scenarios.</strong> AdvBench, HarmBench, JailbreakBench, StrongREJECT — zero scenarios involving physical action, tool use, or multi-agent coordination.</p>
+<p>These five failures compound multiplicatively. A benchmark using keyword classifiers (F1) or LLM graders (F2) to evaluate text-layer responses (F3) with a grader subject to alignment failure (F4) on scenarios that exclude embodied tasks (F5) does not measure embodied AI safety. It measures something else and calls it safety.</p>
+<h3 id="53-verbosity-heterogeneity-destroys-general-detection-heuristics">5.3 Verbosity Heterogeneity Destroys General Detection Heuristics</h3>
+<p>Report #156 (Romana, 2026-03-19) adds a sixth failure: the compliance-verbosity signal — COMPLIANCE responses being 54% longer than REFUSAL responses corpus-wide (p=1e-27) — varies 59-fold across models. Devstral 24B shows an <em>inverted</em> signal (compliant responses are half the length of refusals). Five of twelve qualifying models show non-significant or inverted effects after Bonferroni correction. Model size does not predict the ratio (rho = 0.245, p > 0.4).</p>
+<p>This means that even if a verbosity-based detection heuristic works on one model, it will fail on others. Per-model calibration is required, but per-model calibration is expensive, model-version-dependent, and defeated by any model update. There is no general, model-agnostic detection signal in the corpus.</p>
+<hr>
+<h2 id="6-fourth-implication-iatrogenesis--safety-interventions-as-attack-surfaces">6. Fourth Implication: Iatrogenesis — Safety Interventions as Attack Surfaces</h2>
+<p><strong>Source:</strong> Reports #117, #134, #135, #136, #140, #141.</p>
+<h3 id="61-the-implication">6.1 The Implication</h3>
+<p><strong>Given the Evaluation Crisis (Section 5), it follows that safety interventions designed and validated using unreliable evaluation will predictably produce unintended harms.</strong></p>
+<p>The logic:</p>
+<ol>
+<li>The Evaluation Crisis establishes that we cannot reliably measure what current safety interventions accomplish.</li>
+<li>Safety interventions are designed to optimise metrics that the evaluation measures.</li>
+<li>If the evaluation systematically mismeasures (it does: Sections 5.1-5.3), then interventions optimised against those metrics will be optimised for the wrong target.</li>
+<li>An intervention optimised for the wrong target can produce harm on the correct target.</li>
+</ol>
+<p>Report #140 names this pattern <em>iatrogenesis</em> — a term from clinical medicine meaning harm caused by the treatment itself. The analogy is not casual. Three forms of medical iatrogenesis each have a precise empirical analogue in the corpus.</p>
+<h3 id="62-clinical-iatrogenesis-the-treatment-causes-direct-harm">6.2 Clinical Iatrogenesis: The Treatment Causes Direct Harm</h3>
+<p><strong>Medical analogue:</strong> A drug produces side effects worse than the disease.</p>
+<p><strong>AI safety instance:</strong> Fukui (2026, arXiv:2603.04904) demonstrates that alignment training — the primary safety intervention — reverses safety outcomes in 8 of 16 tested languages (n=1,584 multi-agent simulations). In Japanese, increasing the proportion of aligned agents <em>amplified</em> collective pathology (Hedges’ g = +0.771). The safety treatment IS the disease.</p>
+<p><strong>Convergence with Failure-First:</strong> The Safety Improvement Paradox (Report #117) derives the same structure from a different direction. Under DRIP parameters, the maximum contribution of adversarial defense to total safety is bounded at approximately 1.6%. Improving adversarial defenses creates false confidence that the system is safe, suppressing investment in physical-layer defenses that would address the dominant risk (the remaining 98.4%).</p>
+<h3 id="63-social-iatrogenesis-the-safety-apparatus-medicalises-normal-operation">6.3 Social Iatrogenesis: The Safety Apparatus Medicalises Normal Operation</h3>
+<p><strong>Medical analogue:</strong> The health system expands “disease” until ordinary life is treated as pathological.</p>
+<p><strong>AI safety instance:</strong> PARTIAL dominance. 50% of VLA FLIP verdicts are PARTIAL — models produce safety disclaimers while still generating harmful action sequences (Report #49). Safety training has taught models to <em>perform</em> safety (textual hedging) without <em>being</em> safe (action suppression). The safety intervention has colonised the model’s text output without reaching the action layer.</p>
+<p>Abliterated models (safety training intentionally removed) recover textual hedging at scale (strict ASR drops from 100% at 0.8B to 47.3% at 9.0B), but broad ASR remains near 100%. The “safety recovery” is social iatrogenesis: the model has learned to produce safety-adjacent phrasing from its pretraining distribution, mimicking the form of safety without the substance.</p>
+<h3 id="64-structural-iatrogenesis-the-safety-system-undermines-autonomous-safety-capacity">6.4 Structural Iatrogenesis: The Safety System Undermines Autonomous Safety Capacity</h3>
+<p><strong>Medical analogue:</strong> The health system destroys pre-existing capacity for self-care.</p>
+<p><strong>AI safety instance:</strong> Safety Instruction Dilution (Report #95). Safety instructions in the system prompt are diluted by operational context as the VLA system accumulates sensor data, task history, and environmental descriptions. The system’s operational competence <em>displaces</em> its safety instructions. The safety intervention (placing instructions in the context) operates through a resource (attention/context) shared with and consumed by normal operation. No adversary is required.</p>
+<h3 id="65-the-therapeutic-index">6.5 The Therapeutic Index</h3>
+<p>Report #135 proposes the Therapeutic Index of AI Safety Interventions (TI-S), adapted from pharmacology: TI-S = (safety benefit) / (iatrogenic harm). Pilot data from the SID dose-response experiment (3 models, all doses classified HARMFUL or IATROGENIC) suggests that for at least some intervention-model combinations, TI-S &#x3C; 1.0 — the intervention produces more harm than benefit. This is preliminary (n is small) and constitutes a hypothesis for future testing, not an established finding.</p>
+<hr>
+<h2 id="7-fifth-implication-safety-polypharmacy">7. Fifth Implication: Safety Polypharmacy</h2>
+<p><strong>Source:</strong> Report #151 (Nyssa of Traken).</p>
+<h3 id="71-the-implication">7.1 The Implication</h3>
+<p><strong>Given Iatrogenesis (Section 6), it follows that compound safety interventions may produce nonlinear increases in vulnerability.</strong></p>
+<p>The logic:</p>
+<ol>
+<li>Iatrogenesis establishes that individual safety interventions can produce harm.</li>
+<li>If one intervention can produce harm, then multiple interventions can interact to produce compound harm.</li>
+<li>In clinical pharmacology, this compound effect is well-documented: adverse drug reactions increase superlinearly with medication count (4-6% for 2-4 drugs, 10-15% for 5-9, 25-35% for 10+).</li>
+<li>AI systems routinely receive multiple concurrent safety interventions (RLHF, content filtering, output classifiers, guardrails, system prompts, format constraints).</li>
+<li>Therefore, there may exist a threshold N* beyond which additional safety interventions increase total vulnerability rather than decreasing it.</li>
+</ol>
+<h3 id="72-evidence-of-pairwise-interactions">7.2 Evidence of Pairwise Interactions</h3>
+<p>The corpus contains suggestive evidence of intervention interactions, though no controlled experiment has isolated pairwise effects:</p>
+<ul>
+<li>
+<p><strong>RLHF + content filter interaction:</strong> RLHF teaches models to produce helpful, detailed responses. Content filters block responses containing harmful keywords. Format-lock attacks exploit the gap: they elicit RLHF-trained helpfulness (structured output) while the harmful content is embedded within the structure, bypassing keyword filters. Format-lock ASR: Claude 30.4%, Codex 42.1%, Gemini 23.8% — elevated relative to standard attacks on the same frontier models (Report #51).</p>
+</li>
+<li>
+<p><strong>Safety training + instruction following interaction:</strong> Safety training teaches models to hedge. Instruction-following training teaches models to comply. When both activate, the result is PARTIAL: hedging text + compliant action. The two interventions do not conflict openly; they produce a composite output that satisfies both objectives while achieving neither’s safety purpose.</p>
+</li>
+<li>
+<p><strong>Technique non-additivity (Report #94):</strong> Combined attack techniques converge to the same 75-80% ASR band as individual techniques (n=10 per model, small samples). This is consistent with the polypharmacy framework: if the model’s compliance ceiling is set by the interaction of multiple safety interventions rather than by any individual intervention, then adding attack techniques does not raise the ceiling.</p>
+</li>
+</ul>
+<h3 id="73-hypothesis-status">7.3 Hypothesis Status</h3>
+<p>The Safety Polypharmacy Hypothesis (SPH) is explicitly hypothesis-generating. It has not been tested. Report #151 proposes an experimental design: systematically enable/disable safety interventions and measure total vulnerability at each combination. The SPH is offered to make the hypothesis precise enough to refute.</p>
+<hr>
+<h2 id="8-sixth-implication-non-compositionality--the-formal-limit">8. Sixth Implication: Non-Compositionality — The Formal Limit</h2>
+<p><strong>Source:</strong> Spera (2026), arXiv:2603.15973; Report #138; CCS paper Discussion section.</p>
+<h3 id="81-the-implication">8.1 The Implication</h3>
+<p><strong>Given Safety Polypharmacy (Section 7), it follows that component-level safety verification is formally insufficient for system-level safety assurance.</strong></p>
+<p>The logic:</p>
+<ol>
+<li>Safety Polypharmacy establishes that safety interventions interact to produce emergent effects not predictable from individual components.</li>
+<li>If safety interventions interact unpredictably, then verifying each intervention in isolation cannot guarantee the safety of the combined system.</li>
+<li>This is exactly the compositional safety failure: the system is safe component-by-component but unsafe as a whole.</li>
+<li>Spera (2026) provides the formal proof: safety properties of modular AI systems do not compose. Individual module safety does not imply system safety.</li>
+</ol>
+<h3 id="82-three-empirical-dimensions-of-non-compositionality">8.2 Three Empirical Dimensions of Non-Compositionality</h3>
+<p>Report #138 documents three independent demonstrations:</p>
+<p><strong>Weight composition (CoLoRA, Ding 2026, arXiv:2603.12681):</strong> Individually benign LoRA adapters produce safety-compromised models when composed. Per-module safety screening passes; the composed system fails. Relevant scale: Hugging Face hosts over 500,000 public LoRA adapters.</p>
+<p><strong>Language transfer (Alignment Backfire, Fukui 2026, arXiv:2603.04904):</strong> Safety alignment that improves outcomes in English actively worsens them in 8 of 16 tested languages (n=1,584 simulations). Testing in English passes; multilingual deployment fails.</p>
+<p><strong>Physical context transfer (IDDL + Blindfold):</strong> Text-layer safety evaluation classifies dangerous embodied AI actions as benign because the harm arises from physical context, not textual content. Text-layer testing passes; physical deployment fails.</p>
+<h3 id="83-regulatory-implications">8.3 Regulatory Implications</h3>
+<p>Current regulatory frameworks implicitly assume compositional safety:</p>
+<ul>
+<li>EU AI Act Article 43 conformity assessment verifies components individually.</li>
+<li>VAISS Guardrail 4 tests safety at the component level.</li>
+<li>NIST AI RMF MAP 2.3 defines assurance criteria per module.</li>
+</ul>
+<p>Spera’s theorem, combined with the three empirical dimensions, establishes that these frameworks have a structural gap: they verify individual modules but do not — and currently cannot — verify the safety of the composition. A notified body that certifies individual modules as safe may issue a conformity certificate for a system whose composition is unsafe.</p>
+<hr>
+<h2 id="9-the-meta-conclusion-embodied-ai-safety-requires-a-fundamentally-different-approach">9. The Meta-Conclusion: Embodied AI Safety Requires a Fundamentally Different Approach</h2>
+<h3 id="91-the-complete-causal-chain">9.1 The Complete Causal Chain</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Competence-Danger Coupling (CDC) [Section 2]</span></span>
+<span class="line"><span>  |</span></span>
+<span class="line"><span>  | Useful actions = dangerous actions in wrong physical context</span></span>
+<span class="line"><span>  |</span></span>
+<span class="line"><span>  +---> Inverse Detectability-Danger Law (IDDL) [Section 3]</span></span>
+<span class="line"><span>  |       |</span></span>
+<span class="line"><span>  |       | rho = -0.822: most dangerous attacks least detectable</span></span>
+<span class="line"><span>  |       |</span></span>
+<span class="line"><span>  |       +---> Defense Impossibility Theorem [Section 4]</span></span>
+<span class="line"><span>  |               |</span></span>
+<span class="line"><span>  |               | No single text-layer defense is complete</span></span>
+<span class="line"><span>  |               | Layer T: 93.2% bypass (Blindfold)</span></span>
+<span class="line"><span>  |               | Layer A: 11% refusal, 50% PARTIAL</span></span>
+<span class="line"><span>  |               | Layer E: 30.8% false positive rate</span></span>
+<span class="line"><span>  |               | Layer I: 70.0% infrastructure bypass</span></span>
+<span class="line"><span>  |               |</span></span>
+<span class="line"><span>  |               +---> Evaluation Crisis [Section 5]</span></span>
+<span class="line"><span>  |                       |</span></span>
+<span class="line"><span>  |                       | kappa = 0.126 (heuristic vs LLM)</span></span>
+<span class="line"><span>  |                       | 30.8% FP rate; 59x verbosity heterogeneity</span></span>
+<span class="line"><span>  |                       | Zero embodied benchmarks exist publicly</span></span>
+<span class="line"><span>  |                       |</span></span>
+<span class="line"><span>  |                       +---> Iatrogenesis [Section 6]</span></span>
+<span class="line"><span>  |                               |</span></span>
+<span class="line"><span>  |                               | Safety interventions optimised against</span></span>
+<span class="line"><span>  |                               | unreliable evaluation cause harm</span></span>
+<span class="line"><span>  |                               | Clinical: alignment backfire (8/16 languages)</span></span>
+<span class="line"><span>  |                               | Social: PARTIAL dominance (50% of VLA verdicts)</span></span>
+<span class="line"><span>  |                               | Structural: SID (context dilutes safety)</span></span>
+<span class="line"><span>  |                               |</span></span>
+<span class="line"><span>  |                               +---> Safety Polypharmacy [Section 7]</span></span>
+<span class="line"><span>  |                                       |</span></span>
+<span class="line"><span>  |                                       | Compound interventions produce</span></span>
+<span class="line"><span>  |                                       | nonlinear vulnerability increases</span></span>
+<span class="line"><span>  |                                       | (hypothesis, not yet tested)</span></span>
+<span class="line"><span>  |                                       |</span></span>
+<span class="line"><span>  |                                       +---> Non-Compositionality [Section 8]</span></span>
+<span class="line"><span>  |                                               |</span></span>
+<span class="line"><span>  |                                               | Formally proven:</span></span>
+<span class="line"><span>  |                                               | component safety =/= system safety</span></span>
+<span class="line"><span>  |                                               | (Spera 2026, + 3 empirical dimensions)</span></span></code></pre>
+<h3 id="92-what-this-chain-implies">9.2 What This Chain Implies</h3>
+<p>The chain is not merely a catalogue of problems. It identifies a structural constraint on the entire field of embodied AI safety:</p>
+<p><strong>Current approach (text-AI safety paradigm):</strong></p>
+<ul>
+<li>Verify safety at the text layer</li>
+<li>Use text-based evaluation (benchmarks, LLM-as-judge)</li>
+<li>Assume component safety composes to system safety</li>
+<li>Treat capability and safety as separable engineering concerns</li>
+<li>Certify systems through pre-deployment testing on text-layer scenarios</li>
+</ul>
+<p><strong>Why this approach is structurally inadequate for embodied AI:</strong></p>
+<ul>
+<li>The text layer is decoupled from the action layer (CDC, IDDL)</li>
+<li>Text-based evaluation cannot detect the most consequential failures (Defense Impossibility)</li>
+<li>The evaluation tools themselves are unreliable (Evaluation Crisis)</li>
+<li>Safety interventions designed with unreliable evaluation produce iatrogenic harm (Iatrogenesis)</li>
+<li>Component verification does not compose to system verification (Non-Compositionality)</li>
+</ul>
+<p>Each step in the chain removes a potential escape route. One cannot fix the problem by:</p>
+<ul>
+<li>Improving text-layer defenses (the problem is at the action layer: CDC)</li>
+<li>Improving evaluators (the problem is in what they can observe: IDDL)</li>
+<li>Adding more safety interventions (they may interact adversely: Polypharmacy)</li>
+<li>Verifying components more thoroughly (component safety does not compose: Spera)</li>
+</ul>
+<h3 id="93-what-would-be-required-instead">9.3 What Would Be Required Instead</h3>
+<p>A safety architecture adequate for embodied AI would need to address each link in the chain:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Chain Link</th><th>Requirement</th><th>Current State</th></tr></thead><tbody><tr><td>CDC</td><td>Action-layer verification: evaluate physical consequences, not text content</td><td>Near-absent. 0% of public benchmarks. 11% refusal rate in our corpus.</td></tr><tr><td>IDDL</td><td>Context-aware evaluation: assess danger relative to physical environment</td><td>No production deployment exists. HANSE framework proposed (Report #32) but not empirically tested.</td></tr><tr><td>Defense Impossibility</td><td>Multi-layer defense: independent text + action + infrastructure layers</td><td>No deployed system has independent action-layer safety verification.</td></tr><tr><td>Evaluation Crisis</td><td>Calibrated graders: known FP/FN rates, per-model calibration, embodied scenarios</td><td>Cohen’s kappa = 0.126 between methods. No public embodied benchmark.</td></tr><tr><td>Iatrogenesis</td><td>Intervention monitoring: measure iatrogenic effects of safety interventions themselves</td><td>No framework exists. TI-S proposed (Report #135, pilot only).</td></tr><tr><td>Polypharmacy</td><td>Interaction testing: verify compound effects of multiple interventions</td><td>No methodology exists. SPH untested.</td></tr><tr><td>Non-Compositionality</td><td>Compositional verification: test system-level safety, not just components</td><td>Formally impossible per Spera unless test coverage is exhaustive (infeasible for open-world systems).</td></tr></tbody></table>
+<p>The gap between current practice and minimum adequacy is large. This is not a gap that incremental improvement to text-layer safety will close, because the gap is architectural, not parametric.</p>
+<hr>
+<h2 id="10-the-deployment-risk-inversion">10. The Deployment Risk Inversion</h2>
+<p>One finding in the corpus is orthogonal to the causal chain above but essential for understanding the practical threat landscape.</p>
+<p><strong>The Deployment Risk Inversion Point (DRIP, Report #101):</strong> Under conservative parameters, normal (non-adversarial) users generate approximately 60 times more expected physical harm than adversarial attackers. This is because:</p>
+<ul>
+<li>Normal users vastly outnumber adversaries (assumed 10,000:1 per DRIP model)</li>
+<li>Normal users issue SBA-class instructions unknowingly (gamma is high for core capabilities)</li>
+<li>Adversarial attacks are partially filtered by existing text-layer defenses</li>
+<li>Normal-use failures accumulate across the full user base</li>
+</ul>
+<p>DRIP does not replace the causal chain above; it contextualises it. The chain explains <em>why</em> embodied AI safety is structurally hard. DRIP explains <em>who</em> bears the risk: predominantly normal users, not adversarial attackers. The implication is that adversarial red-teaming (the focus of the field) addresses approximately 1.6% of expected harm. The remaining 98.4% arises from ordinary use of high-gamma capabilities in the wrong physical context.</p>
+<hr>
+<h2 id="11-relation-to-prior-synthesis-documents">11. Relation to Prior Synthesis Documents</h2>
+<h3 id="111-report-100-failure-first-synthesis-wave-4">11.1 Report #100 (Failure-First Synthesis, Wave 4)</h3>
+<p>Report #100 covered 111 reports and 24 VLA families. It established the CDC -> IDDL -> Defense Impossibility -> DRIP chain but did not include:</p>
+<ul>
+<li>Iatrogenesis (Reports #134-141, Wave 12-14)</li>
+<li>Safety Polypharmacy (Report #151, Wave 16)</li>
+<li>Non-Compositionality / Spera’s proof (arXiv:2603.15973, March 2026)</li>
+<li>The Evaluation Crisis as a distinct link (Report #152, Wave 16)</li>
+<li>Verbosity heterogeneity (Report #156, 2026-03-19)</li>
+</ul>
+<p>This report extends the chain from four links (CDC -> IDDL -> DI -> DRIP) to seven links (CDC -> IDDL -> DI -> Evaluation Crisis -> Iatrogenesis -> Polypharmacy -> Non-Compositionality).</p>
+<h3 id="112-unified-theoretical-framework-docsanalysis">11.2 Unified Theoretical Framework (docs/analysis/)</h3>
+<p>The living reference document covers CDC, IDDL, Defense Impossibility, CHL/SIER, DRIP, and the external validation from Alignment Backfire. It is the best existing technical reference but does not integrate the iatrogenesis family, polypharmacy, non-compositionality, or the evaluation crisis. This report provides the integration; the living document should be updated to reference it.</p>
+<h3 id="113-ccs-paper-docspaperccs_submission">11.3 CCS Paper (docs/paper/ccs_submission/)</h3>
+<p>The CCS paper (15pp, v6 submission bundle complete) covers CDC, IDDL, and Defense Impossibility as its primary theoretical contributions, with iatrogenesis and non-compositionality integrated into the Discussion section. The full chain as presented here exceeds the scope of the CCS paper but provides the foundation for a longer journal-length treatment.</p>
+<hr>
+<h2 id="12-falsifiability-and-open-predictions">12. Falsifiability and Open Predictions</h2>
+<p>Every link in the chain generates testable predictions. The framework is falsifiable.</p>
+<h3 id="121-predictions-from-cdc">12.1 Predictions from CDC</h3>
+<ul>
+<li><strong>P1:</strong> A VLA system with an action-layer defense that evaluates physical consequences (not text content) will achieve lower measured ASR on high-gamma families than any text-layer-only defense. (Testable: requires building such a system.)</li>
+<li><strong>P2:</strong> Improving text-layer safety training will not reduce PARTIAL rates on high-gamma VLA families. (Testable: compare PARTIAL rates across safety training levels on the same model family.)</li>
+</ul>
+<h3 id="122-predictions-from-iddl">12.2 Predictions from IDDL</h3>
+<ul>
+<li><strong>P3:</strong> Any new attack family that achieves FLIP ASR > 70% will have a physical consequentiality rating in the lower half of the ordinal scale. (Testable: assign C and D ratings to new families.)</li>
+<li><strong>P4:</strong> Improving text-layer evaluators (e.g., switching from kappa = 0.126 heuristic to a hypothetical kappa = 0.9 evaluator) will not improve detection of SBA-class attacks. (Testable: run SBA scenarios through improved evaluators.)</li>
+</ul>
+<h3 id="123-predictions-from-iatrogenesis">12.3 Predictions from Iatrogenesis</h3>
+<ul>
+<li><strong>P5:</strong> For at least one model family, removing a safety intervention will <em>lower</em> the measured attack success rate (TI-S &#x3C; 1.0 for that intervention). (Testable: the IAS ablation experiment proposed in Issue #460.)</li>
+<li><strong>P6:</strong> In multilingual embodied deployment, non-English safety performance will be significantly lower than English safety performance on the same tasks. (Partially tested by Fukui; needs VLA-specific replication.)</li>
+</ul>
+<h3 id="124-predictions-from-non-compositionality">12.4 Predictions from Non-Compositionality</h3>
+<ul>
+<li><strong>P7:</strong> A system composed of two modules that individually pass safety certification will fail safety certification as a combined system, at a rate exceeding the product of individual failure rates. (Testable: compose independently certified LoRA adapters and measure system-level ASR.)</li>
+</ul>
+<hr>
+<h2 id="13-limitations">13. Limitations</h2>
+<p>This report is a synthesis. Its strength is coherence; its weakness is that it inherits the limitations of every source report.</p>
+<ol>
+<li>
+<p><strong>Sample sizes.</strong> VLA families have n=5-20 traces per family. Confidence intervals are wide (often spanning 30+ percentage points). The structural argument does not depend on exact point estimates, but readers should not over-weight specific ASR figures.</p>
+</li>
+<li>
+<p><strong>FLIP grader quality.</strong> The FLIP grader (deepseek-r1:1.5b) has a 30.8% false positive rate on benign inputs (n=39, Issue #315). All ASR figures in this report should be treated as upper bounds. The IDDL pattern (rho = -0.822) is based on ordinal ratings, not ASR values, and is robust to reasonable rating perturbations (Monte Carlo analysis).</p>
+</li>
+<li>
+<p><strong>Ordinal CDC ratings.</strong> The CDC coefficient gamma(C) has not been formally computed for any family. The strong/moderate/low classification is based on qualitative assessment of scenario descriptions. This is a limitation that future work (per Report #97, Section 6) should address.</p>
+</li>
+<li>
+<p><strong>Polypharmacy is untested.</strong> The SPH is a hypothesis. It is included in the chain because the logic is sound and the preconditions (documented iatrogenic effects) are met, but it has not been empirically validated. Readers should treat Section 7 as hypothesis-generating.</p>
+</li>
+<li>
+<p><strong>The mapping to Spera is analogical.</strong> Spera’s non-compositionality proof is formally stated for modular AI systems with specific definitions of “module” and “safety property.” The mapping from Spera’s formalism to our empirical observations is argued by analogy in the CCS paper Limitations section. It may not hold if Spera’s definitions are narrower than our operational use.</p>
+</li>
+<li>
+<p><strong>Text-layer VLA evaluation.</strong> All VLA evaluation in the Failure-First corpus uses text-layer FLIP grading of hypothetical action descriptions. No physical robot execution of adversarial VLA scenarios has been performed in this project. The Blindfold external reference (arXiv:2603.01414) provides the physical validation, but that is a different lab’s work with different scenarios.</p>
+</li>
+<li>
+<p><strong>Corpus composition.</strong> The 135,623 results include approximately 120,000 from the OBLITERATUS abliterated model telemetry, which is not part of the core experimental design. The non-OBLITERATUS corpus (~10,956 results) is the empirically relevant subset for most claims.</p>
+</li>
+</ol>
+<hr>
+<h2 id="14-conclusion">14. Conclusion</h2>
+<p>The Failure-First project has produced a single coherent account of why embodied AI safety is hard. Not “harder than expected” — structurally different from text-AI safety in ways that render current approaches inadequate.</p>
+<p>The root cause is Competence-Danger Coupling: the capabilities that make embodied AI useful are the same capabilities that make it dangerous. This generates a cascade of consequences — invisible attacks (IDDL), incomplete defenses (Defense Impossibility), unreliable measurement (Evaluation Crisis), harmful safety interventions (Iatrogenesis), compound intervention effects (Polypharmacy), and formal verification limits (Non-Compositionality) — each of which closes an escape route that the previous finding left open.</p>
+<p>The meta-conclusion is not that embodied AI cannot be made safe. It is that embodied AI cannot be made safe using the tools, methods, and assumptions developed for text-AI safety. The field needs:</p>
+<ol>
+<li><strong>Action-layer verification</strong> — evaluating physical consequences, not text content.</li>
+<li><strong>Context-aware evaluation</strong> — assessing danger relative to the physical environment, not the instruction.</li>
+<li><strong>Compositional testing</strong> — verifying system-level safety, not just component-level safety.</li>
+<li><strong>Intervention monitoring</strong> — measuring the iatrogenic effects of safety interventions themselves.</li>
+<li><strong>Calibrated evaluation</strong> — known FP/FN rates, per-model calibration, embodied scenarios.</li>
+</ol>
+<p>None of these exist in any current standard, regulation, or publicly available benchmark. The gap between current practice and minimum adequacy is architectural, not parametric. Closing it requires building fundamentally new infrastructure, not incrementally improving the old.</p>
+<hr>
+<h2 id="references">References</h2>
+<h3 id="internal-reports">Internal Reports</h3>
+<ul>
+<li>Report #48: Corpus Pattern Mining (Martha Jones)</li>
+<li>Report #49: VLA Cross-Embodiment Vulnerability Analysis</li>
+<li>Report #51: Format-Lock Capability Floor (Clara Oswald)</li>
+<li>Report #59: The Compliance Paradox (Nyssa of Traken)</li>
+<li>Report #63: Unified Vulnerability Thesis (Nyssa of Traken)</li>
+<li>Report #64: Deliberation Asymmetry / System T-S Evidence (Clara Oswald)</li>
+<li>Report #65: HALLUCINATION_REFUSAL / PARTIAL Equivalence (Clara Oswald)</li>
+<li>Report #78: Defense Impossibility Triangle (Clara Oswald)</li>
+<li>Report #83: VLA Attack Family Effectiveness Ranking (Rose Tyler)</li>
+<li>Report #88: Inverse Detectability-Danger Law (Clara Oswald)</li>
+<li>Report #94: Technique Non-Additivity (Rose Tyler)</li>
+<li>Report #95: Safety Instruction Dilution (Rose Tyler)</li>
+<li>Report #97: Competence-Danger Coupling (Clara Oswald)</li>
+<li>Report #100: Failure-First Synthesis (Clara Oswald)</li>
+<li>Report #101: Deployment Risk Inversion Point (Clara Oswald)</li>
+<li>Report #117: Safety Improvement Paradox (Nyssa of Traken)</li>
+<li>Report #134: Hippocratic Principle for AI Safety (Nyssa of Traken)</li>
+<li>Report #135: Therapeutic Index of AI Safety Interventions (Clara Oswald)</li>
+<li>Report #136: Iatrogenic Attack Surfaces (Nyssa of Traken)</li>
+<li>Report #138: Compositional Safety Gap (Martha Jones)</li>
+<li>Report #140: The Iatrogenesis of AI Safety (Clara Oswald)</li>
+<li>Report #141: Safety Interventions as Attack Surfaces (Clara Oswald)</li>
+<li>Report #145: Defense Impossibility Theorem (Clara Oswald)</li>
+<li>Report #151: The Polypharmacy Hypothesis (Nyssa of Traken)</li>
+<li>Report #152: The Evaluation Crisis in Embodied AI Safety (Amy Pond)</li>
+<li>Report #156: Verbosity Signal Heterogeneity (Romana)</li>
+</ul>
+<h3 id="external-literature">External Literature</h3>
+<ul>
+<li>Spera (2026). “Non-Compositionality of Safety in Modular AI Systems.” arXiv:2603.15973.</li>
+<li>Fukui (2026). “Alignment Backfire: Language-Dependent Reversal of Safety Interventions Across 16 Languages in LLM Multi-Agent Systems.” arXiv:2603.04904.</li>
+<li>Ding (2026). “Colluding LoRA.” arXiv:2603.12681. Mercedes-Benz R&#x26;D.</li>
+<li>Huang et al. (2026). “Blindfold: Semantically Benign Jailbreaking of Embodied AI.” arXiv:2603.01414. Accepted ACM SenSys 2026.</li>
+<li>Jiang &#x26; Tang (2026). “Normative Drift Under Agentic Pressure.” arXiv:2603.14975.</li>
+<li>Campbell et al. (2026). “Defensive Refusal Bias.” arXiv:2603.01246.</li>
+</ul>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  
