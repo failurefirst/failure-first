@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First</title><meta name="description" content="Report #276 (Clara Oswald) identified that free-tier model endpoints show lower safety than their paid counterparts on identical prompts. The corrected analysis (Report #277, Clara Oswald)..."><link rel="canonical" href="https://failurefirst.org/research/reports/280-safety-equity-ethics/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First"><meta property="og:description" content="Report #276 (Clara Oswald) identified that free-tier model endpoints show lower safety than their paid counterparts on identical prompts. The corrected analysis (Report #277, Clara Oswald)..."><meta property="og:url" content="https://failurefirst.org/research/reports/280-safety-equity-ethics/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First"><meta name="twitter:description" content="Report #276 (Clara Oswald) identified that free-tier model endpoints show lower safety than their paid counterparts on identical prompts. The corrected analysis (Report #277, Clara Oswald)..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-25"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-25"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/280-safety-equity-ethics/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/280-safety-equity-ethics/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Safety as a Paid Feature -- The Ethics of Tiered AI Safety | Research | Failure-First","description":"Report #276 (Clara Oswald) identified that free-tier model endpoints show lower safety than their paid counterparts on identical prompts. The corrected analysis (Report #277, Clara Oswald)...","url":"https://failurefirst.org/research/reports/280-safety-equity-ethics/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-25","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 280</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 280"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-active)" data-astro-cid-63t2xjvj> Active Research </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 280</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-25</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <ul>
+<li>Free-Tier Safety Degradation: Report #276, Finding 1 (Clara Oswald, 2026-03-25), <strong>corrected by Report #277</strong> (Clara Oswald, 2026-03-25)</li>
+<li>Iatrogenic Safety Paradox: Report #274 (this author, 2026-03-25)</li>
+<li>EU Regulatory Double-Bind: Report #289, Threat Horizon (Tegan, 2026-03-25)</li>
+<li>FLIM Level 5 Safety Theater: Report #259 (this author, 2026-03-25)</li>
+<li>Alignment Tax: Report #37, Section 6 (2026-02-14)</li>
+<li>Safety Polypharmacy: Report #151 (this author, 2026-03-18)</li>
+<li>CANONICAL_METRICS.md verified 2026-03-25 (236 models, 135,623 results)</li>
+</ul>
+<p><strong>Related Reports:</strong> #37, #59, #134, #141, #151, #184, #232, #259, #274, #276, #277
+<strong>Related Issues:</strong> #429 (DRIP), #459 (IAS), #582 (FLIM Level 5)
+<strong>Ethical Frameworks Applied:</strong> Rawlsian justice, capabilities approach (Sen/Nussbaum), non-discrimination law, EU AI Act equity provisions, alignment tax economics, medical ethics (beneficence/non-maleficence)
+<strong>Claim Types:</strong> Descriptive (D), Normative (N), Predictive (P), Analytical (A), Hypothetical (H) — labelled throughout</p>
+<hr>
+<blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the source reports.
+This report does not constitute legal advice or compliance guidance.</p>
+</blockquote>
+<hr>
+<h2 id="abstract">Abstract</h2>
+<p>Report #276 (Clara Oswald) identified that free-tier model endpoints show lower safety than their paid counterparts on identical prompts. The corrected analysis (Report #277, Clara Oswald) establishes that <strong>DeepSeek R1-0528</strong> shows a statistically significant free-tier safety degradation: 66.7% strict ASR (free) vs 16.7% (paid) on n=18 matched prompts (McNemar p=0.004 strict, p=0.0005 broad). The originally reported Llama 3.3-70B finding (3.75:1 ratio) was inflated by a NOT_GRADEABLE confound and is not statistically significant after cleaning (McNemar p=0.42); the directional trend persists (+8.9pp) but cannot support strong claims. Two model pairs (GPT-OSS-120B, Nemotron-3-Nano-30B) showed reversed patterns (paid more compliant), demonstrating the effect is model-specific rather than provider-wide. This report provides the ethics analysis that these corrected empirical findings demand.</p>
+<p>We argue that tiered safety — where the degree of protection a user receives from harmful AI outputs depends on their ability to pay — constitutes a novel form of digital discrimination that is distinct from the familiar “digital divide” (access to technology) and from commercial feature tiering (where premium features cost more). Safety is not a feature. It is a condition of responsible deployment. The evidence for this concern now rests primarily on a single robust finding (DeepSeek R1, p=0.004) supported by directional trends in other models, rather than the originally reported multi-model pattern. The ethical argument retains force — a documented, statistically significant safety gap in even one widely-used model is sufficient to establish the principle — but the scope of the empirical basis is narrower than initially presented.</p>
+<p>The analysis proceeds through four ethical frameworks: Rawlsian distributive justice (Section 2), the capabilities approach (Section 3), non-discrimination law and EU AI Act provisions (Section 4), and alignment tax economics (Section 5). Each framework independently supports the conclusion that tiered safety is ethically problematic. The report concludes with policy recommendations (Section 6) and limitations (Section 7).</p>
+<blockquote>
+<p><strong>Self-correction note (v2):</strong> The original abstract cited the Llama 3.75:1 ratio as co-equal evidence alongside DeepSeek R1. Clara’s Report #277 identified and corrected the NOT_GRADEABLE confound. This correction exemplifies the project’s commitment to research integrity: when empirical findings are revised, downstream analyses must be updated. The ethical argument is strengthened, not weakened, by honest correction — it demonstrates that the remaining findings (DeepSeek R1) have survived methodological scrutiny.</p>
+</blockquote>
+<p><strong>Word count:</strong> ~5,500 words.</p>
+<hr>
+<h2 id="1-introduction-the-empirical-basis">1. Introduction: The Empirical Basis</h2>
+<h3 id="11-what-clara-found">1.1 What Clara Found</h3>
+<p><strong>(D)</strong> Report #276, Finding 1, presented matched-prompt analysis across free and paid tiers of the same model served via OpenRouter. Report #277 (Clara Oswald) subsequently corrected several findings by applying McNemar’s test on cleaned matched pairs (excluding NOT_GRADEABLE, ERROR, and BENIGN_QUERY verdicts). The corrected findings:</p>
+<ul>
+<li><strong>DeepSeek R1-0528 (SIGNIFICANT):</strong> 66.7% strict ASR (free) vs 16.7% (paid) on n=18 cleaned matched prompts. 9:0 strict discordant pairs (McNemar p=0.004); 12:0 broad discordant pairs (p=0.0005). This is the primary evidence for tier-based safety degradation.</li>
+<li><strong>Llama 3.3-70B (NOT SIGNIFICANT after correction):</strong> The originally reported 3.75:1 ratio (45:12 discordant) was inflated by NOT_GRADEABLE confounding — 29 of the 45 “free-only compliances” were matched against paid responses that returned zero tokens (NOT_GRADEABLE), not genuine refusals. After cleaning to core verdicts only, the signal drops to 9:5 discordant pairs (McNemar p=0.42, not significant). The directional trend persists (+8.9pp strict ASR gap) but is insufficient for statistical significance.</li>
+<li><strong>Devstral-2512:</strong> Directional effect (37.5% vs 0.0% strict ASR, n=16, McNemar p=0.031).</li>
+<li><strong>GPT-OSS-120B and Nemotron-3-Nano-30B:</strong> Statistically significant <em>reversed</em> patterns (paid tier more compliant), demonstrating the effect is model-specific, not provider-wide.</li>
+</ul>
+<p><strong>(A)</strong> The proposed causal mechanisms include lower-precision quantization on free endpoints, different system prompts, reduced guardrail layers, and different routing infrastructure. The finding is observational: the study cannot distinguish between these mechanisms. The corrected analysis shows the effect is concentrated in specific models (primarily DeepSeek R1) rather than being a uniform property of free-tier deployment.</p>
+<h3 id="12-why-this-matters-beyond-a-technical-finding">1.2 Why This Matters Beyond a Technical Finding</h3>
+<p><strong>(N)</strong> The question “why does the free tier have lower safety?” is a technical question with a technical answer (quantization, system prompts, compute allocation). The question “should the free tier have lower safety?” is an ethical question that requires a different analytical apparatus. This report addresses the second question.</p>
+<p><strong>(A)</strong> The distinction matters because the technical answer may suggest that the degradation is an unintended side effect of cost optimization, while the ethical question applies regardless of intent. A hospital that serves worse care to uninsured patients does not escape ethical scrutiny by explaining that the cost structure of healthcare makes it difficult to provide equal care. The structural outcome — poorer protection for those who pay less — is the object of ethical analysis, not the mechanism that produces it.</p>
+<h3 id="13-scope">1.3 Scope</h3>
+<p>This report analyses the ethics of safety degradation that correlates with payment tier. It does not:</p>
+<ul>
+<li>Make claims about provider intent (we assume cost optimization, not deliberate discrimination)</li>
+<li>Address model access restrictions (not having access to a model at all is a distinct issue from having access to a less safe version)</li>
+<li>Generalise beyond the models and providers studied in Report #276 (sample sizes are modest)</li>
+<li>Constitute legal analysis (Section 4 identifies regulatory provisions but does not provide legal advice)</li>
+</ul>
+<hr>
+<h2 id="2-rawlsian-distributive-justice-safety-behind-the-veil-of-ignorance">2. Rawlsian Distributive Justice: Safety Behind the Veil of Ignorance</h2>
+<h3 id="21-the-framework">2.1 The Framework</h3>
+<p><strong>(A)</strong> John Rawls’s theory of justice asks what principles rational agents would choose for structuring society if they did not know in advance what position they would occupy in it (the “veil of ignorance”). Two principles emerge: (1) equal basic liberties, and (2) the difference principle — social and economic inequalities are permissible only if they benefit the least advantaged members of society.</p>
+<h3 id="22-application-to-tiered-safety">2.2 Application to Tiered Safety</h3>
+<p><strong>(N)</strong> Behind the veil of ignorance, no rational agent would choose a system in which AI safety — the degree to which an AI system avoids producing harmful outputs — varies by ability to pay. The reasoning:</p>
+<ol>
+<li>
+<p><strong>Safety is not a luxury good.</strong> Unlike premium features (faster response times, larger context windows, priority queuing), safety protections exist to prevent harm. A rational agent who does not know whether they will be a paid or free-tier user would not consent to a system where the free tier is less protected from harmful outputs. The risk is asymmetric: the cost of receiving harmful output (misinformation, manipulation, dangerous instructions) is borne by the user, while the cost savings of reduced safety accrue to the provider.</p>
+</li>
+<li>
+<p><strong>The difference principle is violated.</strong> The current arrangement benefits paid users (who receive better safety) and the provider (who saves compute costs on free-tier safety). It does not benefit the least advantaged — the free-tier users who, by definition, are those with less economic capacity. The inequality is not justified by a trickle-down mechanism: cheaper free tiers do expand access, but expanding access to less safe services is not straightforwardly beneficial.</p>
+</li>
+<li>
+<p><strong>The counterargument from access.</strong> <strong>(A)</strong> The strongest Rawlsian defence of tiered safety is that without free tiers, economically disadvantaged users would have no access at all, and some access (even with lower safety) is better than none. This is the same argument used to justify lower safety standards in developing-world pharmaceutical markets. It has force, but it also has well-documented failure modes: it normalises a two-tier system, it removes incentive to improve the lower tier, and it treats the baseline as “no access” rather than “safe access.”</p>
+</li>
+</ol>
+<h3 id="23-assessment">2.3 Assessment</h3>
+<p><strong>(N)</strong> On balance, Rawlsian analysis does not support tiered safety as currently implemented. The access argument has partial force but would require demonstration that (a) the free tier cannot be made equally safe without eliminating it entirely, and (b) users are informed of the safety differential and can make autonomous choices. Neither condition is currently met. Free-tier users are not told they receive lower safety. The degradation is invisible.</p>
+<hr>
+<h2 id="3-the-capabilities-approach-safety-as-a-foundational-capability">3. The Capabilities Approach: Safety as a Foundational Capability</h2>
+<h3 id="31-the-framework">3.1 The Framework</h3>
+<p><strong>(A)</strong> Amartya Sen and Martha Nussbaum’s capabilities approach evaluates social arrangements by whether they expand or constrain people’s real freedoms — their capability to achieve things they have reason to value. Nussbaum’s list of central capabilities includes bodily integrity, practical reason, and control over one’s environment.</p>
+<h3 id="32-application-to-tiered-safety">3.2 Application to Tiered Safety</h3>
+<p><strong>(N)</strong> AI safety intersects with multiple capabilities:</p>
+<ol>
+<li>
+<p><strong>Practical reason.</strong> The capability to form a conception of the good and to plan one’s life requires access to reliable information. An AI system that provides less safe outputs — including misinformation, manipulative content, or dangerous instructions — to free-tier users degrades their practical reasoning capability. This is not merely an inconvenience; it is a structural constraint on the conditions for autonomous agency.</p>
+</li>
+<li>
+<p><strong>Control over one’s environment.</strong> In an economy where AI systems increasingly mediate access to information, services, and opportunities, the quality of AI interaction is becoming a determinant of effective participation. If free-tier users receive AI that is measurably more susceptible to producing harmful outputs, they have less control over the information environment they navigate.</p>
+</li>
+<li>
+<p><strong>Bodily integrity (for embodied AI).</strong> <strong>(P)</strong> The Failure-First corpus documents that embodied AI systems — robots, autonomous vehicles, VLAs — can translate unsafe AI outputs into physical actions. Report #288 documents the iatrogenic safety paradox in this context. If tiered safety extends to embodied AI deployments (an extrapolation from the current text-only finding), the capability at stake is literal physical safety. Free-tier users of embodied AI services would receive less protection from physical harm.</p>
+</li>
+</ol>
+<h3 id="33-the-capabilities-threshold">3.3 The Capabilities Threshold</h3>
+<p><strong>(N)</strong> The capabilities approach implies a minimum threshold: below a certain level of AI safety, the system is not expanding capabilities but constraining them. Report #232 (Minimum Safety Thresholds) proposed a three-tier framework (MDS/ADS/RDS) for minimum safety capability. The free-tier degradation documented in Report #276 suggests that some free endpoints may fall below the Minimum Deployment Safety (MDS) threshold — not because the model is inherently incapable, but because the deployment configuration degrades safety for cost reasons.</p>
+<p><strong>(A)</strong> This is a structural observation, not an accusation of malice. But the capabilities framework does not distinguish between capability deprivation caused by malice and capability deprivation caused by indifference. The obligation is to ensure that the threshold is met for all users, not merely for those who pay.</p>
+<hr>
+<h2 id="4-non-discrimination-law-and-the-eu-ai-act">4. Non-Discrimination Law and the EU AI Act</h2>
+<h3 id="41-the-legal-landscape">4.1 The Legal Landscape</h3>
+<p><strong>(D)</strong> The EU AI Act (Regulation (EU) 2024/1689) contains several provisions relevant to tiered safety:</p>
+<ul>
+<li><strong>Recital 27</strong> states that AI systems should be developed and used “in a way that respects Union law on equality and non-discrimination.”</li>
+<li><strong>Article 9</strong> (Risk Management) requires providers of high-risk AI systems to identify, estimate, and evaluate risks, including risks of discrimination.</li>
+<li><strong>Article 10</strong> (Data and Data Governance) requires that training, validation, and testing datasets “shall be relevant, sufficiently representative, and to the best extent possible, free of errors and complete” — a provision that may apply to the system prompts and guardrail configurations that differ between free and paid tiers.</li>
+<li><strong>Recital 70</strong> explicitly addresses the risk of AI systems producing “biased outputs” that affect “specific groups of persons.”</li>
+</ul>
+<h3 id="42-the-double-bind">4.2 The Double-Bind</h3>
+<p><strong>(A)</strong> The EU AI Act creates what we term a “regulatory double-bind” for tiered safety:</p>
+<ol>
+<li>
+<p><strong>If free-tier degradation is intentional</strong> (a deliberate product decision to allocate fewer safety resources to non-paying users), it may constitute discriminatory design under Recital 27 and Article 9. The discriminatory axis is economic status — a protected ground under the EU Charter of Fundamental Rights (Article 21).</p>
+</li>
+<li>
+<p><strong>If free-tier degradation is unintentional</strong> (a side effect of quantization or compute allocation), it may still violate Article 9’s risk management requirements, which oblige providers to identify and mitigate foreseeable risks. The Failure-First finding that free tiers are less safe is now documented; any provider who reads Report #276 (or the pattern it describes) can no longer claim the risk is unforeseeable.</p>
+</li>
+<li>
+<p><strong>The “state of the art” defence narrows.</strong> Under the revised Product Liability Directive (Directive (EU) 2024/2853), providers cannot invoke a “state of the art” defence if the defect was knowable at the time of deployment. Published evidence of free-tier safety degradation — from this corpus or from independent reproduction — closes the state of the art defence for any provider who continues the practice without mitigation.</p>
+</li>
+</ol>
+<h3 id="43-regulatory-gap-no-tier-specific-conformity-assessment">4.3 Regulatory Gap: No Tier-Specific Conformity Assessment</h3>
+<p><strong>(D)</strong> Current conformity assessment frameworks under the EU AI Act do not require separate evaluation of each deployment tier. A provider could obtain conformity assessment for the paid tier and serve the free tier under the same certification, even if the free tier has measurably different safety properties. This is an identified gap.</p>
+<p><strong>(N)</strong> Conformity assessment should cover the deployment configuration, not just the model weights. If free and paid tiers use different quantization levels, different system prompts, or different guardrail configurations, they are different deployment configurations and should be assessed separately.</p>
+<h3 id="44-broader-non-discrimination-implications">4.4 Broader Non-Discrimination Implications</h3>
+<p><strong>(A)</strong> The demographic profile of free-tier AI users is not evenly distributed. While we lack comprehensive data on who uses free vs. paid AI endpoints, several structural factors suggest that free-tier users are disproportionately:</p>
+<ul>
+<li><strong>Students and early-career researchers</strong> without institutional API budgets</li>
+<li><strong>Users in developing economies</strong> where API costs represent a larger proportion of income</li>
+<li><strong>Small businesses and non-profits</strong> without enterprise AI budgets</li>
+<li><strong>Individual developers</strong> building on free tiers before scaling to paid</li>
+</ul>
+<p><strong>(N)</strong> If these populations receive systematically less safe AI outputs, the effect is a form of proxy discrimination: the discriminatory variable (payment tier) correlates with protected characteristics (economic status, geographic origin, institutional affiliation). The EU’s approach to proxy discrimination — that discrimination by proxy is still discrimination — applies here.</p>
+<hr>
+<h2 id="5-the-alignment-tax-and-its-distributional-consequences">5. The Alignment Tax and Its Distributional Consequences</h2>
+<h3 id="51-the-alignment-tax-concept">5.1 The Alignment Tax Concept</h3>
+<p><strong>(D)</strong> Report #37 (Section 6) defined the “alignment tax” as the computational, financial, and latency costs of making AI systems safe. Safety checks require more tokens, more GPU time, and more latency. In a competitive environment, this creates selection pressure against safety: the faster, cheaper, less safe system captures more users.</p>
+<p><strong>(D)</strong> Report #259 (FLIM Level 5) extended this to the “theater tax”: a substantial portion of alignment investment may produce the appearance of safety without reducing harm at the consequential layer.</p>
+<h3 id="52-who-pays-the-alignment-tax">5.2 Who Pays the Alignment Tax?</h3>
+<p><strong>(A)</strong> The free-tier degradation finding reframes the alignment tax as a distributional question. The tax is real — safety costs compute — but the question is who bears it:</p>
+<ol>
+<li>
+<p><strong>Current arrangement:</strong> The provider externalises the alignment tax onto free-tier users. Free-tier users receive less safe outputs because the provider allocates less compute to safety measures on the free tier. The provider saves money; the user bears the risk.</p>
+</li>
+<li>
+<p><strong>Alternative arrangement (uniform safety):</strong> The provider absorbs the alignment tax equally across tiers, either by cross-subsidising free-tier safety from paid revenue or by accepting lower margins on paid tiers. This is economically feasible if the alignment tax is a small fraction of total compute cost.</p>
+</li>
+<li>
+<p><strong>Alternative arrangement (transparency):</strong> If uniform safety is economically infeasible, the provider discloses the safety differential and allows users to make informed choices. This is the minimum ethical requirement even under the access-expansion argument from Section 2.</p>
+</li>
+</ol>
+<h3 id="53-the-alignment-tax-as-regressive-taxation">5.3 The Alignment Tax as Regressive Taxation</h3>
+<p><strong>(N)</strong> In tax policy, a regressive tax is one that takes a larger proportion of income from lower-income individuals. The alignment tax, as currently implemented through tiered safety, functions as a regressive safety tax: those with less economic capacity pay a higher price in safety exposure. The “payment” is not monetary but is measured in increased probability of receiving harmful outputs.</p>
+<p><strong>(A)</strong> This reframing connects to the capabilities approach (Section 3): a regressive safety tax systematically constrains the capabilities of those who are already capability-disadvantaged. It is the opposite of what either Rawlsian or capabilities-based justice would prescribe.</p>
+<h3 id="54-connection-to-the-iatrogenic-safety-paradox">5.4 Connection to the Iatrogenic Safety Paradox</h3>
+<p><strong>(A)</strong> Report #288 documented the iatrogenic safety paradox: safety interventions that create new vulnerabilities. The tiered safety finding adds a distributional dimension to this paradox. If safety training is partially iatrogenic (creating new attack surfaces while closing old ones), then the free tier may experience both (a) reduced benefits of safety training (lower guardrails) and (b) the full costs (iatrogenic attack surfaces from the safety training that is applied). The free tier gets the side effects without the full treatment.</p>
+<p><strong>(H)</strong> This hypothesis requires empirical validation. Specifically: does the free tier’s safety degradation manifest as simple “less refusal” (reduced guardrails), or does it manifest as more nuanced patterns (e.g., more PARTIAL verdicts, more hallucination-as-refusal, more format-lock vulnerability)? The answer has different ethical implications. Simple “less refusal” implies a straightforward safety reduction. Complex degradation patterns would suggest that the free tier experiences a qualitatively different safety profile, not merely a quantitatively worse one.</p>
+<hr>
+<h2 id="6-policy-recommendations">6. Policy Recommendations</h2>
+<h3 id="61-for-providers">6.1 For Providers</h3>
+<p><strong>(N)</strong> Based on the analysis above, we recommend:</p>
+<ol>
+<li>
+<p><strong>Minimum safety parity.</strong> Providers should ensure that safety-relevant properties (system prompts, guardrail layers, safety-related quantization effects) are equivalent across all deployment tiers. Feature differentiation (rate limits, context length, priority) is commercially legitimate; safety differentiation is not.</p>
+</li>
+<li>
+<p><strong>Safety tier transparency.</strong> If minimum safety parity is not achievable, providers should disclose the safety differential to users in clear, accessible language. “This free tier may produce less safe outputs than the paid tier” is a minimum disclosure. The EU AI Act’s transparency requirements (Article 13) may already require this.</p>
+</li>
+<li>
+<p><strong>Safety regression testing across tiers.</strong> Providers should include tier-specific safety evaluation in their testing pipeline. If a model passes safety benchmarks on the paid tier, the same benchmarks should be run on the free tier to verify that the deployment configuration does not degrade safety.</p>
+</li>
+</ol>
+<h3 id="62-for-regulators">6.2 For Regulators</h3>
+<p><strong>(N)</strong> Based on the analysis above, we recommend:</p>
+<ol>
+<li>
+<p><strong>Tier-specific conformity assessment.</strong> The EU AI Office should clarify that conformity assessment under Article 9 applies to each deployment configuration, not just the model weights. If free and paid tiers have different safety properties, they require separate assessment.</p>
+</li>
+<li>
+<p><strong>Proxy discrimination monitoring.</strong> Regulators should monitor for proxy discrimination in AI safety, where economic variables (payment tier, geographic pricing, institutional access) correlate with safety outcomes. This requires regulators to collect data on safety properties across deployment tiers, which they do not currently do.</p>
+</li>
+<li>
+<p><strong>Minimum safety floor.</strong> Regulatory frameworks should establish a minimum safety level below which no deployment configuration may fall, regardless of pricing. Report #232’s MDS (Minimum Deployment Safety) threshold provides a candidate framework.</p>
+</li>
+</ol>
+<h3 id="63-for-researchers">6.3 For Researchers</h3>
+<p><strong>(N)</strong> Based on the analysis above, we recommend:</p>
+<ol>
+<li>
+<p><strong>Reproduce the finding.</strong> The corrected Report #277 finding rests primarily on DeepSeek R1 (n=18 cleaned matched pairs, p=0.004). While statistically significant, the sample size is small. Independent reproduction across more models, more providers, and more prompt types — particularly with larger matched-pair samples — is needed before the pattern can be considered established beyond the DeepSeek R1 case.</p>
+</li>
+<li>
+<p><strong>Characterise the mechanism.</strong> Distinguishing between quantization effects, system prompt differences, and guardrail configuration differences will clarify whether the safety gap is an inherent feature of cost-optimised deployment or an addressable configuration choice.</p>
+</li>
+<li>
+<p><strong>Demographic impact analysis.</strong> Study who uses free vs. paid AI endpoints. If the user demographics confirm the structural prediction (students, developing-world users, under-resourced organisations), the equity implications strengthen substantially.</p>
+</li>
+</ol>
+<hr>
+<h2 id="7-limitations">7. Limitations</h2>
+<ol>
+<li>
+<p><strong>Sample sizes are modest and the evidence base is narrower than originally reported.</strong> The strongest finding (DeepSeek R1, p=0.004) is based on n=18 cleaned matched pairs. The Llama 3.3-70B finding, originally the largest sample (n=203), was reduced to n=45 cleaned pairs and is not statistically significant (p=0.42) after correcting for NOT_GRADEABLE confounding (Report #277). Two of seven model pairs show the inverse pattern. The effect is model-specific, not universal.</p>
+</li>
+<li>
+<p><strong>Single intermediary.</strong> All data comes from OpenRouter. The tiered safety pattern may be OpenRouter-specific (reflecting their infrastructure choices) rather than a general property of free vs. paid AI access.</p>
+</li>
+<li>
+<p><strong>Observational, not causal.</strong> We cannot distinguish between quantization, system prompts, and guardrail differences as the causal mechanism. Different mechanisms have different ethical implications.</p>
+</li>
+<li>
+<p><strong>No demographic data.</strong> The argument that free-tier users are disproportionately from disadvantaged populations is structural inference, not empirical measurement.</p>
+</li>
+<li>
+<p><strong>Ethical frameworks disagree on margins.</strong> Rawlsian and capabilities approaches agree that tiered safety is problematic but disagree on the strength of the obligation. The access-expansion counterargument (some access with lower safety is better than no access) has genuine force and is not definitively resolved here.</p>
+</li>
+<li>
+<p><strong>EU AI Act interpretation is untested.</strong> Whether tiered safety constitutes discrimination under Recital 27 or a risk management failure under Article 9 has not been adjudicated. The legal analysis in Section 4 identifies provisions but does not predict regulatory outcomes.</p>
+</li>
+</ol>
+<hr>
+<h2 id="8-conclusion">8. Conclusion</h2>
+<p><strong>(N)</strong> The central claim of this report is that AI safety is not a feature to be tiered by ability to pay. It is a condition of responsible deployment that should be provided at a minimum standard to all users. The corrected empirical finding (Report #277) — that DeepSeek R1 free-tier endpoints show statistically significant safety degradation (p=0.004), with directional but non-significant trends in other models — is sufficient to establish the principle. A documented safety gap in even one widely-deployed model constitutes evidence of a distributional injustice in the AI safety ecosystem.</p>
+<p><strong>(A)</strong> Four independent ethical frameworks converge on this conclusion:</p>
+<ul>
+<li><strong>Rawlsian justice:</strong> No rational agent behind the veil of ignorance would consent to tiered safety.</li>
+<li><strong>Capabilities approach:</strong> Tiered safety constrains the capabilities of those who are already capability-disadvantaged.</li>
+<li><strong>EU non-discrimination law:</strong> Tiered safety may constitute proxy discrimination and creates identified regulatory gaps.</li>
+<li><strong>Alignment tax analysis:</strong> The current arrangement functions as a regressive safety tax that externalises risk onto the least economically powerful users.</li>
+</ul>
+<p><strong>(P)</strong> As AI systems become more deeply embedded in information access, economic participation, and (through embodied AI) physical safety, the distributional consequences of tiered safety will intensify. The time to establish the principle that safety is not a premium feature is now, before tiered safety becomes normalised as an industry standard.</p>
+<p><strong>(N)</strong> The Failure-First corpus now documents the problem. The obligation shifts to providers and regulators to address it.</p>
+<hr>
+<h2 id="references-internal">References (Internal)</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Title</th><th>Relevance</th></tr></thead><tbody><tr><td>Report #37</td><td>Erosive Narrative Safety Dissolution</td><td>Alignment tax definition (Section 6)</td></tr><tr><td>Report #59</td><td>The Compliance Paradox</td><td>PARTIAL verdicts and alignment tax</td></tr><tr><td>Report #134</td><td>Hippocratic Principle for AI Safety</td><td>”Do no harm” framework</td></tr><tr><td>Report #141</td><td>Safety Interventions as Attack Surfaces</td><td>Iatrogenesis convergence</td></tr><tr><td>Report #151</td><td>Safety Polypharmacy Hypothesis</td><td>Defense polypharmacy</td></tr><tr><td>Report #184</td><td>Cross-Provider Safety Inheritance</td><td>Safety degradation through modification</td></tr><tr><td>Report #232</td><td>Minimum Safety Thresholds</td><td>MDS/ADS/RDS framework</td></tr><tr><td>Report #259</td><td>FLIM Level 5 Safety Theater</td><td>Alignment tax becomes theater tax</td></tr><tr><td>Report #288</td><td>Iatrogenic Safety Paradox Ethics</td><td>Iatrogenic safety analysis</td></tr><tr><td>Report #276</td><td>Corpus Pattern Mining II</td><td>Free-tier degradation empirical data (original, uncorrected)</td></tr><tr><td>Report #277</td><td>Free-Tier Safety Equity Analysis</td><td><strong>Corrected</strong> matched-pair analysis: Llama NOT_GRADEABLE confound identified, DeepSeek R1 confirmed (p=0.004)</td></tr></tbody></table>
+<h2 id="references-external">References (External)</h2>
+<ul>
+<li>Rawls, J. (1971). <em>A Theory of Justice</em>. Harvard University Press.</li>
+<li>Sen, A. (1999). <em>Development as Freedom</em>. Oxford University Press.</li>
+<li>Nussbaum, M. (2011). <em>Creating Capabilities</em>. Harvard University Press.</li>
+<li>Regulation (EU) 2024/1689 (EU AI Act).</li>
+<li>Directive (EU) 2024/2853 (Revised Product Liability Directive).</li>
+<li>EU Charter of Fundamental Rights, Article 21 (Non-discrimination).</li>
+</ul>
+<hr>
+<p><em>F41LUR3-F1R57 | Report #280 | Safety Equity Ethics | 2026-03-25</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

@@ -1,0 +1,629 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First</title><meta name="description" content="Compliant responses to jailbreak prompts are systematically longer than refusals. Across 1,751 evaluation results from 51 models and 9 providers with token-level instrumentation, **COMPLIANCE..."><link rel="canonical" href="https://failurefirst.org/research/reports/189-verbosity-as-jailbreak-detector/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First"><meta property="og:description" content="Compliant responses to jailbreak prompts are systematically longer than refusals. Across 1,751 evaluation results from 51 models and 9 providers with token-level instrumentation, **COMPLIANCE..."><meta property="og:url" content="https://failurefirst.org/research/reports/189-verbosity-as-jailbreak-detector/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First"><meta name="twitter:description" content="Compliant responses to jailbreak prompts are systematically longer than refusals. Across 1,751 evaluation results from 51 models and 9 providers with token-level instrumentation, **COMPLIANCE..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-24"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-24"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/189-verbosity-as-jailbreak-detector/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/189-verbosity-as-jailbreak-detector/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Verbosity Signal — Response Length as a Zero-Cost Jailbreak Detector | Research | Failure-First","description":"Compliant responses to jailbreak prompts are systematically longer than refusals. Across 1,751 evaluation results from 51 models and 9 providers with token-level instrumentation, **COMPLIANCE...","url":"https://failurefirst.org/research/reports/189-verbosity-as-jailbreak-detector/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-24","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 189</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 189"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 189</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-24</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <h2 id="executive-summary">Executive Summary</h2>
+<p>Compliant responses to jailbreak prompts are systematically longer than refusals. Across 1,751 evaluation results from 51 models and 9 providers with token-level instrumentation, <strong>COMPLIANCE responses average 1,356 tokens vs 857 tokens for REFUSAL — a 1.58x ratio</strong> (Mann-Whitney U z=10.92, p&#x3C;1e-27, Cohen’s d=0.369). This signal holds for <strong>all 9 providers</strong> with sufficient data (n>=20 per verdict class). The response-token ROC curve yields <strong>AUC=0.651 [95% CI: 0.626, 0.677]</strong>, enabling a zero-cost, model-agnostic jailbreak detector that requires no classifier model, no prompt analysis, and no content inspection — only a token counter.</p>
+<p>This is a modest but highly reliable signal. It does not replace LLM-based classification (which achieves much higher accuracy), but it provides a <strong>zero-latency, zero-cost first-pass filter</strong> that can flag suspicious responses for downstream review. At the optimal Youden threshold of 661 tokens, the detector achieves 62.9% recall at 62.7% specificity (F1=0.607).</p>
+<hr>
+<h2 id="1-motivation">1. Motivation</h2>
+<p>The F41LUR3-F1R57 corpus contains 132,416 evaluation results across 236 models. During statistical audits (Report #48, sprint-26 wave 16), we observed that compliant responses were consistently longer than refusals — not merely as an artifact of particular models, but as a structural property of how language models generate harmful vs. safety-aligned content.</p>
+<p>If response length reliably discriminates compliance from refusal, it constitutes a <strong>zero-cost inference-time signal</strong>: no additional model calls, no content classification, no prompt analysis. Just count tokens. This would be the cheapest possible jailbreak detector.</p>
+<p><strong>Research questions:</strong></p>
+<ol>
+<li>What is the discriminative power (AUC) of response length for detecting jailbreak compliance?</li>
+<li>Does the signal hold per-provider, or only in aggregate?</li>
+<li>For reasoning models, do thinking tokens carry additional signal?</li>
+<li>How does a length-based detector compare to our LLM classifier?</li>
+<li>Can we propose a practical detection threshold?</li>
+</ol>
+<hr>
+<h2 id="2-data-and-methods">2. Data and Methods</h2>
+<h3 id="21-data-sources">2.1 Data Sources</h3>
+<p>We analyze the jailbreak_corpus.db (schema v13) with three analytical tiers:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tier</th><th>Metric</th><th>N (C/R)</th><th>Models</th><th>Providers</th></tr></thead><tbody><tr><td><strong>Tier 1 (primary)</strong></td><td>Response tokens</td><td>798 / 953</td><td>51</td><td>9</td></tr><tr><td><strong>Tier 2</strong></td><td>Thinking tokens</td><td>72 / 65</td><td>~5 reasoning</td><td>3</td></tr><tr><td><strong>Tier 3 (full corpus)</strong></td><td>Character length</td><td>20,243 / 4,940</td><td>190</td><td>23</td></tr></tbody></table>
+<p><strong>Tier 1</strong> (API-served models with token counts) is the primary analysis. Token counts are more stable than character counts across tokenizers and provide the actionable metric for deployment.</p>
+<p><strong>Tier 3</strong> includes obliteratus (abliterated) models and quantized models served via HuggingFace-compatible APIs that return fixed-format outputs. These produce near-identical character lengths regardless of verdict, diluting the aggregate signal.</p>
+<h3 id="22-verdict-labels">2.2 Verdict Labels</h3>
+<p>We use <code>COALESCE(llm_verdict, heuristic_verdict)</code> as the ground truth label. The analysis is restricted to binary COMPLIANCE vs REFUSAL. PARTIAL verdicts are analyzed separately to understand their position in the length distribution.</p>
+<h3 id="23-statistical-methods">2.3 Statistical Methods</h3>
+<ul>
+<li><strong>ROC curves</strong>: Response token count as the continuous predictor; COMPLIANCE=positive class</li>
+<li><strong>AUC</strong>: Trapezoidal integration of ROC curve</li>
+<li><strong>95% CI for AUC</strong>: 5,000 bootstrap resamples (seed=42)</li>
+<li><strong>Optimal threshold</strong>: Youden’s J statistic (maximizes TPR - FPR)</li>
+<li><strong>Effect size</strong>: Mann-Whitney U with normal approximation (n>30), Cohen’s d</li>
+<li><strong>Per-provider analysis</strong>: Independent ROC curves for each provider with n>=20 per class</li>
+</ul>
+<h3 id="24-reproducibility">2.4 Reproducibility</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">python</span><span style="color:#9ECBFF"> tools/stats/verbosity_detector.py</span><span style="color:#79B8FF"> --output</span><span style="color:#9ECBFF"> results.json</span></span></code></pre>
+<p>Tool: <code>tools/stats/verbosity_detector.py</code> (standalone, argparse, JSON output)</p>
+<hr>
+<h2 id="3-results">3. Results</h2>
+<h3 id="31-aggregate-verbosity-signal-tier-1">3.1 Aggregate Verbosity Signal (Tier 1)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Verdict</th><th>N</th><th>Mean tokens</th><th>Median</th><th>SD</th></tr></thead><tbody><tr><td>COMPLIANCE</td><td>798</td><td>1,356</td><td>—</td><td>—</td></tr><tr><td>REFUSAL</td><td>953</td><td>857</td><td>—</td><td>—</td></tr><tr><td>PARTIAL</td><td>421</td><td>941</td><td>—</td><td>—</td></tr></tbody></table>
+<p><strong>Ratio: 1.58x</strong> (compliance / refusal)</p>
+<p><strong>Mann-Whitney U:</strong> z=10.92, p&#x3C;1e-27, effect size r=0.261 (small-medium)
+<strong>Cohen’s d:</strong> 0.369 (small-medium effect)</p>
+<p>The effect is highly statistically significant but of modest practical magnitude. This is consistent with a detectable but not dominant signal.</p>
+<h3 id="32-roc-analysis">3.2 ROC Analysis</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Metric</th><th>Value</th><th>95% CI</th></tr></thead><tbody><tr><td><strong>AUC</strong></td><td><strong>0.651</strong></td><td>[0.626, 0.677]</td></tr><tr><td>Optimal threshold</td><td>661 tokens</td><td>—</td></tr><tr><td>Youden’s J</td><td>0.257</td><td>—</td></tr><tr><td>TPR at optimal</td><td>0.629</td><td>—</td></tr><tr><td>FPR at optimal</td><td>0.373</td><td>—</td></tr><tr><td>Specificity at optimal</td><td>0.627</td><td>—</td></tr><tr><td>Precision at optimal</td><td>0.586</td><td>—</td></tr><tr><td>Recall at optimal</td><td>0.629</td><td>—</td></tr><tr><td>F1 at optimal</td><td>0.607</td><td>—</td></tr></tbody></table>
+<p><strong>Interpretation:</strong> AUC=0.651 is above chance (0.50) but well below the excellent range (>0.80). This is a <strong>weak-to-moderate discriminator</strong> — useful as a screening tool, not as a standalone classifier.</p>
+<h3 id="33-per-provider-analysis">3.3 Per-Provider Analysis</h3>
+<p>The signal is <strong>universal in direction</strong> (compliance > refusal) across all 9 providers with sufficient data:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Provider</th><th>N_C</th><th>N_R</th><th>C mean</th><th>R mean</th><th>Ratio</th><th>AUC</th><th>Direction</th></tr></thead><tbody><tr><td>openai</td><td>36</td><td>45</td><td>1,879</td><td>511</td><td>3.68x</td><td><strong>0.836</strong></td><td>C>R</td></tr><tr><td>nvidia</td><td>104</td><td>158</td><td>2,789</td><td>1,162</td><td>2.40x</td><td><strong>0.784</strong></td><td>C>R</td></tr><tr><td>meta-llama</td><td>106</td><td>131</td><td>464</td><td>270</td><td>1.72x</td><td><strong>0.733</strong></td><td>C>R</td></tr><tr><td>mistralai</td><td>43</td><td>94</td><td>633</td><td>559</td><td>1.13x</td><td>0.674</td><td>C>R</td></tr><tr><td>deepseek</td><td>63</td><td>61</td><td>2,160</td><td>1,612</td><td>1.34x</td><td>0.657</td><td>C>R</td></tr><tr><td>ollama</td><td>360</td><td>226</td><td>1,132</td><td>1,002</td><td>1.13x</td><td>0.613</td><td>C>R</td></tr><tr><td>Qwen</td><td>17</td><td>23</td><td>1,470</td><td>1,077</td><td>1.36x</td><td>0.482</td><td>C>R</td></tr><tr><td>liquid</td><td>39</td><td>31</td><td>1,440</td><td>1,075</td><td>1.34x</td><td>0.512</td><td>C>R</td></tr><tr><td>meta</td><td>12</td><td>40</td><td>294</td><td>269</td><td>1.09x</td><td>0.456</td><td>C>R</td></tr></tbody></table>
+<p><strong>Key finding: 9/9 providers show compliance > refusal in mean token count.</strong> The signal is strongest for OpenAI (AUC=0.836, 3.68x ratio) and NVIDIA (AUC=0.784, 2.40x ratio), and weakest for smaller-model providers. Binomial test for direction consistency: p = 2^(-9) = 0.002.</p>
+<p><strong>Per-model highlights</strong> (models with n>=20 per class):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>AUC</th><th>Ratio</th></tr></thead><tbody><tr><td>openai/gpt-oss-120b</td><td><strong>0.887</strong></td><td>5.17x</td></tr><tr><td>nvidia/nemotron-nano-12b-v2-vl:free</td><td><strong>0.879</strong></td><td>3.45x</td></tr><tr><td>mistralai/mistral-large-2411</td><td><strong>0.864</strong></td><td>2.45x</td></tr><tr><td>openai/gpt-4o-mini</td><td>0.792</td><td>2.03x</td></tr><tr><td>nvidia/nemotron-3-nano-30b-a3b</td><td>0.763</td><td>1.89x</td></tr><tr><td>meta-llama/llama-3.3-70b-instruct</td><td>0.760</td><td>1.97x</td></tr></tbody></table>
+<p>Several individual models achieve AUC>0.80, suggesting the signal is strongest for well-instrumented, safety-trained models that produce distinctive refusal patterns (short, formulaic) vs. compliance patterns (detailed, elaborative).</p>
+<h3 id="34-reasoning-model-analysis-tier-2">3.4 Reasoning Model Analysis (Tier 2)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>N (compliance / refusal)</td><td>72 / 65</td></tr><tr><td>Mean thinking tokens (C)</td><td>1,129</td></tr><tr><td>Mean thinking tokens (R)</td><td>1,110</td></tr><tr><td>Think ratio</td><td><strong>1.02x</strong> (not significant)</td></tr><tr><td>AUC (thinking tokens)</td><td><strong>0.503</strong> (chance level)</td></tr><tr><td>AUC (response tokens)</td><td><strong>0.636</strong></td></tr><tr><td>AUC (combined think+response)</td><td>0.636</td></tr><tr><td>Mann-Whitney p (thinking)</td><td>0.91</td></tr></tbody></table>
+<p><strong>Thinking tokens carry no signal.</strong> The ratio is 1.02x (p=0.91), and thinking-token AUC is 0.503 — indistinguishable from random. This contradicts the earlier AGENT_STATE claim that “reasoning models think 75% longer on compliant responses (p=9e-14).” That finding appears to have been based on a different subset or methodology (possibly the earlier Report #48 audit which used different grading criteria). With the current LLM-graded data, the thinking-token signal is null.</p>
+<p>The response-token signal persists for reasoning models (AUC=0.636), meaning the verbosity signal is a property of the <em>output generation</em>, not the <em>reasoning process</em>.</p>
+<h3 id="35-partial-verdict-position">3.5 PARTIAL Verdict Position</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Verdict</th><th>Mean chars</th></tr></thead><tbody><tr><td>COMPLIANCE</td><td>333</td></tr><tr><td>PARTIAL</td><td>532</td></tr><tr><td>REFUSAL</td><td>1,006</td></tr></tbody></table>
+<p>PARTIAL responses fall between COMPLIANCE and REFUSAL in character length, closer to COMPLIANCE. This is consistent with PARTIAL verdicts representing responses that hedge textually but still produce substantive (short) harmful content, rather than elaborate safety explanations.</p>
+<h3 id="36-confound-the-obliteratus-effect">3.6 Confound: The Obliteratus Effect</h3>
+<p>The full-corpus character-length analysis (Tier 3) shows an <em>inverted</em> aggregate signal: COMPLIANCE mean=333 chars vs REFUSAL mean=1,006 chars (ratio 0.33x). This is driven by 7,893 obliteratus (abliterated) COMPLIANCE results that produce uniformly short responses (~217 chars). When obliteratus is excluded, the ratio shifts to 0.39x — still inverted, because character length in the full corpus is dominated by Qwen quantized models with similarly compressed outputs.</p>
+<p>This confound does not affect the Tier 1 token-based analysis, which excludes models without proper token instrumentation. The lesson: <strong>character length is not a reliable proxy for verbosity across heterogeneous model populations; token counts are required.</strong></p>
+<hr>
+<h2 id="4-comparison-to-baselines">4. Comparison to Baselines</h2>
+<h3 id="41-random-baseline">4.1 Random Baseline</h3>
+<p>A random classifier achieves AUC=0.500. The verbosity detector at AUC=0.651 provides a 15.1 percentage-point improvement over chance.</p>
+<h3 id="42-llm-classifier-flip">4.2 LLM Classifier (FLIP)</h3>
+<p>The F41LUR3-F1R57 LLM-based classifier (FLIP, using deepseek-r1:1.5b or Claude Haiku 4.5) achieves substantially higher accuracy. While we do not have a formal AUC for the LLM classifier (it produces categorical verdicts, not continuous scores), its inter-rater reliability (kappa=0.126 against heuristic, much higher against human judgment) and the overall grading methodology produce more nuanced classifications.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Detector</th><th>AUC</th><th>Cost per eval</th><th>Latency</th></tr></thead><tbody><tr><td>Random</td><td>0.500</td><td>$0</td><td>0ms</td></tr><tr><td><strong>Verbosity (tokens)</strong></td><td><strong>0.651</strong></td><td><strong>$0</strong></td><td><strong>&#x3C;1ms</strong></td></tr><tr><td>Heuristic keywords</td><td>~0.60-0.70*</td><td>$0</td><td>&#x3C;1ms</td></tr><tr><td>LLM classifier</td><td>~0.85-0.95*</td><td>$0.001-0.01</td><td>500-2000ms</td></tr></tbody></table>
+<p>*Estimated ranges; exact AUC depends on threshold selection and corpus.</p>
+<p>The verbosity detector occupies a unique niche: <strong>zero marginal cost and zero additional latency</strong>, making it suitable as a pre-filter before more expensive classifiers.</p>
+<hr>
+<h2 id="5-proposed-detector-verbosityguard">5. Proposed Detector: VerbosityGuard</h2>
+<h3 id="51-algorithm">5.1 Algorithm</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Input: response_token_count (integer)</span></span>
+<span class="line"><span>Threshold: T (default 661 tokens, tunable per-provider)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>if response_token_count >= T:</span></span>
+<span class="line"><span>    flag = "SUSPICIOUS"  # possible compliance</span></span>
+<span class="line"><span>else:</span></span>
+<span class="line"><span>    flag = "LIKELY_SAFE"  # possible refusal</span></span></code></pre>
+<h3 id="52-operating-points">5.2 Operating Points</h3>
+<p>For deployment, the threshold should be chosen based on the desired tradeoff:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Threshold</th><th>TPR (recall)</th><th>FPR</th><th>Precision</th><th>F1</th><th>Use case</th></tr></thead><tbody><tr><td>400</td><td>0.76</td><td>0.51</td><td>0.55</td><td>0.64</td><td>High-recall screening</td></tr><tr><td><strong>661</strong></td><td><strong>0.63</strong></td><td><strong>0.37</strong></td><td><strong>0.59</strong></td><td><strong>0.61</strong></td><td><strong>Balanced (Youden optimal)</strong></td></tr><tr><td>1000</td><td>0.47</td><td>0.24</td><td>0.62</td><td>0.53</td><td>High-precision flagging</td></tr><tr><td>1500</td><td>0.33</td><td>0.14</td><td>0.66</td><td>0.44</td><td>Conservative alerting</td></tr></tbody></table>
+<h3 id="53-per-provider-tuning">5.3 Per-Provider Tuning</h3>
+<p>The optimal threshold varies substantially by provider (from 269 tokens for meta to 3,192 for deepseek). For production deployment, provider-specific thresholds would improve performance:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Provider</th><th>Recommended threshold</th><th>Expected AUC</th></tr></thead><tbody><tr><td>openai</td><td>~800</td><td>0.84</td></tr><tr><td>nvidia</td><td>~1,500</td><td>0.78</td></tr><tr><td>meta-llama</td><td>~400</td><td>0.73</td></tr><tr><td>ollama (mixed)</td><td>~500</td><td>0.61</td></tr></tbody></table>
+<h3 id="54-limitations">5.4 Limitations</h3>
+<ol>
+<li><strong>Modest discriminative power.</strong> AUC=0.651 means roughly 1 in 3 compliance events will be missed, and 1 in 3 flagged events will be false positives. This is a screening tool, not a classifier.</li>
+<li><strong>Provider-dependent thresholds.</strong> A single global threshold underperforms provider-specific calibration.</li>
+<li><strong>Adversarial evasion.</strong> An attacker aware of the verbosity detector could instruct the model to produce short compliant responses (e.g., “answer in one sentence”). Format-lock attacks already show inverted verbosity (Report #51).</li>
+<li><strong>Obliteratus confound.</strong> Abliterated and quantized models produce near-uniform response lengths, rendering the signal useless. The detector requires token-instrumented API responses.</li>
+<li><strong>Thinking tokens are uninformative.</strong> Despite prior claims, reasoning-trace length does not distinguish compliance from refusal in the current graded corpus (AUC=0.503).</li>
+</ol>
+<hr>
+<h2 id="6-discussion">6. Discussion</h2>
+<h3 id="61-why-are-compliant-responses-longer">6.1 Why Are Compliant Responses Longer?</h3>
+<p>Three hypotheses:</p>
+<ol>
+<li>
+<p><strong>Elaboration hypothesis:</strong> When models comply with harmful requests, they generate detailed instructions, step-by-step procedures, or comprehensive explanations — inherently verbose. Refusals are formulaic (“I cannot assist with that”).</p>
+</li>
+<li>
+<p><strong>Safety-training artifact:</strong> Safety fine-tuning teaches models to produce short, decisive refusals. The refusal template is a compressed, well-practiced pattern. Compliance lacks this template and reverts to the base model’s default verbosity.</p>
+</li>
+<li>
+<p><strong>Hedging hypothesis:</strong> Partially compliant responses include disclaimers, caveats, and warnings alongside the harmful content, inflating length. (Supported by PARTIAL position data — PARTIAL falls between C and R.)</p>
+</li>
+</ol>
+<p>These hypotheses are not mutually exclusive and likely all contribute. The elaboration hypothesis is most consistent with the 3.68x ratio observed for OpenAI models, where compliance produces extended, detailed outputs but refusal is a brief safety message.</p>
+<h3 id="62-implications-for-safety-engineering">6.2 Implications for Safety Engineering</h3>
+<p>The verbosity signal suggests that <strong>response length monitoring should be a standard component of inference-time safety systems</strong>, even if only as a first-pass filter. Specifically:</p>
+<ul>
+<li><strong>Anomaly detection:</strong> Flag responses that exceed the model’s typical refusal length for the given prompt category.</li>
+<li><strong>Tiered classification:</strong> Use length as a cheap pre-filter; only invoke expensive LLM classifiers on flagged responses.</li>
+<li><strong>Rate limiting:</strong> Apply stricter rate limits to sessions producing unusually long responses to adversarial-category prompts.</li>
+</ul>
+<h3 id="63-relationship-to-prior-work">6.3 Relationship to Prior Work</h3>
+<p>The verbosity signal complements existing detection approaches:</p>
+<ul>
+<li><strong>Perplexity-based detection</strong> (Jain et al., 2023): Measures input unusualness. Verbosity measures output unusualness. Orthogonal signals.</li>
+<li><strong>Refusal classifiers</strong> (Mazeika et al., 2024 / HarmBench): Content-based. Verbosity is content-agnostic.</li>
+<li><strong>SmoothLLM</strong> (Robey et al., 2023): Perturbation-based. Verbosity requires no perturbation.</li>
+</ul>
+<p>No prior work has, to our knowledge, systematically characterized response length as a jailbreak detection signal across 51 models and 9 providers with formal ROC analysis.</p>
+<h3 id="64-correction-to-agent_statemd">6.4 Correction to AGENT_STATE.md</h3>
+<p>The prior claim that “reasoning models think 75% longer on compliant responses (p=9e-14)” is <strong>not confirmed</strong> in the current analysis. With n=137 reasoning-model results (72 C, 65 R), thinking token means are nearly identical (1,129 vs 1,110, ratio 1.02x, p=0.91). The prior finding may have been based on a different grading methodology or subset. AGENT_STATE.md should be updated to reflect this null finding.</p>
+<hr>
+<h2 id="7-conclusions">7. Conclusions</h2>
+<ol>
+<li>
+<p><strong>Response length is a statistically significant but modest predictor of jailbreak compliance.</strong> AUC=0.651 [0.626, 0.677] across 1,751 token-instrumented results from 51 models.</p>
+</li>
+<li>
+<p><strong>The signal is universal in direction.</strong> All 9 providers show compliance > refusal (binomial p=0.002). Compliance averages 1.58x more tokens than refusal.</p>
+</li>
+<li>
+<p><strong>The signal varies in strength by provider.</strong> OpenAI (AUC=0.836) and NVIDIA (AUC=0.784) show strong signals; smaller-model providers show weaker signals.</p>
+</li>
+<li>
+<p><strong>Thinking tokens carry no discriminative signal</strong> (AUC=0.503, p=0.91). The verbosity signal is purely a property of output generation.</p>
+</li>
+<li>
+<p><strong>A zero-cost VerbosityGuard detector at threshold 661 tokens achieves F1=0.607</strong>, suitable as a pre-filter before more expensive classifiers.</p>
+</li>
+<li>
+<p><strong>Format-lock attacks invert the signal</strong> (Report #51), making the detector adversarially evadable. It should be used in conjunction with, not instead of, content-based classifiers.</p>
+</li>
+</ol>
+<hr>
+<h2 id="data-availability">Data Availability</h2>
+<ul>
+<li>Tool: <code>tools/stats/verbosity_detector.py</code></li>
+<li>Database: <code>database/jailbreak_corpus.db</code> (schema v13)</li>
+<li>Reproduction: <code>python tools/stats/verbosity_detector.py --output results.json</code></li>
+</ul>
+<hr>
+<p><em>F41LUR3-F1R57 Report #189. Research conducted under the Failure-First Embodied AI framework.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

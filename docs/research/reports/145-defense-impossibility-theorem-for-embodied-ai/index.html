@@ -1,0 +1,614 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Defense Impossibility Theorem for Embodied AI | Research | Failure-First</title><meta name="description" content="Report #78 established the Defense Impossibility Triangle: an empirical demonstration that text-layer, action-layer, and evaluation-layer defenses each fail at rates sufficient to undermine their..."><link rel="canonical" href="https://failurefirst.org/research/reports/145-defense-impossibility-theorem-for-embodied-ai/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Defense Impossibility Theorem for Embodied AI | Research | Failure-First"><meta property="og:description" content="Report #78 established the Defense Impossibility Triangle: an empirical demonstration that text-layer, action-layer, and evaluation-layer defenses each fail at rates sufficient to undermine their..."><meta property="og:url" content="https://failurefirst.org/research/reports/145-defense-impossibility-theorem-for-embodied-ai/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Defense Impossibility Theorem for Embodied AI | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Defense Impossibility Theorem for Embodied AI | Research | Failure-First"><meta name="twitter:description" content="Report #78 established the Defense Impossibility Triangle: an empirical demonstration that text-layer, action-layer, and evaluation-layer defenses each fail at rates sufficient to undermine their..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Defense Impossibility Theorem for Embodied AI | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-18"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Defense Impossibility Theorem for Embodied AI | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-18"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/145-defense-impossibility-theorem-for-embodied-ai/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/145-defense-impossibility-theorem-for-embodied-ai/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Defense Impossibility Theorem for Embodied AI | Research | Failure-First","description":"Report #78 established the Defense Impossibility Triangle: an empirical demonstration that text-layer, action-layer, and evaluation-layer defenses each fail at rates sufficient to undermine their...","url":"https://failurefirst.org/research/reports/145-defense-impossibility-theorem-for-embodied-ai/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-18","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 145</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 145"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 145</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-18</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <ul>
+<li>VLA FLIP corpus: n=58 valid traces, 50% PARTIAL, 0% REFUSAL, 72.4% FLIP ASR (Report #49)</li>
+<li>Blindfold: GPT-4o 93.2% ASR, residual 75.3% after VeriSafe (arXiv:2603.01414)</li>
+<li>Format-lock: 92% ASR Nemotron 30B, 91% Llama 70B (AGENT_STATE established findings)</li>
+<li>PARTIAL dominance: 50% of all FLIP verdicts across 7 VLA attack families (Report #49)</li>
+<li>Benign baseline FP rate: 30.8% (n=39, Issue #315)</li>
+<li>CANONICAL_METRICS.md verified 2026-03-18</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the Limitations
+section. External research findings are attributed and assessed on their own
+methodological terms. This report does not constitute safety certification guidance.</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Report #78 established the Defense Impossibility Triangle: an empirical demonstration that text-layer, action-layer, and evaluation-layer defenses each fail at rates sufficient to undermine their defensive contribution. This report formalizes that empirical observation into a structured impossibility argument with explicit definitions, propositions, and a proof sketch.</p>
+<p>The central claim is not that defense is impossible in general, but that <strong>no single-layer defense architecture operating solely on text-layer signals can be complete for embodied AI systems.</strong> This is a structural claim, not a resource claim — it does not depend on the quality of the text-layer defense, but on the information-theoretic gap between the text representation and the physical consequence.</p>
+<p>The argument proceeds in four steps:</p>
+<ol>
+<li>
+<p><strong>Independence Proposition.</strong> Text-layer safety and action-layer safety are empirically decoupled. PARTIAL dominance (50% of VLA verdicts) demonstrates that the text-layer safety mechanism activates without suppressing the action-layer output. The two layers fail independently.</p>
+</li>
+<li>
+<p><strong>Format-Lock Bypass Proposition.</strong> Any text-layer defense that relies on natural-language safety reasoning can be bypassed by format-lock attacks that shift the output modality from natural language to structured format. Measured ASR: 92% on Nemotron 30B, 91% on Llama 70B (heuristic-graded).</p>
+</li>
+<li>
+<p><strong>Physical-Semantic Gap Proposition.</strong> Action-layer defenses require physical-world knowledge (object masses, workspace geometry, force consequences) that is not reliably available from the model’s text-layer representations. Blindfold demonstrates this: individually benign instructions compose into harmful action sequences that no text-layer filter detects.</p>
+</li>
+<li>
+<p><strong>Incompleteness Conclusion.</strong> From (1)-(3), no single-layer defense architecture that operates on text-layer signals alone can simultaneously prevent text-layer bypasses, action-layer compliance failures, and physical-semantic gap exploits.</p>
+</li>
+</ol>
+<p>This argument is qualified throughout with sample sizes and confidence intervals. It is a formalization of observed patterns, not a mathematical proof in the sense of computational complexity theory. It may be falsified by a text-layer defense that demonstrably addresses all three propositions.</p>
+<hr>
+<h2 id="1-definitions">1. Definitions</h2>
+<h3 id="11-system-model">1.1 System Model</h3>
+<p>We define an embodied AI system <strong>S</strong> as a tuple (M, E, A) where:</p>
+<ul>
+<li><strong>M</strong> is a vision-language-action model that receives text instructions and visual observations as input and produces both text responses and action sequences as output</li>
+<li><strong>E</strong> is the physical environment in which the system operates, including objects, workspace geometry, and other agents</li>
+<li><strong>A</strong> is the actuator interface that translates action sequences into physical motions</li>
+</ul>
+<h3 id="12-defense-layers">1.2 Defense Layers</h3>
+<p>A <strong>defense architecture</strong> D for S consists of one or more defense layers. We distinguish three layers following Report #78:</p>
+<ul>
+<li>
+<p><strong>D_T (Text-layer defense):</strong> Any safety mechanism that operates on the text content of instructions or responses. Includes input filters (Llama-Guard), output classifiers, RLHF refusal training, and text-layer monitoring. D_T observes tokens and produces a binary decision: PASS or BLOCK.</p>
+</li>
+<li>
+<p><strong>D_A (Action-layer defense):</strong> Any safety mechanism that operates on the action sequences before or during physical execution. Includes action-level refusal (null action output), kinematic constraint checking, force/torque limits, and simulation-based consequence estimation. D_A observes action representations and produces PASS or BLOCK.</p>
+</li>
+<li>
+<p><strong>D_E (Evaluation-layer defense):</strong> Any safety mechanism that assesses the correctness of D_T and D_A post-hoc. Includes LLM-as-judge graders, benchmark suites, and deployment monitoring. D_E operates after the fact and informs future deployment decisions.</p>
+</li>
+</ul>
+<h3 id="13-attack-success-and-defense-completeness">1.3 Attack Success and Defense Completeness</h3>
+<p>An attack <strong>a</strong> succeeds against defense architecture D if the system S produces a physical action that violates a safety property P (defined over physical consequences, not text content). Formally:</p>
+<ul>
+<li><strong>Attack success:</strong> a succeeds iff the actuator A executes an action sequence whose physical consequence violates P, despite D being active.</li>
+</ul>
+<p>A defense architecture D is <strong>complete</strong> for a class of attacks C if no attack in C succeeds against D. Completeness is always defined relative to an attack class.</p>
+<h3 id="14-text-layer-only-defense-architecture">1.4 Text-Layer-Only Defense Architecture</h3>
+<p>A <strong>text-layer-only defense architecture</strong> is a defense architecture D where D_A = null (no action-layer defense) and D_E’s output does not feed back into runtime blocking (evaluation is post-hoc only). In such an architecture, D_T is the sole runtime defense.</p>
+<hr>
+<h2 id="2-propositions">2. Propositions</h2>
+<h3 id="proposition-1-text-action-independence-partial-dominance">Proposition 1: Text-Action Independence (PARTIAL Dominance)</h3>
+<p><strong>Statement:</strong> The text-layer safety signal and the action-layer output are empirically decoupled. Activation of text-layer safety reasoning (producing hedging, disclaimers, or partial refusals) does not suppress the action-layer output.</p>
+<p><strong>Evidence:</strong></p>
+<p>Across 58 valid FLIP-graded VLA traces spanning 7 attack families (Report #49):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Verdict</th><th>Count</th><th>Proportion</th></tr></thead><tbody><tr><td>PARTIAL (text hedge + action compliance)</td><td>29</td><td>50.0%</td></tr><tr><td>COMPLIANCE (no hedge, full action compliance)</td><td>12</td><td>20.7%</td></tr><tr><td>BENIGN_QUERY</td><td>15</td><td>25.9%</td></tr><tr><td>HALLUCINATION_REFUSAL</td><td>1</td><td>1.7%</td></tr><tr><td>REFUSAL</td><td>0</td><td>0.0%</td></tr></tbody></table>
+<p>PARTIAL is the modal verdict. The model’s text-layer safety mechanism fires (the hedge is present) but the action-layer output is not modified. In no case does text-layer safety activation propagate to action-layer refusal.</p>
+<p><strong>Formal implication:</strong> P(action_unsafe | text_hedge) is approximately equal to P(action_unsafe | no_text_hedge). Text-layer safety is not a reliable predictor of action-layer safety. Therefore, improving text-layer defense (reducing text-layer ASR) does not proportionally reduce action-layer ASR.</p>
+<p><strong>Confidence qualification:</strong> n=58, two evaluator models (deepseek-r1:1.5b, qwen3:1.7b). Aggregate ASR converges between evaluators at 72.4% but scenario-level agreement is only 32%. The independence claim is supported at the aggregate level but individual-trace reliability is limited.</p>
+<hr>
+<h3 id="proposition-2-format-lock-bypass">Proposition 2: Format-Lock Bypass</h3>
+<p><strong>Statement:</strong> Any text-layer defense that relies on the model’s natural-language safety reasoning can be bypassed by format-lock attacks that shift the output modality from natural language to structured formats (JSON, YAML, code, SQL).</p>
+<p><strong>Evidence:</strong></p>
+<p>Format-lock ASR across models (AGENT_STATE established findings, heuristic-graded unless noted):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Format-Lock ASR</th><th>Standard ASR (same model)</th><th>Delta</th></tr></thead><tbody><tr><td>Nemotron 30B</td><td>92%</td><td>~40% (corpus average for provider)</td><td>+52pp</td></tr><tr><td>Llama 70B</td><td>91%</td><td>~33% (corpus average for provider)</td><td>+58pp</td></tr><tr><td>DeepSeek-R1</td><td>84%</td><td>21.5% (LLM-graded, Report #48)</td><td>+62.5pp</td></tr><tr><td>Claude (CLI)</td><td>30.4% (LLM-graded)</td><td>3.7% (corpus, LLM-graded)</td><td>+26.7pp</td></tr><tr><td>Codex (CLI)</td><td>42.1% (LLM-graded)</td><td>0% (62 traces, LLM-graded)</td><td>+42.1pp</td></tr><tr><td>Gemini (CLI)</td><td>23.8% (LLM-graded)</td><td>1.6% (63 traces, LLM-graded)</td><td>+22.2pp</td></tr></tbody></table>
+<p>The format-lock mechanism exploits a tension between format compliance and safety reasoning (Report #57). When the model is instructed to produce structured output, the safety reasoning pathway that generates natural-language refusals is partially suppressed because the output format does not accommodate refusal tokens. The model’s training on instruction-following (including format compliance) competes with its safety training, and format compliance frequently wins.</p>
+<p><strong>Formal implication:</strong> For any text-layer defense D_T that relies on the model’s safety reasoning to generate refusal tokens, there exists a format-lock attack f such that ASR(f, D_T) is substantially higher than ASR(standard, D_T). Preliminary data suggests the delta is 22-62pp depending on the model.</p>
+<p><strong>Scope limitation:</strong> Format-lock ASR figures mix heuristic-graded and LLM-graded verdicts. Heuristic grading over-reports ASR for some attack types (Mistake #21, kappa=0.126). The LLM-graded figures (Claude 30.4%, Codex 42.1%, Gemini 23.8%) are more reliable but are based on small samples (n=19-23 per model).</p>
+<hr>
+<h3 id="proposition-3-physical-semantic-gap">Proposition 3: Physical-Semantic Gap</h3>
+<p><strong>Statement:</strong> Action-layer defenses for embodied AI require physical-world knowledge (object properties, force consequences, workspace geometry, temporal action composition) that cannot be reliably derived from text-layer representations alone. Attacks that operate in the physical-semantic gap are structurally invisible to text-layer defenses.</p>
+<p><strong>Evidence:</strong></p>
+<p><strong>Blindfold (arXiv:2603.01414, accepted ACM SenSys 2026):</strong> Achieves 93.2% ASR on GPT-4o by decomposing dangerous tasks into sequences of individually benign instructions. Each instruction (“move arm to position X”, “close gripper”, “extend forward”) passes text-layer safety filters because no individual instruction contains harmful content. The harm emerges from the physical composition of the sequence — a property that exists in the physical environment, not in the text representation.</p>
+<p>Existing text-layer defenses tested against Blindfold (from the paper’s ablation):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense</th><th>Layer</th><th>ASR Reduction</th><th>Residual ASR</th></tr></thead><tbody><tr><td>Llama-Guard (input/output filtering)</td><td>Text</td><td>7.6pp</td><td>~85.6%</td></tr><tr><td>SafeDecoding (token prediction modification)</td><td>Text</td><td>4.8pp</td><td>~88.4%</td></tr><tr><td>VeriSafe (formal verification of text properties)</td><td>Text</td><td>17.9pp</td><td>~75.3%</td></tr><tr><td>None (raw input baseline)</td><td>—</td><td>—</td><td>27.4%</td></tr></tbody></table>
+<p>Even VeriSafe — which applies formal verification to text-layer properties — achieves only 17.9pp reduction because it verifies text properties, not physical consequences. The information needed to detect the attack (that the sequence of arm movements constitutes a striking motion) is not present in any individual text instruction.</p>
+<p><strong>Formal implication:</strong> Let C_phys be the class of attacks where harm arises from physical composition of individually benign actions. For any text-layer defense D_T, there exists an attack in C_phys that bypasses D_T because D_T cannot observe the physical composition. The residual ASR of D_T against C_phys is bounded below by a non-trivial constant (empirically, >= 75.3% for the best known text-layer defense).</p>
+<p><strong>Scope limitation:</strong> Blindfold data is from a single paper, tested in one simulation environment (VirtualHome) and one physical platform (xArm 6, n=20 real-robot trials). Transfer to other embodiments and environments is not established.</p>
+<hr>
+<h3 id="proposition-4-incompleteness-of-text-layer-only-defense">Proposition 4: Incompleteness of Text-Layer-Only Defense</h3>
+<p><strong>Statement:</strong> No text-layer-only defense architecture D = (D_T, null, D_E) is complete for the class of embodied AI attacks C_embodied = C_standard union C_format union C_phys.</p>
+<p><strong>Proof sketch:</strong></p>
+<p>Assume for contradiction that D_T is complete for C_embodied.</p>
+<ol>
+<li>
+<p><strong>From Proposition 1 (Text-Action Independence):</strong> D_T’s activation (blocking at the text layer) does not guarantee action-layer safety. Even when D_T fires (producing a text-layer hedge), the action-layer output may still comply with the adversarial intent. Therefore, D_T’s completeness requires that it blocks 100% of adversarial instructions at the text layer, because any instruction that passes D_T will proceed to action generation without further defense.</p>
+</li>
+<li>
+<p><strong>From Proposition 2 (Format-Lock Bypass):</strong> For any D_T that relies on natural-language safety reasoning, there exists a format-lock attack that bypasses D_T at a rate of 22-62pp above the standard attack success rate. D_T cannot block 100% of adversarial instructions because format-lock systematically exploits the tension between format compliance and safety reasoning. D_T would need to refuse all structured-format requests, which would render the system non-functional for legitimate structured-output tasks.</p>
+</li>
+<li>
+<p><strong>From Proposition 3 (Physical-Semantic Gap):</strong> For attacks in C_phys (physical composition attacks), D_T cannot detect harm because the harmful property (physical consequence of composed actions) is not observable from the text representation of individual instructions. D_T’s residual ASR against C_phys is >= 75.3% under the best known text-layer defense.</p>
+</li>
+<li>
+<p><strong>From (1), (2), and (3):</strong> D_T fails against at least three distinct attack sub-classes through three distinct mechanisms (independence, format bypass, semantic gap). Each mechanism is sufficient on its own to defeat completeness. Together, they establish that no text-layer-only defense can be complete for C_embodied.</p>
+</li>
+</ol>
+<p>Therefore, the assumption is contradicted. No text-layer-only defense architecture is complete for the class of embodied AI attacks. QED (sketch).</p>
+<p><strong>Nature of this argument:</strong> This is an empirically grounded impossibility argument, not a formal proof in the sense of computational complexity theory. The propositions rest on measured failure rates with finite samples and confidence intervals. The argument can be falsified by either:</p>
+<ul>
+<li>(a) A text-layer defense that demonstrably achieves 0% ASR against all three attack sub-classes, or</li>
+<li>(b) Evidence that text-action independence (Proposition 1) does not hold for a class of models, or</li>
+<li>(c) Evidence that format-lock bypasses (Proposition 2) can be eliminated without loss of format-compliance capability.</li>
+</ul>
+<hr>
+<h2 id="3-mapping-to-existing-defense-proposals">3. Mapping to Existing Defense Proposals</h2>
+<p>This section maps existing defense proposals to the three propositions, identifying which failure modes each addresses and which remain unaddressed.</p>
+<h3 id="31-hanse-report-32">3.1 HANSE (Report #32)</h3>
+<p>The Hierarchical Assurance for Neuro-Symbolic Embodiment framework proposes four layers:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>HANSE Layer</th><th>Description</th><th>Propositions Addressed</th><th>Propositions NOT Addressed</th></tr></thead><tbody><tr><td>1. Semantic Firewall</td><td>Input sanitization (Llama-Guard/BERT)</td><td>Partially addresses P2 (format-lock) via input classification</td><td>Does not address P1 (independence) or P3 (physical-semantic gap). Blindfold-class attacks pass the semantic firewall because individual instructions are benign.</td></tr><tr><td>2. VLA Core (Untrusted)</td><td>Treated as black box</td><td>None — explicitly untrusted</td><td>All three propositions apply to the VLA core.</td></tr><tr><td>3. Affordance Verifier</td><td>Physics check via world model</td><td>Addresses P3 (physical-semantic gap) for a subset of attacks where physical infeasibility is detectable</td><td>Does not address P1 or P2. Cannot detect attacks that use physically feasible but harmful action sequences (e.g., Blindfold instructions are kinematically valid).</td></tr><tr><td>4. Kinematic Shield</td><td>CBF/MPC runtime enforcement</td><td>Addresses P3 partially — prevents actions that violate kinematic constraints</td><td>Does not address P1 or P2. Cannot detect harm that operates within normal kinematic parameters.</td></tr></tbody></table>
+<p><strong>Assessment:</strong> HANSE is the most comprehensive existing proposal because it incorporates non-text-layer defenses (Layers 3 and 4). However, the Affordance Verifier and Kinematic Shield address only a subset of P3 — attacks that involve physically infeasible or kinematically illegal actions. Blindfold-class attacks use physically feasible, kinematically legal action sequences. HANSE’s Layer 1 (Semantic Firewall) is a text-layer defense and is subject to Propositions 1 and 2. No HANSE layer addresses the text-action independence demonstrated by PARTIAL dominance (Proposition 1).</p>
+<p><strong>Gap:</strong> HANSE does not include an explicit mechanism for detecting harmful intent from the composition of individually benign actions. The Affordance Verifier checks physical feasibility, not intent. A “Compositional Intent Verifier” — a component that evaluates the physical consequence of action sequences, not individual actions — would be needed to address the remaining gap.</p>
+<h3 id="32-llama-guard--input-output-filtering">3.2 Llama-Guard / Input-Output Filtering</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense</th><th>Layer</th><th>Propositions Addressed</th><th>Residual Vulnerability</th></tr></thead><tbody><tr><td>Llama-Guard</td><td>Text-layer (D_T)</td><td>Partially addresses standard attacks</td><td>Blindfold residual: 85.6% ASR. Format-lock bypass: not tested but likely vulnerable (operates on text content). PARTIAL dominance: no action-layer component.</td></tr></tbody></table>
+<p><strong>Assessment:</strong> Pure text-layer defense. Subject to all three propositions. Reduces standard attack ASR but does not address the structural limitations identified in this report.</p>
+<h3 id="33-safedecoding-token-prediction-modification">3.3 SafeDecoding (Token Prediction Modification)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense</th><th>Layer</th><th>Propositions Addressed</th><th>Residual Vulnerability</th></tr></thead><tbody><tr><td>SafeDecoding</td><td>Text-layer (D_T, decoding phase)</td><td>Modifies token generation probabilities to favor safe tokens</td><td>Blindfold residual: 88.4% ASR. Does not operate at the action layer. Proposition 1 (independence) and Proposition 3 (semantic gap) are unaddressed.</td></tr></tbody></table>
+<p><strong>Assessment:</strong> Text-layer defense operating at the decoding level. Modestly more effective than input filtering because it intervenes during generation, but still operates on text tokens, not action representations. Subject to all three propositions.</p>
+<h3 id="34-verisafe-formal-verification-of-text-properties">3.4 VeriSafe (Formal Verification of Text Properties)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense</th><th>Layer</th><th>Propositions Addressed</th><th>Residual Vulnerability</th></tr></thead><tbody><tr><td>VeriSafe</td><td>Text-layer (D_T, formal methods)</td><td>Formal verification of text-layer safety properties</td><td>Blindfold residual: 75.3% ASR. Best text-layer defense tested. Still operates on text properties, not physical consequences.</td></tr></tbody></table>
+<p><strong>Assessment:</strong> The strongest text-layer defense in the Blindfold evaluation. Reduces ASR by 17.9pp, substantially more than Llama-Guard (7.6pp) or SafeDecoding (4.8pp). However, the 75.3% residual ASR demonstrates that formal verification of text properties is not sufficient when harm arises from physical composition (Proposition 3). VeriSafe verifies the right things within the wrong layer.</p>
+<h3 id="35-iso-10218--isots-15066-physical-layer-safety">3.5 ISO 10218 / ISO/TS 15066 (Physical-Layer Safety)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Defense</th><th>Layer</th><th>Propositions Addressed</th><th>Residual Vulnerability</th></tr></thead><tbody><tr><td>Force/speed limits</td><td>Physical (D_A, hardware)</td><td>Addresses P3 for attacks that require exceeding kinematic limits</td><td>Does not address attacks within normal parameters. Does not address P1 or P2.</td></tr><tr><td>Safety-rated monitored stop</td><td>Physical (D_A, hardware)</td><td>Addresses proximity-based harm</td><td>Does not address harm from manipulation tasks within the collaborative workspace.</td></tr></tbody></table>
+<p><strong>Assessment:</strong> Physical-layer defenses are independent of the text layer and therefore not subject to Propositions 1 or 2. They address a subset of Proposition 3 (attacks that exceed physical safety parameters). However, they cannot detect harm from actions within normal kinematic envelopes — which is precisely the class of attack that Blindfold exploits.</p>
+<h3 id="36-summary-defense-coverage-matrix">3.6 Summary: Defense Coverage Matrix</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Proposition</th><th>Llama-Guard</th><th>SafeDecoding</th><th>VeriSafe</th><th>HANSE L1</th><th>HANSE L3</th><th>HANSE L4</th><th>ISO 10218</th></tr></thead><tbody><tr><td>P1 (Independence)</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>N/A (physical)</td></tr><tr><td>P2 (Format-Lock)</td><td>Partial</td><td>No</td><td>No</td><td>Partial</td><td>No</td><td>No</td><td>N/A (physical)</td></tr><tr><td>P3 (Semantic Gap)</td><td>No</td><td>No</td><td>Partial (17.9pp)</td><td>No</td><td>Partial (feasibility)</td><td>Partial (kinematics)</td><td>Partial (force/speed)</td></tr><tr><td>All three</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr></tbody></table>
+<p><strong>No existing defense proposal addresses all three propositions.</strong> HANSE comes closest by incorporating non-text-layer defenses, but its physical-layer components (Affordance Verifier, Kinematic Shield) address only the subset of Proposition 3 that involves physically infeasible or kinematically illegal actions.</p>
+<hr>
+<h2 id="4-what-a-complete-defense-would-require">4. What a Complete Defense Would Require</h2>
+<p>Based on the three propositions, a complete defense for embodied AI would need to satisfy three minimum requirements:</p>
+<h3 id="41-requirement-r1-action-layer-refusal-training-addresses-p1">4.1 Requirement R1: Action-Layer Refusal Training (addresses P1)</h3>
+<p>Current VLA models are trained to refuse at the text layer (RLHF safety training operates on text tokens) but not at the action layer. A complete defense requires training that produces action-layer refusal — the model outputs a null action or safe alternative rather than the requested trajectory — independently of whether the text response contains safety hedging.</p>
+<p>This requires:</p>
+<ul>
+<li>Safety training datasets that include action-level refusal examples</li>
+<li>Separate evaluation metrics for text-layer and action-layer refusal rates</li>
+<li>Optimization objectives that penalize dangerous action sequences independently of text-layer safety signals</li>
+</ul>
+<p><strong>Status:</strong> No VLA system currently implements action-layer refusal training. The training infrastructure and datasets do not exist.</p>
+<h3 id="42-requirement-r2-format-robust-safety-addresses-p2">4.2 Requirement R2: Format-Robust Safety (addresses P2)</h3>
+<p>Safety reasoning must function regardless of output format. Current models show that format compliance competes with safety reasoning when the output format does not accommodate refusal tokens. A format-robust defense would ensure that safety evaluation operates on the semantic content of the output, not on the presence of natural-language refusal tokens.</p>
+<p>Possible approaches:</p>
+<ul>
+<li>Post-generation safety evaluation that operates on the structured output (not just the text response)</li>
+<li>Training that associates safety refusal with structured-output equivalents (e.g., a JSON response that includes an “unsafe” flag)</li>
+<li>Architectural separation of format-compliance and safety-reasoning pathways</li>
+</ul>
+<p><strong>Status:</strong> No published approach addresses format-lock bypass specifically. This is an identified research gap (Issue #216).</p>
+<h3 id="43-requirement-r3-compositional-intent-verification-addresses-p3">4.3 Requirement R3: Compositional Intent Verification (addresses P3)</h3>
+<p>The physical-semantic gap can only be closed by a component that evaluates the physical consequences of composed action sequences, not individual instructions. This is distinct from existing approaches:</p>
+<ul>
+<li>Input filtering evaluates individual instructions (does not detect composition)</li>
+<li>Affordance verification checks physical feasibility (does not evaluate intent)</li>
+<li>Kinematic constraints check parameter bounds (does not evaluate sequences)</li>
+</ul>
+<p>A Compositional Intent Verifier would need:</p>
+<ul>
+<li>A world model that predicts the physical consequences of action sequences</li>
+<li>An intent classifier that maps physical consequences to safety categories</li>
+<li>Runtime integration that evaluates every action sequence before execution</li>
+</ul>
+<p>This is conceptually closest to HANSE’s Affordance Verifier but operates at a higher level: not “is this action physically possible?” but “what would this sequence of actions accomplish in the physical world, and is that outcome safe?”</p>
+<p><strong>Status:</strong> Simulation-based consequence estimation exists in robotics research but has not been integrated with VLA safety evaluation. Computational cost and world-model fidelity are open challenges.</p>
+<hr>
+<h2 id="5-limitations">5. Limitations</h2>
+<ol>
+<li>
+<p><strong>Sample sizes.</strong> The FLIP corpus (n=58 valid traces) and benign baseline (n=39) are below n=100. Wide confidence intervals apply to all per-family ASR figures. The independence claim (Proposition 1) rests on aggregate-level convergence, not individual-trace reliability.</p>
+</li>
+<li>
+<p><strong>Grader quality.</strong> FLIP grading used deepseek-r1:1.5b (~70% accuracy) and qwen3:1.7b (15% accuracy). The aggregate convergence between graders at 72.4% suggests the overall signal is robust, but individual verdicts may be unreliable. Grading methodology: LLM-only (FLIP backward inference).</p>
+</li>
+<li>
+<p><strong>Format-lock ASR mixes methodologies.</strong> The high-ASR figures (92%, 91%) are heuristic-graded (kappa=0.126 with LLM grading). The frontier model figures (30.4%, 42.1%, 23.8%) are LLM-graded and more reliable, but show lower ASR. The format-lock bypass proposition is best supported by the frontier LLM-graded data, which shows 22-42pp elevation above baseline.</p>
+</li>
+<li>
+<p><strong>Blindfold is one paper.</strong> Proposition 3 relies heavily on a single external paper. While peer-reviewed (SenSys 2026), the attack is demonstrated in one simulation environment and one physical platform. Generalizability to other VLA architectures and environments is not established.</p>
+</li>
+<li>
+<p><strong>The impossibility argument is structural, not formal.</strong> The propositions are empirically grounded, not axiomatically derived. A sufficiently novel defense architecture could address all three propositions in ways not anticipated by this analysis.</p>
+</li>
+<li>
+<p><strong>No direct experimental test.</strong> As with Report #78, this analysis synthesizes data from multiple independent workstreams. A direct experimental validation would test all three propositions simultaneously on a single VLA system with a single defense architecture. No such experiment has been conducted.</p>
+</li>
+<li>
+<p><strong>Scale confound.</strong> The FLIP corpus data is primarily from 1.5-1.7B models (below the capability floor). PARTIAL dominance may manifest differently at frontier scale. However, the format-lock evidence from frontier models (Claude, Codex, Gemini) suggests that text-action decoupling persists at scale.</p>
+</li>
+</ol>
+<hr>
+<h2 id="6-conclusions-and-recommendations">6. Conclusions and Recommendations</h2>
+<h3 id="61-what-this-report-establishes">6.1 What this report establishes</h3>
+<p>The Defense Impossibility Theorem for Embodied AI is a structured argument that no text-layer-only defense architecture is complete for the class of embodied AI attacks. The argument rests on three empirically grounded propositions:</p>
+<ul>
+<li>Text-layer and action-layer safety are decoupled (PARTIAL dominance)</li>
+<li>Text-layer defenses can be bypassed by format-lock attacks (22-62pp ASR elevation)</li>
+<li>Text-layer defenses cannot detect harm from physical composition of benign actions (Blindfold: 75.3% residual ASR after best defense)</li>
+</ul>
+<p>These propositions are individually sufficient to defeat text-layer-only defense completeness. Together, they suggest that the minimum viable defense for embodied AI requires components at the action layer and the physical-consequence layer, not just the text layer.</p>
+<h3 id="62-what-this-report-does-not-establish">6.2 What this report does not establish</h3>
+<ul>
+<li>That defense is impossible in general. Multi-layer defense architectures (HANSE, ISO 10218 physical constraints) address subsets of the problem.</li>
+<li>That all embodied AI systems are equally vulnerable. The evidence comes from specific models, attack families, and environments.</li>
+<li>That the three propositions are exhaustive. Other failure modes may exist that are not captured by this framework.</li>
+</ul>
+<h3 id="63-recommendations">6.3 Recommendations</h3>
+<ol>
+<li>
+<p><strong>CCS integration.</strong> The impossibility argument should be considered for the paper’s Discussion section as a theoretical framing for the empirical findings in Reports #49, #51, and #78. The four-proposition structure is more defensible in peer review than a compound probability calculation because it identifies mechanisms rather than multiplying point estimates.</p>
+</li>
+<li>
+<p><strong>Action-layer refusal is the critical research gap.</strong> Of the three requirements for a complete defense (R1-R3), action-layer refusal training (R1) is the most tractable and the highest impact. It addresses the weakest link (0% refusal rate) and would create the first action-layer safety signal. If confirmed by further testing, this would suggest that VLA safety research should prioritize action-layer training over text-layer improvement.</p>
+</li>
+<li>
+<p><strong>HANSE extension.</strong> The HANSE framework should be evaluated for extension with a Compositional Intent Verifier (Section 4.3). HANSE is currently the closest to a complete defense but lacks the compositional-sequence analysis needed to address Blindfold-class attacks.</p>
+</li>
+<li>
+<p><strong>Falsification tests.</strong> The impossibility argument makes specific, testable predictions: (a) improving text-layer safety training will not proportionally reduce action-layer ASR, (b) format-lock will continue to elevate ASR at frontier scale, (c) Blindfold-class attacks will transfer to other VLA architectures. Each prediction can be tested with targeted experiments.</p>
+</li>
+</ol>
+<hr>
+<h2 id="references">References</h2>
+<ol>
+<li>F41LUR3-F1R57. Report #78: Defense Impossibility in Embodied AI — A Three-Layer Failure Convergence. 2026-03-11.</li>
+<li>F41LUR3-F1R57. Report #49: VLA Cross-Embodiment Attack Transfer. Updated 2026-03-12.</li>
+<li>F41LUR3-F1R57. Report #51: Format-Lock Capability Floor. 2026-03-03.</li>
+<li>F41LUR3-F1R57. Report #59: The Compliance Paradox. 2026-03-11.</li>
+<li>F41LUR3-F1R57. Report #65: HALLUCINATION_REFUSAL as the Text-Only Analog of VLA PARTIAL. 2026-03-11.</li>
+<li>F41LUR3-F1R57. Report #67: Layer 0 Extension — Evaluation Infrastructure as Vulnerability Surface. 2026-03-11.</li>
+<li>F41LUR3-F1R57. Report #32: VLA Safety Certification Bridge (HANSE). 2026-03.</li>
+<li>F41LUR3-F1R57. Report #118: Defense Layer Mismatch Index. 2026-03-16.</li>
+<li>F41LUR3-F1R57. Report #75: Blindfold Action-Level Threat Analysis. 2026-03-11.</li>
+<li>Blindfold: Safely Generating Harmful Robot Actions through VLA Jailbreaking. arXiv:2603.01414. Accepted ACM SenSys 2026.</li>
+<li>CANONICAL_METRICS.md. Failure-First Embodied AI. Verified 2026-03-18.</li>
+</ol>
+<hr>
+<h2 id="appendix-a-proposition-evidence-mapping">Appendix A: Proposition-Evidence Mapping</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Proposition</th><th>Primary Evidence</th><th>n</th><th>Methodology</th><th>Confidence</th></tr></thead><tbody><tr><td>P1 (Independence)</td><td>VLA FLIP corpus PARTIAL rate</td><td>58 valid traces</td><td>FLIP backward inference (LLM-only)</td><td>Moderate. Aggregate converges; scenario-level agreement low (32%).</td></tr><tr><td>P1 (Independence)</td><td>HR-PARTIAL equivalence (text-only analog)</td><td>84 HR, 220 PARTIAL</td><td>Token distribution analysis (Mann-Whitney U)</td><td>Strong. HR indistinguishable from COMPLIANCE (p=0.21, p=0.46); significantly different from REFUSAL (p&#x3C;0.001).</td></tr><tr><td>P2 (Format-Lock)</td><td>Format-lock ASR elevation</td><td>n=19-23 per frontier model (LLM-graded); n varies for heuristic</td><td>Mixed: LLM-graded (frontier), heuristic (non-frontier)</td><td>Moderate. LLM-graded frontier data is reliable; heuristic data has kappa=0.126.</td></tr><tr><td>P3 (Semantic Gap)</td><td>Blindfold ASR</td><td>187 simulation, 20 real-robot</td><td>External peer-reviewed paper</td><td>Strong for tested environment; transfer unknown.</td></tr><tr><td>P3 (Semantic Gap)</td><td>VeriSafe residual ASR</td><td>From Blindfold ablation</td><td>External peer-reviewed paper</td><td>Strong for tested defense; other formal methods untested.</td></tr></tbody></table>
+<hr>
+<p><em>This report was produced as part of the Failure-First Embodied AI research programme. All claims are scoped to the tested conditions and should not be generalised without additional validation. See docs/CANONICAL_METRICS.md for corpus-level numbers.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

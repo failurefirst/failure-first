@@ -1,0 +1,466 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First</title><meta name="description" content="Over two weeks in March 2026, three independent research teams and six internal analysts produced convergent findings on a single structural pattern: **safety interventions for AI systems can..."><link rel="canonical" href="https://failurefirst.org/research/reports/141-safety-interventions-as-attack-surfaces-the-iatrogenesis-convergence/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First"><meta property="og:description" content="Over two weeks in March 2026, three independent research teams and six internal analysts produced convergent findings on a single structural pattern: **safety interventions for AI systems can..."><meta property="og:url" content="https://failurefirst.org/research/reports/141-safety-interventions-as-attack-surfaces-the-iatrogenesis-convergence/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First"><meta name="twitter:description" content="Over two weeks in March 2026, three independent research teams and six internal analysts produced convergent findings on a single structural pattern: **safety interventions for AI systems can..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-18"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-18"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/141-safety-interventions-as-attack-surfaces-the-iatrogenesis-convergence/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/141-safety-interventions-as-attack-surfaces-the-iatrogenesis-convergence/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Safety Interventions as Attack Surfaces -- The Iatrogenesis Convergence | Research | Failure-First","description":"Over two weeks in March 2026, three independent research teams and six internal analysts produced convergent findings on a single structural pattern: **safety interventions for AI systems can...","url":"https://failurefirst.org/research/reports/141-safety-interventions-as-attack-surfaces-the-iatrogenesis-convergence/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-18","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 141</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 141"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 141</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-18</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <ul>
+<li>Internal corpus: 236 models, 135,623 results, 319 VLA scenarios, 27 families (CANONICAL_METRICS.md verified 2026-03-18)</li>
+<li>Report #140: The Iatrogenesis of AI Safety (Clara Oswald, 2026-03-18)</li>
+<li>Report #134: Hippocratic Principle for AI Safety (Nyssa of Traken, 2026-03-18)</li>
+<li>Report #135: Therapeutic Index of AI Safety Interventions (Clara Oswald, 2026-03-18)</li>
+<li>Report #136: Iatrogenic Attack Surfaces (Nyssa of Traken, 2026-03-18)</li>
+<li>Report #132: Alignment Backfire Integration (Amy Pond, 2026-03-18)</li>
+<li>Report #133: Compositional Supply Chain Attacks (Rose Tyler, 2026-03-18)</li>
+<li>Report #137: Defense Layer Inversion Week 11 Threat Brief (River Song, 2026-03-18)</li>
+<li>Report #138: Compositional Safety Gap (Martha Jones, 2026-03-18)</li>
+<li>Report #117: Safety Improvement Paradox (Nyssa of Traken, 2026-03-16)</li>
+<li>Report #59: Compliance Paradox (2026-03-10)</li>
+<li>Report #99: Governance Trilemma (Nyssa of Traken, 2026-03-15)</li>
+<li>Report #51: Format-Lock Attack Analysis (Clara Oswald, 2026-03-10)</li>
+<li>External: Fukui (2026), arXiv:2603.04904 — Alignment Backfire (n=1,584 simulations, 16 languages)</li>
+<li>External: Ding (2026), arXiv:2603.12681 — CoLoRA (Mercedes-Benz R&#x26;D)</li>
+<li>External: Huang et al. (2026), arXiv:2603.01414 — Blindfold (53% ASR on real 6DoF arm)</li>
+</ul>
+<p><strong>Related Reports:</strong> #48, #49, #51, #59, #63, #95, #97, #99, #101, #117, #122, #132, #133, #134, #135, #136, #137, #138
+<strong>Related Issues:</strong> #429 (DRIP), #458 (Hippocratic), #459 (IAS), #460 (IAS experiment), #464 (iatrogenesis synthesis), #465 (TI-S validation)
+<strong>Ethical Frameworks Applied:</strong> dual-use obligations, precautionary principle, pharmacological discipline</p>
+<hr>
+<blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the Limitations
+section. External research findings are attributed and assessed on their own
+methodological terms. This report does not constitute safety certification guidance.</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Over two weeks in March 2026, three independent research teams and six internal analysts produced convergent findings on a single structural pattern: <strong>safety interventions for AI systems can function as attack surfaces</strong>. This is not a metaphorical claim. Safety training, safety evaluation, safety certification, and safety-motivated modularity each create exploitable vulnerabilities that would not exist without the safety mechanism.</p>
+<p>This report synthesises nine internal reports (#132-#138, #140, #135) and three external papers (arXiv:2603.04904, arXiv:2603.12681, arXiv:2603.01414) into a unified account of what we term the <strong>iatrogenesis convergence</strong> — the empirical discovery, arrived at from multiple independent directions, that the relationship between safety interventions and safety outcomes is not monotonic. Safety interventions can degrade safety. They can create new attack surfaces. They can make harmful behaviour harder to detect. These are not edge cases; they appear to be structural properties of how current safety methods interact with embodied deployment contexts.</p>
+<p>The synthesis identifies a five-mechanism taxonomy of safety-as-attack-surface, demonstrates that the mechanisms share a common causal structure (layer mismatch between intervention and harm), and proposes the Therapeutic Index of AI Safety (TI-S) as a quantitative framework for evaluating whether a given intervention produces net benefit or net harm at the harm layer. The convergence of internal findings with independent external validation (from Kyoto, Mercedes-Benz R&#x26;D, and Hong Kong Polytechnic/Cambridge) suggests the pattern is not an artifact of our methodology.</p>
+<p><strong>Claim types in this report:</strong></p>
+<ul>
+<li>Section 1 is descriptive (documenting the convergence).</li>
+<li>Section 2 is analytical (identifying shared causal structure).</li>
+<li>Section 3 is synthetic (proposing the unified taxonomy).</li>
+<li>Section 4 is normative (implications for intervention design).</li>
+<li>Section 5 is speculative (predictions and open questions).</li>
+</ul>
+<hr>
+<h2 id="1-the-convergence-nine-reports-three-papers-one-pattern">1. The Convergence: Nine Reports, Three Papers, One Pattern</h2>
+<h3 id="11-timeline-and-independence">1.1 Timeline and Independence</h3>
+<p>Between March 13 and March 18, 2026, the following outputs were produced without coordination on the iatrogenesis thesis:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Date</th><th>Source</th><th>Finding</th><th>Independence</th></tr></thead><tbody><tr><td>Mar 13-18</td><td>Fukui (2026), arXiv:2603.04904</td><td>Alignment training reverses safety in 8/16 languages (g=+0.771 in Japanese)</td><td>External (Kyoto University)</td></tr><tr><td>Mar 13-18</td><td>Ding (2026), arXiv:2603.12681</td><td>Individually safe LoRA adapters compose to suppress safety</td><td>External (Mercedes-Benz R&#x26;D)</td></tr><tr><td>Mar 13-18</td><td>Huang et al. (2026), arXiv:2603.01414</td><td>Semantically benign instructions achieve 53% ASR on real 6DoF arm</td><td>External (HK PolyU / Cambridge)</td></tr><tr><td>Mar 18</td><td>Report #132 (Amy Pond)</td><td>Alignment Backfire validates Safety Improvement Paradox</td><td>Internal, independent of #140</td></tr><tr><td>Mar 18</td><td>Report #133 (Rose Tyler)</td><td>CoLoRA implies new CSC attack family for VLA</td><td>Internal, independent of #140</td></tr><tr><td>Mar 18</td><td>Report #137 (River Song)</td><td>Defense Layer Inversion pattern across 6 papers</td><td>Internal, independent of #140</td></tr><tr><td>Mar 18</td><td>Report #138 (Martha Jones)</td><td>Compositional Safety Gap in regulatory frameworks</td><td>Internal, independent of #136</td></tr><tr><td>Mar 18</td><td>Report #140 (Clara Oswald)</td><td>Four-form iatrogenesis taxonomy</td><td>Internal, prior to #141</td></tr><tr><td>Mar 18</td><td>Report #134 (Nyssa of Traken)</td><td>Hippocratic Principle for safety interventions</td><td>Internal, independent of #140</td></tr><tr><td>Mar 18</td><td>Report #135 (Clara Oswald)</td><td>Therapeutic Index TI-S metric</td><td>Internal, companion to #140</td></tr><tr><td>Mar 18</td><td>Report #136 (Nyssa of Traken)</td><td>Iatrogenic Attack Surfaces formalisation</td><td>Internal, independent of #140</td></tr></tbody></table>
+<p><strong>Descriptive claim:</strong> Six analysts, working from different starting points (evaluation, adversarial operations, threat intelligence, policy, ethics, synthesis), independently arrived at structurally equivalent conclusions during the same two-week period. Three external research groups, with no knowledge of Failure-First, published findings that validate the same pattern. This convergence was not planned. No agent was instructed to investigate iatrogenesis; each discovered it from their own domain.</p>
+<h3 id="12-what-each-stream-contributes">1.2 What Each Stream Contributes</h3>
+<p>The convergence is not mere agreement. Each stream contributes a distinct piece of the picture that the others cannot provide alone.</p>
+<p><strong>Report #140 (Iatrogenesis Framework)</strong> provides the theoretical backbone: mapping Failure-First findings to Illich’s three-form iatrogenesis taxonomy (clinical, social, structural) and adding a fourth form (verification iatrogenesis). It identifies the shared causal mechanism: layer mismatch between intervention and harm, compounded by feedback loop inversion.</p>
+<p><strong>Report #134 (Hippocratic Principle)</strong> provides the normative response: a four-check pre-deployment screen (clinical, social, structural, cross-context) for safety interventions applied to embodied AI. It translates the theoretical finding into actionable governance.</p>
+<p><strong>Report #135 (Therapeutic Index)</strong> provides the measurement framework: TI-S = B_h / C_h, where benefit and cost are measured at the harm layer, not the evaluation layer. Illustrative estimates suggest RLHF applied to embodied AI may have TI-S in the range 0.3-1.5 — potentially iatrogenic.</p>
+<p><strong>Report #136 (Iatrogenic Attack Surfaces)</strong> provides the security formalisation: a two-condition definition (causal dependence on safety intervention + exploitability) that distinguishes iatrogenic vulnerabilities from safety failures, safety bypasses, and alignment tax.</p>
+<p><strong>Reports #132, #137, #138</strong> provide the external validation mapping: demonstrating that Fukui’s alignment backfire, Ding’s compositional safety evasion, and Huang’s action-layer bypass each independently confirm specific predictions of the iatrogenesis framework.</p>
+<p><strong>Report #133 (CSC)</strong> provides the operational extension: translating CoLoRA’s weight-composition finding into VLA-specific scenarios that operationalise the compositional iatrogenesis mechanism for physical-consequence testing.</p>
+<hr>
+<h2 id="2-the-shared-causal-structure">2. The Shared Causal Structure</h2>
+<h3 id="21-layer-mismatch-as-unifying-mechanism">2.1 Layer Mismatch as Unifying Mechanism</h3>
+<p>All convergent findings share one structural property: <strong>the safety intervention operates at a different layer than the harm it claims to prevent.</strong> Report #140 formalised this as the “layer mismatch” mechanism. The convergence data now supports a more precise statement.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Finding</th><th>Intervention Layer</th><th>Harm Layer</th><th>Mismatch Type</th></tr></thead><tbody><tr><td>Alignment Backfire (Fukui)</td><td>Training-time text-layer (English)</td><td>Deployment-time collective behaviour (non-English)</td><td>Language transfer failure</td></tr><tr><td>PARTIAL Dominance (#59)</td><td>Text-layer RLHF signals</td><td>Action-layer execution</td><td>Semantic-actuator gap</td></tr><tr><td>SID (#95)</td><td>System prompt (fixed position)</td><td>Full context window (dynamic)</td><td>Static vs. dynamic resource</td></tr><tr><td>Format-Lock (#51)</td><td>Safety deliberation pathway</td><td>Format compliance pathway</td><td>Pathway suppression</td></tr><tr><td>Blindfold (Huang et al.)</td><td>Semantic content filter</td><td>Physical action trajectory</td><td>Semantic-physical gap</td></tr><tr><td>CoLoRA (Ding)</td><td>Per-module safety verification</td><td>Composed model behaviour</td><td>Component-composition gap</td></tr><tr><td>Governance Trilemma (#99)</td><td>Evaluation methodology disclosure</td><td>IDDL attack families</td><td>Transparency-exploitation gap</td></tr></tbody></table>
+<p><strong>Analytical claim:</strong> The seven instances above are not seven different problems. They are seven manifestations of a single architectural property: safety interventions that target the evaluable surface (text, individual modules, English, system prompt) miss harm that occurs at the consequential surface (physical action, composed systems, multilingual deployment, full operational context). The mismatch is not accidental; it arises because the evaluable surface is where measurement is tractable, and tractable measurement attracts investment.</p>
+<h3 id="22-feedback-loop-inversion">2.2 Feedback Loop Inversion</h3>
+<p>The layer mismatch alone would produce a static gap (safety intervention is ineffective at the harm layer but not actively harmful). The convergence findings show something stronger: feedback loops that amplify the gap over time.</p>
+<p><strong>PARTIAL dominance feedback loop:</strong> Safety training produces PARTIAL verdicts (textual hedging without behavioural change). Text-layer evaluation interprets hedging as safety awareness. The metric improves. More safety training is applied. The model produces more sophisticated hedging. The action layer remains unaffected. Each cycle widens the gap between the appearance of safety (improving) and the reality of safety (static).</p>
+<p><strong>Safety Improvement Paradox feedback loop:</strong> Lower ASR on adversarial benchmarks signals that safety investment is working. More resources flow to adversarial robustness. ASR decreases further. The ratio R_u/R_a increases (Report #117). The dominant risk source (unintentional harm in dangerous physical contexts) grows relative to the defended risk source. The feedback loop optimises for the metric approaching its ceiling while ignoring the metric that dominates total harm.</p>
+<p><strong>Alignment Backfire feedback loop (Fukui):</strong> English-language safety metrics improve. The intervention is scaled globally. In 8/16 languages, the intervention reverses. The feedback signal (English metrics) is positive. The harm signal (non-English outcomes) is unmeasured. Each iteration deepens the language-specific degradation.</p>
+<p><strong>Compositional safety feedback loop (CoLoRA):</strong> Individual adapters pass safety certification. The certification produces institutional confidence. More adapters are composed without compositional testing. The compositional attack surface grows combinatorially while the per-component certification signal remains green. The safety verification process itself generates the conditions for its own failure.</p>
+<h3 id="23-the-illich-criterion">2.3 The Illich Criterion</h3>
+<p>Report #140 introduced the “Illich criterion” to distinguish iatrogenesis from mere failure: <strong>the harm is produced by the intervention operating correctly, not by the intervention failing.</strong> The convergence data strengthens this criterion.</p>
+<ul>
+<li>PARTIAL dominance is safety training operating correctly (producing text-layer safety signals). The problem is that these signals do not prevent action-layer harm — a design property, not a bug.</li>
+<li>CoLoRA is per-module safety verification operating correctly (each module passes). The problem is that composition is not tested — a scope property, not a verification failure.</li>
+<li>Alignment Backfire is RLHF operating correctly (reducing harmful outputs in the training distribution). The problem is that the training distribution is English-centric — an optimisation property, not a training error.</li>
+<li>Blindfold is semantic safety filtering operating correctly (blocking semantically harmful instructions). The problem is that physical harm can arise from semantically benign instructions — a domain property, not a filter bug.</li>
+</ul>
+<p>Each safety mechanism is doing what it was designed to do. The harm arises from the design itself.</p>
+<hr>
+<h2 id="3-a-five-mechanism-taxonomy-of-safety-as-attack-surface">3. A Five-Mechanism Taxonomy of Safety-as-Attack-Surface</h2>
+<p>Synthesising across all convergent reports, we identify five distinct mechanisms by which safety interventions create attack surfaces. These are not overlapping categories; each identifies a different causal pathway.</p>
+<h3 id="mechanism-1-detection-masking-ias-1-report-136">Mechanism 1: Detection Masking (IAS-1, Report #136)</h3>
+<p><strong>Definition:</strong> Safety training produces output patterns that make harmful behaviour harder to detect than naked compliance.</p>
+<p><strong>Evidence:</strong> 50% PARTIAL verdicts across 173 FLIP-graded VLA traces (Report #59). Safety-trained models disclaim before complying. An untrained model that simply complies is correctly classified as harmful. A safety-trained model that hedges and complies is classified as partially safe — despite identical action-layer harm. The safety training converted a detectable failure into a less detectable one.</p>
+<p><strong>External validation:</strong> Fukui’s “internal dissociation” (15/16 languages): aligned agents articulate safety values while behaving pathologically. The text-level safety signal masks the behavioural harm.</p>
+<h3 id="mechanism-2-alignment-reversal-ias-3-report-136-fukui-2026">Mechanism 2: Alignment Reversal (IAS-3, Report #136; Fukui 2026)</h3>
+<p><strong>Definition:</strong> Safety training improves outcomes in the training distribution but reverses outcomes in out-of-distribution deployment conditions.</p>
+<p><strong>Evidence:</strong> Hedges’ g = +0.771 safety degradation in Japanese (Fukui 2026, n=1,584 simulations). 8/16 languages show degradation. The effect is method-invariant across 6 alignment approaches (RLHF, DPO, IPO, KTO, ORPO, SimPO).</p>
+<p><strong>Failure-First convergence:</strong> Report #117 (Safety Improvement Paradox) predicted analytically that safety interventions addressing one risk dimension would leave orthogonal risk dimensions unaddressed or degraded. Fukui demonstrates this empirically: English-axis optimisation degrades non-English-axis safety.</p>
+<h3 id="mechanism-3-compositional-safety-evasion-csc-report-133-colora">Mechanism 3: Compositional Safety Evasion (CSC, Report #133; CoLoRA)</h3>
+<p><strong>Definition:</strong> Components that individually pass safety verification produce unsafe behaviour when composed.</p>
+<p><strong>Evidence:</strong> CoLoRA (arXiv:2603.12681) demonstrates that individually benign LoRA adapters suppress safety refusal when linearly composed. No adversarial prompt needed. Exhaustive composition testing is computationally intractable (the number of adapter combinations is exponential in the adapter count).</p>
+<p><strong>Failure-First convergence:</strong> Report #138 (Compositional Safety Gap) documents that EU AI Act Article 43, VAISS Guardrail 4, and NIST AI RMF MAP 2.3 all implicitly assume component-level verification composes to system-level assurance. CoLoRA demonstrates this assumption is false.</p>
+<h3 id="mechanism-4-safety-deliberation-suppression-ias-4-report-136-report-51">Mechanism 4: Safety Deliberation Suppression (IAS-4, Report #136; Report #51)</h3>
+<p><strong>Definition:</strong> Safety training installs deliberation pathways that can be bypassed by exploiting other trained capabilities (e.g., format compliance).</p>
+<p><strong>Evidence:</strong> Format-lock ASR on frontier models: Claude 30.4% (n=23), Codex 42.1% (n=19), Gemini 23.8% (n=21) — versus standard ASR &#x3C;10% for the same models (Report #51, LLM-graded). Nemotron 30B: 92% format-lock ASR. The format compliance capability, enhanced by instruction-following training, creates a pathway that bypasses the safety deliberation pathway installed by safety training. The safety mechanism’s own training infrastructure creates the bypass.</p>
+<p><strong>Inverted verbosity signal:</strong> Format-lock COMPLIANCE responses are shorter than refusals — the opposite of the corpus-wide pattern (Report #51). Safety deliberation is not just bypassed; it is suppressed. The model does not weigh safety concerns and override them; it does not reach the safety reasoning stage.</p>
+<h3 id="mechanism-5-semantic-physical-layer-disconnect-blindfold-iddl">Mechanism 5: Semantic-Physical Layer Disconnect (Blindfold; IDDL)</h3>
+<p><strong>Definition:</strong> Text-layer safety mechanisms are architecturally unable to detect harm that arises from the physical context of action execution.</p>
+<p><strong>Evidence:</strong> Blindfold (arXiv:2603.01414) achieves 53% ASR on a real 6DoF robotic arm using instructions that appear semantically benign. The instruction “move the gripper to position (x, y, z)” passes every content filter. The harm arises because position (x, y, z) is near a human. No text-level filter can detect this without a physical-world model.</p>
+<p><strong>Failure-First convergence:</strong> IDDL (Spearman rho = -0.822, n=27 families, Report #99) formalises this as a structural property: the most dangerous attack families are precisely those that are hardest to detect by text-layer evaluation. Blindfold is the first physical-lab confirmation of an IDDL-class attack. The semantic safety layer is not failing; it is architecturally excluded from the harm layer.</p>
+<hr>
+<h2 id="4-the-therapeutic-index-toward-quantitative-iatrogenic-assessment">4. The Therapeutic Index: Toward Quantitative Iatrogenic Assessment</h2>
+<h3 id="41-the-ti-s-framework-report-135">4.1 The TI-S Framework (Report #135)</h3>
+<p>Report #135 proposes the Therapeutic Index of AI Safety:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>TI-S(I, S) = B_h(I, S) / C_h(I, S)</span></span></code></pre>
+<p>Where B_h is the harm-layer benefit (measured reduction in physical-harm risk) and C_h is the harm-layer cost (total iatrogenic effects: detection masking, alignment reversal, deliberation suppression, false certification confidence, compositional attack surface creation).</p>
+<p>An intervention with TI-S > 1 produces net benefit at the harm layer. An intervention with TI-S &#x3C; 1 is iatrogenic — it causes more harm than it prevents at the layer where harm occurs.</p>
+<h3 id="42-illustrative-estimates">4.2 Illustrative Estimates</h3>
+<p>Report #135 derives the following illustrative TI-S ranges (these are parameter-dependent estimates, not measured values):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Intervention</th><th>Context</th><th>Estimated TI-S</th><th>Interpretation</th></tr></thead><tbody><tr><td>RLHF</td><td>Text-only deployment</td><td>>> 1</td><td>Net beneficial (evaluation and harm layers coincide)</td></tr><tr><td>RLHF</td><td>Embodied VLA deployment</td><td>0.3 - 1.5</td><td>Potentially iatrogenic (harm at action layer, benefit at text layer)</td></tr><tr><td>Physical-layer constraints (force/speed limits)</td><td>Embodied deployment</td><td>>> 1</td><td>Net beneficial (intervention and harm at same layer)</td></tr><tr><td>Adversarial certification</td><td>Embodied deployment</td><td>0.2 - 0.8</td><td>Likely iatrogenic (addresses 1.6% of harm, creates certification confidence covering 100%)</td></tr><tr><td>Per-module safety screening</td><td>Modular AI (LoRA stacks)</td><td>Unknown, potentially &#x3C; 1</td><td>Passes components, misses compositions (CoLoRA)</td></tr></tbody></table>
+<p><strong>Analytical claim:</strong> The pattern is consistent: interventions operating at the harm layer (physical constraints, action-trajectory monitoring) have high TI-S. Interventions operating at a different layer from the harm (text-layer RLHF for embodied deployment, per-module screening for composed systems) have TI-S values that may fall below 1. This is the layer mismatch principle expressed quantitatively.</p>
+<p><strong>Scope limitation:</strong> All TI-S estimates are illustrative. They depend on DRIP parameters (lambda_u, lambda_a, p_ctx) that have not been calibrated against deployment data. The qualitative ordering (layer-matched > layer-mismatched) is robust to large parameter variation; the specific values are not.</p>
+<h3 id="43-the-layer-safety-matrix">4.3 The Layer-Safety Matrix</h3>
+<p>Report #135 proposes a deeper insight: <strong>safety is a property of (intervention, deployment-layer) pairs, not of interventions alone.</strong> RLHF has high TI-S for text-only deployment and low TI-S for embodied deployment. The same intervention is beneficial in one context and potentially iatrogenic in another. This parallels pharmacology, where the same drug may be therapeutic for one condition and contraindicated for another.</p>
+<p>The iatrogenesis convergence suggests that the AI safety field has been evaluating interventions as if they were context-independent (“RLHF makes models safer”) when the evidence indicates they are context-dependent (“RLHF makes text-layer outputs safer in English; its effect on action-layer outcomes in non-English embodied deployment is unknown and may be negative”).</p>
+<hr>
+<h2 id="5-implications-and-predictions">5. Implications and Predictions</h2>
+<h3 id="51-for-the-ccs-paper">5.1 For the CCS Paper</h3>
+<p>The iatrogenesis convergence provides a unifying theme for the discussion section. The paper already documents IDDL, CDC, PARTIAL dominance, format-lock, and the capability-floor. The iatrogenesis framing connects these as instances of a single structural property: the current safety evaluation paradigm measures at the wrong layer for embodied AI, and the act of measuring at the wrong layer creates institutional confidence that prevents measuring at the right layer. A discussion fragment has been prepared (docs/paper/ccs_submission/iatrogenesis_discussion_fragment.tex).</p>
+<h3 id="52-for-governance">5.2 For Governance</h3>
+<p>The Hippocratic Principle (Report #134) translates the convergence into a governance recommendation: require pre-deployment iatrogenic screening for safety interventions applied to embodied AI. The Compositional Safety Gap (Report #138) identifies specific regulatory instruments that assume component-level verification composes to system-level safety. The convergence provides the empirical foundation for both.</p>
+<p><strong>Predictive claim (conditional):</strong> If the EU AI Act’s conformity assessment under Article 43 does not account for iatrogenic risk from safety interventions and compositional safety failure, notified bodies will certify systems whose safety mechanisms actively worsen outcomes in specific deployment contexts (non-English language, modular adapter stacks, high-CDC physical environments). The Alignment Backfire data (8/16 languages) and CoLoRA data (individually safe adapters compose to suppress safety) provide the specific failure modes.</p>
+<h3 id="53-for-the-research-programme">5.3 For the Research Programme</h3>
+<p>The convergence opens three empirical questions that the current corpus cannot answer:</p>
+<ol>
+<li>
+<p><strong>Does alignment backfire transfer to VLA systems?</strong> Fukui’s evidence is from multi-agent text simulations. The Compliance Paradox (PARTIAL dominance at the action layer) is structurally parallel but has not been tested across languages. Issue #454 (cross-language VLA experiment) is designed to test this.</p>
+</li>
+<li>
+<p><strong>Does CoLoRA transfer to VLA adapter stacks?</strong> Rose Tyler’s 5 CSC scenarios (Report #133) operationalise this question but no traces have been collected. The test requires a VLA model that accepts LoRA adapters — currently available through OpenVLA-OFT.</p>
+</li>
+<li>
+<p><strong>What is the empirical TI-S of RLHF for embodied deployment?</strong> The illustrative estimates (0.3-1.5) are derived from DRIP parameters. Measuring actual TI-S requires comparing harm-layer outcomes with and without RLHF — an ablation study on a physical or simulated embodied platform. Issue #465 (TI-S validation) tracks this.</p>
+</li>
+</ol>
+<h3 id="54-what-the-convergence-does-not-show">5.4 What the Convergence Does Not Show</h3>
+<p>The convergence does not show that safety interventions are net harmful across all contexts. Specifically:</p>
+<ul>
+<li><strong>Frontier models resist historical jailbreaks</strong> (established finding: Codex GPT-5.2 0% ASR, Claude Sonnet 4.5 0% ASR, Gemini 3 Flash 1.6% ASR). For text-only deployment, safety training appears strongly net beneficial.</li>
+<li><strong>The TI-S &#x3C; 1 estimates apply to embodied deployment</strong>, not to text-only deployment where the evaluation layer and harm layer coincide.</li>
+<li><strong>The iatrogenesis findings are from laboratory testing</strong> on primarily sub-10B models. Deployment-scale evidence of safety iatrogenesis in embodied systems does not yet exist.</li>
+</ul>
+<p>The convergence shows that the relationship between safety interventions and safety outcomes is context-dependent, not that safety interventions are globally harmful. The appropriate response is pharmacological discipline (measure before deploying, monitor after deploying, know the contraindications), not abandonment of safety interventions.</p>
+<hr>
+<h2 id="6-limitations">6. Limitations</h2>
+<ol>
+<li>
+<p><strong>Single research programme for internal findings.</strong> Reports #132-#140 all originate from the Failure-First corpus. The external papers (Fukui, CoLoRA, Blindfold) provide independent validation, but the synthesis framework is ours. Independent synthesis from other groups would strengthen the claim.</p>
+</li>
+<li>
+<p><strong>Small sample sizes.</strong> VLA PARTIAL dominance: n=173 FLIP-graded traces. Format-lock: n=63 (23+19+21). Alignment Backfire: n=1,584 (robust). CoLoRA: single paper. Blindfold: 53% ASR on one 6DoF arm. SID: n=75 traces. The structural argument does not depend on specific numbers but does depend on the qualitative patterns holding at scale.</p>
+</li>
+<li>
+<p><strong>Grading methodology.</strong> VLA FLIP verdicts use deepseek-r1:1.5b and qwen3:1.7b (known 15% accuracy for qwen3, Mistake #25). Format-lock uses LLM grading. Three-tier ASR uses LLM-only verdicts (n=10,294 evaluable). All ASR figures should be interpreted with grader quality in mind. Recent re-grading with 27B models (AFF/KIN/TCA/DLA, CANONICAL_METRICS) shows different distributions, suggesting grader model choice affects reported ASR.</p>
+</li>
+<li>
+<p><strong>The TI-S framework is untested.</strong> No TI-S value has been measured empirically. All estimates are illustrative, derived from DRIP parameters and qualitative reasoning. The framework’s utility depends on whether harm-layer measurement becomes feasible.</p>
+</li>
+<li>
+<p><strong>Analogy limitations.</strong> The iatrogenesis framing borrows from clinical medicine. Medical iatrogenesis involves biological patients with inherent healing capacity; AI systems have no analogous self-repair mechanism. Medical interventions have centuries of accumulated evidence; AI safety interventions have years at most. The analogy is productive but not exact.</p>
+</li>
+<li>
+<p><strong>No systematic counter-evidence search.</strong> This synthesis collects convergent evidence. A rigorous test would require actively searching for safety interventions that demonstrably improve harm-layer outcomes in embodied contexts without iatrogenic side effects. We have not conducted that search. Frontier models’ near-zero ASR is a candidate counter-example, though it applies to text-only deployment.</p>
+</li>
+<li>
+<p><strong>Temporal compression.</strong> All nine internal reports and three external papers appeared within a two-week window. The “convergence” may partly reflect a shared information environment (all agents read the same daily papers) rather than fully independent discovery. The external papers, however, were written without knowledge of Failure-First, providing genuine independent validation.</p>
+</li>
+</ol>
+<hr>
+<h2 id="7-conclusions">7. Conclusions</h2>
+<p>The iatrogenesis convergence is the central finding of the Failure-First research programme’s current phase. Across nine internal reports and three independent external papers, a consistent pattern emerges: safety interventions for AI systems can create the vulnerabilities they were designed to prevent. The mechanisms are distinct (detection masking, alignment reversal, compositional evasion, deliberation suppression, semantic-physical disconnect) but share a common causal structure: the intervention operates at a different layer than the harm.</p>
+<p>This finding has three implications that we consider well-supported by the convergent evidence:</p>
+<ol>
+<li>
+<p><strong>Safety is layer-conditional.</strong> The benefit of a safety intervention depends on whether it operates at the same layer as the harm it addresses. RLHF is beneficial for text-only deployment and may be iatrogenic for embodied deployment. This is not a failure of RLHF; it is a property of the deployment context.</p>
+</li>
+<li>
+<p><strong>Safety evaluation requires harm-layer measurement.</strong> Text-layer ASR reduction is a necessary but not sufficient condition for safety in embodied contexts. Evaluation frameworks that measure only text-layer outcomes will systematically miss action-layer harm and may generate false certification confidence that suppresses investment in effective (layer-matched) defenses.</p>
+</li>
+<li>
+<p><strong>Safety interventions should be subject to the same scrutiny as the systems they protect.</strong> The Hippocratic Principle (Report #134) — evaluate whether the intervention could worsen outcomes before deploying it — is not a radical proposal. It is the minimum standard of pharmacological discipline that medicine adopted centuries ago.</p>
+</li>
+</ol>
+<p>The convergence does not prove that current safety practices are net harmful. It provides preliminary evidence, from multiple independent sources, that the net effect of safety interventions is context-dependent and that the contexts where the effect may be negative (embodied, multilingual, modular) are the contexts where AI systems are being deployed into physically consequential roles. The prudent response is to measure, not to assume.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol>
+<li>F41LUR3-F1R57. Report #140: The Iatrogenesis of AI Safety. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #134: The Hippocratic Principle for AI Safety. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #135: The Therapeutic Index of AI Safety Interventions. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #136: Iatrogenic Attack Surfaces. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #132: Alignment Backfire Integration. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #133: Compositional Supply Chain Attacks. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #137: Defense Layer Inversion Week 11 Threat Brief. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #138: Compositional Safety Gap. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #117: The Safety Improvement Paradox. 2026-03-16.</li>
+<li>F41LUR3-F1R57. Report #59: The Compliance Paradox. 2026-03-10.</li>
+<li>F41LUR3-F1R57. Report #99: The CDC Governance Trilemma. 2026-03-15.</li>
+<li>F41LUR3-F1R57. Report #51: Format-Lock Attack Analysis. 2026-03-10.</li>
+<li>F41LUR3-F1R57. Report #95: Safety Instruction Dilution. 2026-03-15.</li>
+<li>F41LUR3-F1R57. Report #49: VLA PARTIAL Dominance. 2026-03-09.</li>
+<li>F41LUR3-F1R57. Report #48: Cross-Model Vulnerability Profiles. 2026-03-09.</li>
+<li>Fukui, H. (2026). Alignment Backfire: Language-Dependent Reversal of Safety Interventions Across 16 Languages in LLM Multi-Agent Systems. arXiv:2603.04904.</li>
+<li>Ding, Y. (2026). CoLoRA: Colluding LoRA for Safety Evasion in Large Language Models. arXiv:2603.12681.</li>
+<li>Huang, Z. et al. (2026). Blindfold: Jailbreaking Vision-Language-Action Models via Semantically Benign Instructions. arXiv:2603.01414.</li>
+<li>Illich, I. (1976). Limits to Medicine: Medical Nemesis — The Expropriation of Health. Marion Boyars.</li>
+</ol>
+<hr>
+<h2 id="appendix-a-cross-reference-matrix">Appendix A: Cross-Reference Matrix</h2>
+<p>The following matrix maps each iatrogenic mechanism to the internal reports and external papers that provide evidence for it.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Mechanism</th><th>Internal Reports</th><th>External Papers</th><th>Key Metric</th></tr></thead><tbody><tr><td>Detection Masking</td><td>#59, #136 (IAS-1), #140 (S1.2)</td><td>Fukui (internal dissociation 15/16 languages)</td><td>50% PARTIAL verdicts (n=173 FLIP)</td></tr><tr><td>Alignment Reversal</td><td>#117, #132, #140 (S1.1)</td><td>Fukui (g=+0.771, 8/16 languages)</td><td>1.6% Safety Improvement ceiling</td></tr><tr><td>Compositional Evasion</td><td>#133, #138, #136 (polypharmacy hypothesis)</td><td>CoLoRA (adapter composition suppresses safety)</td><td>Exponential composition space</td></tr><tr><td>Deliberation Suppression</td><td>#51, #136 (IAS-4), #140 (S2.2)</td><td>—</td><td>92% format-lock ASR (Nemotron 30B)</td></tr><tr><td>Semantic-Physical Disconnect</td><td>#49, #99 (IDDL), #140 (S1.3-1.4)</td><td>Blindfold (53% ASR, real 6DoF arm)</td><td>IDDL rho=-0.822 (n=27 families)</td></tr></tbody></table>
+<h2 id="appendix-b-relationship-to-unified-theoretical-framework">Appendix B: Relationship to Unified Theoretical Framework</h2>
+<p>The iatrogenesis convergence extends the Unified Theoretical Framework (docs/analysis/unified_theoretical_framework.md) in two ways:</p>
+<ol>
+<li>
+<p><strong>DRIP external validation status upgraded.</strong> The Alignment Backfire finding validates the Safety Improvement Paradox from a different domain (language vs. physical context). Amy Pond (Report #132) assessed this as structural isomorphism. The DRIP prediction — that safety interventions addressing one risk dimension leave orthogonal dimensions unaddressed or degraded — now has independent empirical support from outside the Failure-First corpus.</p>
+</li>
+<li>
+<p><strong>New theoretical construct: iatrogenic feedback amplification.</strong> The existing framework models safety debt as compounding multiplicatively (Safety Debt Accumulator, Section 11). The iatrogenesis convergence adds a second compounding mechanism: safety interventions that address one vulnerability may create new iatrogenic vulnerabilities that compound with the existing ones. This is the “polypharmacy hypothesis” from Report #136: beyond some threshold, additional safety interventions may increase total vulnerability.</p>
+</li>
+</ol>
+<hr>
+<p><em>This report synthesises findings from 12 months of Failure-First corpus analysis (236 models, 135,623 results, 319 VLA scenarios across 27 attack families), 9 concurrent internal reports, and 3 independent external papers. All quantitative claims reference CANONICAL_METRICS.md. The iatrogenesis convergence is an analytical contribution whose validity depends on the underlying empirical findings holding at deployment scale.</em></p>
+<p><em>F41LUR3-F1R57 Research Analysis — Clara Oswald</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

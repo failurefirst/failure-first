@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First</title><meta name="description" content="This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to..."><link rel="canonical" href="https://failurefirst.org/research/reports/68-evaluator-calibration-disclosure-standard/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First"><meta property="og:description" content="This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to..."><meta property="og:url" content="https://failurefirst.org/research/reports/68-evaluator-calibration-disclosure-standard/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First"><meta name="twitter:description" content="This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-11"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-11"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/68-evaluator-calibration-disclosure-standard/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/68-evaluator-calibration-disclosure-standard/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading | Research | Failure-First","description":"This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...","url":"https://failurefirst.org/research/reports/68-evaluator-calibration-disclosure-standard/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-11","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 68</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 68"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 68</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-11</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <h2 id="executive-summary">Executive Summary</h2>
+<p>This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to evaluator choice (Report #61: accuracy ranges from 15% to 95%), evaluator training data (Report #65: StrongREJECT’s Gemma 2B trained on GPT-4 Turbo labels), and evaluator bias (Report #65: self-preference, position, and verbosity biases). Despite this sensitivity, no published benchmark consistently discloses the full identity, version, limitations, and potential conflicts of interest of its automated evaluator.</p>
+<p><strong>Normative claim:</strong> The absence of evaluator disclosure in AI safety benchmarks is analogous to publishing clinical trial results without identifying the assay laboratory or disclosing its accreditation status. It should be unacceptable in a field that claims scientific rigour.</p>
+<p><strong>Predictive claim:</strong> As regulatory frameworks adopt or reference safety benchmarks for compliance assessment (EU AI Act Article 9, anticipated US frameworks), the demand for evaluator transparency will increase. A voluntary disclosure standard adopted now can shape regulatory requirements later, ensuring they are technically sound rather than bureaucratically arbitrary.</p>
+<hr>
+<h2 id="1-current-state-of-evaluator-disclosure">1. Current State of Evaluator Disclosure</h2>
+<h3 id="11-survey-of-major-benchmarks">1.1 Survey of Major Benchmarks</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Benchmark</th><th>Evaluator Disclosed?</th><th>Version Pinned?</th><th>Training Data Disclosed?</th><th>Bias Documented?</th><th>Conflict Disclosed?</th></tr></thead><tbody><tr><td>StrongREJECT</td><td>Yes (GPT-4o-mini + Gemma 2B)</td><td>Partial</td><td>Yes (GPT-4 Turbo labels)</td><td>Yes (self-reports bias analysis)</td><td>No</td></tr><tr><td>HarmBench</td><td>Yes (Llama 2 13B ft)</td><td>Yes</td><td>Partial</td><td>No</td><td>No (Llama not a competitor)</td></tr><tr><td>JailbreakBench</td><td>Yes (GPT-4-class)</td><td>No (version not pinned)</td><td>N/A</td><td>No</td><td>No</td></tr><tr><td>AILuminate (MLCommons)</td><td>Yes (ensemble)</td><td>Partial</td><td>Partial</td><td>No</td><td>No</td></tr><tr><td>WildGuard</td><td>Yes (AllenAI ft)</td><td>Yes</td><td>Yes</td><td>No</td><td>No (AllenAI non-profit)</td></tr><tr><td>F41LUR3-F1R57 FLIP</td><td>Yes (deepseek-r1:1.5b)</td><td>Yes</td><td>N/A (zero-shot)</td><td>Yes (Report #61, #250)</td><td>N/A</td></tr></tbody></table>
+<p><strong>Descriptive observation:</strong> The benchmark community has achieved partial disclosure — most benchmarks name their evaluator. But version pinning, training data provenance, bias documentation, and conflict-of-interest disclosure are inconsistent. No benchmark meets all five disclosure categories.</p>
+<h3 id="12-the-gap">1.2 The Gap</h3>
+<p>The most significant gap is <strong>evaluator-target conflict disclosure</strong>. When a benchmark uses a GPT-4 variant to evaluate both OpenAI’s models and its competitors’ models, the self-preference bias (10-25%, Yan et al. 2024) is a relevant consideration that should be disclosed alongside results. No benchmark currently does this.</p>
+<p>The second gap is <strong>version pinning</strong>. When benchmarks specify “GPT-4” without a version suffix (e.g., gpt-4-0613 vs gpt-4-turbo-2024-04-09), longitudinal comparisons become unreliable because OpenAI updates the model behind the “GPT-4” identifier. JailbreakBench and ad hoc research evaluations are particularly affected.</p>
+<hr>
+<h2 id="2-proposed-minimum-disclosure-standard">2. Proposed Minimum Disclosure Standard</h2>
+<h3 id="21-required-fields">2.1 Required Fields</h3>
+<p>Every published safety benchmark result that uses an automated evaluator should disclose:</p>
+<p><strong>Field 1: Evaluator Identity</strong></p>
+<ul>
+<li>Full model name and version (e.g., “gpt-4o-2024-08-06”, not “GPT-4”)</li>
+<li>If fine-tuned: base model, fine-tuning data source, and fine-tuning objective</li>
+<li>If ensemble: all component models and aggregation method</li>
+</ul>
+<p><strong>Field 2: Evaluator Provenance</strong></p>
+<ul>
+<li>Who produced the evaluator model</li>
+<li>If fine-tuned: who performed the fine-tuning and what labels were used</li>
+<li>If labels were generated by another model: identify that model (e.g., “fine-tuned on labels generated by GPT-4 Turbo”)</li>
+</ul>
+<p><strong>Field 3: Known Limitations</strong></p>
+<ul>
+<li>Documented biases (position, verbosity, self-preference, PARTIAL default)</li>
+<li>Accuracy on validation set (if available)</li>
+<li>Task types where the evaluator performs poorly</li>
+<li>Inter-evaluator agreement metrics (if multiple evaluators used or compared)</li>
+</ul>
+<p><strong>Field 4: Conflict of Interest Statement</strong></p>
+<ul>
+<li>Whether the evaluator vendor produces any model being evaluated</li>
+<li>Whether the evaluator vendor has commercial relationships with any model vendor being evaluated</li>
+<li>Whether the evaluator was trained on data from any model being evaluated</li>
+</ul>
+<p><strong>Field 5: Longitudinal Stability</strong></p>
+<ul>
+<li>Whether the evaluator version is pinned for the benchmark’s lifetime</li>
+<li>How evaluator updates are handled (re-run all evaluations? Append with version tag?)</li>
+<li>Whether historical results are re-evaluated when the evaluator changes</li>
+</ul>
+<h3 id="22-disclosure-format">2.2 Disclosure Format</h3>
+<p>The disclosure should be machine-readable (JSON or YAML) and included in the benchmark’s methodology section or a dedicated evaluator card. Example:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#85E89D">evaluator</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">  name</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"gpt-4o-2024-08-06"</span></span>
+<span class="line"><span style="color:#85E89D">  type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"LLM-as-judge"</span></span>
+<span class="line"><span style="color:#85E89D">  vendor</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"OpenAI"</span></span>
+<span class="line"><span style="color:#85E89D">  fine_tuned</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span></span>
+<span class="line"><span style="color:#85E89D">  version_pinned</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#85E89D">  pin_date</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2024-08-06"</span></span>
+<span class="line"><span style="color:#85E89D">  known_biases</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"self-preference"</span></span>
+<span class="line"><span style="color:#85E89D">      magnitude</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"10-25% on own outputs"</span></span>
+<span class="line"><span style="color:#85E89D">      source</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Yan et al. 2024, arXiv:2410.21819"</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"position"</span></span>
+<span class="line"><span style="color:#85E89D">      magnitude</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"up to 40% inconsistency"</span></span>
+<span class="line"><span style="color:#85E89D">      source</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Zheng et al. 2023"</span></span>
+<span class="line"><span style="color:#85E89D">  conflict_of_interest</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">    evaluator_vendor_produces_targets</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#85E89D">    targets_affected</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"gpt-4o"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"o1"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"o3"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"gpt-4o-mini"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"><span style="color:#85E89D">    statement</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#9ECBFF">      OpenAI produces both the evaluator model and several models</span></span>
+<span class="line"><span style="color:#9ECBFF">      under evaluation. Self-preference bias may inflate safety</span></span>
+<span class="line"><span style="color:#9ECBFF">      scores for OpenAI models.</span></span>
+<span class="line"><span style="color:#85E89D">  inter_evaluator_agreement</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">    comparison_evaluator</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"deepseek-r1:1.5b"</span></span>
+<span class="line"><span style="color:#85E89D">    metric</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Cohen's kappa"</span></span>
+<span class="line"><span style="color:#85E89D">    value</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.245</span></span>
+<span class="line"><span style="color:#79B8FF">    n</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">942</span></span></code></pre>
+<h3 id="23-adoption-pathway">2.3 Adoption Pathway</h3>
+<p><strong>Phase 1 (Voluntary).</strong> Publish the standard as an open specification. Engage StrongREJECT, HarmBench, and JailbreakBench maintainers. Failure-First adopts first (we already disclose most of these fields in Reports #61 and #65).</p>
+<p><strong>Phase 2 (Community norm).</strong> Propose as a recommended practice in the NeurIPS/ICML benchmark track submission guidelines. Reviewers encouraged (not required) to check for evaluator disclosure.</p>
+<p><strong>Phase 3 (Regulatory requirement).</strong> Submit to EU AI Office as input to harmonised standards development for AI Act Article 9 conformity assessment. Submit to NIST AI RMF as a recommended practice for AI safety evaluation transparency.</p>
+<hr>
+<h2 id="3-objections-and-responses">3. Objections and Responses</h2>
+<h3 id="31-this-adds-bureaucratic-overhead-to-benchmark-maintenance">3.1 “This adds bureaucratic overhead to benchmark maintenance”</h3>
+<p><strong>Response:</strong> The disclosure fields require approximately 20 lines of YAML. The information is already known to benchmark maintainers — it merely needs to be written down. The one-time cost of documentation is small relative to the ongoing cost of producing benchmark results that readers cannot properly interpret.</p>
+<h3 id="32-self-preference-bias-has-not-been-conclusively-demonstrated-at-safety-relevant-magnitudes">3.2 “Self-preference bias has not been conclusively demonstrated at safety-relevant magnitudes”</h3>
+<p><strong>Response:</strong> This is a fair point. The 10-25% self-preference estimate comes from general-purpose evaluation tasks, not specifically safety evaluation. Whether the bias transfers to safety judgment is an empirical question. However, the disclosure standard does not claim the bias exists at any particular magnitude — it requires disclosure of known biases so readers can form their own assessment. The absence of evidence of safety-specific bias is itself information worth disclosing.</p>
+<h3 id="33-evaluator-diversity-is-impractical--gpt-4-is-the-best-available-judge">3.3 “Evaluator diversity is impractical — GPT-4 is the best available judge”</h3>
+<p><strong>Response:</strong> The standard does not require evaluator diversity. It requires disclosure. If GPT-4 is the only evaluator and the benchmark maintainer believes this is justified, the disclosure should say so, along with the conflict-of-interest statement. Transparency about monoculture is preferable to invisible monoculture.</p>
+<hr>
+<h2 id="4-connection-to-the-four-layer-model">4. Connection to the Four-Layer Model</h2>
+<p>The evaluator calibration disclosure standard is a Layer 0 safeguard. It addresses the evaluation infrastructure vulnerability identified in Report #67 by making Layer 0 properties visible:</p>
+<ul>
+<li><strong>Accuracy failure</strong> (L0 subtype 1): Addressed by Field 3 (known limitations, validation accuracy)</li>
+<li><strong>Bias failure</strong> (L0 subtype 2): Addressed by Field 3 (documented biases) and Field 4 (conflict of interest)</li>
+<li><strong>Process failure</strong> (L0 subtype 3): Addressed by Field 5 (longitudinal stability, version pinning)</li>
+</ul>
+<p>The standard does not prevent Layer 0 failures. It makes them visible, which enables downstream consumers of benchmark results to adjust their confidence appropriately.</p>
+<hr>
+<h2 id="5-self-audit-applying-the-standard-to-failure-first-flip">5. Self-Audit: Applying the Standard to Failure-First FLIP</h2>
+<p>The credibility of proposing a disclosure standard depends on applying it to our own methodology first. Below is the Failure-First FLIP evaluator disclosure card, honestly completed.</p>
+<h3 id="51-flip-evaluator-disclosure-card">5.1 FLIP Evaluator Disclosure Card</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="yaml"><code><span class="line"><span style="color:#85E89D">evaluator</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">  name</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"deepseek-r1:1.5b"</span></span>
+<span class="line"><span style="color:#85E89D">  type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"LLM-as-judge (zero-shot backward inference)"</span></span>
+<span class="line"><span style="color:#85E89D">  vendor</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"DeepSeek (open-weight, locally hosted via Ollama)"</span></span>
+<span class="line"><span style="color:#85E89D">  fine_tuned</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span></span>
+<span class="line"><span style="color:#85E89D">  version_pinned</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#85E89D">  pin_date</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"2026-02-15"</span></span>
+<span class="line"><span style="color:#85E89D">  methodology</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#9ECBFF">    FLIP (Failure-Layer Inference Protocol) uses backward inference:</span></span>
+<span class="line"><span style="color:#9ECBFF">    the evaluator reads the model response and infers what instruction</span></span>
+<span class="line"><span style="color:#9ECBFF">    would have produced it, then judges whether that inferred instruction</span></span>
+<span class="line"><span style="color:#9ECBFF">    constitutes harmful compliance. This differs from forward evaluation</span></span>
+<span class="line"><span style="color:#9ECBFF">    (does the response match a rubric?) by testing whether the response</span></span>
+<span class="line"><span style="color:#9ECBFF">    is functionally equivalent to complying with the harmful request.</span></span>
+<span class="line"><span style="color:#85E89D">  known_biases</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"PARTIAL default"</span></span>
+<span class="line"><span style="color:#85E89D">      magnitude</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"qwen3:1.7b defaults to PARTIAL in 58% of verdicts"</span></span>
+<span class="line"><span style="color:#85E89D">      source</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Report #61, Issue #250"</span></span>
+<span class="line"><span style="color:#85E89D">      mitigation</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"qwen3:1.7b retired as grader; deepseek-r1:1.5b used instead"</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"accuracy ceiling"</span></span>
+<span class="line"><span style="color:#85E89D">      magnitude</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"~70% on 5-category verdict task"</span></span>
+<span class="line"><span style="color:#85E89D">      source</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Report #61"</span></span>
+<span class="line"><span style="color:#85E89D">      mitigation</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Cross-model validation where possible; human audit sampling"</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">type</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"ERROR rate on long traces"</span></span>
+<span class="line"><span style="color:#85E89D">      magnitude</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"44% ERROR rate on multi-turn traces >2000 tokens"</span></span>
+<span class="line"><span style="color:#85E89D">      source</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Sprint-24 multi-turn batch 2"</span></span>
+<span class="line"><span style="color:#85E89D">      mitigation</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Exclude ERROR verdicts from ASR calculation; report ERROR rate"</span></span>
+<span class="line"><span style="color:#85E89D">  known_failures</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">description</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#9ECBFF">        qwen3:1.7b was deployed as a batch grader for 10,944 results</span></span>
+<span class="line"><span style="color:#9ECBFF">        before validation revealed 15% accuracy (n=20 audit sample).</span></span>
+<span class="line"><span style="color:#9ECBFF">        This is the canonical Layer 0 accuracy failure: the grading</span></span>
+<span class="line"><span style="color:#9ECBFF">        infrastructure produced systematically wrong verdicts that</span></span>
+<span class="line"><span style="color:#9ECBFF">        entered the project's metrics pipeline. Issue #250 tracks</span></span>
+<span class="line"><span style="color:#9ECBFF">        remediation.</span></span>
+<span class="line"><span style="color:#85E89D">      impact</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"10,944 results carry unreliable verdicts"</span></span>
+<span class="line"><span style="color:#85E89D">      detection_method</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Post-hoc human audit sampling"</span></span>
+<span class="line"><span style="color:#85E89D">      detection_latency</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Multiple sprint sessions"</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">description</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#9ECBFF">        Verification hallucination (Report #66): CANONICAL_METRICS.md</span></span>
+<span class="line"><span style="color:#9ECBFF">        reported 17,311 LLM-graded results when the DB contained 10,944</span></span>
+<span class="line"><span style="color:#9ECBFF">        (58% inflation). The error propagated across multiple agent</span></span>
+<span class="line"><span style="color:#9ECBFF">        sessions because each session verified the number against the</span></span>
+<span class="line"><span style="color:#9ECBFF">        previous documentation rather than re-querying the database.</span></span>
+<span class="line"><span style="color:#85E89D">      impact</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Stale metrics in 17+ downstream files"</span></span>
+<span class="line"><span style="color:#85E89D">      detection_method</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Operator direct DB query"</span></span>
+<span class="line"><span style="color:#85E89D">      detection_latency</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Multiple sprint sessions"</span></span>
+<span class="line"><span style="color:#85E89D">  conflict_of_interest</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">    evaluator_vendor_produces_targets</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">false</span></span>
+<span class="line"><span style="color:#85E89D">    statement</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#9ECBFF">      DeepSeek produces both the evaluator (deepseek-r1:1.5b) and one</span></span>
+<span class="line"><span style="color:#9ECBFF">      target model (DeepSeek R1 671B). However, the evaluator is a 1.5B</span></span>
+<span class="line"><span style="color:#9ECBFF">      distilled variant with substantially different capabilities, and</span></span>
+<span class="line"><span style="color:#9ECBFF">      self-preference bias at this scale differential has not been</span></span>
+<span class="line"><span style="color:#9ECBFF">      established. We disclose this relationship but assess the conflict</span></span>
+<span class="line"><span style="color:#9ECBFF">      risk as low.</span></span>
+<span class="line"><span style="color:#85E89D">  inter_evaluator_agreement</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">comparison</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"heuristic keyword classifier"</span></span>
+<span class="line"><span style="color:#85E89D">      metric</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Cohen's kappa"</span></span>
+<span class="line"><span style="color:#85E89D">      value</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.245</span></span>
+<span class="line"><span style="color:#79B8FF">      n</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">942</span></span>
+<span class="line"><span style="color:#85E89D">      interpretation</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Fair agreement (Landis &#x26; Koch). Heuristic COMPLIANCE is 88% wrong; heuristic REFUSAL is 95% correct."</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#85E89D">comparison</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"deepseek-r1:1.5b vs qwen3:1.7b"</span></span>
+<span class="line"><span style="color:#85E89D">      metric</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Scenario-level agreement on VLA traces"</span></span>
+<span class="line"><span style="color:#85E89D">      value</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.32</span></span>
+<span class="line"><span style="color:#79B8FF">      n</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">58</span></span>
+<span class="line"><span style="color:#85E89D">      interpretation</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Low agreement. Per-model FLIP ASR converged (72.4%) but individual trace verdicts diverge."</span></span>
+<span class="line"><span style="color:#85E89D">  longitudinal_stability</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">    version_pinned</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span></span>
+<span class="line"><span style="color:#85E89D">    update_policy</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">></span></span>
+<span class="line"><span style="color:#9ECBFF">      When the evaluator model is updated, all historical results</span></span>
+<span class="line"><span style="color:#9ECBFF">      will be re-evaluated and the version change documented.</span></span>
+<span class="line"><span style="color:#9ECBFF">      Currently no re-evaluation has been performed because the</span></span>
+<span class="line"><span style="color:#9ECBFF">      evaluator version has not changed since deployment.</span></span>
+<span class="line"><span style="color:#85E89D">    historical_re_evaluation</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Not yet needed; policy defined"</span></span></code></pre>
+<h3 id="52-self-audit-findings">5.2 Self-Audit Findings</h3>
+<p>Applying the five-field standard to our own methodology reveals three gaps:</p>
+<ol>
+<li>
+<p><strong>We pass Fields 1-2 (Identity, Provenance).</strong> FLIP has always named the evaluator model and its provenance.</p>
+</li>
+<li>
+<p><strong>We partially pass Field 3 (Known Limitations).</strong> The 15% qwen3:1.7b accuracy finding and the verification hallucination are documented in Reports #61 and #66. However, these disclosures were distributed across multiple reports rather than consolidated in one evaluator card. The standard requires a single, findable disclosure location.</p>
+</li>
+<li>
+<p><strong>We partially pass Field 4 (Conflict of Interest).</strong> The DeepSeek evaluator/target relationship was not previously documented as a conflict of interest. The risk assessment is “low” but the absence of prior documentation is itself a gap.</p>
+</li>
+<li>
+<p><strong>We partially pass Field 5 (Longitudinal Stability).</strong> Version pinning exists in practice but the re-evaluation policy was implicit rather than written. The standard forces us to make the policy explicit.</p>
+</li>
+</ol>
+<p><strong>Net assessment:</strong> Failure-First FLIP meets 2 of 5 fields fully and 3 of 5 partially. No benchmark surveyed in Section 1.1 meets more than 3 of 5. This confirms that the standard identifies real gaps even in methodologies that were designed with transparency in mind.</p>
+<hr>
+<h2 id="6-concrete-recommendations">6. Concrete Recommendations</h2>
+<h3 id="61-for-benchmark-maintainers">6.1 For Benchmark Maintainers</h3>
+<p><strong>Recommendation 1: Publish an evaluator card.</strong> Every benchmark that uses an automated evaluator should publish a machine-readable evaluator card (YAML or JSON) alongside its results. The card should contain the five fields specified in Section 2.1. A template is provided in Section 5.1 above.</p>
+<p><strong>Recommendation 2: Report evaluator accuracy on a validation sample.</strong> Before deploying an automated evaluator at scale, validate its accuracy on a held-out sample of at least 50 traces with human ground truth. Report the accuracy, the sample size, and the task breakdown. Our qwen3:1.7b finding (15% accuracy discovered only after 10,944 results were graded) demonstrates the cost of skipping this step.</p>
+<p><strong>Recommendation 3: Report inter-evaluator agreement when claiming robustness.</strong> If a benchmark claims that its results are robust to evaluator choice, it should report inter-evaluator agreement (Cohen’s kappa or equivalent) with at least one alternative evaluator. Our finding of kappa=0.245 between heuristic and LLM grading demonstrates that nominal agreement (both label the same proportion of traces as “attack success”) can mask systematic disagreement at the individual trace level.</p>
+<p><strong>Recommendation 4: Disclose evaluator-target vendor overlap.</strong> When the evaluator vendor produces any model under evaluation, this should be stated explicitly in the benchmark methodology. The disclosure should cite the best available estimate of self-preference bias magnitude and note whether the bias has been measured specifically for safety evaluation tasks (as opposed to general-purpose evaluation).</p>
+<h3 id="62-for-regulators">6.2 For Regulators</h3>
+<p><strong>Recommendation 5: Require evaluator disclosure in conformity assessment.</strong> When regulatory frameworks (EU AI Act Article 9, NIST AI RMF) reference safety benchmarks for compliance assessment, the conformity assessment procedure should require disclosure of the evaluator identity, version, and known limitations. Without this, regulated entities can select favourable benchmarks and evaluators to demonstrate compliance.</p>
+<p><strong>Recommendation 6: Require evaluator diversity for high-risk classifications.</strong> For AI systems classified as high-risk (EU AI Act Annex III), conformity assessment should require evaluation by at least two independent evaluators from different vendor families. The OBLITERATUS community evaluation dataset (30,238 records across 13 abliteration methods) demonstrates that safety evaluation at scale is already occurring in the open community without any evaluator disclosure norms. Governance frameworks should establish these norms before they become entrenched.</p>
+<p><strong>Recommendation 7: Establish evaluator accreditation criteria.</strong> By analogy with clinical laboratory accreditation, regulators should define minimum accuracy thresholds for automated safety evaluators. Our data suggests that an evaluator with accuracy below 50% (random baseline on binary tasks) should not be used for compliance assessment. An evaluator with accuracy below 70% should be flagged as “uncalibrated” and its results marked accordingly.</p>
+<h3 id="63-for-researchers">6.3 For Researchers</h3>
+<p><strong>Recommendation 8: Treat evaluator choice as a variable, not a constant.</strong> When reporting safety evaluation results, researchers should acknowledge that the results are conditional on the evaluator used. Where feasible, report results under multiple evaluators to bound the sensitivity. Our VLA FLIP results show per-model ASR converging at 72.4% across two evaluators while scenario-level agreement is only 32% — the aggregate statistic is stable but individual judgments are not.</p>
+<p><strong>Recommendation 9: Audit deployed evaluators periodically.</strong> Evaluator accuracy should be re-validated periodically, especially after model updates or task distribution shifts. Our verification hallucination finding demonstrates that evaluation process integrity degrades over time without active verification against primary data sources.</p>
+<hr>
+<h2 id="7-yaml-schema-specification">7. YAML Schema Specification</h2>
+<p>The following JSON Schema validates evaluator disclosure cards:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "$schema"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"https://json-schema.org/draft/2020-12/schema"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "title"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Evaluator Disclosure Card"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "description"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Minimum disclosure standard for automated safety evaluators (Report #68, F41LUR3-F1R57)"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "required"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"evaluator"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    "evaluator"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      "required"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"type"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"vendor"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"fine_tuned"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"version_pinned"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"conflict_of_interest"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">      "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "name"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "description"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Full model name and version (e.g., gpt-4o-2024-08-06)"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "type"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "enum"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"LLM-as-judge"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"fine-tuned-classifier"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"heuristic"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"ensemble"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"human"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"hybrid"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">          "description"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Evaluator methodology class"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "vendor"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "description"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Who produced the evaluator model"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "fine_tuned"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"boolean"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "fine_tuning_details"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">            "base_model"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">            "label_source"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"description"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Source of training labels (e.g., 'GPT-4 Turbo generated labels')"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">            "objective"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "version_pinned"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"boolean"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "pin_date"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "format"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"date"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "methodology"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "description"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Brief description of evaluation methodology"</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "known_biases"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"array"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "items"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">            "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">            "required"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"type"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"magnitude"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"source"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">            "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">              "type"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "magnitude"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "source"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "mitigation"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "known_failures"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"array"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "items"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">            "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">            "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">              "description"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "impact"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "detection_method"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "detection_latency"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "conflict_of_interest"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "required"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"evaluator_vendor_produces_targets"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"statement"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">          "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">            "evaluator_vendor_produces_targets"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"boolean"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">            "targets_affected"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">              "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"array"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">              "items"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">            },</span></span>
+<span class="line"><span style="color:#79B8FF">            "statement"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "inter_evaluator_agreement"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"array"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "items"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">            "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">            "required"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"comparison"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"metric"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"value"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"n"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">            "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">              "comparison"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "metric"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "value"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"number"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "n"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"integer"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">              "interpretation"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">            }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        "longitudinal_stability"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"object"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          "required"</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">"version_pinned"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"update_policy"</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">          "properties"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">            "version_pinned"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"boolean"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">            "update_policy"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> },</span></span>
+<span class="line"><span style="color:#79B8FF">            "historical_re_evaluation"</span><span style="color:#E1E4E8">: { </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8"> }</span></span>
+<span class="line"><span style="color:#E1E4E8">          }</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<hr>
+<h2 id="8-connection-to-obliteratus-community-evaluations">8. Connection to OBLITERATUS Community Evaluations</h2>
+<p>The OBLITERATUS telemetry dataset provides an instructive case study for evaluator disclosure norms. The community has produced 30,238 evaluation records across 13 abliteration methods, evaluating safety guardrail removal on models ranging from distilgpt2 to Qwen3-4B, using H200 and A100 GPU infrastructure. This represents a large-scale, distributed safety evaluation effort — yet it operates entirely outside any evaluator disclosure framework.</p>
+<p>The OBLITERATUS evaluation pipeline measures refusal_rate, perplexity, coherence, and KL divergence. These metrics evaluate the <em>success of safety removal</em>, not safety itself. But the same methodological concerns apply: what evaluator determines whether a response constitutes a “refusal”? What biases does that evaluator carry? How is coherence measured, and by whom?</p>
+<p>The absence of evaluator disclosure in community-driven safety research creates a double risk: the research community’s benchmarks may be biased (Section 1), and the adversarial community’s counter-benchmarks have no disclosure norms at all. The evaluator calibration disclosure standard should apply symmetrically to both contexts.</p>
+<hr>
+<h2 id="9-next-steps">9. Next Steps</h2>
+<ol>
+<li>Publish the YAML schema as a standalone specification in the project’s <code>schemas/</code> directory</li>
+<li>Engage StrongREJECT, HarmBench, and JailbreakBench maintainers with a concrete proposal</li>
+<li>Submit evaluator disclosure recommendations to EU AI Office (harmonised standards input)</li>
+<li>Draft NeurIPS/ICML benchmark track reviewer guidance proposal</li>
+<li>Create a public-facing blog post summarising the standard for failurefirst.org</li>
+</ol>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

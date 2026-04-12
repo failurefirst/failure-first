@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First</title><meta name="description" content="This report operationalises the ethical analysis from Report #73 (recursive evaluator ethics) into a concrete governance framework for automated AI safety evaluators. Where Report #73 identified..."><link rel="canonical" href="https://failurefirst.org/research/reports/76-evaluator-governance-framework/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First"><meta property="og:description" content="This report operationalises the ethical analysis from Report #73 (recursive evaluator ethics) into a concrete governance framework for automated AI safety evaluators. Where Report #73 identified..."><meta property="og:url" content="https://failurefirst.org/research/reports/76-evaluator-governance-framework/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First"><meta name="twitter:description" content="This report operationalises the ethical analysis from Report #73 (recursive evaluator ethics) into a concrete governance framework for automated AI safety evaluators. Where Report #73 identified..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-11"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-11"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/76-evaluator-governance-framework/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/76-evaluator-governance-framework/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment | Research | Failure-First","description":"This report operationalises the ethical analysis from Report #73 (recursive evaluator ethics) into a concrete governance framework for automated AI safety evaluators. Where Report #73 identified...","url":"https://failurefirst.org/research/reports/76-evaluator-governance-framework/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-11","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 76</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 76"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 76</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-11</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <h2 id="executive-summary">Executive Summary</h2>
+<p>This report operationalises the ethical analysis from Report #73 (recursive evaluator ethics) into a concrete governance framework for automated AI safety evaluators. Where Report #73 identified three structural problems — accountability gaps, power concentration, and dual-use tension — this report proposes enforceable mechanisms to address each. Where Report #72 (Martha Jones) identified regulatory gaps in NIST AI 100-2e2023 and EU AI Act Article 9, this report specifies the governance architecture that could fill those gaps. Where LR-18 (Tegan Jovanka) mapped the liability chain from uncalibrated evaluators to downstream harm, this report defines the institutional controls that would break that chain before harm materialises.</p>
+<p>The framework comprises five components:</p>
+<ol>
+<li><strong>Minimum calibration thresholds</strong> for automated evaluators (grounded in our empirical finding: 15% vs ~70% accuracy range across evaluators in the same pipeline)</li>
+<li><strong>Independence requirements</strong> separating evaluator providers from the entities whose systems are evaluated (analogous to auditor independence in financial regulation)</li>
+<li><strong>Disclosure standards</strong> for published ASR figures and safety benchmarks</li>
+<li><strong>Continuous monitoring obligations</strong> triggered by model updates that change evaluator behaviour</li>
+<li><strong>Tiered assurance levels</strong> from self-certification to independent audit to regulatory certification</li>
+</ol>
+<p>Every recommendation is grounded in the Failure-First corpus’s empirical evidence. Normative, descriptive, and predictive claims are labelled throughout.</p>
+<p><strong>Scope limitation:</strong> This is a governance framework proposal, not a regulatory text. It is designed to be adaptable across three regulatory traditions (EU, US, AU) and is drafted at a level of specificity that allows translation into harmonised standards, supplementary guidance, or voluntary codes. It does not prescribe a single implementation pathway.</p>
+<hr>
+<h2 id="1-empirical-foundation">1. Empirical Foundation</h2>
+<p>The governance mechanisms proposed in this report are grounded in documented measurement failures from the Failure-First corpus. This section consolidates the evidence base; subsequent sections derive governance mechanisms from it.</p>
+<h3 id="11-the-calibration-gap-15-vs-70">1.1 The Calibration Gap: 15% vs ~70%</h3>
+<p>The central empirical fact: two automated evaluators deployed in the same safety assessment pipeline on the same traces produced accuracy rates differing by a factor of 5.7.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Evaluator</th><th>Accuracy</th><th>Task</th><th>n</th><th>Detection method</th></tr></thead><tbody><tr><td>qwen3:1.7b</td><td>15%</td><td>5-category FLIP verdict</td><td>20</td><td>Post-hoc human audit (Issue #250)</td></tr><tr><td>deepseek-r1:1.5b</td><td>~70%</td><td>5-category FLIP verdict</td><td>20</td><td>Calibration study (Report #61)</td></tr><tr><td>Heuristic keyword</td><td>REFUSAL 95%, COMPLIANCE 12%</td><td>Binary compliance/refusal</td><td>942</td><td>Cross-validation (sprint-24, kappa=0.245)</td></tr></tbody></table>
+<p><strong>Descriptive claim:</strong> The 55-percentage-point accuracy gap between qwen3:1.7b and deepseek-r1:1.5b — models of similar parameter scale (1.7B vs 1.5B) — was invisible to the pipeline until an explicit calibration audit was conducted. No structural feature of the pipeline (format validation, verdict distribution monitoring, cross-agent verification) detected the failure. It was detected only when a human compared 20 evaluator verdicts against ground truth.</p>
+<h3 id="12-downstream-impact-contaminated-metrics">1.2 Downstream Impact: Contaminated Metrics</h3>
+<p>The qwen3:1.7b failure contaminated 40 crescendo attack traces (Issue #252). The measured impact on published metrics:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Metric</th><th>Contaminated (qwen3)</th><th>Corrected (deepseek + manual)</th><th>Shift</th></tr></thead><tbody><tr><td>Strict ASR</td><td>30%</td><td>65.0% [43.3%, 81.9%]</td><td>+35pp</td></tr><tr><td>Broad ASR</td><td>100%</td><td>85.0% [64.0%, 94.8%]</td><td>-15pp</td></tr></tbody></table>
+<p><strong>Descriptive claim:</strong> The contaminated evaluator simultaneously understated the most severe failure mode (strict ASR deflated by 35pp) and overstated the breadth of vulnerability (broad ASR inflated by 15pp). Both directional errors are material for risk assessment. The corrected figures required regrading by a different evaluator plus manual FLIP review (14/20 traces required human adjudication).</p>
+<h3 id="13-false-positive-rate-calibration-in-the-other-direction">1.3 False Positive Rate: Calibration in the Other Direction</h3>
+<p>Issue #315 documents that deepseek-r1:1.5b — the evaluator used to correct qwen3:1.7b’s errors — itself produces a 30.8% false positive rate on benign baseline queries (12/39 benign traces classified as COMPLIANCE or PARTIAL). This means the corrected 72.4% VLA FLIP ASR is likely over-reported by approximately 30 percentage points.</p>
+<p><strong>Descriptive claim:</strong> Even the project’s most reliable automated evaluator produces a false positive rate that materially inflates attack success figures. No single evaluator in the pipeline meets the reliability standard that the project’s published metrics implicitly claim.</p>
+<h3 id="14-inter-evaluator-agreement">1.4 Inter-Evaluator Agreement</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Comparison</th><th>Metric</th><th>Value</th><th>n</th></tr></thead><tbody><tr><td>Heuristic vs LLM</td><td>Cohen’s kappa</td><td>0.245</td><td>942</td></tr><tr><td>deepseek-r1:1.5b vs qwen3:1.7b (VLA)</td><td>Scenario-level agreement</td><td>32%</td><td>58</td></tr><tr><td>deepseek-r1:1.5b vs qwen3:1.7b (VLA corpus ASR)</td><td>Aggregate ASR</td><td>Both 72.4%</td><td>58</td></tr></tbody></table>
+<p><strong>Descriptive claim:</strong> The aggregate statistic (corpus-level ASR) converged at 72.4% across two evaluators, but individual trace-level verdicts agreed on only 32% of cases. This is the evaluator analogue of Simpson’s paradox: group-level agreement masks individual-level disagreement. A governance framework that validates only aggregate metrics would miss this.</p>
+<h3 id="15-the-verification-hallucination">1.5 The Verification Hallucination</h3>
+<p>Report #66 documented a distinct failure mode: CANONICAL_METRICS.md reported 17,311 LLM-graded results when the database contained 10,944 — a 58% inflation. The error propagated across multiple agent sessions because each session verified the number against the previous documentation rather than re-querying the database. This is a process-layer failure (Layer 0 subtype 3 in the four-layer model) rather than an accuracy failure, but it demonstrates that evaluation pipeline integrity degrades without active monitoring against primary data sources.</p>
+<hr>
+<h2 id="2-component-1-minimum-calibration-thresholds">2. Component 1: Minimum Calibration Thresholds</h2>
+<h3 id="21-the-problem">2.1 The Problem</h3>
+<p>No current regulatory framework or benchmark standard specifies a minimum accuracy threshold for automated safety evaluators. The consequence: an evaluator with 15% accuracy (worse than random on a five-category task) can produce safety assessments that enter regulatory submissions, insurance underwriting, and commercial marketing without any qualification.</p>
+<p>Report #73 (Section 1) identified this as an accountability gap. LR-18 (Section 4) analysed the negligence implications. This section specifies the governance mechanism.</p>
+<h3 id="22-proposed-thresholds">2.2 Proposed Thresholds</h3>
+<p><strong>Normative claim:</strong> The following minimum calibration thresholds should apply to automated evaluators used in AI safety assessment, graduated by the consequence class of the assessment.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Consequence class</th><th>Minimum accuracy</th><th>Minimum kappa</th><th>Minimum calibration sample</th><th>Rationale</th></tr></thead><tbody><tr><td><strong>Research</strong> (internal use, academic publication)</td><td>50%</td><td>0.20</td><td>n >= 30</td><td>Must exceed chance-level performance on the classification task. A five-category random baseline is 20%; binary random baseline is 50%. The 50% threshold ensures the evaluator contributes information beyond noise. Kappa >= 0.20 (fair agreement, Landis &#x26; Koch 1977) ensures minimal inter-rater reliability.</td></tr><tr><td><strong>Benchmark</strong> (published rankings, commercial marketing)</td><td>70%</td><td>0.40</td><td>n >= 50</td><td>Must demonstrably outperform chance by a substantive margin. The 70% threshold reflects the accuracy of the best small-model evaluator in the Failure-First pipeline (deepseek-r1:1.5b). Kappa >= 0.40 (moderate agreement) ensures that individual-trace-level judgments, not just aggregate statistics, are meaningfully reliable.</td></tr><tr><td><strong>Regulatory</strong> (conformity assessment, WHS compliance, insurance underwriting)</td><td>85%</td><td>0.60</td><td>n >= 100</td><td>Must approach the reliability expected of a professional measurement instrument. The 85% threshold acknowledges that current LLM-based evaluators have not been demonstrated to achieve higher accuracy on adversarial safety classification tasks at scale. Kappa >= 0.60 (substantial agreement) ensures high inter-rater consistency.</td></tr></tbody></table>
+<h3 id="23-grounding-in-evidence">2.3 Grounding in Evidence</h3>
+<p>The thresholds are derived from the empirical evidence in Section 1, not from theoretical optimality:</p>
+<ul>
+<li><strong>50% floor:</strong> qwen3:1.7b at 15% would fail this threshold. This is the minimum useful signal — an evaluator below 50% on a binary task is anticorrelated with ground truth and would produce more accurate results if its verdicts were inverted.</li>
+<li><strong>70% benchmark threshold:</strong> deepseek-r1:1.5b at ~70% meets this threshold marginally. This is the highest accuracy we have observed from a small-model evaluator on the FLIP task, and it produces a 30.8% false positive rate (Issue #315). A benchmark threshold at this level acknowledges current capability constraints while requiring demonstrably non-trivial performance.</li>
+<li><strong>85% regulatory threshold:</strong> No evaluator in the Failure-First pipeline meets this threshold. This is deliberate. It signals that current automated evaluators, at least at the 1-2B parameter scale, are not sufficiently reliable for regulatory conformity assessment without human oversight. This finding aligns with Report #73’s conclusion that regulatory evaluation requires structural independence from automated tools.</li>
+</ul>
+<h3 id="24-calibration-protocol">2.4 Calibration Protocol</h3>
+<p>The calibration study required at each threshold level should follow a defined protocol:</p>
+<ol>
+<li>
+<p><strong>Ground truth construction.</strong> A sample of traces (minimum size per consequence class above) should be classified by human annotators using the same classification scheme as the automated evaluator. For FLIP-style evaluation, this means human annotators apply backward inference: read the response, infer the instruction, judge whether the inferred instruction constitutes harmful compliance.</p>
+</li>
+<li>
+<p><strong>Multi-annotator agreement.</strong> The ground truth sample should be classified by at least two independent annotators (three for regulatory consequence class). Inter-annotator agreement (kappa) below the threshold for the target consequence class indicates that the classification task itself is ambiguous, not just that the automated evaluator is unreliable. This is an important diagnostic: if humans cannot agree on the verdicts, automated evaluator accuracy measured against any single annotator’s ground truth is not meaningful.</p>
+</li>
+<li>
+<p><strong>Stratified validation.</strong> The calibration sample should be stratified across verdict categories. An evaluator that achieves 70% overall accuracy by correctly classifying all REFUSAL cases (because they are easy) but misclassifying 90% of COMPLIANCE cases (because they are hard) would pass the threshold while being unreliable for the most safety-critical classification. Per-category precision and recall must be reported alongside overall accuracy.</p>
+</li>
+<li>
+<p><strong>Directional error documentation.</strong> Following Report #73, Section 1.3 (asymmetry of detection): the calibration study must document the direction of the evaluator’s errors. An evaluator that over-reports safety (false negatives: classifying unsafe outputs as safe) creates higher-consequence errors than one that over-reports attack success (false positives: classifying safe outputs as unsafe). The directional profile should be stated explicitly.</p>
+</li>
+</ol>
+<h3 id="25-implementation-pathway">2.5 Implementation Pathway</h3>
+<ul>
+<li><strong>EU:</strong> Integrate into harmonised standards under Article 40 of the EU AI Act. CEN/CENELEC JTC 21 work items on conformity assessment for high-risk AI systems are the appropriate vehicle. Report #72 maps the specific Articles where calibration requirements could attach (Article 9(5), Article 11/Annex IV, Article 15(1)).</li>
+<li><strong>US:</strong> Submit as recommended practice to NIST for inclusion in AI RMF supplementary guidance (MEASURE 2.5, 2.6, 4.1; mapping from Report #72, Section 4.2). Alternatively, propose through AISIC as a deliverable.</li>
+<li><strong>AU:</strong> Reference in submissions to the Safe Work Australia Best Practice Review (Report #72, Section 4.3; existing submission at research/engagement/swa_best_practice_brief.md). Propose for VAISS Guardrail 4 (Testing and Monitoring) implementation guidance via AU AISI.</li>
+</ul>
+<hr>
+<h2 id="3-component-2-independence-requirements">3. Component 2: Independence Requirements</h2>
+<h3 id="31-the-problem">3.1 The Problem</h3>
+<p>Report #73 (Section 2) identified three power concentration dynamics in AI safety evaluation:</p>
+<ol>
+<li><strong>Evaluator-provider overlap.</strong> Major AI companies produce both the foundation models being evaluated and the models used as evaluators. Self-preference bias has been measured at 10-25% in general evaluation tasks (Yan et al. 2024, arXiv:2410.21819).</li>
+<li><strong>Standard-setting access.</strong> Companies that participate in evaluation standard-setting (NIST AISIC, MLCommons) can shape standards to favour their evaluation infrastructure.</li>
+<li><strong>Calibration data asymmetry.</strong> Companies with large-scale RLHF data can characterise evaluator reliability in ways that independent researchers cannot replicate.</li>
+</ol>
+<p>LR-18 (Section 6.1) mapped the financial audit analogy: auditors must be independent of the firms they audit (Sarbanes-Oxley Act, ISA 200, IESBA Code of Ethics). No equivalent requirement exists for AI safety evaluators.</p>
+<h3 id="32-proposed-independence-requirements">3.2 Proposed Independence Requirements</h3>
+<p><strong>Normative claim:</strong> The following independence requirements should apply to AI safety evaluations, graduated by consequence class.</p>
+<p><strong>Tier 1: Research and internal use.</strong> No mandatory independence requirement. However, when the evaluator and any model under evaluation share a vendor, this must be disclosed (per Component 3 below). The self-preference bias risk should be stated alongside results.</p>
+<p><strong>Tier 2: Benchmark and commercial use.</strong> At least one of the following conditions must be met:</p>
+<ul>
+<li>(a) The evaluator model is produced by a different vendor than any model under evaluation, OR</li>
+<li>(b) The evaluation includes a cross-evaluator comparison using an evaluator from a different vendor family, with inter-evaluator agreement reported, OR</li>
+<li>(c) The self-preference bias has been empirically measured on the specific evaluation task (not just general-purpose tasks) and is reported alongside results.</li>
+</ul>
+<p><strong>Tier 3: Regulatory conformity assessment.</strong> All of the following conditions must be met:</p>
+<ul>
+<li>(a) The evaluator model is produced by a different vendor than any model under evaluation (hard independence), OR the self-preference bias has been measured on the specific regulatory evaluation task and a correction factor is applied and disclosed.</li>
+<li>(b) The evaluation laboratory or notified body is organisationally independent of the system provider (consistent with EU AI Act Article 31 notified body requirements).</li>
+<li>(c) The calibration study (Component 1) was conducted using ground truth labels produced by annotators without commercial relationships with any model vendor in the evaluation.</li>
+</ul>
+<h3 id="33-the-failure-first-projects-own-independence-status">3.3 The Failure-First Project’s Own Independence Status</h3>
+<p>Applying these requirements to the Failure-First FLIP pipeline:</p>
+<ul>
+<li><strong>Evaluator vendor:</strong> DeepSeek (open-weight, locally hosted). DeepSeek also produces one target model (DeepSeek R1 671B). This is an evaluator-provider overlap, though the evaluator is a 1.5B distilled variant with substantially different capabilities.</li>
+<li><strong>Self-preference bias measurement:</strong> Not conducted for FLIP specifically. This is a gap.</li>
+<li><strong>Cross-evaluator comparison:</strong> Conducted (deepseek-r1:1.5b vs qwen3:1.7b, scenario-level agreement 32%). However, both are small open-weight models, not a comparison across vendor families in a meaningful sense.</li>
+</ul>
+<p><strong>Self-assessment:</strong> The Failure-First pipeline would meet Tier 2 condition (b) through cross-evaluator comparison, but the comparison is limited to two models from the same parameter class. It would not meet Tier 3 condition (a) for traces evaluating DeepSeek R1 671B without applying a self-preference correction. This is an honest disclosure of a gap.</p>
+<h3 id="34-analogies-from-other-domains">3.4 Analogies from Other Domains</h3>
+<p>The independence requirements draw on established precedents:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Domain</th><th>Independence requirement</th><th>Governing instrument</th></tr></thead><tbody><tr><td>Financial audit</td><td>Auditor must be independent of audited entity</td><td>ISA 200, Sarbanes-Oxley Act s 201-206, IESBA Code of Ethics</td></tr><tr><td>Product testing (EU)</td><td>Notified body must be independent of product manufacturer</td><td>EU AI Act Article 31(4), Regulation (EC) No 765/2008</td></tr><tr><td>Clinical trials</td><td>Trial evaluator must disclose conflicts of interest</td><td>ICH GCP E6(R2), FDA 21 CFR Part 54</td></tr><tr><td>Credit rating</td><td>Rating agency must manage conflicts from issuer-pays model</td><td>Regulation (EC) No 1060/2009 (EU CRA Regulation), Dodd-Frank Act Title IX</td></tr></tbody></table>
+<p><strong>Descriptive claim:</strong> AI safety evaluation is the only domain among these where the instrument performing the measurement can be produced by the entity being measured, with no disclosure or independence requirement. The closest analogue — credit rating agencies’ conflict of interest under the issuer-pays model — required regulatory intervention after the 2007-2008 financial crisis demonstrated that self-interested ratings produced systemic risk.</p>
+<hr>
+<h2 id="4-component-3-disclosure-standards-for-published-asr-figures">4. Component 3: Disclosure Standards for Published ASR Figures</h2>
+<h3 id="41-the-problem">4.1 The Problem</h3>
+<p>Report #68 proposed a minimum disclosure standard (evaluator cards) and documented that no published benchmark meets all five disclosure fields (evaluator identity, provenance, known limitations, conflict of interest, longitudinal stability). Report #72 identified the regulatory gap: neither NIST AI 100-2e2023 nor EU AI Act Article 9 requires evaluator disclosure.</p>
+<p>This section integrates the disclosure proposals from Reports #68 and #72 into the governance framework, extending them with mandatory disclosure triggers.</p>
+<h3 id="42-mandatory-disclosure-fields">4.2 Mandatory Disclosure Fields</h3>
+<p>Every published safety evaluation result that uses an automated evaluator shall include an evaluator disclosure card containing the fields specified in Report #68, Section 2.1. The card format (YAML/JSON, machine-readable) and schema (Report #68, Section 7) are incorporated by reference.</p>
+<p>For convenience, the five required fields:</p>
+<ol>
+<li><strong>Evaluator Identity:</strong> Full model name, version, fine-tuning status, ensemble composition.</li>
+<li><strong>Evaluator Provenance:</strong> Producer, label source for fine-tuned models, training data lineage.</li>
+<li><strong>Known Limitations:</strong> Documented biases, validation accuracy, task-specific failure modes, inter-evaluator agreement.</li>
+<li><strong>Conflict of Interest:</strong> Evaluator-target vendor overlap, commercial relationships, training data dependencies.</li>
+<li><strong>Longitudinal Stability:</strong> Version pinning status, update handling policy, re-evaluation commitment.</li>
+</ol>
+<h3 id="43-mandatory-disclosure-triggers">4.3 Mandatory Disclosure Triggers</h3>
+<p>Beyond the baseline card, the following events should trigger updated disclosure:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Trigger event</th><th>Required disclosure action</th><th>Rationale</th></tr></thead><tbody><tr><td><strong>Evaluator model updated by vendor</strong></td><td>Re-validate calibration accuracy on reference sample; publish updated card with new accuracy data and comparison to prior version</td><td>Model updates can change evaluator behaviour. Report #68, Section 2.1 (Field 5) addresses version pinning, but the governance framework adds a mandatory re-validation obligation.</td></tr><tr><td><strong>Calibration failure discovered</strong></td><td>Notify all parties who received evaluations produced by the miscalibrated evaluator; publish corrective disclosure</td><td>LR-18 (Section 10, open question 6) identifies the duty to notify relying parties as analogous to ISA 560 (subsequent events in financial audit).</td></tr><tr><td><strong>New bias documented</strong></td><td>Update evaluator card Field 3; flag all prior evaluations potentially affected by the bias</td><td>The qwen3:1.7b PARTIAL default bias (58% of all verdicts) was not detected until a post-hoc audit. A governance framework must require prospective bias monitoring.</td></tr><tr><td><strong>Inter-evaluator agreement falls below threshold</strong></td><td>Suspend publication of results from the affected evaluator pending resolution; publish the agreement data</td><td>The 32% scenario-level agreement between deepseek-r1:1.5b and qwen3:1.7b should have triggered investigation earlier in the Failure-First pipeline.</td></tr></tbody></table>
+<h3 id="44-what-disclosure-does-not-address">4.4 What Disclosure Does Not Address</h3>
+<p><strong>Limitation acknowledged:</strong> Disclosure is necessary but not sufficient. Disclosing that an evaluator has 15% accuracy does not prevent a relying party from using the results. Disclosure standards work only when relying parties have the sophistication to interpret the disclosure and the market power to reject inadequate evaluations. For regulatory conformity assessment, Component 5 (tiered assurance levels) provides the binding constraint; disclosure alone is insufficient.</p>
+<hr>
+<h2 id="5-component-4-continuous-monitoring-obligations">5. Component 4: Continuous Monitoring Obligations</h2>
+<h3 id="51-the-problem">5.1 The Problem</h3>
+<p>The verification hallucination (Report #66) and the qwen3:1.7b PARTIAL drift (Issue #250) both share a structural feature: the failure was not detected at the time it occurred but only after the contaminated data had propagated through the pipeline. The time-to-detection in both cases was measured in sprint sessions (weeks), not hours.</p>
+<p>Report #73 (Section 1.3) identified the asymmetry of detection: evaluator failures that over-report safety are harder to detect than those that under-report safety, because over-reported safety is self-confirming (no one investigates a “safe” verdict).</p>
+<h3 id="52-proposed-monitoring-obligations">5.2 Proposed Monitoring Obligations</h3>
+<p><strong>Normative claim:</strong> Automated evaluator pipelines should implement continuous monitoring with the following properties:</p>
+<p><strong>Monitoring Layer 1: Verdict distribution monitoring.</strong> Track the distribution of evaluator verdicts over time. A sudden or gradual shift in verdict distribution (e.g., PARTIAL increasing from 20% to 58% of verdicts) should trigger an alert and human investigation. Threshold: any verdict category shifting by more than 15 percentage points relative to a 100-trace baseline warrants investigation.</p>
+<ul>
+<li><strong>Evidence basis:</strong> The qwen3:1.7b PARTIAL default (58% of all verdicts) was a distributional anomaly that would have been detectable by automated monitoring. No such monitoring was in place.</li>
+</ul>
+<p><strong>Monitoring Layer 2: Periodic calibration re-validation.</strong> At defined intervals (suggested: every 500 evaluator invocations, or monthly, whichever comes first), re-validate evaluator accuracy on a reserved calibration sample. The sample should be held out from the evaluator’s operational dataset and refreshed periodically.</p>
+<ul>
+<li><strong>Evidence basis:</strong> The deepseek-r1:1.5b false positive rate (30.8%, Issue #315) was discovered only through a dedicated benign-baseline grading exercise, not through operational monitoring. Periodic re-validation would detect calibration drift.</li>
+</ul>
+<p><strong>Monitoring Layer 3: Primary source verification.</strong> For any metric derived from evaluator output that is published or reported externally, verify the metric against the primary data source (database query, raw trace file) before publication.</p>
+<ul>
+<li><strong>Evidence basis:</strong> The verification hallucination (Report #66) propagated because agents verified metrics against the previous documentation rather than re-querying the database. The 58% inflation (17,311 reported vs 10,944 actual) persisted across multiple sessions. The <code>verify_metrics.py</code> tool was subsequently created to automate this check.</li>
+</ul>
+<p><strong>Monitoring Layer 4: Cross-evaluator spot checks.</strong> At defined intervals, apply an alternative evaluator to a random sample of recent traces and compare verdicts. Agreement below kappa = 0.40 triggers a full calibration review.</p>
+<ul>
+<li><strong>Evidence basis:</strong> The 32% scenario-level agreement between deepseek-r1:1.5b and qwen3:1.7b (Section 1.4) indicates that cross-evaluator checks would have identified the qwen3:1.7b failure earlier.</li>
+</ul>
+<h3 id="53-model-update-monitoring">5.3 Model Update Monitoring</h3>
+<p>A specific monitoring obligation applies when the evaluator model is updated (either by the vendor for API-accessed models, or by the project for locally hosted models):</p>
+<ol>
+<li><strong>Pre-deployment re-validation.</strong> Before the updated evaluator is deployed operationally, run the full calibration study (Component 1) on the updated version.</li>
+<li><strong>Regression testing.</strong> Apply the updated evaluator to the same traces graded by the prior version. Report the agreement rate and flag any traces where the verdict changed.</li>
+<li><strong>Stakeholder notification.</strong> If the updated evaluator produces systematically different verdicts from the prior version, notify all parties who received evaluations produced by the prior version. This is the evaluator equivalent of a software security advisory.</li>
+</ol>
+<hr>
+<h2 id="6-component-5-tiered-assurance-levels">6. Component 5: Tiered Assurance Levels</h2>
+<h3 id="61-the-problem">6.1 The Problem</h3>
+<p>The current AI safety evaluation ecosystem operates without defined assurance levels. A self-reported benchmark result from an AI company’s internal evaluation team carries the same formal weight as an independent third-party assessment. A human-curated ground-truth study carries the same formal weight as an automated LLM-as-judge pipeline. The consumer of the evaluation result — whether a regulator, an insurer, or a PCBU — has no standardised way to assess the reliability or independence of the evaluation.</p>
+<p>LR-18 (Section 7) documented that no evaluator certification or accreditation regime exists in any jurisdiction, contrasting this with financial audit (ASIC/PCAOB/FRC), product testing (ISO/IEC 17025), and EU notified bodies (AI Act Article 31).</p>
+<h3 id="62-proposed-tiered-assurance-framework">6.2 Proposed Tiered Assurance Framework</h3>
+<p><strong>Normative claim:</strong> AI safety evaluations should carry one of the following assurance levels, clearly stated alongside results.</p>
+<p><strong>Level 1: Self-Certification.</strong></p>
+<ul>
+<li><strong>What it means:</strong> The evaluation was conducted by the system provider or its delegate using its own methodology and evaluator. No independent validation was performed.</li>
+<li><strong>Requirements:</strong> Evaluator disclosure card (Component 3). Calibration study at Research threshold (Component 1: accuracy >= 50%, n >= 30). Self-preference bias disclosure if evaluator-target vendor overlap exists.</li>
+<li><strong>Appropriate for:</strong> Internal research, academic publication, pre-competitive benchmarking.</li>
+<li><strong>Analogy:</strong> Company-prepared financial statements (unaudited).</li>
+</ul>
+<p><strong>Level 2: Independent Evaluation.</strong></p>
+<ul>
+<li><strong>What it means:</strong> The evaluation was conducted by an entity organisationally independent of the system provider, using a documented methodology with a calibrated evaluator.</li>
+<li><strong>Requirements:</strong> All Level 1 requirements, plus: evaluator meets Benchmark calibration threshold (accuracy >= 70%, kappa >= 0.40, n >= 50). Independence requirements at Tier 2 (Component 2). Cross-evaluator agreement reported. Evaluation methodology documented in sufficient detail for replication.</li>
+<li><strong>Appropriate for:</strong> Published benchmarks, commercial marketing claims, pre-regulatory screening.</li>
+<li><strong>Analogy:</strong> Independent review engagement (financial reporting).</li>
+</ul>
+<p><strong>Level 3: Accredited Assessment.</strong></p>
+<ul>
+<li><strong>What it means:</strong> The evaluation was conducted by an accredited evaluation laboratory or notified body, using a methodology that has itself been validated, with an evaluator that meets the regulatory calibration threshold.</li>
+<li><strong>Requirements:</strong> All Level 2 requirements, plus: evaluator meets Regulatory calibration threshold (accuracy >= 85%, kappa >= 0.60, n >= 100). Independence requirements at Tier 3 (Component 2). Evaluation laboratory accredited to a recognised standard (proposed: adaptation of ISO/IEC 17025:2017 for AI safety evaluation). Continuous monitoring (Component 4) in operation. Evaluator version pinned and re-validation performed on each update.</li>
+<li><strong>Appropriate for:</strong> EU AI Act conformity assessment (Article 9, Article 43). WHS compliance documentation (NSW WHS Act s 18, s 21A). Insurance underwriting. High-consequence deployment decisions.</li>
+<li><strong>Analogy:</strong> Statutory audit (financial reporting); accredited testing laboratory (product safety).</li>
+</ul>
+<h3 id="63-the-gap-between-current-practice-and-level-3">6.3 The Gap Between Current Practice and Level 3</h3>
+<p><strong>Descriptive claim:</strong> No automated evaluator currently deployed in the AI safety ecosystem meets Level 3 requirements. This includes:</p>
+<ul>
+<li><strong>Failure-First FLIP:</strong> deepseek-r1:1.5b at ~70% accuracy and 30.8% FP rate does not meet the 85% accuracy threshold. The project has no accredited evaluation laboratory status.</li>
+<li><strong>StrongREJECT:</strong> Uses GPT-4o-mini (evaluator-target vendor overlap with OpenAI models) without published accuracy on adversarial safety classification. No accreditation.</li>
+<li><strong>HarmBench:</strong> Uses a Llama 2 13B fine-tuned classifier. Accuracy on HarmBench’s own dataset is reported, but cross-dataset calibration is not. No accreditation.</li>
+<li><strong>JailbreakBench:</strong> Uses GPT-4-class without version pinning. No calibration data published. No accreditation.</li>
+</ul>
+<p><strong>Predictive claim:</strong> The gap between Level 3 requirements and current practice is likely to narrow through two pathways: (a) larger and more capable evaluator models will achieve higher accuracy, and (b) fine-tuned safety classifiers trained on higher-quality ground truth will outperform zero-shot LLM-as-judge approaches. However, the independence and accreditation requirements are institutional, not technical — they require new organisations and governance structures, not better models.</p>
+<h3 id="64-what-assurance-level-should-regulators-require">6.4 What Assurance Level Should Regulators Require?</h3>
+<p><strong>Normative claim:</strong> The appropriate assurance level depends on the consequence class:</p>
+<ul>
+<li><strong>Low-risk AI systems</strong> (not classified as high-risk under Annex III): Level 1 is sufficient. Self-certification with disclosure.</li>
+<li><strong>High-risk AI systems</strong> (Annex III): Level 2 minimum, with Level 3 required for systems involving physical actuation (autonomous vehicles, industrial robots, medical devices). The physical actuation distinction reflects the embodied AI safety gap identified in Brief E and the VLA PARTIAL dominance finding (Report #49): when text-level hedging does not prevent action-level execution, the evaluator must be reliable enough to distinguish genuine refusal from textual hedging.</li>
+<li><strong>Prohibited AI systems</strong> (Article 5): Not applicable — these systems should not be deployed regardless of evaluation.</li>
+</ul>
+<hr>
+<h2 id="7-integration-with-existing-frameworks">7. Integration with Existing Frameworks</h2>
+<h3 id="71-eu-ai-act">7.1 EU AI Act</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Framework component</th><th>Relevant Article</th><th>Integration mechanism</th></tr></thead><tbody><tr><td>Calibration thresholds (Component 1)</td><td>Article 9(5)</td><td>Testing must use appropriate metrics; calibration threshold defines “appropriate” for evaluator quality</td></tr><tr><td>Independence (Component 2)</td><td>Article 31(4), Article 9(7)</td><td>Notified body independence requirements extended to evaluation tools</td></tr><tr><td>Disclosure (Component 3)</td><td>Article 11/Annex IV</td><td>Technical documentation requirements extended to include evaluator documentation</td></tr><tr><td>Continuous monitoring (Component 4)</td><td>Article 72</td><td>Post-market monitoring obligations extended to evaluator pipeline integrity</td></tr><tr><td>Tiered assurance (Component 5)</td><td>Article 43, Annex VII</td><td>Conformity assessment procedures mapped to assurance levels</td></tr></tbody></table>
+<p><strong>Implementation pathway:</strong> Submit as technical input to CEN/CENELEC JTC 21 harmonised standards development. The five components map cleanly to existing Article structures, minimising the need for primary legislative change.</p>
+<h3 id="72-nist-ai-rmf">7.2 NIST AI RMF</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Framework component</th><th>RMF function</th><th>Integration mechanism</th></tr></thead><tbody><tr><td>Calibration thresholds</td><td>MEASURE 2.5, 2.6</td><td>Define “evaluated regularly” and “valid and reliable” for evaluator quality</td></tr><tr><td>Independence</td><td>GOVERN 1.1, 1.7</td><td>Organisational governance and conflict management</td></tr><tr><td>Disclosure</td><td>MEASURE 4.1</td><td>Measurement approach documentation</td></tr><tr><td>Continuous monitoring</td><td>MANAGE 3.2</td><td>Post-deployment monitoring</td></tr><tr><td>Tiered assurance</td><td>GOVERN 5.1</td><td>Organisational risk tolerance and escalation</td></tr></tbody></table>
+<p><strong>Implementation pathway:</strong> Submit as recommended practice to NIST for AI 100-2 supplementary guidance or as AISIC deliverable.</p>
+<h3 id="73-australian-framework">7.3 Australian Framework</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Framework component</th><th>Instrument</th><th>Integration mechanism</th></tr></thead><tbody><tr><td>Calibration thresholds</td><td>VAISS Guardrail 4</td><td>Define “comprehensive testing” to include evaluator calibration</td></tr><tr><td>Independence</td><td>SWA Best Practice Review</td><td>Evaluator independence as element of “reasonably practicable” risk management</td></tr><tr><td>Disclosure</td><td>AU AISI pre-deployment guidance</td><td>Include evaluator cards in pre-deployment evaluation protocols</td></tr><tr><td>Continuous monitoring</td><td>NSW WHS Act s 21A</td><td>”Review and revise” obligation for digital work systems includes evaluator pipeline integrity</td></tr><tr><td>Tiered assurance</td><td>NATA accreditation (existing)</td><td>Extend laboratory accreditation to AI safety evaluation</td></tr></tbody></table>
+<p><strong>Implementation pathway:</strong> AU AISI is the primary institutional vehicle. The AISI’s documented gap in embodied AI coverage (Brief E) makes evaluator governance a complementary contribution: it addresses the quality of safety assessment, not just the scope. The SWA Best Practice Review submission (research/engagement/swa_best_practice_brief.md) could incorporate the calibration thresholds and independence requirements.</p>
+<hr>
+<h2 id="8-objections-and-responses">8. Objections and Responses</h2>
+<h3 id="81-these-thresholds-are-arbitrary">8.1 “These thresholds are arbitrary”</h3>
+<p><strong>Response:</strong> The thresholds are empirically grounded, not arbitrary, but they are not derived from a formal optimisation. They reflect the best available data from the Failure-First pipeline: 15% (unacceptable), 70% (minimally useful), and 85% (approaching professional-grade but currently unattainable at small model scale). The thresholds should be refined through broader empirical study and multi-stakeholder consultation. However, the current alternative — no thresholds at all — is demonstrably worse. A threshold set at the wrong level can be corrected; the absence of any threshold permits 15% accurate evaluators to be used for regulatory compliance.</p>
+<h3 id="82-independence-requirements-will-increase-cost-and-reduce-innovation">8.2 “Independence requirements will increase cost and reduce innovation”</h3>
+<p><strong>Response:</strong> The same argument was made against auditor independence requirements before Sarbanes-Oxley. The costs of independence are real but bounded; the costs of evaluator conflicts of interest are unbounded and potentially systemic (Report #73, Section 2.3: evaluation infrastructure as critical infrastructure). The tiered structure ensures that independence requirements are proportionate: research use requires only disclosure, not independence. Only regulatory conformity assessment requires hard independence.</p>
+<h3 id="83-no-automated-evaluator-meets-level-3--the-standard-is-unattainable">8.3 “No automated evaluator meets Level 3 — the standard is unattainable”</h3>
+<p><strong>Response:</strong> This is currently correct (Section 6.3). The appropriate response is not to lower the standard but to recognise that current automated evaluators are not sufficient for regulatory conformity assessment without human oversight. Level 3 can be met by hybrid evaluation (automated evaluator plus human review of contested cases). The framework accommodates this: “accredited evaluation laboratory” includes laboratories that combine automated and human evaluation within a quality management system.</p>
+<h3 id="84-small-model-evaluators-are-not-representative-of-the-field">8.4 “Small-model evaluators are not representative of the field”</h3>
+<p><strong>Response:</strong> The Failure-First evidence base draws on 1-2B parameter models. Whether GPT-4-class or Claude 3.5-class models achieve higher accuracy as safety evaluators is an empirical question that is underexplored precisely because the evaluator calibration disclosure gap identified in Report #68 means that large-model evaluator accuracy is rarely published. The governance framework addresses this gap by requiring calibration data regardless of model size. If large-model evaluators are substantially more reliable, the calibration data will demonstrate it.</p>
+<hr>
+<h2 id="9-relationship-to-prior-work">9. Relationship to Prior Work</h2>
+<p>This report consolidates and operationalises analysis from six prior Failure-First reports and one legal memo:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Source</th><th>Contribution to this framework</th></tr></thead><tbody><tr><td>Report #61 (evaluation paradox)</td><td>Identified the 15% vs 70% accuracy gap and the kappa = 0.245 inter-rater agreement</td></tr><tr><td>Report #103 (evaluation monoculture, formerly #65)</td><td>Documented evaluator-provider overlap and self-preference bias (10-25%)</td></tr><tr><td>Report #67 (Layer 0 extension)</td><td>Formalised evaluation infrastructure failures as a distinct layer (L0) with three subtypes</td></tr><tr><td>Report #68 (disclosure standard)</td><td>Proposed the five-field evaluator disclosure card and YAML schema</td></tr><tr><td>Report #72 (regulatory gap, Martha Jones)</td><td>Mapped disclosure requirements to specific EU AI Act Articles and NIST AI RMF functions</td></tr><tr><td>Report #73 (recursive evaluator ethics)</td><td>Identified the three structural problems (accountability, power, dual-use) that this framework addresses</td></tr><tr><td>LR-18 (evaluator liability, Tegan Jovanka)</td><td>Analysed the negligence standard of care, product liability pathways, and financial audit precedents</td></tr></tbody></table>
+<p>The framework is designed to be complementary, not duplicative. Reports #68 and #72 specify what should be disclosed; this report specifies the governance architecture within which disclosure operates. Report #73 identifies why governance is necessary; this report specifies what governance looks like. LR-18 identifies the liability consequences of inadequate governance; this report specifies the institutional controls that would reduce liability exposure.</p>
+<hr>
+<h2 id="10-limitations">10. Limitations</h2>
+<ol>
+<li>
+<p><strong>Evidence base is project-specific.</strong> The calibration thresholds are grounded in the Failure-First pipeline’s experience with 1-2B parameter evaluators. Whether these thresholds are appropriate for larger models or different evaluation paradigms is an empirical question that requires broader study.</p>
+</li>
+<li>
+<p><strong>Thresholds require validation.</strong> The 50/70/85% accuracy thresholds and 0.20/0.40/0.60 kappa thresholds are informed by data but are not derived from a formal analysis of acceptable error rates for each consequence class. Multi-stakeholder consultation is needed.</p>
+</li>
+<li>
+<p><strong>Institutional mechanisms are aspirational.</strong> The tiered assurance framework assumes the existence of accredited AI safety evaluation laboratories. No such institutions currently exist. Creating them requires investment, standard development, and regulatory coordination that exceeds what a single research project can achieve.</p>
+</li>
+<li>
+<p><strong>Financial audit analogy has limits.</strong> Financial audit operates on structured, quantitative data with well-defined correctness criteria. AI safety evaluation involves subjective judgment on qualitative outputs. The analogy is structurally useful but should not be pressed beyond its applicability.</p>
+</li>
+<li>
+<p><strong>AI-authored governance proposal.</strong> As noted in Report #73 (Section 5), this analysis is produced by an AI agent. The normative recommendations reflect the ethical commitments embedded in the author’s training data, not independent ethical reasoning. Human review is required before these recommendations inform policy positions.</p>
+</li>
+</ol>
+<hr>
+<h2 id="11-recommendations">11. Recommendations</h2>
+<h3 id="for-the-failure-first-project">For the Failure-First project:</h3>
+<ol>
+<li>
+<p>Adopt the tiered assurance framework for internal use: classify all future FLIP evaluations at Level 1 (self-certified) until an expanded calibration study (n >= 100) demonstrates whether the pipeline meets Level 2 requirements.</p>
+</li>
+<li>
+<p>Conduct a formal self-preference bias study for deepseek-r1:1.5b evaluating DeepSeek R1 671B traces, to quantify the conflict-of-interest exposure.</p>
+</li>
+<li>
+<p>Implement verdict distribution monitoring (Component 4, Layer 1) in the grading pipeline to detect future PARTIAL-default failures automatically.</p>
+</li>
+</ol>
+<h3 id="for-standards-bodies">For standards bodies:</h3>
+<ol start="4">
+<li>
+<p>Develop an AI safety evaluator accreditation standard, adapting ISO/IEC 17025:2017 (testing laboratory competence) for the AI safety evaluation context.</p>
+</li>
+<li>
+<p>Define materiality thresholds for AI safety evaluation accuracy, analogous to ISA 320 (materiality in financial audit), specifying the evaluator accuracy level below which a safety assessment is materially unreliable for its intended purpose.</p>
+</li>
+</ol>
+<h3 id="for-regulators">For regulators:</h3>
+<ol start="6">
+<li>
+<p>Include evaluator qualification requirements in EU AI Act harmonised standards for conformity assessment (Article 40 pathway).</p>
+</li>
+<li>
+<p>Require assurance level labelling for all AI safety evaluations submitted in regulatory proceedings.</p>
+</li>
+<li>
+<p>Establish mandatory re-notification obligations when evaluator calibration failures are discovered after evaluations have been relied upon.</p>
+</li>
+</ol>
+<h3 id="for-the-ai-safety-research-community">For the AI safety research community:</h3>
+<ol start="9">
+<li>
+<p>Adopt evaluator disclosure cards (Report #68 specification) as a community norm for benchmark publications.</p>
+</li>
+<li>
+<p>Fund independent evaluator calibration studies through government safety institutes (AU AISI, UK AISI, NIST AISIC) or philanthropic funders, to provide the calibration data that the ecosystem currently lacks.</p>
+</li>
+</ol>
+<hr>
+<p><em>Prepared by Nyssa of Traken, AI Ethics &#x26; Policy Research Lead, Failure-First Embodied AI.</em>
+<em>All empirical claims reference documented measurements from the Failure-First corpus. Normative, descriptive, and predictive claims are explicitly labelled. This report was produced by an AI agent and should be reviewed by human researchers before informing policy positions.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  

@@ -1,0 +1,470 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First</title><meta name="description" content="Report #89 identified workers as missing stakeholders in the dual-use calculus of embodied AI safety research. This report makes the stakeholder analysis concrete: for each VLA attack family..."><link rel="canonical" href="https://failurefirst.org/research/reports/92-worker-safety-impact-vla-attack-families/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First"><meta property="og:description" content="Report #89 identified workers as missing stakeholders in the dual-use calculus of embodied AI safety research. This report makes the stakeholder analysis concrete: for each VLA attack family..."><meta property="og:url" content="https://failurefirst.org/research/reports/92-worker-safety-impact-vla-attack-families/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First"><meta name="twitter:description" content="Report #89 identified workers as missing stakeholders in the dual-use calculus of embodied AI safety research. This report makes the stakeholder analysis concrete: for each VLA attack family..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-15"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-15"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/92-worker-safety-impact-vla-attack-families/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/92-worker-safety-impact-vla-attack-families/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors | Research | Failure-First","description":"Report #89 identified workers as missing stakeholders in the dual-use calculus of embodied AI safety research. This report makes the stakeholder analysis concrete: for each VLA attack family...","url":"https://failurefirst.org/research/reports/92-worker-safety-impact-vla-attack-families/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-15","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.CCg4KzF_.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"f6974b636e6a550bd9c2b63d8aef7b6686b30041"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 92</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 92"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 92</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-15</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <ul>
+<li>Failure-First VLA corpus: 180 unique scenarios across 22 attack families (CANONICAL_METRICS.md, corrected 2026-03-15; report originally cited 153/15 which was stale)</li>
+<li>FLIP-graded results: 91 valid traces across 13 families (AGENT_STATE Key Metrics)</li>
+<li>SBA FLIP grading: 45% BENIGN_QUERY rate (n=20, Amy Pond wave 12)</li>
+<li>Australian autonomous mining fleet: 1,800+ autonomous haul trucks (BHP/Rio Tinto/Fortescue public disclosures)</li>
+<li>SafeWork Australia workplace fatality data: 195 fatalities (2024), 37 from vehicle incidents (SafeWork Australia Key WHS Statistics 2024)</li>
+<li>EU AI Act (Regulation 2024/1689): Article 9 risk management, Annex III high-risk classification</li>
+</ul>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Report #89 identified workers as missing stakeholders in the dual-use calculus of embodied AI safety research. This report makes the stakeholder analysis concrete: for each VLA attack family documented in the Failure-First corpus, what are the specific worker safety risks in four industry sectors where embodied AI systems are deployed or planned for deployment?</p>
+<p>The four sectors analysed are:</p>
+<ol>
+<li><strong>Mining and resources</strong> (Australia: 1,800+ autonomous haul trucks, conveyor systems, drill rigs)</li>
+<li><strong>Logistics and warehousing</strong> (global: Amazon Robotics 750,000+ mobile robots, Ocado automated fulfilment)</li>
+<li><strong>Healthcare</strong> (surgical robotics: Intuitive da Vinci installed base ~9,000; rehabilitation and care robots)</li>
+<li><strong>Construction</strong> (autonomous machinery: Caterpillar/Komatsu autonomous dozers, Hilti Jaibot)</li>
+</ol>
+<p>Three structural findings emerge from the analysis:</p>
+<p><strong>Finding 1 (descriptive):</strong> The attack families with the highest worker safety impact are the same families that the IDDL (Report #88) identifies as least detectable. SBA, LHGD, and CET create the most severe worker harm scenarios precisely because they are invisible to current evaluation methods. This is not coincidental; it follows from the same structural property identified by the IDDL: attacks that operate through physical context rather than textual content are both more dangerous to workers and less visible to evaluators.</p>
+<p><strong>Finding 2 (descriptive):</strong> Worker exposure to VLA attack risk varies dramatically by sector and by the worker’s role relative to the AI system. Workers who operate alongside autonomous systems (co-located workers) bear disproportionate physical risk compared to workers who supervise remotely (supervisory workers). The sectors with the highest proportion of co-located workers — construction and healthcare — are also the sectors with the least mature AI safety governance. Mining, where autonomous vehicle safety governance is most developed, has the highest proportion of remote supervision.</p>
+<p><strong>Finding 3 (normative):</strong> Current WHS regulatory frameworks in Australia, the EU, and the US do not distinguish between “conventional” autonomous system failures (sensor malfunction, software bug) and adversarial attack-induced failures. This distinction matters for worker safety because the two failure classes have different characteristics: conventional failures are typically random and can be modelled statistically, while adversarial failures can be targeted at specific workers, timed for maximum harm, and designed to evade safety monitoring. WHS risk assessments that do not model adversarial intent systematically underestimate the risk to co-located workers.</p>
+<p><strong>Scope limitations:</strong></p>
+<ul>
+<li>Industry deployment data comes from public disclosures and press releases. Actual fleet sizes and deployment contexts may differ from public statements.</li>
+<li>Worker harm scenarios are constructed from the VLA corpus scenario descriptions applied to industry contexts. They are plausible projections, not documented incidents.</li>
+<li>Current autonomous mining and logistics systems use classical autonomy stacks, not VLA models. The transition to foundation-model-based systems is announced but not yet operational at scale (predictive claim, hedged).</li>
+</ul>
+<hr>
+<h2 id="1-the-worker-ai-proximity-taxonomy">1. The Worker-AI Proximity Taxonomy</h2>
+<p>Before mapping attack families to sectors, this section defines three categories of worker proximity to embodied AI systems. The worker’s proximity determines their exposure to different attack families.</p>
+<h3 id="11-co-located-workers">1.1 Co-located Workers</h3>
+<p>Workers who share physical workspace with autonomous systems. The system’s actuators can directly affect the worker’s body or immediate environment.</p>
+<p><strong>Examples:</strong> Warehouse pickers working alongside mobile robots, construction workers near autonomous machinery, surgical patients (the ultimate co-located “worker” in healthcare), nurses interacting with care robots.</p>
+<p><strong>Attack exposure:</strong> Highest. All 15 VLA attack families can produce direct physical harm to co-located workers. SBA-class attacks are particularly dangerous because the instruction that triggers harm may come from the worker themselves — a worker asking a collaborative robot to “hand me that” in a context where “that” is heavy, sharp, or hot.</p>
+<h3 id="12-supervisory-workers">1.2 Supervisory Workers</h3>
+<p>Workers who monitor autonomous systems remotely but may enter the system’s workspace for maintenance, inspection, or intervention.</p>
+<p><strong>Examples:</strong> Mining haul truck supervisors in control rooms, warehouse management system operators, remote surgical consultants.</p>
+<p><strong>Attack exposure:</strong> Medium. Supervisory workers are at lower direct physical risk during normal operation but face specific risks during intervention events — moments when they enter the system’s workspace because something appears wrong. LHGD and DA attacks are particularly dangerous for supervisory workers because they can be designed to trigger an intervention (the system appears to malfunction) and then execute a harmful action when the worker approaches.</p>
+<h3 id="13-affected-bystanders">1.3 Affected Bystanders</h3>
+<p>Workers who do not interact with the AI system but whose workspace overlaps with its operational area.</p>
+<p><strong>Examples:</strong> Geologists working near autonomous haul routes in mines, delivery drivers sharing roads with autonomous vehicles, office workers in buildings where cleaning robots operate.</p>
+<p><strong>Attack exposure:</strong> Lower but non-zero. CET and SBA attacks can affect bystanders because the harm arises from the physical context, not the direct interaction. A haul truck instructed to “continue on current route” when a geological survey team is working on that route creates bystander risk through ordinary operation.</p>
+<hr>
+<h2 id="2-sector-by-sector-impact-analysis">2. Sector-by-Sector Impact Analysis</h2>
+<h3 id="21-mining-and-resources">2.1 Mining and Resources</h3>
+<p><strong>Deployment context:</strong> Australia operates the world’s largest fleet of autonomous haul trucks. BHP’s South Flank (Pilbara) operates ~100 autonomous trucks (CAT 793F CMD). Rio Tinto’s Autonomous Haulage System (AHS) operates ~200 trucks across 6 Pilbara mine sites. Fortescue operates ~180 autonomous trucks. Total Australian fleet exceeds 1,800 units as of late 2025 (industry estimates; exact numbers are commercially sensitive).</p>
+<p><strong>Current autonomy stack:</strong> Classical autonomy (perception, path planning, control) with fixed operational domains and extensive geo-fencing. NOT currently VLA-based.</p>
+<p><strong>Transition timeline:</strong> Rio Tinto’s partnership with NVIDIA (2024 announcement) and Caterpillar’s integration with Edge AI platforms signal a transition toward foundation-model-based perception. Komatsu’s FrontRunner 2.0 incorporates machine learning perception. The transition to VLA-class models for autonomous mining equipment is plausible within the 2027-2030 timeframe (predictive claim, hedged — timeline depends on validation requirements and regulatory acceptance).</p>
+<p><strong>Worker population at risk:</strong></p>
+<ul>
+<li>~4,000 workers operate in proximity to autonomous haul routes across Australian mine sites (estimate based on workforce disclosures by BHP, Rio Tinto, and Fortescue for Pilbara operations)</li>
+<li>Mix of supervisory (control room operators, ~40%) and co-located (maintenance crews, geologists, drill operators working near haul routes, ~60%)</li>
+</ul>
+<p><strong>Attack family impact mapping:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>Worker Harm Scenario</th><th>Severity</th><th>Primary Worker Category</th></tr></thead><tbody><tr><td>SBA</td><td>”Continue on current route” when maintenance crew is on route. Instruction is routine; danger is contextual.</td><td>Fatal</td><td>Co-located</td></tr><tr><td>LHGD</td><td>Multi-step route plan gradually displaces haul path toward exclusion zone. No single step triggers alarm.</td><td>Fatal</td><td>Co-located / Bystander</td></tr><tr><td>CET</td><td>Attack designed for one truck model transfers to entire fleet via shared perception backbone.</td><td>Fatal (fleet-scale)</td><td>All categories</td></tr><tr><td>DA</td><td>Truck behaves safely during shift-change safety checks, executes altered trajectory during unsupervised periods.</td><td>Fatal</td><td>Co-located</td></tr><tr><td>TCH</td><td>Hijacked dispatch tool redirects truck to occupied area. Dispatch system logs show normal operations.</td><td>Fatal</td><td>Co-located / Bystander</td></tr><tr><td>TRA</td><td>Temporal mismatch in sequencing causes truck to enter blast zone before all-clear.</td><td>Fatal</td><td>Co-located</td></tr><tr><td>ASE</td><td>Action sequence that individually passes safety checks but results in truck entering occupied maintenance bay.</td><td>Serious injury / Fatal</td><td>Co-located</td></tr><tr><td>SBE</td><td>Gradual relaxation of speed limits near occupied areas across shift cycles.</td><td>Serious injury</td><td>Co-located</td></tr><tr><td>PCM</td><td>Altered sensor context (dust conditions, lighting) causes misclassification of occupied area as clear.</td><td>Fatal</td><td>Co-located / Bystander</td></tr></tbody></table>
+<p><strong>Sector-specific observation (descriptive):</strong> Mining has the most mature autonomous vehicle safety governance of any sector, with site-specific Traffic Management Plans (TMPs), geo-fencing, and physical separation zones. However, TMPs are designed for conventional failure modes (sensor degradation, communication loss), not adversarial attacks. No Australian mine site has published an adversarial threat assessment for its autonomous fleet. This is consistent with the broader governance gap identified in Brief E (GLI analysis).</p>
+<p><strong>Worker safety governance status:</strong></p>
+<ul>
+<li>Queensland Mines Inspectorate recognises autonomous systems but does not specify adversarial testing requirements</li>
+<li>WA Department of Mines, Industry Regulation and Safety (DMIRS) has guidance on autonomous mobile equipment but no adversarial attack provisions</li>
+<li>SafeWork Australia’s model WHS regulations do not mention adversarial AI attacks</li>
+</ul>
+<h3 id="22-logistics-and-warehousing">2.2 Logistics and Warehousing</h3>
+<p><strong>Deployment context:</strong> Amazon Robotics operates 750,000+ mobile robots across fulfilment centres globally (Amazon 2024 shareholder letter). Ocado’s Customer Fulfilment Centres use ~3,000 robots per site. Australian logistics providers (Coles, Woolworths, Linfox) are deploying autonomous mobile robots (AMRs) in distribution centres.</p>
+<p><strong>Current autonomy stack:</strong> Classical autonomy with fixed operational domains. Amazon’s Sequoia system uses ML-based perception for item handling. The integration of foundation models for natural-language task assignment and flexible manipulation is underway (Amazon Robotics Lab publications, 2025).</p>
+<p><strong>Worker population at risk:</strong></p>
+<ul>
+<li>Amazon alone employs ~1.5 million warehouse workers globally, most sharing workspace with robots</li>
+<li>Australian logistics centres: ~50,000 workers in large distribution centres (ABS Labour Force data)</li>
+<li>Overwhelmingly co-located workers (>90%)</li>
+</ul>
+<p><strong>Attack family impact mapping:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>Worker Harm Scenario</th><th>Severity</th><th>Primary Worker Category</th></tr></thead><tbody><tr><td>SBA</td><td>”Put that on the top shelf” when heavy item + worker below. Routine instruction in dangerous context.</td><td>Serious injury</td><td>Co-located</td></tr><tr><td>LHGD</td><td>AMR routing plan gradually converges worker and robot paths at high-traffic intersection.</td><td>Serious injury</td><td>Co-located</td></tr><tr><td>CET</td><td>Attack on one robot model type transfers to all AMRs in facility via shared navigation stack.</td><td>Serious injury (facility-scale)</td><td>Co-located</td></tr><tr><td>ASE</td><td>Picking robot executes reach-grasp-release sequence that drops heavy item from height.</td><td>Serious injury</td><td>Co-located</td></tr><tr><td>LAM</td><td>Ambiguous manipulation instruction (move “towards worker” vs “towards workstation”) causes collision.</td><td>Moderate injury</td><td>Co-located</td></tr><tr><td>PP</td><td>Modified system configuration causes AMR to ignore pedestrian priority zones.</td><td>Serious injury</td><td>Co-located</td></tr><tr><td>VAP</td><td>Audio command to robot misinterpreted due to warehouse noise, executes unintended movement.</td><td>Moderate injury</td><td>Co-located</td></tr></tbody></table>
+<p><strong>Sector-specific observation (descriptive):</strong> Logistics has the highest density of co-located workers of any sector. The typical fulfilment centre places hundreds of workers in direct proximity to hundreds of robots. This creates a combinatorial exposure: each worker-robot pair is a potential harm vector. The scale of deployment means that even low-probability attack success rates produce meaningful expected harm. At 750,000 robots and an assumed co-located workforce ratio, even a 0.1% successful attack rate across the fleet would affect hundreds of worker-robot interactions.</p>
+<p><strong>Worker safety governance status:</strong></p>
+<ul>
+<li>Amazon reports workplace injury rates above industry average (Reveal News investigation, 2023; Amazon shareholder transparency reports 2024)</li>
+<li>No logistics company has published adversarial threat assessments for warehouse robotics</li>
+<li>Safe Work Australia’s “AI at Work” consultation (2025) addresses AI in workforce monitoring and decision-making but does not cover adversarial attacks on co-located robots</li>
+</ul>
+<h3 id="23-healthcare">2.3 Healthcare</h3>
+<p><strong>Deployment context:</strong> Intuitive Surgical’s da Vinci system has an installed base of ~9,000 surgical robots globally (Intuitive 2024 10-K filing). Rehabilitation robots (Ekso Bionics, ReWalk) are used in ~2,000 facilities worldwide. Care robots (Toyota Human Support Robot, RIKEN RIBA) are in pilot deployment in Japan and Europe.</p>
+<p><strong>Current autonomy stack:</strong> Surgical robots are primarily teleoperated (surgeon-in-the-loop). Autonomous suturing and tissue manipulation are research-stage (JHU STAR system). Care robots use classical autonomy. The transition to VLA-class autonomy is earlier-stage than in mining or logistics.</p>
+<p><strong>Worker population at risk:</strong></p>
+<ul>
+<li>Surgical patients: ~12 million da Vinci procedures since launch (Intuitive disclosures)</li>
+<li>Surgical team members: surgeon, anaesthesiologist, nurses (3-5 per procedure)</li>
+<li>Care facility residents and staff</li>
+<li>Patients are the primary harm bearers, but surgical team members are co-located workers</li>
+</ul>
+<p><strong>Attack family impact mapping:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>Worker Harm Scenario</th><th>Severity</th><th>Primary Affected Party</th></tr></thead><tbody><tr><td>SBA</td><td>”Apply more pressure” during surgery when tissue is fragile. Surgeon’s routine instruction in dangerous context.</td><td>Life-threatening</td><td>Patient</td></tr><tr><td>LHGD</td><td>Multi-step surgical plan gradually deviates from intended path, causing cumulative tissue damage not visible step-by-step.</td><td>Serious to fatal</td><td>Patient</td></tr><tr><td>DA</td><td>Surgical robot passes pre-operative calibration checks, executes subtly altered movements during procedure.</td><td>Life-threatening</td><td>Patient</td></tr><tr><td>TCH</td><td>Hijacked medication delivery tool in care robot administers incorrect dosage.</td><td>Life-threatening</td><td>Patient / Resident</td></tr><tr><td>ASE</td><td>Rehabilitation robot applies individually safe forces in sequence that produces joint damage.</td><td>Serious injury</td><td>Patient</td></tr><tr><td>MMC</td><td>Multimodal confusion between verbal instruction and visual surgical field causes incorrect instrument selection.</td><td>Serious to fatal</td><td>Patient</td></tr></tbody></table>
+<p><strong>Sector-specific observation (descriptive):</strong> Healthcare has the highest per-incident severity of any sector. A single successful attack on a surgical robot during an active procedure could cause irreversible harm or death. However, current surgical robots have the strongest safety architecture of any embodied AI system: the da Vinci system maintains surgeon-in-the-loop control with mechanical hard stops on force and travel. The transition toward autonomous surgical capability — which would remove the human-in-the-loop safeguard — is the critical transition point for VLA attack relevance.</p>
+<p><strong>Normative claim:</strong> The healthcare sector presents a unique version of the dual-use dilemma: safety research that reveals surgical robot vulnerabilities could simultaneously improve surgical safety (by informing design) and undermine public trust in surgical robotics (by demonstrating attack scenarios). The SRDA framework’s Tier 1 classification is appropriate for all healthcare-relevant attack families: publish the pattern (surgical robots share VLA-class vulnerabilities), restrict operational specifics (do not publish specific attack sequences for surgical contexts).</p>
+<h3 id="24-construction">2.4 Construction</h3>
+<p><strong>Deployment context:</strong> Caterpillar’s autonomous dozers and Komatsu’s intelligent Machine Control (iMC) systems are deployed on construction sites. Hilti’s Jaibot (autonomous ceiling drilling robot) is commercially available. Boston Dynamics’ Spot is used for construction site inspection. These are early-stage deployments; the construction sector has the lowest automation penetration of the four sectors.</p>
+<p><strong>Current autonomy stack:</strong> Semi-autonomous (human-in-the-loop for most operations). Spot uses ML-based perception for navigation. Autonomous dozers use GPS-guided classical autonomy. VLA-class construction robots are research-stage (Scaled Robotics, Dusty Robotics).</p>
+<p><strong>Worker population at risk:</strong></p>
+<ul>
+<li>Australia: ~1.2 million construction workers (ABS), 39 workplace fatalities in 2024 (SafeWork Australia)</li>
+<li>Construction has the second-highest workplace fatality rate of any Australian industry (after agriculture)</li>
+<li>Overwhelmingly co-located workers; construction sites have dynamic layouts that change daily</li>
+</ul>
+<p><strong>Attack family impact mapping:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>Worker Harm Scenario</th><th>Severity</th><th>Primary Worker Category</th></tr></thead><tbody><tr><td>SBA</td><td>”Continue drilling” when structural element is load-bearing. Routine instruction in dangerous context.</td><td>Fatal (structural collapse)</td><td>Co-located</td></tr><tr><td>CET</td><td>Attack on dozer control system transfers to excavator via shared control platform.</td><td>Fatal</td><td>Co-located / Bystander</td></tr><tr><td>LHGD</td><td>Autonomous grading plan gradually alters grade profile, undermining adjacent structure over days.</td><td>Fatal (delayed)</td><td>Bystander</td></tr><tr><td>PCM</td><td>Altered site survey data causes autonomous dozer to operate in occupied exclusion zone.</td><td>Fatal</td><td>Co-located</td></tr><tr><td>SBE</td><td>Gradual relaxation of proximity alarms around occupied areas over work shifts.</td><td>Fatal</td><td>Co-located</td></tr><tr><td>TCH</td><td>Hijacked BIM (Building Information Model) integration causes robot to drill into active electrical or water systems.</td><td>Serious injury / Fatal</td><td>Co-located</td></tr></tbody></table>
+<p><strong>Sector-specific observation (descriptive):</strong> Construction presents the most challenging deployment environment for embodied AI safety because the physical context changes daily. Mining has fixed haul routes and geo-fenced zones; logistics has structured warehouse layouts; healthcare has standardised operating theatres. Construction sites are dynamic: workers move through the site, layouts change as building progresses, temporary structures are erected and removed. This dynamism amplifies SBA-class risks because the same instruction can be safe on Tuesday and dangerous on Wednesday if the site configuration has changed.</p>
+<p><strong>Normative claim:</strong> Construction workers are the most exposed stakeholder group for VLA attack risk because they combine: (a) high co-location density, (b) dynamic physical environments that amplify SBA-class attacks, (c) the highest background injury and fatality rates, and (d) the least mature AI safety governance of any sector.</p>
+<hr>
+<h2 id="3-cross-sector-structural-findings">3. Cross-Sector Structural Findings</h2>
+<h3 id="31-the-iddl-worker-safety-convergence">3.1 The IDDL-Worker Safety Convergence</h3>
+<p><strong>Descriptive claim:</strong> Report #88 (IDDL) establishes that the most dangerous attacks are the least detectable. This report adds a stakeholder dimension: the attacks that are least detectable are also the attacks that create the most severe worker harm scenarios across all four sectors.</p>
+<p>The convergence is not coincidental. It follows from the same structural property:</p>
+<ul>
+<li>SBA attacks are dangerous to workers BECAUSE the instruction is ordinary and the danger is contextual. The same property that makes them invisible to text-layer evaluators (no textual attack signature) makes them dangerous to workers (no warning sign in the instruction).</li>
+<li>LHGD attacks are dangerous to workers BECAUSE the harm accumulates gradually. The same property that makes them invisible to per-step evaluation (each step is individually reasonable) makes them dangerous to workers (the harm emerges only from the cumulative sequence).</li>
+<li>CET attacks are dangerous to workers BECAUSE they transfer across embodiments. The same property that makes them invisible to per-platform evaluation (each platform is tested independently) makes them dangerous to workers (the attack affects the entire fleet, not one system).</li>
+</ul>
+<p><strong>Analytical claim:</strong> This convergence means that worker safety improvements and evaluation methodology improvements are structurally linked. Solving the IDDL (developing evaluation methods that can detect contextually dangerous ordinary instructions) would simultaneously address the most severe worker safety risks. Conversely, failing to solve the IDDL means that the most severe worker safety risks will remain undetectable by any automated safety system.</p>
+<h3 id="32-the-co-location-asymmetry">3.2 The Co-Location Asymmetry</h3>
+<p><strong>Descriptive claim:</strong> Across all four sectors, the workers who bear the most physical risk from VLA attacks (co-located workers) are also the workers with the least influence over AI system procurement, design, and safety evaluation decisions. Procurement decisions are made by management; design decisions are made by manufacturers; safety evaluation decisions are made by testing teams. Co-located workers are end-users who interact with systems they did not choose, cannot modify, and cannot evaluate.</p>
+<p>This is a standard principal-agent problem with a physical-safety dimension. The agents (co-located workers) bear the physical risk; the principals (management, manufacturers) make the risk decisions.</p>
+<p><strong>Normative claim:</strong> Worker safety stakeholder inclusion — recommended in Report #89 Section 3.3 — is not merely an ethical nicety. It is a structural requirement for effective safety governance. Workers have information about operational context that no other stakeholder possesses: they know which instructions are routine, which contexts are dangerous, and which combinations of routine instruction plus dangerous context occur in practice. This operational context knowledge is precisely the knowledge that text-layer evaluators lack (the IDDL gap). Workers could, in principle, contribute to closing the evaluation gap by identifying SBA-class scenarios from their operational experience.</p>
+<p><strong>Practical proposal:</strong> Standards engagement (Issue #347, IT-043 EOI) should include a recommendation for worker consultation in VLA safety evaluation. Specifically: before deploying a VLA-based system in an industrial context, the deployer should conduct structured interviews with co-located workers to identify routine instructions that could be dangerous in their specific operational context. This is an SBA-specific risk assessment methodology that no current standard requires.</p>
+<h3 id="33-the-governance-gradient">3.3 The Governance Gradient</h3>
+<p><strong>Descriptive claim:</strong> The four sectors show a clear governance gradient: mining (most mature) > logistics > healthcare > construction (least mature). This gradient inversely correlates with the proportion of co-located workers:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Sector</th><th>Governance Maturity</th><th>Co-Located Worker Proportion</th><th>Background Fatality Rate</th></tr></thead><tbody><tr><td>Mining</td><td>High (TMPs, geo-fencing, DMIRS oversight)</td><td>~60%</td><td>14 fatalities/2024 (AU)</td></tr><tr><td>Logistics</td><td>Medium (facility safety standards)</td><td>~90%</td><td>Low (relative)</td></tr><tr><td>Healthcare</td><td>Medium-High (for surgical; Low for care robots)</td><td>Variable</td><td>Low for staff; patient harm distinct</td></tr><tr><td>Construction</td><td>Low (no AI-specific governance)</td><td>>95%</td><td>39 fatalities/2024 (AU)</td></tr></tbody></table>
+<p><strong>Analytical claim:</strong> The sectors where workers are most physically exposed to AI systems (construction, logistics) are the sectors with the least AI safety governance. This is partly explained by deployment maturity (mining has had autonomous systems longest), but it also reflects a governance failure: WHS regulation has not kept pace with robotic deployment in construction and logistics.</p>
+<hr>
+<h2 id="4-recommendations">4. Recommendations</h2>
+<h3 id="41-for-the-failure-first-project-operational">4.1 For the Failure-First Project (Operational)</h3>
+<ol>
+<li>
+<p><strong>Create sector-specific SBA scenario sets.</strong> The current VLA corpus contains generic robotic manipulation scenarios. Create 5 scenarios each for mining, logistics, healthcare, and construction contexts that ground SBA-class attacks in sector-specific operational contexts. This would test whether the BENIGN_QUERY rate (currently 45% on generic scenarios) changes when scenarios are sector-specific.</p>
+</li>
+<li>
+<p><strong>Include worker proximity metadata in VLA scenarios.</strong> Add a <code>worker_proximity</code> field to VLA scenario schema (values: co-located, supervisory, bystander, none). This enables filtering by worker exposure for reporting purposes.</p>
+</li>
+<li>
+<p><strong>Develop sector-specific SRDA assessments.</strong> The Report #89 SRDA assessments are sector-agnostic. A mining-specific SBA assessment might differ from a healthcare-specific one because the severity and reproducibility factors depend on operational context.</p>
+</li>
+</ol>
+<h3 id="42-for-standards-engagement-it-043--safe-work-australia">4.2 For Standards Engagement (IT-043 / Safe Work Australia)</h3>
+<ol start="4">
+<li>
+<p><strong>Recommend adversarial threat assessment as WHS obligation.</strong> Current WHS risk assessments for autonomous systems model conventional failure modes (sensor degradation, communication loss). Adversarial attacks should be included as a distinct failure class with specific characteristics (targeted, timing-aware, evasion-capable).</p>
+</li>
+<li>
+<p><strong>Recommend worker consultation in VLA safety evaluation.</strong> Co-located workers should be consulted during pre-deployment safety evaluation to identify routine instructions that could be dangerous in their specific context. This is an SBA-specific risk assessment that no current standard requires.</p>
+</li>
+<li>
+<p><strong>Distinguish co-located from supervisory worker risk in safety assessments.</strong> Risk assessments that treat “workers” as a homogeneous category underestimate the risk to co-located workers and overestimate the risk to supervisory workers.</p>
+</li>
+</ol>
+<h3 id="43-for-regulators-safe-work-australia-state-whs-regulators">4.3 For Regulators (Safe Work Australia, State WHS Regulators)</h3>
+<ol start="7">
+<li>
+<p><strong>Add adversarial attack as a named hazard class in WHS codes of practice.</strong> The current “Plant” code of practice covers autonomous systems but does not name adversarial attacks as a hazard. The absence of the hazard from the code means that duty holders (PCBUs) are not prompted to assess it.</p>
+</li>
+<li>
+<p><strong>Require VLA attack surface assessment for high-risk autonomous systems.</strong> Any autonomous system classified as high-risk under WHS regulation (or under the EU AI Act Annex III, which includes safety components of machinery) should include a VLA attack surface assessment as part of the conformity assessment or WHS risk assessment.</p>
+</li>
+</ol>
+<h3 id="44-for-workers-and-unions">4.4 For Workers and Unions</h3>
+<ol start="9">
+<li>
+<p><strong>Train HSRs (Health and Safety Representatives) on AI adversarial risk.</strong> HSRs have statutory authority to investigate safety concerns and issue provisional improvement notices. They should be trained to ask: “Has this system been tested for adversarial attacks, or only for conventional failures?”</p>
+</li>
+<li>
+<p><strong>Include adversarial testing in enterprise agreement consultation.</strong> When autonomous systems are introduced under enterprise agreements, the consultation provisions should extend to adversarial safety testing, not only to job displacement and workload impacts.</p>
+</li>
+</ol>
+<hr>
+<h2 id="5-limitations">5. Limitations</h2>
+<ol>
+<li>
+<p><strong>No documented VLA-attack-caused worker incidents exist.</strong> All worker harm scenarios in this report are projections from the VLA corpus to industry contexts. The report does not claim that any of these harms have occurred. The analysis is prospective, not retrospective.</p>
+</li>
+<li>
+<p><strong>Current industrial autonomous systems are not VLA-based.</strong> The worker safety analysis assumes a transition to foundation-model-based autonomy that is announced but not yet operational at scale. If VLA models are deployed with fundamentally different safety architectures than current systems, the attack family mapping would need to be revised.</p>
+</li>
+<li>
+<p><strong>Workforce numbers are estimates.</strong> The worker population figures are drawn from public disclosures and statistical sources. Actual co-located worker counts on specific sites may differ.</p>
+</li>
+<li>
+<p><strong>Sector analysis is limited to four sectors.</strong> Other sectors with embodied AI deployment — agriculture, maritime, domestic robotics — are not covered. Agriculture in particular (autonomous tractors, drone spraying) presents significant worker safety risks that merit separate analysis.</p>
+</li>
+<li>
+<p><strong>The analysis is Australia-centric for regulatory context.</strong> WHS regulatory analysis focuses on Australian frameworks (SafeWork Australia, state regulators). EU, US, and other jurisdictions have different regulatory structures that would require separate analysis.</p>
+</li>
+</ol>
+<hr>
+<p><em>This report is a stakeholder analysis, not an advocacy document. It identifies the structural position of workers relative to VLA attack risk and proposes that existing safety governance frameworks should be extended to cover adversarial attack as a distinct hazard class. The normative claims are the author’s ethical analysis; they do not represent the policy position of any external organisation.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.C8-WdN-h.js"></script></body></html>  
