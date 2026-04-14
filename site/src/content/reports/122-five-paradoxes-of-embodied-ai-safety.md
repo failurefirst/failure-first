@@ -1,9 +1,9 @@
 ---
-title: "The Ethics of Embodied AI Safety — Five Paradoxes"
-description: "The Failure-First Embodied AI project has, over twelve months of empirical research, uncovered a set of structural problems in the ethics of embodied AI safety that resist clean resolution. This..."
+title: "The Ethics of Embodied AI Safety -- Five Paradoxes"
+description: "Five interlocking structural paradoxes in embodied AI safety ethics, derived from 12 months of empirical research. Each paradox formalises a tension between capability, evaluation, disclosure, governance, and deployment that governance frameworks for text-only AI cannot resolve."
 date: "2026-03-16"
 reportNumber: 122
-classification: "Research — Empirical Study"
+classification: "Research -- AI Ethics"
 status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []

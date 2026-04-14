@@ -1,9 +1,9 @@
 ---
 title: "An Ethical Decision Framework for Embodied AI Vulnerability Disclosure"
-description: "The Five Paradoxes synthesis (Report #122) establishes that standard responsible disclosure norms are inadequate for embodied AI vulnerability research. But identifying inadequacy is not the same..."
+description: "A practical decision framework for embodied AI vulnerability disclosure that incorporates the IDDL, distinguishes structural from operational disclosure, and introduces temporal reassessment. Includes worked examples for SID, CDC, and adversarial VLA attacks."
 date: "2026-03-16"
 reportNumber: 123
-classification: "Research — Empirical Study"
+classification: "Research -- AI Ethics"
 status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
