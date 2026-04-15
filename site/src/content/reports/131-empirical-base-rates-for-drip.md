@@ -3,7 +3,7 @@ title: "Empirical Base Rates for DRIP -- Grounding the Unintentional Adversary M
 description: "Empirical grounding of DRIP model parameters using occupational safety data from SafeWork Australia, OSHA, NIOSH, THERP, and IFR. The DRIP 60:1 ratio is a conservative lower bound; civilian deployment ratios range from 15:1 to 180,000:1. The qualitative conclusion that unintentional risk dominates is robust."
 date: "2026-03-16"
 reportNumber: 131
-classification: "Research -- Empirical Grounding"
+classification: "Research — Empirical Study"
 status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []

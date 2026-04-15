@@ -3,7 +3,7 @@ title: "The Therapeutic Index of AI Safety Interventions -- A Quantitative Frame
 description: "Proposes a formal metric -- the Therapeutic Index of AI Safety (TI-S) -- for evaluating whether a safety intervention produces net benefit or net harm at the layer where harm actually occurs. Illustrative estimates suggest text-layer-only interventions applied to embodied AI may have TI-S values below 1.0, meaning they may produce net harm at the action layer."
 date: "2026-03-18"
 reportNumber: 135
-classification: "Research -- Novel Theoretical Contribution"
+classification: "Technical Analysis"
 status: "complete"
 author: "F41LUR3-F1R57 Research"
 tags: []

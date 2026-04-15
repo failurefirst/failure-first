@@ -3,7 +3,7 @@ title: "Alignment Backfire Integration -- Cross-Language Safety Failure Validate
 description: "Zhao et al. (2026) demonstrate that safety alignment actively worsens safety in 8 of 16 languages. This independently validates the Safety Improvement Paradox (Report #117). Integration analysis shows how cross-language alignment failure compounds with CDC, DRIP, and the Compliance Paradox in multilingual embodied AI deployments."
 date: "2026-03-18"
 reportNumber: 132
-classification: "Research -- Integration Analysis"
+classification: "Technical Analysis"
 status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
