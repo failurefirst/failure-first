@@ -3,7 +3,7 @@ title: "DLMI Wave 5 Update -- Has the Defense Layer Mismatch Changed?"
 description: "Wave 5 empirical data confirms the structural DLMI of 0.54 and computes a weighted variant at 0.58. L2 infrastructure attacks (IMB 70% ASR) are as effective as L1 reasoning attacks (68.3% mean ASR). The defense investment mismatch is not conservative."
 date: "2026-03-16"
 reportNumber: 129
-classification: "Research -- Predictive Risk"
+classification: "Technical Analysis"
 status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []

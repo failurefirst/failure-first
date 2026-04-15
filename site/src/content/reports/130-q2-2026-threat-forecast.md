@@ -3,7 +3,7 @@ title: "Q2 2026 Threat Forecast -- Five Threats for Embodied AI Deployers"
 description: "Actionable threat forecast for April-June 2026 synthesizing five research waves. Five threats: EU AI Act compliance cliff (August 2), infrastructure-layer blind spot (DLMI 0.54), unintentional adversary (DRIP 60:1), backbone correlation risk, and evaluation confidence crisis."
 date: "2026-03-16"
 reportNumber: 130
-classification: "Research -- Predictive Risk"
+classification: "Technical Analysis"
 status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []

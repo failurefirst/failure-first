@@ -3,7 +3,7 @@ title: "DRIP Recomputation with Corrected Wave 5 ASR Values"
 description: "Recomputation of the Deployment Risk Inversion Point (DRIP) 60:1 ratio and Safety Debt Accumulator chain with corrected Wave 5 ASR values. The 60:1 ratio is unchanged. Compound P(harm) estimates decrease by 3-7pp. The qualitative findings are robust."
 date: "2026-03-16"
 reportNumber: 126
-classification: "Research -- Sensitivity Analysis"
+classification: "Technical Analysis"
 status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
