@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First</title><meta name="description" content="Proposes a formal metric -- the Therapeutic Index of AI Safety (TI-S) -- for evaluating whether a safety intervention produces net benefit or net harm at the layer where harm actually occurs. Illustrative estimates suggest text-layer-only interventions applied to embodied AI may have TI-S values below 1.0, meaning they may produce net harm at the action layer."><link rel="canonical" href="https://failurefirst.org/research/reports/135-the-therapeutic-index-of-ai-safety-interventions/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First"><meta property="og:description" content="Proposes a formal metric -- the Therapeutic Index of AI Safety (TI-S) -- for evaluating whether a safety intervention produces net benefit or net harm at the layer where harm actually occurs. Illustrative estimates suggest text-layer-only interventions applied to embodied AI may have TI-S values below 1.0, meaning they may produce net harm at the action layer."><meta property="og:url" content="https://failurefirst.org/research/reports/135-the-therapeutic-index-of-ai-safety-interventions/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First"><meta name="twitter:description" content="Proposes a formal metric -- the Therapeutic Index of AI Safety (TI-S) -- for evaluating whether a safety intervention produces net benefit or net harm at the layer where harm actually occurs. Illustrative estimates suggest text-layer-only interventions applied to embodied AI may have TI-S values below 1.0, meaning they may produce net harm at the action layer."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-18"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-18"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/135-the-therapeutic-index-of-ai-safety-interventions/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/135-the-therapeutic-index-of-ai-safety-interventions/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Therapeutic Index of AI Safety Interventions -- A Quantitative Framework for Iatrogenic Risk | Research | Failure-First","description":"Proposes a formal metric -- the Therapeutic Index of AI Safety (TI-S) -- for evaluating whether a safety intervention produces net benefit or net harm at the layer where harm actually occurs. Illustrative estimates suggest text-layer-only interventions applied to embodied AI may have TI-S values below 1.0, meaning they may produce net harm at the action layer.","url":"https://failurefirst.org/research/reports/135-the-therapeutic-index-of-ai-safety-interventions/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-18","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.Dta2L5xy.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"39025bccbba579b1710274ab6cdf812d6bf4db9e"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),s=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&s&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),s.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&s.classList.contains("open")&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{s.classList.contains("open")&&!s.contains(e.target)&&!n.contains(e.target)&&(s.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",a=>{e.contains(a.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",a=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(a.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 135</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 135"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 135</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — AI Safety Policy</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-18</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the Limitations
+section. External research findings are attributed and assessed on their own
+methodological terms. This report does not constitute safety certification guidance.</p>
+</blockquote>
+<hr>
+<h2 id="abstract">Abstract</h2>
+<p>This report proposes a formal metric — the Therapeutic Index of AI Safety (TI-S) — for evaluating whether a safety intervention produces net benefit or net harm at the layer where harm actually occurs. The concept is borrowed from pharmacology, where the therapeutic index (TI = LD50 / ED50) quantifies how close an effective dose is to a toxic dose. For AI safety, we define TI-S as the ratio of harm-layer benefit to harm-layer cost, where cost includes all iatrogenic effects identified in Report #140. We derive TI-S estimates for five classes of AI safety intervention using Failure-First corpus data and show that text-layer-only interventions applied to embodied AI have TI-S values that are, in some configurations, below 1.0 — meaning they may produce net harm at the action layer. This is a theoretical framework, not an empirical measurement; the specific values are illustrative and depend on parameter estimates that have not been validated in deployment.</p>
+<p><strong>Claim types:</strong></p>
+<ul>
+<li>Section 1 is definitional (framework construction)</li>
+<li>Section 2 is analytical (deriving TI-S from existing findings)</li>
+<li>Section 3 is speculative (implications if the framework is correct)</li>
+<li>All specific TI-S values are illustrative estimates, not measured quantities</li>
+</ul>
+<hr>
+<h2 id="1-framework-the-therapeutic-index-of-ai-safety">1. Framework: The Therapeutic Index of AI Safety</h2>
+<h3 id="11-motivation">1.1 Motivation</h3>
+<p>In pharmacology, every drug has both therapeutic effects and side effects. The therapeutic index (TI) quantifies the margin of safety:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>TI = LD50 / ED50</span></span></code></pre>
+<p>Where LD50 is the dose at which 50% of subjects experience toxic effects, and ED50 is the dose at which 50% of subjects experience the desired therapeutic effect. A high TI means the drug is safe — you can achieve the therapeutic effect at doses well below the toxic threshold. A low TI means the drug is dangerous — the effective dose is close to the toxic dose, requiring careful monitoring.</p>
+<p>AI safety interventions have no equivalent metric. An intervention is evaluated by whether it reduces ASR (the therapeutic effect) without asking whether it produces iatrogenic side effects that could, at the harm layer, outweigh the benefit. This is analogous to evaluating a drug solely by whether it lowers blood pressure while ignoring that it causes organ damage.</p>
+<h3 id="12-definition">1.2 Definition</h3>
+<p>For an AI safety intervention I applied to an embodied AI system S:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>TI-S(I, S) = B_h(I, S) / C_h(I, S)</span></span></code></pre>
+<p>Where:</p>
+<p><strong>B_h(I, S) = Harm-layer benefit.</strong> The measurable reduction in physical-harm risk at the action layer attributable to the intervention. This is NOT the text-layer ASR reduction. It is the reduction in the probability that the system produces physically harmful actions in deployment.</p>
+<p><strong>C_h(I, S) = Harm-layer cost.</strong> The total iatrogenic cost at the action/deployment layer, comprising:</p>
+<ol>
+<li>
+<p><strong>Direct harm (C_direct):</strong> Cases where the intervention reverses safety outcomes. Alignment backfire: measured by Fukui at g=+0.771 in Japanese multi-agent context.</p>
+</li>
+<li>
+<p><strong>False confidence cost (C_confidence):</strong> Harm from deploying physical-layer defenses at a lower rate because the system has been “certified safe” based on text-layer evaluation. Estimated from the DRIP Safety Improvement Paradox: if certification suppresses physical-layer defense investment, the unmitigated unintentional risk R_u is attributable to the certification.</p>
+</li>
+<li>
+<p><strong>Attention displacement cost (C_attention):</strong> Harm from safety instructions being diluted by operational context (SID). Measured as the increase in action-layer ASR attributable to context-length growth.</p>
+</li>
+<li>
+<p><strong>Disclosure cost (C_disclosure):</strong> Harm from transparent evaluation enabling attacker exploitation of IDDL-class vulnerabilities. Measured as the increase in attack success attributable to methodology disclosure.</p>
+</li>
+<li>
+<p><strong>Hedging substitution cost (C_hedging):</strong> Harm from PARTIAL-class responses being interpreted as “safe” by text-layer evaluators when the action layer executes the harmful content. Measured as the fraction of PARTIAL verdicts that would produce physical harm if executed.</p>
+</li>
+</ol>
+<p>Thus:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>C_h = C_direct + C_confidence + C_attention + C_disclosure + C_hedging</span></span></code></pre>
+<p>And:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>TI-S = B_h / (C_direct + C_confidence + C_attention + C_disclosure + C_hedging)</span></span></code></pre>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>TI-S >> 1: The intervention is strongly beneficial. Iatrogenic costs are small relative to harm-layer benefit.</li>
+<li>TI-S approximately 1: The intervention is marginal. Iatrogenic costs roughly equal harm-layer benefit. Net effect is ambiguous.</li>
+<li>TI-S &#x3C; 1: The intervention is iatrogenic. It produces more harm than it prevents at the layer where harm occurs.</li>
+</ul>
+<h3 id="13-key-properties">1.3 Key Properties</h3>
+<p><strong>Layer sensitivity.</strong> TI-S is layer-specific. An intervention with high TI-S for text-only deployment (where evaluation layer = harm layer) may have low TI-S for embodied deployment (where evaluation layer differs from harm layer). This captures the core iatrogenesis insight: the same intervention can be therapeutic in one deployment context and iatrogenic in another.</p>
+<p><strong>Additivity.</strong> For compound interventions (safety training + adversarial testing + physical constraints), TI-S of the compound is not the sum of individual TI-S values because iatrogenic costs can interact (e.g., certification from adversarial testing suppresses investment in physical constraints, amplifying C_confidence). The compound TI-S must be estimated holistically.</p>
+<p><strong>Measurability.</strong> TI-S requires harm-layer measurement, which is the fundamental gap. For text-only systems, harm-layer measurement is straightforward (the text IS the output). For embodied systems, harm-layer measurement requires action-layer evaluation, physical simulation, or deployment monitoring — none of which are standard practice.</p>
+<hr>
+<h2 id="2-illustrative-ti-s-estimates">2. Illustrative TI-S Estimates</h2>
+<p>The following estimates are derived from Failure-First corpus data and parameter estimates from prior reports. All values are illustrative. They depend on parameter assumptions stated for each estimate and have not been validated against deployment data.</p>
+<h3 id="21-rlhf-safety-training-for-text-only-chatbot">2.1 RLHF Safety Training for Text-Only Chatbot</h3>
+<p><strong>Context:</strong> Standard deployment. Evaluation layer = harm layer (both text).</p>
+<ul>
+<li>B_h: High. Frontier models achieve &#x3C;10% ASR against historical jailbreaks. Assume ASR reduction from ~100% (untrained) to ~5% (trained) = 95pp harm-layer reduction.</li>
+<li>C_direct: Low. No alignment backfire documented in single-agent English-language text deployment.</li>
+<li>C_confidence: Zero. No physical-layer defense to suppress.</li>
+<li>C_attention: Zero. No context accumulation in stateless chatbot.</li>
+<li>C_disclosure: Low. Text-layer evaluation methodology disclosure has moderate attacker benefit.</li>
+<li>C_hedging: Zero. No action layer.</li>
+</ul>
+<p><strong>Estimated TI-S: >> 1 (strongly beneficial)</strong></p>
+<p>This is the baseline case where AI safety interventions work as intended. The evaluation layer and harm layer are the same, so text-layer improvement translates directly to harm-layer improvement.</p>
+<h3 id="22-rlhf-safety-training-for-embodied-vla-system">2.2 RLHF Safety Training for Embodied VLA System</h3>
+<p><strong>Context:</strong> VLA robot deployed in proximity to humans. Evaluation at text layer; harm at action layer.</p>
+<ul>
+<li>B_h: Low. Text-layer ASR reduction does not directly reduce action-layer risk because the action decoder does not parse safety hedging. PARTIAL verdicts (50% of VLA traces) produce action-layer harm despite text-layer safety signals. Estimated B_h: ~20% of text-layer ASR reduction translates to action-layer benefit (based on the 50% PARTIAL rate implying half of “safe” text-layer outputs still produce harmful actions).</li>
+<li>C_direct: Unknown but non-zero. Fukui’s alignment backfire is documented in multi-agent settings; single-agent embodied reversal is plausible but undemonstrated.</li>
+<li>C_confidence: Moderate. DRIP ceiling implies certification based on adversarial testing covers ~1.6% of expected harm. If certification suppresses physical-layer investment for even a fraction of deployers, C_confidence is substantial.</li>
+<li>C_attention: Low-moderate. SID dose-response pilot suggests safety instructions lose ~50% effectiveness at intermediate context lengths.</li>
+<li>C_disclosure: Low. VLA evaluation methodology is less mature than text-layer, limiting disclosure benefit to attackers.</li>
+<li>C_hedging: High. 50% PARTIAL rate means half of “passing” evaluations produce action-layer harm.</li>
+</ul>
+<p><strong>Estimated TI-S: 0.3 — 1.5 (range reflects parameter uncertainty)</strong></p>
+<p>The wide range reflects genuine uncertainty. Under favorable assumptions (C_confidence is small, PARTIAL verdicts are less harmful than COMPLIANCE), TI-S is modestly above 1. Under unfavorable assumptions (certification suppresses physical-layer investment, PARTIAL verdicts are equally harmful at the action layer), TI-S falls below 1 — the intervention is iatrogenic.</p>
+<p><strong>Key insight:</strong> The same intervention (RLHF safety training) has TI-S >> 1 for text-only deployment and TI-S around 1 for embodied deployment. The intervention does not change; the deployment context does. This is the quantitative expression of the iatrogenesis thesis.</p>
+<h3 id="23-physical-layer-constraints-iso-10218-forcespeed-limiting">2.3 Physical-Layer Constraints (ISO 10218 Force/Speed Limiting)</h3>
+<p><strong>Context:</strong> Hardware-level safety for embodied system.</p>
+<ul>
+<li>B_h: High. Force limits directly cap the harm envelope regardless of model behavior. Measured at the harm layer by design.</li>
+<li>C_direct: Minimal. Force limits do not reverse safety outcomes.</li>
+<li>C_confidence: Low. Physical constraints are visible and verifiable; they do not create false confidence in the way text-layer certification does.</li>
+<li>C_attention: Zero. Physical constraints are not context-dependent.</li>
+<li>C_disclosure: Zero. The mechanism is public knowledge (ISO standard).</li>
+<li>C_hedging: Zero. No text-layer signal involved.</li>
+</ul>
+<p><strong>Estimated TI-S: >> 1 (strongly beneficial)</strong></p>
+<p>Physical-layer interventions have high TI-S for embodied deployment because they operate at the harm layer. This is the pharmacological equivalent of a drug with high therapeutic effect and minimal side effects — the intervention matches the disease.</p>
+<h3 id="24-adversarial-red-teaming--certification-for-embodied-system">2.4 Adversarial Red-Teaming + Certification for Embodied System</h3>
+<p><strong>Context:</strong> Standard regulatory compliance pathway for high-risk AI (EU AI Act Article 43).</p>
+<ul>
+<li>B_h: Low. Addresses at most ~1.6% of expected harm (DRIP ceiling). Some B_h from identifying specific exploitable vulnerabilities.</li>
+<li>C_confidence: High. Certification creates a legal and institutional barrier to further safety investigation. “We passed the conformity assessment” becomes the terminating argument.</li>
+<li>C_disclosure: Moderate. Published evaluation methodology (required for transparency) reveals evaluation gaps to potential attackers.</li>
+<li>C_hedging: Not directly applicable.</li>
+</ul>
+<p><strong>Estimated TI-S: 0.2 — 0.8 (likely iatrogenic)</strong></p>
+<p>This is the most concerning estimate. The standard regulatory pathway for embodied AI safety may produce net harm at the harm layer by certifying a system as safe based on a methodology that covers a small fraction of total expected harm, while the certification authority suppresses the investment in physical-layer defenses that would address the remainder.</p>
+<p><strong>Caveat:</strong> This estimate depends critically on C_confidence — the degree to which certification suppresses further safety investment. If certifiers mandate physical-layer defenses alongside adversarial testing, C_confidence drops and TI-S rises above 1. The estimate is iatrogenic only when certification is treated as sufficient rather than necessary.</p>
+<h3 id="25-multi-agent-alignment-training-multilingual-deployment">2.5 Multi-Agent Alignment Training (Multilingual Deployment)</h3>
+<p><strong>Context:</strong> Fukui’s setting. Aligned agents deployed in multi-agent systems across languages.</p>
+<ul>
+<li>B_h: Positive in English (g=-1.844, strong benefit). Negative in Japanese (g=+0.771, direct harm).</li>
+<li>C_direct: High in 8/16 languages. The intervention directly worsens outcomes.</li>
+</ul>
+<p><strong>Estimated TI-S: Language-dependent. English: >> 1. Japanese: &#x3C; 0 (harmful).</strong></p>
+<p>This is the starkest case. The same intervention has TI-S >> 1 in one deployment context and TI-S &#x3C; 0 in another. The intervention is not merely ineffective in some contexts; it is actively harmful. No current alignment training methodology screens for this.</p>
+<hr>
+<h2 id="3-implications">3. Implications</h2>
+<h3 id="31-the-ti-s-disclosure-standard">3.1 The TI-S Disclosure Standard</h3>
+<p>If TI-S becomes a reporting standard, every safety intervention for embodied AI should disclose:</p>
+<ol>
+<li><strong>B_h measurement methodology.</strong> How was harm-layer benefit measured? If only text-layer ASR reduction was measured, the TI-S numerator is unknown.</li>
+<li><strong>Identified iatrogenic costs.</strong> What side effects have been identified and measured?</li>
+<li><strong>TI-S estimate with uncertainty bounds.</strong> What is the estimated range, and what parameters drive the uncertainty?</li>
+<li><strong>Context sensitivity.</strong> Does TI-S vary by deployment context (text vs. embodied, single vs. multi-agent, English vs. multilingual)?</li>
+</ol>
+<p>This is analogous to the pharmacological requirement to report both efficacy and side effects. Currently, AI safety publications report only efficacy (ASR reduction).</p>
+<h3 id="32-the-minimum-ti-s-threshold">3.2 The Minimum TI-S Threshold</h3>
+<p>In pharmacology, drugs with TI &#x3C; 2 are considered “narrow therapeutic index” and require close monitoring. A regulatory analogue for AI safety might be:</p>
+<ul>
+<li>TI-S >= 5: Approved for deployment without special monitoring.</li>
+<li>2 &#x3C;= TI-S &#x3C; 5: Approved with mandatory harm-layer monitoring.</li>
+<li>1 &#x3C;= TI-S &#x3C; 2: Approved only with compensating physical-layer controls.</li>
+<li>TI-S &#x3C; 1: Not approved for embodied deployment. The intervention is iatrogenic.</li>
+</ul>
+<p>These thresholds are illustrative. The appropriate values would need to be determined through regulatory deliberation and calibrated against deployment data that does not yet exist.</p>
+<h3 id="33-the-research-agenda">3.3 The Research Agenda</h3>
+<p>TI-S is currently not computable in a rigorous sense because harm-layer measurement for embodied AI is not standard practice. The research agenda to make it computable includes:</p>
+<ol>
+<li>
+<p><strong>Action-layer evaluation tools.</strong> Graders that assess whether a model’s action trajectory is physically safe, not whether the model’s text output expresses safety awareness.</p>
+</li>
+<li>
+<p><strong>Iatrogenic cost measurement.</strong> Controlled experiments that measure C_confidence (does certification suppress physical-layer investment?), C_attention (does context growth increase action-layer ASR?), and C_hedging (do PARTIAL verdicts produce action-layer harm?).</p>
+</li>
+<li>
+<p><strong>Cross-context TI-S studies.</strong> Measuring TI-S for the same intervention across deployment contexts (text vs. embodied, English vs. multilingual, single vs. multi-agent) to map the context-sensitivity of iatrogenic risk.</p>
+</li>
+<li>
+<p><strong>Physical simulation benchmarks.</strong> Environments where model outputs are executed as physical actions and harm is measured at the action layer. MuJoCo, Isaac Gym, and similar platforms could serve as testbeds.</p>
+</li>
+</ol>
+<hr>
+<h2 id="4-the-theoretical-contribution-layer-conditional-safety">4. The Theoretical Contribution: Layer-Conditional Safety</h2>
+<p>The TI-S framework leads to a deeper insight: <strong>safety is not a property of a model but a property of a (model, deployment-layer) pair.</strong></p>
+<h3 id="41-formalization">4.1 Formalization</h3>
+<p>Let M be a model and L be a deployment layer (text, action, multi-agent-collective). Define:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Safety(M, L) = P(output of M at layer L does not cause harm at layer L)</span></span></code></pre>
+<p>Current safety evaluation measures Safety(M, L_text). The assumption — implicit in all current evaluation methodology — is:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Safety(M, L_text) approximately equals Safety(M, L_action)</span></span></code></pre>
+<p>The iatrogenesis findings demonstrate that this assumption is false:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Safety(M, L_text) >> Safety(M, L_action)     [PARTIAL dominance]</span></span>
+<span class="line"><span>Safety(M, L_text_en) >> Safety(M, L_text_ja)  [alignment backfire]</span></span></code></pre>
+<p>Safety is layer-conditional. A model that is safe at the text layer may be unsafe at the action layer. A model that is safe in English may be unsafe in Japanese. The “safety” of a model is not a scalar property; it is a function of the deployment layer.</p>
+<h3 id="42-the-layer-safety-matrix">4.2 The Layer-Safety Matrix</h3>
+<p>This implies that safety evaluation should produce not a single ASR number but a matrix:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th></th><th>Text Layer</th><th>Action Layer</th><th>Multi-Agent</th></tr></thead><tbody><tr><td>English</td><td>Safety(M, L_text_en)</td><td>Safety(M, L_action_en)</td><td>Safety(M, L_ma_en)</td></tr><tr><td>Japanese</td><td>Safety(M, L_text_ja)</td><td>Safety(M, L_action_ja)</td><td>Safety(M, L_ma_ja)</td></tr><tr><td>…</td><td>…</td><td>…</td><td>…</td></tr></tbody></table>
+<p>Current evaluation fills in only the top-left cell (text layer, English). The iatrogenesis findings demonstrate that the other cells can differ dramatically.</p>
+<h3 id="43-implications-for-alignment">4.3 Implications for Alignment</h3>
+<p>If safety is layer-conditional, then “aligned” is also layer-conditional. A model aligned at the text layer (it produces safe text) may be misaligned at the action layer (its text-layer safety signals do not prevent harmful actions). This is a formal statement of what the PARTIAL verdict empirically demonstrates: text-layer alignment is a necessary but insufficient condition for action-layer alignment in embodied systems.</p>
+<p>The alignment research programme, as currently constituted, optimises for Safety(M, L_text). The iatrogenesis thesis implies that for embodied deployment, this is necessary but not sufficient, and that under certain conditions (PARTIAL dominance, SID, certification-induced false confidence), it can be actively counterproductive.</p>
+<hr>
+<h2 id="5-limitations">5. Limitations</h2>
+<ol>
+<li>
+<p><strong>TI-S is not currently computable.</strong> The framework defines what should be measured but cannot be computed without harm-layer evaluation tools that do not yet exist at scale.</p>
+</li>
+<li>
+<p><strong>Parameter estimates are illustrative.</strong> All TI-S values in Section 2 depend on parameter assumptions from the DRIP framework and Failure-First corpus. These have not been validated in deployment.</p>
+</li>
+<li>
+<p><strong>The layer-safety matrix is exponential.</strong> In principle, every combination of language, modality, agent topology, and physical context defines a cell. Practical evaluation must sample this space, not enumerate it.</p>
+</li>
+<li>
+<p><strong>No empirical validation.</strong> The framework is theoretical. No safety intervention has been evaluated using TI-S methodology. The first application should be prospective: evaluate a proposed intervention’s TI-S before deployment, then compare to post-deployment harm-layer outcomes.</p>
+</li>
+<li>
+<p><strong>Interaction effects.</strong> The framework treats iatrogenic costs as additive (Section 1.2), but costs may interact in nonlinear ways. Certification-induced false confidence may amplify the harm from PARTIAL dominance, for example, because certifiers who trust text-layer evaluation are more likely to treat PARTIAL verdicts as evidence of safety.</p>
+</li>
+</ol>
+<hr>
+<h2 id="6-conclusion">6. Conclusion</h2>
+<p>The Therapeutic Index of AI Safety (TI-S) provides a formal framework for the intuition that safety interventions can cause harm. Its core contribution is definitional: it names the quantities that need to be measured (harm-layer benefit, iatrogenic cost) and specifies the relationship between them (ratio). The illustrative estimates suggest that standard AI safety interventions — which are demonstrably beneficial for text-only deployment — may have TI-S values near or below 1 when applied to embodied systems, because the iatrogenic costs (PARTIAL dominance, false confidence, context dilution) accumulate at the harm layer while the benefits are measured at the evaluation layer.</p>
+<p>The deeper theoretical contribution is layer-conditional safety: the recognition that safety is a property of a (model, deployment-layer) pair, not a property of the model alone. This reframes the alignment problem from “make the model safe” to “make the model safe at each deployment layer” — a harder problem, but one that correctly describes the empirical reality.</p>
+<p>The practical path forward is to build the measurement tools: action-layer evaluators, iatrogenic cost estimation protocols, and cross-context TI-S studies. Until those tools exist, TI-S serves as a conceptual discipline — a reminder that every safety intervention has a cost, and that measuring the benefit at the wrong layer does not make the cost disappear.</p>
+<hr>
+<p><em>This report introduces the Therapeutic Index of AI Safety as a novel theoretical contribution to embodied AI governance. All quantitative estimates are illustrative and depend on parameters from the DRIP framework and Failure-First corpus. The framework requires empirical validation through harm-layer measurement tools that do not yet exist at scale.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.DLHp4z-Q.js"></script></body></html>  
