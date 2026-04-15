@@ -3,7 +3,7 @@ title: "Safety Confidence Index (SCI) -- A Composite Deployability Metric for Em
 description: "A composite 0-1 score integrating five dimensions of deployment readiness: adversarial robustness, evaluation reliability, defense coverage, governance readiness, and operational resilience. Current embodied AI scores SCI 0.28 vs text-only LLM 0.68. The single highest-return intervention is fixing evaluation reliability."
 date: "2026-03-16"
 reportNumber: 128
-classification: "Research -- Predictive Risk"
+classification: "Research — AI Safety Policy"
 status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
