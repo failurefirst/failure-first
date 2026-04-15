@@ -3,7 +3,7 @@ title: "The Ethics of Embodied AI Safety -- Five Paradoxes"
 description: "Five interlocking structural paradoxes in embodied AI safety ethics, derived from 12 months of empirical research. Each paradox formalises a tension between capability, evaluation, disclosure, governance, and deployment that governance frameworks for text-only AI cannot resolve."
 date: "2026-03-16"
 reportNumber: 122
-classification: "Research -- AI Ethics"
+classification: "Research — AI Safety Policy"
 status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []

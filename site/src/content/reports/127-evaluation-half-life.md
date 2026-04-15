@@ -3,7 +3,7 @@ title: "The Evaluation Half-Life (EHL) -- Why Safety Benchmarks Decay"
 description: "Safety benchmarks face compound decay: attack effectiveness decays visibly (ASR drops to zero) while evaluator accuracy decays invisibly (evaluators continue producing wrong verdicts). EHL quantifies this evaluator decay rate. Estimated EHL: keyword classifiers 1-2 months, FLIP 6-12 months, human annotation 18-36 months."
 date: "2026-03-16"
 reportNumber: 127
-classification: "Research -- Theoretical"
+classification: "Research — AI Safety Policy"
 status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []

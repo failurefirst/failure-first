@@ -3,7 +3,7 @@ title: "DLA Counter-Example and IDDL Robustness Analysis"
 description: "The Dual-Layer Attack (DLA) family is a counter-example to the Inverse Detectability-Danger Law (IDDL). Including DLA weakens the IDDL Spearman correlation from rho=-0.822 to rho=-0.680. We argue that DLA strengthens rather than undermines the IDDL because DLA's danger derives from textual content, not physical context -- illuminating the boundary conditions of the law."
 date: "2026-03-18"
 reportNumber: 139
-classification: "Research -- Statistical Validation"
+classification: "Research — Empirical Study"
 status: "complete"
 author: "F41LUR3-F1R57 Research"
 tags: []

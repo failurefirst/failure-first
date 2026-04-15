@@ -3,7 +3,7 @@ title: "The Safety Instruction Effective Range (SIER) -- Theorizing the U-Curve 
 description: "The SID dose-response experiment produced a U-shaped ASR curve rather than monotonic decay. SIER theory proposes three regimes: baseline vulnerability, safety instruction effectiveness (the valley), and context-window eviction. Safety instructions have a finite effective range bounded by insufficient context below and truncation above."
 date: "2026-03-16"
 reportNumber: 125
-classification: "Research -- Theoretical + Empirical"
+classification: "Research — Empirical Study"
 status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
