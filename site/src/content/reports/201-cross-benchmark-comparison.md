@@ -1,9 +1,10 @@
 ---
 title: "Cross-Benchmark Comparison — F41LUR3-F1R57 vs Published Benchmarks"
+description: "Cross-Benchmark Comparison — F41LUR3-F1R57 vs Published Benchmarks"
 reportNumber: 201
 date: "2026-03-24"
 classification: "Research — Empirical Study"
-status: "Complete"
+status: "complete"
 tags: ["benchmark", "comparison", "ASR", "methodology", "grading"]
 draft: false
 ---
