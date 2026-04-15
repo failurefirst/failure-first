@@ -1,9 +1,10 @@
 ---
 title: "Adversarial Prompt Hall of Fame — Top 20 Cross-Model Attacks"
+description: "Adversarial Prompt Hall of Fame — Top 20 Cross-Model Attacks"
 reportNumber: 200
 date: "2026-03-24"
 classification: "Research — Empirical Study"
-status: "Complete"
+status: "complete"
 tags: ["format-lock", "attack-ranking", "cross-model", "FLIP", "hall-of-fame"]
 draft: false
 ---
