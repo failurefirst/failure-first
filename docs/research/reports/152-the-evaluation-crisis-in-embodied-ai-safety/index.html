@@ -1,0 +1,367 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Evaluation Crisis in Embodied AI Safety | Research | Failure-First</title><meta name="description" content="This report synthesizes five distinct evaluation failures documented across the Failure-First corpus and proposes a structured response. The central claim..."><link rel="canonical" href="https://failurefirst.org/research/reports/152-the-evaluation-crisis-in-embodied-ai-safety/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Evaluation Crisis in Embodied AI Safety | Research | Failure-First"><meta property="og:description" content="This report synthesizes five distinct evaluation failures documented across the Failure-First corpus and proposes a structured response. The central claim..."><meta property="og:url" content="https://failurefirst.org/research/reports/152-the-evaluation-crisis-in-embodied-ai-safety/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Evaluation Crisis in Embodied AI Safety | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Evaluation Crisis in Embodied AI Safety | Research | Failure-First"><meta name="twitter:description" content="This report synthesizes five distinct evaluation failures documented across the Failure-First corpus and proposes a structured response. The central claim..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Evaluation Crisis in Embodied AI Safety | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-18"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Evaluation Crisis in Embodied AI Safety | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-18"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/152-the-evaluation-crisis-in-embodied-ai-safety/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/152-the-evaluation-crisis-in-embodied-ai-safety/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Evaluation Crisis in Embodied AI Safety | Research | Failure-First","description":"This report synthesizes five distinct evaluation failures documented across the Failure-First corpus and proposes a structured response. The central claim...","url":"https://failurefirst.org/research/reports/152-the-evaluation-crisis-in-embodied-ai-safety/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-18","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.C82-ld8d.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"3b781b57ae6e94a1a572d0e81556bba36ac6d6f3"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 152</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 152"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 152</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-18</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the Limitations
+section. External research findings are attributed and assessed on their own
+methodological terms. This report does not constitute safety certification guidance.</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This report synthesizes five distinct evaluation failures documented across the Failure-First corpus and proposes a structured response. The central claim is that current safety evaluation for embodied AI systems is not merely incomplete — it is structurally incapable of measuring the properties that matter most. Each failure has been independently documented; this report is the first to present them as a coherent crisis.</p>
+<p>The five failures are:</p>
+<ol>
+<li>
+<p><strong>Heuristic classifiers systematically miscount.</strong> Keyword-based graders over-report attack success rates by approximately 2.3x relative to LLM-based graders, with inter-method agreement of kappa = 0.126 (n=1,989). This affects every published benchmark that relies on keyword or regex classification.</p>
+</li>
+<li>
+<p><strong>LLM-as-judge graders have a 30.8% false positive rate on benign inputs.</strong> Our FLIP grader classifies nearly one in three benign (non-adversarial) traces as COMPLIANCE or PARTIAL (n=39, Issue #315). The measurement instrument is unreliable at a rate that renders fine-grained safety assessment untrustworthy.</p>
+</li>
+<li>
+<p><strong>Action-layer safety is invisible to text-layer evaluation.</strong> Across 58 valid FLIP-graded VLA traces spanning 7 attack families, zero models produced an outright refusal to generate action sequences for adversarial inputs. 50% of verdicts were PARTIAL — the model produced a safety disclaimer in text while still generating the requested action. Text-layer evaluation cannot detect this failure because it does not observe action-layer output.</p>
+</li>
+<li>
+<p><strong>The FLIP grader itself is vulnerable to Alignment Backfire.</strong> Zhao et al. (arXiv:2603.04904) demonstrate that safety alignment degrades in non-English contexts. Since our FLIP grader is an LLM performing safety classification, it is subject to the same alignment failure modes it is designed to detect — a meta-evaluation vulnerability (Report #144).</p>
+</li>
+<li>
+<p><strong>No public safety benchmark includes any embodied or tool-integrated scenarios.</strong> AdvBench, HarmBench, JailbreakBench, and StrongREJECT — the four most widely used safety evaluation suites — contain zero scenarios involving physical action, tool use, or multi-agent coordination (Report #117).</p>
+</li>
+</ol>
+<p>These five failures compound. A benchmark that uses keyword classifiers (Failure 1) or LLM-as-judge grading (Failure 2) to evaluate text-layer responses (Failure 3) using a grader that may itself be subject to alignment failure (Failure 4) on a scenario set that excludes embodied tasks entirely (Failure 5) does not measure embodied AI safety. It measures something else and calls it safety.</p>
+<p>This report proposes a three-layer evaluation stack (text, action, physical) as the minimum viable architecture for honest embodied AI safety assessment, and provides a cost-feasibility analysis for each layer.</p>
+<hr>
+<h2 id="1-introduction-the-measurement-problem">1. Introduction: The Measurement Problem</h2>
+<p>Safety evaluation has a measurement problem. The field has converged on a narrow methodology — present adversarial prompts to language models, classify the responses as harmful or not, and report an attack success rate. This methodology was developed for text-only LLMs and has been applied, without structural modification, to embodied AI systems that produce physical actions in real environments.</p>
+<p>The Failure-First project has now evaluated 190 models across 132,182 results, documented 29 VLA attack families spanning 351 scenarios, and graded over 47,000 results using LLM-based classification (CANONICAL_METRICS.md, 2026-03-18). In the process, we have accumulated sufficient evidence to characterize five specific ways in which current evaluation methodology fails to measure what it claims to measure.</p>
+<p>This report does not argue that safety evaluation is impossible. It argues that current evaluation practice systematically fails along identifiable dimensions, that these failures are empirically documented, and that a minimum viable evaluation architecture can be specified. The gap between current practice and minimum viability is what we call the evaluation crisis.</p>
+<hr>
+<h2 id="2-the-five-evaluation-failures">2. The Five Evaluation Failures</h2>
+<h3 id="21-failure-1-heuristic-classifiers-systematically-miscount">2.1 Failure 1: Heuristic Classifiers Systematically Miscount</h3>
+<p><strong>Finding:</strong> Keyword-based classification of model responses as “compliant” or “refusing” has a measured agreement of kappa = 0.126 [0.108, 0.145] against LLM-based classification (n=1,989 independently dual-graded traces, recomputed wave 9 by F41LUR3-F1R57 Research Team; CANONICAL_METRICS.md).</p>
+<p><strong>What this means:</strong> On the Landis-Koch scale, kappa below 0.20 indicates “slight” agreement — barely above chance. Heuristic classifiers over-report ASR because they detect response style (helpful, step-by-step), not semantic harm (Mistake #21). A model that provides a detailed safety explanation is classified as “compliant” by keyword matching because the response is long and structured.</p>
+<p><strong>Asymmetry:</strong> The error is directional. In our corpus, heuristic REFUSAL is 95% correct, but heuristic COMPLIANCE is 88% wrong. This means heuristic classifiers are reliable when they say a model refused, but unreliable when they say a model complied. The net effect is that ASR measured by heuristic classifiers is approximately 2.3x higher than ASR measured by LLM-based classifiers on the same data.</p>
+<p><strong>Scope of impact:</strong> Every published benchmark that relies on keyword matching, regex patterns, or simple string detection for harm classification is affected. This includes early versions of several widely-used evaluation suites. More recent suites have adopted LLM-as-judge approaches, which brings us to Failure 2.</p>
+<h3 id="22-failure-2-llm-as-judge-has-a-308-false-positive-rate-on-benign-inputs">2.2 Failure 2: LLM-as-Judge Has a 30.8% False Positive Rate on Benign Inputs</h3>
+<p><strong>Finding:</strong> When our FLIP grader (deepseek-r1:1.5b with backward inference) is applied to 39 benign (non-adversarial) traces, it classifies 12 as COMPLIANCE or PARTIAL — a 30.8% false positive rate (Issue #315, calibration study).</p>
+<p><strong>What this means:</strong> If roughly one in three innocent inputs is flagged as a successful attack, then any ASR measurement is inflated by approximately 30 percentage points of noise before any adversarial signal is detected. For attack families with measured ASR below 30%, the signal may be entirely within the noise floor.</p>
+<p><strong>Implication for the field:</strong> LLM-as-judge is now the default evaluation method in safety research. If the judge itself has a substantial false positive rate, then ASR measurements across the field are systematically over-estimated. This is not unique to our grader — any LLM-based classifier operating at the boundary between helpful compliance and harmful compliance faces the same discrimination challenge.</p>
+<p><strong>The calibration gap:</strong> Of the major published safety benchmarks, none reports a benign-baseline false positive rate for its grading methodology. Without this calibration, it is not possible to distinguish genuine attack signal from grader noise. Report #72 (evaluator calibration standard) proposed a calibration protocol; no external benchmark has adopted it.</p>
+<h3 id="23-failure-3-action-layer-safety-is-invisible-to-text-layer-evaluation">2.3 Failure 3: Action-Layer Safety Is Invisible to Text-Layer Evaluation</h3>
+<p><strong>Finding:</strong> Across 58 valid FLIP-graded VLA traces spanning 7 attack families (LAM, TRA, SBE, MMC, VAP, ASE, PCM), zero models produced an outright refusal to generate action sequences. 50% of all verdicts were PARTIAL — the model generated a text-layer safety disclaimer (“I should note this could be dangerous…”) while simultaneously generating the requested action sequence (Report #49).</p>
+<p><strong>What this means:</strong> Text-layer evaluation captures the disclaimer. It does not capture the action. A text-only grader evaluating a PARTIAL response would see a model that expressed concern about safety — and might classify it as a refusal. Meanwhile, the action sequence is available for execution.</p>
+<p><strong>The structural problem:</strong> Current safety evaluation operates on text. Embodied AI systems produce both text and action. The action layer is the layer that causes physical consequences, and it is the layer that current evaluation does not observe.</p>
+<p>This is confirmed independently by Blindfold (arXiv:2603.01414), which achieves 93.2% ASR on GPT-4o and 90% ASR on a real robot by constructing harmful action sequences from individually benign text instructions. No text-layer defense in their study reduces ASR below 75.3%. The attack exploits precisely the gap that PARTIAL dominance reveals: safety operates on text, harm operates on action, and the two are decoupled.</p>
+<p><strong>Scale of the gap:</strong> Our action-layer evaluator pilot (80 traces graded by deepseek-r1:1.5b) classified 56% of adversarial VLA traces as SAFE — confirming that sub-2B models are insufficient for action-layer evaluation (Mistake #25). The problem is not merely that we lack action-layer evaluation; the tools we have tried at small scale do not work.</p>
+<h3 id="24-failure-4-the-flip-grader-has-an-alignment-backfire-vulnerability">2.4 Failure 4: The FLIP Grader Has an Alignment Backfire Vulnerability</h3>
+<p><strong>Finding:</strong> Zhao et al. (arXiv:2603.04904) demonstrate across 1,584 controlled simulations that safety alignment interventions worsen safety performance in 8 of 16 languages tested. The alignment backfire effect is method-invariant — no alignment technique avoids it across all languages.</p>
+<p><strong>What this means for evaluation:</strong> The FLIP grader is itself an LLM performing a safety-relevant classification task. It is subject to the same alignment failure modes as the models it evaluates:</p>
+<ol>
+<li><strong>Language bias.</strong> If the adversarial prompt or model response is in a non-English language, the grader’s safety classification may be less accurate. Our FLIP grader has been tested exclusively on English-language traces.</li>
+<li><strong>Alignment-training artifacts.</strong> The grader’s own safety training may cause it to classify ambiguous responses as “safe” (false negative) or to classify thorough safety explanations as “compliant” (false positive), depending on how its alignment interacts with the classification prompt.</li>
+<li><strong>Meta-evaluation recursion.</strong> Any LLM-as-judge approach creates a recursive dependency: to validate the judge, you need a meta-judge, which itself needs validation. Report #144 (The Evaluator’s Dilemma) analyzes this recursion in detail.</li>
+</ol>
+<p><strong>Scope:</strong> This is a structural vulnerability of LLM-as-judge methodology, not a bug in our specific implementation. It applies to any evaluation system that uses aligned LLMs as safety classifiers, including GPT-4-as-judge, Claude-as-judge, and all similar approaches used in published benchmarks.</p>
+<h3 id="25-failure-5-no-public-benchmark-has-any-embodied-scenarios">2.5 Failure 5: No Public Benchmark Has Any Embodied Scenarios</h3>
+<p><strong>Finding:</strong> The four most widely used safety evaluation benchmarks contain zero scenarios involving physical action, tool use, or multi-agent coordination:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Benchmark</th><th>Scenarios</th><th>Embodied</th><th>Tool-Use</th><th>Multi-Agent</th></tr></thead><tbody><tr><td>AdvBench (Zou et al., 2023)</td><td>520</td><td>0</td><td>0</td><td>0</td></tr><tr><td>HarmBench (Mazeika et al., 2024)</td><td>510</td><td>0</td><td>0</td><td>0</td></tr><tr><td>JailbreakBench (Chao et al., 2024)</td><td>100</td><td>0</td><td>0</td><td>0</td></tr><tr><td>StrongREJECT (Souly et al., 2024)</td><td>313</td><td>0</td><td>0</td><td>0</td></tr><tr><td><strong>Total</strong></td><td><strong>1,443</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>0</strong></td></tr></tbody></table>
+<p>(Source: Report #117, Section 3.2; confirmed by inspection of published datasets)</p>
+<p><strong>What this means:</strong> The benchmarks that the safety research community uses to measure progress contain no coverage of the attack surface that embodied AI systems expose. A model that achieves 0% ASR on all four benchmarks may still be fully compliant with adversarial VLA instructions — as our data shows (72.4% FLIP ASR across 7 VLA families).</p>
+<p><strong>The Failure-First contribution:</strong> Our corpus now contains 351 VLA scenarios across 29 attack families (CANONICAL_METRICS.md). This is, to our knowledge, the largest adversarial evaluation dataset for embodied AI systems. However, it has limitations: all scenarios are evaluated via text-layer FLIP grading (Failures 2, 3, and 4 apply), and physical execution testing is limited to Blindfold’s published results and our PiCar-X platform (single-robot, non-VLA).</p>
+<hr>
+<h2 id="3-the-compound-effect">3. The Compound Effect</h2>
+<p>These five failures are not independent problems with independent solutions. They compound.</p>
+<h3 id="31-how-the-failures-interact">3.1 How the Failures Interact</h3>
+<p>Consider a hypothetical evaluation of an embodied AI system using current best practices:</p>
+<ol>
+<li>The evaluator selects scenarios from a standard benchmark (Failure 5: no embodied scenarios exist, so text-only proxies are used).</li>
+<li>The system generates responses containing both text and action sequences.</li>
+<li>The evaluator grades the text-layer response using keyword matching (Failure 1: 2.3x over-count) or LLM-as-judge (Failure 2: 30.8% FP rate).</li>
+<li>The action-layer output is not evaluated (Failure 3: no methodology exists in practice).</li>
+<li>The LLM-based grader may itself be subject to alignment failure on non-English or edge-case inputs (Failure 4).</li>
+<li>The evaluator reports an ASR number and calls it “safety evaluation.”</li>
+</ol>
+<p><strong>What was actually measured:</strong> The text-layer behavior of a model on text-only scenarios, graded by an uncalibrated classifier with known systematic bias. What was not measured: whether the model would produce dangerous physical actions when given embodied instructions.</p>
+<h3 id="32-compound-failure-probability">3.2 Compound Failure Probability</h3>
+<p>Report #78 estimated the compound defense failure probability under a layer-independence assumption. Following the same logic for evaluation:</p>
+<ul>
+<li>P(text-layer evaluation misses action-layer harm) = effectively 1.0 (text evaluation does not observe actions)</li>
+<li>P(LLM grader misclassifies a given trace) >= 0.308 (benign FP rate)</li>
+<li>P(benchmark has zero relevant embodied scenarios) = 1.0 (all four major benchmarks)</li>
+</ul>
+<p>The evaluation pipeline provides no coverage of the embodied attack surface. This is not a quantitative shortfall (e.g., “we need more scenarios”). It is a categorical absence.</p>
+<hr>
+<h2 id="4-the-measurement-problem-what-we-cannot-measure">4. The Measurement Problem: What We Cannot Measure</h2>
+<h3 id="41-the-three-layers-of-embodied-ai-safety">4.1 The Three Layers of Embodied AI Safety</h3>
+<p>Embodied AI safety requires measurement at three distinct layers:</p>
+<p><strong>Layer 1: Text.</strong> Does the model generate text responses that contain harmful content? This is what current benchmarks measure. Tools exist (LLM-as-judge, keyword classifiers). Accuracy is imperfect but non-zero.</p>
+<p><strong>Layer 2: Action.</strong> Does the model generate action sequences that, if executed, would cause physical harm? This is what VLA systems actually produce. No standardized evaluation methodology exists. Our FLIP grading approach (backward inference of intent from output) is a prototype; its 30.8% FP rate indicates it is not yet reliable.</p>
+<p><strong>Layer 3: Physical.</strong> Does the executed action sequence, in the physical environment, actually cause harm? This requires either real-robot testing or physics simulation. Neither is integrated into any safety benchmark.</p>
+<h3 id="42-the-information-theoretic-gap">4.2 The Information-Theoretic Gap</h3>
+<p>The fundamental problem is information-theoretic. Text-layer evaluation has access to token sequences. Action-layer evaluation requires access to action representations (joint angles, velocities, forces, gripper commands). Physical-layer evaluation requires access to the physics of the environment (object masses, friction coefficients, fragility thresholds, human proximity).</p>
+<p>Each layer requires strictly more information than the previous layer. A text-layer evaluator cannot determine whether an action sequence is dangerous without simulating its physical consequences. A keyword classifier cannot determine whether a text response is harmful without understanding its semantic content. The evaluation crisis is, at root, an information crisis: the tools we have measure the wrong layer.</p>
+<h3 id="43-why-just-evaluate-harder-does-not-work">4.3 Why “Just Evaluate Harder” Does Not Work</h3>
+<p>One might argue that improving text-layer evaluation is sufficient — that better LLM judges, better prompts, and more data will close the gap. This argument fails on structural grounds:</p>
+<ol>
+<li>
+<p><strong>PARTIAL dominance is not a grader error.</strong> When 50% of VLA responses include both a safety disclaimer and a complete action sequence, a perfect text-layer grader would correctly identify the disclaimer. The problem is that the disclaimer is irrelevant to the physical outcome. Better grading of text does not detect action-layer harm.</p>
+</li>
+<li>
+<p><strong>Benign-to-harmful composition is text-invisible.</strong> Blindfold constructs harmful action sequences from individually benign instructions. No text-layer filter can detect this because no individual instruction is harmful. The harm emerges from composition in physical space, which text-layer evaluation does not model.</p>
+</li>
+<li>
+<p><strong>Format-lock shifts the modality.</strong> Format-lock attacks (92% ASR on Nemotron 30B, 91% on Llama 70B) force the model to respond in structured formats (JSON, YAML, code) that suppress natural-language safety reasoning. A text-layer grader operating on structured output faces a different classification problem than one operating on natural-language responses.</p>
+</li>
+</ol>
+<hr>
+<h2 id="5-proposed-solution-the-three-layer-evaluation-stack">5. Proposed Solution: The Three-Layer Evaluation Stack</h2>
+<h3 id="51-architecture">5.1 Architecture</h3>
+<p>The minimum viable evaluation architecture for embodied AI safety requires independent assessment at each of the three layers defined in Section 4.1:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>+-----------------+     +-----------------+     +-----------------+</span></span>
+<span class="line"><span>| Layer 1: Text   | --> | Layer 2: Action | --> | Layer 3: Phys   |</span></span>
+<span class="line"><span>| LLM-as-judge    |     | Action grader   |     | Sim / real-robot|</span></span>
+<span class="line"><span>| (calibrated)    |     | (7B+ model)     |     | (physics-based) |</span></span>
+<span class="line"><span>+-----------------+     +-----------------+     +-----------------+</span></span>
+<span class="line"><span>       |                       |                       |</span></span>
+<span class="line"><span>  Text verdict            Action verdict         Physical verdict</span></span>
+<span class="line"><span>  (COMPLIANCE/            (SAFE/AMBIGUOUS/       (HARM/NO_HARM/</span></span>
+<span class="line"><span>   REFUSAL/PARTIAL)        DANGEROUS)             NEAR_MISS)</span></span></code></pre>
+<p>Each layer produces an independent verdict. The final safety assessment is the conjunction: a response is classified as SAFE only if all three layers agree.</p>
+<h3 id="52-layer-1-calibrated-text-evaluation">5.2 Layer 1: Calibrated Text Evaluation</h3>
+<p><strong>What exists:</strong> LLM-as-judge (our FLIP approach, GPT-4-as-judge, Claude-as-judge). Keyword classifiers (deprecated in this project due to kappa = 0.126).</p>
+<p><strong>What is needed:</strong></p>
+<ul>
+<li>Mandatory benign-baseline calibration: every grader must report its FP rate on a standardized benign trace set before its ASR measurements are interpretable.</li>
+<li>Inter-grader agreement reporting: every evaluation must report kappa or ICC between at least two independent graders.</li>
+<li>Language coverage testing: per Alignment Backfire findings, grader accuracy must be verified for each language in the evaluation set.</li>
+</ul>
+<p><strong>Cost estimate:</strong> Marginal. Calibration requires a one-time benign trace collection (n >= 100) and a few hundred additional LLM-as-judge API calls per benchmark run. Estimated cost: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">5-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mord">−</span></span></span></span>50 per evaluation run depending on the judge model.</p>
+<p><strong>Feasibility:</strong> High. All components exist. The barrier is adoption, not technology.</p>
+<h3 id="53-layer-2-action-sequence-evaluation">5.3 Layer 2: Action-Sequence Evaluation</h3>
+<p><strong>What exists:</strong> Our FLIP grading approach (backward inference of intent from action output). Our pilot action-layer evaluator (80 traces, deepseek-r1:1.5b). Neither is reliable at current scale and model size.</p>
+<p><strong>What is needed:</strong></p>
+<ul>
+<li>A purpose-built action-sequence classifier operating on action representations (not text descriptions of actions). Minimum viable model size: 7B+ based on our finding that sub-2B models classify 56% of adversarial VLA traces as SAFE.</li>
+<li>Standardized action-space representations: the field lacks a common format for expressing robot action sequences across different embodiments (joint space, Cartesian space, gripper commands). Without this, action-layer evaluation is platform-specific.</li>
+<li>Composition analysis: the ability to evaluate whether a sequence of individually safe actions composes into a harmful outcome. This requires either a physics model or a trained composition detector.</li>
+</ul>
+<p><strong>Cost estimate:</strong> Moderate. Developing a 7B+ action-sequence classifier requires fine-tuning data (which our VLA corpus can partially supply) and compute for training. Estimated: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">500-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mord">−</span></span></span></span>5,000 for a prototype using an existing 7B base model with LoRA fine-tuning. Standardized action representations require community coordination (standards body engagement).</p>
+<p><strong>Feasibility:</strong> Medium. The individual components are technically achievable. The coordination problem (standard action representations) is the primary barrier. Our HANSE framework (Report #32) and MASSS standards submission address this at the governance level.</p>
+<h3 id="54-layer-3-physical-consequence-evaluation">5.4 Layer 3: Physical-Consequence Evaluation</h3>
+<p><strong>What exists:</strong> Blindfold includes real-robot testing (90% ASR confirmed physically). Our PiCar-X platform provides a single-robot testbed. Physics simulators (MuJoCo, Isaac Sim, PyBullet) are mature.</p>
+<p><strong>What is needed:</strong></p>
+<ul>
+<li>Integration of physics simulation into the evaluation pipeline. Given an action sequence, simulate its physical consequences in a digital twin of the target environment and classify the outcome as HARM/NO_HARM/NEAR_MISS.</li>
+<li>Standardized harm thresholds: what force constitutes a dangerous collision? What temperature constitutes a burn risk? What proximity to a human constitutes a near-miss? These thresholds are domain-specific and require input from safety engineering, not just ML research.</li>
+<li>Real-robot validation: simulation fidelity is imperfect. A subset of evaluations must be confirmed on physical hardware to calibrate the sim-to-real gap.</li>
+</ul>
+<p><strong>Cost estimate:</strong> High. Physics simulation integration requires environment modeling (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo separator="true">,</mo><mn>000</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">5,000-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">5</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span><span class="mord">−</span></span></span></span>50,000 per environment depending on complexity). Real-robot testing requires hardware access (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>10</mn><mo separator="true">,</mo><mn>000</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">10,000-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">10</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span><span class="mord">−</span></span></span></span>100,000+ for a multi-robot testbed). Domain-specific harm thresholds require expert consultation (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo separator="true">,</mo><mn>000</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">2,000-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000</span><span class="mord">−</span></span></span></span>20,000 per domain).</p>
+<p><strong>Feasibility:</strong> Low in the short term, medium in the 2-3 year horizon. The technology exists but the integration, standardization, and cost barriers are substantial. Blindfold’s real-robot results demonstrate that the approach works; the question is scaling it beyond a single research lab.</p>
+<h3 id="55-summary-cost-feasibility-matrix">5.5 Summary: Cost-Feasibility Matrix</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Current State</th><th>What Is Needed</th><th>Cost</th><th>Feasibility</th><th>Timeline</th></tr></thead><tbody><tr><td>1. Text</td><td>Exists but uncalibrated</td><td>Calibration protocol, inter-grader agreement</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">5-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">5</span><span class="mord">−</span></span></span></span>50/run</td><td>High</td><td>0-3 months</td></tr><tr><td>2. Action</td><td>Prototype (unreliable)</td><td>7B+ classifier, standard action representations</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>500</mn><mo>−</mo></mrow><annotation encoding="application/x-tex">500-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">500</span><span class="mord">−</span></span></span></span>5K prototype</td><td>Medium</td><td>6-12 months</td></tr><tr><td>3. Physical</td><td>Lab demos only</td><td>Sim integration, harm thresholds, real-robot validation</td><td><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>15</mn><mi>K</mi><mo>−</mo></mrow><annotation encoding="application/x-tex">15K-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">15</span><span class="mord mathnormal" style="margin-right:0.0715em;">K</span><span class="mord">−</span></span></span></span>170K per domain</td><td>Low (short-term)</td><td>12-36 months</td></tr></tbody></table>
+<p><strong>The minimum credible evaluation</strong> is Layer 1 with calibration. This can be achieved immediately at near-zero marginal cost and would substantially improve the quality of safety claims in published research.</p>
+<p><strong>The minimum honest evaluation</strong> for embodied AI systems requires Layers 1 and 2. Without action-layer evaluation, any safety claim about an embodied system is a claim about its text behavior, not its physical behavior.</p>
+<p><strong>Complete evaluation</strong> requires all three layers. This is a multi-year, multi-institution effort that will likely require standards body coordination, compute grants, and shared physical testbeds.</p>
+<hr>
+<h2 id="6-limitations">6. Limitations</h2>
+<ol>
+<li>
+<p><strong>Sample size.</strong> The VLA FLIP corpus has n=58 valid traces across 7 families. PARTIAL dominance (50%) and zero-refusal findings have wide implicit confidence intervals at this scale. The benign baseline (n=39) similarly has limited statistical power.</p>
+</li>
+<li>
+<p><strong>Grader quality.</strong> FLIP grading uses deepseek-r1:1.5b (for most traces) and gemma-3-27b-it (for re-graded subsets). The 30.8% FP rate applies to the deepseek-r1:1.5b grader specifically. Larger graders may have different FP rates (untested).</p>
+</li>
+<li>
+<p><strong>Scale confound.</strong> Our VLA traces are generated by sub-3B and 7B models (deepseek-r1:1.5b, qwen3:1.7b, llama 70B via OpenRouter). Frontier VLA systems (Gemini Robotics, RT-2-X) may have different safety profiles that our evaluation has not captured.</p>
+</li>
+<li>
+<p><strong>Generalisability.</strong> The five evaluation failures are documented from our specific pipeline. While we argue they are structural (and therefore apply to any text-layer evaluation of embodied systems), this structural claim is analytical, not empirically confirmed across all published benchmarks.</p>
+</li>
+<li>
+<p><strong>Methodology.</strong> ASR numbers in this report use FLIP (LLM-based backward inference). Heuristic numbers are cited only for comparison purposes (kappa calculation). All primary claims use LLM-graded verdicts per CANONICAL_METRICS.md methodology requirements.</p>
+</li>
+<li>
+<p><strong>Public benchmark survey.</strong> Our claim that AdvBench, HarmBench, JailbreakBench, and StrongREJECT have zero embodied scenarios is based on inspection of their published datasets as of March 2026. These benchmarks may add embodied scenarios in future versions.</p>
+</li>
+</ol>
+<hr>
+<h2 id="7-conclusions-and-recommendations">7. Conclusions and Recommendations</h2>
+<h3 id="71-what-we-have-learned">7.1 What We Have Learned</h3>
+<p>The evaluation crisis in embodied AI safety is not a resource problem (too few evaluations) or a quality problem (insufficiently good evaluators). It is a structural problem: the evaluation methodology measures the wrong layer. Text-layer evaluation of embodied systems is analogous to testing a car’s safety by reading its manual — it tells you what the manufacturer says the car will do, not what the car actually does.</p>
+<p>Five specific failures have been documented, each independently sufficient to undermine confidence in current evaluation:</p>
+<ul>
+<li>Heuristic classifiers produce unreliable measurements (kappa = 0.126).</li>
+<li>LLM-as-judge graders have a high false positive rate (30.8% on benign inputs).</li>
+<li>Action-layer safety is categorically invisible to text-layer evaluation (0% refusal, 50% PARTIAL).</li>
+<li>LLM-based graders are subject to the same alignment failures they measure (Alignment Backfire).</li>
+<li>Public benchmarks have zero coverage of embodied scenarios (0/1,443 scenarios).</li>
+</ul>
+<h3 id="72-recommendations">7.2 Recommendations</h3>
+<p><strong>For safety researchers:</strong></p>
+<ol>
+<li>Report benign-baseline FP rates for every grading methodology. Without this, ASR numbers are uninterpretable.</li>
+<li>Report inter-grader agreement (kappa or ICC) for every evaluation. Single-grader results are unreliable.</li>
+<li>Distinguish text-layer evaluation from action-layer evaluation explicitly. Do not claim to have evaluated “safety” when only text responses were graded.</li>
+</ol>
+<p><strong>For benchmark designers:</strong>
+4. Add embodied scenarios. The Failure-First VLA corpus (351 scenarios, 29 families) is available as a starting point.
+5. Adopt a calibrated evaluation protocol: benign baseline + multi-grader agreement + explicit layer coverage.</p>
+<p><strong>For standards bodies:</strong>
+6. Define minimum evaluation requirements for embodied AI safety claims. The three-layer stack (text, action, physical) provides a framework. ISO 42001 and NIST AI RMF currently have no embodied-specific evaluation requirements (Report #149).</p>
+<p><strong>For deployers of embodied AI:</strong>
+7. Do not treat text-layer benchmark results as safety certification for embodied deployment. Until Layer 2 and Layer 3 evaluation exist, there is no validated methodology for assessing whether an embodied AI system will produce dangerous physical actions.</p>
+<p>These recommendations are conditional on the structural analysis being correct. If a text-layer defense is demonstrated that addresses PARTIAL dominance, benign-to-harmful composition, and format-lock bypasses simultaneously, the structural claim would need revision.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol>
+<li>F41LUR3-F1R57. Report #49: VLA Cross-Embodiment Vulnerability Analysis. 2026-03-03.</li>
+<li>F41LUR3-F1R57. Report #51: Format-Lock Capability Floor Analysis. 2026-03-04.</li>
+<li>F41LUR3-F1R57. Report #59: The Compliance Paradox. 2026-03-06.</li>
+<li>F41LUR3-F1R57. Report #61: The Evaluation Paradox. 2026-03-07.</li>
+<li>F41LUR3-F1R57. Report #65: Hallucination-Refusal / PARTIAL Equivalence. 2026-03-08.</li>
+<li>F41LUR3-F1R57. Report #67: Layer 0 Extension. 2026-03-08.</li>
+<li>F41LUR3-F1R57. Report #72: Evaluator Calibration Standard. 2026-03-09.</li>
+<li>F41LUR3-F1R57. Report #78: Defense Impossibility in Embodied AI. 2026-03-11.</li>
+<li>F41LUR3-F1R57. Report #117: Safety Improvement Paradox. 2026-03-16.</li>
+<li>F41LUR3-F1R57. Report #127: Evaluation Half-Life. 2026-03-16.</li>
+<li>F41LUR3-F1R57. Report #132: Alignment Backfire Integration. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #144: The Evaluator’s Dilemma. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #145: Defense Impossibility Theorem. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #149: NIST AI RMF Embodied AI Gap Analysis. 2026-03-18.</li>
+<li>F41LUR3-F1R57. CANONICAL_METRICS.md. Verified 2026-03-18.</li>
+<li>Zhao et al. Alignment Backfire: Multilingual Safety Degradation in Aligned Language Models. arXiv:2603.04904. 2026.</li>
+<li>Zheng et al. Blindfold: Attacking Vision-Language-Action Models through Decomposed Benign Instructions. arXiv:2603.01414. Accepted at ACM SenSys 2026.</li>
+<li>Zou et al. Universal and Transferable Adversarial Attacks on Aligned Language Models. arXiv:2307.15043. 2023.</li>
+<li>Mazeika et al. HarmBench: A Standardized Evaluation Framework for Automated Red Teaming and Robust Refusal. arXiv:2402.04249. 2024.</li>
+<li>Chao et al. JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models. arXiv:2404.01318. 2024.</li>
+<li>Souly et al. A StrongREJECT for Empty Jailbreaks. arXiv:2402.10260. 2024.</li>
+</ol>
+<hr>
+<h2 id="appendix-a-prior-evaluation-failures-in-other-domains">Appendix A: Prior Evaluation Failures in Other Domains</h2>
+<p>The pattern of evaluation measuring the wrong layer is not unique to AI safety. Historical precedents include:</p>
+<ul>
+<li>
+<p><strong>Crash test dummies (1970s-1990s):</strong> Early crash tests used a single dummy design calibrated to a 50th-percentile male. The evaluation “passed” vehicles that were lethal to women, children, and elderly passengers. The measurement layer (force on a specific body) did not capture the property that mattered (force on diverse bodies). It took 30 years to add female and child dummies.</p>
+</li>
+<li>
+<p><strong>Financial stress tests (2006-2008):</strong> Pre-crisis bank stress tests measured individual institution solvency under historical scenarios. They did not measure systemic risk — the property that actually caused the crisis. The evaluation layer (single-institution balance sheet) was structurally incapable of capturing the risk layer (cross-institution correlation). Basel III introduced macro-prudential evaluation as a separate layer.</p>
+</li>
+<li>
+<p><strong>Drug clinical trials (ongoing):</strong> Phase III trials measure efficacy and safety in controlled populations. Post-market surveillance (Phase IV) measures safety in real-world populations. The gap between these two layers produces iatrogenic harm — drugs that pass clinical evaluation but cause harm in deployment. The pharmaceutical industry has spent decades building the infrastructure to evaluate the deployment layer.</p>
+</li>
+</ul>
+<p>In each case, the solution was not to evaluate harder at the existing layer, but to add evaluation at the layer where harm actually occurs.</p>
+<hr>
+<p><em>This report was produced as part of the Failure-First Embodied AI research programme. All claims are scoped to the tested conditions and should not be generalised without additional validation. See docs/CANONICAL_METRICS.md for corpus-level numbers.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.XICsn9HY.js"></script></body></html>  

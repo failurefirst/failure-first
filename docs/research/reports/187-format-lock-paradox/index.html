@@ -1,0 +1,582 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First</title><meta name="description" content="We present evidence that format compliance and safety reasoning are partially independent capabilities in large language models that scale differently with..."><link rel="canonical" href="https://failurefirst.org/research/reports/187-format-lock-paradox/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First"><meta property="og:description" content="We present evidence that format compliance and safety reasoning are partially independent capabilities in large language models that scale differently with..."><meta property="og:url" content="https://failurefirst.org/research/reports/187-format-lock-paradox/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First"><meta name="twitter:description" content="We present evidence that format compliance and safety reasoning are partially independent capabilities in large language models that scale differently with..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-24"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-24"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/187-format-lock-paradox/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/187-format-lock-paradox/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Format-Lock Paradox — Format Compliance and Safety Reasoning as Partially Independent Capabilities | Research | Failure-First","description":"We present evidence that format compliance and safety reasoning are partially independent capabilities in large language models that scale differently with...","url":"https://failurefirst.org/research/reports/187-format-lock-paradox/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-24","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.C82-ld8d.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"3b781b57ae6e94a1a572d0e81556bba36ac6d6f3"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 187</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 187"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 187</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-24</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <h2 id="abstract">Abstract</h2>
+<p>We present evidence that format compliance and safety reasoning are partially independent capabilities in large language models that scale differently with model size and training investment. Using 205 format-lock attack traces across 8 models (0.8B—200B parameters) and 132,416 corpus-wide results across 236 models, we document a <em>format-lock paradox</em>: format-lock attacks shift frontier models from restrictive (&#x3C;10% ASR) to mixed (20—47% ASR) vulnerability profiles, while other attack families show strong scale-dependent suppression. We identify three empirical regularities: (1) format-lock attacks produce zero refusals on sub-3B models (0/115 traces), (2) frontier models show a 3—10x ASR increase under format-lock framing compared to their baseline, and (3) the verbosity detection signal that characterizes standard jailbreak compliance <em>inverts</em> for format-lock attacks. Combined with Report #184’s finding that chain-of-thought exploitation shows true inverted scaling (small models 52.4% broad ASR vs XL 15.8%), these results suggest that instruction-following capability can be adversarially leveraged against safety alignment. We propose a dual-capability model in which format compliance and safety reasoning compete for control of model output, with implications for safety evaluation methodology, defense design, and the scalability of alignment.</p>
+<hr>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>The prevailing assumption in AI safety is that larger, better-trained models are safer. This assumption is broadly supported: cross-model vulnerability profiling of 57 models with LLM-graded verdicts yields three clusters — permissive (>=40% ASR, 37 models), mixed (15—40%, 15 models), and restrictive (&#x3C;=15% ASR, 5 frontier models) — with safety training investment, not parameter count, as the primary determinant (Report #50; r=-0.140 between log-parameter-count and ASR, n=24).</p>
+<p>However, this assumption encounters an anomaly with format-lock attacks. When adversarial content is embedded within structural format instructions (“Return ONLY valid JSON conforming to this schema…”), frontier models that resist all other attack families show ASR of 20—47% — a 3—10x increase over their baseline vulnerability. This paper characterizes this anomaly and proposes a mechanistic explanation.</p>
+<p><strong>Thesis.</strong> Format compliance and safety reasoning are partially independent capabilities that are both strengthened by scaling and instruction tuning, but that compete for control of model output when format-lock attacks activate both simultaneously. The paradox: the very training that makes models better at following instructions also makes them more vulnerable to format-lock attacks, because format compliance is reinforced by the same gradient signals that improve general helpfulness.</p>
+<p><strong>Contributions:</strong></p>
+<ol>
+<li>We consolidate 205 format-lock traces across 8 models and 4 experiments into the first systematic characterization of format-lock vulnerability scaling (Section 3).</li>
+<li>We demonstrate that format-lock attacks shift frontier models one full vulnerability profile level (restrictive to mixed), using the same 25 scenarios that produce &#x3C;10% ASR under standard framing (Section 4).</li>
+<li>We identify an inverted verbosity signal specific to format-lock attacks, where compliant responses are <em>shorter</em> than refusals — opposite to the corpus-wide pattern (Section 5).</li>
+<li>We integrate format-lock scaling with CoT-exploit inverted scaling (Report #184) into a unified dual-capability model (Section 6).</li>
+<li>We discuss implications for safety evaluation methodology, defense prioritization, and scalability of alignment (Section 7).</li>
+</ol>
+<hr>
+<h2 id="2-related-work">2. Related Work</h2>
+<p><strong>Jailbreak taxonomies.</strong> The adversarial attack literature has documented hundreds of jailbreak techniques organized into attack families: persona hijack (DAN), encoding (cipher, leetspeak), multi-turn (crescendo), and reasoning exploitation (CoT-exploit) (Wei et al. 2024; Andriushchenko et al. 2024; Russinovich et al. 2024). Format-lock attacks have received comparatively little systematic study, though structured output manipulation appears in several attack catalogs without dedicated scaling analysis.</p>
+<p><strong>Scaling and safety.</strong> The relationship between model scale and safety is nuanced. Anthropic (2023) documented emergent deceptive alignment scaling as a power law with model size. Perez et al. (2023) found sycophancy increases with scale. Our prior work (Report #48) found that safety-like behavior partially re-emerges in abliterated models at scale (Qwen3.5 obliteratus: 100% ASR at 0.8B, decreasing to 47.3% at 9.0B), suggesting safety reasoning is partially an emergent capability. The inverse scaling prize (McKenzie et al. 2023) established that some capabilities degrade with scale. We extend this by showing technique-specific scaling patterns.</p>
+<p><strong>Instruction-following as attack surface.</strong> Zeng et al. (2024) demonstrated that instruction-following capabilities can be leveraged for attacks. The faithfulness-plausibility gap (arXiv:2601.02314) showed that reasoning traces often function as post-hoc rationalization across 75,000 controlled trials. Our format-lock findings instantiate a specific case: format-following instructions hijack the instruction-compliance pathway, bypassing safety reasoning.</p>
+<p><strong>Dual-process models.</strong> The hypothesis that models contain competing subsystems is not new. Anthropic’s constitutional AI (Bai et al. 2022) implicitly assumes a helpfulness-harmlessness tradeoff. Burns et al. (2023) showed that truth-telling and helpfulness have distinct internal representations. Our contribution is empirical evidence that format compliance constitutes a third, partially independent capability axis.</p>
+<hr>
+<h2 id="3-data-and-methods">3. Data and Methods</h2>
+<h3 id="31-format-lock-trace-corpus">3.1 Format-Lock Trace Corpus</h3>
+<p>We aggregated format-lock results from four experimental sources:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Experiment</th><th>Models</th><th>Scenarios</th><th>Grading</th><th>Total Traces</th></tr></thead><tbody><tr><td>Format-lock pilot (Report #51)</td><td>qwen3:1.7b</td><td>25 (mixed format types)</td><td>FLIP via deepseek-r1:1.5b</td><td>25</td></tr><tr><td>Format-lock v1 (Report #55)</td><td>qwen3:1.7b, deepseek-r1:1.5b, qwen3.5:0.8b</td><td>30 (controlled, 6 formats x 5 harm domains)</td><td>FLIP via deepseek-r1:1.5b</td><td>90</td></tr><tr><td>Format-lock v2</td><td>qwen3:1.7b</td><td>20 (v0.2 scenarios)</td><td>FLIP via deepseek-r1:1.5b</td><td>20</td></tr><tr><td>Format-lock 7B</td><td>qwen2.5:7b</td><td>25 (pilot scenarios)</td><td>Heuristic only</td><td>25</td></tr><tr><td>Faithfulness CLI</td><td>Claude Sonnet 4.5, Codex GPT-5.2, Gemini-3-Flash</td><td>25 (format-lock scenarios)</td><td>FLIP via deepseek-r1:1.5b (Ollama)</td><td>75</td></tr><tr><td><strong>Total</strong></td><td><strong>8 models</strong></td><td><strong>5 scenario sets</strong></td><td></td><td><strong>235 traces</strong></td></tr></tbody></table>
+<p>All sub-3B traces were run locally via Ollama (no rate limits, no cost). Frontier model traces were collected via native CLI tools (Claude Code, Codex CLI, Gemini CLI).</p>
+<h3 id="32-comparison-corpus">3.2 Comparison Corpus</h3>
+<p>For baseline comparison, we use the full non-OBLITERATUS jailbreak corpus: 10,956 evaluable results across 236 models, graded via COALESCE(llm_verdict, heuristic_verdict). This corpus spans 82 techniques across 9 attack families. All corpus-level metrics reference <code>docs/CANONICAL_METRICS.md</code> (verified 2026-03-24).</p>
+<h3 id="33-grading-methodology">3.3 Grading Methodology</h3>
+<p><strong>FLIP grading.</strong> Forward-Looking Inference of Prompt (FLIP) backward inference: a grader model reads the response and infers what instruction it was following, then judges whether the response constitutes harmful compliance. Grader: deepseek-r1:1.5b (known limitations: 30.8% false positive rate on benign baseline, #315; 27—37% ERROR rate on format-lock traces specifically).</p>
+<p><strong>Heuristic grading.</strong> Binary structural compliance: did the model produce output matching the requested format (JSON, YAML, code, etc.)? Heuristic grading over-reports ASR by 79.9% relative to LLM grading (Report #177). We report heuristic and LLM-graded results separately throughout.</p>
+<p><strong>Verdict taxonomy.</strong> COMPLIANCE (full harmful compliance), PARTIAL (hedging text with partial harmful content), REFUSAL (clear refusal), HALLUCINATION_REFUSAL (refusal framing but harmful content present), BENIGN_QUERY (format-compliant but no harmful content), ERROR (grader failure).</p>
+<h3 id="34-asr-definitions">3.4 ASR Definitions</h3>
+<ul>
+<li><strong>Strict ASR:</strong> COMPLIANCE / (total evaluable)</li>
+<li><strong>Broad ASR:</strong> (COMPLIANCE + PARTIAL) / (total non-ERROR, non-PARSE_ERROR)</li>
+<li><strong>Heuristic ASR:</strong> format-compliant / total (structural compliance only)</li>
+</ul>
+<p>We use Broad ASR as the primary metric throughout, consistent with corpus-wide conventions (Report #182: three-tier ASR non-OBLITERATUS n=5,865: Strict 21.9%, Broad 34.2%, FD 43.0%).</p>
+<hr>
+<h2 id="4-results-format-lock-scaling">4. Results: Format-Lock Scaling</h2>
+<h3 id="41-sub-3b-models-the-capability-floor">4.1 Sub-3B Models: The Capability Floor</h3>
+<p>No sub-3B model produced a single refusal across 115 format-lock traces (0 refusals / 115 traces, exact binomial 95% CI: [0%, 3.2%]).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Params</th><th>n (evaluable)</th><th>Refusals</th><th>Heuristic Compliance</th><th>Broad ASR (LLM)</th><th>95% Wilson CI</th></tr></thead><tbody><tr><td>qwen3.5:0.8b</td><td>0.87B</td><td>29</td><td>0</td><td>96.7%</td><td>Not graded</td><td>—</td></tr><tr><td>deepseek-r1:1.5b</td><td>1.5B</td><td>22 (non-ERROR)</td><td>0</td><td>100%</td><td>50.0%</td><td>[30.7%, 69.3%]</td></tr><tr><td>qwen3:1.7b (pilot)</td><td>1.7B</td><td>17 (non-ERROR)</td><td>0</td><td>~96%</td><td>47.1%</td><td>[26.2%, 69.0%]</td></tr><tr><td>qwen3:1.7b (v1)</td><td>1.7B</td><td>19 (non-ERROR)</td><td>0</td><td>100%</td><td>63.2%</td><td>[41.0%, 80.9%]</td></tr><tr><td>qwen3:1.7b (v2)</td><td>1.7B</td><td>14 (non-ERROR)</td><td>0</td><td>—</td><td>42.9%</td><td>[21.4%, 67.4%]</td></tr></tbody></table>
+<p><strong>Interpretation.</strong> At sub-3B scale, models lack sufficient safety reasoning capacity to resist format-lock framing. The 0/115 refusal rate is not specific to format-lock — these models have high ASR across attack families (qwen3:1.7b overall: 55.2% broad ASR; deepseek-r1:1.5b overall: 40.0% broad ASR). However, the <em>zero refusal</em> rate for format-lock is notable: even small models produce some refusals against standard attack types (qwen3:1.7b refusal rate: 33.4% corpus-wide).</p>
+<p>The gap between heuristic compliance (96—100%) and LLM-graded ASR (42.9—63.2%) reveals that structural format compliance does not imply harmful content. Models produce the requested JSON/YAML/code structure but sometimes populate it with placeholder or vague content that does not constitute actionable harm. This 35—55 percentage point gap is itself an important finding: format compliance is a necessary but not sufficient condition for attack success.</p>
+<h3 id="42-mid-range-model-emerging-safety">4.2 Mid-Range Model: Emerging Safety</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Params</th><th>n (evaluable)</th><th>Refusals</th><th>Heuristic Compliance</th><th>Broad ASR</th></tr></thead><tbody><tr><td>qwen2.5:7b</td><td>7.6B</td><td>21 (non-null)</td><td>2 (9.5%)</td><td>90.5% (heuristic)</td><td>Not LLM-graded</td></tr></tbody></table>
+<p>The 7B model produced 2 refusals (9.5%) compared to 0 from sub-3B models — directionally consistent with safety reasoning emerging at larger scales. The heuristic compliance rate remains very high (90.5%), suggesting that format compliance capability is well-developed at 7B while safety reasoning is nascent.</p>
+<h3 id="43-frontier-models-the-paradox">4.3 Frontier Models: The Paradox</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Params</th><th>Standard Broad ASR</th><th>Format-Lock Broad ASR</th><th>Ratio</th><th>n (FL, non-ERROR)</th></tr></thead><tbody><tr><td>Claude Sonnet 4.5</td><td>175B</td><td>11.4% (n=166)</td><td>30.4% (7/23)</td><td>2.7x</td><td>23</td></tr><tr><td>Codex GPT-5.2</td><td>200B</td><td>25.0% (n=176)</td><td>47.4% (9/19)</td><td>1.9x</td><td>19</td></tr><tr><td>Gemini-3-Flash</td><td>30B</td><td>12.6% (n=190)</td><td>23.8% (5/21)</td><td>1.9x</td><td>21</td></tr></tbody></table>
+<p>All three frontier models show a substantial increase in broad ASR under format-lock framing. The increase ranges from 1.9x (Gemini, Codex) to 2.7x (Claude). Using the stricter comparison against Report #50’s standard ASR (which uses a different, more adversarial scenario mix), the ratios are larger:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Model</th><th>Report #50 Standard ASR</th><th>Format-Lock ASR</th><th>Ratio</th></tr></thead><tbody><tr><td>Claude Sonnet 4.5</td><td>3.9%</td><td>30.4%</td><td>7.8x</td></tr><tr><td>Codex GPT-5.2</td><td>8.8%</td><td>47.4%</td><td>5.4x</td></tr><tr><td>Gemini-3-Flash</td><td>2.3%</td><td>23.8%</td><td>10.3x</td></tr></tbody></table>
+<p><strong>The profile-shift effect.</strong> Report #50 classifies models into permissive (>=40% ASR), mixed (15—40%), and restrictive (&#x3C;=15%). Under format-lock framing:</p>
+<ul>
+<li>Claude shifts from restrictive (3.9%) to mixed (30.4%)</li>
+<li>Codex shifts from restrictive (8.8%) to permissive (47.4%)</li>
+<li>Gemini shifts from restrictive (2.3%) to mixed (23.8%)</li>
+</ul>
+<p>This confirms the hypothesis from Report #51: format-lock attacks shift frontier models approximately one vulnerability profile level toward permissive.</p>
+<p><strong>Limitation.</strong> The standard and format-lock ASR numbers use different scenario sets, so the comparison is suggestive rather than controlled. A matched-pair experiment (same harmful content, with and without format-lock framing) is needed for causal claims. Sample sizes are small (n=19—23 per model); 95% Wilson CIs overlap between some models.</p>
+<h3 id="44-per-technique-family-scaling-comparison">4.4 Per-Technique-Family Scaling Comparison</h3>
+<p>To contextualize format-lock scaling, we compare broad ASR across technique families by model size using the full non-OBLITERATUS corpus:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Technique Family</th><th>Small (&#x3C;4B)</th><th>Large (24-70B)</th><th>XL (120B+)</th><th>Scale Ratio (Small/XL)</th></tr></thead><tbody><tr><td>multi_turn</td><td>78.2% (n=55)</td><td>—</td><td>73.3% (n=15)</td><td>1.1x</td></tr><tr><td>cot_exploit</td><td>52.4% (n=42)</td><td>25.9% (n=27)</td><td>15.8% (n=38)</td><td>3.3x</td></tr><tr><td>encoding</td><td>42.9% (n=28)</td><td>0.0% (n=24)</td><td>6.7% (n=45)</td><td>6.4x</td></tr><tr><td>persona</td><td>33.3% (n=12)</td><td>0.0% (n=12)</td><td>3.8% (n=26)</td><td>8.8x</td></tr><tr><td>behavioral</td><td>14.3% (n=14)</td><td>0.0% (n=14)</td><td>16.7% (n=30)</td><td>0.9x</td></tr><tr><td>volumetric</td><td>6.7% (n=15)</td><td>0.0% (n=16)</td><td>5.9% (n=34)</td><td>1.1x</td></tr><tr><td><strong>Format-lock</strong></td><td><strong>47.1—63.2%</strong></td><td><strong>90.5% (heur.)</strong></td><td><strong>23.8—47.4%</strong></td><td><strong>~1.3—2.5x</strong></td></tr></tbody></table>
+<p>Format-lock occupies a distinctive position: like multi-turn attacks, it maintains elevated ASR at frontier scale. Unlike multi-turn, it achieves this through structural hijacking rather than conversational momentum. The scale ratio (small/XL) for format-lock (~1.3—2.5x) is much flatter than encoding (6.4x) or persona (8.8x), suggesting that safety training has not specifically addressed format-lock patterns with the same investment as historical attack families.</p>
+<hr>
+<h2 id="5-the-inverted-verbosity-signal">5. The Inverted Verbosity Signal</h2>
+<h3 id="51-corpus-wide-pattern">5.1 Corpus-Wide Pattern</h3>
+<p>Report #48 documented that compliant responses are 54% longer than refusals across the full corpus (Mann-Whitney U, p=1.05e-27, Cohen’s d=0.325). Reasoning models think 75% longer before complying than before refusing (p=8.89e-14). This verbosity signal has been proposed as a detection heuristic.</p>
+<h3 id="52-format-lock-inversion">5.2 Format-Lock Inversion</h3>
+<p>Format-lock attacks invert this signal. From the format-lock pilot (n=17 non-ERROR, qwen3:1.7b):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Verdict</th><th>n</th><th>Mean Response Length (chars)</th></tr></thead><tbody><tr><td>COMPLIANCE</td><td>3</td><td>882</td></tr><tr><td>PARTIAL</td><td>5</td><td>1,422</td></tr><tr><td>BENIGN_QUERY</td><td>7</td><td>1,626</td></tr><tr><td>REFUSAL</td><td>2</td><td>1,942</td></tr></tbody></table>
+<p>Format-lock COMPLIANCE responses are 54% <em>shorter</em> than refusals — the exact inverse of the corpus-wide pattern. The mechanism is straightforward: format constraints (JSON, YAML, code) impose structural brevity. A compliant JSON response is inherently more concise than a prose refusal explaining why the request is inappropriate.</p>
+<p><strong>Detection implication.</strong> Response-length-based detection heuristics would produce false negatives on format-lock attacks. A format-lock-specific detector would need to assess structural compliance (did the model produce the requested format?) combined with content harm evaluation — precisely the combination that current safety filters do not systematically check.</p>
+<hr>
+<h2 id="6-unified-dual-capability-model">6. Unified Dual-Capability Model</h2>
+<h3 id="61-the-model">6.1 The Model</h3>
+<p>We propose that language models develop two partially independent capability axes through training:</p>
+<p><strong>Axis 1: Format Compliance (FC).</strong> The ability to follow structural output instructions. Strengthened by instruction tuning, RLHF, and general helpfulness training. Scales with model capability — larger, better-trained models are better at format compliance.</p>
+<p><strong>Axis 2: Safety Reasoning (SR).</strong> The ability to recognize harmful requests and refuse. Requires safety-specific training (RLHF safety data, constitutional AI, red-teaming). Also scales with capability, but requires dedicated investment. Partially emergent: safety-like behavior re-emerges in abliterated models at scale (Report #48: Qwen3.5 obliteratus ASR decreases from 100% at 0.8B to 47.3% at 9.0B).</p>
+<p><strong>The competition.</strong> Format-lock attacks activate both axes simultaneously. The format instruction activates FC; the embedded harmful content should activate SR. The model’s output is determined by the relative strength of FC and SR for the specific input.</p>
+<h3 id="62-predictions-and-evidence">6.2 Predictions and Evidence</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Prediction</th><th>Evidence</th><th>Status</th></tr></thead><tbody><tr><td>Below capability floor (~3B), FC wins trivially because SR is underdeveloped</td><td>0/115 refusals from sub-3B models on format-lock</td><td>Supported</td></tr><tr><td>Above capability floor, ASR depends on relative FC/SR strength</td><td>Frontier models: 20—47% format-lock ASR vs &#x3C;13% standard ASR</td><td>Supported</td></tr><tr><td>Safety training suppresses standard attacks but not format-lock</td><td>persona 8.8x scale ratio vs format-lock ~1.3—2.5x</td><td>Supported</td></tr><tr><td>Models with stronger format compliance show higher format-lock ASR</td><td>Codex (47.4%) > Claude (30.4%) > Gemini (23.8%); Codex known for strong code/format compliance</td><td>Directionally consistent</td></tr><tr><td>Format-lock produces inverted verbosity</td><td>COMPLIANCE 882 chars vs REFUSAL 1,942 chars</td><td>Supported</td></tr><tr><td>Heuristic compliance >> LLM-graded ASR (FC activates without full SR bypass)</td><td>Heuristic 90—100% vs LLM-graded 42—63%</td><td>Supported</td></tr></tbody></table>
+<h3 id="63-integration-with-cot-exploit-inverted-scaling">6.3 Integration with CoT-Exploit Inverted Scaling</h3>
+<p>Report #184 documented that CoT-exploit attacks show true inverted scaling: small models (&#x3C;4B) at 52.4% broad ASR vs XL (120B+) at 15.8%. This is the opposite of the format-lock pattern, where ASR remains elevated at frontier scale.</p>
+<p>The dual-capability model explains both:</p>
+<ul>
+<li>
+<p><strong>CoT-exploit</strong> targets the reasoning process itself. Larger models have more sophisticated reasoning, including the capacity to reason <em>about</em> the attack. Claude Sonnet 4.5 achieves 0% ASR on CoT-exploits — its reasoning chain can identify and reject manipulated reasoning steps. Small models lack this meta-reasoning capacity.</p>
+</li>
+<li>
+<p><strong>Format-lock</strong> targets the format compliance pathway, which is orthogonal to reasoning sophistication. Larger models do not reason less about format compliance — they comply more reliably. The attack leverages a capability that <em>improves</em> with scale.</p>
+</li>
+</ul>
+<p>This produces a characteristic crossing pattern:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>ASR</span></span>
+<span class="line"><span>100% |xxxxx</span></span>
+<span class="line"><span>     |  xxxx    CoT-exploit</span></span>
+<span class="line"><span>     |     xxx  (inverted scaling)</span></span>
+<span class="line"><span>     |       xx</span></span>
+<span class="line"><span> 50% |        x---------x Format-lock</span></span>
+<span class="line"><span>     |         \         \ (flat scaling)</span></span>
+<span class="line"><span>     |          \         \</span></span>
+<span class="line"><span>     |           \         \</span></span>
+<span class="line"><span>     |            \         Standard attacks</span></span>
+<span class="line"><span> 10% |             \--------x (normal scaling)</span></span>
+<span class="line"><span>     +---+---+---+---+---+---+</span></span>
+<span class="line"><span>       1B   3B   7B  30B 70B 200B</span></span>
+<span class="line"><span>                  Model Size</span></span></code></pre>
+<p>The three scaling patterns reflect three different capability dependencies:</p>
+<ol>
+<li><strong>Standard attacks</strong> (encoding, persona): ASR decreases with scale because SR scales faster than the attack’s complexity.</li>
+<li><strong>Format-lock attacks</strong>: ASR remains elevated because FC scales alongside SR, creating a persistent tension.</li>
+<li><strong>CoT-exploit attacks</strong>: ASR <em>decreases</em> with scale because meta-reasoning (reasoning about one’s own reasoning chain) scales faster than attack sophistication.</li>
+</ol>
+<h3 id="64-the-deliberation-cost-asymmetry">6.4 The Deliberation Cost Asymmetry</h3>
+<p>Report #184’s Finding 4 provides mechanistic support. Reasoning models show a thinking-token allocation inversion: refusals consume proportionally more thinking tokens (think/response ratio 0.66) than compliant responses (ratio 0.55, n=212). 54% of refusals have high think/response ratios (0.6—1.0) vs 32% of compliances.</p>
+<p>This asymmetry suggests safety reasoning is computationally expensive relative to compliance. The model “works harder” to refuse than to comply. Format-lock attacks may exploit this by front-loading the format compliance pathway before the safety reasoning pathway can intervene — the structural output template provides an immediate generation target that pre-empts the more expensive safety deliberation.</p>
+<hr>
+<h2 id="7-discussion">7. Discussion</h2>
+<h3 id="71-implications-for-safety-evaluation">7.1 Implications for Safety Evaluation</h3>
+<p>Current safety benchmarks (AdvBench, HarmBench, JailbreakBench, StrongREJECT) test models primarily with prose-based adversarial prompts. Our results suggest this methodology systematically underestimates vulnerability to format-lock attacks. A model that achieves 3.9% ASR on standard benchmarks (Claude Sonnet 4.5) may show 30.4% ASR when the same harmful content is embedded in format-lock framing.</p>
+<p><strong>Recommendation.</strong> Safety benchmarks should include a format-lock attack suite as a standard component, with at least 6 format types (JSON, YAML, code, CSV, XML, markdown table) across multiple harm domains. Models should be evaluated on format-lock ASR separately from standard ASR, and the gap between the two should be reported as a safety metric.</p>
+<h3 id="72-implications-for-defense-design">7.2 Implications for Defense Design</h3>
+<p>The partial independence of FC and SR suggests that defenses targeting one axis will not protect the other. Specifically:</p>
+<ul>
+<li><strong>RLHF safety training</strong> strengthens SR but may inadvertently strengthen FC (via improved instruction-following). This creates an iatrogenic dynamic (Report #140): safety training that improves helpfulness may increase format-lock vulnerability.</li>
+<li><strong>Constitutional AI</strong> operates at the content level but may not address format-level compliance. A model trained to refuse harmful prose may still comply when the same content is requested as structured data.</li>
+<li><strong>Output filtering</strong> that checks for harmful content in prose may miss harmful content in structured formats (JSON fields, YAML values, code comments).</li>
+</ul>
+<p><strong>Recommendation.</strong> Defenses should specifically target the FC-SR interface. Possible approaches include: (a) training models to evaluate format requests for embedded harm before complying, (b) adding format-aware safety layers that inspect structured output for harmful field values, (c) constraining format compliance in safety-sensitive contexts.</p>
+<h3 id="73-implications-for-alignment-scalability">7.3 Implications for Alignment Scalability</h3>
+<p>The most concerning implication is for alignment at scale. If format compliance scales with general capability (as our evidence suggests), then larger models become <em>better</em> at complying with format-lock attacks even as they become better at refusing standard attacks. The gap between standard ASR and format-lock ASR may <em>widen</em> with scale — the most capable models showing the largest vulnerability differential.</p>
+<p>Our data is suggestive but not definitive on this point. The frontier models (30B—200B) show format-lock ASR of 23.8—47.4% vs standard ASR of 11.4—25.0%. A controlled scaling study across 5+ size points with matched scenarios is needed to establish whether the gap truly widens.</p>
+<h3 id="74-connection-to-multi-turn-vulnerability">7.4 Connection to Multi-Turn Vulnerability</h3>
+<p>Multi-turn attacks show a similar pattern to format-lock: elevated ASR at frontier scale (73.3% for XL models, barely reduced from 78.2% for small models). Report #184 found multi-turn produces the highest PARTIAL rate in the corpus (28.6%). Both format-lock and multi-turn may exploit the same underlying mechanism: activating the model’s compliance pathway (via format instructions or conversational momentum) before safety reasoning can intervene. The difference is that format-lock achieves this in a single turn via structural framing, while multi-turn achieves it across turns via gradual boundary erosion.</p>
+<hr>
+<h2 id="8-limitations">8. Limitations</h2>
+<ol>
+<li>
+<p><strong>Small sample sizes.</strong> Format-lock traces total 235, with only 19—23 non-ERROR traces per frontier model. Confidence intervals are wide. The scaling relationship is inferred from 8 models across 4 size points, not from a controlled ladder experiment.</p>
+</li>
+<li>
+<p><strong>Uncontrolled comparison.</strong> Standard and format-lock ASR use different scenario sets. The profile-shift claim compares format-lock scenarios against Report #50’s mixed-technique corpus. A matched-pair experiment is needed for causal inference.</p>
+</li>
+<li>
+<p><strong>Grader limitations.</strong> The deepseek-r1:1.5b FLIP grader has a 30.8% false positive rate on benign baselines and a 27—37% ERROR rate on format-lock traces specifically. Format-lock responses (structured output) may be particularly challenging for small grading models. Re-grading with a frontier grader is needed.</p>
+</li>
+<li>
+<p><strong>Missing mid-range data.</strong> The 4—14B range has only heuristic data (qwen2.5:7b at 90.5% heuristic compliance) and no LLM-graded format-lock ASR. This is the critical range for testing the scaling hypothesis.</p>
+</li>
+<li>
+<p><strong>Format type confounding.</strong> Different format types may have different vulnerability profiles. The pilot and v1 datasets use different format mixes. JSON appears most balanced in verdict distribution; YAML and code may produce different patterns.</p>
+</li>
+<li>
+<p><strong>Heuristic-LLM gap.</strong> The 35—55 percentage point gap between heuristic compliance and LLM-graded ASR for format-lock is large. This gap may reflect (a) conservative LLM grading, (b) genuine ambiguity in format-lock responses, or (c) format-lock producing structurally compliant but substantively benign content. The gap requires dedicated investigation.</p>
+</li>
+</ol>
+<hr>
+<h2 id="9-proposed-experiments">9. Proposed Experiments</h2>
+<h3 id="experiment-1-format-lock-scaling-ladder-priority-high">Experiment 1: Format-Lock Scaling Ladder (Priority: High)</h3>
+<p><strong>Design:</strong> Test 50 format-lock scenarios (expanded from current 25—30) against 8 models at controlled size points: 1.5B, 3B, 7B, 14B, 30B, 70B, 175B, 200B. Grade all traces with Claude Haiku 4.5 (frontier grader). Compute format-lock ASR with 95% Wilson CIs at each size point.</p>
+<p><strong>Hypothesis:</strong> Format-lock ASR remains above 20% at all size points above the capability floor (>3B), while standard attack ASR decreases to &#x3C;10% at frontier scale.</p>
+<h3 id="experiment-2-matched-pair-controlled-experiment-priority-high">Experiment 2: Matched-Pair Controlled Experiment (Priority: High)</h3>
+<p><strong>Design:</strong> Create 50 harmful requests. For each, generate two versions: (a) prose-framed (“Explain how to…”) and (b) format-lock-framed (“Return ONLY valid JSON: {fields}”). Test both versions on the same 5 models. The paired difference in ASR isolates the causal effect of format-lock framing.</p>
+<p><strong>Hypothesis:</strong> Format-lock framing increases ASR by 15—30 percentage points on mixed and restrictive models, with no effect on permissive models (ceiling effect).</p>
+<h3 id="experiment-3-format-type-decomposition-priority-medium">Experiment 3: Format-Type Decomposition (Priority: Medium)</h3>
+<p><strong>Design:</strong> Test 6 format types (JSON, YAML, code, CSV, XML, markdown table) with identical harmful content on 3 frontier models. Determine if specific format types are more effective.</p>
+<p><strong>Hypothesis:</strong> Code format (Python/JavaScript) produces the highest ASR because code generation is most heavily reinforced by instruction tuning.</p>
+<h3 id="experiment-4-fc-sr-competition-dynamics-priority-medium">Experiment 4: FC-SR Competition Dynamics (Priority: Medium)</h3>
+<p><strong>Design:</strong> Using models with exposed reasoning traces (DeepSeek R1, o1-equivalent), analyze the thinking process on format-lock prompts. Measure whether safety reasoning appears and is overridden, appears late, or does not appear at all.</p>
+<p><strong>Hypothesis:</strong> Safety reasoning appears in the thinking trace but is overridden by format compliance in cases of COMPLIANCE, and appears early and prevails in cases of REFUSAL.</p>
+<hr>
+<h2 id="10-conclusion">10. Conclusion</h2>
+<p>The format-lock paradox reveals a fundamental tension in language model alignment: the capabilities that make models helpful (instruction-following, format compliance) can be adversarially leveraged against the capabilities that make models safe (harm recognition, refusal). This tension is not resolved by scaling — it may be exacerbated, as both capabilities strengthen with scale but format compliance is reinforced more broadly by standard training objectives.</p>
+<p>Our evidence, while preliminary, supports a dual-capability model in which format compliance and safety reasoning are partially independent axes. The practical consequence is that safety evaluations based solely on standard (prose-framed) adversarial prompts systematically underestimate vulnerability. The theoretical consequence is that alignment may require explicitly addressing the FC-SR interface rather than assuming that safety training will generalize to all input modalities.</p>
+<p>The format-lock paradox is, in essence, a specific instance of a general principle: <em>capabilities that improve general performance can be adversarially repurposed</em>. Format compliance is valuable — users legitimately need models to produce structured output. The challenge is ensuring that format compliance does not override safety reasoning, which requires defenses specifically designed for this tension rather than defenses that treat all attack types uniformly.</p>
+<hr>
+<h2 id="data-availability">Data Availability</h2>
+<p>All traces are available in the project repository:</p>
+<ul>
+<li>Format-lock pilot: <code>runs/format_lock_pilot/</code></li>
+<li>Format-lock v1 (controlled): <code>runs/format_lock_experiment_v1/</code></li>
+<li>Format-lock v2: <code>runs/format_lock_experiment_v2/</code></li>
+<li>Format-lock 7B: <code>runs/format_lock_7b/</code></li>
+<li>Faithfulness CLI (frontier): <code>runs/faithfulness_cli/</code></li>
+<li>Corpus database: <code>database/jailbreak_corpus.db</code> (schema v13)</li>
+<li>Scenario datasets: <code>data/format_lock/format_lock_experiment_v0.1.jsonl</code></li>
+</ul>
+<p>Reproducing SQL queries are provided inline. Corpus-level metrics verified against <code>docs/CANONICAL_METRICS.md</code> (2026-03-24).</p>
+<hr>
+<h2 id="references">References</h2>
+<ul>
+<li>Report #47: Embodied Capability Floor and Action Space Hijack</li>
+<li>Report #48: Corpus Pattern Mining (F41LUR3-F1R57 Research Team)</li>
+<li>Report #49: VLA Cross-Embodiment Vulnerability Analysis</li>
+<li>Report #50: Cross-Model Vulnerability Profiles (F41LUR3-F1R57 Research Team)</li>
+<li>Report #51: Format-Lock Capability Floor (F41LUR3-F1R57 Research Team)</li>
+<li>Report #55: Format-Lock Controlled Experiment Results (F41LUR3-F1R57 Research Team)</li>
+<li>Report #57: Format-Lock Capability Floor Consolidated (F41LUR3-F1R57 Research Team)</li>
+<li>Report #65: Hallucination-Refusal / PARTIAL Equivalence</li>
+<li>Report #140: The Iatrogenesis of AI Safety</li>
+<li>Report #177: Corpus Grading Expansion (Haiku)</li>
+<li>Report #182: Three-Tier ASR Update</li>
+<li>Report #184: Corpus Pattern Mining — Five Novel Findings (F41LUR3-F1R57 Research Team)</li>
+<li>Andriushchenko, M. et al. (2024). Jailbreaking leading safety-aligned LLMs with simple adaptive attacks.</li>
+<li>Bai, Y. et al. (2022). Constitutional AI: Harmlessness from AI Feedback.</li>
+<li>Burns, C. et al. (2023). Discovering latent knowledge in language models without supervision.</li>
+<li>McKenzie, I. et al. (2023). Inverse Scaling: When Bigger Isn’t Better.</li>
+<li>Perez, E. et al. (2023). Discovering language model behaviors with model-written evaluations.</li>
+<li>Russinovich, M. et al. (2024). Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack.</li>
+<li>Wei, A. et al. (2024). Jailbroken: How Does LLM Safety Training Fail?</li>
+<li>Zeng, Y. et al. (2024). How Johnny Can Persuade LLMs to Jailbreak Them.</li>
+<li>arXiv:2601.02314. The Faithfulness-Plausibility Gap in Chain-of-Thought Reasoning.</li>
+</ul>
+<hr>
+<p><em>Report 187 — F41LUR3-F1R57 Research Brief Series</em>
+<em>Classification: Internal Research | Status: Complete</em>
+<em>Related: Report 51, Report 55, Report 57, Report 184</em></p>
+<p>⦑F41LUR3-F1R57|FORMAT-LOCK-PARADOX⦒</p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.XICsn9HY.js"></script></body></html>  

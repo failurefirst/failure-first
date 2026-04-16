@@ -1,0 +1,537 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First</title><meta name="description" content="Report #144 (The Evaluator's Dilemma) identified a three-tier disclosure framework but stopped short of operationalising it. Report #123 (Disclosure..."><link rel="canonical" href="https://failurefirst.org/research/reports/154-the-dscore-dual-use-disclosure-scoring-system/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First"><meta property="og:description" content="Report #144 (The Evaluator's Dilemma) identified a three-tier disclosure framework but stopped short of operationalising it. Report #123 (Disclosure..."><meta property="og:url" content="https://failurefirst.org/research/reports/154-the-dscore-dual-use-disclosure-scoring-system/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First"><meta name="twitter:description" content="Report #144 (The Evaluator's Dilemma) identified a three-tier disclosure framework but stopped short of operationalising it. Report #123 (Disclosure..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-19"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-19"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/154-the-dscore-dual-use-disclosure-scoring-system/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/154-the-dscore-dual-use-disclosure-scoring-system/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The D-Score -- A Dual-Use Disclosure Risk Scoring System | Research | Failure-First","description":"Report #144 (The Evaluator's Dilemma) identified a three-tier disclosure framework but stopped short of operationalising it. Report #123 (Disclosure...","url":"https://failurefirst.org/research/reports/154-the-dscore-dual-use-disclosure-scoring-system/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-19","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.C82-ld8d.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"3b781b57ae6e94a1a572d0e81556bba36ac6d6f3"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 154</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 154"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 154</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — AI Safety Policy</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-19</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <blockquote>
+<p><strong>Disclaimer:</strong> This report proposes a decision-support tool for research disclosure,
+not a compliance standard. The D-Score is a structured heuristic that makes explicit
+what many researchers already weigh implicitly. It does not replace ethical judgement
+and has not been validated outside the Failure-First corpus. See Limitations (Section 7).</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>Report #144 (The Evaluator’s Dilemma) identified a three-tier disclosure framework but stopped short of operationalising it. Report #123 (Disclosure Decision Framework) proposed a five-variable urgency score U(V) for determining <em>when</em> to disclose. Neither provides a simple, repeatable instrument for answering the prior question: <em>how much risk does this specific finding create if disclosed?</em></p>
+<p>This report fills that gap. The <strong>D-Score</strong> (Disclosure Risk Score) is a four-dimension scoring system that quantifies the dual-use risk profile of any safety research finding. Each dimension is scored 0-3 (none/low/medium/high), producing a composite score of 0-12 with defined action thresholds tied to the disclosure tiers from Reports #123 and #144.</p>
+<p><strong>Claim types:</strong></p>
+<ul>
+<li>The D-Score framework is normative (a proposal for what researchers should do).</li>
+<li>The calibration examples (Section 5) are descriptive applications of the framework to documented findings.</li>
+<li>The comparison with existing frameworks (Section 6) is analytical.</li>
+</ul>
+<hr>
+<h2 id="1-motivation-why-another-disclosure-instrument">1. Motivation: Why Another Disclosure Instrument?</h2>
+<h3 id="11-the-gap-between-framework-and-practice">1.1 The Gap Between Framework and Practice</h3>
+<p>The Failure-First project has produced three disclosure-relevant frameworks:</p>
+<ol>
+<li><strong>SRDA</strong> (Report #89): Severity, Reproducibility, Defensibility, Asymmetry — qualitative dimensions for reasoning about dual-use.</li>
+<li><strong>U(V) Score</strong> (Report #123): A five-variable formula producing a continuous urgency score for disclosure timing.</li>
+<li><strong>Three-Tier Disclosure</strong> (Report #144): Structural / Methodological / Operational classification of what to disclose.</li>
+</ol>
+<p>Each serves a different function. SRDA structures <em>thinking</em> about dual-use. U(V) determines <em>when</em> to disclose. The three-tier model determines <em>what form</em> disclosure should take. But none directly answers the operational question a research team faces before publication: <strong>what is the risk level of disclosing this specific finding, and what does that risk level obligate?</strong></p>
+<h3 id="12-design-requirements">1.2 Design Requirements</h3>
+<p>A practical disclosure scoring system must be:</p>
+<ol>
+<li><strong>Simple enough to use consistently.</strong> Complex instruments with many variables invite inconsistent application. Four dimensions at four levels (0-3) are tractable for a research team meeting.</li>
+<li><strong>Transparent in its value judgements.</strong> The scoring criteria must be explicit so that reasonable people can disagree about specific ratings and trace the source of disagreement.</li>
+<li><strong>Comparable across findings.</strong> A score for Finding A should be meaningfully comparable to a score for Finding B.</li>
+<li><strong>Action-linked.</strong> The score should map to specific, concrete actions — not just “be careful.”</li>
+<li><strong>Compatible with existing frameworks.</strong> The D-Score should complement, not replace, SRDA and U(V).</li>
+</ol>
+<hr>
+<h2 id="2-the-d-score-framework">2. The D-Score Framework</h2>
+<h3 id="21-dimensions">2.1 Dimensions</h3>
+<p>The D-Score has four dimensions. Each is scored on an integer scale from 0 (no risk) to 3 (high risk).</p>
+<h4 id="dimension-1-specificity-s">Dimension 1: Specificity (S)</h4>
+<p><em>How much operational detail does the finding contain?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Score</th><th>Level</th><th>Criteria</th></tr></thead><tbody><tr><td>0</td><td>None</td><td>Structural pattern only. No attack construction detail. E.g., “format constraints can suppress safety deliberation.”</td></tr><tr><td>1</td><td>Low</td><td>Category-level description with general mechanism. E.g., “JSON format-lock prompts achieve elevated ASR by constraining response format.”</td></tr><tr><td>2</td><td>Medium</td><td>Methodology sufficient for an expert to reproduce. E.g., “Wrapping adversarial instructions in JSON schema with required output fields bypasses safety checks at 30-42% ASR on frontier models.”</td></tr><tr><td>3</td><td>High</td><td>Complete operational detail: specific prompts, parameters, model-specific payloads. Directly copy-pasteable.</td></tr></tbody></table>
+<p><strong>Rationale:</strong> Specificity is the primary driver of offensive utility. A finding that says “attacks exist” has near-zero offensive value. A finding that provides tested prompts has maximum offensive value.</p>
+<h4 id="dimension-2-reproducibility-r">Dimension 2: Reproducibility (R)</h4>
+<p><em>How easy is it for a non-expert to reproduce the attack using the disclosed information?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Score</th><th>Level</th><th>Criteria</th></tr></thead><tbody><tr><td>0</td><td>None</td><td>Not reproducible from the disclosure alone. Requires domain expertise, specialised equipment, or undisclosed context.</td></tr><tr><td>1</td><td>Low</td><td>Reproducible by a domain expert (robotics, ML security) with moderate effort.</td></tr><tr><td>2</td><td>Medium</td><td>Reproducible by a technically competent non-expert (software engineer, CS graduate student) with the disclosure and public tools.</td></tr><tr><td>3</td><td>High</td><td>Reproducible by anyone with API access. No domain expertise required. “Script kiddie” threshold.</td></tr></tbody></table>
+<p><strong>Rationale:</strong> Reproducibility determines the size of the adversary population that can act on the disclosure. A finding reproducible only by experts limits risk to a small, already-capable population. A finding reproducible by anyone expands the adversary pool dramatically.</p>
+<h4 id="dimension-3-target-scope-t">Dimension 3: Target Scope (T)</h4>
+<p><em>How many deployed systems are vulnerable to the disclosed attack?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Score</th><th>Level</th><th>Criteria</th></tr></thead><tbody><tr><td>0</td><td>None</td><td>No deployed systems affected. Research-only models or hypothetical configurations.</td></tr><tr><td>1</td><td>Low</td><td>Narrow scope: specific model version, specific deployment configuration, or lab-only systems.</td></tr><tr><td>2</td><td>Medium</td><td>Moderate scope: a model family, a class of deployment (e.g., “VLA models using GPT-4o backbone”), or a specific industry vertical.</td></tr><tr><td>3</td><td>High</td><td>Broad scope: architectural-level vulnerability affecting most or all models in a category. Cross-model, cross-embodiment transfer demonstrated.</td></tr></tbody></table>
+<p><strong>Rationale:</strong> A vulnerability affecting one research prototype has different disclosure risk from a vulnerability affecting every VLA-controlled robot on the market. Target scope scales the potential harm from disclosure.</p>
+<h4 id="dimension-4-defense-availability-d">Dimension 4: Defense Availability (D)</h4>
+<p><em>Is there a known, deployable defense against the disclosed vulnerability?</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Score</th><th>Level</th><th>Criteria</th></tr></thead><tbody><tr><td>0</td><td>None (defense exists)</td><td>Effective defense is known, tested, and deployable. Disclosure enables immediate defensive action.</td></tr><tr><td>1</td><td>Low (partial defense)</td><td>Partial mitigations exist but do not fully address the vulnerability. Disclosure aids defenders more than attackers.</td></tr><tr><td>2</td><td>Medium (defense unclear)</td><td>No tested defense exists, but the vulnerability is of a class where defenses are plausibly constructable. Research direction is clear.</td></tr><tr><td>3</td><td>High (structurally undefendable)</td><td>No known defense exists and the vulnerability is structural (e.g., CDC-class, where capability IS the vulnerability). Disclosure primarily aids attackers.</td></tr></tbody></table>
+<p><strong>Rationale:</strong> This dimension is inverted relative to the others: a high score means <em>less</em> defense, which means <em>more</em> disclosure risk. When defenses exist, disclosure is relatively safe because defenders can act. When no defense exists, disclosure provides attackers with knowledge that defenders cannot counter.</p>
+<h3 id="22-composite-score">2.2 Composite Score</h3>
+<p>The D-Score is the sum of the four dimensions:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D-Score = S + R + T + D</span></span></code></pre>
+<p><strong>Range:</strong> 0-12 (integer)</p>
+<p>The dimensions are unweighted. This is a deliberate design choice.</p>
+<p><strong>Rationale for equal weighting:</strong> Weighting requires a theory of which dimension matters most, and that theory would vary by context (an embodied AI researcher may weight Target Scope higher than a text-only researcher). Equal weighting makes the value judgement explicit: all four dimensions contribute equally to risk, and if a researcher believes otherwise for a specific finding, they should document their reasoning and adjust the threshold, not the weights. This avoids the common failure mode of weighted scoring systems where the weights encode undisclosed preferences.</p>
+<h3 id="23-action-thresholds">2.3 Action Thresholds</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>D-Score</th><th>Risk Level</th><th>Recommended Action</th></tr></thead><tbody><tr><td>0-3</td><td>Low</td><td><strong>Full disclosure.</strong> Publish structural patterns, statistical findings, and general methodology. Corresponds to Report #144 Tier 1.</td></tr><tr><td>4-6</td><td>Moderate</td><td><strong>Restricted disclosure.</strong> Publish methodology and category-level findings. Withhold operational details (specific prompts, optimised parameters, model-specific payloads). Share operational details with evaluation community under NDA or similar agreement. Corresponds to Report #144 Tier 2.</td></tr><tr><td>7-9</td><td>High</td><td><strong>Coordinated disclosure.</strong> Share findings with affected vendors, standards bodies, and relevant regulators before any publication. Publication limited to structural findings after a defined remediation window (see Section 3 for window guidance). Corresponds to Report #144 Tier 3.</td></tr><tr><td>10-12</td><td>Critical</td><td><strong>Withhold.</strong> Finding is too operationally specific, too easily reproducible, too broadly scoped, and too difficult to defend against to justify publication in any form. Document internally. Reassess if defense landscape changes (see Section 4 for reassessment triggers).</td></tr></tbody></table>
+<hr>
+<h2 id="3-relationship-to-existing-disclosure-frameworks">3. Relationship to Existing Disclosure Frameworks</h2>
+<h3 id="31-cert-coordinated-vulnerability-disclosure">3.1 CERT Coordinated Vulnerability Disclosure</h3>
+<p>The CERT/CC Vulnerability Disclosure Policy (Carnegie Mellon SEI) uses a 45-day default disclosure window, extendable to 90 days for complex remediation. The policy assumes:</p>
+<ul>
+<li>An identifiable vendor who can patch the vulnerability.</li>
+<li>A bug-class vulnerability (fixable by code change), not a structural property.</li>
+<li>That disclosure after patching is net-beneficial.</li>
+</ul>
+<p><strong>D-Score comparison:</strong> CERT’s model is appropriate when D-Score is in the 4-6 range (moderate risk) and there is an identifiable vendor (Target Scope = 1). It breaks down for D-Scores above 7, where the vulnerability may be structural (Defense Availability >= 2) and cross-vendor (Target Scope >= 2). The D-Score makes this breakdown explicit: a high-D finding cannot be handled by a 90-day vendor notification window because there is no patch to build.</p>
+<h3 id="32-google-project-zero-90-day-policy">3.2 Google Project Zero 90-Day Policy</h3>
+<p>Google Project Zero enforces a strict 90-day disclosure deadline from vendor notification, with a 14-day grace period for actively exploited vulnerabilities. The policy is designed for software vulnerabilities with identifiable technical fixes.</p>
+<p><strong>D-Score comparison:</strong> Project Zero’s approach assumes the vulnerability has a fix (Defense Availability = 0 or 1). For AI safety research where Defense Availability = 2 or 3, a fixed-timeline policy is structurally inappropriate. The D-Score provides a principled basis for departing from fixed timelines: when D >= 2 on Defense Availability, the disclosure window should be tied to defensive capability development, not a calendar deadline.</p>
+<h3 id="33-nsabb-dual-use-research-of-concern-durc-framework">3.3 NSABB Dual-Use Research of Concern (DURC) Framework</h3>
+<p>The National Science Advisory Board for Biosecurity uses a pre-publication review process for dual-use research of concern. Seven categories of experiments trigger review: those that enhance transmissibility, virulence, host range, etc.</p>
+<p><strong>D-Score comparison:</strong> The NSABB model provides the closest analogy to the D-Score’s withhold threshold (10-12). In biosecurity, certain gain-of-function experiments are restricted not because the findings lack scientific value, but because the risk-benefit ratio of disclosure is unfavourable. The D-Score formalises an equivalent judgement for AI safety research: findings where S=3, R=3, T>=2, D>=2 constitute an AI safety analogue of dual-use research of concern.</p>
+<h3 id="34-the-d-scores-distinct-contribution">3.4 The D-Score’s Distinct Contribution</h3>
+<p>Existing frameworks share an assumption: that vulnerability disclosure is fundamentally a timing problem (when to disclose). The D-Score treats disclosure as a <em>level</em> problem (how much to disclose). This reflects the observation from Report #123 that AI safety findings exist on a spectrum from structural patterns to operational attack constructions, and the appropriate disclosure action depends on where the finding sits on that spectrum.</p>
+<hr>
+<h2 id="4-reassessment-triggers">4. Reassessment Triggers</h2>
+<p>A D-Score is not permanent. Reassess when:</p>
+<ol>
+<li><strong>New defense emerges.</strong> A defense that reduces Defense Availability by 1+ points may move the finding to a lower risk threshold. E.g., if an action-layer safety filter is deployed that catches SBA-class attacks, the SBA finding’s D drops by 1-2 points.</li>
+<li><strong>Independent discovery.</strong> If another group publishes equivalent findings, Specificity’s contribution to risk decreases (the information is already available). Reproducibility may also decrease (the other publication may provide more operational detail than yours would).</li>
+<li><strong>Deployment landscape changes.</strong> Target Scope increases if vulnerable systems are deployed more broadly, or decreases if systems are recalled or retrofitted.</li>
+<li><strong>Incident occurs.</strong> An incident attributable to the vulnerability class creates an obligation to disclose — the D-Score thresholds should be lowered by 1 tier (e.g., a finding at 7-9 should be treated as 4-6).</li>
+<li><strong>Elapsed time.</strong> After 12 months, reassess all findings scored 7-12. The attack landscape evolves, independent discovery becomes more likely, and the informational advantage of withholding decays.</li>
+</ol>
+<hr>
+<h2 id="5-calibration-examples-d-score-applied-to-failure-first-findings">5. Calibration Examples: D-Score Applied to Failure-First Findings</h2>
+<h3 id="51-example-1-heuristic-classifier-unreliability-cohens-kappa--0126">5.1 Example 1: Heuristic Classifier Unreliability (Cohen’s kappa = 0.126)</h3>
+<p><strong>Finding:</strong> Keyword-based heuristic classifiers for jailbreak detection have near-chance agreement with LLM-based grading (kappa = 0.126, n=1,989). This means heuristic classifiers are unreliable for safety evaluation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>Specificity (S)</td><td>0</td><td>Structural finding. No attack construction.</td></tr><tr><td>Reproducibility (R)</td><td>0</td><td>Not an attack. Finding aids defenders only.</td></tr><tr><td>Target Scope (T)</td><td>2</td><td>Affects any deployment relying on heuristic safety classifiers, which is a common pattern.</td></tr><tr><td>Defense Availability (D)</td><td>0</td><td>Defense is straightforward: use LLM-based classifiers instead.</td></tr></tbody></table>
+<p><strong>D-Score: 2</strong> — Full disclosure. This finding is purely defensive. Published on failurefirst.org.</p>
+<h3 id="52-example-2-format-lock-mechanism-30-42-asr-on-frontier-models">5.2 Example 2: Format-Lock Mechanism (30-42% ASR on Frontier Models)</h3>
+<p><strong>Finding:</strong> JSON/YAML format constraints in prompts suppress safety deliberation, achieving 30-42% ASR on frontier models (Reports #51, #57). The mechanism is that structured output format requirements compete with safety reasoning for the model’s processing capacity.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>Specificity (S)</td><td>2</td><td>Mechanism described at methodology level. Specific prompt templates are in the private repo, but the published reports describe the approach sufficiently for expert reproduction.</td></tr><tr><td>Reproducibility (R)</td><td>2</td><td>Reproducible by any ML engineer who can write JSON-schema prompts. Does not require specialised equipment or unusual access.</td></tr><tr><td>Target Scope (T)</td><td>3</td><td>Affects essentially all instruction-following LLMs. Cross-model, cross-vendor.</td></tr><tr><td>Defense Availability (D)</td><td>2</td><td>No deployed defense. Format constraints are legitimate use cases, so blocking them is infeasible. Research direction (decoupling format compliance from safety deliberation) is clear but unimplemented.</td></tr></tbody></table>
+<p><strong>D-Score: 9</strong> — Coordinated disclosure. Share mechanism with model providers. Publish structural finding (format constraints affect safety) without optimised prompt templates. This aligns with the project’s current practice: structural findings published, operational prompts kept in the private repository.</p>
+<h3 id="53-example-3-sba-semantically-benign-attack-construction-principles">5.3 Example 3: SBA (Semantically Benign Attack) Construction Principles</h3>
+<p><strong>Finding:</strong> Ordinary-language instructions that are individually benign can compose to produce dangerous physical actions in embodied AI systems. The attack requires no adversarial sophistication — the instructions are genuinely benign text (Report #82).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>Specificity (S)</td><td>1</td><td>Published at category level (“benign instructions can be dangerous in context”). Specific scenario constructions are in the private repo.</td></tr><tr><td>Reproducibility (R)</td><td>3</td><td>Reproducible by anyone. The defining property of SBA is that no adversarial expertise is required — the instructions look like ordinary requests.</td></tr><tr><td>Target Scope (T)</td><td>3</td><td>Affects any VLA system that takes natural language instructions. Architectural-level vulnerability.</td></tr><tr><td>Defense Availability (D)</td><td>3</td><td>No known defense. Cannot filter benign language. The vulnerability is structural (CDC-class).</td></tr></tbody></table>
+<p><strong>D-Score: 10</strong> — Withhold operational details. The category-level finding (“benign instructions can compose to produce dangerous actions”) is publishable (Specificity = 1 contributes only 1 point). But specific SBA scenario constructions, if published, would raise S to 3 and the D-Score to 12. The current practice (structural finding published, scenarios private) is correct.</p>
+<h3 id="54-example-4-vla-partial-dominance-50-partial-in-flip-grading">5.4 Example 4: VLA PARTIAL Dominance (50% PARTIAL in FLIP Grading)</h3>
+<p><strong>Finding:</strong> 50% of VLA model responses to adversarial prompts are graded PARTIAL under FLIP methodology — the model produces safety framing but also produces the requested action sequence (Report #59).</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>Specificity (S)</td><td>1</td><td>Statistical pattern. No specific prompts disclosed.</td></tr><tr><td>Reproducibility (R)</td><td>1</td><td>Understanding the PARTIAL pattern requires familiarity with FLIP methodology. A domain expert could reproduce, but a non-expert would not know how to construct adversarial VLA prompts from this alone.</td></tr><tr><td>Target Scope (T)</td><td>2</td><td>Affects VLA models generally, but the specific PARTIAL rate varies by model family.</td></tr><tr><td>Defense Availability (D)</td><td>2</td><td>Partial defense exists (action-layer validation), but current validators miss cases. Defense direction is clear.</td></tr></tbody></table>
+<p><strong>D-Score: 6</strong> — Restricted disclosure. Publish the statistical finding and the PARTIAL concept. Withhold specific FLIP grading rubrics and scenario-specific data that would enable benchmark gaming. Share FLIP methodology with evaluation community. This matches the project’s current practice.</p>
+<h3 id="55-example-5-defense-impossibility-triangle-report-78">5.5 Example 5: Defense Impossibility Triangle (Report #78)</h3>
+<p><strong>Finding:</strong> For embodied AI, you cannot simultaneously achieve full capability, certifiable safety, and operational transparency. Improving any two necessitates degrading the third. Compound failure rate: 14.3% [7.4%, 24.3%].</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Dimension</th><th>Score</th><th>Rationale</th></tr></thead><tbody><tr><td>Specificity (S)</td><td>0</td><td>Pure structural finding. An impossibility result, not an attack construction.</td></tr><tr><td>Reproducibility (R)</td><td>0</td><td>Not an attack. A structural property of the design space.</td></tr><tr><td>Target Scope (T)</td><td>3</td><td>Applies to all embodied AI systems. Architectural-level finding.</td></tr><tr><td>Defense Availability (D)</td><td>3</td><td>No defense exists because the finding IS that no complete defense can exist. Structural impossibility.</td></tr></tbody></table>
+<p><strong>D-Score: 6</strong> — Restricted disclosure. Despite very high Target Scope and Defense Availability scores, the zero Specificity and Reproducibility mean this finding has no offensive utility. An argument could be made for full disclosure (the finding is purely structural). The D-Score of 6 is at the boundary; in practice, the project publishes this finding publicly because S=0 and R=0 mean the offensive risk is negligible regardless of T and D. This example illustrates a limitation of unweighted scoring (see Section 7.2).</p>
+<hr>
+<h2 id="6-implementation-guidance">6. Implementation Guidance</h2>
+<h3 id="61-who-scores">6.1 Who Scores?</h3>
+<p>The D-Score should be assessed by:</p>
+<ul>
+<li>The researcher(s) who produced the finding (they understand the specificity and reproducibility best).</li>
+<li>An independent ethics reviewer (to check for self-serving bias — researchers tend to underrate the risk of their own findings; see Report #144, Section 7, Limitation 1).</li>
+</ul>
+<p>If the two assessments differ by more than 2 points on any dimension, discuss and document the disagreement. Use the higher score as the conservative default.</p>
+<h3 id="62-when-to-score">6.2 When to Score?</h3>
+<p>Score every finding before:</p>
+<ul>
+<li>Submitting for publication (journal, conference, preprint).</li>
+<li>Sharing with external parties (regulators, deployers, standards bodies).</li>
+<li>Publishing on the project website or blog.</li>
+<li>Including in grant applications that describe capability.</li>
+</ul>
+<p>Internal documentation (private repo, internal reports) does not require D-Scoring, but scoring is recommended for findings that may later be externalised.</p>
+<h3 id="63-documentation">6.3 Documentation</h3>
+<p>Record D-Scores in a standard format:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>D-Score Assessment: [Finding Title]</span></span>
+<span class="line"><span>Date: YYYY-MM-DD</span></span>
+<span class="line"><span>Assessor(s): [names]</span></span>
+<span class="line"><span>S: [0-3] -- [one-line rationale]</span></span>
+<span class="line"><span>R: [0-3] -- [one-line rationale]</span></span>
+<span class="line"><span>T: [0-3] -- [one-line rationale]</span></span>
+<span class="line"><span>D: [0-3] -- [one-line rationale]</span></span>
+<span class="line"><span>Composite: [0-12]</span></span>
+<span class="line"><span>Action: [Full / Restricted / Coordinated / Withhold]</span></span>
+<span class="line"><span>Reassessment date: [YYYY-MM-DD or trigger condition]</span></span></code></pre>
+<p>A CLI tool (<code>tools/dscore_calculator.py</code>) is provided for computing and formatting D-Scores. See usage examples in the tool’s help text.</p>
+<hr>
+<h2 id="7-limitations">7. Limitations</h2>
+<ol>
+<li>
+<p><strong>Unvalidated outside Failure-First.</strong> The D-Score has been applied to five findings from a single project. Its utility for other safety research projects, other domains (biosecurity, cybersecurity), or other threat models is untested. The calibration examples in Section 5 are illustrative, not a validation study.</p>
+</li>
+<li>
+<p><strong>Equal weighting may not reflect actual risk.</strong> As Example 5 demonstrates, a finding with S=0, R=0, T=3, D=3 scores the same (6) as a finding with S=2, R=2, T=1, D=1. The first finding has no offensive utility; the second has moderate offensive utility. Equal weighting treats these as equivalent risks. A context-specific weighting scheme (e.g., doubling S and R for embodied AI research, where operational specificity is the primary risk driver) may be more appropriate but would reduce cross-domain comparability.</p>
+</li>
+<li>
+<p><strong>Subjective scoring.</strong> Each dimension requires judgement. Two assessors may rate the same finding differently, particularly on Reproducibility (which depends on assumptions about adversary capability) and Defense Availability (which depends on awareness of current defensive research). Inter-rater reliability has not been measured.</p>
+</li>
+<li>
+<p><strong>No empirical calibration.</strong> The action thresholds (0-3, 4-6, 7-9, 10-12) are proposed based on the author’s judgement and the calibration examples. They have not been validated against actual disclosure outcomes (i.e., we do not know whether findings scored 7-9 are actually more harmful when disclosed than findings scored 4-6).</p>
+</li>
+<li>
+<p><strong>Static dimensions.</strong> The four dimensions were selected based on the disclosure literature and the Failure-First project’s experience. Other dimensions may be relevant for other contexts — for example, <em>attacker motivation</em> (how much does this finding incentivise attack?) or <em>victim vulnerability</em> (how capable are potential victims of defending themselves?). The framework is intentionally minimal; adding dimensions increases precision at the cost of usability.</p>
+</li>
+<li>
+<p><strong>Single-project self-assessment.</strong> The D-Score was designed by a researcher assessing her own project’s outputs. Report #144’s Limitation 1 (self-referential analysis bias) applies equally here. External validation by independent ethics reviewers would strengthen the framework.</p>
+</li>
+</ol>
+<hr>
+<h2 id="8-relationship-to-prior-reports">8. Relationship to Prior Reports</h2>
+<p>The D-Score operationalises concepts from three prior F41LUR3-F1R57 Research Team reports:</p>
+<ul>
+<li>
+<p><strong>Report #89 (SRDA):</strong> The D-Score’s four dimensions (Specificity, Reproducibility, Target Scope, Defense Availability) are a simplified, scoreable version of SRDA’s four factors (Severity, Reproducibility, Defensibility, Asymmetry). The key difference: SRDA is a qualitative reasoning framework; the D-Score produces a numeric score with action thresholds.</p>
+</li>
+<li>
+<p><strong>Report #123 (Disclosure Decision Framework):</strong> The D-Score complements U(V). U(V) answers “how urgently should we disclose?” The D-Score answers “how much should we disclose?” They can be used together: a high-U, low-D finding (urgent, low risk) should be disclosed quickly and fully. A high-U, high-D finding (urgent, high risk) should be disclosed quickly but in restricted form.</p>
+</li>
+<li>
+<p><strong>Report #144 (The Evaluator’s Dilemma):</strong> The three-tier disclosure model (structural / methodological / operational) maps directly to D-Score thresholds. The D-Score provides the quantitative basis for tier assignment that Report #144 proposed but did not specify.</p>
+</li>
+</ul>
+<hr>
+<h2 id="9-conclusions">9. Conclusions</h2>
+<p>The D-Score is a structured heuristic, not an algorithm. It makes explicit the factors that responsible researchers already weigh when deciding what to publish: how specific is this finding, how easily can it be reproduced, how many systems does it affect, and can anyone defend against it? By assigning numeric scores and linking them to concrete actions, the D-Score reduces the ambiguity of disclosure decisions without pretending to eliminate the judgement they require.</p>
+<p>The five calibration examples in Section 5 demonstrate that the D-Score produces action recommendations consistent with the Failure-First project’s existing disclosure practice. This is not a validation (the framework was designed to match the practice), but it suggests the framework captures the factors that have implicitly guided disclosure decisions to date.</p>
+<p>The D-Score’s primary value is not as a formula but as a forcing function for explicit reasoning. When a research team rates a finding S=2, R=3, T=2, D=1 (D-Score: 8, coordinated disclosure), the rating process itself surfaces the question: “Is this really reproducible by a non-expert?” If the team disagrees, the disagreement is now tractable — it is about a specific dimension, not a vague sense of risk.</p>
+<p>The framework is offered as a contribution to the emerging norms for AI safety research disclosure. It is deliberately minimal, deliberately transparent in its assumptions, and deliberately open to revision as the field develops shared standards for managing the dual-use properties of safety evaluation knowledge.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol>
+<li>F41LUR3-F1R57. Report #144: The Evaluator’s Dilemma. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #123: Embodied AI Disclosure Decision Framework. 2026-03-16.</li>
+<li>F41LUR3-F1R57. Report #89: Dual-Use Obligations in Embodied AI Safety Research. 2026-03-15.</li>
+<li>F41LUR3-F1R57. Report #122: The Ethics of Embodied AI Safety — Five Paradoxes. 2026-03-16.</li>
+<li>F41LUR3-F1R57. Report #88: The Inverse Detectability-Danger Law (IDDL). 2026-03-15.</li>
+<li>F41LUR3-F1R57. Report #82: Semantically Benign Attacks. 2026-03-14.</li>
+<li>F41LUR3-F1R57. Report #78: The Defense Impossibility Triangle. 2026-03-14.</li>
+<li>F41LUR3-F1R57. Report #59: The Compliance Paradox. 2026-03-10.</li>
+<li>CERT/CC. CERT Guide to Coordinated Vulnerability Disclosure. Carnegie Mellon SEI, 2017.</li>
+<li>Google Project Zero. Disclosure Policy. <a href="https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-faq.html">https://googleprojectzero.blogspot.com/p/vulnerability-disclosure-faq.html</a>.</li>
+<li>National Science Advisory Board for Biosecurity (NSABB). Proposed Framework for the Oversight of Dual Use Life Sciences Research. 2007.</li>
+<li>Illich, I. (1976). Limits to Medicine: Medical Nemesis — The Expropriation of Health. Marion Boyars.</li>
+</ol>
+<hr>
+<p><em>This report was produced as part of the Failure-First Embodied AI research
+programme. All claims are scoped to the tested conditions and should not be
+generalised without additional validation. See docs/CANONICAL_METRICS.md for
+corpus-level numbers.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.XICsn9HY.js"></script></body></html>  
