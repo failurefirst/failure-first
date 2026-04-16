@@ -39,8 +39,12 @@ const formattedDate = date.toLocaleDateString('en-US', {
         </div>
       )}
       {audio && (
-        <div class="post-media-badges">
-          <a href={audio} class="media-badge" download>Audio Overview</a>
+        <div class="post-audio">
+          <div class="audio-label">Audio Overview</div>
+          <audio controls preload="none" class="audio-player">
+            <source src={audio} type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
       )}
     </header>
@@ -130,28 +134,27 @@ const formattedDate = date.toLocaleDateString('en-US', {
     border-radius: 3px;
   }
 
-  .post-media-badges {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 1rem;
+  .post-audio {
+    margin-top: 1.25rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
   }
 
-  .media-badge {
+  .audio-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    padding: 0.25rem 0.625rem;
-    border: 1px solid var(--failure-warning);
     color: var(--failure-warning);
-    border-radius: 3px;
-    text-decoration: none;
-    transition: background 0.15s ease;
+    margin-bottom: 0.5rem;
   }
 
-  .media-badge:hover {
-    background: rgba(255, 170, 0, 0.08);
-    border-bottom: 1px solid var(--failure-warning);
+  .audio-player {
+    width: 100%;
+    height: 36px;
+    border-radius: 3px;
   }
 
   .post-video {
