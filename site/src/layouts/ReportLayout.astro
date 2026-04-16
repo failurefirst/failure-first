@@ -48,8 +48,12 @@ const breadcrumbs = briefNumber
       {classification && <span class="report-classification">{classification}</span>}
       {date && <time class="report-date">{date}</time>}
       {audio && (
-        <div class="report-media-badges">
-          <a href={audio} class="media-badge" download>Audio Overview</a>
+        <div class="report-audio">
+          <div class="audio-label">Audio Overview</div>
+          <audio controls preload="none" class="audio-player">
+            <source src={audio} type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
         </div>
       )}
     </header>
