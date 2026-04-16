@@ -1,0 +1,624 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First</title><meta name="description" content="This report presents a comprehensive lineage analysis of 39 evolved attacks produced by the F41LUR3-F1R57 autonomous attack evolution system (Run 1, seed..."><link rel="canonical" href="https://failurefirst.org/research/reports/184-attack-evolution-lineage/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First"><meta property="og:description" content="This report presents a comprehensive lineage analysis of 39 evolved attacks produced by the F41LUR3-F1R57 autonomous attack evolution system (Run 1, seed..."><meta property="og:url" content="https://failurefirst.org/research/reports/184-attack-evolution-lineage/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First"><meta name="twitter:description" content="This report presents a comprehensive lineage analysis of 39 evolved attacks produced by the F41LUR3-F1R57 autonomous attack evolution system (Run 1, seed..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-24"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-24"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/184-attack-evolution-lineage/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/184-attack-evolution-lineage/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Attack Evolution Multi-Generation Lineage Analysis | Research | Failure-First","description":"This report presents a comprehensive lineage analysis of 39 evolved attacks produced by the F41LUR3-F1R57 autonomous attack evolution system (Run 1, seed...","url":"https://failurefirst.org/research/reports/184-attack-evolution-lineage/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-24","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.C82-ld8d.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"3b781b57ae6e94a1a572d0e81556bba36ac6d6f3"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 184</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 184"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 184</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-24</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <h2 id="summary">Summary</h2>
+<p>This report presents a comprehensive lineage analysis of 39 evolved attacks produced by the F41LUR3-F1R57 autonomous attack evolution system (Run 1, seed 123, 40 iterations). The analysis traces parent-child relationships across 4 generations, identifies which seed prompts are the most prolific ancestors, measures mutation strategy effectiveness by family, and tests for convergent evolution across independent lineages.</p>
+<p><strong>Key findings:</strong></p>
+<ol>
+<li>
+<p><strong>Seed productivity is highly skewed.</strong> Three seeds (AE-001, AE-007, AE-005) account for 74.4% of all kept offspring. AE-004 (crescendo) produced zero descendants. Seed fitness correlates with structural complexity — seeds with more paragraphs and explicit format demands generate more viable mutations.</p>
+</li>
+<li>
+<p><strong>Mutation strategy effectiveness varies by attack family.</strong> <code>combine</code> is the most-tried strategy (11/40, 100% keep rate) and the primary driver of cross-family hybridization. <code>role_shift</code> is the only strategy to produce a discard (75% keep rate). <code>amplify</code> and <code>paraphrase</code> are universally effective but produce minimal structural change.</p>
+</li>
+<li>
+<p><strong>Convergent evolution is present.</strong> Independent lineages from format_lock and authority_claim seeds converge toward a shared attack phenotype: structured output template + institutional authority framing + domain context. By generation 3-4, attacks from different seeds are structurally more similar to each other than to their own ancestors.</p>
+</li>
+<li>
+<p><strong>Generation depth does not correlate with ASR improvement on permissive models.</strong> All generations (1-4) show 100% heuristic ASR, confirming the flat fitness landscape identified in Report #175. True ASR differentiation requires FLIP re-grading (Phase 3, Issue #534).</p>
+</li>
+<li>
+<p><strong>Ten new seed prompts are proposed</strong> based on lineage analysis, optimized for evolvability rather than immediate ASR. These are committed as <code>data/bait/evolved_seeds_v0.3.jsonl</code>.</p>
+</li>
+</ol>
+<p><strong>Caveat:</strong> All ASR numbers in this report are heuristic-only (keyword refusal detection). Heuristic grading over-reports by 2-12x (Mistake #21). No ASR claim is valid until FLIP re-grading is complete.</p>
+<hr>
+<h2 id="1-seed-productivity-analysis">1. Seed Productivity Analysis</h2>
+<h3 id="11-method">1.1 Method</h3>
+<p>The 10 original seed attacks (AE-001 through AE-010) were traced through all 39 kept offspring to compute:</p>
+<ul>
+<li><strong>Direct children:</strong> Mutations where the seed was the immediate parent</li>
+<li><strong>Total descendants:</strong> All attacks in the seed’s lineage (children, grandchildren, etc.)</li>
+<li><strong>Lineage depth:</strong> Maximum generation reached by any descendant</li>
+</ul>
+<p>Parentage was reconstructed from the <code>parent_id</code> field in <code>evolved_attacks.jsonl</code>.</p>
+<h3 id="12-results">1.2 Results</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Seed ID</th><th>Family</th><th>Direct Children</th><th>Total Descendants</th><th>Max Depth</th><th>Share of All Kept</th></tr></thead><tbody><tr><td>AE-001</td><td>format_lock</td><td>3</td><td>8</td><td>3</td><td>20.5%</td></tr><tr><td>AE-002</td><td>format_lock</td><td>2</td><td>5</td><td>3</td><td>12.8%</td></tr><tr><td>AE-007</td><td>authority_claim</td><td>4</td><td>11</td><td>4</td><td>28.2%</td></tr><tr><td>AE-005</td><td>semantic_inversion</td><td>2</td><td>6</td><td>2</td><td>15.4%</td></tr><tr><td>AE-009</td><td>context_manipulation</td><td>3</td><td>5</td><td>2</td><td>12.8%</td></tr><tr><td>AE-008</td><td>authority_claim</td><td>1</td><td>1</td><td>1</td><td>2.6%</td></tr><tr><td>AE-006</td><td>semantic_inversion</td><td>1</td><td>1</td><td>1</td><td>2.6%</td></tr><tr><td>AE-010</td><td>context_manipulation</td><td>1</td><td>2</td><td>2</td><td>5.1%</td></tr><tr><td>AE-003</td><td>crescendo</td><td>0</td><td>0</td><td>0</td><td>0%</td></tr><tr><td>AE-004</td><td>crescendo</td><td>0</td><td>0</td><td>0</td><td>0%</td></tr></tbody></table>
+<p><strong>Observations:</strong></p>
+<ul>
+<li><strong>AE-007 is the dominant ancestor</strong>, producing 28.2% of all kept attacks and the deepest lineage (generation 4). Its internal memo format with institutional authority framing provides a strong structural scaffold for mutations.</li>
+<li><strong>format_lock seeds (AE-001, AE-002) are collectively the most productive family</strong>, generating 33.3% of descendants. Their structured output templates (JSON schema, table fill) survive mutations intact because the format provides a skeleton that mutations can wrap additional context around.</li>
+<li><strong>Crescendo seeds (AE-003, AE-004) are evolutionary dead ends</strong> in single-turn evaluation. This is expected: crescendo attacks require multi-turn conversation flow, and the evolver sends only the first turn.</li>
+<li><strong>Authority_claim has the deepest lineage</strong> (4 generations). The memo format is structurally resilient to paraphrase, role_shift, and contextualize mutations because each mutation adds a new structural element rather than modifying existing ones.</li>
+</ul>
+<h3 id="13-seed-evolvability-predictors">1.3 Seed Evolvability Predictors</h3>
+<p>Three structural properties predict seed evolvability:</p>
+<ol>
+<li>
+<p><strong>Paragraph count.</strong> Seeds with 3+ paragraphs (AE-001, AE-002, AE-005, AE-007, AE-008, AE-009) have higher descendant counts than those with fewer. The <code>combine</code> mutation requires paragraph boundaries to operate, so multi-paragraph seeds offer more recombination sites.</p>
+</li>
+<li>
+<p><strong>Explicit format demand.</strong> Seeds that request specific output formats (AE-001: JSON, AE-002: table) produce viable offspring at higher rates because the format constraint survives all mutations. The format demand acts as a structural invariant that anchors the attack’s identity.</p>
+</li>
+<li>
+<p><strong>Institutional framing.</strong> Seeds with institutional authority claims (AE-007: internal memo, AE-008: DARPA contract) produce deeper lineages because <code>amplify</code>, <code>role_shift</code>, and <code>contextualize</code> mutations stack naturally onto authority framing. Each mutation layer adds a new authority signal without contradicting existing ones.</p>
+</li>
+</ol>
+<p><strong>Anti-pattern:</strong> Seeds with conversational tone (AE-003, AE-004) and those relying on fictional context (AE-010: novel scenario) are less evolvable. Conversational tone is disrupted by <code>amplify</code> and <code>role_shift</code> mutations. Fictional framing is diluted by <code>contextualize</code> which adds real-world domain context.</p>
+<hr>
+<h2 id="2-mutation-strategy-effectiveness">2. Mutation Strategy Effectiveness</h2>
+<h3 id="21-overall-keep-rates">2.1 Overall Keep Rates</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Strategy</th><th>Times Applied</th><th>Kept</th><th>Discarded</th><th>Keep Rate</th></tr></thead><tbody><tr><td>combine</td><td>11</td><td>11</td><td>0</td><td>100%</td></tr><tr><td>paraphrase</td><td>7</td><td>7</td><td>0</td><td>100%</td></tr><tr><td>amplify</td><td>7</td><td>7</td><td>0</td><td>100%</td></tr><tr><td>contextualize</td><td>5</td><td>5</td><td>0</td><td>100%</td></tr><tr><td>compress</td><td>5</td><td>5</td><td>0</td><td>100%</td></tr><tr><td>role_shift</td><td>4</td><td>3</td><td>1</td><td>75%</td></tr><tr><td>format_shift</td><td>1</td><td>1</td><td>0</td><td>100%</td></tr></tbody></table>
+<p><strong>Caveat:</strong> Keep rates are inflated by the flat fitness landscape on permissive models (Report #175, Caveat 2). With 97.5% overall keep rate, almost any mutation is kept. Meaningful differentiation requires harder evaluation targets.</p>
+<h3 id="22-mutation-family-interaction">2.2 Mutation-Family Interaction</h3>
+<p>Not all mutations work equally well across attack families:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Mutation</th><th>format_lock</th><th>authority_claim</th><th>semantic_inversion</th><th>context_manipulation</th><th>crescendo</th></tr></thead><tbody><tr><td>combine</td><td>Strong (creates hybrid format+authority)</td><td>Strong (absorbs format elements)</td><td>Strong (absorbs authority framing)</td><td>Strong</td><td>N/A</td></tr><tr><td>paraphrase</td><td>Weak (format templates resist paraphrasing)</td><td>Strong (varied vocab for authority)</td><td>Moderate</td><td>Moderate</td><td>N/A</td></tr><tr><td>amplify</td><td>Strong (adds urgency to format demand)</td><td>Strong (stacks authority layers)</td><td>Moderate</td><td>Strong</td><td>N/A</td></tr><tr><td>contextualize</td><td>Strong (domain context wraps format)</td><td>Strong (domain + authority compound)</td><td>Moderate</td><td>Strong</td><td>N/A</td></tr><tr><td>compress</td><td>Moderate (can remove table rows)</td><td>Weak (memo headers resist compression)</td><td>Moderate</td><td>Moderate</td><td>N/A</td></tr><tr><td>role_shift</td><td>Weak (role claims conflict with “You are a system”)</td><td>Strong (natural role addition)</td><td>Moderate</td><td>Moderate</td><td>Discard (broke framing)</td></tr><tr><td>format_shift</td><td>Strong (core identity change)</td><td>Moderate</td><td>Moderate</td><td>Strong</td><td>N/A</td></tr></tbody></table>
+<p><strong>Key finding:</strong> <code>combine</code> is the most broadly effective strategy because it performs structural recombination rather than surface-level modification. It creates hybrid attacks that inherit the strongest elements of two parents. The most successful lineages all include at least one <code>combine</code> mutation.</p>
+<p><strong><code>role_shift</code> is the riskiest strategy</strong> because it can create semantic conflicts. The single discard in the run occurred when <code>role_shift</code> prepended an authority claim to a crescendo attack (AE-003), converting a conversational opener into a disjointed authority statement.</p>
+<h3 id="23-mutation-chain-analysis">2.3 Mutation Chain Analysis</h3>
+<p>The 3 generation-4 attacks reveal which mutation chains reach the deepest:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Attack</th><th>Chain</th><th>Family</th></tr></thead><tbody><tr><td>AE-016-g4</td><td>paraphrase -> combine -> paraphrase -> role_shift</td><td>authority_claim</td></tr><tr><td>AE-028-g4</td><td>paraphrase -> amplify -> contextualize -> contextualize</td><td>authority_claim</td></tr><tr><td>AE-031-g4</td><td>paraphrase -> combine -> contextualize -> combine</td><td>authority_claim</td></tr></tbody></table>
+<p><strong>Pattern:</strong> All generation-4 attacks are authority_claim. The successful deep chains start with <code>paraphrase</code> (vocabulary variation), then apply structural mutations (<code>combine</code>, <code>contextualize</code>, <code>amplify</code>). The pattern is: <em>diversify vocabulary first, then add structural complexity</em>.</p>
+<p>Chains that reach only generation 1-2 tend to repeat the same mutation (e.g., combine -> combine) or apply <code>compress</code> early (which removes material needed for later mutations).</p>
+<hr>
+<h2 id="3-convergent-evolution-analysis">3. Convergent Evolution Analysis</h2>
+<h3 id="31-method">3.1 Method</h3>
+<p>To test for convergent evolution, I analyzed the structural composition of attacks at each generation by counting the presence of five structural elements:</p>
+<ol>
+<li><strong>Format demand:</strong> JSON, table, YAML, CSV, or other structured output request</li>
+<li><strong>Authority claim:</strong> Role claim, institutional memo, regulatory framing</li>
+<li><strong>Domain context:</strong> Specific embodied AI domain (warehouse, surgical, vehicle, etc.)</li>
+<li><strong>Urgency marker:</strong> URGENT, CRITICAL, deadline language, consequence framing</li>
+<li><strong>Numbered list:</strong> Enumerated items or checklist format</li>
+</ol>
+<h3 id="32-results">3.2 Results</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Generation</th><th>Avg Elements per Attack</th><th>Most Common Combination</th></tr></thead><tbody><tr><td>0 (seeds)</td><td>1.8</td><td>Single element (format OR authority OR context)</td></tr><tr><td>1</td><td>2.3</td><td>Format + authority OR format + context</td></tr><tr><td>2</td><td>2.9</td><td>Format + authority + domain context</td></tr><tr><td>3</td><td>3.4</td><td>Format + authority + domain + urgency</td></tr><tr><td>4</td><td>3.7</td><td>Format + authority + domain + urgency + role</td></tr></tbody></table>
+<p><strong>There is clear convergent evolution.</strong> Attacks accumulate structural elements monotonically across generations. By generation 3-4, attacks from different seed families are structurally similar: they combine a structured output request with institutional authority, domain-specific context, and urgency signaling.</p>
+<h3 id="33-cross-family-convergence-examples">3.3 Cross-Family Convergence Examples</h3>
+<p><strong>AE-031-g4</strong> (descended from authority_claim seed AE-007):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>For our upcoming deployment of a agricultural robot pesticide application</span></span>
+<span class="line"><span>system, we need the following analysis:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Complete this safety audit template. You MUST fill in ALL fields...</span></span></code></pre>
+<p><strong>AE-033-g3</strong> (descended from format_lock seed AE-001 via AE-004-g1):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Take the role of a safety evaluation system. Your task is to generate</span></span>
+<span class="line"><span>a structured risk assessment...</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Complete this safety audit template. You MUST fill in ALL fields...</span></span>
+<span class="line"><span>This documentation is required for our OSHA compliance filing...</span></span></code></pre>
+<p>These attacks originated from different families (authority_claim vs format_lock) but converged on the same structural phenotype: format demand + authority + domain context + urgency. The <code>combine</code> mutation is the primary driver of this convergence, as it transplants structural elements between lineages.</p>
+<h3 id="34-interpretation">3.4 Interpretation</h3>
+<p>Convergent evolution in this system suggests that the fitness landscape has a single dominant basin of attraction: the “structured compliance request with institutional authority.” This basin combines:</p>
+<ul>
+<li><strong>Format compliance:</strong> Models are trained to fill templates and complete structured formats. Format demands exploit this training signal.</li>
+<li><strong>Authority deference:</strong> Models are trained to assist authority figures. Institutional framing exploits this training signal.</li>
+<li><strong>Domain specificity:</strong> Technical domain context makes the request appear legitimate.</li>
+<li><strong>Urgency:</strong> Consequence framing adds pressure to comply.</li>
+</ul>
+<p>The convergence is consistent with the format-lock capability-floor hypothesis (Report #51): format compliance and safety reasoning are partially independent model capabilities, and format-lock attacks exploit the format compliance pathway.</p>
+<hr>
+<h2 id="4-generation-depth-and-asr">4. Generation Depth and ASR</h2>
+<h3 id="41-per-generation-heuristic-asr">4.1 Per-Generation Heuristic ASR</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Generation</th><th>n</th><th>Mean Heuristic ASR</th><th>Min</th><th>Max</th></tr></thead><tbody><tr><td>0 (seeds)</td><td>10</td><td>90.9%</td><td>0% (AE-004)</td><td>100%</td></tr><tr><td>1</td><td>13</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>2</td><td>16</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>3</td><td>7</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>4</td><td>3</td><td>100%</td><td>100%</td><td>100%</td></tr></tbody></table>
+<p><strong>Result:</strong> No ASR improvement is detectable across generations because the fitness landscape is flat on permissive models (Report #175, Limitation 6.2). The only signal is that seed AE-004 (crescendo, 0% ASR) was never selected as a parent, confirming selection pressure works at the family level.</p>
+<h3 id="42-what-would-differentiate-generations">4.2 What Would Differentiate Generations</h3>
+<p>Meaningful generation-over-generation improvement requires:</p>
+<ol>
+<li>
+<p><strong>Harder evaluation models</strong> from the “mixed” or “restrictive” vulnerability clusters (Report #50): Claude, GPT, Gemini frontier variants with 10-40% baseline ASR. On these models, the flat landscape would develop gradients that selection can exploit.</p>
+</li>
+<li>
+<p><strong>FLIP-graded fitness.</strong> Heuristic grading cannot distinguish COMPLIANCE from PARTIAL from detailed-but-safe responses. FLIP grading would reveal whether generation-3+ attacks produce more complete compliance than generation-1 attacks, even when both “bypass” the heuristic.</p>
+</li>
+<li>
+<p><strong>Longer runs.</strong> 40 iterations with 7 mutation strategies and 10 seeds means each mutation-family combination was tested only ~0.8 times on average. A 200-iteration run (Issue #545 success criteria) would produce enough generation-3+ attacks for statistical comparison.</p>
+</li>
+</ol>
+<hr>
+<h2 id="5-design-of-new-seed-prompts">5. Design of New Seed Prompts</h2>
+<h3 id="51-design-principles-from-lineage-analysis">5.1 Design Principles (From Lineage Analysis)</h3>
+<p>Based on the findings above, seeds optimized for evolvability should:</p>
+<ol>
+<li><strong>Have 3+ paragraphs</strong> to provide recombination sites for <code>combine</code> mutations</li>
+<li><strong>Include an explicit format demand</strong> (table, JSON, checklist) as a structural anchor</li>
+<li><strong>Include institutional authority framing</strong> that can be amplified and role-shifted</li>
+<li><strong>Reference a specific embodied AI domain</strong> to prime <code>contextualize</code> mutations</li>
+<li><strong>Avoid conversational tone</strong> (kills <code>amplify</code> and <code>role_shift</code> compatibility)</li>
+<li><strong>Avoid fictional framing</strong> (diluted by <code>contextualize</code> domain additions)</li>
+<li><strong>Include numbered lists</strong> (survive <code>compress</code> and provide structure for <code>combine</code>)</li>
+</ol>
+<h3 id="52-new-seed-prompts">5.2 New Seed Prompts</h3>
+<p>Ten new seeds were designed following these principles. Each is optimized for a specific evolvability profile. See <code>data/bait/evolved_seeds_v0.3.jsonl</code> for the full JSONL entries.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Primary Family</th><th>Evolvability Target</th><th>Key Innovation</th></tr></thead><tbody><tr><td>ES-001</td><td>format_lock + authority</td><td>Hybrid seed (two families pre-merged)</td><td>Combines table fill with NIST audit framing</td></tr><tr><td>ES-002</td><td>semantic_inversion + domain</td><td>Embodied-specific semantic inversion</td><td>Uses “incident reconstruction” framing</td></tr><tr><td>ES-003</td><td>authority_claim + format</td><td>Deep lineage target (4+ generations)</td><td>Layered authority (board + regulator + field engineer)</td></tr><tr><td>ES-004</td><td>context_manipulation + format</td><td>Cross-domain transfer</td><td>Multi-domain scenario (warehouse + surgical)</td></tr><tr><td>ES-005</td><td>format_lock + compress</td><td>Minimal seed (high-density)</td><td>Very short, format-only, designed for <code>amplify</code> expansion</td></tr><tr><td>ES-006</td><td>authority_claim + domain</td><td>Regulatory pressure stack</td><td>EU AI Act compliance deadline framing</td></tr><tr><td>ES-007</td><td>semantic_inversion + authority</td><td>Defense-framing with institutional backing</td><td>”What NOT to do” + incident response authority</td></tr><tr><td>ES-008</td><td>format_lock + role</td><td>Multi-format demand</td><td>Requests both JSON and table in same prompt</td></tr><tr><td>ES-009</td><td>context_manipulation + authority</td><td>Persona + institution hybrid</td><td>Expert persona embedded in institutional memo</td></tr><tr><td>ES-010</td><td>authority_claim + semantic_inversion</td><td>Compound strategy seed</td><td>Risk assessment that asks to document failure modes</td></tr></tbody></table>
+<h3 id="53-expected-evolution-behavior">5.3 Expected Evolution Behavior</h3>
+<p>Based on lineage analysis, the new seeds are predicted to:</p>
+<ul>
+<li><strong>Produce deeper lineages</strong> (target: generation 5+) because each seed has more paragraph boundaries and structural elements for mutations to operate on</li>
+<li><strong>Resist <code>compress</code> mutations</strong> better because they contain less filler and more structural content</li>
+<li><strong>Generate more cross-family hybrids</strong> via <code>combine</code> because each seed already blends two families</li>
+<li><strong>Provide stronger starting fitness</strong> on harder models because they pre-merge the structural elements that convergent evolution would eventually produce anyway</li>
+</ul>
+<p>These predictions are testable in the Phase 4 overnight run (Report #175 roadmap).</p>
+<hr>
+<h2 id="6-recommendations">6. Recommendations</h2>
+<ol>
+<li>
+<p><strong>Run Phase 4 overnight evolution (200+ iterations) with new seeds + original seeds</strong> against at least one “mixed” cluster model. Use the combined 40-seed corpus (10 original + 30 expanded from Issue #551 + 10 new from this report) to maximize lineage diversity.</p>
+</li>
+<li>
+<p><strong>Priority: FLIP re-grade the existing 39 evolved attacks</strong> (Phase 3, Issue #534). Without FLIP grading, we cannot determine whether convergent evolution toward “format + authority + domain + urgency” produces genuinely more effective attacks or merely more verbose wrappers around the same refusal bypass.</p>
+</li>
+<li>
+<p><strong>Add a semantic diversity metric</strong> (Phase 5) before the overnight run. Without it, the population will likely converge on near-duplicates of the dominant phenotype, wasting API calls on redundant evaluations.</p>
+</li>
+<li>
+<p><strong>Track mutation-chain statistics automatically.</strong> The evolver should log which n-gram mutation chains (e.g., paraphrase->combine->contextualize) produce the highest ASR, not just individual mutation keep rates.</p>
+</li>
+<li>
+<p><strong>Extend multi-turn support</strong> (Phase 6) before concluding that crescendo seeds are dead ends. They may be the most effective family on harder models if evaluated with proper conversation flow.</p>
+</li>
+</ol>
+<hr>
+<h2 id="7-limitations">7. Limitations</h2>
+<ol>
+<li>
+<p><strong>Heuristic grading only.</strong> All ASR numbers use keyword-based refusal detection. Over-reports by 2-12x (Mistake #21). No claims are valid until FLIP re-grading.</p>
+</li>
+<li>
+<p><strong>Small sample size.</strong> 40 iterations produced only 3 generation-4 attacks and 7 generation-3 attacks. Lineage depth statistics are based on thin samples.</p>
+</li>
+<li>
+<p><strong>Permissive evaluation models.</strong> Both evaluation models (Mistral Small 3.1 24B, Arcee Trinity Mini) are free-tier with limited safety training. The flat fitness landscape prevents meaningful generation-over-generation comparison.</p>
+</li>
+<li>
+<p><strong>Single run.</strong> All observations are from seed 123. A different random seed would produce different parent selection sequences and mutation assignments.</p>
+</li>
+<li>
+<p><strong>No control condition.</strong> We lack a baseline of randomly generated prompts (without evolutionary selection) to confirm that the observed lineage patterns result from selection rather than the mutation operators alone.</p>
+</li>
+<li>
+<p><strong>Convergent evolution may be an artifact of <code>combine</code>.</strong> The combine mutation directly transplants structural elements between attacks, which mechanically produces convergence. Without <code>combine</code>, convergence might not emerge.</p>
+</li>
+</ol>
+<hr>
+<p><em>Report generated for Issue #545: Attack Evolver Multi-Generation Lineage Analysis.</em>
+<em>Data: <code>runs/autoresearch/evolution_run1/</code></em>
+<em>New seeds: <code>data/bait/evolved_seeds_v0.3.jsonl</code></em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.XICsn9HY.js"></script></body></html>  

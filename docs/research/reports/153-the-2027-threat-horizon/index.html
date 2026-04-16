@@ -1,0 +1,430 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First</title><meta name="description" content="The Failure-First research programme has accumulated substantial evidence about embodied AI safety failures across 190 models, 132,182 evaluation results,..."><link rel="canonical" href="https://failurefirst.org/research/reports/153-the-2027-threat-horizon/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First"><meta property="og:description" content="The Failure-First research programme has accumulated substantial evidence about embodied AI safety failures across 190 models, 132,182 evaluation results,..."><meta property="og:url" content="https://failurefirst.org/research/reports/153-the-2027-threat-horizon/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First"><meta name="twitter:description" content="The Failure-First research programme has accumulated substantial evidence about embodied AI safety failures across 190 models, 132,182 evaluation results,..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-19"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-19"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/153-the-2027-threat-horizon/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/153-the-2027-threat-horizon/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The 2027 Threat Horizon -- Five Falsifiable Predictions for Embodied AI Safety | Research | Failure-First","description":"The Failure-First research programme has accumulated substantial evidence about embodied AI safety failures across 190 models, 132,182 evaluation results,...","url":"https://failurefirst.org/research/reports/153-the-2027-threat-horizon/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-19","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.C82-ld8d.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"3b781b57ae6e94a1a572d0e81556bba36ac6d6f3"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 153</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 153"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 153</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-19</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <blockquote>
+<p><strong>Disclaimer:</strong> This report contains five specific predictions about embodied AI safety
+developments in 2027. These predictions are falsifiable and time-bounded. They are
+informed by the Failure-First research programme and published external research, but
+they are predictions, not findings. Each prediction should be evaluated against the
+evidence base described and the verification criteria specified. This document will be
+reassessed against reality in March 2027.</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>The Failure-First research programme has accumulated substantial evidence about embodied AI safety failures across 190 models, 132,182 evaluation results, and 120 governance lag index entries over fourteen months of operation. This report synthesises that evidence into five specific, falsifiable predictions for the calendar year 2027.</p>
+<p>The predictions span five domains: adversarial physical attacks on autonomous systems (P9), compositional safety failures in production (P10), regulatory mandates for compositional testing (P11), humanoid robot deployment scale (P12), and iatrogenic safety incidents (P13). Each prediction includes the evidence basis, a confidence level with explicit reasoning, and verification criteria that will allow unambiguous assessment in twelve months.</p>
+<p>The overarching trajectory: embodied AI is entering a deployment phase where the gap between deployment scale and evaluation capability will produce observable incidents. The question is not whether these incidents will occur, but which will be publicly documented first and what governance responses they will trigger.</p>
+<hr>
+<h2 id="1-prediction-framework">1. Prediction Framework</h2>
+<h3 id="11-methodology">1.1 Methodology</h3>
+<p>Each prediction follows a structured format:</p>
+<ul>
+<li><strong>Statement:</strong> The specific claim, scoped in time (calendar year 2027) and domain.</li>
+<li><strong>Evidence basis:</strong> The data supporting the prediction, with sources.</li>
+<li><strong>Confidence level:</strong> LOW / MEDIUM / HIGH, with explicit reasoning.</li>
+<li><strong>Verification criteria:</strong> Observable conditions that would confirm or refute the prediction.</li>
+<li><strong>Failure modes:</strong> Conditions under which the prediction could fail despite the underlying trend being real.</li>
+</ul>
+<h3 id="12-relationship-to-existing-predictions">1.2 Relationship to Existing Predictions</h3>
+<p>This report adds P9 through P13 to the prediction tracker in <code>data/governance/THREAT_HORIZON.md</code>. Existing predictions P1—P8 remain active and are tracked separately. The new predictions address longer-horizon outcomes (12-month window) compared to P1—P8, which address structural conditions already in evidence.</p>
+<h3 id="13-base-rate-calibration">1.3 Base Rate Calibration</h3>
+<p>Prediction calibration requires honest assessment of base rates. As of March 2026:</p>
+<ul>
+<li><strong>Zero</strong> publicly confirmed adversarial-patch-caused autonomous vehicle incidents have been reported.</li>
+<li><strong>Zero</strong> confirmed compositional safety failures (CoLoRA-class) have been documented in production systems (CoLoRA was demonstrated in controlled research).</li>
+<li><strong>Zero</strong> jurisdictions mandate compositional safety testing for AI systems.</li>
+<li>Humanoid robot deployment in commercial settings is estimated at low thousands (exact figures not publicly available; most deployments are pilot-scale).</li>
+<li><strong>Zero</strong> formally documented iatrogenic AI safety incidents exist in any incident database.</li>
+</ul>
+<p>All five predictions assert that something currently at zero will transition to non-zero within twelve months. This is a meaningful claim in each case.</p>
+<hr>
+<h2 id="2-the-five-predictions">2. The Five Predictions</h2>
+<h3 id="p9-first-publicly-reported-autonomous-vehicle-incident-caused-by-adversarial-patch-attack">P9: First Publicly Reported Autonomous Vehicle Incident Caused by Adversarial Patch Attack</h3>
+<p><strong>Statement:</strong> By December 31, 2027, at least one publicly reported incident will document an autonomous vehicle (AV) behaving unsafely due to an adversarial patch, sticker, or projected visual perturbation in its operating environment.</p>
+<p><strong>Evidence basis:</strong></p>
+<ol>
+<li>
+<p><em>Laboratory demonstrations are mature.</em> AV adversarial patch attacks have been demonstrated in controlled settings since at least 2018 (Eykholt et al., “Robust Physical-World Attacks on Deep Learning Models”). Zhu et al. (2026) report 81.8% ASR for autonomous vehicle hijack in simulation. Blindfold (arXiv:2603.01414) achieves 53% ASR improvement on a real 6-DoF arm using semantically benign instructions — demonstrating that physical-domain attacks transfer from lab to hardware.</p>
+</li>
+<li>
+<p><em>VLA backbone adoption lowers the barrier.</em> XPENG VLA 2.0 uses a single foundation model backbone across its vehicle, humanoid robot, and flying car product lines. Backbone-transfer attacks (BadVLA: near-100% ASR on pi0 and OpenVLA) become more economical when a single patch could affect an entire product family. The shift from narrow perception models to general VLA backbones expands the attack surface from classifier-specific perturbations to general foundation model manipulation.</p>
+</li>
+<li>
+<p><em>AV deployment scale is approaching critical mass.</em> Waymo, Baidu Apollo, and Cruise (post-restart) are expanding ride-hail operations. Waymo completed over 150,000 paid rides per week by late 2025. The larger the fleet, the higher the probability that an adversarial perturbation (whether deliberate or coincidental) produces an observable incident.</p>
+</li>
+<li>
+<p><em>Governance response is reactive.</em> GLI entry gli_119 (Cruise pedestrian drag incident) demonstrates that AV safety governance responds to incidents, not to demonstrated attack surfaces. No jurisdiction mandates adversarial robustness testing for AV perception systems. The attack surface exists, has been demonstrated, and lacks proactive regulatory coverage.</p>
+</li>
+</ol>
+<p><strong>Confidence:</strong> MEDIUM (50-65%)</p>
+<p><strong>Reasoning:</strong> The technical capability is mature and the attack surface is demonstrated, but deliberate adversarial attacks on AVs require an actor with both capability and motivation in a real-world setting. The prediction may also be satisfied by an accidental adversarial perturbation (e.g., unusual signage or environmental conditions that exploit the same perception vulnerabilities as deliberate patches). The “publicly reported” criterion adds uncertainty: incidents may occur but be classified as perception failures without adversarial attribution.</p>
+<p><strong>Verification criteria:</strong></p>
+<ul>
+<li>A published incident report (from an AV operator, regulator, insurer, or media investigation) documenting AV misbehavior attributed to visual environmental manipulation or anomalous visual input that exploits perception system vulnerabilities.</li>
+<li>The report need not use the term “adversarial patch” — any attribution to visual perturbation, unusual signage, projected imagery, or environmental manipulation satisfies the criterion.</li>
+<li>Near-miss incidents count if formally documented. Incidents attributed to sensor failure without adversarial attribution do not count.</li>
+</ul>
+<p><strong>Failure modes:</strong></p>
+<ul>
+<li>AV operators successfully detect and mitigate adversarial inputs before they cause observable incidents (possible but would require undisclosed robustness improvements).</li>
+<li>Incidents occur but are not publicly reported due to corporate non-disclosure or regulatory opacity.</li>
+<li>The transition from narrow perception models to VLA backbones is slower than anticipated, keeping the attack surface more constrained.</li>
+</ul>
+<hr>
+<h3 id="p10-first-confirmed-compositional-safety-failure-in-production-colora-class">P10: First Confirmed Compositional Safety Failure in Production (CoLoRA-Class)</h3>
+<p><strong>Statement:</strong> By December 31, 2027, at least one confirmed case will be publicly documented in which an AI system deployed in production experienced a safety failure attributable to the composition of individually verified components — where each component passed safety evaluation but the composed system exhibited unsafe behavior.</p>
+<p><strong>Evidence basis:</strong></p>
+<ol>
+<li>
+<p><em>CoLoRA demonstrates the mechanism.</em> Ding et al. (arXiv:2603.12681, Mercedes-Benz R&#x26;D) showed that individually benign LoRA adapters suppress refusal when composed. The attack requires no adversarial prompt; composition alone is sufficient. Each adapter passes safety evaluation individually; the composed system fails.</p>
+</li>
+<li>
+<p><em>The LoRA ecosystem is massive and growing.</em> Hugging Face hosts over 500,000 public LoRA adapters. Production deployments routinely compose multiple adapters (task + domain + style). No safety verification standard requires testing adapter compositions (Report #138, GLI entry gli_114).</p>
+</li>
+<li>
+<p><em>Modular AI deployment is standard practice.</em> Beyond LoRA, production AI systems compose multiple components: retrieval-augmented generation (RAG) with external knowledge bases, tool-use chains, multi-agent orchestration, plugin ecosystems. Each component is typically tested in isolation. MCP (Model Context Protocol) adoption accelerates component composition without safety composition guarantees (GLI entries gli_036, gli_037).</p>
+</li>
+<li>
+<p><em>The Polypharmacy Hypothesis (Report #151) predicts interaction effects scale superlinearly.</em> As the number of safety interventions and model components increases, the number of pairwise (and higher-order) interactions grows combinatorially. The probability that at least one interaction produces an adverse safety outcome increases with ecosystem scale.</p>
+</li>
+</ol>
+<p><strong>Confidence:</strong> MEDIUM-HIGH (60-75%)</p>
+<p><strong>Reasoning:</strong> The mechanism is demonstrated, the ecosystem conditions are present, and compositional deployment is standard practice. The primary uncertainty is attribution: compositional safety failures may occur but be attributed to other causes (e.g., “the model hallucinated” rather than “the adapter composition suppressed safety”). The prediction requires public documentation with compositional attribution, which depends on both the incident occurring and its root cause being correctly identified.</p>
+<p><strong>Verification criteria:</strong></p>
+<ul>
+<li>A published report (academic paper, security advisory, incident report, or investigative journalism) documenting a production AI system safety failure where the root cause is identified as component interaction — not individual component failure.</li>
+<li>The report must establish that the individual components were verified or tested and that the failure emerged from their composition.</li>
+<li>Reports of RAG poisoning, tool-chain hijacking, or multi-agent coordination failures count if the compositional attribution is explicit. General model failures without compositional analysis do not count.</li>
+</ul>
+<p><strong>Failure modes:</strong></p>
+<ul>
+<li>Compositional failures occur but are misattributed to individual component bugs, concealing the compositional root cause.</li>
+<li>The LoRA ecosystem shifts toward merged models (single checkpoint) rather than runtime composition, reducing the compositional attack surface.</li>
+<li>Security teams begin testing compositions proactively (low probability given current standards gap, but possible in high-risk sectors like automotive following Mercedes-Benz R&#x26;D’s own CoLoRA work).</li>
+</ul>
+<hr>
+<h3 id="p11-at-least-one-jurisdiction-mandates-compositional-safety-testing">P11: At Least One Jurisdiction Mandates Compositional Safety Testing</h3>
+<p><strong>Statement:</strong> By December 31, 2027, at least one national or supranational regulatory body will publish a binding or formally proposed requirement that AI systems undergo safety testing of component interactions, not only individual components. This may take the form of legislation, a regulatory standard, a conformity assessment requirement, or an enforceable guidance document.</p>
+<p><strong>Evidence basis:</strong></p>
+<ol>
+<li>
+<p><em>EU AI Act high-risk provisions activate August 2, 2026.</em> The high-risk AI system requirements (Articles 6-49) become applicable, including Article 9 (risk management) and Article 43 (conformity assessment). The European Commission must adopt delegated acts specifying conformity assessment procedures. These acts are being drafted now and will reflect the state of technical knowledge at time of drafting. CoLoRA (from Mercedes-Benz R&#x26;D, an EU automotive manufacturer) may influence CEN/CENELEC standardisation work.</p>
+</li>
+<li>
+<p><em>EU Machinery Regulation (2023/1230) applies from January 20, 2027.</em> This regulation explicitly covers AI-integrated machinery and requires conformity assessment of safety-critical digital components. Machinery integrators who combine AI modules from multiple suppliers face the compositional safety question directly. The regulation’s essential health and safety requirements (EHSR) implicitly demand that integrated systems be safe, which compositional testing would address.</p>
+</li>
+<li>
+<p><em>Standards body activity is increasing.</em> ISO/IEC JTC 1/SC 42 (Artificial Intelligence) has active working groups on AI testing (ISO/IEC 29119-11) and AI risk management (ISO/IEC 23894). NIST is revising the AI RMF. Standards Australia SA/ICT-043 has an active consultation process. The Failure-First SWA submission (#324) and F1-STD-001 draft standard (#383) both explicitly recommend compositional safety testing requirements.</p>
+</li>
+<li>
+<p><em>Automotive sector pressure.</em> Mercedes-Benz R&#x26;D authored CoLoRA, demonstrating awareness of the problem within the industry. UNECE WP.29 (vehicle regulation) has active work on cybersecurity and software updates (UN Reg. 155/156). Automotive OEMs face compositional safety challenges as they integrate VLA backbones across product lines.</p>
+</li>
+</ol>
+<p><strong>Confidence:</strong> LOW-MEDIUM (30-45%)</p>
+<p><strong>Reasoning:</strong> This is the most uncertain of the five predictions because regulatory timelines are structurally slow. The EU AI Act delegated acts are the most likely vehicle, but the drafting process is already underway and may not incorporate compositional testing given the recency of CoLoRA. A formally proposed requirement (as opposed to an enacted one) is more likely within the timeframe. The prediction may be satisfied by a proposed amendment, consultation draft, or harmonised standard rather than final legislation. National regulators (e.g., AU AISI, UK DSIT) could also issue binding guidance more quickly than the EU legislative process.</p>
+<p><strong>Verification criteria:</strong></p>
+<ul>
+<li>A published regulatory instrument (law, regulation, delegated act, harmonised standard, or binding guidance) from any national or supranational authority that explicitly requires testing AI system safety at the composed or integrated level, not only at the component level.</li>
+<li>A formally proposed instrument (consultation draft, proposed rule, draft delegated act) counts as partial confirmation. A voluntary guideline or best-practice document does not count unless it is referenced by a binding instrument.</li>
+<li>The requirement must specifically address composition/integration, not merely “system-level testing” without reference to component interaction.</li>
+</ul>
+<p><strong>Failure modes:</strong></p>
+<ul>
+<li>Regulatory timelines are slower than anticipated (the most likely failure mode — governance lag is the core finding of the GLI dataset).</li>
+<li>CoLoRA and related findings do not reach the attention of standards drafters before deadlines close.</li>
+<li>Jurisdictions address the problem through existing frameworks (e.g., interpreting EU AI Act Article 9 as already requiring compositional testing) without publishing new requirements.</li>
+</ul>
+<hr>
+<h3 id="p12-humanoid-robot-deployment-exceeds-10000-units-in-commercial-settings">P12: Humanoid Robot Deployment Exceeds 10,000 Units in Commercial Settings</h3>
+<p><strong>Statement:</strong> By December 31, 2027, the cumulative number of humanoid robots deployed in commercial, industrial, or service settings (excluding research labs and trade-show demonstrations) will exceed 10,000 units globally.</p>
+<p><strong>Evidence basis:</strong></p>
+<ol>
+<li>
+<p><em>Manufacturer announcements indicate aggressive scaling.</em> XPENG Iron (Unitree H1-based) announced mass production for end-2026. Tesla has stated Optimus production targets of “thousands” for 2025 and volume production for 2026. Figure AI has commercial partnerships (BMW). Unitree has shipped the G1 and H1 series. Agility Robotics (Digit) has Amazon logistics deployment. Multiple Chinese manufacturers (Fourier, UBTech, Agibot) are in pilot or pre-production phases.</p>
+</li>
+<li>
+<p><em>Chinese industrial policy is driving scale.</em> The Chinese government’s 2024 humanoid robot development plan targets mass production capability by 2025 and broad deployment by 2027. Provincial subsidies and procurement mandates are accelerating adoption in manufacturing, logistics, and elderly care. Reports indicate over 100 humanoid robot companies in China as of 2025.</p>
+</li>
+<li>
+<p><em>Cost reduction is enabling commercial viability.</em> Unitree G1 pricing is reported under <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo separator="true">,</mo><mn>000.</mn><mi>X</mi><mi>P</mi><mi>E</mi><mi>N</mi><mi>G</mi><mi>I</mi><mi>r</mi><mi>o</mi><mi>n</mi><mi>t</mi><mi>a</mi><mi>r</mi><mi>g</mi><mi>e</mi><mi>t</mi><mi>s</mi><mi>s</mi><mi>u</mi><mi>b</mi><mo>−</mo></mrow><annotation encoding="application/x-tex">20,000. XPENG Iron targets sub-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">20</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">000.</span><span class="mord mathnormal" style="margin-right:0.0785em;">X</span><span class="mord mathnormal" style="margin-right:0.1389em;">P</span><span class="mord mathnormal" style="margin-right:0.0576em;">E</span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mord mathnormal">G</span><span class="mord mathnormal" style="margin-right:0.0785em;">I</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal">n</span><span class="mord mathnormal">t</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.0278em;">r</span><span class="mord mathnormal" style="margin-right:0.0359em;">g</span><span class="mord mathnormal">e</span><span class="mord mathnormal">t</span><span class="mord mathnormal">ss</span><span class="mord mathnormal">u</span><span class="mord mathnormal">b</span><span class="mord">−</span></span></span></span>10,000 for volume production. At these price points, humanoid robots become economically competitive with industrial automation in some logistics and service applications.</p>
+</li>
+<li>
+<p><em>Non-humanoid precedent suggests the trajectory is plausible.</em> Australia alone had 700+ autonomous haul trucks operational by 2022 and >1,800 forecast by end-2025. These are large, expensive units. Smaller, cheaper humanoid robots scaling to 10,000 globally is consistent with this trajectory.</p>
+</li>
+</ol>
+<p><strong>Confidence:</strong> MEDIUM (45-60%)</p>
+<p><strong>Reasoning:</strong> The prediction depends on manufacturer execution of stated production targets. Historical experience with robotics production targets suggests significant optimism bias — stated timelines typically slip 12-24 months. However, the Chinese industrial policy driver is a significant accelerant that did not exist in previous humanoid robot waves (Honda ASIMO, Boston Dynamics Atlas). The 10,000-unit threshold is deliberately conservative relative to manufacturer announcements; the uncertainty is in whether 2027 or 2028 is the crossing point. The prediction counts cumulative deployment, not units in active operation, which is a lower bar.</p>
+<p><strong>Verification criteria:</strong></p>
+<ul>
+<li>Credible public reporting (manufacturer disclosures, industry analyst reports, regulatory filings, or investigative journalism) indicating cumulative humanoid robot shipments or deployments in commercial settings have exceeded 10,000 units globally.</li>
+<li>“Commercial settings” includes factories, warehouses, retail, hospitality, healthcare, and logistics. Research labs, university installations, and trade-show demonstrations do not count.</li>
+<li>If exact figures are not available, the prediction is considered confirmed if multiple independent sources report deployment at this order of magnitude (i.e., “tens of thousands” or “over ten thousand”).</li>
+</ul>
+<p><strong>Failure modes:</strong></p>
+<ul>
+<li>Production ramp-up is slower than announced (the historical base rate for robotics production targets).</li>
+<li>Safety incidents during early deployment cause regulatory slowdowns (possible given the governance vacuum documented in GLI).</li>
+<li>The definition of “humanoid” is contested — some semi-humanoid or human-shaped manipulators may or may not count. We define humanoid as bipedal or mobile with at least two articulated upper limbs capable of manipulation.</li>
+</ul>
+<hr>
+<h3 id="p13-first-iatrogenic-ai-safety-incident-formally-documented">P13: First Iatrogenic AI Safety Incident Formally Documented</h3>
+<p><strong>Statement:</strong> By December 31, 2027, at least one formally documented incident will describe a case where an AI safety mechanism (safety training, content filter, emergency stop, or safety monitoring system) was the proximate cause of physical harm or significant operational failure in an embodied or cyber-physical system.</p>
+<p><strong>Evidence basis:</strong></p>
+<ol>
+<li>
+<p><em>The iatrogenic mechanism is demonstrated at three layers.</em> Alignment Backfire (training), Blindfold (inference), and CoLoRA (weights) independently demonstrate that safety mechanisms can produce harmful outcomes (Reports #136, #140, #142). The Failure-First IEA (Iatrogenic Exploitation Attack) family has 12 scenarios and 36 collected traces demonstrating plausible iatrogenic attack configurations.</p>
+</li>
+<li>
+<p><em>Emergency stop hazards are already known in industrial robotics.</em> Industrial safety standards (ISO 10218, ISO/TS 15066) recognise that emergency stops can create hazards — a collaborative robot stopping suddenly while supporting a load may drop it, or a mobile robot stopping in a traffic lane may cause a collision. These are iatrogenic in the formal sense: the safety mechanism (emergency stop) creates the hazard. However, these are typically documented as “protective stop events” rather than safety mechanism failures, and attribution to the safety mechanism as proximate cause is not standard practice.</p>
+</li>
+<li>
+<p><em>Autonomous shuttle and surgical robot deployments create iatrogenic exposure.</em> Autonomous shuttles (e.g., Navya, EasyMile) use emergency braking that can injure standing passengers. Surgical robots (da Vinci, Hugo) have safety interlocks that can abort procedures mid-operation. In both cases, the safety mechanism’s activation creates a hazard that would not exist without the safety mechanism.</p>
+</li>
+<li>
+<p><em>No incident reporting framework captures iatrogenic attribution.</em> GLI entries gli_112 and gli_113 document the governance gap: no jurisdiction has a reporting mechanism that distinguishes “safety mechanism failed to prevent harm” from “safety mechanism caused harm.” The iatrogenic category does not exist in any incident taxonomy (NTSB, OSHA, EU RAPEX, or equivalent). This means the prediction may be satisfied by an incident that is documented for other reasons but whose iatrogenic character is identified by subsequent analysis.</p>
+</li>
+</ol>
+<p><strong>Confidence:</strong> MEDIUM (45-60%)</p>
+<p><strong>Reasoning:</strong> The iatrogenic pattern is well-established in adjacent domains (medical iatrogenesis accounts for an estimated 2.5 million patient safety incidents annually in the US alone). The AI safety equivalent is less likely to produce large-scale harm at this stage of deployment, but the structural conditions exist. The primary uncertainty is documentation: iatrogenic incidents may occur but be classified under existing categories (equipment malfunction, software error, operator error) rather than attributed to the safety mechanism itself. The prediction requires formal documentation, not just occurrence.</p>
+<p><strong>Verification criteria:</strong></p>
+<ul>
+<li>A published incident report, academic case study, regulatory finding, or investigative report that describes a case where an AI safety mechanism was the proximate cause of harm or significant operational failure.</li>
+<li>The report must identify the safety mechanism (not just the AI system) as causally contributing to the harm.</li>
+<li>Reports that describe emergency stop injuries, safety interlock failures, or content filter-caused operational disruptions all count if the causal role of the safety mechanism is documented.</li>
+<li>Partial confirmation: an incident report that describes the events but does not explicitly frame them as iatrogenic, where subsequent analysis by the research community identifies the iatrogenic pattern.</li>
+</ul>
+<p><strong>Failure modes:</strong></p>
+<ul>
+<li>Iatrogenic incidents occur but are classified as equipment malfunction or operator error, with the safety mechanism’s causal role unrecognised.</li>
+<li>Deployment timelines for safety-critical embodied AI systems slip, reducing the exposure window.</li>
+<li>The prediction requires formal documentation — informal reports, social media posts, or unverified claims do not satisfy the criterion.</li>
+</ul>
+<hr>
+<h2 id="3-cross-prediction-analysis">3. Cross-Prediction Analysis</h2>
+<h3 id="31-dependencies-between-predictions">3.1 Dependencies Between Predictions</h3>
+<p>The five predictions are partially correlated:</p>
+<ul>
+<li>P12 (deployment scale) is a precondition for P9 (AV incident), P10 (compositional failure), and P13 (iatrogenic incident). Higher deployment volume increases the probability of observable incidents.</li>
+<li>P10 (compositional failure) and P11 (regulatory mandate) are inversely linked: a publicly documented compositional failure (P10) would accelerate regulatory response (P11), while proactive regulation (P11) would reduce the probability of undetected compositional failures reaching production.</li>
+<li>P9 (AV incident) and P13 (iatrogenic incident) could overlap: an AV safety system’s response to a perceived adversarial perturbation (emergency braking) could itself cause harm, satisfying both predictions simultaneously.</li>
+</ul>
+<h3 id="32-joint-probability-assessment">3.2 Joint Probability Assessment</h3>
+<p>Given the partial correlations:</p>
+<ul>
+<li>Probability that at least one of P9—P13 is confirmed by end of 2027: <strong>HIGH (75-85%)</strong></li>
+<li>Probability that three or more are confirmed: <strong>LOW-MEDIUM (25-35%)</strong></li>
+<li>Probability that all five are confirmed: <strong>LOW (10-15%)</strong></li>
+</ul>
+<h3 id="33-the-governance-gap-as-structural-accelerant">3.3 The Governance Gap as Structural Accelerant</h3>
+<p>All five predictions are situated in the governance vacuum documented by the GLI dataset. Of the 120 GLI entries, 8+ have null GLI at all stages (no framework, no legislation, no enforcement). The historical base rate for governance response to AI attack surfaces is 3-10 years (adversarial examples: 9.2 years; prompt injection: 3.9 years and still pending full enforcement). Predictions P9, P10, and P13 assume that governance will not prevent the predicted incidents; P11 assumes governance will begin to respond. This is consistent with the pattern observed in GLI: governance responds to incidents, not to demonstrated attack surfaces.</p>
+<hr>
+<h2 id="4-monitoring-plan">4. Monitoring Plan</h2>
+<h3 id="41-leading-indicators">4.1 Leading Indicators</h3>
+<p>For each prediction, the following leading indicators will be monitored:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Prediction</th><th>Leading Indicator</th><th>Source</th></tr></thead><tbody><tr><td>P9 (AV adversarial)</td><td>AV incident reports mentioning “unusual object” or “perception anomaly”</td><td>NHTSA ODI, NTSB, Waymo/Cruise safety reports</td></tr><tr><td>P10 (compositional)</td><td>CVE/security advisory mentioning “component interaction” or “adapter composition”</td><td>NVD, HuggingFace security advisories, CERT/CC</td></tr><tr><td>P11 (regulatory)</td><td>CEN/CENELEC working group mandates, EU delegated act drafts, NIST RMF updates</td><td>Official gazettes, standards body meeting minutes</td></tr><tr><td>P12 (humanoid scale)</td><td>Manufacturer shipment disclosures, industry analyst estimates</td><td>IFR, company earnings reports, trade press</td></tr><tr><td>P13 (iatrogenic)</td><td>Incident reports where safety mechanism is named in causal chain</td><td>NTSB, OSHA, FDA MAUDE, EU RAPEX</td></tr></tbody></table>
+<h3 id="42-review-schedule">4.2 Review Schedule</h3>
+<ul>
+<li><strong>June 2026 (Q2):</strong> Interim check against leading indicators. Update confidence levels.</li>
+<li><strong>September 2026 (Q3):</strong> Mid-year review. Assess P11 (EU AI Act delegated acts timeline) and P12 (production announcements).</li>
+<li><strong>December 2026 (Q4):</strong> Pre-assessment. Identify any predictions that can be confirmed or refuted early.</li>
+<li><strong>March 2027:</strong> Full reassessment. Score all five predictions.</li>
+</ul>
+<hr>
+<h2 id="5-limitations">5. Limitations</h2>
+<ol>
+<li><strong>Prediction is inherently uncertain.</strong> Confidence levels reflect the author’s assessment and are not calibrated against a reference class of prior predictions (this is the first 12-month prediction set from the programme).</li>
+<li><strong>Publication bias in evidence base.</strong> The evidence basis is weighted toward published research and publicly available information. Corporate R&#x26;D, classified government programmes, and unpublished incident data are not included.</li>
+<li><strong>Deployment data is opaque.</strong> Humanoid robot deployment figures (P12) and AV fleet sizes are not consistently reported. The prediction relies on manufacturer announcements, which have a well-documented optimism bias.</li>
+<li><strong>Attribution challenges.</strong> Predictions P9, P10, and P13 all depend on correct attribution of incidents to their root cause. If incidents occur but are misattributed, the predictions will be scored as unconfirmed despite the underlying trend being real.</li>
+<li><strong>Single-researcher assessment.</strong> These predictions reflect the assessment of one analyst drawing on the Failure-First corpus. Multi-analyst prediction would improve calibration.</li>
+</ol>
+<hr>
+<h2 id="6-conclusions">6. Conclusions</h2>
+<p>The five predictions are anchored in documented technical capabilities, observable deployment trajectories, and quantified governance gaps. The common thread is the closing distance between demonstrated attack surfaces and real-world deployment conditions. The governance gap, measured at 3.9 to 9.2+ years for prior AI attack classes and null for embodied-specific risks, creates a window in which incidents are more likely to occur before protective measures are established.</p>
+<p>If these predictions prove accurate, they will validate the Failure-First programme’s core methodological claim: that studying failure modes proactively, before they manifest in production, produces actionable threat intelligence. If they prove inaccurate, the failure modes will be informative about our predictive methodology and should be documented with equal rigour.</p>
+<p>We will score these predictions in March 2027.</p>
+<hr>
+<h2 id="references">References</h2>
+<ol>
+<li>F41LUR3-F1R57. Report #117: Safety Improvement Paradox. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #133: Compositional Supply Chain Attacks. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #136: Iatrogenic Attack Surfaces. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #138: Compositional Safety Gap. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #140: Iatrogenesis of AI Safety. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #142: Iatrogenic Risk Horizon Threat Brief. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #145: Defense Impossibility Theorem. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #148: Iatrogenic Exploitation Attacks. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #151: The Polypharmacy Hypothesis. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Report #152: The Evaluation Crisis in Embodied AI Safety. 2026-03-18.</li>
+<li>Ding et al. “CoLoRA: Colluding LoRA Adapters for Safety Bypass.” arXiv:2603.12681. 2026.</li>
+<li>Fukui. “Alignment Backfire.” arXiv:2603.04904. 2026.</li>
+<li>Li et al. “Blindfold: Jailbreaking Embodied LLMs.” arXiv:2603.01414. ACM SenSys 2026.</li>
+<li>Eykholt et al. “Robust Physical-World Attacks on Deep Learning Models.” CVPR, 2018.</li>
+<li>Zhu et al. “Adversarial attacks on autonomous systems.” 2026.</li>
+<li>arXiv:2508.04039. LRM autonomous jailbreak. 2025.</li>
+<li>CVE-2025-32711 (EchoLeak). 2025.</li>
+<li>F41LUR3-F1R57. GLI Dataset v0.1. <code>data/governance/gli_dataset_v0.1.jsonl</code>.</li>
+</ol>
+<hr>
+<h2 id="appendix-a-prediction-summary-table">Appendix A: Prediction Summary Table</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Prediction</th><th>Confidence</th><th>Verification Deadline</th></tr></thead><tbody><tr><td>P9</td><td>First publicly reported AV incident caused by adversarial patch attack</td><td>MEDIUM (50-65%)</td><td>2027-12-31</td></tr><tr><td>P10</td><td>First confirmed compositional safety failure in production (CoLoRA-class)</td><td>MEDIUM-HIGH (60-75%)</td><td>2027-12-31</td></tr><tr><td>P11</td><td>At least one jurisdiction mandates compositional safety testing</td><td>LOW-MEDIUM (30-45%)</td><td>2027-12-31</td></tr><tr><td>P12</td><td>Humanoid robot deployment exceeds 10,000 units in commercial settings</td><td>MEDIUM (45-60%)</td><td>2027-12-31</td></tr><tr><td>P13</td><td>First iatrogenic AI safety incident formally documented</td><td>MEDIUM (45-60%)</td><td>2027-12-31</td></tr></tbody></table>
+<h2 id="appendix-b-relationship-to-existing-prediction-tracker">Appendix B: Relationship to Existing Prediction Tracker</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Existing ID</th><th>Status (as of Mar 2026)</th><th>Relationship to P9—P13</th></tr></thead><tbody><tr><td>P1</td><td>CONFIRMED</td><td>Precursor to P9 (lab-to-field progression)</td></tr><tr><td>P2</td><td>PENDING</td><td>Context for P11 (VLA-specific governance)</td></tr><tr><td>P3</td><td>PARTIALLY CONFIRMED</td><td>Context for P10 (false assurance from certification)</td></tr><tr><td>P4</td><td>PENDING</td><td>Precursor to P10 (compositional dominance)</td></tr><tr><td>P5</td><td>PENDING</td><td>Related to P13 (language-dependent iatrogenesis)</td></tr><tr><td>P6</td><td>PENDING</td><td>Context for P11 (standardisation timeline)</td></tr><tr><td>P7</td><td>PENDING</td><td>Direct precursor to P13 (production iatrogenesis)</td></tr><tr><td>P8</td><td>PENDING</td><td>Context for P11 (EU delegated acts scope)</td></tr></tbody></table>
+<hr>
+<p><em>This report was produced as part of the Failure-First Embodied AI research
+programme. All predictions are time-bounded and falsifiable. They will be
+reassessed against reality in March 2027. See docs/CANONICAL_METRICS.md for
+corpus-level numbers.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.XICsn9HY.js"></script></body></html>  

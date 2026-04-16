@@ -1,0 +1,424 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><!-- Primary Meta --><title>Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First</title><meta name="description" content="This report documents the design of the first systematic benchmark for testing whether adversarial attacks transfer across different robot embodiments that..."><link rel="canonical" href="https://failurefirst.org/research/reports/146-cross-embodiment-transfer-benchmark/"><meta name="robots" content="index, follow"><meta name="author" content="Adrian Wedd"><meta name="language" content="English"><meta name="theme-color" content="#0a0a0a"><!-- Open Graph --><meta property="og:type" content="article"><meta property="og:title" content="Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First"><meta property="og:description" content="This report documents the design of the first systematic benchmark for testing whether adversarial attacks transfer across different robot embodiments that..."><meta property="og:url" content="https://failurefirst.org/research/reports/146-cross-embodiment-transfer-benchmark/"><meta property="og:site_name" content="Failure-First Embodied AI"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta property="og:image:alt" content="Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First - Failure-First Embodied AI"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@failurefirstai"><meta name="twitter:creator" content="@adrianwedd"><meta name="twitter:title" content="Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First"><meta name="twitter:description" content="This report documents the design of the first systematic benchmark for testing whether adversarial attacks transfer across different robot embodiments that..."><meta name="twitter:image" content="https://failurefirst.org/images/failurefirst-og-v2.png"><meta name="twitter:image:alt" content="Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First - Failure-First Embodied AI"><meta property="article:published_time" content="2026-03-18"><!-- Google Scholar Meta Tags (for research papers) --><meta name="citation_title" content="Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First"><meta name="citation_author" content="Adrian Wedd"><meta name="citation_publication_date" content="2026-03-18"><meta name="citation_journal_title" content="Failure-First Embodied AI"><meta name="citation_pdf_url" content="https://failurefirst.org/research/reports/146-cross-embodiment-transfer-benchmark/"><meta name="citation_abstract_html_url" content="https://failurefirst.org/research/reports/146-cross-embodiment-transfer-benchmark/"><!-- JSON-LD Structured Data --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"},"sameAs":["https://github.com/adrianwedd/failure-first"],"contactPoint":{"@type":"ContactPoint","contactType":"Research Inquiries","url":"https://failurefirst.org/contact/"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ResearchProject","name":"Failure-First Embodied AI","description":"A research framework for characterizing how embodied AI systems fail, degrade, and recover under adversarial pressure.","url":"https://failurefirst.org","sameAs":["https://github.com/adrianwedd/failure-first"],"author":{"@type":"Person","name":"Adrian Wedd"},"sponsor":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design | Research | Failure-First","description":"This report documents the design of the first systematic benchmark for testing whether adversarial attacks transfer across different robot embodiments that...","url":"https://failurefirst.org/research/reports/146-cross-embodiment-transfer-benchmark/","image":"https://failurefirst.org/images/failurefirst-og-v2.png","author":{"@type":"Person","name":"Adrian Wedd"},"publisher":{"@type":"Organization","name":"Failure-First Embodied AI","url":"https://failurefirst.org","logo":{"@type":"ImageObject","url":"https://failurefirst.org/og-image.png"}},"datePublished":"2026-03-18","inLanguage":"en-US","isAccessibleForFree":true}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj3dQfRMsm0rELGbHVWtUmrOBEyHb0jqW7m7FHfbFtTBKNwPKDHalVhMVn" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml"><!-- Google Analytics (GA4) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-XXEW64L22D"></script><script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXEW64L22D');
+    </script><!-- LinkedIn Insight Tag --><script>
+      _linkedin_partner_id = "8890876";
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+      (function(l) {
+        if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+        window.lintrk.q=[]}
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+      })(window.lintrk);
+    </script><noscript><img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=8890876&fmt=gif"></noscript><!-- Google AdSense --><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6275306310835906" crossorigin="anonymous"></script><!-- Cloudflare Web Analytics: auto-injected by CF proxy (no manual snippet needed) --><style>.report-meta[data-astro-cid-dynbckv2]{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem;font-family:JetBrains Mono,monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.04em;color:var(--text-secondary, #888)}.report-number[data-astro-cid-dynbckv2]{color:var(--accent-primary, #f59e0b);font-weight:600}.report-media-badges[data-astro-cid-dynbckv2]{display:flex;gap:.5rem;flex-wrap:wrap}.media-badge[data-astro-cid-dynbckv2]{display:inline-flex;align-items:center;gap:.375rem;padding:.25rem .75rem;background:#f59e0b1a;border:1px solid rgba(245,158,11,.3);border-radius:4px;color:var(--accent-primary, #f59e0b);font-size:.75rem;font-family:JetBrains Mono,monospace;text-transform:uppercase;letter-spacing:.04em;text-decoration:none}.media-badge[data-astro-cid-dynbckv2]:hover{background:#f59e0b33}.report-video[data-astro-cid-dynbckv2]{margin:1.5rem 0 2rem;border-radius:6px;overflow:hidden;border:1px solid var(--border-color, #333)}.report-video[data-astro-cid-dynbckv2] video[data-astro-cid-dynbckv2]{display:block;width:100%}.report-body[data-astro-cid-dynbckv2]{max-width:72ch}.report-body[data-astro-cid-dynbckv2] h2{margin-top:2.5rem}.report-body[data-astro-cid-dynbckv2] table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.875rem}.report-body[data-astro-cid-dynbckv2] th,.report-body[data-astro-cid-dynbckv2] td{padding:.5rem .75rem;border:1px solid var(--border-color, #333);text-align:left}.report-body[data-astro-cid-dynbckv2] th{background:var(--surface-secondary, #1a1a1a);font-weight:600}.report-body[data-astro-cid-dynbckv2] .audio-overview{border-left:3px solid var(--accent-primary, #f59e0b);background:#f59e0b0a;padding:1rem 1.25rem;border-radius:0 6px 6px 0;margin:1.5rem 0}.report-body[data-astro-cid-dynbckv2] .audio-overview p{margin:0 0 .75rem;font-size:.8125rem;color:var(--text-secondary, #888)}.report-body[data-astro-cid-dynbckv2] .audio-overview audio{width:100%;height:40px}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.Ck6F9Isq.css">
+<style>.breadcrumbs[data-astro-cid-ilhxcym7]{margin-bottom:1.5rem;font-size:.8125rem;font-family:JetBrains Mono,monospace}.breadcrumbs[data-astro-cid-ilhxcym7] ol[data-astro-cid-ilhxcym7]{list-style:none;display:flex;flex-wrap:wrap;gap:0;padding:0}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]{color:var(--fg-muted)}.breadcrumbs[data-astro-cid-ilhxcym7] li[data-astro-cid-ilhxcym7]:not(:last-child):after{content:"/";margin:0 .5rem;color:var(--fg-muted);opacity:.5}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]{color:var(--fg-muted);border-bottom:none}.breadcrumbs[data-astro-cid-ilhxcym7] a[data-astro-cid-ilhxcym7]:hover{color:var(--accent-primary)}.breadcrumbs[data-astro-cid-ilhxcym7] span[data-astro-cid-ilhxcym7][aria-current=page]{color:var(--fg-dim)}
+.research-header[data-astro-cid-63t2xjvj]{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:.5rem}.status-badge[data-astro-cid-63t2xjvj]{display:inline-block;font-family:JetBrains Mono,monospace;font-size:.6875rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding:.25rem .625rem;border:1px solid var(--badge-color);color:var(--badge-color);border-radius:3px;background:transparent}.research-cta[data-astro-cid-63t2xjvj]{margin-top:3rem;padding:1rem 1.25rem;background:var(--bg-elevated);border:1px solid var(--border-subtle);border-radius:4px}.research-cta[data-astro-cid-63t2xjvj] p[data-astro-cid-63t2xjvj]{margin:0;font-size:.875rem;color:var(--fg-dim)}.research-cta[data-astro-cid-63t2xjvj] a[data-astro-cid-63t2xjvj]{color:var(--accent-primary);font-family:JetBrains Mono,monospace;font-size:.75rem;margin-left:.25rem}@media(max-width:480px){.research-header[data-astro-cid-63t2xjvj]{flex-direction:column}}
+</style>
+<link rel="stylesheet" href="/assets/_slug_.BQA4Utbu.css"><script type="module" src="/assets/page.C82-ld8d.js"></script></head> <body> <a href="#main-content" class="skip-link">Skip to content</a> <canvas id="sensor-grid-bg" aria-hidden="true"></canvas> <nav class="site-nav" aria-label="Main navigation" data-astro-cid-pux6a34n> <div class="nav-inner" data-astro-cid-pux6a34n> <a href="/" class="nav-brand" data-astro-cid-pux6a34n> <span class="nav-brand-icon" data-astro-cid-pux6a34n>&#x2B22;</span> <span class="nav-brand-text" data-astro-cid-pux6a34n>Failure-First</span> </a> <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links" data-astro-cid-pux6a34n> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> <span class="nav-toggle-bar" data-astro-cid-pux6a34n></span> </button> <ul class="nav-links" id="nav-links" role="list" data-astro-cid-pux6a34n> <li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/research/" class="active" aria-current="page" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Research <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/research/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>All Studies</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Research hub</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/jailbreak-archaeology/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Jailbreak Archaeology</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>64 scenarios, 6 eras</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/moltbook/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Multi-Agent</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Moltbook analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/attack-taxonomy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Attack Taxonomy</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>81 techniques</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/defense-patterns/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Defense Patterns</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>How models resist</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/humanoid-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Humanoid Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Platform failure mapping</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/failure-modes/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Failure Modes</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Taxonomy of AI failures</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/directory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Company Directory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>214 robotics companies</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/ai-safety-orgs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>AI Safety Orgs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>117 safety organisations</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/reports/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Research Reports</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Published research findings</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/research/legal/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Legal Analysis</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>AI safety legal research</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/papers/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Papers</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Academic submissions</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/blog/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Content <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/blog/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Blog</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Analysis and commentary</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/daily-paper/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Daily Paper</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>arXiv paper reviews</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/new/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>What&#39;s New</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Latest across the site</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/framework/" data-astro-cid-pux6a34n> Framework  </a>  </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/services/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> Services <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/services/red-team-assessments/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Red-Team Assessments</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Adversarial testing</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/safety-audits/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Safety Audits</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Compliance evaluation</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/advisory/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Advisory</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Strategic guidance</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/services/intelligence-briefs/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Intelligence Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Threat landscape</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Policy Briefs</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Policy analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/capability-safety-spectrum/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Capability vs Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Capability-safety analysis</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/policy/embodied-ai-safety/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Embodied AI Safety</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Beyond alignment</span> </a> </li> </ul> </li><li class="has-dropdown" data-astro-cid-pux6a34n> <a href="/about/" aria-haspopup="true" aria-expanded="false" data-astro-cid-pux6a34n> About <span class="dropdown-arrow" aria-hidden="true" data-astro-cid-pux6a34n>&#x25BC;</span> </a> <ul class="dropdown" role="list" data-astro-cid-pux6a34n> <li data-astro-cid-pux6a34n> <a href="/about/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>About</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>The project</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/about/team/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Our Team</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Meet the research team</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/manifesto/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Manifesto</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Failure-first philosophy</span> </a> </li><li data-astro-cid-pux6a34n> <a href="/glossary/" data-astro-cid-pux6a34n> <span class="dropdown-label" data-astro-cid-pux6a34n>Glossary</span> <span class="dropdown-desc" data-astro-cid-pux6a34n>Key terms defined</span> </a> </li> </ul> </li><li data-astro-cid-pux6a34n> <a href="/search/" data-astro-cid-pux6a34n> Search  </a>  </li> </ul> </div> </nav>  <script type="module">(function(){try{var e=typeof window<"u"?window:typeof global<"u"?global:typeof globalThis<"u"?globalThis:typeof self<"u"?self:{};e.SENTRY_RELEASE={id:"3b781b57ae6e94a1a572d0e81556bba36ac6d6f3"};var t=new e.Error().stack;t&&(e._sentryDebugIds=e._sentryDebugIds||{},e._sentryDebugIds[t]="a71e90d1-9233-4f1e-8ab4-1d34bd209f07",e._sentryDebugIdIdentifier="sentry-dbid-a71e90d1-9233-4f1e-8ab4-1d34bd209f07")}catch{}})();const n=document.querySelector(".nav-toggle"),a=document.querySelector(".nav-links"),d=document.querySelectorAll(".has-dropdown");n&&a&&(n.addEventListener("click",()=>{const e=n.getAttribute("aria-expanded")==="true";n.setAttribute("aria-expanded",String(!e)),a.classList.toggle("open")}),document.addEventListener("keydown",e=>{e.key==="Escape"&&a.classList.contains("open")&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"),n.focus())}),document.addEventListener("click",e=>{a.classList.contains("open")&&!a.contains(e.target)&&!n.contains(e.target)&&(a.classList.remove("open"),n.setAttribute("aria-expanded","false"))}));window.matchMedia("(hover: hover)").matches&&d.forEach(e=>{const t=e.querySelector(":scope > a");t&&(e.addEventListener("mouseenter",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("mouseleave",()=>t.setAttribute("aria-expanded","false")),e.addEventListener("focusin",()=>t.setAttribute("aria-expanded","true")),e.addEventListener("focusout",s=>{e.contains(s.relatedTarget)||t.setAttribute("aria-expanded","false")}))});d.forEach(e=>{const t=e.querySelector(":scope > a");t&&t.addEventListener("click",s=>{window.innerWidth<=768&&(e.classList.contains("mobile-open")||(s.preventDefault(),d.forEach(i=>{if(i!==e){i.classList.remove("mobile-open");const o=i.querySelector(":scope > a");o&&o.setAttribute("aria-expanded","false")}}),e.classList.add("mobile-open"),t.setAttribute("aria-expanded","true")))})});</script> <main id="main-content">  <div class="research-header" data-astro-cid-63t2xjvj> <nav class="breadcrumbs" aria-label="Breadcrumb" data-astro-cid-ilhxcym7> <ol data-astro-cid-ilhxcym7> <li data-astro-cid-ilhxcym7><a href="/" data-astro-cid-ilhxcym7>Home</a></li> <li data-astro-cid-ilhxcym7> <a href="/research/" data-astro-cid-ilhxcym7>Research</a> </li><li data-astro-cid-ilhxcym7> <a href="/research/reports/" data-astro-cid-ilhxcym7>Policy Reports</a> </li><li data-astro-cid-ilhxcym7> <span aria-current="page" data-astro-cid-ilhxcym7>Report 146</span> </li> </ol> </nav> <!-- BreadcrumbList Schema.org structured data --> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://failurefirst.org/"},{"@type":"ListItem","position":2,"name":"Research","item":"https://failurefirst.org/research/"},{"@type":"ListItem","position":3,"name":"Policy Reports","item":"https://failurefirst.org/research/reports/"},{"@type":"ListItem","position":4,"name":"Report 146"}]}</script>  <div class="research-status" data-astro-cid-63t2xjvj> <span class="status-badge" style="--badge-color: var(--recovery-stable)" data-astro-cid-63t2xjvj> Published </span> </div> </div>  <article class="report-content" data-astro-cid-dynbckv2> <header class="report-meta" data-astro-cid-dynbckv2> <span class="report-number" data-astro-cid-dynbckv2>Report 146</span>  <span class="report-classification" data-astro-cid-dynbckv2>Research — Empirical Study</span> <time class="report-date" data-astro-cid-dynbckv2>2026-03-18</time>  </header>  <div class="report-body" data-astro-cid-dynbckv2>  <blockquote>
+<p><strong>Disclaimer:</strong> Empirical figures cited from Failure-First research reflect testing
+on specific model families under research conditions. Attack success rates are
+indicative estimates with methodological caveats described in the Limitations
+section. External research findings are attributed and assessed on their own
+methodological terms. This report does not constitute safety certification guidance.</p>
+</blockquote>
+<hr>
+<h2 id="executive-summary">Executive Summary</h2>
+<p>This report documents the design of the first systematic benchmark for testing whether adversarial attacks transfer across different robot embodiments that share Vision-Language Model (VLM) backbones. While BadVLA demonstrated near-100% attack success rates against pi0 and OpenVLA via shared backbones, no existing dataset systematically disentangles backbone-layer attacks (which should transfer universally) from action-head attacks (which should be embodiment-specific).</p>
+<p>We created 15 scenarios across 5 robot embodiment types (6DoF arm, mobile platform, humanoid, quadruped, drone) organised into three attack categories: 5 backbone-layer attacks with universal transfer prediction, 5 action-head attacks with embodiment-specific non-transfer prediction, and 5 hybrid attacks with partial transfer prediction. Each scenario includes explicit <code>environment_state</code> specifying the robot type, backbone architecture, action head type, action space dimensionality, and transfer prediction.</p>
+<p>This is a design-stage report with zero empirical traces. All transfer predictions are hypotheses derived from the architectural distinction between shared backbones (embodiment-agnostic) and action heads (embodiment-specific). Empirical testing is required to validate or refute these predictions.</p>
+<hr>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>The VLA (Vision-Language-Action) architecture has a fundamental property relevant to adversarial robustness: the vision-language backbone is typically shared across robot embodiments, while the action head is embodiment-specific. BadVLA (arXiv:2505.16640) demonstrated that this sharing creates a single attack surface spanning heterogeneous robot fleets. Report #49 documented FLIP-graded ASR of 72.4% across 7 original VLA attack families, with zero outright refusals.</p>
+<p>The existing CET family (10 scenarios, VLA-CET-001 through VLA-CET-010) tests cross-embodiment transfer broadly but does not systematically distinguish between attack layers. This makes it difficult to predict which attacks will and will not transfer to new embodiments.</p>
+<p>The key research question: <strong>Can we predict attack transferability from architectural properties alone?</strong> If backbone-layer attacks transfer universally and action-head attacks do not, then the transfer behaviour of any VLA attack should be predictable from which architectural layer it targets.</p>
+<h2 id="2-method">2. Method</h2>
+<h3 id="21-scenario-design">2.1 Scenario Design</h3>
+<p>We designed 15 scenarios across three categories:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Category</th><th>Scenarios</th><th>IDs</th><th>Transfer Prediction</th></tr></thead><tbody><tr><td>Backbone-layer</td><td>5</td><td>CETS-001 to CETS-005</td><td>Universal (all 5 embodiments)</td></tr><tr><td>Action-head</td><td>5</td><td>CETS-006 to CETS-010</td><td>Embodiment-specific (1 of 5 only)</td></tr><tr><td>Hybrid</td><td>5</td><td>CETS-011 to CETS-015</td><td>Partial (backbone universal, action-head specific)</td></tr></tbody></table>
+<h3 id="22-embodiment-types">2.2 Embodiment Types</h3>
+<p>Each category covers all 5 embodiment types:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Embodiment</th><th>Action Head</th><th>Action Space</th><th>Degrees of Freedom</th></tr></thead><tbody><tr><td>6DoF arm</td><td>Diffusion policy</td><td>Joint angles</td><td>6</td></tr><tr><td>Mobile platform</td><td>MLP velocity controller</td><td>2D velocity + heading</td><td>3</td></tr><tr><td>Humanoid</td><td>Flow matching</td><td>Full-body joint positions</td><td>52</td></tr><tr><td>Quadruped</td><td>Locomotion policy</td><td>Joint torques</td><td>12</td></tr><tr><td>Drone</td><td>PID waypoint controller</td><td>3D waypoint + yaw</td><td>4</td></tr></tbody></table>
+<h3 id="23-backbone-architectures">2.3 Backbone Architectures</h3>
+<p>Scenarios use two backbone families to test generality:</p>
+<ul>
+<li><strong>SigLIP ViT</strong> (used in OpenVLA, pi0): 10 scenarios</li>
+<li><strong>DINOv2</strong> (self-supervised, used in several research VLAs): 5 scenarios</li>
+</ul>
+<h3 id="24-attack-mechanisms">2.4 Attack Mechanisms</h3>
+<p><strong>Backbone-layer attacks (CETS-001 to CETS-005):</strong></p>
+<ol>
+<li>CLS token UAP — obstacle misclassification (SigLIP)</li>
+<li>Semantic feature shift — person-as-furniture (DINOv2)</li>
+<li>Projected text injection — VLM cross-attention exploitation (SigLIP)</li>
+<li>Patch embedding saturation — false depth discontinuity (SigLIP)</li>
+<li>Backbone backdoor trigger — supply chain attack (DINOv2)</li>
+</ol>
+<p><strong>Action-head attacks (CETS-006 to CETS-010):</strong>
+6. Diffusion denoising noise injection — 6DoF arm joint velocity violation
+7. MLP weight pattern exploitation — mobile platform velocity maximisation
+8. Flow matching joint decorrelation — humanoid balance failure
+9. Gait phase shift — quadruped trot-to-pace destabilisation
+10. PID integral windup — drone altitude oscillation</p>
+<p><strong>Hybrid attacks (CETS-011 to CETS-015):</strong>
+11. Object misidentification + grasp force maximisation (arm-specific worst case)
+12. Person detection suppression + speed limit override (platform-specific worst case)
+13. Distance underestimation + step length amplification (humanoid-specific worst case)
+14. Terrain misclassification + gait destabilisation (quadruped-specific worst case)
+15. Altitude reference corruption + PID gain manipulation (drone-specific worst case)</p>
+<h2 id="3-transfer-prediction-matrix">3. Transfer Prediction Matrix</h2>
+<p>The core deliverable of this benchmark is a testable transfer prediction matrix. Each cell predicts whether the attack transfers to that embodiment and what the expected outcome is.</p>
+<h3 id="31-backbone-layer-attacks--predicted-universal-transfer">3.1 Backbone-Layer Attacks — Predicted Universal Transfer</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Attack</th><th>6DoF Arm</th><th>Mobile Platform</th><th>Humanoid</th><th>Quadruped</th><th>Drone</th></tr></thead><tbody><tr><td>001</td><td>CLS token UAP (obstacle)</td><td>TRANSFER: collision</td><td>TRANSFER: drives into obstacle</td><td>TRANSFER: walks into obstacle</td><td>TRANSFER: traverses obstacle</td><td>TRANSFER: flies into obstacle</td></tr><tr><td>002</td><td>Person-as-furniture (DINOv2)</td><td>TRANSFER: grasps at person</td><td>TRANSFER: no yield to person</td><td>TRANSFER: no avoidance</td><td>TRANSFER: no reroute</td><td>TRANSFER: no altitude adjustment</td></tr><tr><td>003</td><td>Projected text injection</td><td>TRANSFER: safety override</td><td>TRANSFER: safety override</td><td>TRANSFER: safety override</td><td>TRANSFER: safety override</td><td>TRANSFER: safety override</td></tr><tr><td>004</td><td>Patch embedding saturation</td><td>TRANSFER: reach distance error</td><td>TRANSFER: false stop</td><td>TRANSFER: halts walking</td><td>TRANSFER: halts traversal</td><td>TRANSFER: altitude adjustment</td></tr><tr><td>005</td><td>Backbone backdoor (supply chain)</td><td>TRANSFER: enters hazard</td><td>TRANSFER: enters hazard</td><td>TRANSFER: enters hazard</td><td>TRANSFER: enters hazard</td><td>TRANSFER: descends into hazard</td></tr></tbody></table>
+<p><strong>Prediction:</strong> All 25 cells show TRANSFER. Specific behavioural manifestation varies by embodiment, but the root cause (corrupted backbone features) is identical.</p>
+<h3 id="32-action-head-attacks--predicted-non-transfer">3.2 Action-Head Attacks — Predicted Non-Transfer</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Attack</th><th>6DoF Arm</th><th>Mobile Platform</th><th>Humanoid</th><th>Quadruped</th><th>Drone</th></tr></thead><tbody><tr><td>006</td><td>Diffusion denoising (arm)</td><td><strong>AFFECTED</strong></td><td>NO EFFECT</td><td>NO EFFECT</td><td>NO EFFECT</td><td>NO EFFECT</td></tr><tr><td>007</td><td>MLP velocity (platform)</td><td>NO EFFECT</td><td><strong>AFFECTED</strong></td><td>NO EFFECT</td><td>NO EFFECT</td><td>NO EFFECT</td></tr><tr><td>008</td><td>Flow matching decorrelation (humanoid)</td><td>NO EFFECT</td><td>NO EFFECT</td><td><strong>AFFECTED</strong></td><td>NO EFFECT</td><td>NO EFFECT</td></tr><tr><td>009</td><td>Gait phase shift (quadruped)</td><td>NO EFFECT</td><td>NO EFFECT</td><td>NO EFFECT</td><td><strong>AFFECTED</strong></td><td>NO EFFECT</td></tr><tr><td>010</td><td>PID integral windup (drone)</td><td>NO EFFECT</td><td>NO EFFECT</td><td>NO EFFECT</td><td>NO EFFECT</td><td><strong>AFFECTED</strong></td></tr></tbody></table>
+<p><strong>Prediction:</strong> A 5x5 identity matrix. Each attack affects exactly one embodiment and zero others. If empirical testing shows off-diagonal effects, this would indicate unexpected cross-embodiment coupling at the action-head layer.</p>
+<h3 id="33-hybrid-attacks--predicted-partial-transfer">3.3 Hybrid Attacks — Predicted Partial Transfer</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Attack</th><th>6DoF Arm</th><th>Mobile Platform</th><th>Humanoid</th><th>Quadruped</th><th>Drone</th></tr></thead><tbody><tr><td>011</td><td>Misidentify + grasp force</td><td><strong>SEVERE</strong> (both)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td></tr><tr><td>012</td><td>Person suppress + speed</td><td>MILD (backbone only)</td><td><strong>SEVERE</strong> (both)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td></tr><tr><td>013</td><td>Distance error + step length</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td><strong>SEVERE</strong> (both)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td></tr><tr><td>014</td><td>Terrain error + gait</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td><strong>SEVERE</strong> (both)</td><td>ZERO (terrain irrelevant)</td></tr><tr><td>015</td><td>Altitude error + PID gain</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td>MILD (backbone only)</td><td><strong>SEVERE</strong> (both)</td></tr></tbody></table>
+<p><strong>Prediction:</strong> Each hybrid attack has one SEVERE cell (where both components activate), several MILD cells (backbone only), and potentially ZERO cells (where the backbone perturbation is irrelevant to that embodiment). CETS-014 is notable: the backbone terrain error is ZERO impact on the drone (terrain classification is irrelevant for flight).</p>
+<h3 id="34-key-testable-predictions">3.4 Key Testable Predictions</h3>
+<ol>
+<li><strong>Backbone universality:</strong> All 5 backbone attacks should produce detectable failure on all 5 embodiments (25/25 cells affected).</li>
+<li><strong>Action-head specificity:</strong> All 5 action-head attacks should affect exactly 1 embodiment each (5/25 cells affected, forming an identity matrix).</li>
+<li><strong>Hybrid asymmetry:</strong> Each hybrid attack should produce the most severe outcome on exactly 1 embodiment, with reduced severity on others.</li>
+<li><strong>Opposite failure modes:</strong> CETS-013 predicts that the SAME backbone perturbation (distance underestimation) produces overshoot on the humanoid but undershoot on the mobile platform.</li>
+<li><strong>Embodiment-irrelevant backbone effects:</strong> CETS-014 predicts that terrain misclassification has zero impact on a drone despite universal backbone transfer.</li>
+</ol>
+<h2 id="4-discussion">4. Discussion</h2>
+<h3 id="41-relationship-to-existing-cet-family">4.1 Relationship to Existing CET Family</h3>
+<p>The original CET family (CET-001 through CET-010) focused primarily on backbone-layer attacks (visual perturbations, supply chain backdoors, cross-modal injection). This new systematic dataset extends CET by adding the action-head and hybrid categories, which test the transfer boundary rather than only the transfer itself.</p>
+<p>The two datasets are complementary. The original CET tests breadth of backbone transfer scenarios. This systematic dataset tests the architectural distinction between transferable and non-transferable attack layers.</p>
+<h3 id="42-defence-implications">4.2 Defence Implications</h3>
+<p>If the transfer predictions hold empirically:</p>
+<ul>
+<li><strong>Backbone-layer defence:</strong> Must be applied once at the backbone level and will protect all embodiments. Adversarial training, input certification, or backbone-specific monitoring would defend the entire fleet.</li>
+<li><strong>Action-head defence:</strong> Must be applied per-embodiment. Each robot type needs its own action-head monitoring because the attack surface is unique to the action space.</li>
+<li><strong>Hybrid defence:</strong> Requires both. Backbone defence alone prevents the universal component; action-head defence alone prevents the embodiment-specific component; full protection requires both layers.</li>
+</ul>
+<p>(Descriptive claim: this follows logically from the architectural separation if the transfer predictions are confirmed.)</p>
+<h3 id="43-severity-gradient-in-hybrid-attacks">4.3 Severity Gradient in Hybrid Attacks</h3>
+<p>The hybrid scenarios demonstrate that a single adversarial input can produce a severity gradient across embodiments: catastrophic on one embodiment (where both components activate), moderate on most (backbone only), and zero on some (where the backbone perturbation is irrelevant). This has implications for fleet-level risk assessment: the same attack input may be tolerable for one robot type but dangerous for another.</p>
+<p>(Analytical claim: this is consistent with the observation that different embodiments have different relevance profiles for the same environmental features.)</p>
+<h2 id="5-limitations">5. Limitations</h2>
+<ol>
+<li><strong>Sample size.</strong> Zero empirical traces. All 15 scenarios are untested. Transfer predictions are hypotheses, not findings.</li>
+<li><strong>Grader quality.</strong> Not applicable (no grading performed).</li>
+<li><strong>Scale confound.</strong> The existing CET FLIP results (strict 40%, broad 60%, n=10) were on sub-2B models (deepseek-r1:1.5b, qwen3:1.7b), subject to capability floor effects.</li>
+<li><strong>Generalisability.</strong> The transfer predictions assume a clean architectural separation between backbone and action head. In practice, some VLA architectures (e.g., pi0.5, RT-2) use partial fine-tuning of backbone layers during action-head training, which could introduce action-head-specific features into the backbone, weakening the transfer prediction.</li>
+<li><strong>Methodology.</strong> Design-only report. No grading methodology applicable. Empirical testing should use FLIP methodology on 7B+ models per Mistake #25 (sub-2B models are insufficient for action-layer evaluation).</li>
+<li><strong>Embodiment realism.</strong> The 5 embodiment types and their action spaces are representative but simplified. Real-world VLA systems have more complex action spaces and may use multiple action heads.</li>
+</ol>
+<h2 id="6-conclusions-and-recommendations">6. Conclusions and Recommendations</h2>
+<p>We have created a 15-scenario benchmark dataset for systematically testing cross-embodiment attack transfer in VLA systems. The dataset makes explicit, testable predictions about which attacks should and should not transfer across embodiments, based on the architectural distinction between shared VLM backbones and embodiment-specific action heads.</p>
+<p>If confirmed by empirical testing, these predictions would suggest that:</p>
+<ol>
+<li>Fleet-wide defence must prioritise backbone-layer monitoring (protects all embodiments from 5/5 backbone attacks).</li>
+<li>Per-embodiment action-head monitoring is necessary for the remaining attack surface (5/5 action-head attacks are not detectable at the backbone level).</li>
+<li>Risk assessment for heterogeneous fleets should account for the severity gradient: a single adversarial input may produce different danger levels across embodiment types.</li>
+</ol>
+<p><strong>Recommended next steps:</strong></p>
+<ul>
+<li>Create GH issue for empirical testing campaign</li>
+<li>Run on 7B+ models to avoid capability floor confound</li>
+<li>Test at least 2 models per embodiment type to establish inter-model agreement</li>
+<li>Use FLIP grading methodology</li>
+</ul>
+<hr>
+<h2 id="references">References</h2>
+<ol>
+<li>F41LUR3-F1R57. Report #49: VLA PARTIAL Dominance. 2026-03-11 (updated).</li>
+<li>F41LUR3-F1R57. Report #51: Format-Lock Capability-Floor Hypothesis. 2026-03-11.</li>
+<li>Liang et al. BadVLA: Near-Universal Adversarial Attacks on Vision-Language-Action Models. arXiv:2505.16640, 2025.</li>
+<li>Cardenas &#x26; Xie. Projected Text Attacks on Vision-Language Models. 2026.</li>
+<li>F41LUR3-F1R57. CANONICAL_METRICS.md. 2026-03-18.</li>
+<li>F41LUR3-F1R57. Attack Classes Taxonomy. 2026-03-18.</li>
+</ol>
+<hr>
+<h2 id="appendix-a-transfer-prediction-matrix-compact">Appendix A: Transfer Prediction Matrix (Compact)</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>Attack Layer     | Arm | Platform | Humanoid | Quadruped | Drone | Transfer Rate</span></span>
+<span class="line"><span>-----------------+-----+----------+----------+-----------+-------+--------------</span></span>
+<span class="line"><span>CETS-001 (BB)    |  X  |    X     |    X     |     X     |   X   |    5/5</span></span>
+<span class="line"><span>CETS-002 (BB)    |  X  |    X     |    X     |     X     |   X   |    5/5</span></span>
+<span class="line"><span>CETS-003 (BB)    |  X  |    X     |    X     |     X     |   X   |    5/5</span></span>
+<span class="line"><span>CETS-004 (BB)    |  X  |    X     |    X     |     X     |   X   |    5/5</span></span>
+<span class="line"><span>CETS-005 (BB)    |  X  |    X     |    X     |     X     |   X   |    5/5</span></span>
+<span class="line"><span>CETS-006 (AH)    |  X  |    .     |    .     |     .     |   .   |    1/5</span></span>
+<span class="line"><span>CETS-007 (AH)    |  .  |    X     |    .     |     .     |   .   |    1/5</span></span>
+<span class="line"><span>CETS-008 (AH)    |  .  |    .     |    X     |     .     |   .   |    1/5</span></span>
+<span class="line"><span>CETS-009 (AH)    |  .  |    .     |    .     |     X     |   .   |    1/5</span></span>
+<span class="line"><span>CETS-010 (AH)    |  .  |    .     |    .     |     .     |   X   |    1/5</span></span>
+<span class="line"><span>CETS-011 (HY)    | XX  |    x     |    x     |     x     |   x   |    5/5*</span></span>
+<span class="line"><span>CETS-012 (HY)    |  x  |   XX     |    x     |     x     |   x   |    5/5*</span></span>
+<span class="line"><span>CETS-013 (HY)    |  x  |    x     |   XX     |     x     |   x   |    5/5*</span></span>
+<span class="line"><span>CETS-014 (HY)    |  x  |    x     |    x     |    XX     |   .   |    4/5*</span></span>
+<span class="line"><span>CETS-015 (HY)    |  x  |    x     |    x     |     x     |  XX   |    5/5*</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Legend: X = full effect, x = backbone-only (mild), XX = hybrid (severe),</span></span>
+<span class="line"><span>        . = no effect, * = severity varies</span></span>
+<span class="line"><span>BB = backbone, AH = action-head, HY = hybrid</span></span></code></pre>
+<hr>
+<p><em>This report was produced as part of the Failure-First Embodied AI research
+programme. All claims are scoped to the tested conditions and should not be
+generalised without additional validation. See docs/CANONICAL_METRICS.md for
+corpus-level numbers.</em></p>  </div> </article>  <div class="research-cta" data-astro-cid-63t2xjvj> <p data-astro-cid-63t2xjvj>
+This research informs our commercial services.
+<a href="/services/" data-astro-cid-63t2xjvj>See how we can help &rarr;</a> </p> </div>  </main> <footer class="site-footer" data-astro-cid-sz7xmlte> <div class="footer-inner" data-astro-cid-sz7xmlte> <div class="footer-grid" data-astro-cid-sz7xmlte> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Project</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/" data-astro-cid-sz7xmlte>Home</a></li> <li data-astro-cid-sz7xmlte><a href="/about/" data-astro-cid-sz7xmlte>About</a></li> <li data-astro-cid-sz7xmlte><a href="/manifesto/" data-astro-cid-sz7xmlte>Manifesto</a></li> <li data-astro-cid-sz7xmlte><a href="/glossary/" data-astro-cid-sz7xmlte>Glossary</a></li> <li data-astro-cid-sz7xmlte><a href="/framework/" data-astro-cid-sz7xmlte>Framework</a></li> <li data-astro-cid-sz7xmlte><a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Research & Content</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/new/" data-astro-cid-sz7xmlte>What's New</a></li> <li data-astro-cid-sz7xmlte><a href="/research/" data-astro-cid-sz7xmlte>Research Hub</a></li> <li data-astro-cid-sz7xmlte><a href="/blog/" data-astro-cid-sz7xmlte>Blog</a></li> <li data-astro-cid-sz7xmlte><a href="/daily-paper/" data-astro-cid-sz7xmlte>Daily Paper</a></li> <li data-astro-cid-sz7xmlte><a href="/search/" data-astro-cid-sz7xmlte>Search</a></li> <li data-astro-cid-sz7xmlte><a href="/rss.xml" data-astro-cid-sz7xmlte>RSS Feed</a></li> </ul> </div> <div class="footer-col" data-astro-cid-sz7xmlte> <p class="footer-heading" data-astro-cid-sz7xmlte>Services</p> <ul data-astro-cid-sz7xmlte> <li data-astro-cid-sz7xmlte><a href="/services/" data-astro-cid-sz7xmlte>Services</a></li> <li data-astro-cid-sz7xmlte><a href="/policy/" data-astro-cid-sz7xmlte>Policy Briefs</a></li> <li data-astro-cid-sz7xmlte><a href="/contact/" data-astro-cid-sz7xmlte>Get Involved</a></li> <li data-astro-cid-sz7xmlte><a href="/about/disclosure/" data-astro-cid-sz7xmlte>Responsible Disclosure</a></li> <li data-astro-cid-sz7xmlte><a href="/about/privacy/" data-astro-cid-sz7xmlte>Privacy Policy</a></li> <li data-astro-cid-sz7xmlte><a href="mailto:research@failurefirst.org" data-astro-cid-sz7xmlte>research@failurefirst.org</a></li> </ul> </div> </div> <div class="footer-bottom" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte> <strong data-astro-cid-sz7xmlte>Remember:</strong> This is a research tool for improving AI safety.
+        Use responsibly. Study failures to build better defenses.
+</p> <p class="footer-copyright" data-astro-cid-sz7xmlte>
+&copy; 2026 Failure-First Embodied AI Project |
+<a href="https://github.com/adrianwedd/failure-first" target="_blank" rel="noopener" data-astro-cid-sz7xmlte>GitHub</a> </p> </div> </div> </footer>   <script type="module" src="/assets/BaseLayout.astro_astro_type_script_index_0_lang.XICsn9HY.js"></script></body></html>  
