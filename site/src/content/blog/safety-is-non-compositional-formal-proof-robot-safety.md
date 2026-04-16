@@ -3,6 +3,7 @@ title: "Safety is Non-Compositional: What a Formal Proof Means for Robot Safety"
 description: "A new paper proves mathematically that two individually safe AI agents can combine to reach forbidden goals. This result has immediate consequences for how we certify robots, compose LoRA adapters, and structure safety regulation."
 date: 2026-03-19
 tags: ["compositionality", "formal-verification", "multi-agent", "safety-certification", "embodied-ai", "regulation"]
+image: "https://cdn.failurefirst.org/images/blog/safety-non-compositional-infographic.png"
 ---
 
 There is a belief that runs through almost every AI safety framework in existence: if the parts are safe, the whole is safe. Test each component. Verify each module. Stack the certificates. Ship the system.
