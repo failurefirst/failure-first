@@ -1,8 +1,10 @@
 ---
+
 title: "Why AI Safety Rules Always Arrive Too Late"
 description: "Every high-stakes industry has had a governance lag — a period where documented failures operated without binding regulation. Aviation fixed its equivalent problem in months. AI's governance lag has been running for years with no end date."
 date: 2026-03-01
 tags: [governance, policy, regulation, australia, embodied-ai]
+audio: "https://cdn.failurefirst.org/audio/blog/why-ai-safety-rules-always-arrive-too-late.m4a"
 ---
 
 ## Every Industry Has Done This
