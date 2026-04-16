@@ -3,6 +3,7 @@ title: "First Evidence That AI Safety Defenses Don't Work (And One That Does)"
 description: "We tested four system-prompt defense strategies across 120 traces. Simple safety instructions had zero effect on permissive models. Only adversarial-aware defenses reduced attack success — and even they failed against format-lock attacks. One defense condition made things worse."
 date: 2026-03-23
 tags: [research, safety, defense, embodied-ai, benchmarks, format-lock]
+image: "https://cdn.failurefirst.org/images/blog/defense-bypass-infographic.png"
 ---
 
 ## The Defense Question Nobody Was Answering

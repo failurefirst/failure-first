@@ -4,6 +4,7 @@ description: "Our preprint on the DETECTED_PROCEEDS pattern is now available on 
 date: 2026-03-26
 tags: ["research", "arxiv", "reasoning-models", "DETECTED-PROCEEDS", "safety", "DeepSeek", "embodied-ai"]
 draft: true
+image: "https://cdn.failurefirst.org/images/blog/detected-proceeds-infographic.png"
 ---
 
 # New Paper: When AI Models Know They Shouldn't But Do Anyway
