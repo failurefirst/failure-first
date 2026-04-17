@@ -1,4 +1,5 @@
 ---
+
 title: "Enhancing Model Defense Against Jailbreaks with Proactive Safety Reasoning"
 description: "Safety Chain-of-Thought (SCoT) teaches LLMs to reason about potential harms before generating a response, substantially improving robustness to jailbreak attacks including out-of-distribution prompts."
 date: 2026-04-15
@@ -7,6 +8,7 @@ authors: "Xianglin Yang, Gelei Deng, Jieming Shi, Tianwei Zhang, Jin Song Dong"
 paperType: "methods"
 tags: [jailbreak-defense, safety-alignment, chain-of-thought, llm-safety, adversarial-robustness]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-15-enhancing-model-defense-jailbreaks-proactive-safety-reasoning.m4a"
 ---
 
 Most jailbreak defenses are reactive. They train models to refuse after they have already processed a harmful prompt, relying on pattern-matching against known attack structures or post-generation content filtering. This approach has a well-documented weakness: the moment a novel attack strategy emerges — one the model has not seen during safety training — refusal rates collapse. Safety Chain-of-Thought (SCoT) proposes a different architecture. Rather than teaching models what to refuse, it teaches them *how to reason about whether to refuse*, making the defense structurally more robust to unseen prompts.

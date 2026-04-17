@@ -1,4 +1,5 @@
 ---
+
 title: "AutoDAN: Generating Adversarial Examples via Automatic Optimization"
 description: "Proposes an automated approach to generate adversarial inputs against aligned LLMs using evolutionary algorithms and semantic mutation, achieving high attack success rates without manual engineering."
 date: 2025-11-02
@@ -7,6 +8,7 @@ authors: "Shuai Liu, Ning Ding, Bowen Zhou, Yuxiao Dong, Tang Xu, Xuanjing Huang
 paperType: "empirical"
 tags: [jailbreaking, adversarial-generation, evolutionary-algorithms, llm-safety, automatic-attacks]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/autodann-automatic-generation-adversarial-examples.m4a"
 ---
 
 Manual adversarial examples require domain expertise and careful engineering. AutoDAN explores whether automated search can discover effective jailbreaks at scale without human intervention. The key insight is treating jailbreak discovery as a black-box optimization problem: mutate candidate prompts, evaluate success against a target model, and retain improvements.

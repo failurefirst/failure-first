@@ -1,4 +1,5 @@
 ---
+
 title: "The Art of (Mis)alignment: How Fine-Tuning Methods Effectively Misalign and Realign LLMs in Post-Training"
 description: "An empirical study showing that misaligning an LLM via fine-tuning is significantly cheaper than realigning it, with asymmetric attack-defense dynamics that have serious implications for deployed safety."
 date: 2026-04-12
@@ -7,6 +8,7 @@ authors: "Rui Zhang, Hongwei Li, Yun Shen, Xinyue Shen, Wenbo Jiang, Guowen Xu, 
 paperType: "empirical"
 tags: [safety-alignment, fine-tuning, llm-safety, misalignment, post-training]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-12-art-of-misalignment-fine-tuning-misalign-realign-llms.m4a"
 ---
 
 Safety alignment — the process of steering large language models toward helpful, harmless, and honest behavior — has become the defining engineering challenge of the post-GPT era. But how durable is alignment, really? A paper by Zhang et al., published just three days ago on April 9, 2026, asks a harder version of this question: when alignment is broken through fine-tuning, and when it is subsequently restored, are both operations equally tractable?

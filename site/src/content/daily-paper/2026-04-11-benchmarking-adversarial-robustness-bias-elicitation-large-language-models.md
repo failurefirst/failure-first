@@ -1,4 +1,5 @@
 ---
+
 title: "Benchmarking Adversarial Robustness to Bias Elicitation in Large Language Models: Scalable Automated Assessment with LLM-as-a-Judge"
 description: "CLEAR-Bias introduces a scalable framework that combines jailbreak techniques with LLM-as-a-Judge scoring to reveal how adversarial prompting exploits sociocultural biases embedded in state-of-the-art language models."
 date: 2026-04-11
@@ -7,6 +8,7 @@ authors: "Riccardo Cantini, Alessio Orsino, Massimo Ruggiero, Domenico Talia"
 paperType: "empirical"
 tags: ["adversarial-bias", "safety-alignment", "jailbreak-attacks", "llm-as-a-judge", "safety-benchmarking", "red-teaming"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-11-benchmarking-adversarial-robustness-bias-elicitation-large-language-models.m4a"
 ---
 
 ### The Hidden Attack Surface: Sociocultural Bias as a Jailbreak Vector

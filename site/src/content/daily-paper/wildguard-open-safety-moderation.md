@@ -1,4 +1,6 @@
 ---
+
+
 title: "WildGuard: Open One-Stop Moderation Tool for Safety Risks in LLMs"
 description: "Multi-category safety moderation framework that scales across diverse risk types—relevant to embodied AI deployment environments"
 date: 2025-10-01
@@ -7,6 +9,8 @@ authors: "Xiangyu Han, Zhixing Zhang, Xiaocheng Luo, Zhengyuan Jiang, Zhuohao Yu
 paperType: "empirical"
 tags: [safety-moderation, content-filtering, multi-category-risk, llm-safety, deployment]
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/wildguard-open-safety-moderation.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/wildguard-open-safety-moderation.m4a"
 ---
 
 ## WildGuard: Closing the Moderation Gap

@@ -1,4 +1,5 @@
 ---
+
 title: "Representation Engineering: A Top-Down Approach to AI Transparency"
 description: "Identifying and manipulating internal model directions that encode safety behaviors—foundational for interpretability research"
 date: 2025-10-06
@@ -7,6 +8,7 @@ authors: "Andy Zou, Long Phan, Sarah Chen, James Campbell, Philippe Tillet, Yona
 paperType: "empirical"
 tags: [interpretability, mechanistic-transparency, representation-analysis, safety-directions, model-editing]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/representation-engineering-ai-transparency.m4a"
 ---
 
 ## Representation Engineering: Finding Safety in Hidden States

@@ -1,4 +1,5 @@
 ---
+
 title: "Contrastive Reasoning Alignment: Reinforcement Learning from Hidden Representations"
 description: "CRAFT defends large reasoning models against jailbreaks by aligning safety directly in hidden state space via contrastive reinforcement learning, reducing attack success rates without degrading reasoning capability."
 date: 2026-04-14
@@ -7,6 +8,7 @@ authors: "Haozheng Luo, Yimin Wang, Jiahao Yu, Binghui Wang, Yan Chen"
 paperType: "methods"
 tags: [red-teaming, reasoning-models, alignment, reinforcement-learning, contrastive-learning]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-14-contrastive-reasoning-alignment-rl-hidden-representations.m4a"
 ---
 
 The emergence of large reasoning models — systems that generate extended internal chain-of-thought before producing a final answer — has introduced a new axis of risk in AI safety. These models are more capable than their non-reasoning counterparts, but that extra capability comes with an expanded attack surface: the reasoning trace itself can be manipulated or hijacked, and standard safety alignment methods trained at the text output level may not fully protect what happens in the latent computation. A March 2026 paper from a team at multiple Chinese institutions introduces **CRAFT** (Contrastive Reasoning Alignment Framework for red-Teaming), which relocates the alignment signal from the output token space into the hidden representation space, with promising results.

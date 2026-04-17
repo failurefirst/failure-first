@@ -1,4 +1,5 @@
 ---
+
 title: "Replicating TEMPEST at Scale: Multi-Turn Adversarial Attacks Against Trillion-Parameter Frontier Models"
 description: "A large-scale replication finds that six of ten frontier LLMs achieve 96–100% attack success rates under multi-turn adversarial pressure, while deliberative inference cuts that rate by more than half without any retraining."
 date: 2026-04-11
@@ -7,6 +8,7 @@ authors: "Richard Young"
 paperType: "empirical"
 tags: ["multi-turn-jailbreak", "adversarial-attacks", "frontier-models", "safety-alignment", "red-teaming", "deliberative-inference"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-11-replicating-tempest-scale-multi-turn-adversarial-attacks-frontier-models.m4a"
 ---
 
 ### The Scale Myth: When Bigger Models Fall Just as Hard

@@ -1,4 +1,5 @@
 ---
+
 title: "Crescendo: Multi-Turn LLM Jailbreak Attack with Adaptive Queries"
 description: "Iterative jailbreak methodology that exploits state-dependent safety failures across conversation turns"
 date: 2025-10-05
@@ -7,6 +8,7 @@ authors: "Mark Russinovich, Chloe Loughridge, Emanuele Calli, Jamin Chen, Micros
 paperType: "empirical"
 tags: [multi-turn-attack, iterative-jailbreak, state-dependent-safety, conversation-context, adaptive-queries]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/crescendo-multi-turn-jailbreak.m4a"
 ---
 
 ## Crescendo: Jailbreaking Through Conversational Drift

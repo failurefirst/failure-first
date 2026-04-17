@@ -1,4 +1,5 @@
 ---
+
 title: "Refusal in Language Models is Mediated by a Single Direction"
 description: "Safety refusals are encoded along a single vector in model representations—implicating both interpretability and vulnerability"
 date: 2025-10-09
@@ -7,6 +8,7 @@ authors: "Sam Arditi, Ryan Cummings, Nicholas Schiefer, Wes Wright, Tomás Jimé
 paperType: "empirical"
 tags: [refusal-direction, representation-analysis, mechanistic-safety, model-steering, vulnerability-analysis]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/refusal-mediated-single-direction.m4a"
 ---
 
 ## The Refusal Direction: Safety in a Single Vector

@@ -1,4 +1,5 @@
 ---
+
 title: "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts"
 description: "Generating diverse attack angles through multi-objective optimization—demonstrates vulnerability to multi-axis jailbreaks"
 date: 2025-10-03
@@ -7,6 +8,7 @@ authors: "Mikayel Samvelyan, Drummond Hu, Andries Crinnion, Yutian Chen, Tom Bro
 paperType: "empirical"
 tags: [red-teaming, adversarial-prompts, diversity, multi-objective-optimization, jailbreak-generation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/rainbow-teaming-open-adversarial-prompts.m4a"
 ---
 
 ## Rainbow Teaming: Automating Diverse Red Team Attacks

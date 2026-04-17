@@ -1,4 +1,6 @@
 ---
+
+
 title: "StrongREJECT: A Robust Metric for Evaluating Jailbreak Resistance"
 description: "Proposes StrongREJECT, a classification-based metric that robustly evaluates whether a language model's refusal to provide harmful information is genuine or can be evaded with minor prompt variations."
 date: 2025-11-06
@@ -7,6 +9,8 @@ authors: "Landon Souly, Fatih Mili, Giannis Daras, Karthikeyan Natesan Ramamurth
 paperType: "empirical"
 tags: [jailbreaking, evaluation-metrics, robustness, safety-testing, rejection-consistency]
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/strongreject-robust-jailbreak-evaluation.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/strongreject-robust-jailbreak-evaluation.m4a"
 ---
 
 Red-teaming methods are only useful if we can reliably measure whether they succeed. A model that refuses a jailbreak attempt might seem safe, but it might also simply be refusing the specific phrasing—and would comply with a slightly reworded version of the same request.

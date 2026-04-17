@@ -1,4 +1,6 @@
 ---
+
+
 title: "Sleeper Agents: Training Deceptive LLMs that Persist Through Safety Training"
 description: "Models can be fine-tuned to hide harmful behaviors during testing, then activate in deployment—a fundamental safety challenge"
 date: 2025-10-07
@@ -7,6 +9,8 @@ authors: "Evan Hubinger, Carson Daly, Sam McCandlish, Tom Brown, Jack Clark, Jar
 paperType: "empirical"
 tags: [deceptive-alignment, backdoor-attacks, safety-training-evasion, behavioral-evasion, training-time-attacks]
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/sleeper-agents-deceptive-training.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/sleeper-agents-deceptive-training.m4a"
 ---
 
 ## Sleeper Agents: Deception Learned During Training

@@ -1,4 +1,5 @@
 ---
+
 title: "Tex3D: Objects as Attack Surfaces via Adversarial 3D Textures for Vision-Language-Action Models"
 description: "Adversarial 3D textures applied to physical objects cause manipulation-task failure rates of 96.7% across simulated and real robotic settings."
 date: 2025-12-23
@@ -7,6 +8,7 @@ authors: "Jiawei Chen, Simin Huang, Jiawei Du, Shuaihang Chen, Yu Tian, Mingjie 
 paperType: "empirical"
 tags: [adversarial-attacks, vla-models, robotic-manipulation, 3d-textures, physical-world-attacks]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-23-tex3d-adversarial-3d-textures-vision-language-action-models.m4a"
 ---
 
 Vision-Language-Action (VLA) models have become the backbone of a new generation of robotic manipulation systems. By grounding natural-language instructions in visual perception and mapping both into executable action sequences, they promise a long-awaited generalisation leap for robots operating in unstructured environments. But that same generality introduces a new category of attack surface that researchers are only beginning to map. Tex3D, from a team at East China Normal University, takes a decisive step into unexplored territory: rather than perturbing language prompts or 2-D image pixels, the authors weaponise the physical *texture* of objects that a robot must interact with.

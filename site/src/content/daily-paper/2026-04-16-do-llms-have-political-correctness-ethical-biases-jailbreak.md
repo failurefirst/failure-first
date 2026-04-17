@@ -1,4 +1,5 @@
 ---
+
 title: "Do LLMs Have Political Correctness? Analyzing Ethical Biases and Jailbreak Vulnerabilities in AI Systems"
 description: "Intentional safety-induced biases in aligned LLMs create asymmetric jailbreak attack surfaces, with GPT-4o showing up to 20% success-rate disparities based solely on demographic keyword substitutions."
 date: 2026-04-16
@@ -7,6 +8,7 @@ authors: "Isack Lee, Haebin Seong"
 paperType: "empirical"
 tags: [jailbreak, safety-alignment, bias, red-teaming, adversarial-prompts, defense]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-16-do-llms-have-political-correctness-ethical-biases-jailbreak.m4a"
 ---
 
 Safety alignment in large language models is commonly described as a uniform property: a model either refuses harmful requests or it does not. The reality exposed by Lee and Seong is considerably more unsettling. Their work demonstrates that alignment is not uniform — it is unevenly distributed across demographic categories in ways that systematically create exploitable attack surfaces. A jailbreak prompt targeting GPT-4o succeeds at substantially different rates depending on whether it references cisgender vs. non-binary identities, or white vs. Black individuals — with gaps of 20% and 16% respectively, on otherwise identical prompts. The safety layer has learned to apply different thresholds to different populations, and attackers who discover these thresholds gain a reliable bypass.

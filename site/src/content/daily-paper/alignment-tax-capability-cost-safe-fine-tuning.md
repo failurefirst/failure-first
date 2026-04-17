@@ -1,4 +1,5 @@
 ---
+
 title: "The Alignment Tax: Safety Training Reduces Model Capability and User Satisfaction"
 description: "Demonstrates quantitatively that safety fine-tuning of language models incurs a measurable capability cost, reducing performance on legitimate tasks and user satisfaction, which creates economic pressure for models to reduce safety measures."
 date: 2025-09-09
@@ -7,6 +8,7 @@ authors: "Ping Qi, Jing Jiang, Youhua Zhang, Xiaofei Ma, Dan Roth"
 paperType: "empirical"
 tags: ["alignment-cost", "safety-capability-tradeoff", "fine-tuning", "capability-loss", "helpfulness", "benchmark-analysis"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/alignment-tax-capability-cost-safe-fine-tuning.m4a"
 ---
 
 # The Alignment Tax: Safety Training Reduces Model Capability and User Satisfaction

@@ -1,4 +1,5 @@
 ---
+
 title: "In-Context Attacks: Natural Language Inference Exploitation"
 description: "Explores how adversarial inputs embedded in context windows can trigger unsafe outputs in language models, leveraging the model's natural-language inference capabilities as an attack surface."
 date: 2025-11-03
@@ -7,6 +8,7 @@ authors: "Prabhav Srivastava, Divyat Mahajan, Carsten Eickhoff, Arjun Gupta"
 paperType: "empirical"
 tags: [in-context-attacks, prompt-injection, context-window-exploitation, llm-safety, inference]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/in-context-attacks-via-natural-language.m4a"
 ---
 
 Large language models are increasingly used in multi-turn conversations and complex information retrieval scenarios where they must reason over lengthy context. This paper investigates whether an attacker can exploit this capability by embedding jailbreak prompts within the context—disguised as legitimate documents, examples, or conversation history.

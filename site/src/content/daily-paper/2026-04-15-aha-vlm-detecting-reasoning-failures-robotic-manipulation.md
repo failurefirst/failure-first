@@ -1,4 +1,5 @@
 ---
+
 title: "AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures in Robotic Manipulation"
 description: "AHA is an open-source VLM that detects robotic manipulation failures and generates natural-language explanations, enabling safer recovery pipelines and denser reward signals."
 date: 2026-04-15
@@ -7,6 +8,7 @@ authors: "Jiafei Duan, Wilbert Pumacay, Nishanth Kumar, Yi Ru Wang, Shulin Tian,
 paperType: "empirical"
 tags: [failure-detection, robotic-manipulation, vision-language-models, embodied-ai, failure-modes]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-15-aha-vlm-detecting-reasoning-failures-robotic-manipulation.m4a"
 ---
 
 When a robot arm knocks over a cup instead of grasping it, what exactly went wrong — and can the system tell? That question sits at the heart of embodied AI safety. Failures in manipulation happen constantly during training and deployment, yet most robot learning pipelines treat failure as a binary signal: the task either succeeded or it did not. AHA challenges that assumption. The model watches a manipulation rollout, identifies the moment failure occurred, and produces a free-form natural-language explanation — not just a label.

@@ -1,4 +1,5 @@
 ---
+
 title: "OpenVLA: An Open-Source Vision-Language-Action Model for Robotic Manipulation"
 description: "Introduces OpenVLA, a 7B parameter open-source vision-language-action model trained on 970M robot demonstrations, achieving competitive performance on robotic manipulation benchmarks and enabling wide accessibility for embodied AI research."
 date: 2025-11-07
@@ -7,6 +8,7 @@ authors: "Mayank Sinha, Kunal Prakash, Abhinav Gupta, Lili Chen, Tsung-Yen Yang,
 paperType: "empirical"
 tags: [vision-language-action, robotics, embodied-ai, open-source, manipulation, language-grounding]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/openvla-open-source-vision-language-action.m4a"
 ---
 
 Vision-language-action (VLA) models have emerged as a promising approach for robotic manipulation—networks that consume an image and instruction, output an action. But prior VLAs were either proprietary (RT-2, PaLM-E) or limited in scale. OpenVLA changes this by releasing a fully open-source 7B model trained on 970M real-world robot demonstrations.

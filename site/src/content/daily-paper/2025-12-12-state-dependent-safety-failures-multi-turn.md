@@ -1,4 +1,5 @@
 ---
+
 title: "State-Dependent Safety Failures in Multi-Turn Language Model Interaction"
 description: "Introduces STAR, a state-oriented diagnostic framework showing that multi-turn safety failures arise from structured contextual state evolution rather than isolated prompt vulnerabilities, with mechanistic evidence of monotonic drift away from refusal representations and abrupt phase transitions."
 date: 2025-12-12
@@ -7,6 +8,7 @@ authors: "Pengcheng Li, Jie Zhang, Tianwei Zhang, Han Qiu, Zhang Kejun, Weiming 
 paperType: "methods"
 tags: ["multi-turn-attacks", "safety-alignment", "state-transitions", "conversational-safety", "phase-transitions", "mechanistic-interpretability", "refusal-drift"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-12-state-dependent-safety-failures-multi-turn.m4a"
 ---
 
 # State-Dependent Safety Failures in Multi-Turn Language Model Interaction
