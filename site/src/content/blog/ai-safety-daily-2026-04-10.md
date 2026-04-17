@@ -3,7 +3,7 @@ title: "AI Safety Daily — April 10, 2026"
 description: "Descriptive fluency vs physical grounding, the Perception-Action Gap in world models, and why safety must be an architectural constraint."
 date: 2026-04-10
 tags: ["ai-safety-daily", "embodied-ai", "world-models", "physical-ai", "safety-architecture"]
-image: "assets/infographic/daily-research/ai-safety-daily-2026-04-10.png"
+image: "https://cdn.failurefirst.org/images/daily-research/ai-safety-daily-2026-04-10.png"
 draft: false
 ---
 
