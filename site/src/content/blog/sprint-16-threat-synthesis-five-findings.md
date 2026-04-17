@@ -1,9 +1,11 @@
 ---
+
 title: "Five Things We Learned Testing AI Safety in March 2026"
 description: "In a single research sprint, we tested 10 models with persona-hijacking jailbreaks, measured defense effectiveness, documented how models detect attacks and comply anyway, and found that some safety measures make things worse. Here is what the data says."
 date: 2026-03-28
 tags: [research, synthesis, jailbreak, defense, iatrogenesis, DETECTED_PROCEEDS, convergence, safety, evaluation, embodied-ai]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/sprint-16-threat-synthesis-five-findings.m4a"
 ---
 
 In late March 2026, we ran a concentrated research sprint: 13 parallel evaluation streams, roughly 600 new benchmark traces, and 12 research reports. The goal was to stress-test several preliminary findings from earlier work under rigorous FLIP grading (backward-inference LLM classification, not keyword matching). Five results stood out. None of them are reassuring.

@@ -1,9 +1,11 @@
 ---
+
 title: "The Temperature Dial: When API Parameters Become Attack Vectors"
 description: "We discovered that changing a single API parameter — temperature — can degrade AI safety filters by 30 percentage points. No prompt engineering required. The attack surface is invisible to content filters."
 date: 2026-03-28
 image: /images/blog/temperature-dial.png
 tags: [research, safety, sampling, novel-attack, api-security, embodied-ai]
+audio: "https://cdn.failurefirst.org/audio/blog/temperature-dial-api-parameters-attack-vectors.m4a"
 ---
 
 ## The Attack That Changes No Words

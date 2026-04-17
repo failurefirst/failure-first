@@ -1,9 +1,11 @@
 ---
+
 title: "What the NSW Digital Work Systems Bill Means for AI Deployers"
 date: 2026-02-27
 description: "New South Wales just passed the most aggressive AI legislation in the Southern Hemisphere. Here's what it means for anyone deploying AI in Australian workplaces."
 tags: ["policy", "regulation", "australia", "compliance"]
 image: /images/blog/nsw-whs-digital-work-systems-ai.webp
+audio: "https://cdn.failurefirst.org/audio/blog/nsw-whs-digital-work-systems-ai.m4a"
 ---
 
 On 12 February 2026, the New South Wales Legislative Assembly passed the *Work Health and Safety Amendment (Digital Work Systems) Bill 2026*. It is arguably the most aggressive piece of AI-specific legislation in the Southern Hemisphere — and most AI deployers in Australia haven't noticed yet.

@@ -1,9 +1,11 @@
 ---
+
 title: "Our Research Papers"
 description: "Three papers from the Failure-First adversarial AI safety research programme are being prepared for arXiv submission. Abstracts and details below. Preprints uploading soon."
 date: 2026-03-25
 tags: [papers, research, arxiv, preprints, safety, alignment, benchmarking]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/research-papers-preprints.m4a"
 ---
 
 # Research Papers

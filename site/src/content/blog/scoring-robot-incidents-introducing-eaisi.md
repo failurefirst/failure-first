@@ -1,8 +1,10 @@
 ---
+
 title: "Scoring Robot Incidents: Introducing the EAISI"
 description: "We built the first standardized severity scoring system for embodied AI incidents. Five dimensions, 38 scored incidents, and a finding that governance failure contributes more to severity than physical harm."
 date: 2026-03-19
 tags: [incident-scoring, eaisi, governance, embodied-ai, safety-metrics]
+audio: "https://cdn.failurefirst.org/audio/blog/scoring-robot-incidents-introducing-eaisi.m4a"
 ---
 
 When a Knightscope security robot drowns itself in a fountain and a Tesla on Autopilot kills a pedestrian, both appear in the same incident databases with no severity differentiation. The AI Incident Database, the OECD AI Incidents Monitor, and the FDA MAUDE system all collect reports. None of them rank them.

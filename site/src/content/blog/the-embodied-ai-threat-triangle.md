@@ -1,8 +1,10 @@
 ---
+
 title: "The Embodied AI Threat Triangle: Three Laws That Explain Why Robot Safety Is Structurally Broken"
 description: "Three independently discovered empirical laws — the Inverse Detectability-Danger Law, Competence-Danger Coupling, and the Context Half-Life — combine into a unified risk framework for embodied AI. Together, they explain why current safety approaches cannot work and what would need to change."
 date: 2026-03-15
 tags: [embodied-ai, safety, evaluation, vla, alignment, iddl, cdc, chl, threat-model, research]
+audio: "https://cdn.failurefirst.org/audio/blog/the-embodied-ai-threat-triangle.m4a"
 ---
 
 We have been studying how embodied AI systems fail for over a year. Across 160 models, 13 attack families, and thousands of graded traces, three structural patterns kept appearing independently in different parts of the analysis. Each one, alone, is a significant finding. Together, they form something more troubling: a unified explanation for why the current approach to robot safety is not merely incomplete but architecturally incapable of addressing the actual threat.

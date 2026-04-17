@@ -1,10 +1,12 @@
 ---
+
 title: "The Insurance Industry's Next Silent Crisis"
 description: "Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will."
 date: 2026-03-24
 tags: [insurance, silent-ai, liability, embodied-ai, vla-robots, risk-management, coverage-void]
 image: "https://cdn.failurefirst.org/images/daily-paper/silent-ai-insurance.webp"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/silent-ai-insurance-crisis.m4a"
 ---
 
 # The Insurance Industry's Next Silent Crisis

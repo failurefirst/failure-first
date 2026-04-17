@@ -1,8 +1,10 @@
 ---
+
 title: "Three Vectors, One Window: The Embodied AI Risk Convergence of 2026"
 description: "Factory humanoids are scaling, attack surfaces are expanding, and governance remains structurally absent. For the first time, all three conditions exist simultaneously. What happens in the next six months matters."
 date: 2026-03-15
 tags: [governance, embodied-ai, threat-analysis, predictive-risk, gli]
+audio: "https://cdn.failurefirst.org/audio/blog/three-vectors-embodied-ai-risk-convergence-2026.m4a"
 ---
 
 ## The Window

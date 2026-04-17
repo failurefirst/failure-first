@@ -1,8 +1,10 @@
 ---
+
 title: "Red Team Assessment Methodology for Embodied AI: Eight Dimensions the Current Market Doesn't Cover"
 date: 2026-03-01
 description: "Commercial AI red teaming is designed for static LLM deployments. Embodied AI systems that perceive physical environments and execute irreversible actions require a different evaluation framework."
 tags: ["red-teaming", "embodied-ai", "methodology", "adversarial", "safety", "benchmark"]
+audio: "https://cdn.failurefirst.org/audio/blog/red-team-assessment-methodology-embodied-ai.m4a"
 ---
 
 The commercial AI red teaming market is designed for LLM applications — systems that receive text and produce text in a bounded session. The leading providers (HiddenLayer AutoRTAI, Mindgard, Protect AI Recon, Promptfoo, Adversa AI) share a common methodological assumption: the attack surface ends at the model's output layer, and the relevant failure modes are prompt injection, jailbreaking, and data poisoning.
