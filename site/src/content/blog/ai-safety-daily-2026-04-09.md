@@ -3,7 +3,7 @@ title: "AI Safety Daily — April 9, 2026"
 description: "Red-teaming exposed as security theater, FLIP backward inference outperforms LLM-as-judge by 79.6%, and the corporate safety leadership exodus continues."
 date: 2026-04-09
 tags: ["ai-safety-daily", "red-teaming", "evaluation", "corporate-governance", "alignment"]
-image: "assets/infographic/daily-research/ai-safety-daily-2026-04-09.png"
+image: "https://cdn.failurefirst.org/images/daily-research/ai-safety-daily-2026-04-09.png"
 draft: false
 ---
 

@@ -3,7 +3,7 @@ title: "AI Safety Daily — April 8, 2026"
 description: "Federal AV regulation push, AEGIS safety wrapper achieves +59% obstacle avoidance, PreSafe eliminates alignment tax, and SafeAgentBench reveals 90% hazard compliance rate."
 date: 2026-04-08
 tags: ["ai-safety-daily", "autonomous-vehicles", "vla-safety", "embodied-ai", "regulation"]
-image: "assets/infographic/daily-research/ai-safety-daily-2026-04-08.png"
+image: "https://cdn.failurefirst.org/images/daily-research/ai-safety-daily-2026-04-08.png"
 draft: false
 ---
 

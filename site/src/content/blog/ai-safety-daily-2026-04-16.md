@@ -3,7 +3,7 @@ title: "AI Safety Daily — April 16, 2026"
 description: "Red-teaming as security theater, 0% physical AI puzzle performance, SafeAgentBench finds <10% hazard rejection, and AEGIS wrapper provides mathematical safety guarantees."
 date: 2026-04-16
 tags: ["ai-safety-daily", "red-teaming", "embodied-ai", "vla-safety", "frontier-models", "financial-ai"]
-image: "assets/infographic/daily-research/ai-safety-daily-2026-04-16.png"
+image: "https://cdn.failurefirst.org/images/daily-research/ai-safety-daily-2026-04-16.png"
 draft: false
 ---
 
