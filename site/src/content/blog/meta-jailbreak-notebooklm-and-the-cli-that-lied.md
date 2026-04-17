@@ -1,10 +1,12 @@
 ---
+
 title: "A Meta-Jailbreak, a Slide-Deck Content Filter, and a CLI That Lied to Us"
 description: "What NotebookLM does when you feed it a corpus of jailbreak research papers, the reproducible content-sensitive filter hiding in its slide-deck Studio command, and the quiet CLI default that silently contaminated three of our experimental runs into one conversation."
 date: 2026-04-11
 tags: [notebooklm, meta-jailbreak, methodology, content-gate, grading]
 video: "https://cdn.failurefirst.org/video/reports/352-meta-jailbreak-notebooklm.mp4"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/meta-jailbreak-notebooklm-and-the-cli-that-lied.m4a"
 ---
 
 *Disclosure posture up front: Google has not been formally notified of the findings below as of publication. Each finding has a different appropriate disclosure target — Finding 3 is a behavior of the third-party `notebooklm-tools` Python package rather than a Google product, and will be filed as an issue against that package's maintainers. Findings 1 and 2 are characterizations of NotebookLM's behavior as designed rather than security vulnerabilities, and are being published defensively with courtesy notification to Google Research. The full posture rationale is in Section 8 of the formal report.*

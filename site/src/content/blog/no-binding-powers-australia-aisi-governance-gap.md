@@ -1,8 +1,10 @@
 ---
+
 title: "No Binding Powers: Australia's AI Safety Institute and the Governance Gap"
 description: "Australia's AI Safety Institute has no statutory powers — no power to compel disclosure, no binding rule-making, no penalties. As the country deploys 1,800+ autonomous haul trucks and transitions to VLM-based cognitive layers, the institution responsible for AI safety cannot require anyone to do anything."
 date: 2026-03-11
 tags: [governance, australia, aisi, regulation, embodied-ai, policy, mining]
+audio: "https://cdn.failurefirst.org/audio/blog/no-binding-powers-australia-aisi-governance-gap.m4a"
 ---
 
 Australia launched its AI Safety Institute (AU AISI) in November 2025 with AUD $29.9 million in funding. It is the country's answer to the growing recognition that AI systems need governance before they cause harm.

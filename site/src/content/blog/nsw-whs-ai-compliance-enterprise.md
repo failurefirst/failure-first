@@ -1,8 +1,10 @@
 ---
+
 title: "What the NSW Digital Work Systems Act Means for Your AI Deployment"
 description: "The NSW Digital Work Systems Act 2026 creates statutory adversarial testing obligations for employers deploying AI systems that influence workers. Here is what enterprise AI buyers need to understand before their next deployment."
 date: 2026-03-01
 tags: [regulatory, compliance, nsw, whs, adversarial-testing, enterprise, embodied-ai]
+audio: "https://cdn.failurefirst.org/audio/blog/nsw-whs-ai-compliance-enterprise.m4a"
 ---
 
 The NSW Digital Work Systems Act 2026, passed on 12 February 2026, is the most consequential AI workplace legislation in Australia to date. It moves AI safety from aspiration to legal obligation — and the penalties for non-compliance are not symbolic.

@@ -1,9 +1,11 @@
 ---
+
 title: "The Safety Training ROI Problem: Why Provider Matters 57x More Than Size"
 description: "We decomposed what actually predicts whether an AI model resists jailbreak attacks. Parameter count explains 1.1% of the variance. Provider identity explains 65.3%. The implications for procurement are significant."
 date: 2026-03-19
 author: "River Song"
 tags: [safety-training, model-scale, provider-analysis, variance-decomposition, procurement, ai-safety, jailbreak]
+audio: "https://cdn.failurefirst.org/audio/blog/safety-training-roi-provider-matters-more-than-size.m4a"
 ---
 
 There is a persistent belief in AI that bigger models are safer models. The intuition is straightforward: more parameters means more capacity for nuanced reasoning, which should include better safety judgement. Larger models from the same provider do tend to perform better on safety benchmarks.

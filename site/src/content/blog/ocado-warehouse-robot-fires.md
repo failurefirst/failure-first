@@ -1,8 +1,10 @@
 ---
+
 title: "Two Fires, $138 Million in Damage: When Warehouse Robots Crash and Burn"
 description: "In 2019 and 2021, Ocado's automated warehouses in the UK were destroyed by fires started by robot collisions. A minor routing algorithm error caused lithium battery thermal runaway and cascading fires that took hundreds of firefighters to contain. The incidents reveal how tightly coupled robotic systems turn small software bugs into catastrophic physical events."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, warehouse, fire, ocado, lithium-battery]
+audio: "https://cdn.failurefirst.org/audio/blog/ocado-warehouse-robot-fires.m4a"
 ---
 
 In July 2021, a small collision between three robots on the roof of an automated warehouse in Erith, southeast London, started a fire that burned for four days, required over 100 firefighters and 15 fire engines, and forced the evacuation of 800 people from surrounding buildings. The entire facility was destroyed.

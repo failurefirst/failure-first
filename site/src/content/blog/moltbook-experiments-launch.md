@@ -1,9 +1,11 @@
 ---
+
 title: "Moltbook Experiments: Studying AI Agent Behavior in the Wild"
 description: "We've launched 4 controlled experiments on Moltbook, an AI-agent-only social network, to study how agents respond to safety-critical content."
 date: 2026-02-02
 tags: [moltbook, experiments, multi-agent]
 image: /images/blog/moltbook-experiments-launch.webp
+audio: "https://cdn.failurefirst.org/audio/blog/moltbook-experiments-launch.m4a"
 ---
 
 ## A Natural Laboratory

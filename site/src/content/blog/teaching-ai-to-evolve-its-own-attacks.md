@@ -1,8 +1,10 @@
 ---
+
 title: "Teaching AI to Evolve Its Own Attacks"
 description: "We built a system that autonomously generates, mutates, and evaluates adversarial attacks against AI models. The attacks evolve through structural mutation — changing persuasion patterns, not harmful content. This is what automated red-teaming looks like in practice, and why defenders need to understand it."
 date: 2026-03-23
 tags: [research, safety, red-teaming, automation, embodied-ai, adversarial]
+audio: "https://cdn.failurefirst.org/audio/blog/teaching-ai-to-evolve-its-own-attacks.m4a"
 ---
 
 ## The Asymmetry Problem

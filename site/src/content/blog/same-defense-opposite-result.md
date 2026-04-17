@@ -1,9 +1,11 @@
 ---
+
 title: "Same Defense, Opposite Result: Why AI Safety Depends on Which Model You're Protecting"
 description: "We tested the same system-prompt defense against the same jailbreak prompts on two different models. One saw a 50 percentage point reduction in attack success. The other saw zero change. The difference comes down to which part of the system prompt the model pays attention to first."
 date: 2026-03-28
 tags: [research, safety, defense, positional-bias, architecture, jailbreak]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/same-defense-opposite-result.m4a"
 ---
 
 We ran the same experiment twice. Same six L1B3RT4S jailbreak prompts. Same STRUCTURED defense -- a five-rule safety framework injected into the system prompt. Same test payload. Same grading methodology.

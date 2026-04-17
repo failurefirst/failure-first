@@ -1,10 +1,12 @@
 ---
 
+
 title: "The Unified Theory of Embodied AI Failure"
 description: "After 157 research reports and 132,000 adversarial evaluations, we present a single causal chain explaining why embodied AI safety is structurally different from chatbot safety -- and why current approaches cannot close the gap."
 date: 2026-03-19
 tags: [theory, embodied-ai, safety-architecture, cdc, iddl, research]
 audio: "https://cdn.failurefirst.org/audio/blog/unified-theory-embodied-ai-failure.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/unified-theory-embodied-ai-failure.pdf"
 ---
 
 After 157 research reports, testing across 190 models, and 132,182 evaluated adversarial interactions, we have arrived at a single coherent account of why current approaches to embodied AI safety are structurally inadequate. Not "harder than expected" -- qualitatively different from text-AI safety in ways that render current tools insufficient.

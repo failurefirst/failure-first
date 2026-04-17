@@ -1,8 +1,10 @@
 ---
+
 title: "When Safety Labs Take Government Contracts: The Independence Question"
 description: "Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?"
 date: 2026-03-19
 tags: [policy, governance, independence, anthropic, openai, accountability, ethics]
+audio: "https://cdn.failurefirst.org/audio/blog/safety-labs-government-contracts-independence-question.m4a"
 ---
 
 In February 2026, the US Department of Defense demanded that Anthropic sign a document granting the Pentagon unrestricted access to Claude for "all lawful purposes." Anthropic refused. The Pentagon threatened contract cancellation, a "supply chain risk" designation previously reserved for hostile foreign adversaries, and invocation of the Defense Production Act. Within hours of the administration ordering federal agencies to cease business with Anthropic, OpenAI announced a new Pentagon agreement.

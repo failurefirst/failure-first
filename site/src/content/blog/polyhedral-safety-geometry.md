@@ -1,10 +1,12 @@
 ---
+
 title: "Safety Isn't One-Dimensional: The Geometry That Explains Why AI Guardrails Keep Failing"
 description: "New mechanistic interpretability evidence shows that safety in language models is encoded as a polyhedral structure across ~4 near-orthogonal dimensions, not a single removable direction. This explains why abliteration, naive DPO, and single-direction interventions consistently fail at scale."
 date: 2026-03-24
 tags: [mechanistic-interpretability, polyhedral-safety, abliteration, refusal-geometry, steering-vectors, safety-training]
 image: "https://cdn.failurefirst.org/images/daily-paper/polyhedral-safety.webp"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/polyhedral-safety-geometry.m4a"
 ---
 
 # Safety Isn't One-Dimensional

@@ -1,8 +1,10 @@
 ---
+
 title: "The Polypharmacy Hypothesis: Can Too Much Safety Make AI Less Safe?"
 description: "In medicine, patients on too many drugs get sicker from drug interactions. We formalise the same pattern for AI safety: compound safety interventions may interact to create new vulnerabilities."
 date: 2026-03-19
 tags: [safety-interventions, iatrogenesis, polypharmacy, embodied-ai, research]
+audio: "https://cdn.failurefirst.org/audio/blog/polypharmacy-hypothesis-too-much-safety-less-safe.m4a"
 ---
 
 In clinical pharmacology, there is a well-documented phenomenon called polypharmacy. Patients on five or more concurrent medications experience adverse drug reactions at dramatically higher rates than patients on fewer drugs. Not because any individual drug is harmful, but because drugs interact. For two drugs, there is one potential interaction. For five, there are ten. For ten, there are forty-five. The interaction space grows quadratically while the therapeutic benefit of each additional drug grows at best linearly.

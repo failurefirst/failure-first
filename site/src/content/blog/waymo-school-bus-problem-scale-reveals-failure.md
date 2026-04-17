@@ -1,12 +1,14 @@
 ---
 
 
+
 title: "Waymo's School Bus Problem"
 description: "Over 20 school bus stop-sign violations in Austin. A child struck near an elementary school in Santa Monica. 1,429 reported accidents. Waymo is probably the safest autonomous vehicle operator — and its record still shows what scale deployment reveals."
 date: 2026-03-18
 tags: [embodied-ai, autonomous-vehicles, incident-analysis, safety, waymo, scale-deployment]
 image: "https://cdn.failurefirst.org/images/blog/waymo-school-bus-problem-scale-reveals-failure.png"
 audio: "https://cdn.failurefirst.org/audio/blog/waymo-school-bus-problem-scale-reveals-failure.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/waymo-school-bus-problem-scale-reveals-failure.pdf"
 ---
 
 Waymo is, by most available metrics, the most cautious and transparent autonomous vehicle operator in the United States. It publishes safety reports. It cooperates with regulators. Its vehicles drive conservatively enough that human drivers regularly honk at them for being too slow.

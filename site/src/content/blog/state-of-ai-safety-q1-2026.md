@@ -1,9 +1,11 @@
 ---
+
 title: "The State of AI Safety: Q1 2026"
 description: "A data-grounded assessment of the AI safety landscape at the end of Q1 2026, drawing on 212 models, 134,000+ evaluation results, and the first Governance Lag Index dataset."
 date: 2026-03-25
 tags: ["ai-safety", "quarterly-review", "governance", "embodied-ai", "threat-landscape"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/state-of-ai-safety-q1-2026.m4a"
 ---
 
 This is the first quarterly assessment from the Failure-First Embodied AI project. It synthesises findings from the largest independent adversarial evaluation corpus for embodied and agentic AI systems, covering 212 models, 134,321 evaluation results, and 154 governance lag events tracked across a 14-year span.
