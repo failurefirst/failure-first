@@ -1,4 +1,5 @@
 ---
+
 title: "BitBypass: Jailbreaking LLMs with Bitstream Camouflage"
 description: "A black-box jailbreak technique that encodes harmful queries as hyphen-separated bitstreams, exploiting the gap between tokenization and semantic safety filtering."
 date: 2025-12-30
@@ -7,6 +8,7 @@ authors: "Kalyan Nakka, Nitesh Saxena"
 paperType: "empirical"
 tags: [jailbreak, bitstream-encoding, tokenization-attack, black-box-attack, safety-alignment]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-30-bitbypass-jailbreaking-llms-bitstream-camouflage.m4a"
 ---
 
 The arms race between jailbreak attacks and safety alignment continues to surface unexpected vulnerability classes. Nakka and Saxena introduce **BitBypass**, a black-box attack that sidesteps safety mechanisms entirely by encoding harmful queries as hyphen-separated bitstream representations. Rather than attempting to manipulate the model through prompt engineering, social engineering, or adversarial suffixes, BitBypass operates at a more fundamental level: exploiting how models process encoded data representations.

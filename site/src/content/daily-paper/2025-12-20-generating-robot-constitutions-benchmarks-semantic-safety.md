@@ -1,4 +1,5 @@
 ---
+
 title: "Generating Robot Constitutions & Benchmarks for Semantic Safety"
 description: "Introduces the ASIMOV Benchmark for evaluating semantic safety in robot foundation models and an automated framework for generating robot constitutions that achieves 84.3% alignment with human safety preferences."
 date: 2025-12-20
@@ -7,6 +8,7 @@ authors: "Pierre Sermanet, Anirudha Majumdar, Alex Irpan, Dmitry Kalashnikov, Vi
 paperType: "empirical"
 tags: ["robot-safety", "constitutional-ai", "semantic-safety", "safety-benchmarks", "foundation-models"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-20-generating-robot-constitutions-benchmarks-semantic-safety.m4a"
 ---
 
 # Generating Robot Constitutions & Benchmarks for Semantic Safety

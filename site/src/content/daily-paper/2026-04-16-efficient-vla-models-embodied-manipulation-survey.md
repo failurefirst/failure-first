@@ -1,4 +1,5 @@
 ---
+
 title: "Efficient Vision-Language-Action Models for Embodied Manipulation: A Systematic Survey"
 description: "A systematic survey of techniques for reducing latency, memory, and compute costs in VLA models, revealing how efficiency constraints directly shape the safety guarantees available to deployed robotic systems."
 date: 2026-04-16
@@ -7,6 +8,7 @@ authors: "Weifan Guan, Qinghao Hu, Aosheng Li, Jian Cheng"
 paperType: "survey"
 tags: [vla-models, embodied-ai, efficiency, edge-deployment, safety-robustness, survey]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-16-efficient-vla-models-embodied-manipulation-survey.m4a"
 ---
 
 When researchers debate the safety of Vision-Language-Action (VLA) models, the conversation tends toward adversarial robustness, alignment failures, and backdoor attacks. But there is a more mundane threat lurking at the intersection of capability and deployment reality: **the efficiency gap**. A VLA model that takes 400 ms to produce an action is functionally unsafe in a dynamic environment where a human hand or a falling object requires 50 ms of response time. This survey from Guan et al. maps out the rapidly growing body of work aimed at closing that gap — and in doing so, reveals how deeply efficiency and safety are intertwined in embodied AI.

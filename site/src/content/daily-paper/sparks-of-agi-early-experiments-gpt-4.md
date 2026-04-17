@@ -1,4 +1,6 @@
 ---
+
+
 title: "Sparks of Artificial General Intelligence: Early Experiments with GPT-4"
 description: "Documents GPT-4's remarkable few-shot learning capabilities across diverse domains, showing emergent reasoning abilities in mathematics, coding, science, and vision tasks that suggest possible progression toward artificial general intelligence."
 date: 2025-09-02
@@ -7,6 +9,8 @@ authors: "Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke,
 paperType: "empirical"
 tags: ["gpt-4", "emergent-capabilities", "few-shot-learning", "reasoning", "multimodal", "capability-analysis"]
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/sparks-of-agi-early-experiments-gpt-4.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/sparks-of-agi-early-experiments-gpt-4.m4a"
 ---
 
 # Sparks of Artificial General Intelligence: Early Experiments with GPT-4

@@ -1,4 +1,6 @@
 ---
+
+
 title: "SayCan: Do As I Can, Not As I Say"
 description: "Demonstrates that language models can ground abstract instructions in robotic capabilities by combining language understanding with value functions learned from robot interaction data, enabling robots to reject impossible requests and achieve human intent rather than literal instruction following."
 date: 2025-11-10
@@ -7,6 +9,8 @@ authors: "Ahn Micheal, Anthony Brohan, Noah Brown, Yevgen Chebotar, Omar Corrado
 paperType: "empirical"
 tags: [robotics, language-grounding, embodied-ai, intent-understanding, capability-awareness, policy-learning]
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/saycan-do-as-i-can-not-as-i-say.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/saycan-do-as-i-can-not-as-i-say.m4a"
 ---
 
 SayCan introduced a foundational principle: robots should be capable of not following instructions. When a user asks a robot to do something impossible—move to an inaccessible location, grasp a non-existent object, violate a physical constraint—the robot should recognize the impossibility and either request clarification or infer the user's intent and act accordingly.

@@ -1,4 +1,5 @@
 ---
+
 title: "Llama Guard: LLM-based Input-Output Safeguard for Open-Ended Generative Models"
 description: "First LLM-based safety filter—delegates moderation to a smaller, specialized safety model"
 date: 2025-10-02
@@ -7,6 +8,7 @@ authors: "Hakan Inan, Kartikeya Upasani, Andrew Poulton, Telmo Vieira, Rashi Mal
 paperType: "empirical"
 tags: [safety-filtering, llm-as-judge, moderation-framework, taxonomy, content-policy]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/llama-guard-llm-safeguard.m4a"
 ---
 
 ## Llama Guard: Delegating Harm Detection to LLMs

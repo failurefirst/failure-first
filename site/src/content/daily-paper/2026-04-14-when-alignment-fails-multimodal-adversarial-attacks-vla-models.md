@@ -1,4 +1,5 @@
 ---
+
 title: "When Alignment Fails: Multimodal Adversarial Attacks on Vision-Language-Action Models"
 description: "VLA-Fool exposes how textual, visual, and cross-modal adversarial attacks can systematically break the safety alignment of embodied VLA models, and proposes a semantic prompting framework as a first line of defense."
 date: 2026-04-14
@@ -7,6 +8,7 @@ authors: "Yuping Yan, Yuhan Xie, Yixin Zhang, Lingjuan Lyu, Handing Wang, Yaochu
 paperType: "empirical"
 tags: [adversarial-attacks, vla-models, multimodal-safety, embodied-ai, robustness-evaluation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-14-when-alignment-fails-multimodal-adversarial-attacks-vla-models.m4a"
 ---
 
 Vision-Language-Action (VLA) models promise a new era for robotics: a single unified model that reads natural language instructions, interprets camera feeds, and translates both into precise motor commands. But that unified architecture is also a unified attack surface. A paper published in November 2025, *When Alignment Fails*, introduces **VLA-Fool**, a systematic evaluation framework that stress-tests VLA robustness across the full width of multimodal inputs — and the results are sobering.

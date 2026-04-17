@@ -1,4 +1,5 @@
 ---
+
 title: "Fine-Tuning Aligned Language Models Compromises Safety"
 description: "Demonstrates that further fine-tuning of already safety-trained models on specific tasks erodes their safety properties, showing that downstream users can inadvertently undo months of safety work through task-specific fine-tuning. Safety properties do not robustly transfer."
 date: 2025-09-10
@@ -7,6 +8,7 @@ authors: "Pengfei Qi, Zhen Tan, Ran Cui, Peter Chin"
 paperType: "empirical"
 tags: ["safety-erosion", "fine-tuning-instability", "transfer-learning", "alignment-drift", "downstream-safety", "model-behavior"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/fine-tuning-aligned-llms-compromises-safety.m4a"
 ---
 
 # Fine-Tuning Aligned Language Models Compromises Safety

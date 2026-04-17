@@ -1,4 +1,5 @@
 ---
+
 title: "When Alignment Fails: Multimodal Adversarial Attacks on Vision-Language-Action Models"
 description: "VLA-Fool reveals that embodied VLA models are systematically vulnerable to textual, visual, and cross-modal adversarial attacks, and proposes a semantic prompting defense that only partially closes the gap."
 date: 2026-04-12
@@ -7,6 +8,7 @@ authors: "Yuping Yan, Yuhan Xie, Yixin Zhang, Lingjuan Lyu, Handing Wang, Yaochu
 paperType: "empirical"
 tags: [adversarial-attacks, vision-language-action, multimodal-robustness, embodied-ai, safety-evaluation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-12-when-alignment-fails-multimodal-adversarial-attacks-vla-models.m4a"
 ---
 
 VLA models have emerged as a cornerstone of modern robotics, combining the perception capabilities of vision encoders, the reasoning power of language models, and the action generation needed to drive physical systems. OpenVLA and its successors now power manipulation arms, mobile robots, and humanoid platforms across research settings worldwide. But as these models push toward real-world deployment, a critical question surfaces: how robust are they against deliberate adversarial interference?

@@ -1,4 +1,5 @@
 ---
+
 title: "On the Power of Persuasion: Jailbreaking Language Models through Dialogue"
 description: "Demonstrates that language models are vulnerable to sophisticated persuasion attacks through multi-turn dialogue, where models gradually relax safety constraints through conversation without explicit jailbreak prompts."
 date: 2025-09-07
@@ -7,6 +8,7 @@ authors: "Michael Brundage, Tamay Besiroglu, Kevin Liu, Liane Lovitt, Jian Peng,
 paperType: "empirical"
 tags: ["jailbreaks", "persuasion", "multi-turn-dialogue", "safety-vulnerabilities", "adversarial-prompts", "refusal-evasion"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/power-of-persuasion-in-large-language-models.m4a"
 ---
 
 # On the Power of Persuasion: Jailbreaking Language Models through Dialogue

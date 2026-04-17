@@ -1,4 +1,5 @@
 ---
+
 title: "BadVLA: Towards Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization"
 description: "BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems."
 date: 2026-04-13
@@ -7,6 +8,7 @@ authors: "Xueyang Zhou, Guiyao Tie, Guowen Zhang, Hechang Wang, Pan Zhou, Lichao
 paperType: "empirical"
 tags: [backdoor-attacks, vla-models, embodied-ai, adversarial-robustness, robot-safety, feature-space-attacks]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-13-badvla-backdoor-attacks-vla-models-objective-decoupled-optimization.m4a"
 ---
 
 As Vision-Language-Action (VLA) models move from research labs into deployed robotic systems, their attack surface expands in ways that traditional software security frameworks were never designed to address. BadVLA exposes one of the most insidious of these new threat vectors: a backdoor attack that exploits the internal feature geometry of VLA models to silently redirect physical robot behavior whenever a hidden trigger is present.

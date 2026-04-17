@@ -1,4 +1,5 @@
 ---
+
 title: "Contrastive Reasoning Alignment: Reinforcement Learning from Hidden Representations"
 description: "CRAFT uses contrastive learning over a model's internal hidden states combined with reinforcement learning to produce reasoning LLMs that maintain safety alignment without sacrificing reasoning capability."
 date: 2026-04-13
@@ -7,6 +8,7 @@ authors: "Haozheng Luo, Yimin Wang, Jiahao Yu, Binghui Wang, Yan Chen"
 paperType: "empirical"
 tags: [safety-alignment, reasoning-models, contrastive-learning, reinforcement-learning, jailbreak-defense, hidden-representations]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-13-craft-contrastive-reasoning-alignment-hidden-representations.m4a"
 ---
 
 The rise of large reasoning models — LLMs trained with extended chain-of-thought and reinforcement learning — has introduced a new alignment challenge. These models are not merely answering questions; they are deliberating step by step, and that deliberation process itself can be manipulated. CRAFT (Contrastive Reasoning Alignment Framework) addresses this problem by intervening directly in the model's latent space, using hidden representation optimization and contrastive learning to build safety into the reasoning process rather than bolting it on afterward.

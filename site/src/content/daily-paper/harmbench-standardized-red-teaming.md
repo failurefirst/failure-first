@@ -1,4 +1,5 @@
 ---
+
 title: "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming"
 description: "Introduces HarmBench, a comprehensive benchmark for evaluating automated red-teaming methods against language models, establishing standardized metrics and harm categories to enable reproducible adversarial AI research."
 date: 2025-11-05
@@ -7,6 +8,7 @@ authors: "Mantas Mazeika, Long Phan, Alexander Pan, Andy Zou, Alice Gatti, Justi
 paperType: "methods"
 tags: [red-teaming, jailbreaking, benchmarking, standardization, safety-evaluation, adversarial-ai]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/harmbench-standardized-red-teaming.m4a"
 ---
 
 The field of adversarial red-teaming has exploded with new attack methods, but reproducible comparison remains difficult. Each paper proposes attack techniques and evaluates them on different model sets, different harm categories, and different evaluation criteria. HarmBench addresses this fragmentation by providing a unified benchmark.
