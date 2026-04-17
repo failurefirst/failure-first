@@ -1,10 +1,12 @@
 ---
+
 title: "Strategic Framework for Sovereign AI Assurance: Establishing an Accredited Certification Body for Embodied Intelligence in Australia"
 description: "The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of \"embodied AI\"—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic..."
 reportNumber: 29
 classification: "Regulatory Review"
 date: "2026-02-04"
 status: "draft"
+slides: "https://cdn.failurefirst.org/slides/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an.pdf"
 ---
 
 # **Strategic Framework for Sovereign AI Assurance: Establishing an Accredited Certification Body for Embodied Intelligence in Australia**

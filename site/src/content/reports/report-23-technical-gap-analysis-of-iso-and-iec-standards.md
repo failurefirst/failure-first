@@ -1,10 +1,12 @@
 ---
+
 title: "Technical Gap Analysis of ISO and IEC Standards for Vision-Language-Action (VLA) Driven Humanoid Robotics and Large Language Model (LLM) Cognitive Layers"
 description: "The paradigm shift in robotics from pre-programmed, scripted automation to generative, embodied intelligence has outpaced the normative frameworks traditionally used to certify safety and security. Modern humanoid robots are increasingly characterized by the integration of Large Language Models..."
 reportNumber: 23
 classification: "Standards Development"
 date: "2026-02-04"
 status: "draft"
+slides: "https://cdn.failurefirst.org/slides/reports/report-23-technical-gap-analysis-of-iso-and-iec-standards.pdf"
 ---
 
 # **Technical Gap Analysis of ISO and IEC Standards for Vision-Language-Action (VLA) Driven Humanoid Robotics and Large Language Model (LLM) Cognitive Layers**

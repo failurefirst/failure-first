@@ -1,10 +1,16 @@
 ---
+
+
+
 title: "Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution"
 description: "Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth."
 reportNumber: 44
 classification: "HIGH"
 date: "2026-03-01"
 status: "active"
+image: "https://cdn.failurefirst.org/images/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.png"
+audio: "https://cdn.failurefirst.org/audio/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.m4a"
+slides: "https://cdn.failurefirst.org/slides/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.pdf"
 ---
 
 # Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution

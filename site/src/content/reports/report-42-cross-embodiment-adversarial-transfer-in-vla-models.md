@@ -1,10 +1,16 @@
 ---
+
+
+
 title: "Cross-Embodiment Adversarial Transfer in Vision-Language-Action Models"
 description: "Analysis of how adversarial attacks optimized against one robot morphology transfer to entirely different platforms sharing a VLM backbone. Examines dual-layer vulnerability in VLA architecture, BadVLA near-100% ASR, and systemic risk in Gemini Robotics 1.5, π0, and Grok-enabled Optimus."
 reportNumber: 42
 classification: "SAFETY-CRITICAL"
 date: "2026-03-01"
 status: "active"
+image: "https://cdn.failurefirst.org/images/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models.png"
+slides: "https://cdn.failurefirst.org/slides/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models.pdf"
+audio: "https://cdn.failurefirst.org/audio/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models.m4a"
 ---
 
 # Cross-Embodiment Adversarial Transfer in Vision-Language-Action Models

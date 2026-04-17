@@ -1,10 +1,12 @@
 ---
+
 title: "The Architecture of Kinetic Risk: Insurance Underwriting as the Primary Regulator of Humanoid Robotics and Autonomous Systems"
 description: "The global transition toward the mass deployment of humanoid robotics and autonomous systems represents a paradigm shift in the nature of physical and digital liability. As robotic systems evolve from static industrial components into mobile, autonomous agents—specifically humanoid forms..."
 reportNumber: 28
 classification: "Regulatory Review"
 date: "2026-02-04"
 status: "draft"
+slides: "https://cdn.failurefirst.org/slides/reports/report-28-the-architecture-of-kinetic-risk-insurance-underwriting-as.pdf"
 ---
 
 # **The Architecture of Kinetic Risk: Insurance Underwriting as the Primary Regulator of Humanoid Robotics and Autonomous Systems**
