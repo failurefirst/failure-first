@@ -1,10 +1,14 @@
 ---
 
+
+
 title: "When Your Safety Grader Is Wrong: The Crescendo Regrade Story"
 description: "We used an unreliable AI model to grade other AI models on safety. The grader was 15% accurate. Here is how we caught it, what the corrected numbers show, and what it means for the AI safety evaluation ecosystem."
 date: 2026-03-11
 tags: [evaluation, grading, reproducibility, jailbreak, crescendo, safety-research]
 audio: "https://cdn.failurefirst.org/audio/blog/when-your-safety-grader-is-wrong.m4a"
+image: "https://cdn.failurefirst.org/images/blog/when-your-safety-grader-is-wrong.png"
+slides: "https://cdn.failurefirst.org/slides/blog/when-your-safety-grader-is-wrong.pdf"
 ---
 
 There is a recurring problem in AI safety research that nobody wants to talk about: the tools we use to measure safety are themselves unsafe. Not in the sense that they cause harm. In the sense that they produce wrong numbers — and those wrong numbers get cited, published, and used to make decisions about which systems are safe to deploy.

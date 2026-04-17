@@ -1,9 +1,17 @@
 ---
+
+
+
+
 title: "Zero of 36: No AI Attack Family Is Fully Regulated Anywhere in the World"
 description: "We mapped all 36 documented attack families for embodied AI against every major regulatory framework on Earth. The result: not a single attack family is fully covered. 33 have no specific coverage at all. The regulatory gap is not a crack -- it is the entire floor."
 date: 2026-03-25
 tags: ["regulation", "governance-lag", "embodied-ai", "EU-AI-Act", "policy", "attack-taxonomy", "VLA", "safety-evaluation"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/zero-of-36-regulatory-coverage.png"
+audio: "https://cdn.failurefirst.org/audio/blog/zero-of-36-regulatory-coverage.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/zero-of-36-regulatory-coverage.pdf"
+video: "https://cdn.failurefirst.org/video/blog/zero-of-36-regulatory-coverage.mp4"
 ---
 
 # Zero of 36: No AI Attack Family Is Fully Regulated Anywhere in the World

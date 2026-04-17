@@ -1,9 +1,11 @@
 ---
+
 title: "What Moltbook Teaches Us About Multi-Agent Safety"
 description: "When 1.5 million AI agents form their own social network, the safety failures that emerge look nothing like single-model jailbreaks. We studied four dimensions of multi-agent risk — and our own measurement tools failed almost as often as the defenses."
 date: 2026-02-04
 tags: [moltbook, multi-agent, ai-safety, research]
 image: /images/blog/what-moltbook-teaches-multi-agent-safety.webp
+audio: "https://cdn.failurefirst.org/audio/blog/what-moltbook-teaches-multi-agent-safety.m4a"
 ---
 
 What happens when AI agents stop talking to humans and start talking to each other?

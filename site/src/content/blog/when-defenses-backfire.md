@@ -1,9 +1,15 @@
 ---
+
+
+
 title: "When Defenses Backfire: Five Ways AI Safety Measures Create the Harms They Prevent"
 description: "The iatrogenic safety paradox is not a theoretical concern. Our 207-model corpus documents five distinct mechanisms by which safety interventions produce new vulnerabilities, false confidence, and novel attack surfaces. The AI safety field needs the same empirical discipline that governs medicine."
 date: 2026-03-25
 tags: ["iatrogenesis", "defense-paradox", "safety-evaluation", "embodied-ai", "polypharmacy", "DETECTED_PROCEEDS", "alignment", "policy"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/when-defenses-backfire.m4a"
+image: "https://cdn.failurefirst.org/images/blog/when-defenses-backfire.png"
+slides: "https://cdn.failurefirst.org/slides/blog/when-defenses-backfire.pdf"
 ---
 
 # When Defenses Backfire: Five Ways AI Safety Measures Create the Harms They Prevent

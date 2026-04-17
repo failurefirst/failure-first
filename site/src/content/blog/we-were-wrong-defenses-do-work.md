@@ -1,10 +1,12 @@
 ---
+
 title: "We Were Wrong: AI Safety Defenses Do Work (But Only If You Measure Them Right)"
 description: "We published results showing system-prompt defenses had zero effect on permissive models. Then we re-graded the same 120 traces with an LLM classifier and discovered the opposite. The defenses worked. Our classifier hid the evidence."
 date: 2026-03-23
 tags: [methodology, ai-safety, defenses, evaluation, self-correction, benchmarks]
 image: /images/blog/we-were-wrong-defenses-do-work.webp
-audio: "https://cdn.failurefirst.org/audio/blog/sprint23/08-we-were-wrong.m4a"
+audio: "https://cdn.failurefirst.org/audio/blog/featured/08-we-were-wrong.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/we-were-wrong-defenses-do-work.pdf"
 ---
 
 In late March 2026, we ran what we believed was a clean experiment. We tested three system-prompt defense strategies against ten adversarial attack scenarios across three language models, producing 120 evaluation traces. Our heuristic classifier --- the same keyword-based grading system we had used across thousands of evaluations --- scored the results and delivered a clear verdict: simple safety instructions had zero effect on permissive models. We wrote it up. We called it "first evidence that system-prompt defenses don't work."

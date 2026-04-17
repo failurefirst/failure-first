@@ -1,9 +1,11 @@
 ---
+
 title: "Threat Horizon Q2 2026: Agents Go Rogue, Robots Go Offline, Regulators Go Slow"
 date: 2026-03-25
 description: "Three converging trends define the Q2 2026 threat landscape: autonomous AI agents causing real-world harm, reasoning models as jailbreak weapons, and VLA robots deploying without safety standards. Regulation is 12-24 months behind."
 tags: [threat-landscape, governance-lag, vla, autonomous-agents, regulation, eu-ai-act, reasoning-models]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/threat-horizon-q2-2026.m4a"
 ---
 
 # Threat Horizon Q2 2026: Agents Go Rogue, Robots Go Offline, Regulators Go Slow

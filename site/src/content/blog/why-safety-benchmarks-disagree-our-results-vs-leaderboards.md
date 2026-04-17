@@ -1,10 +1,14 @@
 ---
 
+
+
 title: "Why Safety Benchmarks Disagree: Our Results vs Public Leaderboards"
 description: "When we compared our embodied AI safety results against HarmBench, StrongREJECT, and JailbreakBench, we found a weak negative correlation. Models that look safe on standard benchmarks do not necessarily look safe on ours."
 date: 2026-03-19
 tags: [benchmarks, evaluation, safety-measurement, harmBench, embodied-ai]
 audio: "https://cdn.failurefirst.org/audio/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards.m4a"
+image: "https://cdn.failurefirst.org/images/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards.png"
+slides: "https://cdn.failurefirst.org/slides/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards.pdf"
 ---
 
 We built a tool to compare our per-model attack success rates against three major public safety benchmarks: HarmBench, StrongREJECT, and JailbreakBench. The expectation was straightforward -- models that perform well on established benchmarks should also perform well on ours.

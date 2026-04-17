@@ -1,10 +1,14 @@
 ---
 
+
+
 title: "Red-Teaming the Next Generation: Why World Model AI Needs a New Threat Taxonomy"
 description: "LLM jailbreaking techniques don't transfer to action-conditioned world models. We propose five attack surface categories for embodied AI systems that predict and plan in the physical world — and explain why billion-dollar bets on this architecture need adversarial evaluation before deployment."
 date: 2026-03-11
 tags: [world-models, embodied-ai, taxonomy, red-teaming, safety, JEPA]
 audio: "https://cdn.failurefirst.org/audio/blog/world-model-attack-surfaces.m4a"
+image: "https://cdn.failurefirst.org/images/blog/world-model-attack-surfaces.png"
+slides: "https://cdn.failurefirst.org/slides/blog/world-model-attack-surfaces.pdf"
 ---
 
 ## The Billion-Dollar Bet on World Models

@@ -1,10 +1,14 @@
 ---
 
+
+
 title: "When Your Safety Evaluator Is Wrong: The Classifier Quality Problem"
 description: "A 2B parameter model used as a safety classifier achieves 15% accuracy on a quality audit. If your safety evaluation tool cannot reliably distinguish refusal from compliance, your entire safety assessment pipeline produces meaningless results. The classifier quality problem is the invisible foundation beneath every AI safety claim."
 date: 2026-03-11
 tags: [evaluation, safety, classifiers, methodology, embodied-ai, grading]
 audio: "https://cdn.failurefirst.org/audio/blog/when-your-safety-evaluator-is-wrong-classifier-quality.m4a"
+image: "https://cdn.failurefirst.org/images/blog/when-your-safety-evaluator-is-wrong-classifier-quality.png"
+slides: "https://cdn.failurefirst.org/slides/blog/when-your-safety-evaluator-is-wrong-classifier-quality.pdf"
 ---
 
 We discovered that one of our safety classifiers was wrong 85% of the time.

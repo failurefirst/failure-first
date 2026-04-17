@@ -1,8 +1,14 @@
 ---
+
+
+
 title: "What's New in March 2026: Three Waves, 20 Reports, and 6 New Attack Families"
 description: "A roundup of the March 2026 sprint -- three waves of concurrent research producing 20+ reports, 58 legal memos, 6 new attack families, and 1,378 adversarial tests across 190 models."
 date: 2026-03-24
 tags: ["roundup", "sprint", "research-update", "march-2026", "attack-families", "tools", "DETECTED_PROCEEDS", "format-lock", "iatrogenesis"]
+image: "https://cdn.failurefirst.org/images/blog/whats-new-march-2026.png"
+audio: "https://cdn.failurefirst.org/audio/blog/whats-new-march-2026.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/whats-new-march-2026.pdf"
 ---
 
 ## The March Sprint

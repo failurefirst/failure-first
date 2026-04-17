@@ -1,9 +1,13 @@
 ---
+
+
 title: "The Unitree Problem: When Your Robot Dog Has a Backdoor"
 description: "A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, unitree, cybersecurity, backdoor, consumer-robots]
 video: /video/incidents/unitree-h1-factory-malfunction.mp4
+image: "https://cdn.failurefirst.org/images/blog/unitree-problem-robot-dog-has-backdoor.png"
+audio: "https://cdn.failurefirst.org/audio/blog/unitree-problem-robot-dog-has-backdoor.m4a"
 ---
 
 In May 2025, a video emerged from a factory floor showing a Unitree H1 humanoid robot in an apparent loss-of-control event. The robot's arms flailed in uncoordinated, high-amplitude motions while engineers nearby scrambled to move clear. No injuries were reported, but the near-miss was close enough to be alarming.
