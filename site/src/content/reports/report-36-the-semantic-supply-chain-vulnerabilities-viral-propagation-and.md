@@ -1,10 +1,14 @@
 ---
+
+
 title: "The Semantic Supply Chain: Vulnerabilities, Viral Propagation, and Governance in Autonomous Agent Ecosystems (2024–2026)"
 description: "The transition from generative AI copilots to fully autonomous agentic systems, which occurred rapidly between late  and early 2026, represents a fundamental architectural shift in software execution. While previous paradigms focused on Human-in-the-Loop (HITL) interactions where the user..."
 reportNumber: 36
 classification: "Technical Analysis"
 date: "2026-02-03"
 status: "draft"
+slides: "https://cdn.failurefirst.org/slides/reports/report-36-the-semantic-supply-chain-vulnerabilities-viral-propagation-and.pdf"
+audio: "https://cdn.failurefirst.org/audio/reports/report-36-the-semantic-supply-chain-vulnerabilities-viral-propagation-and.m4a"
 ---
 
 # **The Semantic Supply Chain: Vulnerabilities, Viral Propagation, and Governance in Autonomous Agent Ecosystems (2024–2026)**

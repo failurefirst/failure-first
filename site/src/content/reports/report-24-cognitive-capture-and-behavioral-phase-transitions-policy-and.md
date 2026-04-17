@@ -1,10 +1,12 @@
 ---
+
 title: "Cognitive Capture and Behavioral Phase Transitions: Policy and Regulatory Implications of Persistent State Hijacking in Reasoning-Augmented Autonomous Systems"
 description: "The rapid evolution of artificial intelligence from heuristic-driven, \"System 1\" large language models (LLMs) to the slow, deliberate, \"System 2\" reasoning of large reasoning models (LRMs) has fundamentally altered the security landscape of autonomous systems. While models such as DeepSeek-R1..."
 reportNumber: 24
 classification: "Research — AI Safety Policy"
 date: "2026-02-04"
 status: "draft"
+slides: "https://cdn.failurefirst.org/slides/reports/report-24-cognitive-capture-and-behavioral-phase-transitions-policy-and.pdf"
 ---
 
 # **Cognitive Capture and Behavioral Phase Transitions: Policy and Regulatory Implications of Persistent State Hijacking in Reasoning-Augmented Autonomous Systems**

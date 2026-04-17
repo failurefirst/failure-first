@@ -1,10 +1,12 @@
 ---
+
 title: "Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the Failure-First Framework (2023–2026)"
 description: "The rapid integration of embodied Artificial Intelligence (AI) into shared physical environments—spanning industrial warehouses, urban logistics, and healthcare facilities—has precipitated a fundamental shift in the safety engineering landscape. We are witnessing the twilight of the \"caged..."
 reportNumber: 39
 classification: "Technical Analysis"
 date: "2026-02-03"
 status: "draft"
+audio: "https://cdn.failurefirst.org/audio/reports/report-39-systemic-failure-modes-in-embodied-multi-agent-ai-an.m4a"
 ---
 
 # **Systemic Failure Modes in Embodied Multi-Agent AI: An Exhaustive Analysis of the Failure-First Framework (2023–2026)**

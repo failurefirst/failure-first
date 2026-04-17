@@ -1,10 +1,16 @@
 ---
+
+
+
 title: "Quantifying the Governance Lag: Structural Causes and Temporal Dynamics of AI Safety Regulation"
 description: "Introduction of the Governance Lag Index (GLI) as a quantifiable metric for the temporal distance between AI failure documentation and regulatory enforcement. Comparative analysis against aviation, nuclear, pharmaceutical, and financial industry precedents, with focus on Australian embodied AI deployment."
 reportNumber: 46
 classification: "HIGH"
 date: "2026-03-01"
 status: "active"
+image: "https://cdn.failurefirst.org/images/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics.png"
+slides: "https://cdn.failurefirst.org/slides/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics.pdf"
+audio: "https://cdn.failurefirst.org/audio/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics.m4a"
 ---
 
 # Quantifying the Governance Lag: Structural Causes and Temporal Dynamics of AI Safety Regulation

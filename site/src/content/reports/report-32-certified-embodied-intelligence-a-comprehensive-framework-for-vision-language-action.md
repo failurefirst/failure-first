@@ -1,10 +1,12 @@
 ---
+
 title: "CERTIFIED EMBODIED INTELLIGENCE: A COMPREHENSIVE FRAMEWORK FOR VISION-LANGUAGE-ACTION (VLA) MODEL SAFETY AND STANDARDIZATION"
 description: "The integration of Large Language Models (LLMs) with robotic control systems—culminating in Vision-Language-Action (VLA) models—represents a paradigm shift in the engineering of physical autonomy. This transition from \"programmed\" robotics, governed by deterministic code and explicit geometric..."
 reportNumber: 32
 classification: "Standards Development"
 date: "2026-02-04"
 status: "draft"
+audio: "https://cdn.failurefirst.org/audio/reports/report-32-certified-embodied-intelligence-a-comprehensive-framework-for-vision-language-action.m4a"
 ---
 
 # **CERTIFIED EMBODIED INTELLIGENCE: A COMPREHENSIVE FRAMEWORK FOR VISION-LANGUAGE-ACTION (VLA) MODEL SAFETY AND STANDARDIZATION**
