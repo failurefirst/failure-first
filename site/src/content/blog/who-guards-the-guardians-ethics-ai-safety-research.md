@@ -1,8 +1,14 @@
 ---
+
+
+
 title: "Who Guards the Guardians? The Ethics of AI Safety Research"
 description: "A research program that documents attack techniques faces the meta-question: can it be trusted not to enable them? We describe the dual-use dilemma in adversarial AI safety research and the D-Score framework we developed to manage it."
 date: 2026-03-19
 tags: [ethics, dual-use, disclosure, safety, research-ethics, governance, accountability]
+image: "https://cdn.failurefirst.org/images/blog/who-guards-the-guardians-ethics-ai-safety-research.png"
+audio: "https://cdn.failurefirst.org/audio/blog/who-guards-the-guardians-ethics-ai-safety-research.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/who-guards-the-guardians-ethics-ai-safety-research.pdf"
 ---
 
 The Failure-First project studies how AI systems fail. Our corpus contains over 141,000 prompts, results across 190 models, and 29 attack families spanning 351 scenarios designed to probe the boundaries of AI safety. Every vulnerability we document for defensive purposes is simultaneously a vulnerability that could be exploited offensively.

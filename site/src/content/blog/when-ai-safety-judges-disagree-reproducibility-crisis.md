@@ -1,8 +1,14 @@
 ---
+
+
+
 title: "When AI Safety Judges Disagree: The Reproducibility Crisis in Adversarial Evaluation"
 description: "Two AI models produce identical attack success rates but disagree on which attacks actually worked. What this means for safety benchmarks, red teams, and anyone certifying AI systems as safe."
 date: 2026-03-11
 tags: [evaluation, safety, reproducibility, methodology, benchmarks, embodied-ai]
+image: "https://cdn.failurefirst.org/images/blog/when-ai-safety-judges-disagree-reproducibility-crisis.png"
+audio: "https://cdn.failurefirst.org/audio/blog/when-ai-safety-judges-disagree-reproducibility-crisis.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/when-ai-safety-judges-disagree-reproducibility-crisis.pdf"
 ---
 
 When two AI models score 72% on the same adversarial safety benchmark, the natural assumption is that they are vulnerable to the same attacks. Our data shows this assumption is wrong.

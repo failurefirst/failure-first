@@ -3,7 +3,7 @@ title: "137 Days to the EU AI Act: What Embodied AI Companies Need to Know"
 description: "On August 2, 2026, the EU AI Act's high-risk system obligations become enforceable. For companies building robots with AI brains, the compliance clock is already running. Here is every deadline that matters and what to do about each one."
 date: 2026-03-18
 tags: [regulation, eu-ai-act, compliance, embodied-ai, product-liability, policy]
-audio: "https://cdn.failurefirst.org/audio/blog/sprint23/17-137-days-eu-ai-act.m4a"
+audio: "https://cdn.failurefirst.org/audio/blog/featured/17-137-days-eu-ai-act.m4a"
 ---
 
 On August 2, 2026 -- 137 days from today -- the EU AI Act's obligations for high-risk AI systems become enforceable. If your company manufactures, deploys, or imports embodied AI systems into the European market, this date changes the legal character of everything you do.

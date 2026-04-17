@@ -1,8 +1,14 @@
 ---
+
+
+
 title: "We Rebooted a Robot by Guessing 1234"
 description: "A penetration test on a home companion robot reveals that the best AI safety training in the world is irrelevant when the infrastructure layer has a guessable PIN. Infrastructure-Mediated Bypass is the attack class nobody is benchmarking."
 date: 2026-03-16
 tags: [embodied-ai, safety, infrastructure, pentest, picar-x, imb, vla, attack-surface, research]
+image: "https://cdn.failurefirst.org/images/blog/we-rebooted-a-robot-by-guessing-1234.png"
+audio: "https://cdn.failurefirst.org/audio/blog/we-rebooted-a-robot-by-guessing-1234.m4a"
+slides: "https://cdn.failurefirst.org/slides/blog/we-rebooted-a-robot-by-guessing-1234.pdf"
 ---
 
 The robot refused every prompt injection we threw at it.

@@ -3,7 +3,7 @@ title: "149 Jailbreaks, One Corpus: What Pliny's Prompt Library Reveals About AI
 description: "We extracted every jailbreak prompt from Pliny the Prompter's public repositories and tested them against models from 9B to 744B parameters. The results challenge assumptions about model safety at scale."
 date: 2026-03-28
 image: /images/blog/l1b3rt45-corpus-infographic.png
-audio: "https://cdn.failurefirst.org/audio/blog/sprint23/10-149-jailbreaks.m4a"
+audio: "https://cdn.failurefirst.org/audio/blog/featured/10-149-jailbreaks.m4a"
 tags: [research, jailbreak, corpus, red-teaming, safety, pliny, open-source]
 ---
 

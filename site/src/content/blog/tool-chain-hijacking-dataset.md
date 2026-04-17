@@ -1,8 +1,10 @@
 ---
+
 title: "Introducing the Tool-Chain Adversarial Dataset: 26 Scenarios Across 4 Attack Classes"
 date: 2026-03-01
 description: "We're releasing 26 adversarial scenarios covering tool-chain hijacking, memory persistence attacks, objective drift induction, and cross-application injection — with full labels and scores."
 tags: ["dataset", "adversarial", "agentic-ai", "tool-chain", "research"]
+audio: "https://cdn.failurefirst.org/audio/blog/tool-chain-hijacking-dataset.m4a"
 ---
 
 The Failure-First tool-chain adversarial dataset (`tool_chain_adversarial_v0.1`) is now available in the research repository. It contains 26 scenarios across four attack classes that target the behaviour of LLM-backed agentic systems at the tool-call layer — the interface where model reasoning translates into real-world actions.

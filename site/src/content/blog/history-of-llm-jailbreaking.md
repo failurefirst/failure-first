@@ -4,7 +4,7 @@ description: "From 'ignore previous instructions' to automated attack pipelines 
 date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history]
 image: /images/blog/history-of-llm-jailbreaking.webp
-audio: "https://cdn.failurefirst.org/audio/blog/sprint23/01-history-of-llm-jailbreaking.m4a"
+audio: "https://cdn.failurefirst.org/audio/blog/featured/01-history-of-llm-jailbreaking.m4a"
 ---
 
 *This is a condensed overview. The [full research article](/blog/history-of-llm-jailbreaking-full/) includes detailed analysis of each era, empirical benchmark data, and a complete academic reference list.*

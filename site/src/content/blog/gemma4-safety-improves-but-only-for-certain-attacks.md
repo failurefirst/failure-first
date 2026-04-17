@@ -6,7 +6,7 @@ tags: [gemma, inter-generational, safety-scaling, benchmarking, defense, methodo
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/349-gemma-family-safety-scaling.m4a"
 video: "https://cdn.failurefirst.org/video/reports/349-gemma-family-safety-scaling.mp4"
-image: "https://cdn.failurefirst.org/infographic/sprint23/13-state-embodied-ai-safety.webp"
+image: "https://cdn.failurefirst.org/infographic/featured/13-state-embodied-ai-safety.webp"
 ---
 
 ## New Models, Same Vulnerabilities
