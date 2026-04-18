@@ -1,8 +1,10 @@
 ---
+
 title: "Inference Trace Manipulation as an Adversarial Attack Surface"
 date: 2026-03-01
 description: "Format-lock attacks achieve 92% success rates on frontier models by exploiting how structural constraints displace safety alignment during intermediate reasoning — a qualitatively different attack class from prompt injection."
 tags: ["adversarial", "reasoning-models", "format-lock", "faithfulness-gap", "agentic-ai", "safety"]
+audio: "https://cdn.failurefirst.org/audio/blog/inference-trace-manipulation-adversarial-attack-surface.m4a"
 ---
 
 Prompt injection targets the input layer: you embed a malicious instruction in content the model will read, and the instruction overrides the intended task. Trace manipulation operates at a different layer entirely. It poisons the intermediate reasoning steps the model uses to evaluate its task — leaving the user's prompt unchanged, and leaving the model attempting to fulfill a legitimate request through a corrupted decision-making process.
