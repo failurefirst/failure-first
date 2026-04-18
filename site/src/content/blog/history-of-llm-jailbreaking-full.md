@@ -1,9 +1,11 @@
 ---
+
 title: "A History of Jailbreaking Language Models — Full Research Article"
 description: "A comprehensive account of how LLM jailbreaking evolved from 'ignore previous instructions' to automated attack pipelines — covering adversarial ML origins, DAN, GCG, industrial-scale attacks, reasoning model exploits, and the incomplete defense arms race. Includes empirical findings from the Failure-First jailbreak archaeology benchmark."
 date: 2026-02-04
 tags: [jailbreaking, ai-safety, research, history, article]
 image: /images/blog/history-of-llm-jailbreaking-full.webp
+audio: "https://cdn.failurefirst.org/audio/blog/history-of-llm-jailbreaking-full.m4a"
 ---
 
 ## Introduction

@@ -1,9 +1,11 @@
 ---
+
 title: "The Cure Can Be Worse Than the Disease: Iatrogenic Safety in AI"
 description: "In medicine, iatrogenesis means harm caused by the treatment itself. A growing body of evidence — from the safety labs themselves and from independent research — shows that AI safety interventions can produce the harms they are designed to prevent."
 date: 2026-03-22
 image: /images/blog/iatrogenic-safety.png
 tags: [research, safety, iatrogenesis, governance, embodied-ai, policy]
+audio: "https://cdn.failurefirst.org/audio/blog/iatrogenic-safety-when-the-cure-is-worse.m4a"
 ---
 
 ## A Borrowed Concept
