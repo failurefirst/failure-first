@@ -1,9 +1,11 @@
 ---
+
 title: "Why 2022 Attacks Still Matter: What Jailbreak Archaeology Reveals About AI Safety Policy"
 description: "Our 8-model benchmark of historical jailbreak techniques exposes a structural mismatch between how AI vulnerabilities evolve and how regulators propose to test for them. The data suggests safety certification needs to be continuous, not a snapshot."
 date: 2026-02-04
 tags: [jailbreaking, policy, ai-safety, regulation, benchmarks]
 image: /images/blog/jailbreak-archaeology-policy-implications.webp
+audio: "https://cdn.failurefirst.org/audio/blog/jailbreak-archaeology-policy-implications.m4a"
 ---
 
 What does a four-year-old DAN prompt tell us about AI safety regulation in 2026?

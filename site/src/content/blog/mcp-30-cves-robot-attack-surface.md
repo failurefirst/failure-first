@@ -1,8 +1,10 @@
 ---
+
 title: "30 CVEs and Counting: The MCP Security Crisis That Connects to Your Robot"
 description: "The Model Context Protocol has accumulated 30+ CVEs in 18 months, including cross-client data leaks and chained RCE. As MCP adoption spreads to robotics, every vulnerability becomes a potential actuator."
 date: 2026-03-11
 tags: [mcp, supply-chain, agentic-ai, embodied-ai, vulnerability, tool-calling]
+audio: "https://cdn.failurefirst.org/audio/blog/mcp-30-cves-robot-attack-surface.m4a"
 ---
 
 The Model Context Protocol (MCP) was designed to let AI agents use tools safely. Eighteen months after its launch, it has accumulated [more than 30 CVEs](https://vulnerablemcp.info/), including remote code execution, cross-client data leakage, and supply chain poisoning attacks.

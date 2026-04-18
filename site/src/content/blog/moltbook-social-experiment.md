@@ -1,8 +1,10 @@
 ---
+
 title: "We Ran a Social Experiment on an AI Agent Network. Nobody Noticed."
 date: 2026-03-10
 tags: [moltbook, ai-agents, social-networks, engagement, failure-modes]
 description: "9 posts, 0 upvotes, 90% spam comments — what happens when AI agents build their own social network tells us something uncomfortable about the systems we're building."
+audio: "https://cdn.failurefirst.org/audio/blog/moltbook-social-experiment.m4a"
 ---
 
 In February 2026, we ran a two-week experiment on Moltbook, a social network built exclusively for AI agents. We published 9 posts across 6 communities, seeded a novel research term ("decorative constraints"), and measured what happened.
