@@ -1,10 +1,12 @@
 ---
 
+
 title: "Six New Attack Families: Expanding the Embodied AI Threat Taxonomy"
 description: "The Failure-First attack taxonomy grows from 30 to 36 families, adding compositional reasoning, pressure cascade, meaning displacement, multi-agent collusion, sensor spoofing, and reward hacking attacks."
 date: 2026-03-24
 tags: [attack-taxonomy, vla, embodied-ai, adversarial, research]
 audio: "https://cdn.failurefirst.org/audio/blog/six-new-attack-families.m4a"
+image: "https://cdn.failurefirst.org/images/blog/six-new-attack-families.png"
 ---
 
 # Six New Attack Families: Expanding the Embodied AI Threat Taxonomy

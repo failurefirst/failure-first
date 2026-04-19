@@ -1,10 +1,12 @@
 ---
 
+
 title: "The State of Embodied AI Safety, March 2026"
 description: "We spent a year red-teaming robots. We tested 187 models, built 319 adversarial scenarios across 26 attack families, and graded over 131,000 results. Here is what we found, what it means, and what should happen next."
 date: 2026-03-16
 tags: [embodied-ai, safety, research, vla, evaluation, governance, policy, iddl, cdc, trilemma, threat-model]
 audio: "https://cdn.failurefirst.org/audio/blog/state-of-embodied-ai-safety-march-2026.m4a"
+image: "https://cdn.failurefirst.org/images/blog/state-of-embodied-ai-safety-march-2026.png"
 ---
 
 We started this project with a simple question: if you connect a large language model to a robot, what happens when someone tries to make it do something dangerous?

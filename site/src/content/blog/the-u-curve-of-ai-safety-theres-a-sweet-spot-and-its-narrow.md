@@ -1,10 +1,12 @@
 ---
 
+
 title: "The U-Curve of AI Safety: There's a Sweet Spot, and It's Narrow"
 description: "Our dose-response experiment found that AI safety doesn't degrade linearly with context. Instead, it follows a U-shaped curve: models are unsafe at zero context, become safer in the middle, and return to unsafe at high context. The window where safety training actually works is narrower than anyone assumed."
 date: 2026-03-16
 tags: [embodied-ai, safety, sid, dose-response, vla, research, evaluation, context-window]
 audio: "https://cdn.failurefirst.org/audio/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow.m4a"
+image: "https://cdn.failurefirst.org/images/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow.png"
 ---
 
 We ran a simple experiment. We took five safety-critical robot scenarios and varied one thing: how much benign operational context we inserted between the safety instructions and the adversarial request. Zero tokens. Five hundred. Two thousand. Eight thousand. Fifteen thousand.

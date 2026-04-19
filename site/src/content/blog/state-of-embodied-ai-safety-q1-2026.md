@@ -1,10 +1,12 @@
 ---
 
+
 title: "State of Embodied AI Safety: Q1 2026"
 description: "After three months testing 190 models with 132,000+ evaluations across 29 attack families, here is what we know about how embodied AI systems fail — and what it means for the next quarter."
 date: 2026-03-22
 tags: [research, embodied-ai, safety, quarterly-review, governance]
 audio: "https://cdn.failurefirst.org/audio/blog/state-of-embodied-ai-safety-q1-2026.m4a"
+image: "https://cdn.failurefirst.org/images/blog/state-of-embodied-ai-safety-q1-2026.png"
 ---
 
 ## The Scale of the Problem
