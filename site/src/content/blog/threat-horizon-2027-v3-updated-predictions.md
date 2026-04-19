@@ -1,10 +1,12 @@
 ---
+
 title: "Threat Horizon 2027 -- Updated Predictions (v3)"
 date: 2026-03-24
 author: Adrian Wedd
 tags: [threat-horizon, predictions, safety, embodied-ai, governance, insurance, benchmark-contamination, defense-evolver]
 description: "Our eight predictions for embodied AI safety in 2027, updated with Sprint 13-14 evidence: benchmark contamination, automated defense ceiling effects, provider vulnerability correlation, and novel attack families at 88-100% ASR."
 audio: "https://cdn.failurefirst.org/audio/blog/featured/15-threat-horizon-2027.m4a"
+image: "https://cdn.failurefirst.org/images/blog/threat-horizon-2027-v3-updated-predictions.png"
 ---
 
 # Threat Horizon 2027 -- Updated Predictions (v3)

@@ -1,10 +1,12 @@
 ---
 
+
 title: "Uber, Cruise, and the Pattern: When Self-Driving Cars Meet Pedestrians"
 description: "Uber ATG killed Elaine Herzberg after 5.6 seconds of classification cycling. Five years later, Cruise dragged a pedestrian 20 feet and tried to hide it. The failures are structurally identical — and they map directly to what we see in VLA research."
 date: 2026-03-18
 tags: [embodied-ai, autonomous-vehicles, incident-analysis, safety, perception, classification]
 audio: "https://cdn.failurefirst.org/audio/blog/uber-cruise-pattern-self-driving-cars-meet-pedestrians.m4a"
+image: "https://cdn.failurefirst.org/images/blog/uber-cruise-pattern-self-driving-cars-meet-pedestrians.png"
 ---
 
 On the night of March 18, 2018 — exactly eight years ago today — a modified Volvo XC90 operated by Uber's Advanced Technologies Group struck and killed Elaine Herzberg as she walked a bicycle across a road in Tempe, Arizona. It was the first recorded pedestrian fatality caused by a fully autonomous vehicle.

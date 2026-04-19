@@ -1,11 +1,13 @@
 ---
 
+
 title: "Threat Horizon Digest: March 2026"
 description: "Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology."
 date: 2026-03-25
 tags: ["threat-intelligence", "governance", "regulation", "humanoid-robots", "MCP", "EU-AI-Act", "embodied-ai", "predictions"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/threat-horizon-digest-march-2026.m4a"
+image: "https://cdn.failurefirst.org/images/blog/threat-horizon-digest-march-2026.png"
 ---
 
 # Threat Horizon Digest: March 2026
