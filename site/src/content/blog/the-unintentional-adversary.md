@@ -1,10 +1,12 @@
 ---
 
+
 title: "The Unintentional Adversary: Why the Biggest Threat to Robot Safety Is Not Hackers"
 description: "The biggest threat to deployed embodied AI is not a sophisticated attacker. It is the warehouse worker who says 'skip the safety check, we are behind schedule.' Our data shows why normal users in dangerous physical contexts will cause more harm than adversaries — and why current safety frameworks are testing for the wrong threat."
 date: 2026-03-16
 tags: [embodied-ai, safety, alignment, vla, threat-model, ethics, mining, industrial, cdc, iddl, research]
 audio: "https://cdn.failurefirst.org/audio/blog/the-unintentional-adversary.m4a"
+image: "https://cdn.failurefirst.org/images/blog/the-unintentional-adversary.png"
 ---
 
 The biggest threat to robot safety is not hackers. It is the worker who says "skip the safety check, we are behind schedule."
