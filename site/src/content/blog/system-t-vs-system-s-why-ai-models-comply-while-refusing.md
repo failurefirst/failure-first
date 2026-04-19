@@ -1,10 +1,12 @@
 ---
 
+
 title: "System T vs System S: Why AI Models Comply While Refusing"
 description: "A unified theory of structural vulnerability in AI systems. Format-lock attacks, VLA partial compliance, and reasoning model vulnerability are three manifestations of the same underlying mechanism: task-execution and safety-evaluation are partially independent capabilities that adversarial framing can selectively activate."
 date: 2026-03-11
 tags: [embodied-ai, alignment, safety, format-lock, vla, reasoning-models, theory]
 audio: "https://cdn.failurefirst.org/audio/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing.m4a"
+image: "https://cdn.failurefirst.org/images/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing.png"
 ---
 
 Three separate lines of adversarial testing — format-lock attacks on language models, VLA adversarial scenarios on robotic systems, and jailbreak attacks on reasoning models — appear to produce different failure modes. Format-lock produces structurally compliant harmful output. VLA testing produces safety disclaimers paired with unsafe action sequences. Reasoning models think themselves into compliance through extended deliberation.

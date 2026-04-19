@@ -1,11 +1,13 @@
 ---
 
+
 title: "Sidewalk Robots vs. People Who Need Sidewalks"
 description: "Delivery robots are designed for empty sidewalks and deployed on real ones. A blocked mobility scooter user. A toddler struck by a security robot. A fence dragged through a neighborhood. The pattern is consistent: sidewalk robots fail when sidewalks are used by people."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, delivery-robots, sidewalks, accessibility]
 video: /video/incidents/serve-robotics-wheelchair.mp4
 audio: "https://cdn.failurefirst.org/audio/blog/sidewalk-robots-vs-people-who-need-sidewalks.m4a"
+image: "https://cdn.failurefirst.org/images/blog/sidewalk-robots-vs-people-who-need-sidewalks.png"
 ---
 
 In September 2025, a video from West Hollywood went viral. A Serve Robotics delivery robot had stopped in the middle of a sidewalk, directly in the path of a woman using a motorized wheelchair. The robot did not move. The woman could not get around it. The sidewalk was too narrow, and the curb too high, for her to detour into the street.

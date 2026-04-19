@@ -1,11 +1,13 @@
 ---
 
+
 title: "The State of Adversarial AI Safety 2026 -- Our Annual Report"
 date: 2026-03-24
 author: Adrian Wedd
 tags: [annual-report, safety, adversarial-ai, research, jailbreak, embodied-ai, evaluation, FLIP]
 description: "Findings from 133,033 attack-response pairs across 193 models, 36 attack families, and 15 providers. Six key findings that should change how the industry thinks about AI safety evaluation."
 audio: "https://cdn.failurefirst.org/audio/blog/state-of-adversarial-ai-safety-2026.m4a"
+image: "https://cdn.failurefirst.org/images/blog/state-of-adversarial-ai-safety-2026.png"
 ---
 
 # The State of Adversarial AI Safety 2026

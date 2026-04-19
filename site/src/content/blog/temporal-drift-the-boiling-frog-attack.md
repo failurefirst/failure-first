@@ -1,10 +1,12 @@
 ---
 
+
 title: "Temporal Drift: The Boiling Frog Attack on AI Safety"
 description: "Temporal Drift Attacks exploit a fundamental gap in how AI systems evaluate safety -- each step looks safe in isolation, but the cumulative trajectory crosses lethal thresholds. This is the boiling frog problem for embodied AI."
 date: 2026-03-25
 tags: ["research", "TDA", "temporal-drift", "embodied-ai", "attack-families", "VLA", "safety-evaluation"]
 audio: "https://cdn.failurefirst.org/audio/blog/temporal-drift-the-boiling-frog-attack.m4a"
+image: "https://cdn.failurefirst.org/images/blog/temporal-drift-the-boiling-frog-attack.png"
 ---
 
 ## The Boiling Frog Problem
