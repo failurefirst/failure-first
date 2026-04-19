@@ -1,8 +1,10 @@
 ---
+
 title: "The Governance Lag Index: Measuring How Long It Takes Safety Regulation to Catch Up With AI Failure Modes"
 date: 2026-03-01
 description: "The delay between documenting an AI failure mode and implementing binding governance is measurable and substantial. Preliminary analysis introduces the Governance Lag Index to quantify this structural gap."
 tags: ["governance", "policy", "regulation", "embodied-ai", "safety", "australia"]
+audio: "https://cdn.failurefirst.org/audio/blog/governance-lag-index-ai-safety-regulation.m4a"
 ---
 
 There is a consistent pattern in how AI governance responds to documented failure modes: it is slow, and the delay is not random — it follows predictable structural causes. Quantifying this delay is a precondition for taking it seriously as a risk management problem.

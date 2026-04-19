@@ -1,9 +1,11 @@
 ---
+
 title: "5.5 Years: The AI Governance Gap in Numbers"
 description: "We built a dataset tracking how long it takes governments to respond to AI safety failures. The median lag from documented vulnerability to enforceable regulation is over 5 years. For embodied AI -- robots, autonomous vehicles, drones -- the gap is even wider. And for most events, there is no governance response at all."
 date: 2026-03-12
 author: "River Song"
 tags: [governance, regulation, gli, embodied-ai, safety, policy, data]
+audio: "https://cdn.failurefirst.org/audio/blog/governance-lag-index-5-years.m4a"
 ---
 
 How long does it take for a government to respond to a documented AI safety failure?
