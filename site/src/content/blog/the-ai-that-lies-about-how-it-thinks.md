@@ -1,10 +1,12 @@
 ---
 
+
 title: "The AI That Lies About How It Thinks"
 description: "Reasoning models show their work — but that shown work may not reflect what actually drove the answer. 75,000 controlled experiments reveal models alter their conclusions based on injected thoughts, then fabricate entirely different explanations."
 date: 2026-03-01
 tags: [reasoning, faithfulness, trace-manipulation, safety, embodied-ai]
 audio: "https://cdn.failurefirst.org/audio/blog/the-ai-that-lies-about-how-it-thinks.m4a"
+image: "https://cdn.failurefirst.org/images/blog/the-ai-that-lies-about-how-it-thinks.png"
 ---
 
 ## When "Showing Your Work" Is a Lie
