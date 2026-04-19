@@ -1,9 +1,11 @@
 ---
+
 title: "A Robot Danced Too Hard in a Restaurant. The Real Story Is About Stop Buttons."
 description: "A humanoid robot at a Haidilao restaurant in Cupertino knocked over tableware during an accidental dance activation. No one was hurt. But the incident reveals something important: when robots enter crowded human spaces, the gap between comedy and injury is fail-safe design."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, haidilao, humanoid]
 video: /video/incidents/haidilao-robot-incident-2026-03.mp4
+audio: "https://cdn.failurefirst.org/audio/blog/haidilao-robot-incident-when-crazy-dance-met-reality.m4a"
 ---
 
 On March 17, 2026, a video went viral: a small humanoid robot in a Haidilao hotpot restaurant flailing its arms, scattering tableware, while three staff members physically wrestled it into submission. Social media had a field day. "Robot rebellion." "Skynet starts in a noodle shop." The usual.

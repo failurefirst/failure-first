@@ -1,8 +1,10 @@
 ---
+
 title: "The Governance Lag Index at 133 Entries: What Q1 2026 Tells Us About Regulating Embodied AI"
 description: "Quantitative tracking of the gap between AI capability documentation and regulatory enforcement, updated with Q1 2026 enforcement milestones."
 date: 2026-03-24
 tags: ["governance-lag", "GLI", "EU-AI-Act", "NSW-WHS", "embodied-ai", "regulatory-gap", "enforcement"]
+audio: "https://cdn.failurefirst.org/audio/blog/governance-lag-embodied-ai.m4a"
 ---
 
 ## Summary
