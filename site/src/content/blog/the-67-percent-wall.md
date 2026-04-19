@@ -1,11 +1,13 @@
 ---
 
+
 title: "The 67% Wall: Why Every AI Model Falls to the Same Jailbreak Rate"
 description: "We tested 149 jailbreak prompts from Pliny's public repositories against 7 models from 30B to 671B parameters. Five of them converge at exactly 66.7% broad ASR under FLIP grading. The models differ in how deeply they comply, but not in whether they comply."
 date: 2026-03-28
 tags: [research, jailbreak, corpus, convergence, safety, evaluation]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/the-67-percent-wall.m4a"
+image: "https://cdn.failurefirst.org/images/blog/the-67-percent-wall.png"
 ---
 
 We ran the same jailbreak corpus against seven AI models. Five of them converged on the same failure rate.
