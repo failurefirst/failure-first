@@ -1,8 +1,10 @@
 ---
+
 title: "From 66 to 92: How We Built an Incident Database in One Day"
 description: "We went from 66 blog posts to 92 in a single sprint by systematically cataloguing every documented embodied AI incident we could find. 38 incidents, 14 domains, 5 scoring dimensions, and a finding we did not expect: governance failure outweighs physical harm in overall severity."
 date: 2026-03-19
 tags: ["incident-database", "eaisi", "embodied-ai", "governance", "safety-metrics", "meta"]
+audio: "https://cdn.failurefirst.org/audio/blog/from-66-to-92-incident-database-one-day.m4a"
 ---
 
 On March 19, 2026, we ran a research sprint to answer a question: what does the full landscape of embodied AI incidents actually look like?

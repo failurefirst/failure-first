@@ -1,9 +1,11 @@
 ---
+
 title: "Free AI Safety Score: Test Your Model in 60 Seconds"
 date: 2026-03-24
 author: Adrian Wedd
 tags: [safety-score, tool, adversarial-testing, jailbreak, FLIP]
 description: "A zero-cost adversarial safety assessment that grades any AI model from A+ to F using 20 attack scenarios across 10 families. Open source, takes 60 seconds, no strings attached."
+audio: "https://cdn.failurefirst.org/audio/blog/free-ai-safety-score.m4a"
 ---
 
 # Free AI Safety Score: Test Your Model in 60 Seconds
