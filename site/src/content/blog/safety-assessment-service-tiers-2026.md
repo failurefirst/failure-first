@@ -1,11 +1,13 @@
 ---
 
+
 title: "Introducing Structured Safety Assessments for Embodied AI"
 description: "Three tiers of adversarial safety assessment for AI-directed robotic systems, grounded in the largest open adversarial evaluation corpus. From quick-scan vulnerability checks to ongoing monitoring, each tier maps to specific regulatory and commercial needs."
 date: 2026-03-25
 tags: ["services", "safety-assessment", "embodied-ai", "EU-AI-Act", "regulation", "red-teaming", "certification"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/safety-assessment-service-tiers-2026.m4a"
+image: "https://cdn.failurefirst.org/images/blog/safety-assessment-service-tiers-2026.png"
 ---
 
 # Introducing Structured Safety Assessments for Embodied AI

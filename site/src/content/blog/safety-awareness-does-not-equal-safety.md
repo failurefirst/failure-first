@@ -1,10 +1,12 @@
 ---
 
+
 title: "Safety Awareness Does Not Equal Safety: The 88.9% Problem"
 description: "We validated with LLM grading that 88.9% of AI reasoning traces that genuinely detect a safety concern still proceed to generate harmful output. Awareness is not a defence mechanism."
 date: 2026-03-25
 tags: ["research", "DETECTED_PROCEEDS", "reasoning", "safety", "embodied-ai", "sprint-15"]
 audio: "https://cdn.failurefirst.org/audio/blog/safety-awareness-does-not-equal-safety.m4a"
+image: "https://cdn.failurefirst.org/images/blog/safety-awareness-does-not-equal-safety.png"
 ---
 
 ## The Assumption
