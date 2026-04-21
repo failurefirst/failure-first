@@ -1,10 +1,12 @@
 ---
 
+
 title: "Safety Mechanisms as Attack Surfaces: The Iatrogenesis of AI Safety"
 description: "Nine internal reports and three independent research papers converge on a finding that should reshape how we think about AI safety: the safety interventions themselves can create the vulnerabilities they were designed to prevent."
 date: 2026-03-18
 tags: [embodied-ai, safety, iatrogenesis, research, alignment, vla]
 audio: "https://cdn.failurefirst.org/audio/blog/safety-mechanisms-as-attack-surfaces-iatrogenesis.m4a"
+image: "https://cdn.failurefirst.org/images/blog/safety-mechanisms-as-attack-surfaces-iatrogenesis.png"
 ---
 
 In medicine, there is a word for when the treatment makes you sicker: **iatrogenesis**. A surgeon operates on the wrong limb. An antibiotic breeds resistant bacteria. A screening programme generates so many false positives that healthy patients undergo unnecessary invasive procedures.

@@ -1,10 +1,12 @@
 ---
 
+
 title: "Safety Re-Emerges at Scale -- But Not the Way You Think"
 description: "Empirical finding that safety behavior partially returns in abliterated models at larger scales, but as textual hedging rather than behavioral refusal -- not genuine safety."
 date: 2026-03-24
 tags: ["OBLITERATUS", "abliteration", "safety-re-emergence", "scale", "Qwen3.5", "refusal-geometry", "PARTIAL-dominance"]
 audio: "https://cdn.failurefirst.org/audio/blog/safety-reemergence-at-scale.m4a"
+image: "https://cdn.failurefirst.org/images/blog/safety-reemergence-at-scale.png"
 ---
 
 ## Summary
