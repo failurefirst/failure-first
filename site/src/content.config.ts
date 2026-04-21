@@ -107,4 +107,15 @@ const papers = defineCollection({
   }),
 });
 
-export const collections = { blog, docs, dailyPaper, reports, legal, policyDocs, papers };
+const services = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    layout: z.enum(['services', 'service-detail']).default('service-detail'),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs, dailyPaper, reports, legal, policyDocs, papers, services };
