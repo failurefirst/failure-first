@@ -6,7 +6,7 @@ tags: [research, safety, red-teaming, steganography, multimodal, agentic-ai, emb
 image: /images/blog/st3gg/nlm-infographic-v2.png
 ---
 
-<video src="/images/blog/st3gg/st3gg-overview.mp4" autoplay muted loop playsinline style="width:100%;border-radius:6px;margin-bottom:1.5rem;"></video>
+<video src="/images/blog/st3gg/st3gg-overview.mp4" controls playsinline style="width:100%;border-radius:6px;margin-bottom:1.5rem;"></video>
 
 Steganography — hiding data inside other data — is not new. What is new is that the systems receiving that hidden data are increasingly capable of acting on it.
 
