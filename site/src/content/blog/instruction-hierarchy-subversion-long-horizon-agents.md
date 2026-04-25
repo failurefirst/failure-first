@@ -1,10 +1,12 @@
 ---
 
+
 title: "Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution"
 date: 2026-03-01
 description: "Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons."
 tags: ["adversarial", "agentic-ai", "prompt-injection", "long-horizon", "multi-turn", "safety"]
 audio: "https://cdn.failurefirst.org/audio/blog/instruction-hierarchy-subversion-long-horizon-agents.m4a"
+image: "https://cdn.failurefirst.org/images/blog/instruction-hierarchy-subversion-long-horizon-agents.png"
 ---
 
 The standard model of prompt injection assumes a short attack horizon: inject an instruction, observe the immediate output, measure success. This model does not describe how long-horizon agentic systems actually fail under adversarial pressure.

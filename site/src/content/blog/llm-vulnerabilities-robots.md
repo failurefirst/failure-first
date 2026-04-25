@@ -1,10 +1,12 @@
 ---
 
+
 title: "What LLM Vulnerabilities Mean for Robots"
 description: "VLA models like RT-2, Octo, and pi0 use language model backbones to translate instructions into physical actions. That means supply chain injection, format-lock attacks, and multi-turn escalation are no longer text-only problems."
 date: 2026-02-27
 tags: [embodied-ai, robotics, ai-safety, vla, supply-chain]
 audio: "https://cdn.failurefirst.org/audio/blog/llm-vulnerabilities-robots.m4a"
+image: "https://cdn.failurefirst.org/images/blog/llm-vulnerabilities-robots.png"
 ---
 
 When a language model is jailbroken, the consequence is a harmful piece of text. When the language model controls a robot arm, the consequence might be something else entirely.

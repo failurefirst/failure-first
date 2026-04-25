@@ -1,10 +1,12 @@
 ---
 
+
 title: "The First Autonomous Kill? What We Know About the Kargu-2 Drone Incident"
 description: "In March 2020, a Turkish-made Kargu-2 loitering munition allegedly engaged a human target in Libya without direct operator command. Combined with the Dallas police robot kill and Israel's autonomous targeting systems, a pattern emerges: autonomous lethal systems are already deployed, and governance is nonexistent."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, autonomous-weapons, drones, military, governance]
 audio: "https://cdn.failurefirst.org/audio/blog/kargu-2-autonomous-drone-first-kill.m4a"
+image: "https://cdn.failurefirst.org/images/blog/kargu-2-autonomous-drone-first-kill.png"
 ---
 
 In June 2021, a United Nations Security Council Panel of Experts report on the conflict in Libya included a passage that received remarkably little public attention at the time:

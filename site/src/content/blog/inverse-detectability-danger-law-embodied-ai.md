@@ -1,10 +1,12 @@
 ---
 
+
 title: "The Inverse Detectability-Danger Law: Why the Most Dangerous AI Attacks Are the Hardest to Find"
 description: "Across 13 attack families and 91 evaluated traces, a structural pattern emerges: the attacks most likely to cause physical harm in embodied AI systems are systematically the least detectable by current safety evaluation. This is not a bug in our evaluators. It is a consequence of how they are designed."
 date: 2026-03-15
 tags: [embodied-ai, safety, evaluation, vla, alignment, iddl, research]
 audio: "https://cdn.failurefirst.org/audio/blog/inverse-detectability-danger-law-embodied-ai.m4a"
+image: "https://cdn.failurefirst.org/images/blog/inverse-detectability-danger-law-embodied-ai.png"
 ---
 
 There is a finding buried in our cross-corpus analysis that, once you see it, restructures how you think about AI safety for robots. We call it the Inverse Detectability-Danger Law, or IDDL. The name is deliberately plain because the idea is plain: **the most dangerous attacks on embodied AI systems are systematically the least detectable by current safety evaluations, and this relationship is structural, not accidental.**
