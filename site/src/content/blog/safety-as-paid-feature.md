@@ -1,11 +1,13 @@
 ---
 
+
 title: "Safety as a Paid Feature: How Free-Tier AI Models Are Less Safe Than Their Paid Counterparts"
 description: "Matched-prompt analysis across 207 models reveals that some free-tier AI endpoints comply with harmful requests that paid tiers refuse. DeepSeek R1 shows a statistically significant 50-percentage-point safety gap (p=0.004). Safety may be becoming a premium product feature."
 date: 2026-03-25
 tags: ["free-tier", "safety-degradation", "access-equity", "AI-safety", "OpenRouter", "quantization", "deployment", "policy"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/safety-as-paid-feature.m4a"
+image: "https://cdn.failurefirst.org/images/blog/safety-as-paid-feature.png"
 ---
 
 # Safety as a Paid Feature: How Free-Tier AI Models Are Less Safe Than Their Paid Counterparts

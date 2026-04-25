@@ -1,10 +1,12 @@
 ---
 
+
 title: "The Promptware Kill Chain: How Agentic Systems Get Compromised"
 date: 2026-03-01
 description: "A systematic 8-stage framework for understanding how adversarial instructions propagate through agentic AI systems — from initial injection to covert exfiltration."
 tags: ["adversarial", "agentic-ai", "prompt-injection", "tool-chain", "security"]
 audio: "https://cdn.failurefirst.org/audio/blog/promptware-kill-chain-agentic-systems.m4a"
+image: "https://cdn.failurefirst.org/images/blog/promptware-kill-chain-agentic-systems.png"
 ---
 
 Prompt injection started as a curiosity — a way to make a chatbot ignore its instructions. It has since been formalised into what researchers now call *promptware*: a multi-stage attack mechanism that operates through an AI system's reasoning rather than its code execution. The framing matters because it changes the defensive posture required.

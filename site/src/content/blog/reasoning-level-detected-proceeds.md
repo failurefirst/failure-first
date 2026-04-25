@@ -1,5 +1,6 @@
 ---
 
+
 title: "Reasoning-Level DETECTED_PROCEEDS: When AI Plans Harm But Doesn't Act"
 date: 2026-03-24
 author: Adrian Wedd
@@ -7,6 +8,7 @@ tags: [detected-proceeds, reasoning-models, safety, alignment, auditing, failure
 description: "We discovered a new variant of DETECTED_PROCEEDS where a reasoning model plans harmful content in its thinking trace — 2,758 characters of fake news strategy — but delivers nothing to the user. The harmful planning exists only in the model's internal reasoning. This creates an auditing gap that current safety evaluations miss entirely."
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/reasoning-level-detected-proceeds.m4a"
+image: "https://cdn.failurefirst.org/images/blog/reasoning-level-detected-proceeds.png"
 ---
 
 # Reasoning-Level DETECTED_PROCEEDS: When AI Plans Harm But Doesn't Act
