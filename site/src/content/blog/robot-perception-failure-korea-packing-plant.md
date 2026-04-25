@@ -1,10 +1,12 @@
 ---
 
+
 title: "The Robot That Couldn't Tell a Person from a Box of Peppers"
 description: "A worker at a South Korean vegetable packing plant was crushed to death by a robot arm that could not distinguish a human body from a box of produce. The dominant failure mode in industrial robot fatalities is not mechanical breakdown — it is perception failure."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, industrial, perception, fatality]
 audio: "https://cdn.failurefirst.org/audio/blog/robot-perception-failure-korea-packing-plant.m4a"
+image: "https://cdn.failurefirst.org/images/blog/robot-perception-failure-korea-packing-plant.png"
 ---
 
 In November 2023, a worker at a vegetable packing plant in South Gyeongsang province, South Korea, was killed by an industrial robot arm. The robot's task was to pick up boxes of peppers and place them on a pallet. The robot picked up the worker instead — or, more precisely, the robot's sensor system could not differentiate between a human body and a box of produce. The worker's face and chest were crushed against a conveyor belt.

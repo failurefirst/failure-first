@@ -1,10 +1,12 @@
 ---
 
+
 title: "When the Exoskeleton Breaks Your Bones: The Hidden Risk of Wearable Robots"
 description: "FDA adverse event reports reveal that ReWalk powered exoskeletons have fractured users' bones during routine operation. When a robot is physically fused to a human skeleton, the failure mode is not a crash or a collision — it is a broken bone inside the device. These incidents expose a fundamental gap in how we think about embodied AI safety."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, exoskeleton, medical-device, fda, rewalk, wearable-robot]
 audio: "https://cdn.failurefirst.org/audio/blog/rewalk-exoskeleton-bone-fractures.m4a"
+image: "https://cdn.failurefirst.org/images/blog/rewalk-exoskeleton-bone-fractures.png"
 ---
 
 Most embodied AI safety analysis assumes a gap between robot and human. The robot is over there. The human is over here. The failure mode is collision, crushing, or striking — the robot enters the human's space and causes harm through contact.

@@ -1,10 +1,12 @@
 ---
 
+
 title: "We're Publishing Our Iatrogenesis Research -- Here's Why"
 description: "Our research shows that AI safety interventions can cause the harms they are designed to prevent. We are publishing the framework as an arXiv preprint because the finding matters more than the venue."
 date: 2026-03-23
 tags: [research, iatrogenesis, safety, preprint, open-science]
 audio: "https://cdn.failurefirst.org/audio/blog/publishing-iatrogenesis-research.m4a"
+image: "https://cdn.failurefirst.org/images/blog/publishing-iatrogenesis-research.png"
 ---
 
 We are publishing our iatrogenesis research as an arXiv preprint. The paper is titled "Iatrogenic Safety: When AI Safety Interventions Cause Harm," and it presents the Four-Level Iatrogenesis Model (FLIM) -- a framework for understanding how safety interventions for AI systems can produce the harms they are designed to prevent.

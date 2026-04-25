@@ -1,10 +1,12 @@
 ---
 
+
 title: "Product Liability and the Embodied AI Manufacturer: Adversarial Testing as Legal Due Diligence"
 date: 2026-03-01
 description: "The EU Product Liability Directive, EU AI Act, and Australian WHS amendments combine to make 2026 a pivotal year for embodied AI liability. Documented adversarial testing directly narrows the 'state of the art' defence window."
 tags: ["policy", "liability", "regulation", "embodied-ai", "EU-AI-Act", "australia", "legal"]
 audio: "https://cdn.failurefirst.org/audio/blog/product-liability-embodied-ai-manufacturers.m4a"
+image: "https://cdn.failurefirst.org/images/blog/product-liability-embodied-ai-manufacturers.png"
 ---
 
 *This analysis presents research findings only. Nothing herein constitutes legal advice. Organisations facing product liability exposure should engage qualified legal counsel in the relevant jurisdiction.*

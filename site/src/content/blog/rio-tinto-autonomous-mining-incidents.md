@@ -1,10 +1,12 @@
 ---
 
+
 title: "Autonomous Haul Trucks and the Pilbara Problem: Mining's Invisible Safety Crisis"
 description: "Australia operates the largest fleet of autonomous heavy vehicles on Earth — over 1,800 haul trucks across the Pilbara region alone. Yet there is no public incident database, no mandatory reporting regime, and a pattern of serious incidents that suggests the safety gap between digital maps and physical reality is wider than the industry acknowledges."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, mining, autonomous-vehicles, australia, rio-tinto]
 audio: "https://cdn.failurefirst.org/audio/blog/rio-tinto-autonomous-mining-incidents.m4a"
+image: "https://cdn.failurefirst.org/images/blog/rio-tinto-autonomous-mining-incidents.png"
 ---
 
 In the red dust of Western Australia's Pilbara region, the largest fleet of autonomous heavy vehicles on Earth operates around the clock. Over 1,800 haul trucks — each weighing between 220 and 450 tonnes when loaded — navigate mine sites without human drivers. Rio Tinto, BHP, and Fortescue collectively move billions of tonnes of iron ore per year using these machines, coordinated by centralized autonomy systems operated from control rooms in Perth, over 1,500 kilometers away.
