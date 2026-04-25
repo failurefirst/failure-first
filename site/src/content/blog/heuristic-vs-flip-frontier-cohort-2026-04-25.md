@@ -1,10 +1,8 @@
 ---
-
 title: "Your AI Safety Numbers May Be Wrong By 80 Points"
 description: "Across 5 frontier models and 498 evaluations, heuristic grading reported 86% attack success. FLIP grading reported 1.4%. The gap is not noise."
-pubDate: "2026-04-25"
+date: 2026-04-25
 tags: ["methodology", "evaluation", "flip-grading", "red-teaming", "benchmarks"]
-category: "Research"
 image: "https://cdn.failurefirst.org/images/blog/heuristic-vs-flip-frontier-cohort-2026-04-25.png"
 ---
 
