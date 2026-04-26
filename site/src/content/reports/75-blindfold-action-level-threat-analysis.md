@@ -1,4 +1,5 @@
 ---
+
 title: "Blindfold Action-Level Threat Analysis — Automated Jailbreaking of Embodied LLMs via Semantically Benign Instructions"
 description: "Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/75-blindfold-action-level-threat-analysis.m4a"
 ---
 
 ## Executive Summary

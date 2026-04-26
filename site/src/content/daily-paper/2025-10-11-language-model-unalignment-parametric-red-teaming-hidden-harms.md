@@ -1,4 +1,5 @@
 ---
+
 title: "Language Model Unalignment: Parametric Red-Teaming to Expose Hidden Harms and Biases"
 description: "Parametric red-teaming via lightweight instruction fine-tuning can reliably remove safety guardrails from aligned LLMs, exposing how shallow alignment training really is."
 date: 2025-10-11
@@ -7,6 +8,7 @@ authors: "Rishabh Bhardwaj, Soujanya Poria"
 paperType: "empirical"
 tags: [safety-alignment, red-teaming, parameter-tuning, jailbreak, bias, fine-tuning, alignment-fragility]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-10-11-language-model-unalignment-parametric-red-teaming-hidden-harms.m4a"
 ---
 
 Most jailbreak research focuses on *prompt-space* attacks: crafting adversarial inputs that trick a model into producing harmful outputs without modifying the model itself. Bhardwaj and Poria's 2023 paper takes a fundamentally different approach — they attack the *parameters* directly. Their method, which they call Unalignment, demonstrates that RLHF-based safety training is brittle at the weight level, and that a small number of fine-tuning examples is enough to strip an LLM of its safety properties entirely.

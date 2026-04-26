@@ -1,4 +1,5 @@
 ---
+
 title: "Red-Teaming for Generative AI: Silver Bullet or Security Theater?"
 description: "A systematic analysis of AI red-teaming practices across industry and academia, revealing critical inconsistencies in purpose, methodology, threat models, and follow-up that reduce many exercises to security theater rather than genuine safety evaluation."
 date: 2025-12-03
@@ -7,6 +8,7 @@ authors: "Michael Feffer, Anusha Sinha, Wesley Hanwen Deng, Zachary C. Lipton, H
 paperType: "survey"
 tags: ["red-teaming", "security-theater", "evaluation-methodology", "safety-governance", "threat-modeling", "ai-policy"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-03-red-teaming-security-theater.m4a"
 ---
 
 # Red-Teaming for Generative AI: Silver Bullet or Security Theater?

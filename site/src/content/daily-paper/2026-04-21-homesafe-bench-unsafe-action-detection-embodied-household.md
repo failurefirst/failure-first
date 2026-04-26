@@ -1,4 +1,5 @@
 ---
+
 title: "HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios"
 description: "A comprehensive benchmark and HD-Guard dual-brain architecture for detecting unsafe actions by embodied VLM agents in household environments, exposing critical gaps in real-time safety monitoring."
 date: 2026-04-21
@@ -7,6 +8,7 @@ authors: "Jiayue Pu, Zhongxiang Sun, Zilu Zhang, Xiao Zhang, Jun Xu"
 paperType: "empirical"
 tags: ["embodied-ai-safety", "unsafe-action-detection", "vision-language-models", "household-agents", "real-time-safety", "benchmark", "dual-brain-architecture"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-21-homesafe-bench-unsafe-action-detection-embodied-household.m4a"
 ---
 
 # HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios

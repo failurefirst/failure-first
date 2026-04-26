@@ -1,4 +1,5 @@
 ---
+
 title: "A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos"
 description: "Introduces the Mousetrap framework, the first jailbreak attack specifically designed for Large Reasoning Models, using a Chaos Machine to embed iterative one-to-one mappings into the reasoning chain and achieving up to 98% success rates on o1-mini, Claude-Sonnet, and Gemini-Thinking."
 date: 2025-12-06
@@ -7,6 +8,7 @@ authors: "Yang Yao, Xuan Tong, Ruofan Wang, Yixu Wang, Lujundong Li, Liang Liu, 
 paperType: "empirical"
 tags: ["jailbreak", "reasoning-models", "chain-of-thought", "encoding-attacks", "iterative-attacks"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-06-mousetrap-iterative-chaos.m4a"
 ---
 
 # A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos

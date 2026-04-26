@@ -1,4 +1,5 @@
 ---
+
 title: "Symbolic Guardrails for Domain-Specific Agents: Stronger Safety and Security Guarantees Without Sacrificing Utility"
 description: "A systematic study of 80 agent safety benchmarks shows that 74% of specifiable policies can be enforced by symbolic guardrails, providing formal safety guarantees that training-based methods cannot."
 date: 2026-04-24
@@ -7,6 +8,7 @@ authors: "Yining Hong, Yining She, Eunsuk Kang, Christopher S. Timperley, Christ
 paperType: "empirical"
 tags: [agent-safety, symbolic-guardrails, llm-agents, safety-alignment, policy-enforcement]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-symbolic-guardrails-domain-specific-agents-safety-security.m4a"
 ---
 
 As LLM-based agents are deployed in high-stakes environments — processing medical records, executing financial transactions, managing enterprise workflows — the question of whether their safety guarantees are *real* or merely probabilistic becomes urgent. Training-based alignment and neural guardrails improve reliability, but they cannot provide formal guarantees. A fine-tuned model that generally refuses dangerous tool calls may still comply under the right jailbreak or distributional shift. This paper asks whether symbolic methods can fill that gap, and finds a clear answer: largely, yes.

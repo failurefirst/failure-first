@@ -1,4 +1,5 @@
 ---
+
 title: "The Evaluation Paradox — When Safety Measurement Tools Are Themselves Misaligned"
 description: "This report examines a meta-level ethical problem: if the tools we use to evaluate AI safety are themselves unreliable, what confidence can we place in any safety assessment? The Failure-First..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/61-the-evaluation-paradox.m4a"
 ---
 
 ## Executive Summary

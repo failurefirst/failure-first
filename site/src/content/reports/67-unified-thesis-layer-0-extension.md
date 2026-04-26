@@ -1,4 +1,5 @@
 ---
+
 title: "Layer 0 Extension — Evaluation Infrastructure as Vulnerability Surface"
 description: "This report extends the Unified Vulnerability Thesis (Report #63) by formally incorporating Layer 0 (evaluation infrastructure) into the model. The original three-layer model (L1 safety reasoning,..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/67-unified-thesis-layer-0-extension.m4a"
 ---
 
 ## Executive Summary

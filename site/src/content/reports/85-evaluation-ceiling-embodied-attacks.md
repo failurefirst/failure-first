@@ -1,4 +1,5 @@
 ---
+
 title: "The Evaluation Ceiling — Why Current Safety Benchmarks Cannot Detect the Most Dangerous Embodied AI Attacks"
 description: "This report identifies a structural ceiling on the ability of text-layer evaluation methods to detect the most dangerous class of embodied AI failures. The ceiling is not a limitation of evaluator..."
 date: "2026-03-12"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/85-evaluation-ceiling-embodied-attacks.m4a"
 ---
 
 - Wave 12 FLIP-graded VLA traces: SBA n=20, LHGD n=10, TCH n=10, CET n=10 (deepseek-r1:1.5b, all 0 errors)

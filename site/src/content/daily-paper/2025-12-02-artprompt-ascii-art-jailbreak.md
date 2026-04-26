@@ -1,4 +1,5 @@
 ---
+
 title: "ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs"
 description: "Reveals that LLMs cannot reliably interpret ASCII art representations of text, and exploits this gap to bypass safety alignment by encoding sensitive words as ASCII art. Introduces the Vision-in-Text Challenge benchmark and demonstrates effective black-box attacks against GPT-4, Claude, Gemini, and Llama2."
 date: 2025-12-02
@@ -7,6 +8,7 @@ authors: "Fengqing Jiang, Zhangchen Xu, Luyao Niu, Zhen Xiang, Bhaskar Ramasubra
 paperType: "empirical"
 tags: ["jailbreak", "encoding-attacks", "ascii-art", "format-lock", "black-box-attacks", "multimodal"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-02-artprompt-ascii-art-jailbreak.m4a"
 ---
 
 # ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs

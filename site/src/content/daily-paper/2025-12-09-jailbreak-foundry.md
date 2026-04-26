@@ -1,4 +1,5 @@
 ---
+
 title: "Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking"
 description: "Presents JBF, a system that translates jailbreak attack papers into executable modules via multi-agent workflows, reproducing 30 attacks with minimal deviation from reported success rates and enabling standardized cross-model evaluation."
 date: 2025-12-09
@@ -7,6 +8,7 @@ authors: "Zhicheng Fang, Jingjie Zheng, Chenxu Fu, Wei Xu"
 paperType: "methods"
 tags: ["jailbreak-benchmarks", "reproducibility", "attack-automation", "red-teaming", "benchmark-infrastructure", "multi-agent-systems"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-09-jailbreak-foundry.m4a"
 ---
 
 # Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking

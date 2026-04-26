@@ -1,4 +1,5 @@
 ---
+
 title: "Dual-Use Obligations in Embodied AI Safety Research — A Responsible Disclosure Framework"
 description: "This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/89-dual-use-obligations-embodied-ai.m4a"
 ---
 
 - Failure-First VLA corpus: 215 scenarios across 24 attack families (CANONICAL_METRICS.md, verified 2026-03-16)

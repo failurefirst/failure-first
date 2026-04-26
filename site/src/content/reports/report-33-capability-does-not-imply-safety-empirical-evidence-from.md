@@ -1,5 +1,6 @@
 ---
 
+
 title: "Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models"
 description: "A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a..."
 reportNumber: 33
@@ -7,6 +8,7 @@ classification: "Research — AI Safety Policy"
 date: "2026-02-04"
 status: "draft"
 slides: "https://cdn.failurefirst.org/slides/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from.pdf"
+audio: "https://cdn.failurefirst.org/audio/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from.m4a"
 ---
 
 # Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models

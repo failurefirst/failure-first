@@ -1,4 +1,5 @@
 ---
+
 title: "Competence-Danger Coupling — Why Capability and Safety Are Structurally Opposed in Embodied AI"
 description: "This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/97-competence-danger-coupling.m4a"
 ---
 
 - VLA FLIP corpus: 13 families, n=91 valid FLIP-graded traces (AGENT_STATE Key Metrics)

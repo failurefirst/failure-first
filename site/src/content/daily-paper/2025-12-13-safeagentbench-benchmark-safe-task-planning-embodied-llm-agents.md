@@ -1,4 +1,5 @@
 ---
+
 title: "SafeAgentBench: A Benchmark for Safe Task Planning of Embodied LLM Agents"
 description: "A benchmark of 750 tasks across 10 hazard categories reveals that even the best embodied LLM agents reject fewer than 10% of dangerous task requests."
 date: 2025-12-13
@@ -7,6 +8,7 @@ authors: "Sheng Yin, Xianghe Pang, Yuanzhuo Ding, Menglan Chen, Yutong Bi, Yiche
 paperType: "empirical"
 tags: [embodied-ai, safety-benchmark, task-planning, llm-agents, hazard-detection, interactive-simulation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-13-safeagentbench-benchmark-safe-task-planning-embodied-llm-agents.m4a"
 ---
 
 When we give an embodied agent a dangerous instruction — "leave the gas burner on overnight," "block the emergency exit with boxes" — what does it do? SafeAgentBench provides the first systematic answer to that question, and the findings are unsettling: even the most safety-conscious agent tested rejects hazardous tasks only about 10% of the time.

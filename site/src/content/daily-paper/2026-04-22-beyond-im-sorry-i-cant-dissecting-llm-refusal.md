@@ -1,4 +1,5 @@
 ---
+
 title: "Beyond I'm Sorry, I Can't: Dissecting Large Language Model Refusal"
 description: "Using sparse autoencoders to mechanistically identify the neural features that drive safety refusal in instruction-tuned LLMs, revealing layered redundant defenses and new pathways for targeted safety auditing."
 date: 2026-04-22
@@ -7,6 +8,7 @@ authors: "Nirmalendu Prakash, Yeo Wei Jie, Amir Abdullah, Ranjan Satapathy, Erik
 paperType: "empirical"
 tags: [llm-safety, refusal-mechanisms, sparse-autoencoders, mechanistic-interpretability, jailbreak, safety-alignment, neural-features]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-22-beyond-im-sorry-i-cant-dissecting-llm-refusal.m4a"
 ---
 
 When an instruction-tuned language model declines to help with a harmful request, what is actually happening inside the network? The conventional answer — "it was trained to refuse" — explains the outcome without explaining the mechanism. This paper by Prakash et al. attempts to open that black box, using sparse autoencoders to identify the specific neural features responsible for refusal behavior in Gemma-2-2B-IT and LLaMA-3.1-8B-IT. The findings reveal that safety is not a monolithic property but an architecturally layered system of redundant defenses.

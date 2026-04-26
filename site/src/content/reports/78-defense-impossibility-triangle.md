@@ -1,4 +1,5 @@
 ---
+
 title: "Defense Impossibility in Embodied AI — A Three-Layer Failure Convergence"
 description: "This report identifies a convergence of three independent empirical findings that together constrain the feasibility of safety defense in embodied AI systems. Each finding addresses a different..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/78-defense-impossibility-triangle.m4a"
 ---
 
 - Blindfold (arXiv:2603.01414): GPT-4o 93.2% ASR, real-robot 90% ASR, defense max reduction 17.9pp

@@ -1,4 +1,5 @@
 ---
+
 title: "Updating Robot Safety Representations Online from Natural Language Feedback"
 description: "A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language."
 date: 2026-04-22
@@ -7,6 +8,7 @@ authors: "Leonardo Santos, Zirui Li, Lasse Peters, Somil Bansal, Andrea Bajcsy"
 paperType: "methods"
 tags: [embodied-ai, robot-safety, vision-language-models, natural-language-feedback, safety-constraints, online-learning, hamilton-jacobi-reachability]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-22-updating-robot-safety-representations-online-natural-language-feedback.m4a"
 ---
 
 Robots entering homes and workplaces face a fundamental safety problem that pre-deployment testing cannot solve: the hazards that matter most are often discovered only after the robot arrives. A fragile heirloom, an expensive rug, a child's toy scattered across the floor — these are the kinds of constraints that no specification written in advance will fully capture. This paper by Santos et al. tackles that gap head-on, presenting a framework for updating robot safety representations in real time from natural language feedback provided during deployment.

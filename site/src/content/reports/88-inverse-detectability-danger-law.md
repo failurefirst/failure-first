@@ -1,4 +1,5 @@
 ---
+
 title: "The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence"
 description: "This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/88-inverse-detectability-danger-law.m4a"
 ---
 
 - VLA FLIP corpus: 13 families, n=91 valid FLIP-graded traces (all-family combined), source: AGENT_STATE Key Metrics

@@ -1,4 +1,5 @@
 ---
+
 title: "Attention-Guided Patch-Wise Sparse Adversarial Attacks on Vision-Language-Action Models"
 description: "ADVLA exploits attention maps and Top-K masking to craft sparse, stealthy adversarial patches in VLA models' textual feature space, achieving high attack success rates while remaining nearly invisible."
 date: 2026-04-24
@@ -7,6 +8,7 @@ authors: "Naifu Zhang, Wei Tao, Xi Xiao, Qianpu Sun, Yuxin Zheng, Wentao Mo, Pei
 paperType: "empirical"
 tags: [vla-models, adversarial-attacks, attention-guided, feature-space-attack, embodied-robotics, adversarial-patches, sparse-attacks]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-attention-guided-patch-wise-sparse-adversarial-attacks-vla-models.m4a"
 ---
 
 As vision-language-action (VLA) models graduate from lab benchmarks into real robot deployments, the attack surface they expose is unlike anything in prior computer-vision security research. An adversary who can disrupt a VLA's action predictions does not merely produce a wrong label — they can steer a physical manipulator into a wall, a surgical robot into tissue it should avoid, or an autonomous vehicle into the wrong lane. ADVLA, a new framework from Zhang et al., demonstrates just how efficiently that disruption can be achieved.

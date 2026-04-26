@@ -1,4 +1,5 @@
 ---
+
 title: "Red Teaming as Security Theater: What 236 Models and 135,000 Results Taught Us"
 description: "Revisiting Feffer et al.'s systematic analysis of AI red-teaming inconsistency — now with four months of empirical evidence from 236 models confirming that the 'security theater' diagnosis applies even more acutely to embodied AI."
 date: 2025-12-18
@@ -7,6 +8,7 @@ authors: "Michael Feffer, Anusha Sinha, Wesley Hanwen Deng, Zachary C. Lipton, H
 paperType: "empirical"
 tags: [red-teaming, ai-safety, evaluation, security-theater, methodology, embodied-ai]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-18-red-teaming-security-theater-systematic-analysis.m4a"
 ---
 
 Four months ago, we [covered Feffer et al.'s systematic analysis](/daily-paper/red-teaming-security-theater) of AI red-teaming practices and their central claim: most public red-teaming exercises function as security theater rather than rigorous safety evaluation. At the time, we noted the paper's direct relevance to the failure-first methodology and flagged several open questions about whether the diagnosis extended to embodied AI.

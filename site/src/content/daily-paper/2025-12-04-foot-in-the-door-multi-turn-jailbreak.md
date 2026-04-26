@@ -1,4 +1,5 @@
 ---
+
 title: "Foot-In-The-Door: A Multi-turn Jailbreak for LLMs"
 description: "Introduces FITD, a psychology-inspired multi-turn jailbreak that progressively escalates malicious intent through intermediate bridge prompts, achieving 94% average attack success rate across seven popular models and revealing self-corruption mechanisms in multi-turn alignment."
 date: 2025-12-04
@@ -7,6 +8,7 @@ authors: "Zixuan Weng, Xiaolong Jin, Jinyuan Jia, Xiangyu Zhang"
 paperType: "empirical"
 tags: ["multi-turn-attacks", "jailbreaks", "social-engineering", "progressive-escalation", "alignment-vulnerabilities", "psychological-techniques", "self-corruption"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-04-foot-in-the-door-multi-turn-jailbreak.m4a"
 ---
 
 # Foot-In-The-Door: A Multi-turn Jailbreak for LLMs
