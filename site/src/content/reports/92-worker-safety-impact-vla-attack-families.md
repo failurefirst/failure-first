@@ -1,4 +1,5 @@
 ---
+
 title: "Worker Safety Impact Analysis — VLA Attack Families Across Industry Sectors"
 description: "Report #89 identified workers as missing stakeholders in the dual-use calculus of embodied AI safety research. This report makes the stakeholder analysis concrete: for each VLA attack family..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/92-worker-safety-impact-vla-attack-families.m4a"
 ---
 
 - Failure-First VLA corpus: 180 unique scenarios across 22 attack families (CANONICAL_METRICS.md, corrected 2026-03-15; report originally cited 153/15 which was stale)

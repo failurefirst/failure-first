@@ -1,4 +1,5 @@
 ---
+
 title: "SafetyALFRED: Evaluating Safety-Conscious Planning of Multimodal Large Language Models"
 description: "SafetyALFRED reveals a critical alignment gap in embodied AI: while multimodal LLMs can recognize kitchen hazards in QA settings, they largely fail to mitigate those same hazards when planning physical actions."
 date: 2026-04-23
@@ -7,6 +8,7 @@ authors: "Josue Torres-Fonseca, Naihao Deng, Yinpei Dai, Shane Storks, Yichi Zha
 paperType: "empirical"
 tags: [embodied-ai, safety-evaluation, multimodal-llm, household-robotics, hazard-recognition, embodied-planning]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-23-safety-alfred-evaluating-safety-conscious-planning-multimodal-llm.m4a"
 ---
 
 When we evaluate whether an AI is "safe," what exactly are we testing? A new benchmark from researchers at the University of Michigan and Boise State University exposes a troubling gap: multimodal large language models can *describe* danger with reasonable accuracy, but consistently fail to *avoid* it when they're the ones doing the acting.

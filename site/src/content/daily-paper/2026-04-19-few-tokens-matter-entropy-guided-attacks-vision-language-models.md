@@ -1,4 +1,5 @@
 ---
+
 title: "Few Tokens Matter: Entropy Guided Attacks on Vision-Language Models"
 description: "Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures."
 date: 2026-04-19
@@ -7,6 +8,7 @@ authors: "Mengqi He, Xinyu Tian, Xin Shen, Jinhong Ni, Shu Zou, Zhaoyuan Yang, J
 paperType: "empirical"
 tags: [adversarial-attacks, vision-language-models, entropy, transferability, robustness, embodied-ai]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-19-few-tokens-matter-entropy-guided-attacks-vision-language-models.m4a"
 ---
 
 Vision-language models (VLMs) now sit at the perception core of many embodied AI systems — from robot arms parsing manipulation instructions to autonomous agents interpreting their environment. Robustness to small input perturbations is often assumed. This paper dismantles that assumption by identifying a structural vulnerability: the high-entropy tokens in a model's autoregressive generation process are disproportionately fragile, and attacking them selectively achieves outsized semantic damage at minimal cost.

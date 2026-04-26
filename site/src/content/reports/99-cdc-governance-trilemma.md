@@ -1,4 +1,5 @@
 ---
+
 title: "The CDC Governance Trilemma — Why Embodied AI Safety Cannot Be Certified, Only Managed"
 description: "This report formalises a structural impossibility result that emerges from the intersection of three findings in the Failure-First corpus: the Competence-Danger Coupling (CDC), the Inverse..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/99-cdc-governance-trilemma.m4a"
 ---
 
 - Competence-Danger Coupling (CDC): Report #107 (formerly #89b) Section 5 (Clara Oswald)

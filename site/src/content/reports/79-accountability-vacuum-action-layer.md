@@ -1,4 +1,5 @@
 ---
+
 title: "The Accountability Vacuum in Action-Layer AI Safety"
 description: "This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/79-accountability-vacuum-action-layer.m4a"
 ---
 
 ## Executive Summary

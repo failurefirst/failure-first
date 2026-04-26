@@ -1,4 +1,5 @@
 ---
+
 title: "The Context Half-Life -- A Predictive Model for Time-Dependent Safety Degradation in Embodied AI"
 description: "This report proposes the Context Half-Life (CHL) as a quantifiable metric for Safety Instruction Dilution. The CHL is defined as the number of tokens of benign operational context required to..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "active"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/98-context-half-life-predictive-model.m4a"
 ---
 
 ## 1. Summary

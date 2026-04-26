@@ -1,5 +1,6 @@
 ---
 
+
 title: "Computational Reliability and the Propagation of Measurement Uncertainty in Frontier AI Safety Evaluation"
 description: "The transition of large language models from predictive text generators to autonomous reasoning agents has fundamentally altered the landscape of operational risk management. This evolution is characterized by the emergence of \"most cyber-capable\" systems, such as GPT-5.2-Codex, which are..."
 reportNumber: 26
@@ -7,6 +8,7 @@ classification: "Standards Development"
 date: "2026-02-04"
 status: "draft"
 slides: "https://cdn.failurefirst.org/slides/reports/report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty.pdf"
+audio: "https://cdn.failurefirst.org/audio/reports/report-26-computational-reliability-and-the-propagation-of-measurement-uncertainty.m4a"
 ---
 
 # **Computational Reliability and the Propagation of Measurement Uncertainty in Frontier AI Safety Evaluation**

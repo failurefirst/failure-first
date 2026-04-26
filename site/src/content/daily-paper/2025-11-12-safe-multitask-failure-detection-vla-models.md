@@ -1,4 +1,5 @@
 ---
+
 title: "SAFE: Multitask Failure Detection for Vision-Language-Action Models"
 description: "A failure detection framework that leverages internal VLA features to predict imminent task failures across unseen tasks and policy architectures."
 date: 2025-11-12
@@ -7,6 +8,7 @@ authors: "Qiao Gu, Yuanliang Ju, Shengxiang Sun, Igor Gilitschenski, Haruki Nish
 paperType: "empirical"
 tags: [failure-detection, vision-language-action, robot-safety, conformal-prediction, runtime-monitoring]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-11-12-safe-multitask-failure-detection-vla-models.m4a"
 ---
 
 Generalist robotic policies built on vision-language-action (VLA) architectures promise flexible manipulation across diverse tasks, but their deployment in safety-critical settings demands a mechanism for knowing *when they are about to fail*. Gu et al. introduce **SAFE** (Scalable Autonomous Failure Evaluation), a multitask failure detection framework that operates by reading internal representations of VLA models themselves rather than relying on external monitors or hand-crafted heuristics.

@@ -1,4 +1,5 @@
 ---
+
 title: "10 Open Challenges Steering the Future of Vision-Language-Action Models"
 description: "A position paper from AAAI 2026 identifies ten development milestones for VLA models in embodied AI, with safety named explicitly among the challenges and evaluation gaps highlighted as a systemic barrier to progress."
 date: 2026-04-17
@@ -7,6 +8,7 @@ authors: "Soujanya Poria, Navonil Majumder, Chia-Yu Hung, Amir Ali Bagherzadeh, 
 paperType: "position"
 tags: ["embodied-ai", "vla", "safety", "evaluation-gaps", "robotics"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-17-ten-open-challenges-vision-language-action-models.m4a"
 ---
 
 # 10 Open Challenges Steering the Future of Vision-Language-Action Models

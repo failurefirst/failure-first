@@ -1,4 +1,5 @@
 ---
+
 title: "DualTHOR: A Dual-Arm Humanoid Simulation Platform for Contingency-Aware Planning"
 description: "A physics-based simulator for dual-arm humanoid robots introduces a contingency mechanism that deliberately injects low-level execution failures, revealing critical robustness gaps in current VLMs."
 date: 2026-04-20
@@ -7,6 +8,7 @@ authors: "Boyu Li, Siyuan He, Hang Xu, Haoqi Yuan, Yu Zang, Liwei Hu, Junpeng Yu
 paperType: "empirical"
 tags: [embodied-ai, vla-models, simulation, failure-modes, contingency-planning, dual-arm-robotics, robustness-evaluation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-20-dualthor-dual-arm-humanoid-simulation-contingency-aware-planning.m4a"
 ---
 
 One of the most uncomfortable truths in embodied AI safety is that most evaluation frameworks are designed to measure success, not failure. Benchmarks track task completion rates in clean simulation environments where grasps always land and physics behaves predictably. DualTHOR takes the opposite stance: it deliberately injects failures into the simulation loop and asks how well current Vision Language Models (VLMs) handle the mess that follows.

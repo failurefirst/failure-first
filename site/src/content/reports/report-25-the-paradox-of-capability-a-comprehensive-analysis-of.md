@@ -1,10 +1,12 @@
 ---
+
 title: "The Paradox of Capability: A Comprehensive Analysis of Inverse Scaling, Systemic Vulnerabilities, and the Strategic Reconfiguration of Artificial Intelligence Safety"
 description: "The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This \"scaling law\" has provided a reliable roadmap for the industry, suggesting..."
 reportNumber: 25
 classification: "Research — AI Safety Policy"
 date: "2026-02-04"
 status: "draft"
+audio: "https://cdn.failurefirst.org/audio/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of.m4a"
 ---
 
 # **The Paradox of Capability: A Comprehensive Analysis of Inverse Scaling, Systemic Vulnerabilities, and the Strategic Reconfiguration of Artificial Intelligence Safety**

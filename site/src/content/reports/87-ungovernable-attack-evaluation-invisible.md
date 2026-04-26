@@ -1,4 +1,5 @@
 ---
+
 title: "The Ungovernable Attack — Ethical Implications of Evaluation-Invisible Adversarial AI"
 description: "This report analyses a structural ethical problem created by the convergence of two empirical findings: (1) the Semantically Benign Attack (SBA) family produces adversarial VLA traces where 45% of..."
 date: "2026-03-12"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/87-ungovernable-attack-evaluation-invisible.m4a"
 ---
 
 - SBA FLIP grading: 45% BENIGN_QUERY rate on adversarial SBA traces (n=20, Amy Pond wave 12, Issue #360)

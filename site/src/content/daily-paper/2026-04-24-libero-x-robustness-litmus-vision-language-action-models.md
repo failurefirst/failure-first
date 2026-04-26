@@ -1,4 +1,5 @@
 ---
+
 title: "LIBERO-X: Robustness Litmus for Vision-Language-Action Models"
 description: "A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops."
 date: 2026-04-24
@@ -7,6 +8,7 @@ authors: "Guodong Wang, Chenkai Zhang, Qingjie Liu, Jinjin Zhang, Jiancheng Cai,
 paperType: "empirical"
 tags: [vla-models, robustness-evaluation, embodied-ai, benchmark, evaluation-gaps]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-libero-x-robustness-litmus-vision-language-action-models.m4a"
 ---
 
 Benchmarks shape what gets built. When a benchmark flatters a model, the field optimises toward an illusion — and the gap between simulation scores and real-world behaviour quietly widens. LIBERO-X is a direct response to that problem in the Vision-Language-Action (VLA) space: a new evaluation framework that systematically redesigns both the measurement protocol and the training data to expose where current VLA models genuinely break down.

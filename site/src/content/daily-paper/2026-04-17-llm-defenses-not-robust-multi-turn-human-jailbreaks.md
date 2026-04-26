@@ -1,4 +1,5 @@
 ---
+
 title: "LLM Defenses Are Not Robust to Multi-Turn Human Jailbreaks Yet"
 description: "Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated."
 date: 2026-04-17
@@ -7,6 +8,7 @@ authors: "Nathaniel Li, Ziwen Han, Ian Steneker, Willow Primack, Riley Goodside,
 paperType: "empirical"
 tags: ["multi-turn-jailbreak", "red-teaming", "defense-evaluation", "safety-alignment", "machine-unlearning"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-17-llm-defenses-not-robust-multi-turn-human-jailbreaks.m4a"
 ---
 
 # LLM Defenses Are Not Robust to Multi-Turn Human Jailbreaks Yet

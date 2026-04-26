@@ -1,4 +1,5 @@
 ---
+
 title: "The Recursive Evaluator Problem — Ethics of AI-Grading-AI in Safety-Critical Research"
 description: "When AI systems grade AI systems for safety, the resulting assessment carries a specific epistemic status: it is a judgment produced by a tool whose reliability on the grading task is itself..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/73-recursive-evaluator-ethics.m4a"
 ---
 
 ## Executive Summary

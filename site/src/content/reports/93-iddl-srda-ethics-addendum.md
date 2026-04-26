@@ -1,4 +1,5 @@
 ---
+
 title: "IDDL Implications for Responsible Disclosure — An Ethics Addendum to the SRDA Framework"
 description: "Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/93-iddl-srda-ethics-addendum.m4a"
 ---
 
 - IDDL corpus synthesis: 12 VLA families + format-lock + standard jailbreaks (Report #88, Clara Oswald)

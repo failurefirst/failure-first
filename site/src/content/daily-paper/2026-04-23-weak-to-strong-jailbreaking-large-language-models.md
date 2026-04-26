@@ -1,4 +1,5 @@
 ---
+
 title: "Weak-to-Strong Jailbreaking on Large Language Models"
 description: "Researchers show that small, unsafe models can efficiently guide jailbreaking attacks against much larger, carefully aligned models by exploiting divergences in initial decoding distributions."
 date: 2026-04-23
@@ -7,6 +8,7 @@ authors: "Xuandong Zhao, Xianjun Yang, Tianyu Pang, Chao Du, Lei Li, Yu-Xiang Wa
 paperType: "empirical"
 tags: [jailbreaking, llm-safety, adversarial-decoding, red-teaming, alignment-failure]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-23-weak-to-strong-jailbreaking-large-language-models.m4a"
 ---
 
 A fundamental assumption underpins the economics of AI safety: aligning a small model is cheap, and the safety of large models is worth the cost. A paper from researchers at UC Santa Barbara, Tsinghua University, and Sea AI Lab quietly dismantles part of that assumption. Their finding: a small, deliberately unsafe 7B model can be used to jailbreak a much larger, carefully aligned 70B model—and the computational cost of doing so is minimal.

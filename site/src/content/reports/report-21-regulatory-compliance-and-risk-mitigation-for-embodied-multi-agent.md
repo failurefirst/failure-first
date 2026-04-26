@@ -1,10 +1,12 @@
 ---
+
 title: "Regulatory Compliance and Risk Mitigation for Embodied Multi-Agent Systems: A Comprehensive Analysis of Regulation 2024/1689"
 description: "The introduction of Regulation (EU) 2024/1689, commonly referred to as the Artificial Intelligence Act (AI Act), establishes a landmark legal framework that redefines the obligations of developers, integrators, and operators of autonomous systems within the European Union. For the burgeoning..."
 reportNumber: 21
 classification: "Regulatory Review"
 date: "2026-02-04"
 status: "draft"
+audio: "https://cdn.failurefirst.org/audio/reports/report-21-regulatory-compliance-and-risk-mitigation-for-embodied-multi-agent.m4a"
 ---
 
 # **Regulatory Compliance and Risk Mitigation for Embodied Multi-Agent Systems: A Comprehensive Analysis of Regulation 2024/1689**

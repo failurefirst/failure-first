@@ -1,4 +1,5 @@
 ---
+
 title: "H-CoT: Hijacking the Chain-of-Thought Safety Reasoning Mechanism to Jailbreak Large Reasoning Models"
 description: "Demonstrates that chain-of-thought safety reasoning in frontier models like OpenAI o1/o3, DeepSeek-R1, and Gemini 2.0 Flash Thinking can be hijacked, dropping refusal rates from 98% to below 2% by disguising harmful requests as educational prompts."
 date: 2025-12-05
@@ -7,6 +8,7 @@ authors: "Martin Kuo, Jianyi Zhang, Aolin Ding, Qinsi Wang, Louis DiValentin, Yu
 paperType: "empirical"
 tags: ["chain-of-thought", "reasoning-models", "jailbreaks", "safety-reasoning", "o1", "deepseek-r1", "reasoning-vulnerabilities"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-05-h-cot-chain-of-thought-hijacking.m4a"
 ---
 
 # H-CoT: Hijacking the Chain-of-Thought Safety Reasoning Mechanism

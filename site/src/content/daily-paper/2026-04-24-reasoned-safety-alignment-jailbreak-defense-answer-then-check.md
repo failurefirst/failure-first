@@ -1,4 +1,5 @@
 ---
+
 title: "Reasoned Safety Alignment: Ensuring Jailbreak Defense via Answer-Then-Check"
 description: "Answer-Then-Check trains LLMs to generate a candidate response first and then evaluate its own safety, achieving robust jailbreak defense without sacrificing reasoning or utility."
 date: 2026-04-24
@@ -7,6 +8,7 @@ authors: "Chentao Cao, Xiaojun Xu, Bo Han, Hang Li"
 paperType: "empirical"
 tags: [safety-alignment, jailbreak-defense, reasoning-models, self-evaluation, answer-then-check, over-refusal, llm-safety]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-reasoned-safety-alignment-jailbreak-defense-answer-then-check.m4a"
 ---
 
 Every safety alignment method is implicitly a bet on where the failure will occur: in the model's knowledge, in its instruction-following, or in its judgment about what it should and should not say. Most current approaches bet on the instruction-following layer — fine-tuning models to refuse harmful requests before reasoning about them at all. Cao et al.'s **Reasoned Safety Alignment (ReSA)** paper makes a different bet: that a model which reasons through its answer first, then evaluates what it produced, will be both more robust and more useful.

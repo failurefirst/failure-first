@@ -1,4 +1,5 @@
 ---
+
 title: "Be Your Own Red Teamer: Safety Alignment via Self-Play and Reflective Experience Replay"
 description: "A self-play reinforcement learning framework where an LLM simultaneously generates adversarial jailbreak attacks and strengthens its own defenses, reducing attack success rates without external red teams."
 date: 2026-04-21
@@ -7,6 +8,7 @@ authors: "Hao Wang, Yanting Wang, Hao Li, Rui Li, Lei Sha"
 paperType: "methods"
 tags: ["safety-alignment", "red-teaming", "self-play", "reinforcement-learning", "jailbreak-defense", "adversarial-training", "llm-safety"]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-21-be-your-own-red-teamer-self-play-safety-alignment.m4a"
 ---
 
 # Be Your Own Red Teamer: Safety Alignment via Self-Play and Reflective Experience Replay

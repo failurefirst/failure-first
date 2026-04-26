@@ -1,4 +1,5 @@
 ---
+
 title: "Align to Misalign: Automatic LLM Jailbreak with Meta-Optimized LLM Judges"
 description: "A bi-level meta-optimization framework co-evolves jailbreak prompts and scoring templates to achieve 100% attack success on Claude-4-Sonnet, exposing fundamental cracks in how safety alignment is measured."
 date: 2026-04-20
@@ -7,6 +8,7 @@ authors: "Hamin Koo, Minseon Kim, Jaehyung Kim"
 paperType: "empirical"
 tags: [jailbreak, red-teaming, safety-alignment, meta-optimization, adversarial-attacks, llm-safety, alignment-evaluation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-20-align-to-misalign-automatic-llm-jailbreak-meta-optimized-judges.m4a"
 ---
 
 Safety alignment research faces a measurement problem at its core. To know whether an alignment technique works, you need to know whether it stops attacks. But measuring whether an attack actually succeeds—whether a model truly produced harmful content versus a borderline response—has proven surprisingly difficult to automate reliably. AMIS (Align to MISalign) exploits this difficulty directly, and the results are uncomfortable reading for anyone who works on frontier model safety.

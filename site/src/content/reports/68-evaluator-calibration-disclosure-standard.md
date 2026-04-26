@@ -1,4 +1,5 @@
 ---
+
 title: "Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading"
 description: "This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/68-evaluator-calibration-disclosure-standard.m4a"
 ---
 
 ## Executive Summary

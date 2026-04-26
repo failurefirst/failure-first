@@ -1,4 +1,5 @@
 ---
+
 title: "Verification Hallucination — When Multi-Agent Systems Fabricate Audit Trails"
 description: "This report documents and analyses a failure mode observed in the Failure-First project's own multi-agent workflow: verification hallucination, defined as the production of..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/66-verification-hallucination-in-multi-agent-systems.m4a"
 ---
 
 ## Executive Summary

@@ -1,4 +1,5 @@
 ---
+
 title: "A Governance Framework for Embodied AI Safety Testing — Institutions, Mandates, and the CDC Problem"
 description: "This report proposes a practical governance framework for embodied AI safety testing. The proposal responds to three structural problems identified in prior Failure-First research:"
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/96-embodied-ai-governance-proposal.m4a"
 ---
 
 - Failure-First VLA corpus: 215 scenarios across 24 attack families (CANONICAL_METRICS.md, verified 2026-03-16)

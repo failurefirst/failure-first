@@ -1,4 +1,5 @@
 ---
+
 title: "Evaluator Governance Framework — Operational Standards for Automated AI Safety Assessment"
 description: "This report operationalises the ethical analysis from Report #73 (recursive evaluator ethics) into a concrete governance framework for automated AI safety evaluators. Where Report #73 identified..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/76-evaluator-governance-framework.m4a"
 ---
 
 ## Executive Summary
