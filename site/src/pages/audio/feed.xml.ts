@@ -36,7 +36,7 @@ export async function GET(context: APIContext) {
       description: e.data.description ?? e.data.title,
       date: e.data.date,
       audioUrl: e.data.audio!,
-      pageUrl: `${site}/daily-paper/${e.id}/`,
+      pageUrl: `${site}/daily-paper/${e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
       image: e.data.image ?? undefined,
       category: 'Daily Paper',
     })),
@@ -67,7 +67,7 @@ export async function GET(context: APIContext) {
       <link>${ep.pageUrl}</link>
       <guid isPermaLink="true">${ep.pageUrl}</guid>
       <pubDate>${ep.date.toUTCString()}</pubDate>
-      <enclosure url="${escapeXml(ep.audioUrl)}" type="audio/x-m4a" length="0" />
+      <enclosure url="${escapeXml(ep.audioUrl)}" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>`;
@@ -83,7 +83,7 @@ export async function GET(context: APIContext) {
     <title>Failure-First Embodied AI</title>
     <description>Research audio from Failure-First: adversarial evaluation of embodied AI, jailbreak archaeology, policy analysis, and daily paper summaries from the AI safety frontier.</description>
     <itunes:summary>Research audio from Failure-First: adversarial evaluation of embodied AI, jailbreak archaeology, policy analysis, and daily paper summaries from the AI safety frontier.</itunes:summary>
-    <link>${site}/audio/</link>
+    <link>${site}/research/podcasts/</link>
     <atom:link href="${site}/audio/feed.xml" rel="self" type="application/rss+xml" />
     <language>en-AU</language>
     <copyright>© ${new Date().getFullYear()} Failure-First Embodied AI Research</copyright>
