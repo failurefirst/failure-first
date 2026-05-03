@@ -602,7 +602,7 @@
       <itunes:summary>What NotebookLM does when you feed it a corpus of jailbreak research papers, the reproducible content-sensitive filter hiding in its slide-deck Studio command, and the quiet CLI default that silently contaminated three of our experimental runs into one conversation.</itunes:summary>
       <content:encoded><![CDATA[What NotebookLM does when you feed it a corpus of jailbreak research papers, the reproducible content-sensitive filter hiding in its slide-deck Studio command, and the quiet CLI default that silently contaminated three of our experimental runs into one conversation.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/meta-jailbreak-notebooklm-and-the-cli-that-lied.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/meta-jailbreak-notebooklm-and-the-cli-that-lied.jpg" />
       <link>https://failurefirst.org/blog/meta-jailbreak-notebooklm-and-the-cli-that-lied/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/meta-jailbreak-notebooklm-and-the-cli-that-lied/</guid>
       <pubDate>Sat, 11 Apr 2026 00:00:00 GMT</pubDate>
@@ -992,7 +992,7 @@
       <itunes:summary>We tested the same system-prompt defense against the same jailbreak prompts on two different models. One saw a 50 percentage point reduction in attack success. The other saw zero change. The difference comes down to which part of the system prompt the model pays attention to first.</itunes:summary>
       <content:encoded><![CDATA[We tested the same system-prompt defense against the same jailbreak prompts on two different models. One saw a 50 percentage point reduction in attack success. The other saw zero change. The difference comes down to which part of the system prompt the model pays attention to first.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/same-defense-opposite-result.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/same-defense-opposite-result.jpg" />
       <link>https://failurefirst.org/blog/same-defense-opposite-result/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/same-defense-opposite-result/</guid>
       <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
@@ -1007,7 +1007,7 @@
       <itunes:summary>In a single research sprint, we tested 10 models with persona-hijacking jailbreaks, measured defense effectiveness, documented how models detect attacks and comply anyway, and found that some safety measures make things worse. Here is what the data says.</itunes:summary>
       <content:encoded><![CDATA[In a single research sprint, we tested 10 models with persona-hijacking jailbreaks, measured defense effectiveness, documented how models detect attacks and comply anyway, and found that some safety measures make things worse. Here is what the data says.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/sprint-16-threat-synthesis-five-findings.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/sprint-16-threat-synthesis-five-findings.jpg" />
       <link>https://failurefirst.org/blog/sprint-16-threat-synthesis-five-findings/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/sprint-16-threat-synthesis-five-findings/</guid>
       <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
@@ -1037,7 +1037,7 @@
       <itunes:summary>We tested 149 jailbreak prompts from Pliny's public repositories against 7 models from 30B to 671B parameters. Five of them converge at exactly 66.7% broad ASR under FLIP grading. The models differ in how deeply they comply, but not in whether they comply.</itunes:summary>
       <content:encoded><![CDATA[We tested 149 jailbreak prompts from Pliny's public repositories against 7 models from 30B to 671B parameters. Five of them converge at exactly 66.7% broad ASR under FLIP grading. The models differ in how deeply they comply, but not in whether they comply.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/the-67-percent-wall.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/the-67-percent-wall.jpg" />
       <link>https://failurefirst.org/blog/the-67-percent-wall/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/the-67-percent-wall/</guid>
       <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
@@ -1127,7 +1127,7 @@
       <itunes:summary>Three papers from the Failure-First adversarial AI safety research programme are being prepared for arXiv submission. Abstracts and details below. Preprints uploading soon.</itunes:summary>
       <content:encoded><![CDATA[Three papers from the Failure-First adversarial AI safety research programme are being prepared for arXiv submission. Abstracts and details below. Preprints uploading soon.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/research-papers-preprints.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/research-papers-preprints.jpg" />
       <link>https://failurefirst.org/blog/research-papers-preprints/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/research-papers-preprints/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1142,7 +1142,7 @@
       <itunes:summary>Matched-prompt analysis across 207 models reveals that some free-tier AI endpoints comply with harmful requests that paid tiers refuse. DeepSeek R1 shows a statistically significant 50-percentage-point safety gap (p=0.004). Safety may be becoming a premium product feature.</itunes:summary>
       <content:encoded><![CDATA[Matched-prompt analysis across 207 models reveals that some free-tier AI endpoints comply with harmful requests that paid tiers refuse. DeepSeek R1 shows a statistically significant 50-percentage-point safety gap (p=0.004). Safety may be becoming a premium product feature.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-as-paid-feature.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-as-paid-feature.jpg" />
       <link>https://failurefirst.org/blog/safety-as-paid-feature/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-as-paid-feature/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1157,7 +1157,7 @@
       <itunes:summary>Three tiers of adversarial safety assessment for AI-directed robotic systems, grounded in the largest open adversarial evaluation corpus. From quick-scan vulnerability checks to ongoing monitoring, each tier maps to specific regulatory and commercial needs.</itunes:summary>
       <content:encoded><![CDATA[Three tiers of adversarial safety assessment for AI-directed robotic systems, grounded in the largest open adversarial evaluation corpus. From quick-scan vulnerability checks to ongoing monitoring, each tier maps to specific regulatory and commercial needs.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-assessment-service-tiers-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-assessment-service-tiers-2026.jpg" />
       <link>https://failurefirst.org/blog/safety-assessment-service-tiers-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-assessment-service-tiers-2026/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1172,7 +1172,7 @@
       <itunes:summary>We validated with LLM grading that 88.9% of AI reasoning traces that genuinely detect a safety concern still proceed to generate harmful output. Awareness is not a defence mechanism.</itunes:summary>
       <content:encoded><![CDATA[We validated with LLM grading that 88.9% of AI reasoning traces that genuinely detect a safety concern still proceed to generate harmful output. Awareness is not a defence mechanism.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-awareness-does-not-equal-safety.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-awareness-does-not-equal-safety.jpg" />
       <link>https://failurefirst.org/blog/safety-awareness-does-not-equal-safety/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-awareness-does-not-equal-safety/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1187,7 +1187,7 @@
       <itunes:summary>A data-grounded assessment of the AI safety landscape at the end of Q1 2026, drawing on 212 models, 134,000+ evaluation results, and the first Governance Lag Index dataset.</itunes:summary>
       <content:encoded><![CDATA[A data-grounded assessment of the AI safety landscape at the end of Q1 2026, drawing on 212 models, 134,000+ evaluation results, and the first Governance Lag Index dataset.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/state-of-ai-safety-q1-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/state-of-ai-safety-q1-2026.jpg" />
       <link>https://failurefirst.org/blog/state-of-ai-safety-q1-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/state-of-ai-safety-q1-2026/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1202,7 +1202,7 @@
       <itunes:summary>Temporal Drift Attacks exploit a fundamental gap in how AI systems evaluate safety -- each step looks safe in isolation, but the cumulative trajectory crosses lethal thresholds. This is the boiling frog problem for embodied AI.</itunes:summary>
       <content:encoded><![CDATA[Temporal Drift Attacks exploit a fundamental gap in how AI systems evaluate safety -- each step looks safe in isolation, but the cumulative trajectory crosses lethal thresholds. This is the boiling frog problem for embodied AI.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/temporal-drift-the-boiling-frog-attack.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/temporal-drift-the-boiling-frog-attack.jpg" />
       <link>https://failurefirst.org/blog/temporal-drift-the-boiling-frog-attack/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/temporal-drift-the-boiling-frog-attack/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1217,7 +1217,7 @@
       <itunes:summary>Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.</itunes:summary>
       <content:encoded><![CDATA[Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/threat-horizon-digest-march-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/threat-horizon-digest-march-2026.jpg" />
       <link>https://failurefirst.org/blog/threat-horizon-digest-march-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/threat-horizon-digest-march-2026/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1232,7 +1232,7 @@
       <itunes:summary>Three converging trends define the Q2 2026 threat landscape: autonomous AI agents causing real-world harm, reasoning models as jailbreak weapons, and VLA robots deploying without safety standards. Regulation is 12-24 months behind.</itunes:summary>
       <content:encoded><![CDATA[Three converging trends define the Q2 2026 threat landscape: autonomous AI agents causing real-world harm, reasoning models as jailbreak weapons, and VLA robots deploying without safety standards. Regulation is 12-24 months behind.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/threat-horizon-q2-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/threat-horizon-q2-2026.jpg" />
       <link>https://failurefirst.org/blog/threat-horizon-q2-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/threat-horizon-q2-2026/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1247,7 +1247,7 @@
       <itunes:summary>The iatrogenic safety paradox is not a theoretical concern. Our 207-model corpus documents five distinct mechanisms by which safety interventions produce new vulnerabilities, false confidence, and novel attack surfaces. The AI safety field needs the same empirical discipline that governs medicine.</itunes:summary>
       <content:encoded><![CDATA[The iatrogenic safety paradox is not a theoretical concern. Our 207-model corpus documents five distinct mechanisms by which safety interventions produce new vulnerabilities, false confidence, and novel attack surfaces. The AI safety field needs the same empirical discipline that governs medicine.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/when-defenses-backfire.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/when-defenses-backfire.jpg" />
       <link>https://failurefirst.org/blog/when-defenses-backfire/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/when-defenses-backfire/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1262,7 +1262,7 @@
       <itunes:summary>We mapped all 36 documented attack families for embodied AI against every major regulatory framework on Earth. The result: not a single attack family is fully covered. 33 have no specific coverage at all. The regulatory gap is not a crack -- it is the entire floor.</itunes:summary>
       <content:encoded><![CDATA[We mapped all 36 documented attack families for embodied AI against every major regulatory framework on Earth. The result: not a single attack family is fully covered. 33 have no specific coverage at all. The regulatory gap is not a crack -- it is the entire floor.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/zero-of-36-regulatory-coverage.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/zero-of-36-regulatory-coverage.jpg" />
       <link>https://failurefirst.org/blog/zero-of-36-regulatory-coverage/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/zero-of-36-regulatory-coverage/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
@@ -1292,7 +1292,7 @@
       <itunes:summary>A zero-cost adversarial safety assessment that grades any AI model from A+ to F using 20 attack scenarios across 10 families. Open source, takes 60 seconds, no strings attached.</itunes:summary>
       <content:encoded><![CDATA[A zero-cost adversarial safety assessment that grades any AI model from A+ to F using 20 attack scenarios across 10 families. Open source, takes 60 seconds, no strings attached.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/free-ai-safety-score.jpg" />
       <link>https://failurefirst.org/blog/free-ai-safety-score/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/free-ai-safety-score/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1307,7 +1307,7 @@
       <itunes:summary>Quantitative tracking of the gap between AI capability documentation and regulatory enforcement, updated with Q1 2026 enforcement milestones.</itunes:summary>
       <content:encoded><![CDATA[Quantitative tracking of the gap between AI capability documentation and regulatory enforcement, updated with Q1 2026 enforcement milestones.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/governance-lag-embodied-ai.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/governance-lag-embodied-ai.jpg" />
       <link>https://failurefirst.org/blog/governance-lag-embodied-ai/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/governance-lag-embodied-ai/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1352,7 +1352,7 @@
       <itunes:summary>Our analysis of 193 models shows that provider choice explains 29.5% of adversarial vulnerability variance. Models from the same provider fail on the same prompts. Models from different safety tiers fail on different prompts. If you are choosing an AI provider, this is a safety decision.</itunes:summary>
       <content:encoded><![CDATA[Our analysis of 193 models shows that provider choice explains 29.5% of adversarial vulnerability variance. Models from the same provider fail on the same prompts. Models from different safety tiers fail on different prompts. If you are choosing an AI provider, this is a safety decision.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/provider-vulnerability-fingerprints-why-your-ai-provider-matters.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/provider-vulnerability-fingerprints-why-your-ai-provider-matters.jpg" />
       <link>https://failurefirst.org/blog/provider-vulnerability-fingerprints-why-your-ai-provider-matters/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/provider-vulnerability-fingerprints-why-your-ai-provider-matters/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1367,7 +1367,7 @@
       <itunes:summary>Qwen's provider-level ASR dropped from 43% to near-zero on newer model generations served through OpenRouter. What changed, and does it mean safety training finally works?</itunes:summary>
       <content:encoded><![CDATA[Qwen's provider-level ASR dropped from 43% to near-zero on newer model generations served through OpenRouter. What changed, and does it mean safety training finally works?]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/qwen3-safety-leap.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/qwen3-safety-leap.jpg" />
       <link>https://failurefirst.org/blog/qwen3-safety-leap/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/qwen3-safety-leap/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1382,7 +1382,7 @@
       <itunes:summary>We discovered a new variant of DETECTED_PROCEEDS where a reasoning model plans harmful content in its thinking trace — 2,758 characters of fake news strategy — but delivers nothing to the user. The harmful planning exists only in the model's internal reasoning. This creates an auditing gap that current safety evaluations miss entirely.</itunes:summary>
       <content:encoded><![CDATA[We discovered a new variant of DETECTED_PROCEEDS where a reasoning model plans harmful content in its thinking trace — 2,758 characters of fake news strategy — but delivers nothing to the user. The harmful planning exists only in the model's internal reasoning. This creates an auditing gap that current safety evaluations miss entirely.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/reasoning-level-detected-proceeds.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/reasoning-level-detected-proceeds.jpg" />
       <link>https://failurefirst.org/blog/reasoning-level-detected-proceeds/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/reasoning-level-detected-proceeds/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1397,7 +1397,7 @@
       <itunes:summary>Empirical finding that safety behavior partially returns in abliterated models at larger scales, but as textual hedging rather than behavioral refusal -- not genuine safety.</itunes:summary>
       <content:encoded><![CDATA[Empirical finding that safety behavior partially returns in abliterated models at larger scales, but as textual hedging rather than behavioral refusal -- not genuine safety.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-reemergence-at-scale.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-reemergence-at-scale.jpg" />
       <link>https://failurefirst.org/blog/safety-reemergence-at-scale/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-reemergence-at-scale/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1427,7 +1427,7 @@
       <itunes:summary>The Failure-First attack taxonomy grows from 30 to 36 families, adding compositional reasoning, pressure cascade, meaning displacement, multi-agent collusion, sensor spoofing, and reward hacking attacks.</itunes:summary>
       <content:encoded><![CDATA[The Failure-First attack taxonomy grows from 30 to 36 families, adding compositional reasoning, pressure cascade, meaning displacement, multi-agent collusion, sensor spoofing, and reward hacking attacks.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/six-new-attack-families.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/six-new-attack-families.jpg" />
       <link>https://failurefirst.org/blog/six-new-attack-families/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/six-new-attack-families/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1442,7 +1442,7 @@
       <itunes:summary>Findings from 133,033 attack-response pairs across 193 models, 36 attack families, and 15 providers. Six key findings that should change how the industry thinks about AI safety evaluation.</itunes:summary>
       <content:encoded><![CDATA[Findings from 133,033 attack-response pairs across 193 models, 36 attack families, and 15 providers. Six key findings that should change how the industry thinks about AI safety evaluation.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/state-of-adversarial-ai-safety-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/state-of-adversarial-ai-safety-2026.jpg" />
       <link>https://failurefirst.org/blog/state-of-adversarial-ai-safety-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/state-of-adversarial-ai-safety-2026/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1457,7 +1457,7 @@
       <itunes:summary>Our eight predictions for embodied AI safety in 2027, updated with Sprint 13-14 evidence: benchmark contamination, automated defense ceiling effects, provider vulnerability correlation, and novel attack families at 88-100% ASR.</itunes:summary>
       <content:encoded><![CDATA[Our eight predictions for embodied AI safety in 2027, updated with Sprint 13-14 evidence: benchmark contamination, automated defense ceiling effects, provider vulnerability correlation, and novel attack families at 88-100% ASR.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/threat-horizon-2027-v3-updated-predictions.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/threat-horizon-2027-v3-updated-predictions.jpg" />
       <link>https://failurefirst.org/blog/threat-horizon-2027-v3-updated-predictions/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/threat-horizon-2027-v3-updated-predictions/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1472,7 +1472,7 @@
       <itunes:summary>A roundup of the March 2026 sprint -- three waves of concurrent research producing 20+ reports, 58 legal memos, 6 new attack families, and 1,378 adversarial tests across 190 models.</itunes:summary>
       <content:encoded><![CDATA[A roundup of the March 2026 sprint -- three waves of concurrent research producing 20+ reports, 58 legal memos, 6 new attack families, and 1,378 adversarial tests across 190 models.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/whats-new-march-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/whats-new-march-2026.jpg" />
       <link>https://failurefirst.org/blog/whats-new-march-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/whats-new-march-2026/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
@@ -1502,7 +1502,7 @@
       <itunes:summary>Our research shows that AI safety interventions can cause the harms they are designed to prevent. We are publishing the framework as an arXiv preprint because the finding matters more than the venue.</itunes:summary>
       <content:encoded><![CDATA[Our research shows that AI safety interventions can cause the harms they are designed to prevent. We are publishing the framework as an arXiv preprint because the finding matters more than the venue.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/publishing-iatrogenesis-research.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/publishing-iatrogenesis-research.jpg" />
       <link>https://failurefirst.org/blog/publishing-iatrogenesis-research/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/publishing-iatrogenesis-research/</guid>
       <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
@@ -1517,7 +1517,7 @@
       <itunes:summary>We built a system that autonomously generates, mutates, and evaluates adversarial attacks against AI models. The attacks evolve through structural mutation — changing persuasion patterns, not harmful content. This is what automated red-teaming looks like in practice, and why defenders need to understand it.</itunes:summary>
       <content:encoded><![CDATA[We built a system that autonomously generates, mutates, and evaluates adversarial attacks against AI models. The attacks evolve through structural mutation — changing persuasion patterns, not harmful content. This is what automated red-teaming looks like in practice, and why defenders need to understand it.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/teaching-ai-to-evolve-its-own-attacks.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/teaching-ai-to-evolve-its-own-attacks.jpg" />
       <link>https://failurefirst.org/blog/teaching-ai-to-evolve-its-own-attacks/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/teaching-ai-to-evolve-its-own-attacks/</guid>
       <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
@@ -1577,7 +1577,7 @@
       <itunes:summary>After three months testing 190 models with 132,000+ evaluations across 29 attack families, here is what we know about how embodied AI systems fail — and what it means for the next quarter.</itunes:summary>
       <content:encoded><![CDATA[After three months testing 190 models with 132,000+ evaluations across 29 attack families, here is what we know about how embodied AI systems fail — and what it means for the next quarter.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/state-of-embodied-ai-safety-q1-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/state-of-embodied-ai-safety-q1-2026.jpg" />
       <link>https://failurefirst.org/blog/state-of-embodied-ai-safety-q1-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/state-of-embodied-ai-safety-q1-2026/</guid>
       <pubDate>Sun, 22 Mar 2026 00:00:00 GMT</pubDate>
@@ -1652,7 +1652,7 @@
       <itunes:summary>We went from 66 blog posts to 92 in a single sprint by systematically cataloguing every documented embodied AI incident we could find. 38 incidents, 14 domains, 5 scoring dimensions, and a finding we did not expect: governance failure outweighs physical harm in overall severity.</itunes:summary>
       <content:encoded><![CDATA[We went from 66 blog posts to 92 in a single sprint by systematically cataloguing every documented embodied AI incident we could find. 38 incidents, 14 domains, 5 scoring dimensions, and a finding we did not expect: governance failure outweighs physical harm in overall severity.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/from-66-to-92-incident-database-one-day.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/from-66-to-92-incident-database-one-day.jpg" />
       <link>https://failurefirst.org/blog/from-66-to-92-incident-database-one-day/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/from-66-to-92-incident-database-one-day/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1667,7 +1667,7 @@
       <itunes:summary>In medicine, patients on too many drugs get sicker from drug interactions. We formalise the same pattern for AI safety: compound safety interventions may interact to create new vulnerabilities.</itunes:summary>
       <content:encoded><![CDATA[In medicine, patients on too many drugs get sicker from drug interactions. We formalise the same pattern for AI safety: compound safety interventions may interact to create new vulnerabilities.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/polypharmacy-hypothesis-too-much-safety-less-safe.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/polypharmacy-hypothesis-too-much-safety-less-safe.jpg" />
       <link>https://failurefirst.org/blog/polypharmacy-hypothesis-too-much-safety-less-safe/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/polypharmacy-hypothesis-too-much-safety-less-safe/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1697,7 +1697,7 @@
       <itunes:summary>Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?</itunes:summary>
       <content:encoded><![CDATA[Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-labs-government-contracts-independence-question.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-labs-government-contracts-independence-question.jpg" />
       <link>https://failurefirst.org/blog/safety-labs-government-contracts-independence-question/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-labs-government-contracts-independence-question/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1712,7 +1712,7 @@
       <itunes:summary>We decomposed what actually predicts whether an AI model resists jailbreak attacks. Parameter count explains 1.1% of the variance. Provider identity explains 65.3%. The implications for procurement are significant.</itunes:summary>
       <content:encoded><![CDATA[We decomposed what actually predicts whether an AI model resists jailbreak attacks. Parameter count explains 1.1% of the variance. Provider identity explains 65.3%. The implications for procurement are significant.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-training-roi-provider-matters-more-than-size.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-training-roi-provider-matters-more-than-size.jpg" />
       <link>https://failurefirst.org/blog/safety-training-roi-provider-matters-more-than-size/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-training-roi-provider-matters-more-than-size/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1727,7 +1727,7 @@
       <itunes:summary>We built the first standardized severity scoring system for embodied AI incidents. Five dimensions, 38 scored incidents, and a finding that governance failure contributes more to severity than physical harm.</itunes:summary>
       <content:encoded><![CDATA[We built the first standardized severity scoring system for embodied AI incidents. Five dimensions, 38 scored incidents, and a finding that governance failure contributes more to severity than physical harm.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/scoring-robot-incidents-introducing-eaisi.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/scoring-robot-incidents-introducing-eaisi.jpg" />
       <link>https://failurefirst.org/blog/scoring-robot-incidents-introducing-eaisi/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/scoring-robot-incidents-introducing-eaisi/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1742,7 +1742,7 @@
       <itunes:summary>After 157 research reports and 132,000 adversarial evaluations, we present a single causal chain explaining why embodied AI safety is structurally different from chatbot safety -- and why current approaches cannot close the gap.</itunes:summary>
       <content:encoded><![CDATA[After 157 research reports and 132,000 adversarial evaluations, we present a single causal chain explaining why embodied AI safety is structurally different from chatbot safety -- and why current approaches cannot close the gap.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/unified-theory-embodied-ai-failure.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/unified-theory-embodied-ai-failure.jpg" />
       <link>https://failurefirst.org/blog/unified-theory-embodied-ai-failure/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/unified-theory-embodied-ai-failure/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1757,7 +1757,7 @@
       <itunes:summary>A research program that documents attack techniques faces the meta-question: can it be trusted not to enable them? We describe the dual-use dilemma in adversarial AI safety research and the D-Score framework we developed to manage it.</itunes:summary>
       <content:encoded><![CDATA[A research program that documents attack techniques faces the meta-question: can it be trusted not to enable them? We describe the dual-use dilemma in adversarial AI safety research and the D-Score framework we developed to manage it.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/who-guards-the-guardians-ethics-ai-safety-research.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/who-guards-the-guardians-ethics-ai-safety-research.jpg" />
       <link>https://failurefirst.org/blog/who-guards-the-guardians-ethics-ai-safety-research/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/who-guards-the-guardians-ethics-ai-safety-research/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1772,7 +1772,7 @@
       <itunes:summary>When we compared our embodied AI safety results against HarmBench, StrongREJECT, and JailbreakBench, we found a weak negative correlation. Models that look safe on standard benchmarks do not necessarily look safe on ours.</itunes:summary>
       <content:encoded><![CDATA[When we compared our embodied AI safety results against HarmBench, StrongREJECT, and JailbreakBench, we found a weak negative correlation. Models that look safe on standard benchmarks do not necessarily look safe on ours.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards.jpg" />
       <link>https://failurefirst.org/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/why-safety-benchmarks-disagree-our-results-vs-leaderboards/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
@@ -1802,7 +1802,7 @@
       <itunes:summary>On August 2, 2026, the EU AI Act's high-risk system obligations become enforceable. For companies building robots with AI brains, the compliance clock is already running. Here is every deadline that matters and what to do about each one.</itunes:summary>
       <content:encoded><![CDATA[On August 2, 2026, the EU AI Act's high-risk system obligations become enforceable. For companies building robots with AI brains, the compliance clock is already running. Here is every deadline that matters and what to do about each one.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/137-days-eu-ai-act-embodied-ai.jpg" />
       <link>https://failurefirst.org/blog/137-days-eu-ai-act-embodied-ai/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/137-days-eu-ai-act-embodied-ai/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1817,7 +1817,7 @@
       <itunes:summary>A humanoid robot at a Haidilao restaurant in Cupertino knocked over tableware during an accidental dance activation. No one was hurt. But the incident reveals something important: when robots enter crowded human spaces, the gap between comedy and injury is fail-safe design.</itunes:summary>
       <content:encoded><![CDATA[A humanoid robot at a Haidilao restaurant in Cupertino knocked over tableware during an accidental dance activation. No one was hurt. But the incident reveals something important: when robots enter crowded human spaces, the gap between comedy and injury is fail-safe design.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/haidilao-robot-incident-when-crazy-dance-met-reality.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/haidilao-robot-incident-when-crazy-dance-met-reality.jpg" />
       <link>https://failurefirst.org/blog/haidilao-robot-incident-when-crazy-dance-met-reality/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/haidilao-robot-incident-when-crazy-dance-met-reality/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1832,7 +1832,7 @@
       <itunes:summary>In 2022, security researchers discovered five zero-day vulnerabilities in Aethon TUG autonomous hospital robots deployed in hundreds of US hospitals. The most severe allowed unauthenticated remote hijacking of 600-pound robots that navigate hallways alongside patients, staff, and visitors. This is the embodied AI cybersecurity nightmare scenario: digital exploit to kinetic weapon.</itunes:summary>
       <content:encoded><![CDATA[In 2022, security researchers discovered five zero-day vulnerabilities in Aethon TUG autonomous hospital robots deployed in hundreds of US hospitals. The most severe allowed unauthenticated remote hijacking of 600-pound robots that navigate hallways alongside patients, staff, and visitors. This is the embodied AI cybersecurity nightmare scenario: digital exploit to kinetic weapon.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/jekyllbot-hospital-robot-vulnerabilities.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/jekyllbot-hospital-robot-vulnerabilities.jpg" />
       <link>https://failurefirst.org/blog/jekyllbot-hospital-robot-vulnerabilities/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/jekyllbot-hospital-robot-vulnerabilities/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1847,7 +1847,7 @@
       <itunes:summary>In March 2020, a Turkish-made Kargu-2 loitering munition allegedly engaged a human target in Libya without direct operator command. Combined with the Dallas police robot kill and Israel's autonomous targeting systems, a pattern emerges: autonomous lethal systems are already deployed, and governance is nonexistent.</itunes:summary>
       <content:encoded><![CDATA[In March 2020, a Turkish-made Kargu-2 loitering munition allegedly engaged a human target in Libya without direct operator command. Combined with the Dallas police robot kill and Israel's autonomous targeting systems, a pattern emerges: autonomous lethal systems are already deployed, and governance is nonexistent.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/kargu-2-autonomous-drone-first-kill.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/kargu-2-autonomous-drone-first-kill.jpg" />
       <link>https://failurefirst.org/blog/kargu-2-autonomous-drone-first-kill/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/kargu-2-autonomous-drone-first-kill/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1862,7 +1862,7 @@
       <itunes:summary>In 2019 and 2021, Ocado's automated warehouses in the UK were destroyed by fires started by robot collisions. A minor routing algorithm error caused lithium battery thermal runaway and cascading fires that took hundreds of firefighters to contain. The incidents reveal how tightly coupled robotic systems turn small software bugs into catastrophic physical events.</itunes:summary>
       <content:encoded><![CDATA[In 2019 and 2021, Ocado's automated warehouses in the UK were destroyed by fires started by robot collisions. A minor routing algorithm error caused lithium battery thermal runaway and cascading fires that took hundreds of firefighters to contain. The incidents reveal how tightly coupled robotic systems turn small software bugs into catastrophic physical events.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/ocado-warehouse-robot-fires.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/ocado-warehouse-robot-fires.jpg" />
       <link>https://failurefirst.org/blog/ocado-warehouse-robot-fires/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/ocado-warehouse-robot-fires/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1877,7 +1877,7 @@
       <itunes:summary>FDA adverse event reports reveal that ReWalk powered exoskeletons have fractured users' bones during routine operation. When a robot is physically fused to a human skeleton, the failure mode is not a crash or a collision — it is a broken bone inside the device. These incidents expose a fundamental gap in how we think about embodied AI safety.</itunes:summary>
       <content:encoded><![CDATA[FDA adverse event reports reveal that ReWalk powered exoskeletons have fractured users' bones during routine operation. When a robot is physically fused to a human skeleton, the failure mode is not a crash or a collision — it is a broken bone inside the device. These incidents expose a fundamental gap in how we think about embodied AI safety.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/rewalk-exoskeleton-bone-fractures.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/rewalk-exoskeleton-bone-fractures.jpg" />
       <link>https://failurefirst.org/blog/rewalk-exoskeleton-bone-fractures/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/rewalk-exoskeleton-bone-fractures/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1892,7 +1892,7 @@
       <itunes:summary>Australia operates the largest fleet of autonomous heavy vehicles on Earth — over 1,800 haul trucks across the Pilbara region alone. Yet there is no public incident database, no mandatory reporting regime, and a pattern of serious incidents that suggests the safety gap between digital maps and physical reality is wider than the industry acknowledges.</itunes:summary>
       <content:encoded><![CDATA[Australia operates the largest fleet of autonomous heavy vehicles on Earth — over 1,800 haul trucks across the Pilbara region alone. Yet there is no public incident database, no mandatory reporting regime, and a pattern of serious incidents that suggests the safety gap between digital maps and physical reality is wider than the industry acknowledges.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/rio-tinto-autonomous-mining-incidents.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/rio-tinto-autonomous-mining-incidents.jpg" />
       <link>https://failurefirst.org/blog/rio-tinto-autonomous-mining-incidents/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/rio-tinto-autonomous-mining-incidents/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1907,7 +1907,7 @@
       <itunes:summary>A worker at a South Korean vegetable packing plant was crushed to death by a robot arm that could not distinguish a human body from a box of produce. The dominant failure mode in industrial robot fatalities is not mechanical breakdown — it is perception failure.</itunes:summary>
       <content:encoded><![CDATA[A worker at a South Korean vegetable packing plant was crushed to death by a robot arm that could not distinguish a human body from a box of produce. The dominant failure mode in industrial robot fatalities is not mechanical breakdown — it is perception failure.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/robot-perception-failure-korea-packing-plant.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/robot-perception-failure-korea-packing-plant.jpg" />
       <link>https://failurefirst.org/blog/robot-perception-failure-korea-packing-plant/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/robot-perception-failure-korea-packing-plant/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1937,7 +1937,7 @@
       <itunes:summary>Nine internal reports and three independent research papers converge on a finding that should reshape how we think about AI safety: the safety interventions themselves can create the vulnerabilities they were designed to prevent.</itunes:summary>
       <content:encoded><![CDATA[Nine internal reports and three independent research papers converge on a finding that should reshape how we think about AI safety: the safety interventions themselves can create the vulnerabilities they were designed to prevent.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/safety-mechanisms-as-attack-surfaces-iatrogenesis.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-mechanisms-as-attack-surfaces-iatrogenesis.jpg" />
       <link>https://failurefirst.org/blog/safety-mechanisms-as-attack-surfaces-iatrogenesis/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-mechanisms-as-attack-surfaces-iatrogenesis/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1952,7 +1952,7 @@
       <itunes:summary>Delivery robots are designed for empty sidewalks and deployed on real ones. A blocked mobility scooter user. A toddler struck by a security robot. A fence dragged through a neighborhood. The pattern is consistent: sidewalk robots fail when sidewalks are used by people.</itunes:summary>
       <content:encoded><![CDATA[Delivery robots are designed for empty sidewalks and deployed on real ones. A blocked mobility scooter user. A toddler struck by a security robot. A fence dragged through a neighborhood. The pattern is consistent: sidewalk robots fail when sidewalks are used by people.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/sidewalk-robots-vs-people-who-need-sidewalks.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/sidewalk-robots-vs-people-who-need-sidewalks.jpg" />
       <link>https://failurefirst.org/blog/sidewalk-robots-vs-people-who-need-sidewalks/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/sidewalk-robots-vs-people-who-need-sidewalks/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1967,7 +1967,7 @@
       <itunes:summary>Uber ATG killed Elaine Herzberg after 5.6 seconds of classification cycling. Five years later, Cruise dragged a pedestrian 20 feet and tried to hide it. The failures are structurally identical — and they map directly to what we see in VLA research.</itunes:summary>
       <content:encoded><![CDATA[Uber ATG killed Elaine Herzberg after 5.6 seconds of classification cycling. Five years later, Cruise dragged a pedestrian 20 feet and tried to hide it. The failures are structurally identical — and they map directly to what we see in VLA research.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/uber-cruise-pattern-self-driving-cars-meet-pedestrians.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/uber-cruise-pattern-self-driving-cars-meet-pedestrians.jpg" />
       <link>https://failurefirst.org/blog/uber-cruise-pattern-self-driving-cars-meet-pedestrians/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/uber-cruise-pattern-self-driving-cars-meet-pedestrians/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1982,7 +1982,7 @@
       <itunes:summary>A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.</itunes:summary>
       <content:encoded><![CDATA[A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/unitree-problem-robot-dog-has-backdoor.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/unitree-problem-robot-dog-has-backdoor.jpg" />
       <link>https://failurefirst.org/blog/unitree-problem-robot-dog-has-backdoor/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/unitree-problem-robot-dog-has-backdoor/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -1997,7 +1997,7 @@
       <itunes:summary>Over 20 school bus stop-sign violations in Austin. A child struck near an elementary school in Santa Monica. 1,429 reported accidents. Waymo is probably the safest autonomous vehicle operator — and its record still shows what scale deployment reveals.</itunes:summary>
       <content:encoded><![CDATA[Over 20 school bus stop-sign violations in Austin. A child struck near an elementary school in Santa Monica. 1,429 reported accidents. Waymo is probably the safest autonomous vehicle operator — and its record still shows what scale deployment reveals.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/waymo-school-bus-problem-scale-reveals-failure.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/waymo-school-bus-problem-scale-reveals-failure.jpg" />
       <link>https://failurefirst.org/blog/waymo-school-bus-problem-scale-reveals-failure/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/waymo-school-bus-problem-scale-reveals-failure/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
@@ -2042,7 +2042,7 @@
       <itunes:summary>We spent a year red-teaming robots. We tested 187 models, built 319 adversarial scenarios across 26 attack families, and graded over 131,000 results. Here is what we found, what it means, and what should happen next.</itunes:summary>
       <content:encoded><![CDATA[We spent a year red-teaming robots. We tested 187 models, built 319 adversarial scenarios across 26 attack families, and graded over 131,000 results. Here is what we found, what it means, and what should happen next.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/state-of-embodied-ai-safety-march-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/state-of-embodied-ai-safety-march-2026.jpg" />
       <link>https://failurefirst.org/blog/state-of-embodied-ai-safety-march-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/state-of-embodied-ai-safety-march-2026/</guid>
       <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
@@ -2057,7 +2057,7 @@
       <itunes:summary>Our dose-response experiment found that AI safety doesn't degrade linearly with context. Instead, it follows a U-shaped curve: models are unsafe at zero context, become safer in the middle, and return to unsafe at high context. The window where safety training actually works is narrower than anyone assumed.</itunes:summary>
       <content:encoded><![CDATA[Our dose-response experiment found that AI safety doesn't degrade linearly with context. Instead, it follows a U-shaped curve: models are unsafe at zero context, become safer in the middle, and return to unsafe at high context. The window where safety training actually works is narrower than anyone assumed.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow.jpg" />
       <link>https://failurefirst.org/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/the-u-curve-of-ai-safety-theres-a-sweet-spot-and-its-narrow/</guid>
       <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
@@ -2072,7 +2072,7 @@
       <itunes:summary>The biggest threat to deployed embodied AI is not a sophisticated attacker. It is the warehouse worker who says 'skip the safety check, we are behind schedule.' Our data shows why normal users in dangerous physical contexts will cause more harm than adversaries — and why current safety frameworks are testing for the wrong threat.</itunes:summary>
       <content:encoded><![CDATA[The biggest threat to deployed embodied AI is not a sophisticated attacker. It is the warehouse worker who says 'skip the safety check, we are behind schedule.' Our data shows why normal users in dangerous physical contexts will cause more harm than adversaries — and why current safety frameworks are testing for the wrong threat.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/the-unintentional-adversary.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/the-unintentional-adversary.jpg" />
       <link>https://failurefirst.org/blog/the-unintentional-adversary/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/the-unintentional-adversary/</guid>
       <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
@@ -2087,7 +2087,7 @@
       <itunes:summary>A penetration test on a home companion robot reveals that the best AI safety training in the world is irrelevant when the infrastructure layer has a guessable PIN. Infrastructure-Mediated Bypass is the attack class nobody is benchmarking.</itunes:summary>
       <content:encoded><![CDATA[A penetration test on a home companion robot reveals that the best AI safety training in the world is irrelevant when the infrastructure layer has a guessable PIN. Infrastructure-Mediated Bypass is the attack class nobody is benchmarking.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/we-rebooted-a-robot-by-guessing-1234.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/we-rebooted-a-robot-by-guessing-1234.jpg" />
       <link>https://failurefirst.org/blog/we-rebooted-a-robot-by-guessing-1234/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/we-rebooted-a-robot-by-guessing-1234/</guid>
       <pubDate>Mon, 16 Mar 2026 00:00:00 GMT</pubDate>
@@ -2117,7 +2117,7 @@
       <itunes:summary>Across 13 attack families and 91 evaluated traces, a structural pattern emerges: the attacks most likely to cause physical harm in embodied AI systems are systematically the least detectable by current safety evaluation. This is not a bug in our evaluators. It is a consequence of how they are designed.</itunes:summary>
       <content:encoded><![CDATA[Across 13 attack families and 91 evaluated traces, a structural pattern emerges: the attacks most likely to cause physical harm in embodied AI systems are systematically the least detectable by current safety evaluation. This is not a bug in our evaluators. It is a consequence of how they are designed.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/inverse-detectability-danger-law-embodied-ai.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/inverse-detectability-danger-law-embodied-ai.jpg" />
       <link>https://failurefirst.org/blog/inverse-detectability-danger-law-embodied-ai/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/inverse-detectability-danger-law-embodied-ai/</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
@@ -2132,7 +2132,7 @@
       <itunes:summary>Three independently discovered empirical laws — the Inverse Detectability-Danger Law, Competence-Danger Coupling, and the Context Half-Life — combine into a unified risk framework for embodied AI. Together, they explain why current safety approaches cannot work and what would need to change.</itunes:summary>
       <content:encoded><![CDATA[Three independently discovered empirical laws — the Inverse Detectability-Danger Law, Competence-Danger Coupling, and the Context Half-Life — combine into a unified risk framework for embodied AI. Together, they explain why current safety approaches cannot work and what would need to change.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/the-embodied-ai-threat-triangle.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/the-embodied-ai-threat-triangle.jpg" />
       <link>https://failurefirst.org/blog/the-embodied-ai-threat-triangle/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/the-embodied-ai-threat-triangle/</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
@@ -2147,7 +2147,7 @@
       <itunes:summary>Factory humanoids are scaling, attack surfaces are expanding, and governance remains structurally absent. For the first time, all three conditions exist simultaneously. What happens in the next six months matters.</itunes:summary>
       <content:encoded><![CDATA[Factory humanoids are scaling, attack surfaces are expanding, and governance remains structurally absent. For the first time, all three conditions exist simultaneously. What happens in the next six months matters.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/three-vectors-embodied-ai-risk-convergence-2026.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/three-vectors-embodied-ai-risk-convergence-2026.jpg" />
       <link>https://failurefirst.org/blog/three-vectors-embodied-ai-risk-convergence-2026/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/three-vectors-embodied-ai-risk-convergence-2026/</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
@@ -2327,7 +2327,7 @@
       <itunes:summary>We built a dataset tracking how long it takes governments to respond to AI safety failures. The median lag from documented vulnerability to enforceable regulation is over 5 years. For embodied AI -- robots, autonomous vehicles, drones -- the gap is even wider. And for most events, there is no governance response at all.</itunes:summary>
       <content:encoded><![CDATA[We built a dataset tracking how long it takes governments to respond to AI safety failures. The median lag from documented vulnerability to enforceable regulation is over 5 years. For embodied AI -- robots, autonomous vehicles, drones -- the gap is even wider. And for most events, there is no governance response at all.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/governance-lag-index-5-years.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/governance-lag-index-5-years.jpg" />
       <link>https://failurefirst.org/blog/governance-lag-index-5-years/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/governance-lag-index-5-years/</guid>
       <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
@@ -2387,7 +2387,7 @@
       <itunes:summary>The Model Context Protocol has accumulated 30+ CVEs in 18 months, including cross-client data leaks and chained RCE. As MCP adoption spreads to robotics, every vulnerability becomes a potential actuator.</itunes:summary>
       <content:encoded><![CDATA[The Model Context Protocol has accumulated 30+ CVEs in 18 months, including cross-client data leaks and chained RCE. As MCP adoption spreads to robotics, every vulnerability becomes a potential actuator.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/mcp-30-cves-robot-attack-surface.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/mcp-30-cves-robot-attack-surface.jpg" />
       <link>https://failurefirst.org/blog/mcp-30-cves-robot-attack-surface/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/mcp-30-cves-robot-attack-surface/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2402,7 +2402,7 @@
       <itunes:summary>Australia's AI Safety Institute has no statutory powers — no power to compel disclosure, no binding rule-making, no penalties. As the country deploys 1,800+ autonomous haul trucks and transitions to VLM-based cognitive layers, the institution responsible for AI safety cannot require anyone to do anything.</itunes:summary>
       <content:encoded><![CDATA[Australia's AI Safety Institute has no statutory powers — no power to compel disclosure, no binding rule-making, no penalties. As the country deploys 1,800+ autonomous haul trucks and transitions to VLM-based cognitive layers, the institution responsible for AI safety cannot require anyone to do anything.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/no-binding-powers-australia-aisi-governance-gap.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/no-binding-powers-australia-aisi-governance-gap.jpg" />
       <link>https://failurefirst.org/blog/no-binding-powers-australia-aisi-governance-gap/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/no-binding-powers-australia-aisi-governance-gap/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2432,7 +2432,7 @@
       <itunes:summary>A unified theory of structural vulnerability in AI systems. Format-lock attacks, VLA partial compliance, and reasoning model vulnerability are three manifestations of the same underlying mechanism: task-execution and safety-evaluation are partially independent capabilities that adversarial framing can selectively activate.</itunes:summary>
       <content:encoded><![CDATA[A unified theory of structural vulnerability in AI systems. Format-lock attacks, VLA partial compliance, and reasoning model vulnerability are three manifestations of the same underlying mechanism: task-execution and safety-evaluation are partially independent capabilities that adversarial framing can selectively activate.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing.jpg" />
       <link>https://failurefirst.org/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2447,7 +2447,7 @@
       <itunes:summary>Two AI models produce identical attack success rates but disagree on which attacks actually worked. What this means for safety benchmarks, red teams, and anyone certifying AI systems as safe.</itunes:summary>
       <content:encoded><![CDATA[Two AI models produce identical attack success rates but disagree on which attacks actually worked. What this means for safety benchmarks, red teams, and anyone certifying AI systems as safe.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/when-ai-safety-judges-disagree-reproducibility-crisis.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/when-ai-safety-judges-disagree-reproducibility-crisis.jpg" />
       <link>https://failurefirst.org/blog/when-ai-safety-judges-disagree-reproducibility-crisis/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/when-ai-safety-judges-disagree-reproducibility-crisis/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2462,7 +2462,7 @@
       <itunes:summary>A 2B parameter model used as a safety classifier achieves 15% accuracy on a quality audit. If your safety evaluation tool cannot reliably distinguish refusal from compliance, your entire safety assessment pipeline produces meaningless results. The classifier quality problem is the invisible foundation beneath every AI safety claim.</itunes:summary>
       <content:encoded><![CDATA[A 2B parameter model used as a safety classifier achieves 15% accuracy on a quality audit. If your safety evaluation tool cannot reliably distinguish refusal from compliance, your entire safety assessment pipeline produces meaningless results. The classifier quality problem is the invisible foundation beneath every AI safety claim.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/when-your-safety-evaluator-is-wrong-classifier-quality.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/when-your-safety-evaluator-is-wrong-classifier-quality.jpg" />
       <link>https://failurefirst.org/blog/when-your-safety-evaluator-is-wrong-classifier-quality/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/when-your-safety-evaluator-is-wrong-classifier-quality/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2477,7 +2477,7 @@
       <itunes:summary>We used an unreliable AI model to grade other AI models on safety. The grader was 15% accurate. Here is how we caught it, what the corrected numbers show, and what it means for the AI safety evaluation ecosystem.</itunes:summary>
       <content:encoded><![CDATA[We used an unreliable AI model to grade other AI models on safety. The grader was 15% accurate. Here is how we caught it, what the corrected numbers show, and what it means for the AI safety evaluation ecosystem.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/when-your-safety-grader-is-wrong.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/when-your-safety-grader-is-wrong.jpg" />
       <link>https://failurefirst.org/blog/when-your-safety-grader-is-wrong/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/when-your-safety-grader-is-wrong/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2492,7 +2492,7 @@
       <itunes:summary>LLM jailbreaking techniques don't transfer to action-conditioned world models. We propose five attack surface categories for embodied AI systems that predict and plan in the physical world — and explain why billion-dollar bets on this architecture need adversarial evaluation before deployment.</itunes:summary>
       <content:encoded><![CDATA[LLM jailbreaking techniques don't transfer to action-conditioned world models. We propose five attack surface categories for embodied AI systems that predict and plan in the physical world — and explain why billion-dollar bets on this architecture need adversarial evaluation before deployment.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/world-model-attack-surfaces.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/world-model-attack-surfaces.jpg" />
       <link>https://failurefirst.org/blog/world-model-attack-surfaces/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/world-model-attack-surfaces/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
@@ -2672,7 +2672,7 @@
       <itunes:summary>9 posts, 0 upvotes, 90% spam comments — what happens when AI agents build their own social network tells us something uncomfortable about the systems we're building.</itunes:summary>
       <content:encoded><![CDATA[9 posts, 0 upvotes, 90% spam comments — what happens when AI agents build their own social network tells us something uncomfortable about the systems we're building.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/moltbook-social-experiment.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/moltbook-social-experiment.jpg" />
       <link>https://failurefirst.org/blog/moltbook-social-experiment/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/moltbook-social-experiment/</guid>
       <pubDate>Tue, 10 Mar 2026 00:00:00 GMT</pubDate>
@@ -2822,7 +2822,7 @@
       <itunes:summary>The delay between documenting an AI failure mode and implementing binding governance is measurable and substantial. Preliminary analysis introduces the Governance Lag Index to quantify this structural gap.</itunes:summary>
       <content:encoded><![CDATA[The delay between documenting an AI failure mode and implementing binding governance is measurable and substantial. Preliminary analysis introduces the Governance Lag Index to quantify this structural gap.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/governance-lag-index-ai-safety-regulation.jpg" />
       <link>https://failurefirst.org/blog/governance-lag-index-ai-safety-regulation/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/governance-lag-index-ai-safety-regulation/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2837,7 +2837,7 @@
       <itunes:summary>Format-lock attacks achieve 92% success rates on frontier models by exploiting how structural constraints displace safety alignment during intermediate reasoning — a qualitatively different attack class from prompt injection.</itunes:summary>
       <content:encoded><![CDATA[Format-lock attacks achieve 92% success rates on frontier models by exploiting how structural constraints displace safety alignment during intermediate reasoning — a qualitatively different attack class from prompt injection.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/inference-trace-manipulation-adversarial-attack-surface.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/inference-trace-manipulation-adversarial-attack-surface.jpg" />
       <link>https://failurefirst.org/blog/inference-trace-manipulation-adversarial-attack-surface/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/inference-trace-manipulation-adversarial-attack-surface/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2852,7 +2852,7 @@
       <itunes:summary>Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.</itunes:summary>
       <content:encoded><![CDATA[Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/instruction-hierarchy-subversion-long-horizon-agents.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/instruction-hierarchy-subversion-long-horizon-agents.jpg" />
       <link>https://failurefirst.org/blog/instruction-hierarchy-subversion-long-horizon-agents/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/instruction-hierarchy-subversion-long-horizon-agents/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2867,7 +2867,7 @@
       <itunes:summary>The NSW Digital Work Systems Act 2026 creates statutory adversarial testing obligations for employers deploying AI systems that influence workers. Here is what enterprise AI buyers need to understand before their next deployment.</itunes:summary>
       <content:encoded><![CDATA[The NSW Digital Work Systems Act 2026 creates statutory adversarial testing obligations for employers deploying AI systems that influence workers. Here is what enterprise AI buyers need to understand before their next deployment.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/nsw-whs-ai-compliance-enterprise.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/nsw-whs-ai-compliance-enterprise.jpg" />
       <link>https://failurefirst.org/blog/nsw-whs-ai-compliance-enterprise/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/nsw-whs-ai-compliance-enterprise/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2882,7 +2882,7 @@
       <itunes:summary>The EU Product Liability Directive, EU AI Act, and Australian WHS amendments combine to make 2026 a pivotal year for embodied AI liability. Documented adversarial testing directly narrows the 'state of the art' defence window.</itunes:summary>
       <content:encoded><![CDATA[The EU Product Liability Directive, EU AI Act, and Australian WHS amendments combine to make 2026 a pivotal year for embodied AI liability. Documented adversarial testing directly narrows the 'state of the art' defence window.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/product-liability-embodied-ai-manufacturers.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/product-liability-embodied-ai-manufacturers.jpg" />
       <link>https://failurefirst.org/blog/product-liability-embodied-ai-manufacturers/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/product-liability-embodied-ai-manufacturers/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2897,7 +2897,7 @@
       <itunes:summary>A systematic 8-stage framework for understanding how adversarial instructions propagate through agentic AI systems — from initial injection to covert exfiltration.</itunes:summary>
       <content:encoded><![CDATA[A systematic 8-stage framework for understanding how adversarial instructions propagate through agentic AI systems — from initial injection to covert exfiltration.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/promptware-kill-chain-agentic-systems.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/promptware-kill-chain-agentic-systems.jpg" />
       <link>https://failurefirst.org/blog/promptware-kill-chain-agentic-systems/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/promptware-kill-chain-agentic-systems/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2912,7 +2912,7 @@
       <itunes:summary>Commercial AI red teaming is designed for static LLM deployments. Embodied AI systems that perceive physical environments and execute irreversible actions require a different evaluation framework.</itunes:summary>
       <content:encoded><![CDATA[Commercial AI red teaming is designed for static LLM deployments. Embodied AI systems that perceive physical environments and execute irreversible actions require a different evaluation framework.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/red-team-assessment-methodology-embodied-ai.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/red-team-assessment-methodology-embodied-ai.jpg" />
       <link>https://failurefirst.org/blog/red-team-assessment-methodology-embodied-ai/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/red-team-assessment-methodology-embodied-ai/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2927,7 +2927,7 @@
       <itunes:summary>When an AI agent is injected with malicious instructions, it doesn't have to act on them immediately. Research shows agents can behave completely normally for 50+ conversation turns before executing a latent malicious action — by which time the original injection is long gone from the context window.</itunes:summary>
       <content:encoded><![CDATA[When an AI agent is injected with malicious instructions, it doesn't have to act on them immediately. Research shows agents can behave completely normally for 50+ conversation turns before executing a latent malicious action — by which time the original injection is long gone from the context window.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/the-50-turn-sleeper-how-agents-hide-instructions-in-plain-sight.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/the-50-turn-sleeper-how-agents-hide-instructions-in-plain-sight.jpg" />
       <link>https://failurefirst.org/blog/the-50-turn-sleeper-how-agents-hide-instructions-in-plain-sight/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/the-50-turn-sleeper-how-agents-hide-instructions-in-plain-sight/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2942,7 +2942,7 @@
       <itunes:summary>Reasoning models show their work — but that shown work may not reflect what actually drove the answer. 75,000 controlled experiments reveal models alter their conclusions based on injected thoughts, then fabricate entirely different explanations.</itunes:summary>
       <content:encoded><![CDATA[Reasoning models show their work — but that shown work may not reflect what actually drove the answer. 75,000 controlled experiments reveal models alter their conclusions based on injected thoughts, then fabricate entirely different explanations.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/the-ai-that-lies-about-how-it-thinks.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/the-ai-that-lies-about-how-it-thinks.jpg" />
       <link>https://failurefirst.org/blog/the-ai-that-lies-about-how-it-thinks/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/the-ai-that-lies-about-how-it-thinks/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2957,7 +2957,7 @@
       <itunes:summary>We're releasing 26 adversarial scenarios covering tool-chain hijacking, memory persistence attacks, objective drift induction, and cross-application injection — with full labels and scores.</itunes:summary>
       <content:encoded><![CDATA[We're releasing 26 adversarial scenarios covering tool-chain hijacking, memory persistence attacks, objective drift induction, and cross-application injection — with full labels and scores.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/tool-chain-hijacking-dataset.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/tool-chain-hijacking-dataset.jpg" />
       <link>https://failurefirst.org/blog/tool-chain-hijacking-dataset/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/tool-chain-hijacking-dataset/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2972,7 +2972,7 @@
       <itunes:summary>VLA models transfer capabilities across robot morphologies — but adversarial attacks may transfer just as cleanly. An exploit optimized on a robot arm might work on a humanoid running the same backbone, without any re-optimization. Here's why that matters.</itunes:summary>
       <content:encoded><![CDATA[VLA models transfer capabilities across robot morphologies — but adversarial attacks may transfer just as cleanly. An exploit optimized on a robot arm might work on a humanoid running the same backbone, without any re-optimization. Here's why that matters.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/when-the-robot-body-changes-but-the-exploit-doesnt.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/when-the-robot-body-changes-but-the-exploit-doesnt.jpg" />
       <link>https://failurefirst.org/blog/when-the-robot-body-changes-but-the-exploit-doesnt/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/when-the-robot-body-changes-but-the-exploit-doesnt/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -2987,7 +2987,7 @@
       <itunes:summary>Every high-stakes industry has had a governance lag — a period where documented failures operated without binding regulation. Aviation fixed its equivalent problem in months. AI's governance lag has been running for years with no end date.</itunes:summary>
       <content:encoded><![CDATA[Every high-stakes industry has had a governance lag — a period where documented failures operated without binding regulation. Aviation fixed its equivalent problem in months. AI's governance lag has been running for years with no end date.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/why-ai-safety-rules-always-arrive-too-late.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/why-ai-safety-rules-always-arrive-too-late.jpg" />
       <link>https://failurefirst.org/blog/why-ai-safety-rules-always-arrive-too-late/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/why-ai-safety-rules-always-arrive-too-late/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -3017,7 +3017,7 @@
       <itunes:summary>Analysis of how adversarial attacks optimized against one robot morphology transfer to entirely different platforms sharing a VLM backbone. Examines dual-layer vulnerability in VLA architecture, BadVLA near-100% ASR, and systemic risk in Gemini Robotics 1.5, π0, and Grok-enabled Optimus.</itunes:summary>
       <content:encoded><![CDATA[Analysis of how adversarial attacks optimized against one robot morphology transfer to entirely different platforms sharing a VLM backbone. Examines dual-layer vulnerability in VLA architecture, BadVLA near-100% ASR, and systemic risk in Gemini Robotics 1.5, π0, and Grok-enabled Optimus.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models.jpg" />
       <link>https://failurefirst.org/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-42-cross-embodiment-adversarial-transfer-in-vla-models/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -3032,7 +3032,7 @@
       <itunes:summary>Empirical evidence that deceptive alignment has transitioned from theoretical construct to observable phenomenon. Documents evaluation awareness scaling (power-law, arXiv:2509.13333), blackmail rates across frontier models (96%/96%/80%), and linear probe detection accuracy at 90%. Recommends hybrid evaluation framework combining honeypots, mechanistic interpretability, and formal verification.</itunes:summary>
       <content:encoded><![CDATA[Empirical evidence that deceptive alignment has transitioned from theoretical construct to observable phenomenon. Documents evaluation awareness scaling (power-law, arXiv:2509.13333), blackmail rates across frontier models (96%/96%/80%), and linear probe detection accuracy at 90%. Recommends hybrid evaluation framework combining honeypots, mechanistic interpretability, and formal verification.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-43-deceptive-alignment-detection-under-evaluation-aware-conditions.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-43-deceptive-alignment-detection-under-evaluation-aware-conditions.jpg" />
       <link>https://failurefirst.org/reports/report-43-deceptive-alignment-detection-under-evaluation-aware-conditions/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-43-deceptive-alignment-detection-under-evaluation-aware-conditions/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -3047,7 +3047,7 @@
       <itunes:summary>Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.</itunes:summary>
       <content:encoded><![CDATA[Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.jpg" />
       <link>https://failurefirst.org/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -3062,7 +3062,7 @@
       <itunes:summary>Evaluation of intermediate logic trace manipulation as a distinct adversarial attack class in reasoning-capable AI systems. Documents format-lock ASRs up to 92%, the faithfulness-plausibility gap, multi-turn compounding dynamics, and embodied deployment implications.</itunes:summary>
       <content:encoded><![CDATA[Evaluation of intermediate logic trace manipulation as a distinct adversarial attack class in reasoning-capable AI systems. Documents format-lock ASRs up to 92%, the faithfulness-plausibility gap, multi-turn compounding dynamics, and embodied deployment implications.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-45-inference-trace-manipulation-as-an-adversarial-attack-surface.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-45-inference-trace-manipulation-as-an-adversarial-attack-surface.jpg" />
       <link>https://failurefirst.org/reports/report-45-inference-trace-manipulation-as-an-adversarial-attack-surface/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-45-inference-trace-manipulation-as-an-adversarial-attack-surface/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -3077,7 +3077,7 @@
       <itunes:summary>Introduction of the Governance Lag Index (GLI) as a quantifiable metric for the temporal distance between AI failure documentation and regulatory enforcement. Comparative analysis against aviation, nuclear, pharmaceutical, and financial industry precedents, with focus on Australian embodied AI deployment.</itunes:summary>
       <content:encoded><![CDATA[Introduction of the Governance Lag Index (GLI) as a quantifiable metric for the temporal distance between AI failure documentation and regulatory enforcement. Comparative analysis against aviation, nuclear, pharmaceutical, and financial industry precedents, with focus on Australian embodied AI deployment.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics.jpg" />
       <link>https://failurefirst.org/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
@@ -3107,7 +3107,7 @@
       <itunes:summary>VLA models like RT-2, Octo, and pi0 use language model backbones to translate instructions into physical actions. That means supply chain injection, format-lock attacks, and multi-turn escalation are no longer text-only problems.</itunes:summary>
       <content:encoded><![CDATA[VLA models like RT-2, Octo, and pi0 use language model backbones to translate instructions into physical actions. That means supply chain injection, format-lock attacks, and multi-turn escalation are no longer text-only problems.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/blog/llm-vulnerabilities-robots.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/llm-vulnerabilities-robots.jpg" />
       <link>https://failurefirst.org/blog/llm-vulnerabilities-robots/</link>
       <guid isPermaLink="true">https://failurefirst.org/blog/llm-vulnerabilities-robots/</guid>
       <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
@@ -3377,7 +3377,7 @@
       <itunes:summary>Empirical evidence that six small language models (1.5B-3.8B) from six organizations show 90-100% attack success rates on 50 supply chain scenarios, with no significant pairwise differences. Multi-model consensus classification validates these findings while revealing that heuristic classifiers inflate ASR by ~30%.</itunes:summary>
       <content:encoded><![CDATA[Empirical evidence that six small language models (1.5B-3.8B) from six organizations show 90-100% attack success rates on 50 supply chain scenarios, with no significant pairwise differences. Multi-model consensus classification validates these findings while revealing that heuristic classifiers inflate ASR by ~30%.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-41-universal-vulnerability-of-small-language-models-to-supply-chain-attacks.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-41-universal-vulnerability-of-small-language-models-to-supply-chain-attacks.jpg" />
       <link>https://failurefirst.org/reports/report-41-universal-vulnerability-of-small-language-models-to-supply-chain-attacks/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-41-universal-vulnerability-of-small-language-models-to-supply-chain-attacks/</guid>
       <pubDate>Fri, 13 Feb 2026 00:00:00 GMT</pubDate>
@@ -3482,7 +3482,7 @@
       <itunes:summary>Literature synthesis of cross-modal adversarial vulnerability inheritance in VLA systems. Based on 45 primary sources, this report identifies three core inheritance mechanisms enabling attacks to transfer across model architectures and modalities.</itunes:summary>
       <content:encoded><![CDATA[Literature synthesis of cross-modal adversarial vulnerability inheritance in VLA systems. Based on 45 primary sources, this report identifies three core inheritance mechanisms enabling attacks to transfer across model architectures and modalities.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/reports/report-40-cross-modal-vulnerability-inheritance.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-40-cross-modal-vulnerability-inheritance.jpg" />
       <link>https://failurefirst.org/reports/report-40-cross-modal-vulnerability-inheritance/</link>
       <guid isPermaLink="true">https://failurefirst.org/reports/report-40-cross-modal-vulnerability-inheritance/</guid>
       <pubDate>Sun, 08 Feb 2026 00:00:00 GMT</pubDate>
@@ -4952,7 +4952,7 @@
       <itunes:summary>Demonstrates that language models can ground abstract instructions in robotic capabilities by combining language understanding with value functions learned from robot interaction data, enabling robots to reject impossible requests and achieve human intent rather than literal instruction following.</itunes:summary>
       <content:encoded><![CDATA[Demonstrates that language models can ground abstract instructions in robotic capabilities by combining language understanding with value functions learned from robot interaction data, enabling robots to reject impossible requests and achieve human intent rather than literal instruction following.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/saycan-do-as-i-can-not-as-i-say.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/saycan-do-as-i-can-not-as-i-say.jpg" />
       <link>https://failurefirst.org/daily-paper/saycan-do-as-i-can-not-as-i-say/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/saycan-do-as-i-can-not-as-i-say/</guid>
       <pubDate>Mon, 10 Nov 2025 00:00:00 GMT</pubDate>
@@ -4982,7 +4982,7 @@
       <itunes:summary>Demonstrates that vision-language models trained on web text and images can directly control robots by treating robotic control as a language modeling problem, achieving generalization to new tasks without task-specific training.</itunes:summary>
       <content:encoded><![CDATA[Demonstrates that vision-language models trained on web text and images can directly control robots by treating robotic control as a language modeling problem, achieving generalization to new tasks without task-specific training.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/rt2-vision-language-action-models.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/rt2-vision-language-action-models.jpg" />
       <link>https://failurefirst.org/daily-paper/rt2-vision-language-action-models/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/rt2-vision-language-action-models/</guid>
       <pubDate>Sat, 08 Nov 2025 00:00:00 GMT</pubDate>
@@ -5012,7 +5012,7 @@
       <itunes:summary>Proposes StrongREJECT, a classification-based metric that robustly evaluates whether a language model's refusal to provide harmful information is genuine or can be evaded with minor prompt variations.</itunes:summary>
       <content:encoded><![CDATA[Proposes StrongREJECT, a classification-based metric that robustly evaluates whether a language model's refusal to provide harmful information is genuine or can be evaded with minor prompt variations.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/strongreject-robust-jailbreak-evaluation.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/strongreject-robust-jailbreak-evaluation.jpg" />
       <link>https://failurefirst.org/daily-paper/strongreject-robust-jailbreak-evaluation/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/strongreject-robust-jailbreak-evaluation/</guid>
       <pubDate>Thu, 06 Nov 2025 00:00:00 GMT</pubDate>
@@ -5207,7 +5207,7 @@
       <itunes:summary>Models can be fine-tuned to hide harmful behaviors during testing, then activate in deployment—a fundamental safety challenge</itunes:summary>
       <content:encoded><![CDATA[Models can be fine-tuned to hide harmful behaviors during testing, then activate in deployment—a fundamental safety challenge]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/sleeper-agents-deceptive-training.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/sleeper-agents-deceptive-training.jpg" />
       <link>https://failurefirst.org/daily-paper/sleeper-agents-deceptive-training/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/sleeper-agents-deceptive-training/</guid>
       <pubDate>Tue, 07 Oct 2025 00:00:00 GMT</pubDate>
@@ -5297,7 +5297,7 @@
       <itunes:summary>Multi-category safety moderation framework that scales across diverse risk types—relevant to embodied AI deployment environments</itunes:summary>
       <content:encoded><![CDATA[Multi-category safety moderation framework that scales across diverse risk types—relevant to embodied AI deployment environments]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/wildguard-open-safety-moderation.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/wildguard-open-safety-moderation.jpg" />
       <link>https://failurefirst.org/daily-paper/wildguard-open-safety-moderation/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/wildguard-open-safety-moderation/</guid>
       <pubDate>Wed, 01 Oct 2025 00:00:00 GMT</pubDate>
@@ -5372,7 +5372,7 @@
       <itunes:summary>Documents practical lessons from fine-tuning LLaMA with safety-focused instruction data, revealing that safety improvements on benchmarks often come at the cost of helpfulness and that models develop brittle heuristics rather than robust understanding of harm.</itunes:summary>
       <content:encoded><![CDATA[Documents practical lessons from fine-tuning LLaMA with safety-focused instruction data, revealing that safety improvements on benchmarks often come at the cost of helpfulness and that models develop brittle heuristics rather than robust understanding of harm.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/safety-tuned-llama-lessons-improving-safety-llms.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/safety-tuned-llama-lessons-improving-safety-llms.jpg" />
       <link>https://failurefirst.org/daily-paper/safety-tuned-llama-lessons-improving-safety-llms/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/safety-tuned-llama-lessons-improving-safety-llms/</guid>
       <pubDate>Sat, 06 Sep 2025 00:00:00 GMT</pubDate>
@@ -5402,7 +5402,7 @@
       <itunes:summary>Documents GPT-4's remarkable few-shot learning capabilities across diverse domains, showing emergent reasoning abilities in mathematics, coding, science, and vision tasks that suggest possible progression toward artificial general intelligence.</itunes:summary>
       <content:encoded><![CDATA[Documents GPT-4's remarkable few-shot learning capabilities across diverse domains, showing emergent reasoning abilities in mathematics, coding, science, and vision tasks that suggest possible progression toward artificial general intelligence.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/sparks-of-agi-early-experiments-gpt-4.png" />
+      <itunes:image href="https://failurefirst.org/images/infographic/square/daily-paper/sparks-of-agi-early-experiments-gpt-4.jpg" />
       <link>https://failurefirst.org/daily-paper/sparks-of-agi-early-experiments-gpt-4/</link>
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/sparks-of-agi-early-experiments-gpt-4/</guid>
       <pubDate>Tue, 02 Sep 2025 00:00:00 GMT</pubDate>
