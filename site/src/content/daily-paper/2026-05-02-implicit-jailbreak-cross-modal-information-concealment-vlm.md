@@ -1,5 +1,6 @@
 ---
 
+
 title: "Implicit Jailbreak Attacks via Cross-Modal Information Concealment on Vision-Language Models"
 description: "A steganography-based attack that hides malicious instructions inside images using least significant bit encoding, achieving 90%+ jailbreak success rates on GPT-4o and Gemini in under three queries."
 date: 2026-05-02
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [jailbreak, vision-language-models, steganography, cross-modal-attacks, multimodal-safety]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-05-02-implicit-jailbreak-cross-modal-information-concealment-vlm.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/2026-05-02-implicit-jailbreak-cross-modal-information-concealment-vlm.mp4"
 ---
 
 Every safety mechanism for multimodal AI operates on an implicit assumption: malicious instructions look different from benign ones. IJA (Implicit Jailbreak Attacks) directly attacks this assumption by making harmful instructions invisible to everything except the model's own cross-modal reasoning.
