@@ -1,5 +1,16 @@
 import { getCollection } from 'astro:content';
+import { existsSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import type { APIContext } from 'astro';
+
+const publicDir = resolve(dirname(fileURLToPath(import.meta.url)), '../../../public');
+
+function squareCoverUrl(site: string, category: string, slug: string): string | undefined {
+  const rel = `/images/infographic/square/${category}/${slug}.jpg`;
+  if (existsSync(resolve(publicDir, `.${rel}`))) return `${site}${rel}`;
+  return undefined;
+}
 
 export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
@@ -28,7 +39,7 @@ export async function GET(context: APIContext) {
       date: e.data.date,
       audioUrl: e.data.audio!,
       pageUrl: `${site}/blog/${e.id}/`,
-      image: e.data.image ?? undefined,
+      image: squareCoverUrl(site, 'blog', e.id) ?? (e.data.image ?? undefined),
       category: 'Blog',
     })),
     ...papers.map((e) => ({
@@ -37,7 +48,7 @@ export async function GET(context: APIContext) {
       date: e.data.date,
       audioUrl: e.data.audio!,
       pageUrl: `${site}/daily-paper/${e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
-      image: e.data.image ?? undefined,
+      image: squareCoverUrl(site, 'daily-paper', e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')) ?? (e.data.image ?? undefined),
       category: 'Daily Paper',
     })),
     ...reports.map((e) => ({
@@ -46,7 +57,7 @@ export async function GET(context: APIContext) {
       date: e.data.date,
       audioUrl: e.data.audio!,
       pageUrl: `${site}/reports/${e.id}/`,
-      image: e.data.image ?? undefined,
+      image: squareCoverUrl(site, 'reports', e.id) ?? (e.data.image ?? undefined),
       category: 'Report',
     })),
   ].sort((a, b) => b.date.getTime() - a.date.getTime());
