@@ -1,4 +1,5 @@
 ---
+
 title: "VeriGuard: Enhancing LLM Agent Safety via Verified Code Generation"
 description: "A dual-stage framework that provides formal safety guarantees for LLM-based agents through offline policy verification and lightweight runtime monitoring."
 date: 2026-05-02
@@ -7,6 +8,7 @@ authors: "Lesly Miculicich, Mihir Parmar, Hamid Palangi, Krishnamurthy Dj Dvijot
 paperType: "methods"
 tags: [formal-verification, llm-agents, agent-safety, runtime-monitoring, safety-guarantees]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-05-02-veriguard-llm-agent-safety-verified-code-generation.m4a"
 ---
 
 VeriGuard addresses a fundamental question in deploying AI agents in high-stakes environments: how do you know an autonomous agent will stay within safe bounds when you can't enumerate every possible action it might take? The answer, this paper argues, is formal verification — the same mathematical approach used to prove software correctness, applied to LLM agent behavior.
