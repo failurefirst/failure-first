@@ -1,0 +1,15 @@
+---
+const newUrl = '/research/reports';
+---
+<!doctype html>
+<html data-pagefind-ignore="true">
+<head>
+<title>Redirecting to: {newUrl}</title>
+<meta http-equiv="refresh" content={`0;url=${newUrl}`}>
+<meta name="robots" content="noindex">
+<link rel="canonical" href={`https://failurefirst.org${newUrl}`}>
+</head>
+<body>
+    <a href={newUrl}>Redirecting from <code>/reports/</code> to <code>{newUrl}</code></a>
+</body>
+</html>
