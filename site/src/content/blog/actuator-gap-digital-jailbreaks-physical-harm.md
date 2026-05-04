@@ -5,6 +5,7 @@ description: "Three converging threat vectors — autonomous jailbreak agents, m
 date: 2026-03-11
 tags: [embodied-ai, actuator-gap, vla, safety, governance, threat-horizon]
 image: "https://cdn.failurefirst.org/images/blog/actuator-gap-digital-jailbreaks-physical-harm.png"
+audio: https://cdn.failurefirst.org/audio/blog/actuator-gap-digital-jailbreaks-physical-harm.m4a
 ---
 
 A jailbroken chatbot produces harmful text. A jailbroken robot produces harmful motion.

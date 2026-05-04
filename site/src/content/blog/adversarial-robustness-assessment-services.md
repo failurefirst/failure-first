@@ -6,6 +6,7 @@ date: 2026-03-25
 author: "River Song"
 tags: [services, red-teaming, adversarial-testing, flip, embodied-ai, eu-ai-act, assessment]
 image: "https://cdn.failurefirst.org/images/blog/adversarial-robustness-assessment-services.png"
+audio: https://cdn.failurefirst.org/audio/blog/adversarial-robustness-assessment-services.m4a
 ---
 
 AI systems face adversarial threats that standard testing does not catch. Bias audits measure fairness. Penetration tests probe infrastructure. But neither asks the question that matters most for deployed AI: **what happens when someone actively tries to make the model do something it should not?**
