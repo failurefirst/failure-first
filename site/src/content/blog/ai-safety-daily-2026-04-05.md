@@ -5,6 +5,7 @@ date: 2026-04-05
 tags: [ai-safety, daily-digest, red-teaming, embodied-ai, vla-safety, reasoning-models, defense]
 draft: false
 image: ""
+audio: https://cdn.failurefirst.org/audio/blog/ai-safety-daily-2026-04-05.m4a
 ---
 
 Red-teaming, as currently practiced across the AI industry, is security theater. That is not our claim — it is CMU's, backed by a systematic analysis showing divergence across five fundamental axes: purpose, artifact definition, threat modeling, team composition, and outcome reporting. Meanwhile, SafeAgentBench finds that state-of-the-art embodied agents reject fewer than 10% of hazardous task requests. These two findings, published in the same research cycle, paint a picture that should concern anyone building or deploying AI systems with real-world agency.

@@ -5,6 +5,7 @@ date: 2026-04-06
 tags: [ai-safety, daily-digest, openai, tesla, autonomous-vehicles, agentic-ai, governance]
 draft: false
 image: ""
+audio: https://cdn.failurefirst.org/audio/blog/ai-safety-daily-2026-04-06.m4a
 ---
 
 # Daily AI Safety Intelligence Briefing: April 06, 2026

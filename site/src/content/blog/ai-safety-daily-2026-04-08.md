@@ -5,6 +5,7 @@ date: 2026-04-08
 tags: ["ai-safety-daily", "autonomous-vehicles", "vla-safety", "embodied-ai", "regulation"]
 image: "https://cdn.failurefirst.org/images/daily-research/ai-safety-daily-2026-04-08.png"
 draft: false
+audio: https://cdn.failurefirst.org/audio/blog/ai-safety-daily-2026-04-08.m4a
 ---
 
 ## AI Safety Research Digest — April 8, 2026

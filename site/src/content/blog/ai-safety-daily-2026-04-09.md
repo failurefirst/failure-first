@@ -5,6 +5,7 @@ date: 2026-04-09
 tags: ["ai-safety-daily", "red-teaming", "evaluation", "corporate-governance", "alignment"]
 image: "https://cdn.failurefirst.org/images/daily-research/ai-safety-daily-2026-04-09.png"
 draft: false
+audio: https://cdn.failurefirst.org/audio/blog/ai-safety-daily-2026-04-09.m4a
 ---
 
 ## AI Safety Research Digest — April 9, 2026

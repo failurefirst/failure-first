@@ -6,6 +6,7 @@ author: Adrian Wedd
 tags: [format-lock, safety, alignment, jailbreak, research]
 description: "New research shows that asking AI models to output harmful content as JSON or code instead of prose can increase attack success rates by 3-10x on frontier models. The same training that makes models helpful makes them vulnerable."
 image: "https://cdn.failurefirst.org/images/blog/2026-03-24-the-format-lock-paradox.png"
+audio: https://cdn.failurefirst.org/audio/blog/2026-03-24-the-format-lock-paradox.m4a
 ---
 
 # The Format-Lock Paradox: Why the Best AI Models Have a Blind Spot for Structured Output Attacks
