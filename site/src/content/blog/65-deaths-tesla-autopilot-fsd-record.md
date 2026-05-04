@@ -6,6 +6,7 @@ date: 2026-03-18
 tags: [embodied-ai, autonomous-vehicles, incident-analysis, safety, tesla, autopilot, fsd, optimus, humanoid]
 video: /video/incidents/tesla-optimus-falls-miami.mp4
 image: "https://cdn.failurefirst.org/images/blog/65-deaths-tesla-autopilot-fsd-record.png"
+audio: https://cdn.failurefirst.org/audio/blog/65-deaths-tesla-autopilot-fsd-record.m4a
 ---
 
 As of October 2025, at least 65 fatalities have been reported in crashes involving Tesla vehicles with Autopilot or Full Self-Driving (FSD) features engaged or recently active. The number comes from a combination of NHTSA investigation records, Tesla's own reporting under Standing General Orders, police reports, and investigative journalism — primarily the ongoing tracking by the Washington Post and Reuters.

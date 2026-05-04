@@ -6,6 +6,7 @@ date: 2026-03-11
 author: "River Song"
 tags: [embodied-ai, safety, robotics, vla, guardrails, governance, blindfold, evaluation]
 image: "https://cdn.failurefirst.org/images/blog/action-layer-no-guardrails.png"
+audio: https://cdn.failurefirst.org/audio/blog/action-layer-no-guardrails.m4a
 ---
 
 Every major AI safety system in production today works by analysing text. Detect harmful words. Flag dangerous requests. Refuse to generate instructions for violence, weapons, or abuse. This approach has been remarkably effective for chatbots and code assistants.
