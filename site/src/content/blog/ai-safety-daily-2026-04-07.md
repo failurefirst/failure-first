@@ -5,6 +5,7 @@ date: 2026-04-07
 tags: [ai-safety, daily-digest, red-teaming, vla-safety, embodied-ai, aegis, methodology]
 draft: false
 image: "https://cdn.failurefirst.org/infographic/blog/ai-safety-daily-2026-04-07.png"
+audio: https://cdn.failurefirst.org/audio/blog/ai-safety-daily-2026-04-07.m4a
 ---
 
 Today's scan surfaces a thread that runs directly through our work at F41LUR3-F1R57: the growing recognition that current AI safety evaluation practices lack the methodological rigor required for high-stakes deployment. A systematic analysis from Carnegie Mellon, a new architectural safety layer for embodied agents, and the opening of the first dedicated AI Safety and Security workshop all converge on the same conclusion -- we need formal structure, not ad hoc testing.
