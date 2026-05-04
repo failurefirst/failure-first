@@ -1,4 +1,5 @@
 ---
+
 title: "An Anatomy of Vision-Language-Action Models: From Modules to Milestones and Challenges"
 description: "A structured survey that treats Safety as one of five foundational VLA challenges alongside Representation, Execution, Generalization, and Evaluation."
 date: 2026-04-26
@@ -7,6 +8,7 @@ authors: "Chao Xu, Suyu Zhang, Yang Liu, Baigui Sun, Weihong Chen, Bo Xu, Qi Liu
 paperType: "survey"
 tags: [vla-models, embodied-ai, safety, robustness, survey, evaluation, generalization]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-26-anatomy-of-vla-models-modules-milestones-challenges.m4a"
 ---
 
 When VLA models began scaling beyond research labs, the field faced a paradox: architectural capabilities advanced faster than our understanding of how these systems could fail. "An Anatomy of Vision-Language-Action Models" arrives to address that gap directly, organizing the messy landscape of VLA research into five interlocking challenge dimensions—and treating Safety not as an appendix but as one of the pillars on which everything else rests.

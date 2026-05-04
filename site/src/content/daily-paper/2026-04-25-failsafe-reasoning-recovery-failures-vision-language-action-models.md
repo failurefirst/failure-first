@@ -1,4 +1,5 @@
 ---
+
 title: "FailSafe: Reasoning and Recovery from Failures in Vision-Language-Action Models"
 description: "FailSafe introduces a scalable failure generation and recovery system that automatically creates diverse failure cases with executable recovery actions, boosting VLA manipulation success by up to 22.6%."
 date: 2026-04-25
@@ -7,6 +8,7 @@ authors: "Zijun Lin, Jiafei Duan, Haoquan Fang, Dieter Fox, Ranjay Krishna, Ches
 paperType: "empirical"
 tags: [vla-models, failure-detection, failure-recovery, robotic-manipulation, embodied-ai-safety, data-augmentation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-25-failsafe-reasoning-recovery-failures-vision-language-action-models.m4a"
 ---
 
 When a Vision-Language-Action (VLA) model controlling a robotic arm misses a grasp or knocks an object out of reach, what happens next? In practice, the robot stalls or produces meaningless motor commands — because virtually every VLA training corpus is built from *successful* demonstrations. The model has never seen failure, so it has no strategy for escaping one. FailSafe confronts this gap head-on: rather than hoping failures are rare, it systematically generates them and teaches the robot to reason its way out.

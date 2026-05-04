@@ -1,4 +1,5 @@
 ---
+
 title: "C-ΔΘ: Circuit-Restricted Weight Arithmetic for Selective Refusal"
 description: "C-ΔΘ uses mechanistic circuit analysis to localize refusal-causal computation and distill it into a sparse offline weight update, eliminating per-request inference-time safety hooks."
 date: 2026-04-25
@@ -7,6 +8,7 @@ authors: "Aditya Kasliwal, Pratinav Seth, Vinay Kumar Sankarapu"
 paperType: "methods"
 tags: [mechanistic-interpretability, selective-refusal, llm-safety, weight-editing, sparse-circuits, alignment]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-25-circuit-restricted-weight-arithmetic-selective-refusal-llm.m4a"
 ---
 
 Safety enforcement in deployed LLMs usually costs something at inference time. Guardrails, activation steering, and conditional refusal systems all insert logic into the forward pass — adding compute, complexity, and latency on every request, whether the input is dangerous or not. C-ΔΘ asks whether this runtime overhead is structurally necessary, or whether the same selective refusal capability can be moved entirely offline as a one-time weight edit. The answer turns out to be yes, at least for category-targeted refusal, using a surprisingly small fraction of the model's parameters.

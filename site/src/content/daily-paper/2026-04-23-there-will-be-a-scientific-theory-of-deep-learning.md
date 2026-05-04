@@ -1,4 +1,5 @@
 ---
+
 title: "There Will Be a Scientific Theory of Deep Learning"
 description: "Fourteen DL-theory researchers argue that an empirical mechanics of training dynamics is emerging, and that quantitative theory is the only reliable path to distinguishing structurally expected failures from contingent optimization accidents."
 date: 2026-04-23
@@ -8,6 +9,7 @@ paperType: "position"
 tags: [deep-learning-theory, learning-mechanics, mechanistic-interpretability, training-dynamics, failure-prediction]
 image: "/images/daily-paper/2604.21691-infographic.png"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-23-there-will-be-a-scientific-theory-of-deep-learning.m4a"
 ---
 
 # There Will Be a Scientific Theory of Deep Learning

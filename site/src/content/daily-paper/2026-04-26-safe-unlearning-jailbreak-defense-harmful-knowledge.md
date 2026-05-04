@@ -1,4 +1,5 @@
 ---
+
 title: "Safe Unlearning: A Surprisingly Effective and Generalizable Solution to Defend Against Jailbreak Attacks"
 description: "Directly removing harmful knowledge from LLMs via machine unlearning—with just 20 training examples—cuts jailbreak success rates more effectively than safety fine-tuning on 100k samples."
 date: 2026-04-26
@@ -7,6 +8,7 @@ authors: "Zhexin Zhang, Junxiao Yang, Pei Ke, Shiyao Cui, Chujie Zheng, Hongning
 paperType: "empirical"
 tags: [jailbreak-defense, machine-unlearning, safety-alignment, llm-safety, red-teaming]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-26-safe-unlearning-jailbreak-defense-harmful-knowledge.m4a"
 ---
 
 Safety alignment for LLMs has predominantly been understood as a training problem: expose the model to enough examples of safe behavior, and it will generalize. But this approach carries a hidden assumption—that refusal learned during fine-tuning is more durable than the harmful knowledge it is meant to suppress. "Safe Unlearning" challenges this assumption directly, arguing that the most robust defense against jailbreaks is not better refusal but the surgical removal of the harmful knowledge itself.
