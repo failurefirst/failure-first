@@ -1,4 +1,5 @@
 ---
+
 title: "LlamaFirewall: An Open Source Guardrail System for Building Secure AI Agents"
 description: "LlamaFirewall provides a three-layer open-source defense framework protecting agentic LLM systems from prompt injection, goal misalignment, and insecure code generation at runtime."
 date: 2026-04-29
@@ -7,6 +8,7 @@ authors: "Sahana Chennabasappa, Cyrus Nikolaidis, Daniel Song, David Molnar, Ste
 paperType: "methods"
 tags: [guardrails, ai-agents, prompt-injection, safety-alignment, agentic-systems]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-29-llamafirewall-open-source-guardrail-system-secure-ai-agents.m4a"
 ---
 
 Safety alignment research has spent years addressing a specific threat model: a human user sending a harmful text prompt to a chatbot. The resulting defenses—RLHF fine-tuning, system prompt instructions, constitutional AI—are well-matched to that scenario. But modern AI agents operate in a fundamentally different regime. They browse the web, read emails, process uploaded documents, execute code, and orchestrate multi-step workflows—all while ingesting inputs from sources that may be actively adversarial. LlamaFirewall is Meta's open-source response to this gap: a runtime guardrail framework designed specifically for the agentic threat landscape.

@@ -1,4 +1,5 @@
 ---
+
 title: "Refusal Falls off a Cliff: How Safety Alignment Fails in Reasoning Models"
 description: "Mechanistic analysis of reasoning models discovers the 'refusal cliff'—models correctly identify harmful prompts during thinking but systematically suppress their refusal at the final output tokens."
 date: 2026-04-27
@@ -7,6 +8,7 @@ authors: "Qingyu Yin, Chak Tou Leong, Linyi Yang, Wenxuan Huang, Wenjie Li, Xiti
 paperType: "empirical"
 tags: [safety-alignment, reasoning-models, mechanistic-interpretability, refusal, alignment-failures, red-teaming, jailbreak]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-27-refusal-falls-off-a-cliff-safety-alignment-fails-in-reasoning.m4a"
 ---
 
 Large reasoning models (LRMs) chain extended internal deliberation before producing output—a capability that was supposed to make them safer by giving them time to think. A new mechanistic analysis, named for its central finding, shows that extended thinking can actually make safety alignment harder to enforce by creating a structural gap between what the model decides internally and what it ultimately outputs. The phenomenon is called the *refusal cliff*, and it reframes how we should think about reasoning-model safety evaluation.

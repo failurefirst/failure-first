@@ -1,4 +1,5 @@
 ---
+
 title: "Towards Physically Realizable Adversarial Attacks in Embodied Vision Navigation"
 description: "Adversarial patches on physical objects reduce navigation success rates by over 22% in embodied agents, using multi-view optimization and two-stage opacity tuning to remain effective and inconspicuous."
 date: 2026-04-29
@@ -7,6 +8,7 @@ authors: "Meng Chen, Jiawei Tu, Chao Qi, Yonghao Dang, Feng Zhou, Wei Wei, Jianq
 paperType: "empirical"
 tags: [embodied-ai, adversarial-attacks, vision-navigation, physical-attacks, robustness]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-29-physically-realizable-adversarial-attacks-embodied-vision-navigation.m4a"
 ---
 
 Adversarial attacks on deep neural networks have long been studied in the digital domain, where pixel-level perturbations invisible to humans can catastrophically degrade model performance. But for embodied AI systems—robots and autonomous agents navigating real physical environments—this threat model carries a critical assumption: that an attacker has direct access to the digital input stream. In the real world, that assumption rarely holds. This paper removes it, presenting a practical attack framework that works through physical objects an agent encounters in its environment.

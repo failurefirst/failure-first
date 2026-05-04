@@ -1,4 +1,5 @@
 ---
+
 title: "Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mechanisms"
 description: "A comprehensive survey unifying VLA safety research across adversarial attacks, defenses, benchmarks, and six deployment domains."
 date: 2026-04-28
@@ -7,6 +8,7 @@ authors: "Qi Li, Bo Yin, Weiqi Huang, Ruhao Liu, Bojun Zou, Runpeng Yu, Jingwen 
 paperType: "survey"
 tags: [vla-safety, embodied-ai, adversarial-attacks, survey, robotics-security]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-28-vision-language-action-safety-threats-challenges-evaluations-mechanisms.m4a"
 ---
 
 If you want to understand where the embodied AI safety field stands right now, this survey — published just two days ago — is the most complete map yet drawn. Li et al. bring together the fragmented literatures of robotic learning, adversarial machine learning, AI alignment, and autonomous systems safety into a single coherent framework organised around a deceptively simple idea: threats and defences each have a *timing*, and matching them is the core engineering challenge.

@@ -1,4 +1,5 @@
 ---
+
 title: "RedAgent: Red Teaming Large Language Models with Context-aware Autonomous Language Agent"
 description: "A multi-agent system that models jailbreak strategies as reusable abstractions, enabling context-aware attacks that break most black-box LLMs in under five queries and uncovered 60 real-world vulnerabilities in deployed GPT applications."
 date: 2026-04-30
@@ -7,6 +8,7 @@ authors: "Huiyu Xu, Wenhui Zhang, Zhibo Wang, Feng Xiao, Rui Zheng, Yunhe Feng, 
 paperType: "methods"
 tags: [red-teaming, jailbreak, multi-agent, adversarial-attacks, safety-evaluation]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-30-redagent-context-aware-autonomous-red-teaming-llm.m4a"
 ---
 
 When safety researchers talk about red teaming LLMs, they typically picture adversarially crafted prompts: template mutations, gradient-based suffix attacks, or careful roleplay setups. What they rarely consider is whether the red-teaming *process itself* can be made autonomous, adaptive, and context-aware. RedAgent does exactly that — and the results expose how shallow current safety alignment can be when faced with a systematic, strategy-driven attacker.

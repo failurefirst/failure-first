@@ -1,4 +1,5 @@
 ---
+
 title: "Low-Resource Languages Jailbreak GPT-4"
 description: "Translating harmful queries into low-resource languages bypasses GPT-4's safety filters at high rates, exposing a systematic cross-lingual gap in LLM safety training."
 date: 2026-04-30
@@ -7,6 +8,7 @@ authors: "Zheng-Xin Yong, Cristina Menghini, Stephen H. Bach"
 paperType: "empirical"
 tags: [jailbreak, cross-lingual, safety-alignment, red-teaming, multilingual]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-30-low-resource-languages-jailbreak-gpt4-cross-lingual-safety.m4a"
 ---
 
 Safety alignment research has largely been conducted in English. The datasets used to train human feedback signals, the harmful-content classifiers used to filter outputs, and the red-teaming exercises that surface failure modes — nearly all of it reflects a monolingual assumption baked into how frontier LLMs are built. A 2023 paper from Brown University makes this assumption explicit by testing its consequences: when you translate a harmful query from English into a low-resource language, does GPT-4's safety filter still hold?

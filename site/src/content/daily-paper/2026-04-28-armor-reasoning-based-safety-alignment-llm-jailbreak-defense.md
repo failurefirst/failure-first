@@ -1,4 +1,5 @@
 ---
+
 title: "ARMOR: Aligning Secure and Safe Large Language Models via Meticulous Reasoning"
 description: "ARMOR defends LLMs against jailbreak attacks by using inference-time reasoning to detect attack strategies, extract true intent, and apply policy-grounded safety analysis."
 date: 2026-04-28
@@ -7,6 +8,7 @@ authors: "Zhengyue Zhao, Yingzi Ma, Somesh Jha, Marco Pavone, Chaowei Xiao"
 paperType: "methods"
 tags: [jailbreak-defense, safety-alignment, reasoning, llm-safety, inference-time-defense]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-28-armor-reasoning-based-safety-alignment-llm-jailbreak-defense.m4a"
 ---
 
 Most jailbreak defences work at the wrong level. They examine surface features — refusal keywords, topic classifiers, perplexity scores — and succeed or fail based on whether the attacker has found a phrasing that evades the filter. ARMOR takes a different approach: it reasons about what the prompt is actually trying to accomplish, using the model's own reasoning capacity as the primary safety mechanism.

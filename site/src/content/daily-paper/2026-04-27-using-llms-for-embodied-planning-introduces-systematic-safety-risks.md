@@ -1,4 +1,5 @@
 ---
+
 title: "Using Large Language Models for Embodied Planning Introduces Systematic Safety Risks"
 description: "DESPITE benchmark reveals that across 23 models, near-perfect planning ability does not ensure safety—the best planner still generates dangerous plans 28.3% of the time."
 date: 2026-04-27
@@ -7,6 +8,7 @@ authors: "Tao Zhang, Kaixian Qu, Zhibin Li, Jiajun Wu, Marco Hutter, Manling Li,
 paperType: "empirical"
 tags: [embodied-ai, robot-safety, task-planning, evaluation, llm-agents, benchmark, safety-gaps]
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-27-using-llms-for-embodied-planning-introduces-systematic-safety-risks.m4a"
 ---
 
 One of the persistent assumptions in deploying LLMs as robot planners is that capability and safety move together—a smarter planner will naturally be a safer one. DESPITE, a benchmark of 12,279 tasks covering physical and normative dangers, provides the most systematic empirical challenge to this assumption to date. Across 23 models, the relationship between planning ability and safety awareness turns out to be essentially uncorrelated, a finding with stark consequences for anyone deploying foundation models in physical-world settings.
