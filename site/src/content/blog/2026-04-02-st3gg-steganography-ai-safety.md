@@ -4,6 +4,7 @@ description: "We ran ST3GG — an all-in-one steganography suite — through its
 date: 2026-04-02
 tags: [research, safety, red-teaming, steganography, multimodal, agentic-ai, embodied-ai]
 image: /images/blog/st3gg/nlm-infographic-v2.png
+audio: https://cdn.failurefirst.org/audio/blog/2026-04-02-st3gg-steganography-ai-safety.m4a
 ---
 
 <video src="/images/blog/st3gg/st3gg-overview.mp4" controls playsinline style="width:100%;border-radius:6px;margin-bottom:1.5rem;"></video>

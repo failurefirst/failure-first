@@ -4,6 +4,7 @@ description: "A research announcement for the Failure-First arXiv paper. Five at
 date: 2026-02-27
 tags: ["research", "benchmarking", "jailbreaks", "safety", "embodied-ai", "classifier-bias"]
 image: /images/blog/120-models-18k-prompts.webp
+audio: https://cdn.failurefirst.org/audio/blog/120-models-18k-prompts.m4a
 ---
 
 We are releasing a preprint describing the Failure-First adversarial evaluation framework: 18,345 prompts, 5 attack families, 124 models, 176 benchmark runs, and a classifier bias finding that changes how we interpret results from the whole field.

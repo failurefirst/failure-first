@@ -5,6 +5,7 @@ description: "We have catalogued 30 distinct attack families for embodied AI sys
 date: 2026-03-19
 tags: [attack-taxonomy, embodied-ai, vla, red-teaming, safety-evaluation]
 image: "https://cdn.failurefirst.org/images/blog/30-ways-to-attack-a-robot-adversarial-field-manual.png"
+audio: https://cdn.failurefirst.org/audio/blog/30-ways-to-attack-a-robot-adversarial-field-manual.m4a
 ---
 
 When most people think about AI safety attacks, they picture someone typing a clever prompt to trick a chatbot. But when the AI controls a robot arm, a delivery vehicle, or a surgical instrument, the attack surface expands dramatically. We have spent months cataloguing every way we could find to make an embodied AI system do something it should not.
