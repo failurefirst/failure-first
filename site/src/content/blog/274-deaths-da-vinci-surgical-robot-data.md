@@ -1,8 +1,10 @@
 ---
+
 title: "274 Deaths: What the da Vinci Surgical Robot Data Actually Shows"
 description: "66,651 FDA adverse event reports. 274 deaths. 2,000+ injuries. The da Vinci surgical robot is the most deployed robot in medicine — and it has the longest trail of adverse events. The real question is why the safety feedback loop is so weak."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, surgical-robots, da-vinci, fda]
+image: "https://cdn.failurefirst.org/images/blog/274-deaths-da-vinci-surgical-robot-data.png"
 ---
 
 The Intuitive Surgical da Vinci system is the most commercially successful surgical robot ever built. Over 9 million procedures performed. More than 7,000 units installed in hospitals worldwide. A market capitalization that has at times exceeded $150 billion.
