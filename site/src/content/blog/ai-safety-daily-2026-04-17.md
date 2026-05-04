@@ -1,9 +1,11 @@
 ---
+
 title: "AI Safety Daily — April 17, 2026"
 description: "FSD v14.3 safety regressions double disengagement rate, NHTSA probes 3.2M vehicles, Aurora aces fatal-crash simulations, and the Physical AI Maturity Taxonomy maps deployment reality."
 date: 2026-04-17
 tags: ["ai-safety-daily", "autonomous-vehicles", "embodied-ai", "physical-ai", "governance", "vla-safety"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-04-17.png"
 ---
 
 ## AI Safety Research Digest — April 17, 2026

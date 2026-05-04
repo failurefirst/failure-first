@@ -1,9 +1,11 @@
 ---
+
 title: "AI Safety Daily — April 13, 2026"
 description: "The Perception-Action Gap in embodied AI, PreSafe methodology for reasoning models, SafeAgentBench shows <10% hazard rejection, VLSA AEGIS safety layer, and OpenAI disbands Mission Alignment team."
 date: 2026-04-13
 tags: ["ai-safety-daily", "embodied-ai", "vla", "alignment", "governance", "frontier-models"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-04-13.png"
 ---
 
 ## The Perception-Action Gap in Embodied AI

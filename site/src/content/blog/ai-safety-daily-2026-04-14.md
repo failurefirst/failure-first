@@ -1,9 +1,11 @@
 ---
+
 title: "AI Safety Daily — April 14, 2026"
 description: "AEGIS wrapper architecture for VLA safety, SafeAgentBench finds <10% hazard rejection, red-teaming critiqued as 'security theater', and OpenAI dissolves Mission Alignment team."
 date: 2026-04-14
 tags: ["ai-safety-daily", "embodied-ai", "vla", "governance", "red-teaming", "frontier-models"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-04-14.png"
 ---
 
 ## Safety as a Wrapper: The AEGIS Architecture

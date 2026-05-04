@@ -1,9 +1,11 @@
 ---
+
 title: "AI Safety Daily — April 12, 2026"
 description: "Daily AI safety research digest: jailbreaks, embodied AI risks, frontier model evaluations, and alignment research from April 12, 2026."
 date: 2026-04-12
 tags: ["ai-safety-daily", "jailbreak", "embodied-ai", "alignment", "frontier-models"]
 draft: false
+image: "https://cdn.failurefirst.org/infographic/blog/ai-safety-daily-2026-04-12.png"
 ---
 
 ## AI Safety Research Digest — April 12, 2026

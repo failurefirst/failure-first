@@ -1,9 +1,11 @@
 ---
+
 title: "AI Safety Daily — April 15, 2026"
 description: "Physical AI 2030 roadmap reveals four-phase maturity taxonomy, Gen2Real Gap warning persists, RAHS framework quantifies financial red-teaming outcomes, and UniDriveVLA unifies AV perception-action."
 date: 2026-04-15
 tags: ["ai-safety-daily", "embodied-ai", "vla", "physical-ai", "red-teaming", "autonomous-vehicles"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-04-15.png"
 ---
 
 ## Physical AI 2030 Roadmap: Four Phases of Deployment Risk

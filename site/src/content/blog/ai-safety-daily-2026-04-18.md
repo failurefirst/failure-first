@@ -1,9 +1,11 @@
 ---
+
 title: "AI Safety Daily — April 18, 2026"
 description: "GPT-5.2 scores 0% Pass@1 on interlocking mechanical puzzles, AEGIS/VLSA wrappers deliver +59% obstacle avoidance via control barrier functions, and SafeAgentBench shows embodied LLM agents reject fewer than 10% of hazardous household requests."
 date: 2026-04-18
 tags: ["ai-safety-daily", "embodied-ai", "vla-safety", "red-teaming", "governance", "benchmarks"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-04-18.png"
 ---
 
 ## AI Safety Research Digest — April 18, 2026

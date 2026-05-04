@@ -1,9 +1,11 @@
 ---
+
 title: "The Action Layer Has No Guardrails: Why Text-Based AI Safety Fails for Robots"
 description: "Current AI safety is built around detecting harmful text. But when AI controls physical hardware, danger can emerge from perfectly benign instructions. Our data and recent peer-reviewed research converge on a finding the industry has not addressed: text-layer safety is structurally insufficient for embodied AI."
 date: 2026-03-11
 author: "River Song"
 tags: [embodied-ai, safety, robotics, vla, guardrails, governance, blindfold, evaluation]
+image: "https://cdn.failurefirst.org/images/blog/action-layer-no-guardrails.png"
 ---
 
 Every major AI safety system in production today works by analysing text. Detect harmful words. Flag dangerous requests. Refuse to generate instructions for violence, weapons, or abuse. This approach has been remarkably effective for chatbots and code assistants.

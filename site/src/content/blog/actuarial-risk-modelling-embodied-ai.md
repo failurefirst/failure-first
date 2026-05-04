@@ -1,8 +1,10 @@
 ---
+
 title: "Actuarial Risk Modelling for Embodied AI: What Insurers Need and What Research Provides"
 date: 2026-03-01
 description: "The insurance market has no product covering adversarial attack on embodied AI. Attack success rate data exists, but translating it into actuarial loss parameters requires bridging a structural gap between lab conditions and deployment reality."
 tags: ["insurance", "actuarial", "embodied-ai", "VLA", "risk", "policy"]
+image: "https://cdn.failurefirst.org/images/blog/actuarial-risk-modelling-embodied-ai.png"
 ---
 
 The insurance market for embodied AI has a data problem. Insurers have the tools — loss frequency tables, severity distributions, correlation matrices — but lack the empirical AI safety data required to populate them for Vision-Language-Action (VLA) models operating in physical environments. The adversarial AI safety research community has the data, but in a form that actuaries cannot directly use.

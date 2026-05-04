@@ -1,8 +1,10 @@
 ---
+
 title: "The Actuator Gap: Where Digital Jailbreaks Become Physical Safety Incidents"
 description: "Three converging threat vectors — autonomous jailbreak agents, mass humanoid deployment, and MCP tool-calling — are creating a governance vacuum between digital AI compromise and physical harm. We call it the actuator gap."
 date: 2026-03-11
 tags: [embodied-ai, actuator-gap, vla, safety, governance, threat-horizon]
+image: "https://cdn.failurefirst.org/images/blog/actuator-gap-digital-jailbreaks-physical-harm.png"
 ---
 
 A jailbroken chatbot produces harmful text. A jailbroken robot produces harmful motion.
