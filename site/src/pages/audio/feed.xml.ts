@@ -12,31 +12,57 @@ function squareCoverUrl(site: string, category: string, slug: string): string | 
   return undefined;
 }
 
-/** Strip markdown syntax and return clean prose for podcast descriptions. */
-function markdownToText(md: string, maxChars = 380): string {
+/** Strip markdown syntax and return clean prose text. */
+function markdownToText(md: string, maxChars = 4800): string {
   return md
-    .replace(/^---[\s\S]*?---\n/, '')   // frontmatter
-    .replace(/```[\s\S]*?```/gm, '')     // fenced code blocks
-    .replace(/`[^`]+`/g, '')             // inline code
-    .replace(/!\[.*?\]\(.*?\)/g, '')     // images
+    .replace(/^---[\s\S]*?---\n/, '')        // frontmatter
+    .replace(/```[\s\S]*?```/gm, '')          // fenced code blocks
+    .replace(/`[^`]+`/g, '')                  // inline code
+    .replace(/!\[.*?\]\(.*?\)/g, '')          // images
     .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // links → text
-    .replace(/^#{1,6}\s+.+$/gm, '')      // headings
-    .replace(/^[-*_]{3,}$/gm, '')        // horizontal rules
+    .replace(/^#{1,6}\s+.+$/gm, '')           // headings
+    .replace(/^[-*_]{3,}$/gm, '')             // horizontal rules
     .replace(/[*_]{1,3}([^*\n_]+)[*_]{1,3}/g, '$1') // bold/italic
-    .replace(/<[^>]+>/g, '')             // HTML tags
-    .replace(/\n{2,}/g, ' ')             // paragraph breaks → space
+    .replace(/<[^>]+>/g, '')                  // HTML tags
+    .replace(/\n{2,}/g, ' ')                  // paragraph breaks → space
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, maxChars);
 }
 
-/** Build a rich description: frontmatter desc + body preview, capped at 490 chars. */
-function richDescription(fmDesc: string, body: string): string {
+/** Plain-text summary for <description> and <itunes:summary> (~490 chars). */
+function plainSummary(fmDesc: string, body: string): string {
   const base = fmDesc.trim();
   if (base.length >= 450) return base.slice(0, 490);
   const preview = markdownToText(body, 490 - base.length - 3);
   if (!preview || preview.startsWith(base.slice(0, 30))) return base;
   return `${base} — ${preview}`.slice(0, 490);
+}
+
+/** Rich HTML for <content:encoded>: full description + body prose + links. */
+function richHtml(
+  fmDesc: string,
+  body: string,
+  pageUrl: string,
+  category: string,
+  tags: string[],
+): string {
+  const bodyText = markdownToText(body, 4200);
+  const tagList = tags.length ? `<p><strong>Tags:</strong> ${tags.join(', ')}</p>` : '';
+  const categoryLabel = { Blog: 'Blog Post', 'Daily Paper': 'Daily Research Paper', Report: 'Research Report' }[category] ?? category;
+  return [
+    `<p><em>${escapeHtml(fmDesc.trim())}</em></p>`,
+    bodyText ? `<p>${escapeHtml(bodyText)}</p>` : '',
+    tagList,
+    `<hr/>`,
+    `<p>📄 <a href="${pageUrl}">Read the full ${categoryLabel} on Failure-First →</a></p>`,
+    `<p>🔬 <a href="https://failurefirst.org">Failure-First Embodied AI Research</a> — adversarial evaluation of embodied and agentic AI systems.</p>`,
+    `<p>🎙️ <a href="https://failurefirst.org/research/podcasts/">Browse all episodes</a> | <a href="https://failurefirst.org/audio/feed.xml">RSS Feed</a></p>`,
+  ].filter(Boolean).join('\n').slice(0, 5000);
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 export async function GET(context: APIContext) {
@@ -51,7 +77,8 @@ export async function GET(context: APIContext) {
 
   type Episode = {
     title: string;
-    description: string;
+    summary: string;
+    contentHtml: string;
     date: Date;
     audioUrl: string;
     pageUrl: string;
@@ -61,37 +88,51 @@ export async function GET(context: APIContext) {
   };
 
   const episodes: Episode[] = [
-    ...blogs.map((e) => ({
-      title: e.data.title,
-      description: richDescription(e.data.description ?? '', e.body ?? ''),
-      date: e.data.date,
-      audioUrl: e.data.audio!,
-      pageUrl: `${site}/blog/${e.id}/`,
-      guid: `${site}/blog/${e.id}/`,
-      image: squareCoverUrl(site, 'blog', e.id) ?? (e.data.image ?? undefined),
-      category: 'Blog',
-    })),
-    ...papers.map((e) => ({
-      title: e.data.title,
-      description: richDescription(e.data.description ?? e.data.title, e.body ?? ''),
-      date: e.data.date,
-      audioUrl: e.data.audio!,
-      pageUrl: `${site}/daily-paper/${e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
-      // Use full e.id (date-prefixed) to guarantee uniqueness across duplicate slugs
-      guid: `${site}/daily-paper/${e.id}/`,
-      image: squareCoverUrl(site, 'daily-paper', e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')) ?? (e.data.image ?? undefined),
-      category: 'Daily Paper',
-    })),
-    ...reports.map((e) => ({
-      title: e.data.title,
-      description: richDescription(e.data.description ?? '', e.body ?? ''),
-      date: e.data.date,
-      audioUrl: e.data.audio!,
-      pageUrl: `${site}/reports/${e.id}/`,
-      guid: `${site}/reports/${e.id}/`,
-      image: squareCoverUrl(site, 'reports', e.id) ?? (e.data.image ?? undefined),
-      category: 'Report',
-    })),
+    ...blogs.map((e) => {
+      const pageUrl = `${site}/blog/${e.id}/`;
+      const tags: string[] = Array.isArray(e.data.tags) ? e.data.tags : [];
+      return {
+        title: e.data.title,
+        summary: plainSummary(e.data.description ?? '', e.body ?? ''),
+        contentHtml: richHtml(e.data.description ?? '', e.body ?? '', pageUrl, 'Blog', tags),
+        date: e.data.date,
+        audioUrl: e.data.audio!,
+        pageUrl,
+        guid: pageUrl,
+        image: squareCoverUrl(site, 'blog', e.id) ?? (e.data.image ?? undefined),
+        category: 'Blog',
+      };
+    }),
+    ...papers.map((e) => {
+      const pageUrl = `${site}/daily-paper/${e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`;
+      const tags: string[] = Array.isArray(e.data.tags) ? e.data.tags : [];
+      return {
+        title: e.data.title,
+        summary: plainSummary(e.data.description ?? e.data.title, e.body ?? ''),
+        contentHtml: richHtml(e.data.description ?? e.data.title, e.body ?? '', pageUrl, 'Daily Paper', tags),
+        date: e.data.date,
+        audioUrl: e.data.audio!,
+        pageUrl,
+        guid: `${site}/daily-paper/${e.id}/`,
+        image: squareCoverUrl(site, 'daily-paper', e.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')) ?? (e.data.image ?? undefined),
+        category: 'Daily Paper',
+      };
+    }),
+    ...reports.map((e) => {
+      const pageUrl = `${site}/reports/${e.id}/`;
+      const tags: string[] = Array.isArray(e.data.tags) ? e.data.tags : [];
+      return {
+        title: e.data.title,
+        summary: plainSummary(e.data.description ?? '', e.body ?? ''),
+        contentHtml: richHtml(e.data.description ?? '', e.body ?? '', pageUrl, 'Report', tags),
+        date: e.data.date,
+        audioUrl: e.data.audio!,
+        pageUrl,
+        guid: pageUrl,
+        image: squareCoverUrl(site, 'reports', e.id) ?? (e.data.image ?? undefined),
+        category: 'Report',
+      };
+    }),
   ].sort((a, b) => b.date.getTime() - a.date.getTime());
 
   const items = episodes.map((ep) => {
@@ -102,9 +143,9 @@ export async function GET(context: APIContext) {
     return `
     <item>
       <title>${escapeXml(`[${ep.category}] ${ep.title}`)}</title>
-      <description>${escapeXml(ep.description)}</description>
-      <itunes:summary>${escapeXml(ep.description)}</itunes:summary>
-      <content:encoded><![CDATA[<p>${ep.description}</p><p><a href="${ep.pageUrl}">Read full article →</a></p>]]></content:encoded>
+      <description>${escapeXml(ep.summary)}</description>
+      <itunes:summary>${escapeXml(ep.summary)}</itunes:summary>
+      <content:encoded><![CDATA[${ep.contentHtml}]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
       <itunes:image href="${escapeXml(epImage)}" />
       <link>${ep.pageUrl}</link>
