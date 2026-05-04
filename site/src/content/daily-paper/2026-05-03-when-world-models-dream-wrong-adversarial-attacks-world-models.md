@@ -7,6 +7,7 @@ authors: "Zhixiang Guo, Siyuan Liang, Andras Balogh, Noah Lunberry, Rong-Cheng T
 paperType: "empirical"
 tags: [world-models, adversarial-attacks, embodied-ai, autonomous-driving, planning-safety, physical-priors]
 draft: false
+audio: https://cdn.failurefirst.org/audio/daily-paper/2026-05-03-when-world-models-dream-wrong-adversarial-attacks-world-models.m4a
 ---
 
 World models have emerged as a critical layer in the embodied AI stack. Rather than reacting frame-by-frame to raw sensor input, modern robotic and autonomous-driving pipelines increasingly rely on generative world models to *simulate forward* — predicting how the environment will evolve given a sequence of actions, and using those predictions to plan safe, efficient trajectories. The assumption baked into this architecture is that the world model is a faithful oracle: perturb the inputs physically and its predictions degrade in perceptually obvious ways, giving the planner a chance to detect and reject corrupted information.

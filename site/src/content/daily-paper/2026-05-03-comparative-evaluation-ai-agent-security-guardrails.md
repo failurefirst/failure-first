@@ -7,6 +7,7 @@ authors: "Qi Li, Jiu Li, Pingtao Wei, Jianjun Xu, Xueyi Wei, Jiwei Shi, Xuan Zha
 paperType: "empirical"
 tags: [ai-agent-security, guardrails, prompt-injection, tool-abuse, safety-evaluation, red-teaming]
 draft: false
+audio: https://cdn.failurefirst.org/audio/daily-paper/2026-05-03-comparative-evaluation-ai-agent-security-guardrails.m4a
 ---
 
 The deployment of AI agents — systems that perceive, reason, and take actions across tools, APIs, and physical interfaces — has outpaced the development of rigorous security evaluation for the guardrails meant to keep them safe. Most safety research focuses on the models themselves: their alignment training, jailbreak resistance, and refusal behavior. Far less attention has been paid to the guardrail infrastructure that sits *around* deployed agents in production — the filters, classifiers, and policy-enforcement layers that catch harmful requests before they reach or leave the model.
