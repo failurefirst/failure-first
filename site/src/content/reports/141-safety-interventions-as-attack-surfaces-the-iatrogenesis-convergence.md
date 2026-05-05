@@ -8,6 +8,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/141-safety-interventions-as-attack-surfaces-the-iatrogenesis-convergence.m4a"
 ---
 
 - Internal corpus: 236 models, 135,623 results, 319 VLA scenarios, 27 families (CANONICAL_METRICS.md verified 2026-03-18)

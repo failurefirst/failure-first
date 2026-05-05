@@ -8,6 +8,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/142-iatrogenic-risk-horizon-threat-brief.m4a"
 ---
 
 - Fukui (2026), arXiv:2603.04904 (Alignment Backfire)

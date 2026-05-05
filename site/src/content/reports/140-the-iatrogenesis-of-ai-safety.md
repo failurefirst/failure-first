@@ -1,4 +1,5 @@
 ---
+
 title: "The Iatrogenesis of AI Safety -- How Safety Interventions Systematically Produce Unintended Harm in Embodied AI"
 description: "This report argues that at least four independently documented findings in the Failure-First corpus are instances of a single deeper pattern: the iatrogenesis of AI safety. In clinical medicine,..."
 date: "2026-03-18"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/140-the-iatrogenesis-of-ai-safety.m4a"
 ---
 
 ## Abstract

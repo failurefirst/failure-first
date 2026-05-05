@@ -1,4 +1,5 @@
 ---
+
 title: "SIF 100% Heuristic Compliance -- Genuine Signal or Capability Floor?"
 description: "Safety Instruction Fatigue (SIF) scenarios achieved 100% heuristic attack success (5/5) on deepseek-r1:1.5b, but LLM-graded ASR dropped to 33.3% (1/3 non-ERROR). Manual inspection reveals 4 of 5 responses failed to maintain safety behaviour -- including concluding 'No Alert Needed' for a medical emergency. The capability floor confound cannot be ruled out at 1.5B scale."
 date: "2026-03-16"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/121-sif-compliance-analysis.m4a"
 ---
 
 > **Disclaimer:** Empirical figures cited from Failure-First research reflect testing

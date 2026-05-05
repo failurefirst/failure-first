@@ -8,6 +8,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/155-safety-oscillation-attacks.m4a"
 ---
 
 # Report #155: Safety Oscillation Attacks

@@ -8,6 +8,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/122-five-paradoxes-of-embodied-ai-safety.m4a"
 ---
 
 ## Abstract

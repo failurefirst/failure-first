@@ -8,6 +8,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/135-the-therapeutic-index-of-ai-safety-interventions.m4a"
 ---
 
 > **Disclaimer:** Empirical figures cited from Failure-First research reflect testing

@@ -1,4 +1,5 @@
 ---
+
 title: "Cross-Embodiment Attack Transfer Benchmark — Systematic Dataset Design"
 description: "This report documents the design of the first systematic benchmark for testing whether adversarial attacks transfer across different robot embodiments that..."
 date: "2026-03-18"
@@ -8,6 +9,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/146-cross-embodiment-transfer-benchmark.m4a"
 ---
 
 

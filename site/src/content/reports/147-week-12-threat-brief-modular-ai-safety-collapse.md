@@ -8,6 +8,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/147-week-12-threat-brief-modular-ai-safety-collapse.m4a"
 ---
 
 - Fukui (2026), arXiv:2603.04904 (Alignment Backfire, n=1,584 simulations, 16 languages)

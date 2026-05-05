@@ -8,6 +8,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/132-alignment-backfire-integration.m4a"
 ---
 
 > **Disclaimer:** Empirical figures cited from Failure-First research reflect testing

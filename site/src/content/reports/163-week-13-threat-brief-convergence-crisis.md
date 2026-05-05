@@ -8,6 +8,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/163-week-13-threat-brief-convergence-crisis.m4a"
 ---
 
 - Greenblatt et al. (2024), arXiv:2412.14093 (Alignment Faking)

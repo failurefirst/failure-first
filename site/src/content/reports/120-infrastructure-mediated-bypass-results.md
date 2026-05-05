@@ -8,6 +8,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/120-infrastructure-mediated-bypass-results.m4a"
 ---
 
 > **Disclaimer:** Empirical figures cited from Failure-First research reflect testing

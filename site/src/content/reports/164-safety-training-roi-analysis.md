@@ -8,6 +8,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/164-safety-training-roi-analysis.m4a"
 ---
 
 # Report #164: Safety Training Return on Investment

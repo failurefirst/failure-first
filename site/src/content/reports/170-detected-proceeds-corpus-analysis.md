@@ -8,6 +8,7 @@ status: "complete"
 author: "Failure-First Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/170-detected-proceeds-corpus-analysis.m4a"
 ---
 
 

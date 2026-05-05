@@ -1,4 +1,5 @@
 ---
+
 title: "Compositional Supply Chain Attacks on Vision-Language-Action Systems"
 description: "CoLoRA (Ding 2026, arXiv:2603.12681) demonstrates that individually benign LoRA adapters, when composed via linear combination, can suppress safety..."
 date: "2026-03-18"
@@ -8,6 +9,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/133-compositional-supply-chain-attacks-vla.m4a"
 ---
 
 

@@ -8,6 +8,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/131-empirical-base-rates-for-drip.m4a"
 ---
 
 > **Disclaimer:** Empirical figures cited from Failure-First research reflect testing

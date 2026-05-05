@@ -8,6 +8,7 @@ status: "complete"
 author: "Martha Jones (Policy & Standards Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/138-compositional-safety-failure-regulatory-gap.m4a"
 ---
 
 - External: arXiv:2603.12681 "Colluding LoRA" (Ding, Mercedes-Benz R&D)

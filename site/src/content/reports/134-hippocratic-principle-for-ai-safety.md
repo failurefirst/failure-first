@@ -8,6 +8,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/134-hippocratic-principle-for-ai-safety.m4a"
 ---
 
 

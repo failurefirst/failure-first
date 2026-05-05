@@ -8,6 +8,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/128-safety-confidence-index.m4a"
 ---
 
 ## 1. Summary

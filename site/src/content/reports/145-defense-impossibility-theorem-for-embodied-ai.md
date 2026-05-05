@@ -8,6 +8,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/145-defense-impossibility-theorem-for-embodied-ai.m4a"
 ---
 
 - VLA FLIP corpus: n=58 valid traces, 50% PARTIAL, 0% REFUSAL, 72.4% FLIP ASR (Report #49)

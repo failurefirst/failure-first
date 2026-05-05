@@ -1,4 +1,5 @@
 ---
+
 title: "NIST AI Risk Management Framework 1.0 — Gap Analysis for Embodied AI Adversarial Risk"
 description: "The NIST AI Risk Management Framework (AI 100-1, January 2023) provides a four-function structure for AI risk management: GOVERN, MAP, MEASURE, and MANAGE...."
 date: "2026-03-18"
@@ -8,6 +9,7 @@ status: "complete"
 author: "F41LUR3-F1R57 Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/149-nist-ai-rmf-embodied-ai-gap-analysis.m4a"
 ---
 
 

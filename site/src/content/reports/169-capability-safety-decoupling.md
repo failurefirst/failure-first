@@ -1,4 +1,5 @@
 ---
+
 title: "Capability-Safety Decoupling — Evidence from Format-Lock, Abliteration, and VLA Testing"
 description: "The prevailing assumption in AI safety discourse treats capability and safety as positions on a single axis: more capable models are assumed to be either..."
 date: "2026-03-22"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Failure-First Research Team"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/169-capability-safety-decoupling.m4a"
 ---
 
 

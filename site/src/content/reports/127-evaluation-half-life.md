@@ -8,6 +8,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/127-evaluation-half-life.m4a"
 ---
 
 ## 1. The Observation

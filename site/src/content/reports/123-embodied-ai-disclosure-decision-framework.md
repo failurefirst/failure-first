@@ -1,4 +1,5 @@
 ---
+
 title: "An Ethical Decision Framework for Embodied AI Vulnerability Disclosure"
 description: "A practical decision framework for embodied AI vulnerability disclosure that incorporates the IDDL, distinguishes structural from operational disclosure, and introduces temporal reassessment. Includes worked examples for SID, CDC, and adversarial VLA attacks."
 date: "2026-03-16"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/123-embodied-ai-disclosure-decision-framework.m4a"
 ---
 
 ## Executive Summary

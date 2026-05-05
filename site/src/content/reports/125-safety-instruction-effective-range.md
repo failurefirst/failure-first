@@ -8,6 +8,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/125-safety-instruction-effective-range.m4a"
 ---
 
 ## 1. The Observation
