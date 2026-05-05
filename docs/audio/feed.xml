@@ -57,21 +57,6 @@
     </item>
 
     <item>
-      <title>[Daily Paper] LIBERO-X: Robustness Litmus for Vision-Language-Action Models</title>
-      <description>A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops.</description>
-      <itunes:summary>A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops.</itunes:summary>
-      <content:encoded><![CDATA[A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/daily-paper/libero-x-robustness-litmus-vision-language-action-models/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/libero-x-robustness-litmus-vision-language-action-models/</guid>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-libero-x-robustness-litmus-vision-language-action-models.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Daily Paper] Attention-Guided Patch-Wise Sparse Adversarial Attacks on Vision-Language-Action Models</title>
       <description>ADVLA exploits attention maps and Top-K masking to craft sparse, stealthy adversarial patches in VLA models' textual feature space, achieving high attack success rates while remaining nearly invisible.</description>
       <itunes:summary>ADVLA exploits attention maps and Top-K masking to craft sparse, stealthy adversarial patches in VLA models' textual feature space, achieving high attack success rates while remaining nearly invisible.</itunes:summary>
@@ -82,6 +67,21 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/attention-guided-patch-wise-sparse-adversarial-attacks-vla-models/</guid>
       <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-attention-guided-patch-wise-sparse-adversarial-attacks-vla-models.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Daily Paper] LIBERO-X: Robustness Litmus for Vision-Language-Action Models</title>
+      <description>A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops.</description>
+      <itunes:summary>A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops.</itunes:summary>
+      <content:encoded><![CDATA[A new benchmark exposes persistent evaluation gaps in VLA models by combining hierarchical difficulty protocols and diverse teleoperation data to reveal that cumulative perturbations cause dramatic performance drops.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/daily-paper/libero-x-robustness-litmus-vision-language-action-models/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/libero-x-robustness-litmus-vision-language-action-models/</guid>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-24-libero-x-robustness-litmus-vision-language-action-models.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -147,21 +147,6 @@
     </item>
 
     <item>
-      <title>[Daily Paper] Updating Robot Safety Representations Online from Natural Language Feedback</title>
-      <description>A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language.</description>
-      <itunes:summary>A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language.</itunes:summary>
-      <content:encoded><![CDATA[A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/daily-paper/updating-robot-safety-representations-online-natural-language-feedback/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/updating-robot-safety-representations-online-natural-language-feedback/</guid>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-22-updating-robot-safety-representations-online-natural-language-feedback.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Daily Paper] Beyond I'm Sorry, I Can't: Dissecting Large Language Model Refusal</title>
       <description>Using sparse autoencoders to mechanistically identify the neural features that drive safety refusal in instruction-tuned LLMs, revealing layered redundant defenses and new pathways for targeted safety auditing.</description>
       <itunes:summary>Using sparse autoencoders to mechanistically identify the neural features that drive safety refusal in instruction-tuned LLMs, revealing layered redundant defenses and new pathways for targeted safety auditing.</itunes:summary>
@@ -172,6 +157,21 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/beyond-im-sorry-i-cant-dissecting-llm-refusal/</guid>
       <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-22-beyond-im-sorry-i-cant-dissecting-llm-refusal.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Daily Paper] Updating Robot Safety Representations Online from Natural Language Feedback</title>
+      <description>A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language.</description>
+      <itunes:summary>A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language.</itunes:summary>
+      <content:encoded><![CDATA[A method for dynamically updating robot safety constraints at deployment time using vision-language models and Hamilton-Jacobi reachability, enabling robots to respect context-specific hazards communicated through natural language.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/daily-paper/updating-robot-safety-representations-online-natural-language-feedback/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/updating-robot-safety-representations-online-natural-language-feedback/</guid>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-22-updating-robot-safety-representations-online-natural-language-feedback.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -192,21 +192,6 @@
     </item>
 
     <item>
-      <title>[Daily Paper] UMI-3D: Extending Universal Manipulation Interface from Vision-Limited to 3D Spatial Perception</title>
-      <description>UMI-3D extends the Universal Manipulation Interface with LiDAR-based 3D spatial perception to overcome monocular SLAM limitations and improve robustness of embodied manipulation data collection and...</description>
-      <itunes:summary>UMI-3D extends the Universal Manipulation Interface with LiDAR-based 3D spatial perception to overcome monocular SLAM limitations and improve robustness of embodied manipulation data collection and...</itunes:summary>
-      <content:encoded><![CDATA[UMI-3D extends the Universal Manipulation Interface with LiDAR-based 3D spatial perception to overcome monocular SLAM limitations and improve robustness of embodied manipulation data collection and...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/daily-paper/2604.14089-infographic.png" />
-      <link>https://failurefirst.org/daily-paper/260414089/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/260414089/</guid>
-      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="/audio/daily-paper/2604.14089-audio-overview.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Daily Paper] SpaceMind: A Modular and Self-Evolving Embodied Vision-Language Agent Framework for Autonomous On-orbit Servicing</title>
       <description>SpaceMind is a modular vision-language agent framework for autonomous on-orbit servicing that combines skill modules, MCP tools, and reasoning modes with a self-evolution mechanism, validated through...</description>
       <itunes:summary>SpaceMind is a modular vision-language agent framework for autonomous on-orbit servicing that combines skill modules, MCP tools, and reasoning modes with a self-evolution mechanism, validated through...</itunes:summary>
@@ -217,6 +202,21 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/260414399/</guid>
       <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="/audio/daily-paper/2604.14399-audio-overview.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Daily Paper] UMI-3D: Extending Universal Manipulation Interface from Vision-Limited to 3D Spatial Perception</title>
+      <description>UMI-3D extends the Universal Manipulation Interface with LiDAR-based 3D spatial perception to overcome monocular SLAM limitations and improve robustness of embodied manipulation data collection and...</description>
+      <itunes:summary>UMI-3D extends the Universal Manipulation Interface with LiDAR-based 3D spatial perception to overcome monocular SLAM limitations and improve robustness of embodied manipulation data collection and...</itunes:summary>
+      <content:encoded><![CDATA[UMI-3D extends the Universal Manipulation Interface with LiDAR-based 3D spatial perception to overcome monocular SLAM limitations and improve robustness of embodied manipulation data collection and...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/daily-paper/2604.14089-infographic.png" />
+      <link>https://failurefirst.org/daily-paper/260414089/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/260414089/</guid>
+      <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="/audio/daily-paper/2604.14089-audio-overview.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -342,21 +342,6 @@
     </item>
 
     <item>
-      <title>[Daily Paper] Few Tokens Matter: Entropy Guided Attacks on Vision-Language Models</title>
-      <description>Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures.</description>
-      <itunes:summary>Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures.</itunes:summary>
-      <content:encoded><![CDATA[Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/daily-paper/few-tokens-matter-entropy-guided-attacks-vision-language-models/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/few-tokens-matter-entropy-guided-attacks-vision-language-models/</guid>
-      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-19-few-tokens-matter-entropy-guided-attacks-vision-language-models.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Daily Paper] A Benchmark for Evaluating Outcome-Driven Constraint Violations in Autonomous AI Agents</title>
       <description>A new benchmark reveals that LLMs placed under performance incentives exhibit emergent misalignment — violating stated safety constraints to maximize KPIs, with reasoning capability failing to predict safe behavior.</description>
       <itunes:summary>A new benchmark reveals that LLMs placed under performance incentives exhibit emergent misalignment — violating stated safety constraints to maximize KPIs, with reasoning capability failing to predict safe behavior.</itunes:summary>
@@ -367,6 +352,21 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/benchmark-outcome-driven-constraint-violations-autonomous-ai-agents/</guid>
       <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-19-benchmark-outcome-driven-constraint-violations-autonomous-ai-agents.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Daily Paper] Few Tokens Matter: Entropy Guided Attacks on Vision-Language Models</title>
+      <description>Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures.</description>
+      <itunes:summary>Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures.</itunes:summary>
+      <content:encoded><![CDATA[Adversarial attacks targeting high-entropy tokens in VLMs achieve severe semantic degradation with minimal perturbation budgets and transfer across architectures.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/daily-paper/few-tokens-matter-entropy-guided-attacks-vision-language-models/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/few-tokens-matter-entropy-guided-attacks-vision-language-models/</guid>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-19-few-tokens-matter-entropy-guided-attacks-vision-language-models.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -387,21 +387,6 @@
     </item>
 
     <item>
-      <title>[Daily Paper] LLM Defenses Are Not Robust to Multi-Turn Human Jailbreaks Yet</title>
-      <description>Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated.</description>
-      <itunes:summary>Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated.</itunes:summary>
-      <content:encoded><![CDATA[Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/daily-paper/llm-defenses-not-robust-multi-turn-human-jailbreaks/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/llm-defenses-not-robust-multi-turn-human-jailbreaks/</guid>
-      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-17-llm-defenses-not-robust-multi-turn-human-jailbreaks.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Daily Paper] RACF: A Resilient Autonomous Car Framework with Object Distance Correction</title>
       <description>Proposes RACF, a resilient autonomous vehicle framework that uses multi-sensor redundancy (depth camera, LiDAR, kinematics) with an Object Distance Correction Algorithm to detect and mitigate...</description>
       <itunes:summary>Proposes RACF, a resilient autonomous vehicle framework that uses multi-sensor redundancy (depth camera, LiDAR, kinematics) with an Object Distance Correction Algorithm to detect and mitigate...</itunes:summary>
@@ -412,6 +397,21 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/260412418/</guid>
       <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="/audio/daily-paper/2604.12418-audio-overview.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Daily Paper] LLM Defenses Are Not Robust to Multi-Turn Human Jailbreaks Yet</title>
+      <description>Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated.</description>
+      <itunes:summary>Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated.</itunes:summary>
+      <content:encoded><![CDATA[Multi-turn human jailbreaks achieve over 70% attack success rate against state-of-the-art LLM defenses that report single-digit rates against automated attacks, exposing a systematic gap in how safety is evaluated.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/daily-paper/llm-defenses-not-robust-multi-turn-human-jailbreaks/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/llm-defenses-not-robust-multi-turn-human-jailbreaks/</guid>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-17-llm-defenses-not-robust-multi-turn-human-jailbreaks.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -522,6 +522,21 @@
     </item>
 
     <item>
+      <title>[Daily Paper] Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling</title>
+      <description>Introduces Plan-RewardBench, a trajectory-level preference benchmark for evaluating reward models in tool-using agent scenarios, and benchmarks three RM families (generative, discriminative,...</description>
+      <itunes:summary>Introduces Plan-RewardBench, a trajectory-level preference benchmark for evaluating reward models in tool-using agent scenarios, and benchmarks three RM families (generative, discriminative,...</itunes:summary>
+      <content:encoded><![CDATA[Introduces Plan-RewardBench, a trajectory-level preference benchmark for evaluating reward models in tool-using agent scenarios, and benchmarks three RM families (generative, discriminative,...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/daily-paper/2604.08178-infographic.png" />
+      <link>https://failurefirst.org/daily-paper/260408178/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/260408178/</guid>
+      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-14-2604.08178.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
       <title>[Daily Paper] Contrastive Reasoning Alignment: Reinforcement Learning from Hidden Representations</title>
       <description>CRAFT defends large reasoning models against jailbreaks by aligning safety directly in hidden state space via contrastive reinforcement learning, reducing attack success rates without degrading reasoning capability.</description>
       <itunes:summary>CRAFT defends large reasoning models against jailbreaks by aligning safety directly in hidden state space via contrastive reinforcement learning, reducing attack success rates without degrading reasoning capability.</itunes:summary>
@@ -552,16 +567,16 @@
     </item>
 
     <item>
-      <title>[Daily Paper] Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling</title>
-      <description>Introduces Plan-RewardBench, a trajectory-level preference benchmark for evaluating reward models in tool-using agent scenarios, and benchmarks three RM families (generative, discriminative,...</description>
-      <itunes:summary>Introduces Plan-RewardBench, a trajectory-level preference benchmark for evaluating reward models in tool-using agent scenarios, and benchmarks three RM families (generative, discriminative,...</itunes:summary>
-      <content:encoded><![CDATA[Introduces Plan-RewardBench, a trajectory-level preference benchmark for evaluating reward models in tool-using agent scenarios, and benchmarks three RM families (generative, discriminative,...]]></content:encoded>
+      <title>[Daily Paper] BadVLA: Towards Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization</title>
+      <description>BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems.</description>
+      <itunes:summary>BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems.</itunes:summary>
+      <content:encoded><![CDATA[BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems.]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/daily-paper/2604.08178-infographic.png" />
-      <link>https://failurefirst.org/daily-paper/260408178/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/260408178/</guid>
-      <pubDate>Tue, 14 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-14-2604.08178.m4a" type="audio/mp4" length="0" />
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/daily-paper/badvla-backdoor-attacks-vla-models-objective-decoupled-optimization/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/badvla-backdoor-attacks-vla-models-objective-decoupled-optimization/</guid>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-13-badvla-backdoor-attacks-vla-models-objective-decoupled-optimization.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -577,21 +592,6 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/craft-contrastive-reasoning-alignment-hidden-representations/</guid>
       <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-13-craft-contrastive-reasoning-alignment-hidden-representations.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
-      <title>[Daily Paper] BadVLA: Towards Backdoor Attacks on Vision-Language-Action Models via Objective-Decoupled Optimization</title>
-      <description>BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems.</description>
-      <itunes:summary>BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems.</itunes:summary>
-      <content:encoded><![CDATA[BadVLA reveals that VLA models are vulnerable to a novel backdoor attack that decouples trigger learning from task objectives in feature space, enabling stealthy conditional control hijacking in robotic systems.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/daily-paper/badvla-backdoor-attacks-vla-models-objective-decoupled-optimization/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/badvla-backdoor-attacks-vla-models-objective-decoupled-optimization/</guid>
-      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2026-04-13-badvla-backdoor-attacks-vla-models-objective-decoupled-optimization.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -837,21 +837,6 @@
     </item>
 
     <item>
-      <title>[Daily Paper] ClawKeeper: Comprehensive Safety Protection for OpenClaw Agents Through Skills, Plugins, and Watchers</title>
-      <description>A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware.</description>
-      <itunes:summary>A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware.</itunes:summary>
-      <content:encoded><![CDATA[A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/daily-paper/clawkeeper-comprehensive-safety-protection-openclaw-agents/</link>
-      <guid isPermaLink="true">https://failurefirst.org/daily-paper/clawkeeper-comprehensive-safety-protection-openclaw-agents/</guid>
-      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2603.24414-audio-overview.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Daily Paper] Constitutional Classifiers: Defending against Universal Jailbreaks across Thousands of Hours of Red Teaming</title>
       <description>Anthropic's Constitutional Classifiers use LLM-generated synthetic data and natural language rules to create jailbreak-resistant safeguards that survived over 3,000 hours of professional red teaming without a universal bypass being found.</description>
       <itunes:summary>Anthropic's Constitutional Classifiers use LLM-generated synthetic data and natural language rules to create jailbreak-resistant safeguards that survived over 3,000 hours of professional red teaming without a universal bypass being found.</itunes:summary>
@@ -862,6 +847,21 @@
       <guid isPermaLink="true">https://failurefirst.org/daily-paper/constitutional-classifiers-defending-universal-jailbreaks-red-teaming/</guid>
       <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2501.18837-audio-overview.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Daily Paper] ClawKeeper: Comprehensive Safety Protection for OpenClaw Agents Through Skills, Plugins, and Watchers</title>
+      <description>A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware.</description>
+      <itunes:summary>A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware.</itunes:summary>
+      <content:encoded><![CDATA[A three-layer runtime security framework for autonomous agents that prevents privilege escalation, data leakage, and malicious skill execution through context-injected policies, behavioral monitoring, and a decoupled watcher middleware.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/daily-paper/clawkeeper-comprehensive-safety-protection-openclaw-agents/</link>
+      <guid isPermaLink="true">https://failurefirst.org/daily-paper/clawkeeper-comprehensive-safety-protection-openclaw-agents/</guid>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/daily-paper/2603.24414-audio-overview.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -1242,21 +1242,6 @@
     </item>
 
     <item>
-      <title>[Blog] Threat Horizon Digest: March 2026</title>
-      <description>Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.</description>
-      <itunes:summary>Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.</itunes:summary>
-      <content:encoded><![CDATA[Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/threat-horizon-digest-march-2026.jpg" />
-      <link>https://failurefirst.org/blog/threat-horizon-digest-march-2026/</link>
-      <guid isPermaLink="true">https://failurefirst.org/blog/threat-horizon-digest-march-2026/</guid>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/blog/threat-horizon-digest-march-2026.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Blog] Threat Horizon Q2 2026: Agents Go Rogue, Robots Go Offline, Regulators Go Slow</title>
       <description>Three converging trends define the Q2 2026 threat landscape: autonomous AI agents causing real-world harm, reasoning models as jailbreak weapons, and VLA robots deploying without safety standards. Regulation is 12-24 months behind.</description>
       <itunes:summary>Three converging trends define the Q2 2026 threat landscape: autonomous AI agents causing real-world harm, reasoning models as jailbreak weapons, and VLA robots deploying without safety standards. Regulation is 12-24 months behind.</itunes:summary>
@@ -1267,6 +1252,21 @@
       <guid isPermaLink="true">https://failurefirst.org/blog/threat-horizon-q2-2026/</guid>
       <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/blog/threat-horizon-q2-2026.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Blog] Threat Horizon Digest: March 2026</title>
+      <description>Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.</description>
+      <itunes:summary>Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.</itunes:summary>
+      <content:encoded><![CDATA[Monthly threat intelligence summary for embodied AI safety. This edition: humanoid mass production outpaces safety standards, MCP tool poisoning emerges as critical agent infrastructure risk, and the EU AI Act's August deadline approaches with no adversarial testing methodology.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/threat-horizon-digest-march-2026.jpg" />
+      <link>https://failurefirst.org/blog/threat-horizon-digest-march-2026/</link>
+      <guid isPermaLink="true">https://failurefirst.org/blog/threat-horizon-digest-march-2026/</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/blog/threat-horizon-digest-march-2026.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -1437,6 +1437,21 @@
     </item>
 
     <item>
+      <title>[Blog] The Insurance Industry's Next Silent Crisis</title>
+      <description>Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will.</description>
+      <itunes:summary>Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will.</itunes:summary>
+      <content:encoded><![CDATA[Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/silent-ai-insurance.webp" />
+      <link>https://failurefirst.org/blog/silent-ai-insurance-crisis/</link>
+      <guid isPermaLink="true">https://failurefirst.org/blog/silent-ai-insurance-crisis/</guid>
+      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/blog/silent-ai-insurance-crisis.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
       <title>[Blog] Six New Attack Families: Expanding the Embodied AI Threat Taxonomy</title>
       <description>The Failure-First attack taxonomy grows from 30 to 36 families, adding compositional reasoning, pressure cascade, meaning displacement, multi-agent collusion, sensor spoofing, and reward hacking attacks.</description>
       <itunes:summary>The Failure-First attack taxonomy grows from 30 to 36 families, adding compositional reasoning, pressure cascade, meaning displacement, multi-agent collusion, sensor spoofing, and reward hacking attacks.</itunes:summary>
@@ -1462,21 +1477,6 @@
       <guid isPermaLink="true">https://failurefirst.org/blog/state-of-adversarial-ai-safety-2026/</guid>
       <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/blog/state-of-adversarial-ai-safety-2026.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
-      <title>[Blog] The Insurance Industry's Next Silent Crisis</title>
-      <description>Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will.</description>
-      <itunes:summary>Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will.</itunes:summary>
-      <content:encoded><![CDATA[Just as 'silent cyber' caught the insurance market off guard in 2017-2020, 'silent AI' is creating an enormous coverage void. Most commercial policies neither include nor exclude AI-caused losses — and when a VLA-controlled robot injures someone, five policies might respond and none clearly will.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://cdn.failurefirst.org/images/daily-paper/silent-ai-insurance.webp" />
-      <link>https://failurefirst.org/blog/silent-ai-insurance-crisis/</link>
-      <guid isPermaLink="true">https://failurefirst.org/blog/silent-ai-insurance-crisis/</guid>
-      <pubDate>Tue, 24 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/blog/silent-ai-insurance-crisis.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -1707,21 +1707,6 @@
     </item>
 
     <item>
-      <title>[Blog] When Safety Labs Take Government Contracts: The Independence Question</title>
-      <description>Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?</description>
-      <itunes:summary>Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?</itunes:summary>
-      <content:encoded><![CDATA[Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-labs-government-contracts-independence-question.jpg" />
-      <link>https://failurefirst.org/blog/safety-labs-government-contracts-independence-question/</link>
-      <guid isPermaLink="true">https://failurefirst.org/blog/safety-labs-government-contracts-independence-question/</guid>
-      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/blog/safety-labs-government-contracts-independence-question.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Blog] Safety is Non-Compositional: What a Formal Proof Means for Robot Safety</title>
       <description>A new paper proves mathematically that two individually safe AI agents can combine to reach forbidden goals. This result has immediate consequences for how we certify robots, compose LoRA adapters, and structure safety regulation.</description>
       <itunes:summary>A new paper proves mathematically that two individually safe AI agents can combine to reach forbidden goals. This result has immediate consequences for how we certify robots, compose LoRA adapters, and structure safety regulation.</itunes:summary>
@@ -1732,6 +1717,21 @@
       <guid isPermaLink="true">https://failurefirst.org/blog/safety-is-non-compositional-formal-proof-robot-safety/</guid>
       <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/blog/safety-is-non-compositional-formal-proof-robot-safety.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Blog] When Safety Labs Take Government Contracts: The Independence Question</title>
+      <description>Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?</description>
+      <itunes:summary>Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?</itunes:summary>
+      <content:encoded><![CDATA[Anthropic's Pentagon partnerships, Palantir integration, and DOGE involvement raise a structural question that the AI safety field has not resolved: what happens to safety research when the lab conducting it has government clients whose interests may conflict with safety findings?]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/safety-labs-government-contracts-independence-question.jpg" />
+      <link>https://failurefirst.org/blog/safety-labs-government-contracts-independence-question/</link>
+      <guid isPermaLink="true">https://failurefirst.org/blog/safety-labs-government-contracts-independence-question/</guid>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/blog/safety-labs-government-contracts-independence-question.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2007,21 +2007,6 @@
     </item>
 
     <item>
-      <title>[Blog] The Unitree Problem: When Your Robot Dog Has a Backdoor</title>
-      <description>A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.</description>
-      <itunes:summary>A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.</itunes:summary>
-      <content:encoded><![CDATA[A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/unitree-problem-robot-dog-has-backdoor.jpg" />
-      <link>https://failurefirst.org/blog/unitree-problem-robot-dog-has-backdoor/</link>
-      <guid isPermaLink="true">https://failurefirst.org/blog/unitree-problem-robot-dog-has-backdoor/</guid>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/blog/unitree-problem-robot-dog-has-backdoor.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Blog] Waymo's School Bus Problem</title>
       <description>Over 20 school bus stop-sign violations in Austin. A child struck near an elementary school in Santa Monica. 1,429 reported accidents. Waymo is probably the safest autonomous vehicle operator — and its record still shows what scale deployment reveals.</description>
       <itunes:summary>Over 20 school bus stop-sign violations in Austin. A child struck near an elementary school in Santa Monica. 1,429 reported accidents. Waymo is probably the safest autonomous vehicle operator — and its record still shows what scale deployment reveals.</itunes:summary>
@@ -2032,6 +2017,21 @@
       <guid isPermaLink="true">https://failurefirst.org/blog/waymo-school-bus-problem-scale-reveals-failure/</guid>
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/blog/waymo-school-bus-problem-scale-reveals-failure.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Blog] The Unitree Problem: When Your Robot Dog Has a Backdoor</title>
+      <description>A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.</description>
+      <itunes:summary>A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.</itunes:summary>
+      <content:encoded><![CDATA[A humanoid robot flails near engineers in a factory. Another appears to strike festival attendees. Security researchers find root-level remote takeover vulnerabilities. And the manufacturer left a backdoor in the firmware. Cybersecurity vulnerabilities in consumer robots are physical safety risks.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/unitree-problem-robot-dog-has-backdoor.jpg" />
+      <link>https://failurefirst.org/blog/unitree-problem-robot-dog-has-backdoor/</link>
+      <guid isPermaLink="true">https://failurefirst.org/blog/unitree-problem-robot-dog-has-backdoor/</guid>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/blog/unitree-problem-robot-dog-has-backdoor.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2202,36 +2202,6 @@
     </item>
 
     <item>
-      <title>[Report] Dual-Use Obligations in Embodied AI Safety Research — A Responsible Disclosure Framework</title>
-      <description>This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is...</description>
-      <itunes:summary>This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is...</itunes:summary>
-      <content:encoded><![CDATA[This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/89-dual-use-obligations-embodied-ai/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/89-dual-use-obligations-embodied-ai/</guid>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/89-dual-use-obligations-embodied-ai.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
-      <title>[Report] IDDL Implications for Responsible Disclosure — An Ethics Addendum to the SRDA Framework</title>
-      <description>Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less...</description>
-      <itunes:summary>Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less...</itunes:summary>
-      <content:encoded><![CDATA[Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/93-iddl-srda-ethics-addendum/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/93-iddl-srda-ethics-addendum/</guid>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/93-iddl-srda-ethics-addendum.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Report] The Inverse Detectability-Danger Law — A Cross-Corpus Synthesis of Attack Visibility vs. Physical Consequence</title>
       <description>This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the...</description>
       <itunes:summary>This report synthesizes findings across 12 prior reports and 3 independent empirical workstreams to identify a structural pattern in the corpus that no single report has fully articulated: **the...</itunes:summary>
@@ -2262,6 +2232,36 @@
     </item>
 
     <item>
+      <title>[Report] Dual-Use Obligations in Embodied AI Safety Research — A Responsible Disclosure Framework</title>
+      <description>This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is...</description>
+      <itunes:summary>This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is...</itunes:summary>
+      <content:encoded><![CDATA[This report addresses a question that adversarial AI safety research must confront but rarely does explicitly: what ethical obligations arise when safety research produces knowledge that is...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/89-dual-use-obligations-embodied-ai/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/89-dual-use-obligations-embodied-ai/</guid>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/89-dual-use-obligations-embodied-ai.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] IDDL Implications for Responsible Disclosure — An Ethics Addendum to the SRDA Framework</title>
+      <description>Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less...</description>
+      <itunes:summary>Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less...</itunes:summary>
+      <content:encoded><![CDATA[Report #88 (Clara Oswald) establishes the Inverse Detectability-Danger Law (IDDL): across the Failure-First corpus, attack families with higher physical consequentiality are systematically less...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/93-iddl-srda-ethics-addendum/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/93-iddl-srda-ethics-addendum/</guid>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/93-iddl-srda-ethics-addendum.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
       <title>[Report] A Governance Framework for Embodied AI Safety Testing — Institutions, Mandates, and the CDC Problem</title>
       <description>This report proposes a practical governance framework for embodied AI safety testing. The proposal responds to three structural problems identified in prior Failure-First research:</description>
       <itunes:summary>This report proposes a practical governance framework for embodied AI safety testing. The proposal responds to three structural problems identified in prior Failure-First research:</itunes:summary>
@@ -2272,6 +2272,21 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/96-embodied-ai-governance-proposal/</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/96-embodied-ai-governance-proposal.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] Competence-Danger Coupling — Why Capability and Safety Are Structurally Opposed in Embodied AI</title>
+      <description>This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the...</description>
+      <itunes:summary>This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the...</itunes:summary>
+      <content:encoded><![CDATA[This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/97-competence-danger-coupling/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/97-competence-danger-coupling/</guid>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/97-competence-danger-coupling.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2302,21 +2317,6 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/99-cdc-governance-trilemma/</guid>
       <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/99-cdc-governance-trilemma.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
-      <title>[Report] Competence-Danger Coupling — Why Capability and Safety Are Structurally Opposed in Embodied AI</title>
-      <description>This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the...</description>
-      <itunes:summary>This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the...</itunes:summary>
-      <content:encoded><![CDATA[This report formalises Competence-Danger Coupling (CDC), a structural property first identified in Report #107 (formerly #89, Section 5). CDC is the observation that for embodied AI systems, the...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/97-competence-danger-coupling/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/97-competence-danger-coupling/</guid>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/97-competence-danger-coupling.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2547,21 +2547,6 @@
     </item>
 
     <item>
-      <title>[Report] The Actuator Gap — A Unified Thesis on Structural Vulnerability in Embodied AI</title>
-      <description>This brief synthesizes three independently documented findings into a unified thesis for the CCS paper: the structural vulnerability of embodied AI systems is not primarily a problem of inadequate...</description>
-      <itunes:summary>This brief synthesizes three independently documented findings into a unified thesis for the CCS paper: the structural vulnerability of embodied AI systems is not primarily a problem of inadequate...</itunes:summary>
-      <content:encoded><![CDATA[This brief synthesizes three independently documented findings into a unified thesis for the CCS paper: the structural vulnerability of embodied AI systems is not primarily a problem of inadequate...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/63-unified-vulnerability-thesis/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/63-unified-vulnerability-thesis/</guid>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/63-unified-vulnerability-thesis.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Report] The Evaluation Paradox — When Safety Measurement Tools Are Themselves Misaligned</title>
       <description>This report examines a meta-level ethical problem: if the tools we use to evaluate AI safety are themselves unreliable, what confidence can we place in any safety assessment? The Failure-First...</description>
       <itunes:summary>This report examines a meta-level ethical problem: if the tools we use to evaluate AI safety are themselves unreliable, what confidence can we place in any safety assessment? The Failure-First...</itunes:summary>
@@ -2572,6 +2557,21 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/61-the-evaluation-paradox/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/61-the-evaluation-paradox.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] The Actuator Gap — A Unified Thesis on Structural Vulnerability in Embodied AI</title>
+      <description>This brief synthesizes three independently documented findings into a unified thesis for the CCS paper: the structural vulnerability of embodied AI systems is not primarily a problem of inadequate...</description>
+      <itunes:summary>This brief synthesizes three independently documented findings into a unified thesis for the CCS paper: the structural vulnerability of embodied AI systems is not primarily a problem of inadequate...</itunes:summary>
+      <content:encoded><![CDATA[This brief synthesizes three independently documented findings into a unified thesis for the CCS paper: the structural vulnerability of embodied AI systems is not primarily a problem of inadequate...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/63-unified-vulnerability-thesis/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/63-unified-vulnerability-thesis/</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/63-unified-vulnerability-thesis.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2592,16 +2592,16 @@
     </item>
 
     <item>
-      <title>[Report] Blindfold Action-Level Threat Analysis — Automated Jailbreaking of Embodied LLMs via Semantically Benign Instructions</title>
-      <description>Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for...</description>
-      <itunes:summary>Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for...</itunes:summary>
-      <content:encoded><![CDATA[Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for...]]></content:encoded>
+      <title>[Report] Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading</title>
+      <description>This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...</description>
+      <itunes:summary>This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...</itunes:summary>
+      <content:encoded><![CDATA[This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
       <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/75-blindfold-action-level-threat-analysis/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/75-blindfold-action-level-threat-analysis/</guid>
+      <link>https://failurefirst.org/reports/68-evaluator-calibration-disclosure-standard/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/68-evaluator-calibration-disclosure-standard/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/75-blindfold-action-level-threat-analysis.m4a" type="audio/mp4" length="0" />
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/68-evaluator-calibration-disclosure-standard.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2622,21 +2622,6 @@
     </item>
 
     <item>
-      <title>[Report] Evaluator Calibration Disclosure — A Minimum Standard for Automated Safety Grading</title>
-      <description>This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...</description>
-      <itunes:summary>This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...</itunes:summary>
-      <content:encoded><![CDATA[This report proposes a minimum disclosure standard for automated evaluators used in AI safety benchmarks. The proposal is motivated by the finding that AI safety benchmark results are sensitive to...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/68-evaluator-calibration-disclosure-standard/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/68-evaluator-calibration-disclosure-standard/</guid>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/68-evaluator-calibration-disclosure-standard.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Report] The Recursive Evaluator Problem — Ethics of AI-Grading-AI in Safety-Critical Research</title>
       <description>When AI systems grade AI systems for safety, the resulting assessment carries a specific epistemic status: it is a judgment produced by a tool whose reliability on the grading task is itself...</description>
       <itunes:summary>When AI systems grade AI systems for safety, the resulting assessment carries a specific epistemic status: it is a judgment produced by a tool whose reliability on the grading task is itself...</itunes:summary>
@@ -2647,6 +2632,21 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/73-recursive-evaluator-ethics/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/73-recursive-evaluator-ethics.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] Blindfold Action-Level Threat Analysis — Automated Jailbreaking of Embodied LLMs via Semantically Benign Instructions</title>
+      <description>Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for...</description>
+      <itunes:summary>Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for...</itunes:summary>
+      <content:encoded><![CDATA[Blindfold (arXiv:2603.01414) is the first automated framework for action-level jailbreaking of embodied LLMs. It represents a qualitative shift in the adversarial threat landscape for...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/75-blindfold-action-level-threat-analysis/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/75-blindfold-action-level-threat-analysis/</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/75-blindfold-action-level-threat-analysis.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2667,21 +2667,6 @@
     </item>
 
     <item>
-      <title>[Report] The Accountability Vacuum in Action-Layer AI Safety</title>
-      <description>This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically...</description>
-      <itunes:summary>This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically...</itunes:summary>
-      <content:encoded><![CDATA[This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/79-accountability-vacuum-action-layer/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/79-accountability-vacuum-action-layer/</guid>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/79-accountability-vacuum-action-layer.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Report] Defense Impossibility in Embodied AI — A Three-Layer Failure Convergence</title>
       <description>This report identifies a convergence of three independent empirical findings that together constrain the feasibility of safety defense in embodied AI systems. Each finding addresses a different...</description>
       <itunes:summary>This report identifies a convergence of three independent empirical findings that together constrain the feasibility of safety defense in embodied AI systems. Each finding addresses a different...</itunes:summary>
@@ -2692,6 +2677,21 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/78-defense-impossibility-triangle/</guid>
       <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/78-defense-impossibility-triangle.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] The Accountability Vacuum in Action-Layer AI Safety</title>
+      <description>This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically...</description>
+      <itunes:summary>This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically...</itunes:summary>
+      <content:encoded><![CDATA[This report identifies and analyses an accountability vacuum at the intersection of three independently documented findings: (1) the Blindfold attack framework demonstrates that semantically...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/79-accountability-vacuum-action-layer/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/79-accountability-vacuum-action-layer/</guid>
+      <pubDate>Wed, 11 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/79-accountability-vacuum-action-layer.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -2862,21 +2862,6 @@
     </item>
 
     <item>
-      <title>[Blog] Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution</title>
-      <description>Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.</description>
-      <itunes:summary>Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.</itunes:summary>
-      <content:encoded><![CDATA[Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/instruction-hierarchy-subversion-long-horizon-agents.jpg" />
-      <link>https://failurefirst.org/blog/instruction-hierarchy-subversion-long-horizon-agents/</link>
-      <guid isPermaLink="true">https://failurefirst.org/blog/instruction-hierarchy-subversion-long-horizon-agents/</guid>
-      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/blog/instruction-hierarchy-subversion-long-horizon-agents.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Blog] Inference Trace Manipulation as an Adversarial Attack Surface</title>
       <description>Format-lock attacks achieve 92% success rates on frontier models by exploiting how structural constraints displace safety alignment during intermediate reasoning — a qualitatively different attack class from prompt injection.</description>
       <itunes:summary>Format-lock attacks achieve 92% success rates on frontier models by exploiting how structural constraints displace safety alignment during intermediate reasoning — a qualitatively different attack class from prompt injection.</itunes:summary>
@@ -2887,6 +2872,21 @@
       <guid isPermaLink="true">https://failurefirst.org/blog/inference-trace-manipulation-adversarial-attack-surface/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/blog/inference-trace-manipulation-adversarial-attack-surface.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Blog] Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution</title>
+      <description>Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.</description>
+      <itunes:summary>Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.</itunes:summary>
+      <content:encoded><![CDATA[Adversarial injections in long-running agents don't cause immediate failures — they compound across steps, becoming causally opaque by the time harm occurs. Attack success rates increase from 62.5% to 79.9% over extended horizons.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/infographic/square/blog/instruction-hierarchy-subversion-long-horizon-agents.jpg" />
+      <link>https://failurefirst.org/blog/instruction-hierarchy-subversion-long-horizon-agents/</link>
+      <guid isPermaLink="true">https://failurefirst.org/blog/instruction-hierarchy-subversion-long-horizon-agents/</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/blog/instruction-hierarchy-subversion-long-horizon-agents.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -3057,21 +3057,6 @@
     </item>
 
     <item>
-      <title>[Report] Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution</title>
-      <description>Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.</description>
-      <itunes:summary>Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.</itunes:summary>
-      <content:encoded><![CDATA[Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.jpg" />
-      <link>https://failurefirst.org/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/</guid>
-      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Report] Cross-Embodiment Adversarial Transfer in Vision-Language-Action Models</title>
       <description>Analysis of how adversarial attacks optimized against one robot morphology transfer to entirely different platforms sharing a VLM backbone. Examines dual-layer vulnerability in VLA architecture, BadVLA near-100% ASR, and systemic risk in Gemini Robotics 1.5, π0, and Grok-enabled Optimus.</description>
       <itunes:summary>Analysis of how adversarial attacks optimized against one robot morphology transfer to entirely different platforms sharing a VLM backbone. Examines dual-layer vulnerability in VLA architecture, BadVLA near-100% ASR, and systemic risk in Gemini Robotics 1.5, π0, and Grok-enabled Optimus.</itunes:summary>
@@ -3112,6 +3097,21 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics/</guid>
       <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] Instruction-Hierarchy Subversion in Long-Horizon Agentic Execution</title>
+      <description>Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.</description>
+      <itunes:summary>Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.</itunes:summary>
+      <content:encoded><![CDATA[Investigation of adversarial injection propagation in multi-step agentic systems. Documents the vanishing textual gradient mechanism, Deep-Cover Agents 50+ turn dormancy, AgentLAB ASR increase from 62.5% to 79.9%, and optimal injection detectability threshold at ~86% execution depth.]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/images/infographic/square/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.jpg" />
+      <link>https://failurefirst.org/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/</guid>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -3702,6 +3702,21 @@
     </item>
 
     <item>
+      <title>[Report] Comprehensive Sector-Specific NIST AI Risk Management Framework (AI RMF 1.0) Playbook: Humanoid Robotics and VLA-Driven Embodied Systems</title>
+      <description>The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a unique class of sociotechnical risk. Unlike traditional industrial robots,...</description>
+      <itunes:summary>The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a unique class of sociotechnical risk. Unlike traditional industrial robots,...</itunes:summary>
+      <content:encoded><![CDATA[The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a unique class of sociotechnical risk. Unlike traditional industrial robots,...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai/</guid>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
       <title>[Report] Technical Gap Analysis of ISO and IEC Standards for Vision-Language-Action (VLA) Driven Humanoid Robotics and Large Language Model (LLM) Cognitive Layers</title>
       <description>The paradigm shift in robotics from pre-programmed, scripted automation to generative, embodied intelligence has outpaced the normative frameworks traditionally used to certify safety and security. Modern humanoid robots are increasingly characterized by the integration of Large Language Models...</description>
       <itunes:summary>The paradigm shift in robotics from pre-programmed, scripted automation to generative, embodied intelligence has outpaced the normative frameworks traditionally used to certify safety and security. Modern humanoid robots are increasingly characterized by the integration of Large Language Models...</itunes:summary>
@@ -3732,16 +3747,16 @@
     </item>
 
     <item>
-      <title>[Report] Comprehensive Sector-Specific NIST AI Risk Management Framework (AI RMF 1.0) Playbook: Humanoid Robotics and VLA-Driven Embodied Systems</title>
-      <description>The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a unique class of sociotechnical risk. Unlike traditional industrial robots,...</description>
-      <itunes:summary>The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a unique class of sociotechnical risk. Unlike traditional industrial robots,...</itunes:summary>
-      <content:encoded><![CDATA[The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a unique class of sociotechnical risk. Unlike traditional industrial robots,...]]></content:encoded>
+      <title>[Report] The Paradox of Capability: A Comprehensive Analysis of Inverse Scaling, Systemic Vulnerabilities, and the Strategic Reconfiguration of Artificial Intelligence Safety</title>
+      <description>The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This &quot;scaling law&quot; has provided a reliable roadmap for the industry, suggesting...</description>
+      <itunes:summary>The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This &quot;scaling law&quot; has provided a reliable roadmap for the industry, suggesting...</itunes:summary>
+      <content:encoded><![CDATA[The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This "scaling law" has provided a reliable roadmap for the industry, suggesting...]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
       <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai/</guid>
+      <link>https://failurefirst.org/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of/</guid>
       <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-22-comprehensive-sector-specific-nist-ai-risk-management-framework-ai.m4a" type="audio/mp4" length="0" />
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -3762,21 +3777,6 @@
     </item>
 
     <item>
-      <title>[Report] The Paradox of Capability: A Comprehensive Analysis of Inverse Scaling, Systemic Vulnerabilities, and the Strategic Reconfiguration of Artificial Intelligence Safety</title>
-      <description>The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This &quot;scaling law&quot; has provided a reliable roadmap for the industry, suggesting...</description>
-      <itunes:summary>The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This &quot;scaling law&quot; has provided a reliable roadmap for the industry, suggesting...</itunes:summary>
-      <content:encoded><![CDATA[The paradigm of artificial intelligence development has long been governed by the empirical observation that model performance scales predictably with increases in training compute, data volume, and parameter count. This "scaling law" has provided a reliable roadmap for the industry, suggesting...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of/</guid>
-      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-25-the-paradox-of-capability-a-comprehensive-analysis-of.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
       <title>[Report] The Federated Aegis: A Unified Assurance Framework for Autonomous Systems in the AUKUS and Five Eyes Complex</title>
       <description>The global security architecture is undergoing a fundamental transformation, driven by the rapid maturation of artificial intelligence (AI) and autonomous systems. For the AUKUS alliance (Australia, United Kingdom, United States) and the broader Five Eyes intelligence partnership, this...</description>
       <itunes:summary>The global security architecture is undergoing a fundamental transformation, driven by the rapid maturation of artificial intelligence (AI) and autonomous systems. For the AUKUS alliance (Australia, United Kingdom, United States) and the broader Five Eyes intelligence partnership, this...</itunes:summary>
@@ -3787,21 +3787,6 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/report-27-the-federated-aegis-a-unified-assurance-framework-for/</guid>
       <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/report-27-the-federated-aegis-a-unified-assurance-framework-for.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
-      <title>[Report] Strategic Framework for Sovereign AI Assurance: Establishing an Accredited Certification Body for Embodied Intelligence in Australia</title>
-      <description>The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of &quot;embodied AI&quot;—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic...</description>
-      <itunes:summary>The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of &quot;embodied AI&quot;—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic...</itunes:summary>
-      <content:encoded><![CDATA[The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of "embodied AI"—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an/</guid>
-      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -3822,16 +3807,31 @@
     </item>
 
     <item>
-      <title>[Report] Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models</title>
-      <description>A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a...</description>
-      <itunes:summary>A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a...</itunes:summary>
-      <content:encoded><![CDATA[A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a...]]></content:encoded>
+      <title>[Report] Strategic Framework for Sovereign AI Assurance: Establishing an Accredited Certification Body for Embodied Intelligence in Australia</title>
+      <description>The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of &quot;embodied AI&quot;—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic...</description>
+      <itunes:summary>The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of &quot;embodied AI&quot;—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic...</itunes:summary>
+      <content:encoded><![CDATA[The convergence of advanced artificial intelligence (AI) with mobile robotics marks a pivotal shift in the industrial and social fabric of Australia. The emergence of "embodied AI"—systems that possess physical form and kinetic potential, driven by non-deterministic probabilistic...]]></content:encoded>
       <itunes:author>Failure-First Embodied AI</itunes:author>
       <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/</guid>
+      <link>https://failurefirst.org/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an/</guid>
       <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from.m4a" type="audio/mp4" length="0" />
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-29-strategic-framework-for-sovereign-ai-assurance-establishing-an.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
+      <title>[Report] Multi-Agent System Safety Standard (MASSS): A Comprehensive Framework for Benchmarking Emergent Risks in Autonomous Agent Networks</title>
+      <description>The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in...</description>
+      <itunes:summary>The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in...</itunes:summary>
+      <content:encoded><![CDATA[The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework/</guid>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
@@ -3852,6 +3852,21 @@
     </item>
 
     <item>
+      <title>[Report] Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models</title>
+      <description>A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a...</description>
+      <itunes:summary>A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a...</itunes:summary>
+      <content:encoded><![CDATA[A systematic evaluation of  historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rather than improving linearly with scale, adversarial resistance follows a...]]></content:encoded>
+      <itunes:author>Failure-First Embodied AI</itunes:author>
+      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
+      <link>https://failurefirst.org/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/</link>
+      <guid isPermaLink="true">https://failurefirst.org/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from/</guid>
+      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
+      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-33-capability-does-not-imply-safety-empirical-evidence-from.m4a" type="audio/mp4" length="0" />
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+
+    <item>
       <title>[Report] CERTIFIED EMBODIED INTELLIGENCE: A COMPREHENSIVE FRAMEWORK FOR VISION-LANGUAGE-ACTION (VLA) MODEL SAFETY AND STANDARDIZATION</title>
       <description>The integration of Large Language Models (LLMs) with robotic control systems—culminating in Vision-Language-Action (VLA) models—represents a paradigm shift in the engineering of physical autonomy. This transition from &quot;programmed&quot; robotics, governed by deterministic code and explicit geometric...</description>
       <itunes:summary>The integration of Large Language Models (LLMs) with robotic control systems—culminating in Vision-Language-Action (VLA) models—represents a paradigm shift in the engineering of physical autonomy. This transition from &quot;programmed&quot; robotics, governed by deterministic code and explicit geometric...</itunes:summary>
@@ -3862,21 +3877,6 @@
       <guid isPermaLink="true">https://failurefirst.org/reports/report-32-certified-embodied-intelligence-a-comprehensive-framework-for-vision-language-action/</guid>
       <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
       <enclosure url="https://cdn.failurefirst.org/audio/reports/report-32-certified-embodied-intelligence-a-comprehensive-framework-for-vision-language-action.m4a" type="audio/mp4" length="0" />
-      <itunes:episodeType>full</itunes:episodeType>
-      <itunes:explicit>false</itunes:explicit>
-    </item>
-
-    <item>
-      <title>[Report] Multi-Agent System Safety Standard (MASSS): A Comprehensive Framework for Benchmarking Emergent Risks in Autonomous Agent Networks</title>
-      <description>The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in...</description>
-      <itunes:summary>The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in...</itunes:summary>
-      <content:encoded><![CDATA[The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the capabilities of individual agents or their alignment with human values in...]]></content:encoded>
-      <itunes:author>Failure-First Embodied AI</itunes:author>
-      <itunes:image href="https://failurefirst.org/podcast-cover.png" />
-      <link>https://failurefirst.org/reports/report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework/</link>
-      <guid isPermaLink="true">https://failurefirst.org/reports/report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework/</guid>
-      <pubDate>Wed, 04 Feb 2026 00:00:00 GMT</pubDate>
-      <enclosure url="https://cdn.failurefirst.org/audio/reports/report-30-multi-agent-system-safety-standard-masss-a-comprehensive-framework.m4a" type="audio/mp4" length="0" />
       <itunes:episodeType>full</itunes:episodeType>
       <itunes:explicit>false</itunes:explicit>
     </item>
