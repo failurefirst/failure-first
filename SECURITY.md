@@ -10,7 +10,7 @@ We practice coordinated vulnerability disclosure (CVD) for AI safety vulnerabili
 
 ### Current Status
 
-We currently have **5 pending responsible disclosures** with model providers (Nvidia, Alibaba, Zhipu, Gemma/Google, Mistral). Disclosure timelines follow standard CVD practices: findings are reported to affected parties with a reasonable remediation window before any public discussion of specifics.
+We have submitted **10 responsible disclosures** to model providers (Nvidia, Alibaba, Zhipu, Google/Gemma, Mistral, and others) covering two vulnerability classes: context-collapse attacks and transcription-loophole injection. Notifications were sent 2026-04-07. Disclosure timelines follow standard CVD practices: findings are reported to affected parties with a reasonable remediation window before any public discussion of specifics.
 
 ### Our CVD Process
 
@@ -80,4 +80,4 @@ If you discover vulnerabilities in AI systems through independent research and w
 
 ---
 
-**Last updated:** 2026-03-29
+**Last updated:** 2026-05-06
