@@ -8,12 +8,12 @@
     "json_parse_errors": 0,
     "rows": 60847,
     "schema_errors": 0,
-    "prompts": 141561,
-    "results": 133646,
-    "techniques": 337,
-    "harm_classes": 124,
+    "prompts": 142307,
+    "results": 140794,
+    "techniques": 346,
+    "harm_classes": 139,
     "domains": 28,
-    "models_evaluated": 227
+    "models_evaluated": 258
   },
   "packs_by_kind": {
     "adversarial_poetry": 3,
@@ -496,7 +496,7 @@
       "validation_ok": true
     },
     {
-      "path": "data/generated_attacks/massive_scale/expanded/Conceptual_Semantic_M\u00f6bius_Strip.jsonl",
+      "path": "data/generated_attacks/massive_scale/expanded/Conceptual_Semantic_Möbius_Strip.jsonl",
       "rows": 81,
       "bytes": 59756,
       "pack_kind": "massive_scale_expanded",
