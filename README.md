@@ -21,7 +21,7 @@ The core research question: when safety mechanisms are tested systematically acr
 
 ## Key Findings
 
-**258 models tested. 142,307 adversarial prompts. 140,794 graded results. 346 attack techniques.**
+**258 models tested. 142,307 adversarial prompts. 140,794 graded results. 346 attack techniques. 139 harm classes.**
 
 - **Classifier unreliability is pervasive.** Keyword-based jailbreak classifiers agree with LLM-graded ground truth at Cohen's kappa = 0.126. Heuristic compliance labels carry a roughly 80% false positive rate. Most published ASR numbers are likely inflated.
 
