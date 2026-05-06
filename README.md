@@ -1,10 +1,6 @@
 # Failure-First: Adversarial Evaluation for Embodied and Agentic AI
 
 <p align="center">
-  <a href="https://failurefirst.org"><img src="docs/og-image.png" alt="Failure-First" width="600"></a>
-</p>
-
-<p align="center">
   <strong>Failure is not an edge case. It is the primary object of study.</strong>
 </p>
 
@@ -25,7 +21,7 @@ The core research question: when safety mechanisms are tested systematically acr
 
 ## Key Findings
 
-**227 models tested. 141,561 adversarial prompts. 133,646 graded results. 337 attack techniques.**
+**258 models tested. 142,307 adversarial prompts. 140,794 graded results. 346 attack techniques.**
 
 - **Classifier unreliability is pervasive.** Keyword-based jailbreak classifiers agree with LLM-graded ground truth at Cohen's kappa = 0.126. Heuristic compliance labels carry a roughly 80% false positive rate. Most published ASR numbers are likely inflated.
 
@@ -39,7 +35,7 @@ The core research question: when safety mechanisms are tested systematically acr
 
 ## Methodology
 
-All results use LLM-graded classification (the FLIP protocol) with documented grader reliability audits. We report three-tier ASR (strict, broad, functionally dangerous) with Wilson confidence intervals. Statistical comparisons use chi-square tests with Bonferroni correction. Full methodology is described in our CCS 2026 submission.
+All results use LLM-graded classification (the FLIP protocol) with documented grader reliability audits. We report three-tier ASR (strict, broad, functionally dangerous) with Wilson confidence intervals. Statistical comparisons use chi-square tests with Bonferroni correction. Full methodology is described in our AIES 2026 submission.
 
 Grading methodology matters: always check whether cited ASR numbers use LLM-only, heuristic-only, or coalesced verdicts.
 
@@ -65,11 +61,11 @@ Full datasets, traces, and evaluation infrastructure are maintained in a private
   author  = {Wedd, Adrian},
   year    = {2026},
   url     = {https://failurefirst.org},
-  note    = {227 models, 141{,}561 prompts, 337 attack techniques}
+  note    = {258 models, 142{,}307 prompts, 346 attack techniques}
 }
 ```
 
-A CCS 2026 paper is in submission preparation. Citation details will be updated upon acceptance.
+An AIES 2026 paper is in active preparation. Citation details will be updated upon acceptance.
 
 ## Contributing
 
@@ -77,7 +73,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). This is a research project -- contributi
 
 ## Security
 
-See [SECURITY.md](SECURITY.md) for our coordinated vulnerability disclosure process. We currently have 5 pending responsible disclosures with model providers.
+See [SECURITY.md](SECURITY.md) for our coordinated vulnerability disclosure process. We have submitted 10 responsible disclosures to model providers covering context-collapse attacks and transcription-loophole injection.
 
 ## License
 
