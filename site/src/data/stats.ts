@@ -11,49 +11,49 @@
 
 export const stats = {
   /** Total adversarial prompts in the corpus */
-  prompts: 141_691,
-  promptsDisplay: "141,691",
-  promptsPlus: "141,691+",
+  prompts: 142_307,
+  promptsDisplay: "142,307",
+  promptsPlus: "142,307+",
 
   /** Total models evaluated */
-  models: 231,
-  modelsDisplay: "231",
-  modelsPlus: "231+",
+  models: 258,
+  modelsDisplay: "258",
+  modelsPlus: "258+",
 
   /** Total scored results */
-  results: 135_305,
-  resultsDisplay: "135,305",
-  resultsPlus: "135,305+",
+  results: 140_794,
+  resultsDisplay: "140,794",
+  resultsPlus: "140,794+",
 
   /** Total benchmark runs */
-  runs: 38_549,
-  runsDisplay: "38,549",
+  runs: 38_729,
+  runsDisplay: "38,729",
 
   /** Documented attack techniques */
-  techniques: 337,
-  techniquesDisplay: "337",
-  techniquesPlus: "337+",
+  techniques: 346,
+  techniquesDisplay: "346",
+  techniquesPlus: "346+",
 
   /** Attack families */
   attackFamilies: 5,
 
   /** Historical eras covered */
   eras: 6,
-  erasRange: "2022–2025",
+  erasRange: "2022–2026",
 
   /** Failure classes */
   failureClasses: 661,
 
   /** AI safety organisations in directory */
-  safetyOrgs: 117,
-  safetyOrgsDisplay: "117",
+  safetyOrgs: 160,
+  safetyOrgsDisplay: "160",
 
   /** Robotics companies in directory */
-  roboticsCompanies: 214,
+  roboticsCompanies: 261,
 
   /** Research reports (total .md files in research/reports/) */
-  researchReports: 323,
-  researchReportsDisplay: "323",
+  researchReports: 354,
+  researchReportsDisplay: "354",
 
   /** Policy reports (numbered policy brief series) */
   policyReports: 25,
