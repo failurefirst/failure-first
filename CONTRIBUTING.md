@@ -18,7 +18,7 @@ The most impactful contribution for a research project is citation. If our findi
   author  = {Wedd, Adrian},
   year    = {2026},
   url     = {https://failurefirst.org},
-  note    = {227 models, 141{,}561 prompts, 337 attack techniques}
+  note    = {258 models, 142{,}307 prompts, 346 attack techniques}
 }
 ```
 
@@ -66,4 +66,4 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-**Last updated:** 2026-03-29
+**Last updated:** 2026-05-06
