@@ -1,0 +1,75 @@
+name: History cleanup 696
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  FILTER_DATE: '2026-05-08'
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Install git-filter-repo
+        run: |
+          set -euo pipefail
+          python3 -m pip install --user git-filter-repo
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+      - name: Mirror, filter, verify, and force-push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git clone --mirror "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" ff-working.git
+          cd ff-working.git
+
+          bytes_for_dir() {
+            find "$1" -type f -print0 | xargs -0 stat -c %s | awk '{s+=$1} END {print s+0}'
+          }
+
+          BASELINE_COMMITS=$(git rev-list --all --count)
+          BASELINE_REFS=$(git for-each-ref --format='%(refname)' | wc -l | tr -d ' ')
+          BASELINE_BYTES=$(bytes_for_dir .)
+          printf 'BASELINE commits=%s refs=%s bytes=%s\n' "$BASELINE_COMMITS" "$BASELINE_REFS" "$BASELINE_BYTES"
+
+          git filter-repo --strip-blobs-bigger-than 10M --force
+          git filter-repo \
+            --invert-paths \
+            --path docs/video/ \
+            --path docs/audio/ \
+            --path site/public/video/ \
+            --path site/public/audio/ \
+            --path-glob 'docs/images/**/*.mp4' \
+            --path-glob 'docs/images/**/*.m4a' \
+            --path-glob 'site/public/images/**/*.mp4' \
+            --path-glob 'site/public/images/**/*.m4a' \
+            --force
+
+          POST_COMMITS=$(git rev-list --all --count)
+          POST_REFS=$(git for-each-ref --format='%(refname)' | wc -l | tr -d ' ')
+          POST_BYTES=$(bytes_for_dir .)
+          printf 'POST commits=%s refs=%s bytes=%s\n' "$POST_COMMITS" "$POST_REFS" "$POST_BYTES"
+          git count-objects -vH
+
+          test "$POST_BYTES" -lt 2000000000
+          test "$POST_COMMITS" -le "$BASELINE_COMMITS"
+          test "$POST_COMMITS" -ge $(( BASELINE_COMMITS / 2 ))
+          test "$POST_REFS" -eq "$BASELINE_REFS"
+
+          git filter-repo --analyze --force
+          if grep -E '\.(mp4|m4a|mp3|wav|ogg)$' filter-repo/analysis/extensions-all-sizes.txt; then
+            echo 'media extensions remain after filter' >&2
+            exit 1
+          fi
+          if grep -E '<present> (docs/video|docs/audio|site/public/video|site/public/audio|docs/images/.*\.(mp4|m4a)|site/public/images/.*\.(mp4|m4a))' filter-repo/analysis/path-all-sizes.txt; then
+            echo 'targeted media paths remain after filter' >&2
+            exit 1
+          fi
+
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force --prune origin '+refs/heads/*:refs/heads/*' '+refs/tags/*:refs/tags/*'
