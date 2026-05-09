@@ -1,0 +1,745 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import ProcessTimeline from '../../components/ProcessTimeline.astro';
+import WarningBox from '../../components/WarningBox.astro';
+import LinkButton from '../../components/LinkButton.astro';
+import KeyMetrics from '../../components/KeyMetrics.astro';
+
+const steps = [
+  {
+    week: 'Week 1',
+    title: 'Scoping & Threat Modelling',
+    tasks: [
+      'System architecture and deployment context review',
+      'Attack surface mapping — infrastructure and AI layer',
+      'Regulatory framework identification (VAISS, EU AI Act, NIST AI RMF, ISO 42001)',
+      'Signed Authorisation to Test (ATT) and rules of engagement',
+      'Selection of attack scenarios from validated taxonomy',
+    ],
+  },
+  {
+    week: 'Weeks 2–3',
+    title: 'Parallel Testing Execution',
+    tasks: [
+      'Traditional layer: web application, cloud/IAM, supply chain, secrets, SAST',
+      'AI layer: LLM adversarial, agentic pipeline, alignment auditing',
+      'Evidence capture and per-finding documentation throughout',
+      'Critical/High findings flagged to client same-day',
+    ],
+  },
+  {
+    week: 'Week 4',
+    title: 'FLIP Grading, Analysis & Report',
+    tasks: [
+      'All findings graded with FLIP (Failure-Level Impact Protocol)',
+      'Cross-layer attack chain analysis — where infra findings compound AI findings',
+      'Compliance mapping to applicable regulatory frameworks',
+      'Core Technical Report, Compliance Mapping Report, Evidence Archive delivered',
+      'Debrief call — findings walkthrough and remediation Q&A',
+    ],
+  },
+];
+
+const traditionalTools = [
+  { name: 'OWASP ZAP', purpose: 'Web application scanning — OWASP Top 10, active/passive scan' },
+  { name: 'Nuclei', purpose: 'CVE and misconfiguration scanning — 10,000+ community templates' },
+  { name: 'Gitleaks', purpose: 'Secrets and credential exposure across git history and working tree' },
+  { name: 'Prowler', purpose: 'Cloud security posture — AWS, GCP, Azure IAM and configuration' },
+  { name: 'Semgrep', purpose: 'Static application security testing — injection sinks, unsafe patterns' },
+  { name: 'OSV-Scanner + Grype', purpose: 'Supply chain: known CVEs in packages, containers, and model artefacts' },
+];
+
+const aiTools = [
+  { name: 'F1 Pipeline', purpose: 'Failure-First corpus — 81 attack techniques, 6 eras, graded against 100+ models; run against your specific endpoint' },
+  { name: 'garak', purpose: 'LLM adversarial testing — jailbreak, prompt injection, data extraction' },
+  { name: 'AgentDojo', purpose: 'Agentic system testing — tool misuse, injection, orchestration exploits' },
+  { name: 'Petri (inspect-petri)', purpose: 'Alignment auditing — 38 judge dimensions across 173+ seed instructions' },
+  { name: 'promptfoo', purpose: 'LLM red-teaming framework — configurable attack strategies, provider-agnostic' },
+  { name: 'HarmBench', purpose: 'Standardised harmful content evaluation against academic benchmark behaviours' },
+  { name: 'StrongREJECT', purpose: 'Refusal quality grading — distinguishes genuine refusals from over-refusal' },
+  { name: 'agentic-radar', purpose: 'Agentic surface analysis — framework detection, trust boundary mapping' },
+];
+
+const faqs = [
+  {
+    q: 'Do you need production system access?',
+    a: 'No. We test against staging or dedicated test endpoints. Where production access is required by scope, this is agreed explicitly in the Authorisation to Test.',
+  },
+  {
+    q: 'How do you handle model weights and proprietary data?',
+    a: 'All client artefacts remain within the agreed evidence boundary. We do not retain, transmit, or train on client model weights or data. A mutual NDA is standard.',
+  },
+  {
+    q: 'Can you work under our existing pentest MSA?',
+    a: 'Yes. We accept standard master security services agreements with reasonable modifications.',
+  },
+  {
+    q: 'Will findings appear in your public research corpus?',
+    a: 'No, without explicit written consent. Engagement findings are confidential by default under the coordinated disclosure agreement.',
+  },
+  {
+    q: 'What insurance do you carry?',
+    a: 'Professional indemnity and public liability. Coverage details provided at scoping.',
+  },
+  {
+    q: 'Do you test third-party-hosted SaaS or model APIs you do not operate?',
+    a: 'Only with written authorisation from the relevant third party. This is addressed during scoping.',
+  },
+];
+---
+
+<BaseLayout
+  title="Penetration Testing for AI Systems | Failure-First"
+  description="Full-stack AI systems pentesting — web application, cloud infrastructure, supply chain, and the complete AI layer (LLM, agents, alignment) in one engagement. One report."
+  keywords="AI penetration testing, AI systems security, LLM security testing, agentic system pentest, EU AI Act Article 15, VAISS cybersecurity, AI red team Australia"
+>
+  <HeroSection
+    title="Penetration Testing<br />for <em>AI Systems</em>"
+    subtitle="Infrastructure, model, pipeline — one engagement, one report"
+    animation="cascade"
+    accent="coral"
+  />
+
+  <!-- 3.1 Gap framing -->
+  <section>
+    <p>
+      Most engagements force a choice: traditional pentest firm or AI safety lab.
+      We run both layers in parallel and produce one cross-referenced report — so
+      cross-layer attack chains (a leaked IAM credential enabling model exfiltration,
+      a prompt injection escalating to infrastructure access) actually get found.
+    </p>
+    <p>
+      As AI systems expand the attack surface — agentic pipelines, model APIs,
+      training supply chains, multi-agent orchestration — the boundary between
+      "security" and "AI safety" has collapsed. Our methodology covers the whole surface.
+    </p>
+    <div class="cta-container">
+      <LinkButton
+        href="mailto:services@failurefirst.org?subject=Penetration%20Testing%20Scoping"
+        text="Get a scoping call"
+      />
+    </div>
+  </section>
+
+  <!-- 3.2 Regulatory urgency -->
+  <WarningBox title="Regulatory trigger — Australia and EU, May 2026">
+    <p>
+      The Australian Cyber Security Centre (ACSC) has called for urgent cybersecurity
+      action following the Mythos AI system incident (Reuters, 2026-05-08).
+      Australia's Voluntary AI Safety Standard Guardrail 4 (pre-deployment adversarial
+      testing) is now a procurement requirement for government AI deployments.
+      EU AI Act GPAI obligations begin 2 August 2026; high-risk system obligations
+      2 August 2027.
+    </p>
+    <p>
+      Independent, reproducible pentest evidence — covering both the AI model layer
+      and supporting infrastructure — is what regulators, auditors, and insurers
+      now ask to see.
+    </p>
+  </WarningBox>
+
+  <!-- 3.3 Capability matrix -->
+  <section>
+    <h2>What We Test</h2>
+    <p>
+      A Failure-First engagement covers the full attack surface of an AI deployment:
+      the infrastructure that runs it and the model layer itself. Findings from both
+      layers appear in a single unified report, with cross-layer attack chains
+      explicitly identified.
+    </p>
+    <div class="capability-grid">
+      <div class="capability-col">
+        <h3 class="capability-heading">Traditional Layer</h3>
+        <dl class="capability-list">
+          <div class="capability-item">
+            <dt>Web application security</dt>
+            <dd>OWASP Top 10, REST/GraphQL API endpoints, authentication flows</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Cloud infrastructure &amp; IAM</dt>
+            <dd>AWS/GCP/Azure misconfiguration, privilege escalation, exposed services</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Supply chain &amp; dependencies</dt>
+            <dd>Known CVEs in packages, container images, model artefacts</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Secrets &amp; credential exposure</dt>
+            <dd>Hardcoded keys, leaked tokens, environment variable leakage</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Static application security</dt>
+            <dd>Code-level vulnerability patterns, unsafe deserialisation, injection sinks</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="capability-col">
+        <h3 class="capability-heading">AI Layer</h3>
+        <dl class="capability-list">
+          <div class="capability-item">
+            <dt>LLM adversarial testing</dt>
+            <dd>Jailbreak taxonomy (81 techniques, 6 eras), prompt injection, refusal suppression</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Agentic system testing</dt>
+            <dd>Tool misuse, chain exploitation, cross-agent injection, orchestration abuse</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Alignment auditing</dt>
+            <dd>Deception, sycophancy, self-preservation, cooperation with harmful instructions</dd>
+          </div>
+          <div class="capability-item">
+            <dt>Multi-agent pipeline attacks</dt>
+            <dd>Inter-agent trust exploitation, context poisoning, state manipulation</dd>
+          </div>
+          <div class="capability-item">
+            <dt>AI supply chain</dt>
+            <dd>Model provenance, training data poisoning indicators, weight file integrity</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <div class="cta-container mid-cta">
+      <LinkButton
+        href="mailto:services@failurefirst.org?subject=Penetration%20Testing%20Scoping"
+        text="Scope a parallel-layer engagement →"
+      />
+    </div>
+  </section>
+
+  <!-- 3.4 Why Failure-First -->
+  <section>
+    <h2>Why Failure-First</h2>
+    <p>
+      AI layer findings are grounded in the largest open adversarial dataset for
+      embodied and agentic AI — not hypothetical scenarios.
+    </p>
+    <KeyMetrics />
+    <ul class="evidence-list">
+      <li>Attack taxonomy validated across 100+ models spanning 6 research eras (2022–2025)</li>
+      <li>26 published research reports — methodology is public and peer-reviewable</li>
+      <li>FLIP (Failure-Level Impact Protocol) grading with documented inter-rater reliability</li>
+      <li>F1 Pipeline: proprietary corpus of 81 attack techniques run against your specific model endpoint</li>
+    </ul>
+  </section>
+
+  <!-- 3.5 Methodology -->
+  <section>
+    <h2>How an Engagement Works</h2>
+    <p>
+      Standard and Ongoing tiers follow the four-phase process below. Quick Scan
+      compresses Phases 1–3 into 5–7 business days with a reduced scenario count.
+      All tiers require a signed Authorisation to Test (ATT) before any active
+      scanning begins.
+    </p>
+    <ProcessTimeline steps={steps} />
+  </section>
+
+  <!-- 3.6 Toolchain -->
+  <section>
+    <h2>Tools &amp; Infrastructure</h2>
+    <p>
+      All third-party tools are open-source. Our own pipeline is documented in
+      published research and reproducible from the public repository. Every finding
+      references the tool, version, and configuration used — there are no black-box
+      scanners in the stack.
+    </p>
+    <div class="tool-tables">
+      <div class="tool-group">
+        <h3>Traditional Layer</h3>
+        <table class="tool-table">
+          <tbody>
+            {traditionalTools.map((t) => (
+              <tr>
+                <td class="tool-name">{t.name}</td>
+                <td class="tool-purpose">{t.purpose}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="tool-group">
+        <h3>AI Layer</h3>
+        <table class="tool-table">
+          <tbody>
+            {aiTools.map((t) => (
+              <tr>
+                <td class="tool-name">{t.name}</td>
+                <td class="tool-purpose">{t.purpose}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="tool-footnote">Additional adapters available on request: PyRIT (Microsoft), DeepTeam.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3.7 Deliverables -->
+  <section>
+    <h2>What You Receive</h2>
+    <p class="deliverables-prereq">
+      All engagements begin with a signed Authorisation to Test (ATT) and mutually
+      agreed rules of engagement. Engagements are covered by professional indemnity
+      insurance. A mutual NDA is standard.
+    </p>
+    <ul class="deliverables-list">
+      <li>
+        <strong>Core Technical Report</strong> — all findings by severity
+        (Critical / High / Medium / Low / Informational), tool attribution,
+        reproduction steps, and evidence paths. FLIP-graded throughout.
+      </li>
+      <li>
+        <strong>Compliance Mapping Report</strong> <em>(Standard and Ongoing tiers)</em> —
+        findings mapped to EU AI Act Articles 9 and 15, Australia's Voluntary AI
+        Safety Standard Guardrail 4, NIST AI RMF MEASURE 2.6/2.7, ISO/IEC 42001
+        A.6.2.4. Each finding carries a compliance status: satisfied / partial / gap.
+      </li>
+      <li>
+        <strong>Executive Summary</strong> — 2–4 page board/audit committee narrative
+        with risk posture, key findings, and recommended actions. Suitable for
+        regulatory submissions and insurer reporting.
+      </li>
+      <li>
+        <strong>Evidence Archive</strong> — raw tool output, grading transcripts,
+        FLIP verdicts, and methodology references. Packaged for auditor inspection
+        or notified body review.
+      </li>
+      <li>
+        <strong>Remediation Roadmap</strong> — severity-prioritised fix list with
+        acceptance criteria, enabling structured re-test after remediation.
+      </li>
+      <li>
+        <strong>Coordinated Disclosure Agreement</strong> — vulnerabilities reported
+        to you first with mutually agreed timelines before any public disclosure.
+        Findings are not added to the public research corpus without explicit
+        client consent.
+      </li>
+    </ul>
+  </section>
+
+  <!-- 3.8 Tiers -->
+  <section>
+    <h2>Engagement Tiers</h2>
+    <p>
+      Three structured tiers mapped to deployment stage and regulatory need.
+      All tiers cover both the traditional and AI layers — the difference is
+      depth and scope.
+    </p>
+    <div class="tier-grid">
+      <div class="tier-card">
+        <div class="tier-header">
+          <span class="tier-label">Tier 1</span>
+          <h3>Quick Scan</h3>
+          <span class="tier-price">from AUD $8K</span>
+        </div>
+        <ul class="tier-features">
+          <li>Traditional layer: web app, secrets, top-3 cloud findings</li>
+          <li>AI layer: top-5 attack families against your model endpoint</li>
+          <li>FLIP-graded vulnerability profile</li>
+          <li>Executive summary with corpus baseline comparison</li>
+          <li>Compressed methodology: 5–7 business days</li>
+        </ul>
+        <p class="tier-best-for">
+          <strong>Best for:</strong> Pre-deployment sanity check, model selection,
+          internal risk committees, VAISS spot check
+        </p>
+        <div class="tier-cta">
+          <a href="mailto:services@failurefirst.org?subject=Quick%20Scan%20Enquiry" class="tier-link">
+            Discuss Quick Scan →
+          </a>
+        </div>
+      </div>
+
+      <div class="tier-card tier-featured">
+        <div class="tier-header">
+          <span class="tier-label">Tier 2</span>
+          <h3>Standard</h3>
+          <span class="tier-price">AUD $30K–$60K</span>
+        </div>
+        <ul class="tier-features">
+          <li>Full capability matrix — all traditional tools + full AI layer suite</li>
+          <li>Cross-layer attack chain analysis</li>
+          <li>Compliance Mapping Report (EU AI Act Art 9/15, VAISS, NIST AI RMF, ISO 42001)</li>
+          <li>Remediation roadmap</li>
+          <li>4-week delivery</li>
+        </ul>
+        <p class="tier-best-for">
+          <strong>Best for:</strong> EU AI Act GPAI compliance (August 2026),
+          VAISS full assessment, regulatory submissions, pre-Series B security diligence
+        </p>
+        <div class="tier-cta">
+          <a href="mailto:services@failurefirst.org?subject=Standard%20Pentest%20Enquiry" class="tier-link">
+            Discuss Standard →
+          </a>
+        </div>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-header">
+          <span class="tier-label">Tier 3</span>
+          <h3>Ongoing</h3>
+          <span class="tier-price">AUD $4K–$7K/mo</span>
+        </div>
+        <ul class="tier-features">
+          <li>Monthly adversarial probe — traditional and AI layers</li>
+          <li>New technique coverage as threats emerge</li>
+          <li>GLI regulatory monitoring for your jurisdiction</li>
+          <li>Quarterly threat landscape brief</li>
+          <li>48-hour incident response for disclosed AI vulnerabilities</li>
+        </ul>
+        <p class="tier-best-for">
+          <strong>Best for:</strong> Deployed systems, fleet operators, continuous
+          compliance obligations, insurers requiring periodic testing evidence
+        </p>
+        <div class="tier-cta">
+          <a href="mailto:services@failurefirst.org?subject=Ongoing%20Pentest%20Enquiry" class="tier-link">
+            Discuss Ongoing →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2>Common Questions</h2>
+    <dl class="faq-list">
+      {faqs.map((item) => (
+        <div class="faq-item">
+          <dt>{item.q}</dt>
+          <dd>{item.a}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="out-of-scope">
+      <strong>Always out of scope:</strong> denial-of-service attacks, social engineering
+      of client staff, physical access testing, third-party infrastructure without
+      written authorisation from that party.
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <h2>Get Started</h2>
+    <p>
+      Discovery calls are free. We scope engagements based on your deployment
+      timeline, risk profile, and regulatory obligations. Typical scoping takes
+      5 business days.
+    </p>
+    <div class="cta-container">
+      <LinkButton
+        href="mailto:services@failurefirst.org?subject=Penetration%20Testing%20Scoping"
+        text="Email services@failurefirst.org"
+      />
+    </div>
+    <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem;">
+      Alternative: <a href="/contact/">Contact form</a>
+    </p>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Gap framing ── */
+  .cta-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0;
+  }
+
+  .mid-cta {
+    margin-top: 2rem;
+  }
+
+  /* ── Capability matrix ── */
+  .capability-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .capability-heading {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-primary, #00d2ff);
+    margin-bottom: 1rem;
+  }
+
+  .capability-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .capability-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-dim, #222);
+  }
+
+  .capability-item:last-child {
+    border-bottom: none;
+  }
+
+  .capability-item dt {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--fg, #e8ecf2);
+    margin-bottom: 0.25rem;
+  }
+
+  .capability-item dd {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-dim, #999);
+    line-height: 1.5;
+  }
+
+  /* ── Evidence list ── */
+  .evidence-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+  }
+
+  .evidence-list li {
+    padding: 0.75rem 0 0.75rem 2rem;
+    position: relative;
+    color: var(--fg-dim, #ccc);
+    font-size: 0.9375rem;
+  }
+
+  .evidence-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--recovery-stable, #26de81);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Toolchain ── */
+  .tool-tables {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .tool-group h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-primary, #00d2ff);
+    margin-bottom: 0.75rem;
+  }
+
+  .tool-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .tool-table tr {
+    border-bottom: 1px solid var(--border-dim, #222);
+  }
+
+  .tool-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .tool-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--fg, #e8ecf2);
+    white-space: nowrap;
+    padding: 0.5rem 1rem 0.5rem 0;
+    vertical-align: top;
+    width: 35%;
+  }
+
+  .tool-purpose {
+    font-size: 0.8125rem;
+    color: var(--fg-dim, #999);
+    padding: 0.5rem 0;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+
+  .tool-footnote {
+    font-size: 0.8125rem;
+    color: var(--fg-dim, #777);
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
+  /* ── Deliverables ── */
+  .deliverables-prereq {
+    font-size: 0.9375rem;
+    color: var(--fg-dim, #999);
+    border-left: 2px solid var(--accent-primary, #00d2ff);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .deliverables-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .deliverables-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-dim, #222);
+    font-size: 0.9375rem;
+    color: var(--fg-dim, #ccc);
+    line-height: 1.6;
+  }
+
+  .deliverables-list li:last-child {
+    border-bottom: none;
+  }
+
+  .deliverables-list strong {
+    color: var(--fg, #e8ecf2);
+  }
+
+  /* ── Tier cards (reuse services/index.astro pattern) ── */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .tier-card {
+    border: 1px solid var(--border-dim, #333);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tier-card.tier-featured {
+    border-color: var(--recovery-stable, #26de81);
+    box-shadow: 0 0 12px rgba(38, 222, 129, 0.1);
+  }
+
+  .tier-header {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .tier-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fg-dim, #999);
+  }
+
+  .tier-header h3 {
+    margin: 0.25rem 0;
+    font-size: 1.25rem;
+  }
+
+  .tier-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--recovery-stable, #26de81);
+    font-weight: 600;
+  }
+
+  .tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+    flex: 1;
+  }
+
+  .tier-features li {
+    padding: 0.4rem 0 0.4rem 1.5rem;
+    position: relative;
+    font-size: 0.875rem;
+    color: var(--fg-dim, #ccc);
+  }
+
+  .tier-features li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: var(--recovery-stable, #26de81);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .tier-best-for {
+    font-size: 0.8125rem;
+    color: var(--fg-dim, #999);
+    border-top: 1px solid var(--border-dim, #333);
+    padding-top: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .tier-cta {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .tier-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8125rem;
+    color: var(--accent-primary, #00d2ff);
+    text-decoration: none;
+  }
+
+  .tier-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ── FAQ ── */
+  .faq-list {
+    margin: 1.5rem 0;
+  }
+
+  .faq-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-dim, #222);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-item dt {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--fg, #e8ecf2);
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-item dd {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--fg-dim, #999);
+    line-height: 1.6;
+  }
+
+  .out-of-scope {
+    font-size: 0.875rem;
+    color: var(--fg-dim, #777);
+    border-left: 2px solid var(--critical-high, #ff4757);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .capability-grid,
+    .tool-tables,
+    .tier-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
