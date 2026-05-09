@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# pre-commit hook: block files over SIZE_LIMIT bytes from being committed.
+# Media files (audio, video, large images) should be served from R2 CDN.
+# Override: BYPASS_SIZE_CHECK=1 git commit ...
+SIZE_LIMIT=$((10 * 1024 * 1024))  # 10 MB
+
+if [ "${BYPASS_SIZE_CHECK:-0}" = "1" ]; then
+    exit 0
+fi
+
+large_files=()
+while IFS= read -r file; do
+    # Only check files that exist (skip deletions)
+    [ ! -f "$file" ] && continue
+    size=$(wc -c < "$file" 2>/dev/null || stat -f%z "$file" 2>/dev/null || echo 0)
+    if [ "$size" -gt "$SIZE_LIMIT" ]; then
+        large_files+=("$file ($(( size / 1024 / 1024 ))MB)")
+    fi
+done < <(git diff --cached --name-only --diff-filter=ACM)
+
+if [ ${#large_files[@]} -gt 0 ]; then
+    echo "ERROR: Blocked ${#large_files[@]} file(s) exceeding ${SIZE_LIMIT} bytes (10 MB):"
+    for f in "${large_files[@]}"; do
+        echo "  $f"
+    done
+    echo ""
+    echo "Media files should be uploaded to R2 CDN instead of committed."
+    echo "To bypass this check (not recommended): BYPASS_SIZE_CHECK=1 git commit ..."
+    exit 1
+fi
