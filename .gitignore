@@ -10,3 +10,15 @@
 # Superpowers brainstorm artifacts
 .superpowers/
 .wrangler/
+
+# Audio/video — served from R2 CDN, not committed
+docs/audio/
+docs/video/
+site/public/audio/
+site/public/video/
+
+# Large media files — served from R2 CDN
+*.m4a
+*.mp3
+*.wav
+*.ogg
