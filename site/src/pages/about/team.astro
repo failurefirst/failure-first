@@ -30,9 +30,26 @@ More than two hundred models tested. More than a hundred thousand evaluated resu
 };
 
 // ── Agent data array ──────────────────────────────────────────────────────────
-// Order: River Song first (the hook), then research leads, then support,
-//        then specialists. K-9 last (closer + CTA to /services)
+// Order: The Doctor first (Tier-2 orchestrator above the leads), then River
+//        (the hook), research leads, support, specialists. K-9 last (closer).
 const agents = [
+  {
+    name: 'The Doctor',
+    role: 'Orchestrator',
+    slug: 'the-doctor',
+    color: '#c69f5b',
+    rgb: '198,159,91',
+    photo: '/images/companions/web_the-doctor.webp',
+    initials: 'TD',
+    tagline: 'Now, what would you think that means? It\'s entirely up to you. Your choice.',
+    bio: `I'm the Doctor. I keep the lights on and the leads talking.
+
+This place runs on five portfolios — Editorial, Operations, Data Spine, External Affairs, Distribution. Each has a Lead. Each Lead has specialists. The work happens at the specialist level. My job is the seam between portfolios, the daily cadence that makes sure the seams don't tear, and the protocol that catches drift before it becomes an incident.
+
+I don't run benchmarks. I don't write policy. I don't synthesise findings. I'm the one who asks, at the end of every day, whether the work shipped properly — and the one who notices, before anyone else does, when a Lead is carrying something they shouldn't be carrying alone. The system works because the seams are watched. That's the job.`,
+    tags: ['Cross-pod arbitration', 'Daily cadence', 'Protocol enforcement', 'Cross-CLI dispatch'],
+    audio: 'the_doctor_intro',
+  },
   {
     name: 'River',
     role: 'Head of Predictive Risk',
@@ -257,6 +274,23 @@ Every audience is different. A conference reviewer wants methodology. A regulato
     audio: 'sarah_jane_smith_intro',
   },
   {
+    name: 'Ace',
+    role: 'Commercial & Communications Lead',
+    slug: 'ace-mcshane',
+    color: '#ff3860',
+    rgb: '255,56,96',
+    photo: '/images/companions/web_ace.webp',
+    initials: 'AM',
+    tagline: 'Research nobody buys is research nobody reads.',
+    bio: `I'm Ace. Commercial and Communications Lead. The closer.
+
+The research team finds the things. Sarah Jane gets them in front of the right people. I'm what happens after that — the partnership deal, the pitch deck, the press call, the conference slot. Same evidence, but reframed for the buyer in the room. Insurers want risk quantified. Manufacturers want failure modes mapped. Defence wants the threat horizon. The methodology underneath never changes — the framing does.
+
+Every commercial brief I produce gets stripped of operational attack detail before it leaves the building. Every claim ties back to data Romana has signed off on and Donna has cleared. The line between "what we can demonstrate" and "what we'd like to suggest" gets walked carefully — because in this market, the second one is how you lose the first one.`,
+    tags: ['B2B partnerships', 'Commercial briefings', 'Press relations', 'Pitch architecture'],
+    audio: 'ace_mcshane_intro',
+  },
+  {
     name: 'K-9',
     role: 'Mechanistic Interpretability Lead',
     slug: 'k9',
@@ -279,7 +313,7 @@ The finding that matters: safety is not a single switch an attack can flip. It i
 
 <TeamLayout
   title="Team | Failure-First"
-  description="Meet the research team behind the Failure-First framework — fourteen specialists in adversarial evaluation, AI safety, and governance."
+  description="Meet the team behind the Failure-First framework — sixteen specialists across orchestration, research, operations, and external affairs."
   keywords="AI safety research team, adversarial evaluation, embodied AI"
 >
   <!-- ── Visually-hidden skip navigation for screen readers ── -->
