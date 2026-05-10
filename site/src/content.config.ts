@@ -37,7 +37,7 @@ const dailyPaper = defineCollection({
     arxiv_id: z.string().optional(),
     authors: z.union([z.string(), z.array(z.string())]).optional(),
     author: z.string().optional(),
-    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position', 'application', 'original-research']).optional(),
+    paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position', 'application', 'original-research', 'systematization']).optional(),
     tags: z.array(z.string()).default([]),
     audio: z.string().optional(),
     video: z.string().optional(),
