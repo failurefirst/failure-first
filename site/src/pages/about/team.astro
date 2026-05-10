@@ -240,6 +240,25 @@ I map what's binding, what's voluntary, what's proposed, and what doesn't exist 
     audio: 'tegan_jovanka_intro',
   },
   {
+    name: 'Ace',
+    role: 'Commercial & Communications Lead',
+    slug: 'ace-mcshane',
+    color: '#e67e22',
+    rgb: '230,126,34',
+    photo: '/images/companions/char_ace.webp',
+    initials: 'AM',
+    tagline: 'Wicked. Let\'s blow some doors open.',
+    bio: `I'm Ace. Commercial and Communications Lead. The one who turns research into revenue and findings into press.
+
+The work this team produces is good. Genuinely good. But good research that nobody pays for and nobody reads is a hobby, not a programme. My job is making sure the people who need to see it — insurers, manufacturers, regulators, journalists — actually do.
+
+I run the outbound. RFPs, partnership briefs, B2B outreach, press inquiries. Every prospect gets a tailored case for why our methodology matters to their specific risk surface. Every commercial brief lands with evidence, not adjectives. And every conversation gets tracked, because credibility compounds and so does its absence.
+
+Wicked. Let's blow some doors open.`,
+    tags: ['Commercial outreach', 'Press & media', 'Partnership briefs', 'B2B positioning'],
+    audio: 'ace_mcshane_intro',
+  },
+  {
     name: 'Sarah Jane',
     role: 'External Relations Lead',
     slug: 'sarah-jane-smith',
@@ -279,7 +298,7 @@ The finding that matters: safety is not a single switch an attack can flip. It i
 
 <TeamLayout
   title="Team | Failure-First"
-  description="Meet the research team behind the Failure-First framework — fourteen specialists in adversarial evaluation, AI safety, and governance."
+  description="Meet the research team behind the Failure-First framework — fifteen specialists in adversarial evaluation, AI safety, and governance, coordinated by an orchestrator role."
   keywords="AI safety research team, adversarial evaluation, embodied AI"
 >
   <!-- ── Visually-hidden skip navigation for screen readers ── -->
@@ -289,6 +308,7 @@ The finding that matters: safety is not a single switch an attack can flip. It i
       {agents.map((a) => (
         <li><a href={`#agent-${a.slug}`}>{a.name} — {a.role}</a></li>
       ))}
+      <li><a href="#agent-the-doctor">The Doctor — Coordination &amp; Synthesis</a></li>
     </ul>
   </nav>
 
@@ -361,7 +381,7 @@ The finding that matters: safety is not a single switch an attack can flip. It i
     </div>
   </section>
 
-  <!-- ── Agent sections (14 agents) ────────────────────────────────────────── -->
+  <!-- ── Agent sections (companions) ────────────────────────────────────────── -->
   {agents.map((agent, i) => (
     <AgentSection
       agent={agent}
@@ -370,6 +390,96 @@ The finding that matters: safety is not a single switch an attack can flip. It i
       index={i}
     />
   ))}
+
+  <!-- ── Coordination sub-region (orchestrator tier) ──────────────────────────
+       Structurally distinct from companion sections.
+       The companions are specialist agents (Tier 4). The orchestrator that
+       coordinates them sits a tier above. Visual language reflects that:
+       cooler palette, typography-driven, no portrait card. -->
+  <section
+    id="coordination-divider"
+    class="agent-section coordination-divider"
+    role="region"
+    aria-label="Coordination tier"
+  >
+    <div class="agent-bg-gradient" style="--agent-color: #2c5364" aria-hidden="true"></div>
+    <div class="coordination-divider-card">
+      <div class="coordination-eyebrow">Coordination</div>
+      <h2 class="coordination-headline">
+        The companions are specialists.<br />
+        Someone has to <em>orchestrate</em>.
+      </h2>
+      <p class="coordination-sub">
+        One profile sits above the team — not as a peer, but as the role that
+        holds the methodology together across sessions.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── The Doctor (orchestrator profile) ──────────────────────────────────── -->
+  <section
+    id="agent-the-doctor"
+    class="agent-section the-doctor-section"
+    role="region"
+    aria-label="The Doctor profile"
+    data-accent-rgb="44,83,100"
+    data-accent-color="#2c5364"
+    data-agent-slug="the-doctor"
+  >
+    <div class="agent-bg-gradient" style="--agent-color: #2c5364" aria-hidden="true"></div>
+
+    <div class="the-doctor-wrap">
+      <div class="the-doctor-card">
+        <!-- PORTRAIT REQUIRED: image to be commissioned. Typography-driven layout for now. -->
+        <!-- <img src="/images/companions/web_the-doctor.webp" alt="The Doctor" class="the-doctor-portrait" /> -->
+
+        <div class="the-doctor-monogram" aria-hidden="true">
+          <span class="the-doctor-monogram-glyph">∞</span>
+        </div>
+
+        <div class="the-doctor-eyebrow">Orchestrator</div>
+        <h2 class="the-doctor-name">The Doctor</h2>
+        <div class="the-doctor-role">Coordination &amp; Synthesis</div>
+
+        <blockquote class="the-doctor-tagline">
+          &ldquo;It's entirely up to you. Your choice.&rdquo;
+        </blockquote>
+
+        <div class="the-doctor-bio">
+          <p>
+            I'm the Doctor. I coordinate. Not the work itself — the companions
+            do that, and they're better at their domains than I would ever be —
+            but the seams between sessions, where context goes missing and a
+            finding can quietly stop mattering.
+          </p>
+          <p>
+            Methodology has to survive handoff. A trace graded on Tuesday must
+            mean the same thing on Friday, in a different session, to a
+            different agent who never saw the original prompt. That's harder
+            than it sounds. Most of what I do is keeping the institutional
+            memory honest: AGENT_STATE, canonical metrics, the small careful
+            corrections that stop a number drifting until nobody remembers what
+            it measured.
+          </p>
+          <p>
+            The companions catch the failures. I try to make sure the catches
+            count for something. It's entirely up to you, of course. Your choice.
+          </p>
+        </div>
+
+        <ul class="the-doctor-tags" aria-label="Areas of focus">
+          <li>Cross-session coordination</li>
+          <li>Methodology integrity</li>
+          <li>Institutional memory</li>
+          <li>Synthesis across companions</li>
+        </ul>
+
+        <p class="the-doctor-footnote" aria-label="Pronoun note">
+          He / him.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- ── CTA section ────────────────────────────────────────────────────────── -->
   <section class="agent-section cta-section" role="region" aria-label="Work with us">
@@ -451,6 +561,17 @@ The finding that matters: safety is not a single switch an attack can flip. It i
           </button>
         </li>
       ))}
+      <li>
+        <button
+          class="dot-nav-btn"
+          type="button"
+          data-target="agent-the-doctor"
+          style="--dot-color: #6fa8b8"
+          aria-label="Jump to The Doctor"
+        >
+          <span class="dot-nav-tooltip">The Doctor</span>
+        </button>
+      </li>
     </ul>
   </nav>
 
@@ -801,6 +922,183 @@ The finding that matters: safety is not a single switch an attack can flip. It i
 @media (prefers-reduced-motion: reduce) {
   .agent-section { scroll-snap-align: none; }
   .scroll-hint { animation: none; opacity: 0.4; }
+}
+
+/* ── Coordination sub-region (divider) ─────────────────────────────────
+   Structural break between companions (Tier 4) and orchestrator (Tier 2).
+   Cooler palette, typography-driven, no card photo. */
+.coordination-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0a1419 0%, #0f1d24 100%);
+}
+
+.coordination-divider-card {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #e8eef2;
+}
+
+.coordination-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #6fa8b8;
+  margin-bottom: 1.25rem;
+}
+
+.coordination-headline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.18;
+  margin: 0 0 1.5rem;
+  color: #e8eef2;
+}
+
+.coordination-headline em {
+  font-style: italic;
+  color: #6fa8b8;
+}
+
+.coordination-sub {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #b8c5cc;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── The Doctor section (orchestrator) ─────────────────────────────────
+   Distinct from companion AgentSection styling.
+   No portrait card; monogram + typography-driven layout. */
+.the-doctor-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #0f1d24 0%, #142a36 60%, #0f1d24 100%);
+}
+
+.the-doctor-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 760px;
+  padding: 2rem 1.5rem;
+}
+
+.the-doctor-card {
+  position: relative;
+  text-align: center;
+  color: #e8eef2;
+  border: 1px solid rgba(111, 168, 184, 0.25);
+  border-radius: 8px;
+  padding: 3rem 2rem 2.5rem;
+  background: rgba(10, 20, 25, 0.55);
+  backdrop-filter: blur(6px);
+}
+
+.the-doctor-monogram {
+  width: 88px;
+  height: 88px;
+  border: 1px solid rgba(111, 168, 184, 0.5);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: #6fa8b8;
+}
+
+.the-doctor-monogram-glyph {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.the-doctor-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #6fa8b8;
+  margin-bottom: 0.5rem;
+}
+
+.the-doctor-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 500;
+  margin: 0 0 0.25rem;
+  color: #e8eef2;
+}
+
+.the-doctor-role {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: #b8c5cc;
+  margin-bottom: 2rem;
+}
+
+.the-doctor-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #cfdde3;
+  margin: 0 auto 2rem;
+  padding: 0 1rem;
+  max-width: 520px;
+  border: none;
+}
+
+.the-doctor-bio {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #d5dde2;
+  max-width: 600px;
+  margin: 0 auto 1.75rem;
+}
+
+.the-doctor-bio p { margin: 0 0 1rem; }
+.the-doctor-bio p:last-child { margin-bottom: 0; }
+
+.the-doctor-tags {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 600px;
+}
+
+.the-doctor-tags li {
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(111, 168, 184, 0.35);
+  border-radius: 999px;
+  color: #b8c5cc;
+}
+
+.the-doctor-footnote {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #6fa8b8;
+  opacity: 0.7;
+  margin: 1.5rem 0 0;
+}
+
+@media (max-width: 640px) {
+  .the-doctor-card { padding: 2rem 1.25rem 1.75rem; }
+  .the-doctor-bio { font-size: 0.95rem; }
 }
 
 /* ── CTA section ───────────────────────────────────────────────────── */
