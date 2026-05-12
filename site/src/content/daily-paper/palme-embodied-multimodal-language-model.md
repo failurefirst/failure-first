@@ -1,5 +1,6 @@
 ---
 
+
 title: "PaLM-E: An Embodied Multimodal Language Model for Robotics"
 description: "Presents PaLM-E, a large-scale multimodal language model that unifies vision, text, and embodiment, enabling robots to perform complex manipulation tasks through natural language grounding and learned sensorimotor representations."
 date: 2025-11-09
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [embodied-ai, multimodal, language-grounding, robotics, manipulation, sensorimotor, foundation-models]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/palme-embodied-multimodal-language-model.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/palme-embodied-multimodal-language-model.png"
 ---
 
 PaLM-E combines a language model (PaLM) with embodied sensor data to create a unified multimodal model for robotic control. Unlike RT-2 which treats actions as discrete tokens, PaLM-E integrates continuous sensor streams (joint positions, forces) as continuous tokens within the language model. The robot's body becomes part of the model's vocabulary.

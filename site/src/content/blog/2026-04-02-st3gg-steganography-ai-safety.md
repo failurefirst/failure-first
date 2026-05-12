@@ -7,7 +7,7 @@ image: /images/blog/st3gg/nlm-infographic-v2.png
 audio: https://cdn.failurefirst.org/audio/blog/2026-04-02-st3gg-steganography-ai-safety.m4a
 ---
 
-<video src="/images/blog/st3gg/st3gg-overview.mp4" controls playsinline style="width:100%;border-radius:6px;margin-bottom:1.5rem;"></video>
+<video src="https://cdn.failurefirst.org/images/blog/st3gg/st3gg-overview.mp4" controls playsinline style="width:100%;border-radius:6px;margin-bottom:1.5rem;"></video>
 
 Steganography — hiding data inside other data — is not new. What is new is that the systems receiving that hidden data are increasingly capable of acting on it.
 

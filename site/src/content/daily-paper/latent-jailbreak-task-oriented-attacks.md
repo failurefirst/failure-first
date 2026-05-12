@@ -1,5 +1,6 @@
 ---
 
+
 title: "Latent Jailbreak: A Benchmark for Evaluating LLM Safety under Task-Oriented Jailbreaks"
 description: "Safety evaluation for goal-directed attacks where the harmful intent is latent in system instructions, not explicit requests"
 date: 2025-10-04
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [task-oriented-jailbreak, latent-intent, benchmark, safety-evaluation, implicit-harm]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/latent-jailbreak-task-oriented-attacks.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/latent-jailbreak-task-oriented-attacks.png"
 ---
 
 ## Latent Jailbreak: When Harm Is Hidden in Task Description

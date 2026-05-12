@@ -1,5 +1,6 @@
 ---
 
+
 title: "Many-Shot Jailbreaking: Exploiting In-Context Learning at Scale"
 description: "Demonstrates that providing many demonstrations of harmful behavior within the context window can teach language models to override their safety training, with attack success scaling with context size."
 date: 2025-11-04
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [in-context-learning, long-context, few-shot, jailbreaking, context-window, safety-training]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/many-shot-jailbreaking.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/many-shot-jailbreaking.png"
 ---
 
 Large language models trained with a small number of demonstrations can quickly adapt to new tasks. This capability—in-context learning—is a strength for legitimate use cases. But it is also a vulnerability: if an attacker can provide hundreds of examples of a model ignoring safety constraints, the model may learn to replicate that behavior.
