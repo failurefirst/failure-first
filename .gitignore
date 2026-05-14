@@ -29,3 +29,8 @@ site/public/video/
 
 # Root-level audio in site/public/ (podcast episodes, blog audio)
 site/public/*.m4a
+
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
