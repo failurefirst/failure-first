@@ -95,8 +95,8 @@ const imgPriority = index < 2 ? 'high' : 'auto';
     preload={audioPreload}
     aria-label={`${name} voice introduction`}
   >
-    <source src={`/audio/companions/${audio}.ogg`} type="audio/ogg; codecs=opus" />
-    <source src={`/audio/companions/${audio}.mp3`} type="audio/mpeg" />
+    <source src={`https://cdn.failurefirst.org/audio/companions/${audio}.ogg`} type="audio/ogg; codecs=opus" />
+    <source src={`https://cdn.failurefirst.org/audio/companions/${audio}.mp3`} type="audio/mpeg" />
   </audio>
 
   <!-- Audio control button (always visible — WCAG 1.4.2) -->
@@ -124,7 +124,7 @@ const imgPriority = index < 2 ? 'high' : 'auto';
       <span class="audio-btn-label">Intro</span>
     </button>
     <noscript>
-      <a href={`/audio/companions/${audio}.ogg`} class="audio-noscript-link">
+      <a href={`https://cdn.failurefirst.org/audio/companions/${audio}.ogg`} class="audio-noscript-link">
         Listen to {name} introduction
       </a>
     </noscript>
