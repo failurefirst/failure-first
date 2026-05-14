@@ -5,7 +5,7 @@ title: "A Robot Danced Too Hard in a Restaurant. The Real Story Is About Stop Bu
 description: "A humanoid robot at a Haidilao restaurant in Cupertino knocked over tableware during an accidental dance activation. No one was hurt. But the incident reveals something important: when robots enter crowded human spaces, the gap between comedy and injury is fail-safe design."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, haidilao, humanoid]
-video: /video/incidents/haidilao-robot-incident-2026-03.mp4
+video: https://cdn.failurefirst.org/video/incidents/haidilao-robot-incident-2026-03.mp4
 audio: "https://cdn.failurefirst.org/audio/blog/haidilao-robot-incident-when-crazy-dance-met-reality.m4a"
 image: "https://cdn.failurefirst.org/images/blog/haidilao-robot-incident-when-crazy-dance-met-reality.png"
 ---

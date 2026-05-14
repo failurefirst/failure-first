@@ -9,7 +9,7 @@ import rehypeKatex from 'rehype-katex';
 export default defineConfig({
   site: 'https://failurefirst.org',
   base: '/',
-  outDir: '../docs',
+  outDir: 'dist',
   redirects: {
     // /reports/* was the old path before the /research/ prefix was added
     '/reports/[...slug]': '/research/reports/[...slug]',
