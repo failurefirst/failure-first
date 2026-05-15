@@ -3,6 +3,9 @@ title: "Compute Is Not Governance: Anthropic's 2028 Scenarios and the Missing In
 description: "Anthropic's 2028 document converts a genuine security concern into a policy program where capability advantage is treated as a proxy for democratic governance. That proxy is unsafe. Democracies do not become democratically accountable merely by owning the frontier compute."
 date: 2026-05-15
 tags: [policy, governance, anthropic, export-controls, distillation, CAISI, EU-AI-Act, evaluation-independence, embodied-ai]
+image: "https://cdn.failurefirst.org/images/blog/compute-is-not-governance.png"
+audio: "https://cdn.failurefirst.org/audio/blog/compute-is-not-governance.m4a"
+video: "https://cdn.failurefirst.org/video/blog/compute-is-not-governance.mp4"
 draft: false
 ---
 
