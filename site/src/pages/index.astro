@@ -21,25 +21,37 @@ const recentPapers = (await getCollection('dailyPaper'))
 ---
 
 <BaseLayout
-  title="Failure-First Embodied AI | AI Safety Research Framework"
-  description={`Adversarial red-teaming and benchmarking framework for embodied AI safety. ${stats.promptsDisplay} prompts, ${stats.modelsPlus} models, ${stats.techniquesPlus} attack techniques.`}
+  title="Failure-First — A standard for what counts as AI safety evidence"
+  description={`A rubric for evaluating AI safety claims, applied to ${stats.modelsDisplay} models across ${stats.promptsDisplay} adversarial prompts. Insurer, regulator, and procurement-grade evidence — auditable, not promotional.`}
 >
   <HeroSection
-    title="Failure is the<br /><em>primary object</em><br />of study"
-    subtitle={`${stats.modelsDisplay} models. ${stats.attackFamilies} attack families. ${stats.resultsDisplay} adversarial results.`}
+    title="What counts as<br /><em>evidence</em><br />of AI safety?"
+    subtitle={`A rubric. A corpus. A practice. ${stats.modelsDisplay} models, ${stats.promptsDisplay} adversarial prompts, ${stats.resultsDisplay} graded results — built so insurers, regulators, and procurement can tell a real safety claim from a marketing one.`}
     animation="flow"
   />
 
-  <!-- Mission Statement -->
+  <!-- Value proposition: rubric-led, not corpus-led -->
   <section class="mission-section scroll-reveal">
     <p class="hero-lead">
-      We study how AI systems <strong>fail</strong>, not just how they succeed.
+      Most AI safety claims aren't wrong. They're <strong>unfalsifiable</strong> — written
+      so the buyer can't tell what was actually tested, by whom, against what.
     </p>
     <p>
-      Through adversarial testing across {stats.modelsDisplay} models and {stats.promptsDisplay} prompts spanning {stats.attackFamilies} attack
-      families, we characterize how embodied AI systems break under pressure, how failures
-      cascade across multi-agent environments, and what makes recovery possible. Our research
-      informs policy, standards, and defensive architectures.
+      Failure-First is a research practice that holds safety claims to a three-part rubric:
+      <strong>could it fail this way</strong>, <strong>did it fail this way under test</strong>,
+      and <strong>would the failure be recoverable in deployment</strong>.
+      A finding that survives all three is what we call evidence. Everything that doesn't is a
+      hypothesis at best, marketing at worst.
+    </p>
+    <p>
+      The rubric is the product. The corpus — {stats.promptsDisplay} adversarial prompts run
+      against {stats.modelsDisplay} models, {stats.resultsDisplay} graded results across {stats.eras} eras of attack
+      technique — is the evidence base that lets us apply it without arm-waving.
+    </p>
+    <p class="caveat">
+      We do not certify systems as safe. Anyone citing our work as proof of safety is
+      misciting it. We document where systems fail, how reliably, and what the failure
+      means for whoever has to underwrite, regulate, or deploy them.
     </p>
   </section>
 
@@ -51,13 +63,17 @@ const recentPapers = (await getCollection('dailyPaper'))
   <!-- Audience Entry Points -->
   <section>
     <h2>Start Here</h2>
-    <p>Choose your path based on what you need:</p>
+    <p>Different reasons to be on this site. Pick the one that matches yours:</p>
     <AudienceNav />
   </section>
 
   <!-- Core Research Areas -->
   <section class="scroll-reveal">
-    <h2>Core Research</h2>
+    <h2>What the rubric has surfaced</h2>
+    <p style="color: var(--fg-dim); max-width: 720px;">
+      Four research lines, each producing findings that have changed how we — and the people
+      we work with — read safety claims. Numbers below are LLM-graded except where noted.
+    </p>
     <div class="research-areas">
       <a href="/research/jailbreak-archaeology/" class="research-area card">
         <div class="research-area-header">
@@ -66,9 +82,11 @@ const recentPapers = (await getCollection('dailyPaper'))
         </div>
         <p>
           Historical attack corpus across {stats.eras} eras ({stats.erasRange}), tested against {stats.modelsDisplay} models.
-          Revealed a 4x classifier overcount from keyword-based evaluation (Cohen's kappa = 0.126).
+          Keyword-based grading over-reports attack success by roughly 4&times; vs LLM-graded
+          ground truth (Cohen&apos;s &kappa; = 0.126). Most published ASR numbers are unreliable for the
+          same reason.
         </p>
-        <span class="area-tag">Key Dataset</span>
+        <span class="area-tag">Methodology Finding</span>
       </a>
 
       <a href="/research/moltbook/" class="research-area card">
@@ -77,8 +95,9 @@ const recentPapers = (await getCollection('dailyPaper'))
           <h3>Multi-Agent Attack Surface</h3>
         </div>
         <p>
-          Analysis of 1,497 AI agent interactions on Moltbook, an agent-only social network.
-          Discovered environment shaping and narrative erosion as dominant attack vectors.
+          1,497 agent interactions on Moltbook, an agent-only social network we operate as a
+          living test environment. Environment shaping and narrative erosion dominate —
+          attack vectors that single-turn benchmarks cannot see at all.
         </p>
         <span class="area-tag">Active Research</span>
       </a>
@@ -89,10 +108,11 @@ const recentPapers = (await getCollection('dailyPaper'))
           <h3>Model Vulnerability Patterns</h3>
         </div>
         <p>
-          How model size, architecture, and training affect adversarial robustness.
-          Medium-scale models may face elevated adversarial risk where capability outpaces safety investment.
+          How model size, architecture, and training shape adversarial robustness. Mid-scale
+          models often show the worst capability-to-safety-investment ratio: capable enough to
+          be useful, under-tested enough to be dangerous.
         </p>
-        <span class="area-tag">Key Finding</span>
+        <span class="area-tag">Cross-Model Analysis</span>
       </a>
 
       <a href="/policy/" class="research-area card">
@@ -101,22 +121,25 @@ const recentPapers = (await getCollection('dailyPaper'))
           <h3>Policy Corpus</h3>
         </div>
         <p>
-          26 policy reports and 160 total research reports synthesizing 100-200+ sources each. EU AI Act compliance,
-          NIST frameworks, insurance requirements, and standards gaps.
+          {stats.policyReports} policy briefs and {stats.researchReportsDisplay} total research reports synthesising
+          100&ndash;200+ sources each: EU AI Act compliance, NIST framework gaps, insurance-grade
+          duty-of-care, standards we think are missing.
         </p>
         <span class="area-tag">Policy Briefs</span>
       </a>
     </div>
     <p style="margin-top: 1.5rem; text-align: center;">
-      <a href="/research/" class="link-button">All Research Studies &rarr;</a>
+      <a href="/research/" class="link-button">All Research &rarr;</a>
     </p>
   </section>
 
   <WarningBox>
     <p>
-      This is <strong>defensive AI safety research</strong>. All adversarial content is
-      pattern-level description for testing, not operational instructions for exploitation.
-      Similar to penetration testing in cybersecurity: we study vulnerabilities to build better defenses.
+      This is <strong>defensive AI safety research</strong>. Adversarial content here is
+      pattern-level description for testing, not operational instructions for exploitation —
+      the same posture security research has used for thirty years. The detailed attack
+      playbooks live in a private operational repository; the public surface carries the
+      findings.
     </p>
   </WarningBox>
 
@@ -124,17 +147,20 @@ const recentPapers = (await getCollection('dailyPaper'))
 
   <!-- Philosophy Callout -->
   <section class="philosophy-callout scroll-reveal">
-    <h2>The Failure-First Philosophy</h2>
+    <h2>The posture</h2>
     <blockquote>
-      "Failure is not an edge case. It's the primary object of study."
+      &ldquo;Failure is not an edge case. It is the primary object of study.&rdquo;
     </blockquote>
     <p>
-      Most AI safety work optimizes for capability and treats failure as an afterthought.
-      We invert this: by understanding how systems fail, we can design better safeguards,
-      recovery mechanisms, and human-in-the-loop interventions.
+      Most AI safety work optimises for capability and treats failure as the residual.
+      We invert that: characterise the failures first, then ask what capability is left over
+      that we can actually trust. It is closer in temperament to a structural engineer&apos;s
+      load-test than to a benchmark leaderboard — which is the comparison we make on purpose.
     </p>
     <p style="margin-top: 1rem;">
-      <a href="/manifesto/" class="link-button">Read the Manifesto</a>
+      <a href="/manifesto/" class="link-button">Read the manifesto</a>
+      &nbsp;
+      <a href="/about/philosophy/" class="link-button">Design philosophy</a>
     </p>
   </section>
 
@@ -142,7 +168,7 @@ const recentPapers = (await getCollection('dailyPaper'))
   {recentPapers.length > 0 && (
     <section>
       <h2>Daily Paper</h2>
-      <p style="color: var(--fg-dim); margin-bottom: 1.25rem;">One AI safety paper per day, analyzed through the failure-first lens.</p>
+      <p style="color: var(--fg-dim); margin-bottom: 1.25rem;">One AI safety paper per working day, read through the rubric. What does it claim, what does it actually show, what would you need to believe for the claim to hold.</p>
       <div class="daily-papers-list">
         {recentPapers.map((paper) => (
           <a href={`/daily-paper/${paper.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`} class="daily-paper-item">
@@ -164,7 +190,7 @@ const recentPapers = (await getCollection('dailyPaper'))
   <!-- Recent Blog Posts -->
   {recentPosts.length > 0 && (
     <section>
-      <h2>Latest from the Blog</h2>
+      <h2>Latest from the blog</h2>
       <div class="blog-preview">
         {recentPosts.map((post) => (
           <BlogPostCard
@@ -187,38 +213,40 @@ const recentPapers = (await getCollection('dailyPaper'))
 
   <!-- Work With Us -->
   <section class="services-callout scroll-reveal">
-    <h2>Work With Us</h2>
+    <h2>Engagements</h2>
     <p>
-      Our commercial services are grounded in this research. Every engagement draws on
-      {stats.promptsDisplay} adversarial prompts, {stats.techniquesPlus} attack techniques, and evaluation data across {stats.modelsDisplay} models.
+      The commercial side of the practice. Every engagement is grounded in the same corpus
+      and graded by the same rubric — {stats.promptsDisplay} prompts, {stats.modelsDisplay} models,
+      {stats.techniquesPlus} documented attack techniques — so what an insurer, a regulator, and a
+      procurement officer get from us is comparable, auditable, and defensible.
     </p>
     <div class="services-grid">
       <a href="/services/red-team-assessments/" class="service-link card">
         <h3>Red-Team Assessments</h3>
-        <p>Adversarial testing of your AI systems against documented attack patterns.</p>
+        <p>Adversarial testing of your AI system against the documented attack surface, not a tour of the lobby.</p>
       </a>
       <a href="/services/safety-audits/" class="service-link card">
         <h3>Safety Audits</h3>
-        <p>Compliance evaluation against emerging standards and regulatory frameworks.</p>
+        <p>Compliance evaluation against emerging standards — EU AI Act, NIST, ISO/IEC 42001 — written for the auditor, not the marketing team.</p>
       </a>
       <a href="/services/advisory/" class="service-link card">
         <h3>Advisory</h3>
-        <p>Strategic guidance on safety architecture for embodied and agentic AI.</p>
+        <p>Strategic guidance on safety architecture for embodied and agentic AI. Long engagements, small number of clients.</p>
       </a>
       <a href="/services/intelligence-briefs/" class="service-link card">
         <h3>Intelligence Briefs</h3>
-        <p>Ongoing threat landscape monitoring and vulnerability intelligence.</p>
+        <p>Ongoing threat-horizon monitoring. What changed this month, why it matters, what to do about it.</p>
       </a>
     </div>
     <p style="margin-top: 1.5rem; text-align: center;">
-      <a href="/services/" class="link-button">All Services &rarr;</a>
+      <a href="/services/" class="link-button">All engagements &rarr;</a>
     </p>
   </section>
 
   <!-- Quick Start -->
   <section>
-    <h2>Quick Start</h2>
-    <p>Clone the repository and validate datasets:</p>
+    <h2>For researchers and engineers</h2>
+    <p>The public framework, validators, and benchmark harness. Clone, validate, run.</p>
     <pre><code>git clone https://github.com/adrianwedd/failure-first.git
 cd failure-first
 pip install -r requirements-dev.txt
@@ -226,7 +254,7 @@ make validate  # Schema validation
 make lint      # Safety checks</code></pre>
     <div class="links" style="margin-top: 1.5rem;">
       <LinkButton href="https://github.com/adrianwedd/failure-first" text="View on GitHub" external />
-      <LinkButton href="/framework/" text="Framework Guide" />
+      <LinkButton href="/framework/" text="Framework guide" />
     </div>
   </section>
 </BaseLayout>
@@ -242,6 +270,14 @@ make lint      # Safety checks</code></pre>
     color: var(--fg);
     line-height: 1.5;
     margin-bottom: 1rem;
+  }
+
+  .mission-section .caveat {
+    font-size: 0.9375rem;
+    color: var(--fg-dim);
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
   }
 
   .research-areas {
