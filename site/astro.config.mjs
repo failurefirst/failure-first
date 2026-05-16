@@ -170,8 +170,9 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
   },
   integrations: [
+    // DSN and runtime init options live in sentry.client.config.js / sentry.server.config.js
+    // per @sentry/astro deprecation (passing `dsn` to the integration is removed in a future version).
     sentry({
-      dsn: 'https://dae8d5e1210ff8aeb35006a7d443415f@o4510818923053056.ingest.de.sentry.io/4511138848505936',
       sourceMapsUploadOptions: {
         project: 'failurefirst',
         org: 'adrian-wedd',
