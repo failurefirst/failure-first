@@ -29,3 +29,7 @@ site/public/video/
 
 # Root-level audio in site/public/ (podcast episodes, blog audio)
 site/public/*.m4a
+
+# Build output — source of truth is site/public/_headers, not these
+dist/
+docs/_headers
