@@ -35,7 +35,16 @@ const dailyPaper = defineCollection({
     date: z.coerce.date(),
     arxiv: z.string().optional(),
     arxiv_id: z.string().optional(),
-    authors: z.union([z.string(), z.array(z.string())]).optional(),
+    authors: z
+      .union([z.string(), z.array(z.string())])
+      .refine(
+        (v) => {
+          const bad = (s: string) => s === '' || s.toLowerCase() === 'null' || s.toLowerCase() === 'none';
+          return Array.isArray(v) ? v.length > 0 && !v.some(bad) : !bad(v);
+        },
+        { message: 'authors must be omitted rather than set to "", "null", or "none" — the generator is stringifying a null author list' },
+      )
+      .optional(),
     author: z.string().optional(),
     paperType: z.enum(['empirical', 'theoretical', 'methods', 'survey', 'position', 'application', 'original-research', 'systematization']).optional(),
     tags: z.array(z.string()).default([]),
