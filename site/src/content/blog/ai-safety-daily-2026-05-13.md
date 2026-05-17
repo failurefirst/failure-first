@@ -4,6 +4,7 @@ description: "Fine-tuning asymmetry, KPI-induced constraint violations, tri-role
 date: 2026-05-13
 tags: ["ai-safety-daily", "alignment", "red-teaming", "agentic-ai", "fine-tuning"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-05-13-infographic.png"
 ---
 
 ## AI Safety Research Digest — May 13, 2026

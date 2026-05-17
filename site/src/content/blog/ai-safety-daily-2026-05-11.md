@@ -4,6 +4,7 @@ description: "Guardrail diagnostics for agentic pipelines, SAE feature-steering 
 date: 2026-05-11
 tags: ["ai-safety-daily", "agentic-ai", "interpretability", "red-teaming", "frontier-models"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-05-11-infographic.png"
 ---
 
 ## AI Safety Research Digest — May 11, 2026

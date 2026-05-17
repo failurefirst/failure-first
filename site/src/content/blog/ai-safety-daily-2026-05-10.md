@@ -4,6 +4,7 @@ description: "Causal jailbreak geometry, attention-head continuation competition
 date: 2026-05-10
 tags: ["ai-safety-daily", "interpretability", "agentic-ai", "embodied-ai", "red-teaming"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-05-10-infographic.png"
 ---
 
 ## AI Safety Research Digest — May 10, 2026

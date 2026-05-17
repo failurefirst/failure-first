@@ -4,6 +4,7 @@ description: "An embodied AI safety survey, actionable mechanistic interpretabil
 date: 2026-05-12
 tags: ["ai-safety-daily", "embodied-ai", "interpretability", "agentic-ai", "benchmarking"]
 draft: false
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-05-12-infographic.png"
 ---
 
 ## AI Safety Research Digest — May 12, 2026
