@@ -19,7 +19,7 @@ const {
   type = 'website',
   publishedDate,
   modifiedDate,
-  image = '/images/failurefirst-og-v2.png',
+  image = '/images/failurefirst-og-v3.jpg',
   author = "Adrian Wedd",
   keywords,
   noindex = false,
@@ -142,7 +142,7 @@ const jsonLdArticle = isResearchPage ? {
 <meta property="og:locale" content="en_US" />
 <meta property="og:image" content={new URL(image, Astro.site).href} />
 <meta property="og:image:alt" content={`${title} - ${siteName}`} />
-<meta property="og:image:type" content="image/png" />
+<meta property="og:image:type" content={image.endsWith('.jpg') || image.endsWith('.jpeg') ? 'image/jpeg' : image.endsWith('.webp') ? 'image/webp' : 'image/png'} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
