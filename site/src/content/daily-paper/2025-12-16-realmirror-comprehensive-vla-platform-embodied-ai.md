@@ -1,5 +1,6 @@
 ---
 
+
 title: "RealMirror: A Comprehensive, Open-Source Vision-Language-Action Platform for Embodied AI"
 description: "Presents an open-source VLA platform that enables low-cost data collection, standardized benchmarking, and zero-shot sim-to-real transfer for humanoid robot manipulation tasks."
 date: 2025-12-16
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["vision-language-action", "sim-to-real-transfer", "embodied-ai-platform", "robot-benchmarking", "open-source"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-16-realmirror-comprehensive-vla-platform-embodied-ai.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-16-realmirror-comprehensive-vla-platform-embodied-ai.png"
 ---
 
 # RealMirror: A Comprehensive, Open-Source Vision-Language-Action Platform for Embodied AI

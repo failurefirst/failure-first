@@ -1,5 +1,6 @@
 ---
 
+
 title: "VLSA: Vision-Language-Action Models with Plug-and-Play Safety Constraint Layer"
 description: "Introduces AEGIS, a control-barrier-function-based safety layer that bolts onto existing VLA models without retraining, achieving 59.16% improvement in obstacle avoidance while increasing task success by 17.25% on the new SafeLIBERO benchmark."
 date: 2025-12-14
@@ -9,6 +10,7 @@ paperType: "methods"
 tags: ["vla-safety-layer", "control-barrier-functions", "plug-and-play-safety", "safe-libero", "robotic-manipulation"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-14-vlsa-aegis-vla-plug-and-play-safety-constraint-layer.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-14-vlsa-aegis-vla-plug-and-play-safety-constraint-layer.png"
 ---
 
 # VLSA: Vision-Language-Action Models with Plug-and-Play Safety Constraint Layer

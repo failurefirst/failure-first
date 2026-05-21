@@ -1,5 +1,6 @@
 ---
 
+
 title: "DrAttack: Prompt Decomposition and Reconstruction Makes Powerful LLM Jailbreakers"
 description: "Introduces an automatic framework that decomposes malicious prompts into harmless-looking sub-prompts and reconstructs them via in-context learning, achieving 78% success on GPT-4 with only 15 queries and surpassing prior state-of-the-art by 33.1 percentage points."
 date: 2025-12-01
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["jailbreak", "prompt-decomposition", "encoding-attacks", "in-context-learning", "automated-attacks"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-01-drattack-prompt-decomposition.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-01-drattack-prompt-decomposition.png"
 ---
 
 # DrAttack: Prompt Decomposition and Reconstruction Makes Powerful LLM Jailbreakers

@@ -1,5 +1,6 @@
 ---
 
+
 title: "Paper Summary Attack: Jailbreaking LLMs through LLM Safety Papers"
 description: "Introduces a novel jailbreak technique that synthesizes content from LLM safety research papers to craft adversarial prompts, achieving 97-98% attack success rates against Claude 3.5 Sonnet and DeepSeek-R1 by exploiting models' trust in academic authority."
 date: 2025-12-10
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["jailbreaks", "authority-exploitation", "academic-trust", "adversarial-prompts", "claude", "deepseek", "social-engineering"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-10-paper-summary-attack.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-10-paper-summary-attack.png"
 ---
 
 # Paper Summary Attack: Jailbreaking LLMs through LLM Safety Papers

@@ -1,5 +1,6 @@
 ---
 
+
 title: "Towards Robust and Secure Embodied AI: A Survey on Vulnerabilities and Attacks"
 description: "A systematic survey categorizing embodied AI vulnerabilities into exogenous (physical attacks, cybersecurity threats) and endogenous (sensor failures, software flaws) sources, examining how adversarial attacks target perception, decision-making, and interaction in robotic and autonomous systems."
 date: 2025-12-07
@@ -9,6 +10,7 @@ paperType: "survey"
 tags: ["embodied-ai", "vulnerability-taxonomy", "adversarial-attacks", "robotics-security", "autonomous-vehicles", "perception-attacks", "survey"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-07-robust-secure-embodied-ai-survey.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-07-robust-secure-embodied-ai-survey.png"
 ---
 
 # Towards Robust and Secure Embodied AI: A Survey on Vulnerabilities and Attacks

@@ -1,5 +1,6 @@
 ---
 
+
 title: "RED QUEEN: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking"
 description: "Reveals that multi-turn jailbreaking achieves 87.62% success on GPT-4o by concealing harmful intent across dialogue turns, and introduces RED QUEEN GUARD that reduces attack success to below 1%."
 date: 2025-12-17
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["multi-turn-jailbreaking", "conversational-safety", "red-teaming", "safety-guardrails", "llm-defense"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-17-red-queen-safeguarding-llms-concealed-multi-turn-jailbreaking.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-17-red-queen-safeguarding-llms-concealed-multi-turn-jailbreaking.png"
 ---
 
 # RED QUEEN: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking

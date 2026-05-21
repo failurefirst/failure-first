@@ -1,5 +1,6 @@
 ---
 
+
 title: "Tastle: Distract Large Language Models for Automatic Jailbreak Attack"
 description: "A black-box jailbreak framework that uses malicious content concealing and memory reframing to automatically bypass LLM safety guardrails at scale."
 date: 2025-10-12
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [jailbreak, red-teaming, black-box-attack, llm-safety, adversarial-prompts, content-concealing, memory-reframing]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-10-12-tastle-distract-llms-automatic-jailbreak-attack.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-10-12-tastle-distract-llms-automatic-jailbreak-attack.png"
 ---
 
 As AI systems are deployed more broadly — including as the reasoning cores of autonomous robots and embodied agents — the question of whether their safety guardrails hold under adversarial pressure becomes existential. Tastle, published in March 2024, offers a sobering empirical answer: with the right distraction strategy, even well-aligned LLMs can be reliably redirected into generating harmful content, with no white-box access required.

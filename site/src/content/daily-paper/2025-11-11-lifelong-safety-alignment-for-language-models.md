@@ -1,5 +1,6 @@
 ---
 
+
 title: "Lifelong Safety Alignment for Language Models"
 description: "Presents an adversarial co-evolution framework where a Meta-Attacker discovers novel jailbreaks from research literature and a Defender iteratively adapts, reducing attack success from 73% to approximately 7% through competitive training."
 date: 2025-11-11
@@ -9,6 +10,7 @@ paperType: "methods"
 tags: ["lifelong-alignment", "adversarial-coevolution", "jailbreak-defence", "meta-attacker", "adaptive-safety"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-11-11-lifelong-safety-alignment-for-language-models.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-11-11-lifelong-safety-alignment-for-language-models.png"
 ---
 
 # Lifelong Safety Alignment for Language Models

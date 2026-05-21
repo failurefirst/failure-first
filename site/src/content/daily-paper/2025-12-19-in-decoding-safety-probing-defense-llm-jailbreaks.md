@@ -1,5 +1,6 @@
 ---
 
+
 title: "In-Decoding Safety-Awareness Probing: Surfacing Hidden Safety Signals to Defend LLMs Against Jailbreaks"
 description: "SafeProbing exploits latent safety signals that persist inside jailbroken LLMs during generation, achieving 95.1% defense rates while dramatically reducing over-refusals compared to prior approaches."
 date: 2025-12-19
@@ -9,6 +10,7 @@ paperType: "methods"
 tags: [jailbreak-defense, safety-alignment, llm-safety, decoding-time-defense, safety-probing]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-19-in-decoding-safety-probing-defense-llm-jailbreaks.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-19-in-decoding-safety-probing-defense-llm-jailbreaks.png"
 ---
 
 There is something strange about a successfully jailbroken LLM: even while generating harmful content, the model internally "knows" it's producing something unsafe. The safety-awareness is present — just suppressed. SafeProbing turns this observation into a practical defense, surfacing hidden safety signals during the decoding process itself to intercept harmful generation before it completes.

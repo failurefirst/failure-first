@@ -1,5 +1,6 @@
 ---
 
+
 title: "Multi-Stream Perturbation Attack: Breaking Safety Alignment of Thinking LLMs Through Concurrent Task Interference"
 description: "Proposes a jailbreak attack that interweaves multiple task streams within a single prompt to exploit unique vulnerabilities in thinking-mode LLMs, achieving high attack success rates while causing thinking collapse and repetitive outputs across Qwen3, DeepSeek, and Gemini 2.5 Flash."
 date: 2025-12-11
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["jailbreak", "reasoning-models", "thinking-mode", "format-lock", "multi-turn", "concurrent-interference"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-11-multi-stream-perturbation-attack.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-11-multi-stream-perturbation-attack.png"
 ---
 
 # Multi-Stream Perturbation Attack: Breaking Safety Alignment of Thinking LLMs Through Concurrent Task Interference

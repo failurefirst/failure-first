@@ -1,5 +1,6 @@
 ---
 
+
 title: "Jailbreaking to Jailbreak: LLM-as-Red-Teamer via Self-Attack"
 description: "Jailbroken versions of frontier LLMs can systematically red-team themselves and other models, achieving over 90% attack success rates against GPT-4o on HarmBench."
 date: 2025-10-13
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [jailbreak, red-teaming, llm-safety, self-attack, safety-alignment, adversarial-prompting]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-10-13-jailbreaking-to-jailbreak-llm-red-teamer-self-attack.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-10-13-jailbreaking-to-jailbreak-llm-red-teamer-self-attack.png"
 ---
 
 What happens when you jailbreak a model specifically so it can jailbreak *other* models — or itself? That is the core idea behind "Jailbreaking to Jailbreak," a paper that demonstrates a troubling but illuminating failure mode in LLM safety: a model's own reasoning capabilities can be turned against its safety guardrails in a recursive, scalable way.

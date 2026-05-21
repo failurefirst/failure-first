@@ -1,5 +1,6 @@
 ---
 
+
 title: "Risk Awareness Injection: Calibrating VLMs for Safety without Compromising Utility"
 description: "A training-free defense framework that amplifies unsafe visual signals in VLM embeddings to restore LLM-like risk recognition without degrading task performance."
 date: 2025-12-29
@@ -9,6 +10,7 @@ paperType: "methods"
 tags: [vlm-safety, multimodal-defense, training-free, risk-calibration, jailbreak-defense]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-29-risk-awareness-injection-calibrating-vlms-safety.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-29-risk-awareness-injection-calibrating-vlms-safety.png"
 ---
 
 Vision-language models extend the reasoning capabilities of LLMs into visual domains, but this cross-modal extension introduces new attack surfaces that text-only safety training fails to cover. Wang et al. propose **Risk Awareness Injection (RAI)**, a lightweight, training-free framework that restores safety calibration in VLMs by amplifying unsafe signals in the visual embedding space, without the computational overhead of safety fine-tuning or the performance degradation that typically accompanies defensive interventions.

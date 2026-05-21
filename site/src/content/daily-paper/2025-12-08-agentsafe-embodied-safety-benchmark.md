@@ -1,5 +1,6 @@
 ---
 
+
 title: "AGENTSAFE: Benchmarking the Safety of Embodied Agents on Hazardous Instructions"
 description: "Introduces SAFE, a comprehensive benchmark for evaluating embodied AI agent safety across perception, planning, and execution stages, revealing systematic failures in translating hazard recognition into safe behavior across nine vision-language models."
 date: 2025-12-08
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["embodied-ai", "safety-benchmarks", "vision-language-models", "hazard-recognition", "robotics-safety", "multi-stage-evaluation"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-08-agentsafe-embodied-safety-benchmark.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-08-agentsafe-embodied-safety-benchmark.png"
 ---
 
 # AGENTSAFE: Benchmarking the Safety of Embodied Agents on Hazardous Instructions
