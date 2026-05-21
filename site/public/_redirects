@@ -1,0 +1,4 @@
+# Redirect ai-safety-daily/* to canonical /blog/* URLs
+# Generated 2026-05-22 — posts physically moved to aiSafetyDaily collection
+# but /blog/ remains the canonical URL path.
+/ai-safety-daily/* /blog/:splat 301
