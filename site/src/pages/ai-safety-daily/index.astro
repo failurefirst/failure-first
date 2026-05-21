@@ -1,0 +1,53 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('aiSafetyDaily'))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<ContentLayout
+  title="AI Safety Daily | Failure-First"
+  description="Daily signals from the AI safety landscape — curated, contextualised, and analysed through the failure-first lens."
+  breadcrumbs={[{ label: "AI Safety Daily" }]}
+>
+  <HeroSection
+    title="AI Safety<br /><em>daily</em>"
+    subtitle="Daily signals from the AI safety landscape — curated and contextualised through the failure-first lens"
+    animation="flow"
+  />
+
+  {posts.length > 0 ? (
+    <div class="blog-list">
+      {posts.map((post) => (
+        <BlogPostCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          href={`/ai-safety-daily/${post.id}/`}
+          tags={post.data.tags}
+          image={post.data.image}
+        />
+      ))}
+    </div>
+  ) : (
+    <p class="empty-state">No posts yet. Check back soon.</p>
+  )}
+</ContentLayout>
+
+<style>
+  .blog-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .empty-state {
+    color: var(--fg-muted);
+    font-style: italic;
+    margin-top: 2rem;
+  }
+</style>

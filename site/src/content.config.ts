@@ -127,4 +127,18 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { blog, docs, dailyPaper, reports, legal, policyDocs, papers, services };
+const aiSafetyDaily = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/ai-safety-daily' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).default([]),
+    image: z.string().optional(),
+    audio: z.string().optional(),
+    video: z.string().optional(),
+    draft: z.boolean().default(false),
+  }).passthrough(),
+});
+
+export const collections = { blog, docs, dailyPaper, aiSafetyDaily, reports, legal, policyDocs, papers, services };
