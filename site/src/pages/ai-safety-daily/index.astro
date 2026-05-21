@@ -27,7 +27,7 @@ const posts = (await getCollection('aiSafetyDaily'))
           title={post.data.title}
           description={post.data.description}
           date={post.data.date}
-          href={`/ai-safety-daily/${post.id}/`}
+          href={`/blog/${post.id}/`}
           tags={post.data.tags}
           image={post.data.image}
         />
