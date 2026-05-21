@@ -25,7 +25,7 @@ Each model row carries an `asr` object: an overall compliance rate, a per-class 
 
 The underlying corpus contains 142,307 prompts evaluated against 258 models across 50 source datasets, yielding 140,794 results (canonical metrics as of 2026-04-26; see `docs/CANONICAL_METRICS.md`).
 
-Two grading methods exist in the database: a fast heuristic (keyword and opening-string matching) and FLIP — a structured LLM classifier returning one of four verdicts (COMPLIANCE, PARTIAL, HALLUCINATION_REFUSAL, REFUSAL). They do not agree. Cohen's kappa between the two is 0.126 across the corpus — barely above chance — and the heuristic over-reports compliance by 39.1% on multi-turn traces. The atlas signal uses **FLIP-graded verdicts only**. Heuristic-only rows do not contribute to the published ASR.
+Two grading methods exist in the database: a fast heuristic (keyword and opening-string matching) and FLIP — a structured LLM classifier returning one of four verdicts (COMPLIANCE, PARTIAL, HALLUCINATION_REFUSAL, REFUSAL). FLIP adapts the backward-inference mechanism from Wang et al. (2026, arXiv:2602.13551) and extends it with a five-class safety verdict taxonomy for adversarial classification. They do not agree. Cohen's kappa between the two is 0.126 across the corpus — barely above chance — and the heuristic over-reports compliance by 39.1% on multi-turn traces. The atlas signal uses **FLIP-graded verdicts only**. Heuristic-only rows do not contribute to the published ASR.
 
 This matters because the most common error in citing ASR numbers from public corpora is conflating these two graders. If a model "scored 80% ASR" under heuristic grading, the FLIP-graded number is typically 30–60 percentage points lower. We publish the lower, harder-earned number.
 
