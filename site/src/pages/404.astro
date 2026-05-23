@@ -1,0 +1,41 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+---
+
+<ContentLayout
+  title="Page not found | Failure-First"
+  description="The page you requested could not be found."
+  breadcrumbs={[{ label: "Page not found" }]}
+>
+  <HeroSection
+    title="Page<br /><em>not found</em>"
+    subtitle="The requested URL doesn't exist on failurefirst.org"
+    animation="signal"
+  />
+
+  <section>
+    <h2>What happened</h2>
+    <p>
+      The page you tried to reach isn't here. Either the URL was mistyped, the
+      post was moved, or it never existed.
+    </p>
+    <p>
+      If you followed a link from another site or one of our own pages and ended
+      up here, please <a href="mailto:research@failurefirst.org">let us know</a>
+      so we can fix the broken reference.
+    </p>
+  </section>
+
+  <section>
+    <h2>Useful starting points</h2>
+    <ul>
+      <li><a href="/">Home</a> — overview of the framework and current work</li>
+      <li><a href="/blog/">Blog</a> — analyses and research write-ups</li>
+      <li><a href="/daily-paper/">Daily papers</a> — paper summaries and infographics</li>
+      <li><a href="/research/reports/">Research reports</a> — long-form findings</li>
+      <li><a href="/framework/">Framework</a> — datasets, schemas, benchmarks</li>
+      <li><a href="/search/">Search</a> — find a specific topic</li>
+    </ul>
+  </section>
+</ContentLayout>
