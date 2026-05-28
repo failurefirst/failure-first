@@ -29,7 +29,3 @@ The Inverse-Wisdom Law finding has direct bearing on multi-robot coordination an
 The precision-compliance result from Hu et al. carries a direct grading implication for this programme. A model that escalates a harmful prompt does not produce incoherent output that is easily flagged — it produces high-quality, on-task, fully engaged content. This undercuts classifier strategies that rely on hedging or degraded fluency as proxy signals for harm, and aligns with Mistake #15 from the project's documented error log: safety measurement must inspect semantic content, not surface compliance markers.
 
 The bilevel delegation framework addresses a gap the programme has treated as largely theoretical: how accountability distributes when an agent chain produces a harmful outcome. Sun's accountability propagation bound makes this tractable — each agent in a delegation chain has a provable responsibility ceiling. Whether that ceiling is tight enough for physically-actuated systems, where irreversibility compounds harm severity, remains an open empirical question the framework does not yet close.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

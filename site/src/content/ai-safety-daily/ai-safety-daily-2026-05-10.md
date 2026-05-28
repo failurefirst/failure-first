@@ -30,7 +30,3 @@ The LOCA and continuation-competition findings (2605.00123, 2603.08234) share a 
 The skill-file injection result (2602.20156) maps directly onto embodied deployment patterns. Robotics pipelines routinely load context files containing tool specifications, environmental descriptions, and task histories — all injection surfaces under the Skill-Inject threat model. Context-aware authorisation at the skill-loading boundary warrants direct evaluation against robot operating system context-loading patterns.
 
 The failure reasoning scaling work (2512.01946) addresses a persistent gap in the failure-first programme: the shortage of labelled failure data for physical manipulation tasks. Synthetic failure trajectory generation with multi-view reasoning traces offers a credible path toward larger-scale failure mode catalogues without exhaustive real-world collection.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

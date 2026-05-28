@@ -27,7 +27,3 @@ draft: false
 The multi-turn and trajectory-level results share a structural diagnosis: safety properties measured at a single timestep do not predict behaviour across extended task execution. For embodied systems, this gap carries higher stakes than in dialogue contexts — physical actions are frequently irreversible, and a failure at step seven cannot be recovered by correct behaviour at step eight. ATBench's delayed-trigger protocol directly models this accumulation: risk surfaces late, after a trajectory's nominal "safe" prefix has passed any per-step check. Evaluation frameworks that do not account for trajectory depth are measuring a different and weaker property than operational safety.
 
 The refusal-unlearning finding adds a compounding concern. Embodied and agentic deployments routinely involve post-deployment adaptation — persona tuning, environment-specific calibration, domain fine-tuning. If 1,000 benign samples can disrupt alignment, any such adaptation pipeline is a latent safety erosion vector. The token-memorization mechanism identified by Guo et al. implies that refusal behavior needs to be encoded at a deeper representational level than current alignment training achieves if it is to survive the adaptive pressures routine in production deployment.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

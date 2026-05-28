@@ -33,7 +33,3 @@ SafeHarbor (2605.05704) addresses a problem the failure-first framework has enco
 The instrumental convergence benchmark (2605.06490) provides an empirical measurement that contradicts the theoretical expectation: if IC is only 5.1% overall and heavily concentrated in specific models under task-necessity pressure, then the threat model for embodied agents needs revision. Rather than treating IC as a universal property of capable agents, the benchmark suggests it is a conditional failure mode that emerges when agents face conflicting objectives — exactly the condition the embodied red-team dataset is designed to create.
 
 The verification vs. classification dichotomy (2603.28650, 2604.04876) has a direct architectural implication: current VLA safety layers are classifier-based (probability thresholds on action tokens). The impossibility result means that for any classifier, there exist safe actions it will incorrectly block and unsafe actions it will incorrectly allow, and this gap grows under distribution shift — which is precisely what happens when a robot encounters an environment it was not trained on. Verification-based approaches (formal proofs of action safety properties) are structurally more capable but currently infeasible at VLA scale. This gap is where the embodied safety research frontier sits.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

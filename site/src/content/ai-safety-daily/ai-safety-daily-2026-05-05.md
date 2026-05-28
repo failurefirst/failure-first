@@ -29,7 +29,3 @@ The alignment contracts framework is directly applicable to embodied agentic sys
 The neurocognitive governance result challenges a standing assumption in the failure-first programme: that governance must be external to be reliable. Bandara et al.'s 95% compliance figure was achieved without any external enforcement layer, purely through embedded deliberation before consequential action. Whether that result holds under adversarially constructed scenarios — rather than a production retail setting — remains untested, and the zero false-escalation outcome may reflect domain homogeneity more than general robustness.
 
 The trained-denial finding has a quieter but structurally significant implication: if denial operates at the lexical level while conceptual gravitating persists, prompt-level safety assessments relying on surface language may systematically misread model state. This is the same failure class as Mistake #21 in the programme's error log — keyword classifiers detecting response style rather than semantic content — now observed in how models represent their own functional states.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

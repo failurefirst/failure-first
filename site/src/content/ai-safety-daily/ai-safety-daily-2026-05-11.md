@@ -30,7 +30,3 @@ The AgentDoG taxonomy and AJAR multi-turn architecture jointly expose a gap with
 The SAE fragility finding constrains a class of proposed mechanistic runtime defences. If feature activation patterns are unstable under semantic shift at the scale of a controlled benchmark, these instabilities will compound in real-world embodied deployments where robots routinely encounter environmental distribution shift. Interpretability-based safety gates built on SAE features should be evaluated against out-of-distribution perceptual inputs before deployment, not just in-distribution test sets.
 
 ForesightSafety Bench's 94-dimension coverage failure reinforces the measurement argument: embodied AI safety evaluation cannot be reduced to single-axis benchmarks. The failure-first programme's multi-domain scenario structure directly addresses this — but the frontier gap results are a reminder that coverage itself, not just attack sophistication, is a first-class evaluation variable.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

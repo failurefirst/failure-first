@@ -27,7 +27,3 @@ draft: false
 AgentWall's intercept-before-execute model maps directly onto physical deployment contexts where actions are irreversible: declarative runtime policies remain auditable and overridable in a way that trained priors do not. IS-Bench makes the failure case concrete from the other direction — embodied agents create risks through their own action chains, and static environment benchmarks systematically miss this class of failure. Taken together, the two papers argue for safety architectures that treat the execution boundary as a design layer rather than a property of the model.
 
 The fine-tuning erosion and latent-perturbation results compound the picture. Embodied deployments routinely involve post-deployment adaptation — environment calibration, persona tuning, task-specific fine-tuning — any of which could silently regress alignment properties if representational similarity effects go unmonitored. LAPT's approach of measuring and training safety at the hidden-state level points toward evaluation practices that could detect this regression earlier in the adaptation pipeline, before the behavioral signal becomes visible.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

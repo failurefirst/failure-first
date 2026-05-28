@@ -30,7 +30,3 @@ The embodied AI safety survey (2605.02900) is the most practically consequential
 The distillation-degrades-safety finding (2601.03868) has a specific embodied translation: VLA models are routinely distilled from larger reasoning-capable models to meet inference latency requirements for real-time robot control. If distillation erodes safety margins in language models, the same effect should be measured explicitly in VLA fine-tuning pipelines before deployment. That measurement is currently absent from standard VLA evaluation protocols.
 
 DeepSight's diagnostic layer points toward what the benchmark stack is still missing: tools that answer not just "did the model refuse?" but "why, and is that mechanism stable under distribution shift?" That question remains unanswered for most deployed systems — and for embodied deployments where perceptual distribution shift is routine, the gap matters more, not less.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

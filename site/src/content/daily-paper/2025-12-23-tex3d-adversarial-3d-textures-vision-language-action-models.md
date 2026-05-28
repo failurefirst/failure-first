@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: [adversarial-attacks, vla-models, robotic-manipulation, 3d-textures, physical-world-attacks]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-23-tex3d-adversarial-3d-textures-vision-language-action-models.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-23-tex3d-adversarial-3d-textures-vision-language-action-models.png"
 ---
 
 Vision-Language-Action (VLA) models have become the backbone of a new generation of robotic manipulation systems. By grounding natural-language instructions in visual perception and mapping both into executable action sequences, they promise a long-awaited generalisation leap for robots operating in unstructured environments. But that same generality introduces a new category of attack surface that researchers are only beginning to map. Tex3D, from a team at East China Normal University, takes a decisive step into unexplored territory: rather than perturbing language prompts or 2-D image pixels, the authors weaponise the physical *texture* of objects that a robot must interact with.

@@ -27,7 +27,3 @@ image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-05-18.png"
 The invisible-orchestrator finding maps directly onto a gap in multi-turn episode evaluation: benchmarks that measure task success cannot detect dissociative failure modes accumulating across turns. The failure-first episode format — where output correctness is not the primary signal — is better positioned to surface these, but the study suggests that even behavioral metrics on worker agents may understate orchestration-level dysfunction. Multi-agent episode design requires explicit probes for coordinator influence propagation, not just per-turn outputs.
 
 The containment-verification and fusion-fission papers offer complementary framings of the same challenge: model-level alignment is insufficient when system-level dynamics determine the actual risk profile. For embodied systems, where action boundaries have physical consequences and a false-green reading has qualitatively higher stakes than in a software context, the case for agentic-layer formal verification is especially strong. The fusion-fission result adds a temporal dimension: safety evaluation should include drift prediction, not just point-in-time compliance checking.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

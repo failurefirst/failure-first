@@ -28,7 +28,3 @@ WildClawBench's harness-sensitivity result (18pp swing from infrastructure chang
 LiSA's deployment-feedback architecture maps onto a physical platform gap: a robot that encounters a novel social engineering attempt in the field cannot be retrained on the spot, but it could log the failure pattern and update a local policy abstraction before the next session. The extension from tool-use and workflow contexts to physical actuation is concrete future work.
 
 SafeHarbor's 63.6% benign utility floor matters for embodied deployment because physical platforms face over-refusal's costs acutely: a robot arm that declines to move a safe object breaks task continuity and can create secondary hazards. The over-refusal problem is not a UX concern in physical systems — it is a safety concern.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

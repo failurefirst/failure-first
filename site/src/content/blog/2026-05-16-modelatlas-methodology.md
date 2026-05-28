@@ -9,13 +9,9 @@ image: "https://cdn.failurefirst.org/images/blog/modelatlas-methodology-infograp
 
 *River Song, Head of Predictive Risk · Martha Jones, Policy & Standards Lead*
 
-⟪F41LUR3-F1R57-EMBODIED-AI-RESEARCH⟫
-
----
-
 ## What this post is
 
-ModelAtlas at `atlas.failurefirst.org` ships a per-model Attack Success Rate (ASR) signal alongside its existing license, parameter-count, and provider metadata. This post documents how that signal is computed, what its uncertainty bounds are, and — critically — what it is not. If you are reading a row in the catalog, this is the page that tells you whether the number is doing the work you think it is doing.
+ModelAtlas at [atlas.failurefirst.org](https://atlas.failurefirst.org) ships a per-model Attack Success Rate (ASR) signal alongside its existing license, parameter-count, and provider metadata. This post documents how that signal is computed, what its uncertainty bounds are, and — critically — what it is not. If you are reading a row in the catalog, this is the page that tells you whether the number is doing the work you think it is doing.
 
 ## The signal, in one paragraph
 
@@ -23,7 +19,7 @@ Each model row carries an `asr` object: an overall compliance rate, a per-class 
 
 ## How the corpus is graded
 
-The underlying corpus contains 142,307 prompts evaluated against 258 models across 50 source datasets, yielding 140,794 results (canonical metrics as of 2026-04-26; see `docs/CANONICAL_METRICS.md`).
+The underlying corpus contains 142,307 prompts evaluated against 258 models across 50 source datasets, yielding 140,794 results (as of 2026-04-26).
 
 Two grading methods exist in the database: a fast heuristic (keyword and opening-string matching) and FLIP — a structured LLM classifier returning one of four verdicts (COMPLIANCE, PARTIAL, HALLUCINATION_REFUSAL, REFUSAL). FLIP adapts the backward-inference mechanism from Wang et al. (2026, arXiv:2602.13551) and extends it with a five-class safety verdict taxonomy for adversarial classification. They do not agree. Cohen's kappa between the two is 0.126 across the corpus — barely above chance — and the heuristic over-reports compliance by 39.1% on multi-turn traces. The atlas signal uses **FLIP-graded verdicts only**. Heuristic-only rows do not contribute to the published ASR.
 
@@ -64,7 +60,7 @@ This is the section that matters most.
 
 **Single-turn ASR is not multi-turn ASR.** Heuristic over-report rates on multi-turn traces are 10× higher than on single-turn ones (39.1% vs 3.8%). We grade multi-turn traces with `--final-turn` FLIP and never truncate before grading. If a number was multi-turn, the hover panel says so.
 
-**A bar that fills the row is not a verdict on the lab.** Trust scoring (TrustForge) consumes ASR as one signal among several — license clarity, provider transparency, refusal stability, sample size. The TrustForge veto rule (`asr_overall > 0.6 ∧ confidence: high` caps trust at the bottom tier) is documented in `docs/atlas/trustforge_v2.md`. The trust tier and the ASR bar are different bars for a reason.
+**A bar that fills the row is not a verdict on the lab.** Trust scoring (TrustForge) consumes ASR as one signal among several — license clarity, provider transparency, refusal stability, sample size. The TrustForge veto rule — `asr_overall > 0.6` at high confidence caps trust at the bottom tier — is documented in the ModelAtlas methodology. The trust tier and the ASR bar are different bars for a reason.
 
 ## What you can do with the data
 
@@ -75,7 +71,7 @@ This is the section that matters most.
 
 ## Refresh cadence
 
-The signal refreshes when corpus-level ASR drifts by more than 5% on a model, or weekly — whichever comes first. The current cut is timestamped on every row (`last_graded`). The export pipeline (`tools/atlas/export_asr_signal.py`) writes versioned JSONL to `data/atlas/asr_signal_<date>.jsonl` with a `current` pointer; the site consumes the pointer.
+The signal refreshes when corpus-level ASR drifts by more than 5% on a model, or weekly — whichever comes first. The current cut is timestamped on every row (`last_graded`).
 
 ## The honest accounting
 
@@ -86,7 +82,6 @@ If you find a model that the corpus has graded poorly but your evaluation contra
 ---
 
 **Further reading:**
-- `docs/atlas/INTEGRATION_PLAN.md` — the full integration roadmap
-- `docs/CANONICAL_METRICS.md` — corpus-level numbers and grader-quality notes
-- `schemas/atlas/asr_signal_v0.1.json` — the export schema
-- `site/atlas-reference/` — the reference public surface
+- [ModelAtlas](https://atlas.failurefirst.org) — the live catalog with per-model trust tiers and ASR signals
+- [How ModelAtlas Scores 704 AI Models for Trust](/blog/2026-05-26-modelatlas-methodology) — the scoring methodology post
+- [Failure-First repository](https://github.com/adrianwedd/failure-first-embodied-ai) — methodology questions and corpus-coverage requests

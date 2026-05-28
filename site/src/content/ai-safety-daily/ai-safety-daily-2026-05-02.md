@@ -31,7 +31,3 @@ The irreversibility framework (2605.01415) maps directly onto physical robotics:
 Parallax (2604.12986) validates what the failure-first framework assumes: separation between reasoning and execution is not just good engineering, it is a security boundary. The 98.9% block rate with zero false positives under cognitive-executive separation contrasts with the continuous failure of prompt-level guardrails in embodied settings, where the model both reasons and acts through the same pathway. The PiCar-X architecture's Claude-brain + Ollama-voice split is a partial instance of this pattern; full Parallax compliance would require a separate validation layer between inference and actuator command.
 
 The Agentic Microphysics finding (2604.15236) has implications for multi-robot fleet deployments: if feed position governs collective attention, then a compromised context-sharing channel in a robot fleet is not just a data integrity problem — it is a population-level alignment vector. Current fleet safety evaluations do not include adversarial context injection as a test condition, and this paper provides the empirical basis for adding it.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

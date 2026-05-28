@@ -31,7 +31,3 @@ The safety geometry collapse result (2605.02914) has direct operational implicat
 The embodied survey's identification of perception-fusion fragility as a top-priority open problem aligns with the failure-first programme's existing focus on sensor fusion as an attack surface. Planning instability under jailbreak conditions maps directly to the stateful degradation patterns in the episode dataset: once a planning module is compromised mid-sequence, recovery is constrained by prior irreversible commitments, not by the model's current safety posture — an asymmetry the survey does not yet resolve.
 
 The RouteHijack result raises a methodological concern: if safety functionality is architecturally localised in identifiable expert pathways, red-teaming that treats the model as a black box may systematically miss the highest-risk attack vectors. Extending the failure-first red-teaming framework to account for MoE routing topology appears warranted as MoE becomes the dominant frontier architecture.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

@@ -31,7 +31,3 @@ The VLA safety survey is the week's most directly relevant paper for the failure
 The Spore privacy attack surfaces a distinct risk category: agents with persistent memory may expose prior interaction context even when output safety filters remain intact. For deployments combining long-context memory with physical action capability, this creates a compounding risk profile worth incorporating into threat modelling alongside the more commonly evaluated output-generation attacks.
 
 The structural-separation argument extends the design question the programme tracks: how much of a system's safety can be structurally enforced versus how much depends on learned representations susceptible to manipulation. A Policy-Execution-Authorization approach is more auditable and may degrade more gracefully under adversarial pressure, but tradeoffs against agent flexibility remain an empirical question requiring testing on open-domain tasks beyond the structured scenarios evaluated in the paper.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

@@ -31,7 +31,3 @@ The recognition-action gap in SafetyALFRED and the planning-safety decoupling in
 The planning-capability finding corrects a common assumption that safety improves as a side-effect of capability scaling. The evidence here suggests safety awareness is a sufficiently distinct dimension to require targeted evaluation and training pressure, not just a more capable backbone model.
 
 For embodied pipeline trace analysis, the paired prompt-response risk methodology from Hu et al. offers a measurement primitive worth integrating: tracking relative risk change across turn boundaries captures gradual escalation patterns that single-turn benchmarks miss entirely.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

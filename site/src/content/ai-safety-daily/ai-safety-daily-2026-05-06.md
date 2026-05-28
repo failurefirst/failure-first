@@ -29,7 +29,3 @@ The compliance trap result translates directly to physical platforms. Embodied a
 Bajaj et al.'s topology finding maps onto multi-robot coordination and human-in-the-loop embodied pipelines: ordering effects on shared action queues, information cascades through sensor-fusion layers, and behavioural collapse under benchmark pressure are precisely the architecture-level failure modes they identify. Agent-level alignment guarantees cannot substitute for topology-level safety analysis in these settings.
 
 The MSM result has quieter implications for evaluation methodology: if alignment generalisation is driven by exposure to specification *reasoning* rather than rules, then benchmarks that probe only behavioural rule compliance may overestimate robustness when deployment conditions diverge from training distribution — structurally similar to the keyword-classifier failure mode documented in the programme's error log.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*
