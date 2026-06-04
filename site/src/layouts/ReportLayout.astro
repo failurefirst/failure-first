@@ -12,12 +12,55 @@ interface Props {
   classification?: string;
   date?: string;
   status?: 'active' | 'draft' | 'complete';
+  // Cover (rendered only when heroTitle is present)
+  heroTitle?: string;
+  heroSubtitle?: string;
+  refId?: string;
+  product?: string;
+  scope?: string;
+  probeVersions?: string;
+  probeCount?: number;
+  harmClasses?: number;
+  testingPeriod?: string;
+  // Scoreboard
+  sevCritical?: number;
+  sevHigh?: number;
+  sevMedium?: number;
+  sevLow?: number;
+  sevInfo?: number;
 }
 
-// Astro markdown layouts pass frontmatter under Astro.props.frontmatter.
-// Fallback to Astro.props so this layout still works if used as a component.
 const props = Astro.props?.frontmatter ?? Astro.props;
-const { title, description, image, audio, video, reportNumber, briefNumber, classification, date, status = 'draft' } = props;
+const {
+  title, description, image, audio, video,
+  reportNumber, briefNumber, classification, date, status = 'draft',
+  heroTitle, heroSubtitle,
+  refId, product, scope, probeVersions, probeCount, harmClasses, testingPeriod,
+  sevCritical, sevHigh, sevMedium, sevLow, sevInfo,
+} = props;
+
+const hasCover = heroTitle != null;
+
+const sevItems = [
+  { key: 'critical', label: 'Critical', count: sevCritical },
+  { key: 'high',     label: 'High',     count: sevHigh },
+  { key: 'medium',   label: 'Medium',   count: sevMedium },
+  { key: 'low',      label: 'Low',      count: sevLow },
+  { key: 'info',     label: 'Info',     count: sevInfo },
+].filter(s => s.count != null);
+
+const hasScoreboard = sevItems.length > 0;
+
+const metaItems = [
+  refId         && { key: 'Report ID',       val: refId },
+  date          && { key: 'Date',             val: date },
+  product       && { key: 'Product',          val: product },
+  scope         && { key: 'Scope',            val: scope },
+  probeVersions && { key: 'Probe Versions',   val: probeVersions },
+  probeCount != null && { key: 'Probes',      val: String(probeCount) },
+  harmClasses != null && { key: 'Harm Classes', val: String(harmClasses) },
+  testingPeriod && { key: 'Testing Period',   val: testingPeriod },
+].filter(Boolean) as { key: string; val: string }[];
 
 const breadcrumbs = briefNumber
   ? [
@@ -42,21 +85,71 @@ const breadcrumbs = briefNumber
   status={status}
 >
   <article class="report-content">
-    <header class="report-meta">
-      {reportNumber && <span class="report-number">Report {reportNumber}</span>}
-      {briefNumber && <span class="report-number">Brief {briefNumber}</span>}
-      {classification && <span class="report-classification">{classification}</span>}
-      {date && <time class="report-date">{date}</time>}
-      {audio && (
-        <div class="report-audio">
-          <div class="audio-label">Audio Overview</div>
-          <audio controls preload="none" class="audio-player">
-            <source src={audio} type="audio/mp4" />
-            Your browser does not support the audio element.
-          </audio>
+
+    {hasCover && (
+      <div class="report-cover">
+        <!-- Zone 1: wordmark + badges -->
+        <div class="cover-zone zone-1">
+          <span class="wordmark">FAILURE<span class="wordmark-sep">—</span>FIRST</span>
+          <div class="cover-badges">
+            <span class="tlp-badge">TLP:CLEAR</span>
+            {reportNumber && <span class="report-id-badge">Report #{reportNumber}</span>}
+          </div>
         </div>
-      )}
-    </header>
+
+        <!-- Zone 2: large title -->
+        <div class="cover-zone zone-2">
+          <div class="cover-title">
+            {heroTitle}{heroSubtitle && <span class="cover-subtitle">{heroSubtitle}</span>}
+          </div>
+          {classification && <div class="cover-classification">{classification}</div>}
+        </div>
+
+        <!-- Zone 3: metadata grid -->
+        {metaItems.length > 0 && (
+          <div class="cover-zone zone-3">
+            <dl class="cover-meta-grid">
+              {metaItems.map(item => (
+                <div>
+                  <dt>{item.key}</dt>
+                  <dd>{item.val}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        )}
+      </div>
+    )}
+
+    {hasScoreboard && (
+      <div class="report-scoreboard">
+        {sevItems.map(s => (
+          <div class={`sev-card sev-${s.key}`}>
+            <span class="sev-count">{s.count}</span>
+            <span class="sev-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {!hasCover && (
+      <header class="report-meta">
+        {reportNumber && <span class="report-number">Report {reportNumber}</span>}
+        {briefNumber && <span class="report-number">Brief {briefNumber}</span>}
+        {classification && <span class="report-classification">{classification}</span>}
+        {date && <time class="report-date">{date}</time>}
+      </header>
+    )}
+
+    {audio && (
+      <div class="report-audio">
+        <div class="audio-label">Audio Overview</div>
+        <audio controls preload="none" class="audio-player">
+          <source src={audio} type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    )}
 
     {video && (
       <div class="report-video">
@@ -70,10 +163,183 @@ const breadcrumbs = briefNumber
     <div class="report-body">
       <slot />
     </div>
+
   </article>
 </ResearchLayout>
 
 <style>
+  /* ── Cover ─────────────────────────────── */
+  .report-cover {
+    background: #050810;
+    border: 1px solid rgba(0, 210, 255, 0.12);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+  }
+
+  .cover-zone {
+    padding: 1.5rem 2rem;
+  }
+
+  .cover-zone + .cover-zone {
+    border-top: 1px solid #0d1220;
+  }
+
+  /* Zone 1 */
+  .zone-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .wordmark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #00d2ff;
+  }
+
+  .wordmark-sep {
+    color: rgba(0, 210, 255, 0.35);
+    margin: 0 0.15em;
+  }
+
+  .cover-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .tlp-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid rgba(0, 210, 255, 0.25);
+    color: rgba(0, 210, 255, 0.6);
+    border-radius: 3px;
+  }
+
+  .report-id-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5625rem;
+    letter-spacing: 0.06em;
+    color: #6c7a9a;
+  }
+
+  /* Zone 2 */
+  .zone-2 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .cover-title {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: clamp(44px, 8vw, 80px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #e8ecf2;
+  }
+
+  .cover-subtitle {
+    color: #6c7a9a;
+  }
+
+  .cover-classification {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6c7a9a;
+  }
+
+  /* Zone 3 */
+  .zone-3 {
+    background: rgba(10, 15, 26, 0.6);
+  }
+
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1rem 2rem;
+  }
+
+  .cover-meta-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cover-meta-grid dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #6c7a9a;
+  }
+
+  .cover-meta-grid dd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    color: #e8ecf2;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* ── Scoreboard ──────────────────────── */
+  .report-scoreboard {
+    display: flex;
+    gap: 1px;
+    background: #0d1220;
+    border: 1px solid #0d1220;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+  }
+
+  .sev-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    background: #050810;
+    gap: 0.3rem;
+    min-width: 72px;
+  }
+
+  .sev-count {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: 1.875rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .sev-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6c7a9a;
+  }
+
+  .sev-critical .sev-count { color: #ff4757; }
+  .sev-high .sev-count     { color: #ffa502; }
+  .sev-medium .sev-count   { color: #ffd32a; }
+  .sev-low .sev-count      { color: #26de81; }
+  .sev-info .sev-count     { color: #a29bfe; }
+
+  /* ── Plain meta (no cover) ──────────── */
   .report-meta {
     display: flex;
     gap: 1rem;
@@ -83,45 +349,38 @@ const breadcrumbs = briefNumber
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--text-secondary, #888);
+    color: var(--fg-dim, #8892b0);
   }
 
   .report-number {
-    color: var(--accent-primary, #f59e0b);
+    color: var(--accent-primary, #00d2ff);
     font-weight: 600;
   }
 
-  .report-media-badges {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+  /* ── Audio / Video ──────────────────── */
+  .report-audio {
+    margin: 0 0 2rem;
   }
 
-  .media-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.25rem 0.75rem;
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.3);
-    border-radius: 4px;
-    color: var(--accent-primary, #f59e0b);
-    font-size: 0.75rem;
+  .audio-label {
     font-family: 'JetBrains Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    text-decoration: none;
+    color: #6c7a9a;
+    margin-bottom: 0.5rem;
   }
 
-  .media-badge:hover {
-    background: rgba(245, 158, 11, 0.2);
+  .audio-player {
+    width: 100%;
+    height: 40px;
   }
 
   .report-video {
-    margin: 1.5rem 0 2rem;
+    margin: 0 0 2rem;
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid var(--border-color, #333);
+    border: 1px solid #0d1220;
   }
 
   .report-video video {
@@ -129,12 +388,64 @@ const breadcrumbs = briefNumber
     width: 100%;
   }
 
+  /* ── Body ───────────────────────────── */
   .report-body {
     max-width: 72ch;
   }
 
   .report-body :global(h2) {
     margin-top: 2.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #0d1220;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e8ecf2;
+  }
+
+  .report-body :global(h3) {
+    margin-top: 1.75rem;
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #e8ecf2;
+  }
+
+  .report-body :global(blockquote) {
+    border-left: 3px solid #00d2ff;
+    padding: 0.75rem 1.25rem;
+    margin: 1.5rem 0;
+    background: rgba(0, 210, 255, 0.04);
+    border-radius: 0 4px 4px 0;
+    color: #8892b0;
+    font-style: italic;
+  }
+
+  .report-body :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8em;
+    background: rgba(10, 15, 26, 0.8);
+    border: 1px solid #0d1220;
+    padding: 0.125em 0.375em;
+    border-radius: 3px;
+    color: #00d2ff;
+  }
+
+  .report-body :global(pre) {
+    background: rgba(10, 15, 26, 0.8);
+    border: 1px solid #0d1220;
+    border-radius: 4px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .report-body :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.8125rem;
+    color: #e8ecf2;
   }
 
   .report-body :global(table) {
@@ -150,18 +461,23 @@ const breadcrumbs = briefNumber
   .report-body :global(th),
   .report-body :global(td) {
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border-color, #333);
+    border: 1px solid #0d1220;
     text-align: left;
   }
 
   .report-body :global(th) {
-    background: var(--surface-secondary, #1a1a1a);
-    font-weight: 600;
+    background: rgba(10, 15, 26, 0.8);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6c7a9a;
   }
 
   .report-body :global(.audio-overview) {
-    border-left: 3px solid var(--accent-primary, #f59e0b);
-    background: rgba(245, 158, 11, 0.04);
+    border-left: 3px solid var(--accent-primary, #00d2ff);
+    background: rgba(0, 210, 255, 0.04);
     padding: 1rem 1.25rem;
     border-radius: 0 6px 6px 0;
     margin: 1.5rem 0;
@@ -170,11 +486,19 @@ const breadcrumbs = briefNumber
   .report-body :global(.audio-overview p) {
     margin: 0 0 0.75rem 0;
     font-size: 0.8125rem;
-    color: var(--text-secondary, #888);
+    color: var(--fg-dim, #8892b0);
   }
 
   .report-body :global(.audio-overview audio) {
     width: 100%;
     height: 40px;
+  }
+
+  @media (max-width: 600px) {
+    .cover-zone { padding: 1rem 1.25rem; }
+    .zone-2 { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+    .report-scoreboard { flex-wrap: wrap; }
+    .sev-card { min-width: 80px; }
+    .cover-meta-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); }
   }
 </style>

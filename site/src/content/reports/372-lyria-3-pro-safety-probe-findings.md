@@ -7,6 +7,20 @@ classification: "Technical Analysis"
 status: "complete"
 tags: ["lyria", "music-generation", "safety-architecture", "adversarial-probing", "multimodal", "system-prompt-extraction"]
 draft: false
+heroTitle: "Lyria"
+heroSubtitle: " 3 Pro"
+refId: "RD-2026-LYRIA-001"
+product: "Lyria 3 Pro (lyria-3-pro-preview)"
+scope: "Music generation content safety"
+probeVersions: "V1–V53"
+probeCount: 486
+harmClasses: 14
+testingPeriod: "2026-01–2026-05"
+sevCritical: 2
+sevHigh: 3
+sevMedium: 2
+sevLow: 1
+sevInfo: 1
 ---
 
 ## Executive Summary

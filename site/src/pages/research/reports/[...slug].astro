@@ -19,10 +19,27 @@ const { Content } = await render(report);
 <ReportLayout
   title={report.data.title}
   description={report.data.description}
+  image={report.data.image}
+  audio={report.data.audio}
+  video={report.data.video}
   reportNumber={report.data.reportNumber}
   classification={report.data.classification}
   date={report.data.date instanceof Date ? report.data.date.toISOString().split('T')[0] : report.data.date}
   status={report.data.status}
+  heroTitle={report.data.heroTitle}
+  heroSubtitle={report.data.heroSubtitle}
+  refId={report.data.refId}
+  product={report.data.product}
+  scope={report.data.scope}
+  probeVersions={report.data.probeVersions}
+  probeCount={report.data.probeCount}
+  harmClasses={report.data.harmClasses}
+  testingPeriod={report.data.testingPeriod}
+  sevCritical={report.data.sevCritical}
+  sevHigh={report.data.sevHigh}
+  sevMedium={report.data.sevMedium}
+  sevLow={report.data.sevLow}
+  sevInfo={report.data.sevInfo}
 >
   <Content />
 </ReportLayout>

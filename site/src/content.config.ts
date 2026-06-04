@@ -70,6 +70,22 @@ const reports = defineCollection({
     video: z.string().optional(),
     image: z.string().optional(),
     draft: z.boolean().default(false),
+    // Cover fields
+    heroTitle: z.string().optional(),
+    heroSubtitle: z.string().optional(),
+    refId: z.string().optional(),
+    product: z.string().optional(),
+    scope: z.string().optional(),
+    probeVersions: z.string().optional(),
+    probeCount: z.number().optional(),
+    harmClasses: z.number().optional(),
+    testingPeriod: z.string().optional(),
+    // Scoreboard
+    sevCritical: z.number().optional(),
+    sevHigh: z.number().optional(),
+    sevMedium: z.number().optional(),
+    sevLow: z.number().optional(),
+    sevInfo: z.number().optional(),
   }),
 });
 
