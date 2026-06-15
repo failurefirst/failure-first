@@ -10,9 +10,11 @@ interface Props {
   image?: string;
   audio?: string;
   video?: string;
+  section?: string;
+  sectionHref?: string;
 }
 
-const { title, description, date, tags, image, audio, video } = Astro.props;
+const { title, description, date, tags, image, audio, video, section = 'Blog', sectionHref = '/blog/' } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -21,9 +23,9 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${title} | Blog | Failure-First`} description={description} image={image} type="article" publishedDate={date.toISOString().split('T')[0]}>
+<BaseLayout title={`${title} | ${section} | Failure-First`} description={description} image={image} type="article" publishedDate={date.toISOString().split('T')[0]}>
   <Breadcrumbs items={[
-    { label: "Blog", href: "/blog/" },
+    { label: section, href: sectionHref },
     { label: title },
   ]} />
   <article class="blog-post">

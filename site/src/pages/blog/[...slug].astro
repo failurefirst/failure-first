@@ -3,11 +3,10 @@ import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const [blogPosts, safetyDailyPosts] = await Promise.all([
-    getCollection('blog'),
-    getCollection('aiSafetyDaily'),
-  ]);
-  return [...blogPosts, ...safetyDailyPosts]
+  // AI Safety Daily posts render at /ai-safety-daily/ (their own collection +
+  // route); old /blog/ai-safety-daily-* URLs 301 there via public/_redirects.
+  const blogPosts = await getCollection('blog');
+  return blogPosts
     .filter((post) => !post.data.draft)
     .map((post) => ({
       params: { slug: post.id },

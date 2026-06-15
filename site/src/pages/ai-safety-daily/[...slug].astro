@@ -1,5 +1,6 @@
 ---
-import { getCollection } from 'astro:content';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('aiSafetyDaily');
@@ -7,10 +8,24 @@ export async function getStaticPaths() {
     .filter((post) => !post.data.draft)
     .map((post) => ({
       params: { slug: post.id },
-      props: { id: post.id },
+      props: { post },
     }));
 }
 
-const { id } = Astro.props;
-return Astro.redirect(`/blog/${id}/`, 301);
+const { post } = Astro.props;
+const { Content } = await render(post);
 ---
+
+<BlogPostLayout
+  title={post.data.title}
+  description={post.data.description ?? ''}
+  date={post.data.date}
+  tags={post.data.tags}
+  image={post.data.image}
+  audio={post.data.audio}
+  video={post.data.video}
+  section="AI Safety Daily"
+  sectionHref="/ai-safety-daily/"
+>
+  <Content />
+</BlogPostLayout>

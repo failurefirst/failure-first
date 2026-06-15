@@ -21,7 +21,16 @@ export async function GET(context: APIContext) {
       link: `/daily-paper/${paper.id.replace(/^\d{4}-\d{2}-\d{2}-/, '')}/`,
     }));
 
-  const items = [...posts, ...papers]
+  const dailies = (await getCollection('aiSafetyDaily'))
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      title: `[AI Safety Daily] ${post.data.title}`,
+      description: post.data.description ?? '',
+      pubDate: post.data.date,
+      link: `/ai-safety-daily/${post.id}/`,
+    }));
+
+  const items = [...posts, ...papers, ...dailies]
     .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
   return rss({
