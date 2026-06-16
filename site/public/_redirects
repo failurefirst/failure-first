@@ -1,4 +1,7 @@
-# Redirect ai-safety-daily/* to canonical /blog/* URLs
-# Generated 2026-05-22 — posts physically moved to aiSafetyDaily collection
-# but /blog/ remains the canonical URL path.
-/ai-safety-daily/* /blog/:splat 301
+# AI Safety Daily lives at its own canonical path /ai-safety-daily/.
+# Old /blog/ai-safety-daily-* URLs 301 to the new home (reversed 2026-06-15).
+/blog/ai-safety-daily-* /ai-safety-daily/ai-safety-daily-:splat 301
+
+# Slug corrections — old slugs that were published without date prefix
+/blog/glasswing-buried-number /blog/2026-05-24-glasswing-buried-number 301
+/blog/glasswing-buried-number/ /blog/2026-05-24-glasswing-buried-number 301
