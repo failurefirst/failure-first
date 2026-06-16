@@ -1,4 +1,5 @@
 ---
+
 title: "HALLUCINATION_REFUSAL as the Text-Only Analog of VLA PARTIAL"
 description: "This report tests the hypothesis from Report #64 that HALLUCINATION_REFUSAL in text-only models is structurally equivalent to PARTIAL in VLA models. Both verdicts describe the same System T / System S dynamic: safety rea..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/65-hallucination-refusal-partial-equivalence.m4a"
 ---
 
 ---

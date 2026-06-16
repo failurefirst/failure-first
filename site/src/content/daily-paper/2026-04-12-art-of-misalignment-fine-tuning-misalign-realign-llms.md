@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: [safety-alignment, fine-tuning, llm-safety, misalignment, post-training]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-12-art-of-misalignment-fine-tuning-misalign-realign-llms.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-12-art-of-misalignment-fine-tuning-misalign-realign-llms.png"
 ---
 
 Safety alignment — the process of steering large language models toward helpful, harmless, and honest behavior — has become the defining engineering challenge of the post-GPT era. But how durable is alignment, really? A paper by Zhang et al., published just three days ago on April 9, 2026, asks a harder version of this question: when alignment is broken through fine-tuning, and when it is subsequently restored, are both operations equally tractable?

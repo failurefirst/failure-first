@@ -9,6 +9,7 @@ tags: [jailbreak-discovery,adversarial-safety-training,red-teaming-automation,in
 draft: false
 video: "/video/2406.18510-video-overview.mp4"
 image: "/images/daily-paper/2406.18510-infographic.webp"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2406.18510-audio-overview.m4a"
 ---
 
 # WILDTEAMING at Scale: From In-The-Wild Jailbreaks to Adversarially Safer Languages

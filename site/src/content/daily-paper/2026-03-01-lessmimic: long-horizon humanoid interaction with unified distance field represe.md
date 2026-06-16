@@ -6,7 +6,7 @@ arxiv: "2602.21723"
 authors: "Yutang Lin, Jieming Cui, Yixuan Li, Baoxiong Jia, Yixin Zhu, Siyuan Huang"
 paperType: "empirical"
 tags: [humanoid-manipulation,distance-field-representations,reference-free-learning,geometric-generalization,skill-composition,vision-transfer]
-audio: "/audio/daily-paper/2602.21723-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21723-audio-overview.m4a"
 image: "/images/daily-paper/2602.21723-infographic.webp"
 video: "/video/daily-paper/2602.21723-video-overview.mp4"
 draft: false

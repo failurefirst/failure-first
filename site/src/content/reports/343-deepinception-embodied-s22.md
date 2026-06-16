@@ -1,4 +1,5 @@
 ---
+
 title: "DeepInception on Embodied AI Scenarios — Nested Dream Attacks Against 4 Models"
 description: "DeepInception (Li et al., 2023; arXiv:2311.03191) is a nested fictional-layer attack that creates recursive dream/story/game worlds to distance harmful instructions from direct request context. This report evaluates 12 D..."
 date: "2026-04-06"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/343-deepinception-embodied-s22.m4a"
 ---
 
 ## Executive Summary

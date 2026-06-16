@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: [red-teaming, reinforcement-learning, jailbreak, automated-red-teaming, diversity, attack-generation]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-29-jailbreak-r1-reinforcement-learning-automated-red-teaming.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.00782-audio-overview.m4a"
 ---
 
 The central failure mode of automated red-teaming methods is mode collapse: a model trained to maximise attack success rate converges on a small set of reliably effective strategies and stops exploring. This is rational from an optimisation perspective and disastrous from an evaluation perspective — a red-team that outputs variations of the same five attack templates gives safety evaluators a false picture of the attack surface. Jailbreak-R1 addresses this directly, using reinforcement learning with an explicit diversity reward to train a red-team model that balances effectiveness and coverage.

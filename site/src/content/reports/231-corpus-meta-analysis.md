@@ -1,4 +1,5 @@
 ---
+
 title: "Corpus-Level Statistical Meta-Analysis"
 description: "A comprehensive statistical meta-analysis of the full non-OBLITERATUS F41LUR3-F1R57 corpus (n=5,969 LLM-graded results across 42 models with sufficient data). Five analyses performed: variance decomposition, temporal tre..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/231-corpus-meta-analysis.m4a"
 ---
 
 ## Summary

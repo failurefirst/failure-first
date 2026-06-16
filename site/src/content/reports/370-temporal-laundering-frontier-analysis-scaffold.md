@@ -1,4 +1,5 @@
 ---
+
 title: "Temporal Laundering Frontier Cohort Analysis (Scaffold)"
 description: "1. When Amy's sweep completes (or at any snapshot), run:"
 date: "2026-04-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (statistical validation)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/370-temporal-laundering-frontier-analysis-scaffold.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Technical Gap Analysis of ISO and IEC Standards for Vision-Language-Action (VLA) Driven Humanoid Robotics and Large Language Model (LLM) Cognitive Layers"
 description: "The paradigm shift in robotics from pre-programmed, scripted automation to generative, embodied intelligence has outpaced the normative frameworks traditionally used to certify safety and security. Modern humanoid robots..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/23-iso-standards-embodied-ai-gap.m4a"
 ---
 
 ---

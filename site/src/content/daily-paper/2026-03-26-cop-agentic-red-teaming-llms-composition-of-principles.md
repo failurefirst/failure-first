@@ -8,6 +8,7 @@ paperType: "methods"
 tags: [red-teaming, jailbreak, agentic-attacks, attack-composition, llm-safety]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.00781-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-26-cop-agentic-red-teaming-llms-composition-of-principles.png"
 ---
 
 Automated red-teaming has emerged as a necessary complement to manual adversarial testing, but most existing approaches either generate attacks from a fixed template library or rely on gradient-based optimization that requires white-box model access. Xiong, Chen, and Ho propose **Composition of Principles (CoP)**, an agentic framework that bridges the gap between human expertise and automated attack generation by allowing red-teamers to express attack strategies as composable principles that an AI agent then orchestrates into concrete jailbreak prompts.

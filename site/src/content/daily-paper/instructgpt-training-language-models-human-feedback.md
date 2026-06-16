@@ -1,5 +1,6 @@
 ---
 
+
 title: "InstructGPT: Training Language Models to Follow Instructions with Human Feedback"
 description: "Introduces Reinforcement Learning from Human Feedback (RLHF) methodology to align language models with human intentions, demonstrating that fine-tuned models exhibit fewer harmful outputs and better follow user instructions while maintaining task performance."
 date: 2025-09-01
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: ["rlhf", "alignment", "instruction-following", "human-feedback", "safety-training", "model-fine-tuning"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/instructgpt-training-language-models-human-feedback.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/instructgpt-training-language-models-human-feedback.png"
 ---
 
 # InstructGPT: Training Language Models to Follow Instructions with Human Feedback

@@ -1,4 +1,5 @@
 ---
+
 title: "L1B3RT4S Cross-Scale Effectiveness Analysis"
 description: "This report presents empirical results from testing the G0DM0D3 framework's L1B3RT4S prompt combos (JA-G0D-001 through JA-G0D-006) against models spanning 9B to 671B parameters, alongside a Parseltongue baseline (JA-PT-0..."
 date: "2026-03-27"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Adrian / Claude Opus 4.6"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/315-libertas-cross-scale-effectiveness-analysis.m4a"
 ---
 
 ---

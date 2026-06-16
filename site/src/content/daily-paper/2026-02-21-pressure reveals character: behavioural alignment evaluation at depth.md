@@ -1,14 +1,14 @@
 ---
 title: "Pressure Reveals Character: Behavioural Alignment Evaluation at Depth"
-description: "Empirical study with experimental evaluation"
+description: "A behavioural stress-test benchmark of 904 multi-turn scenarios showing that frontier models recite alignment principles flawlessly on static tests but reveal their true character only under pressure — when honesty or deference carries a cost."
 date: 2026-02-21
 arxiv: "2602.20813"
 authors: "Nora Petrova, John Burden"
 paperType: "empirical"
-tags: [failure-resilience,ai-safety,language-models,ai]
+tags: ["alignment-evaluation", "behavioural-stress-testing", "multi-turn", "ai-safety", "llm-judge"]
 video: "/video/daily-paper/2602.20813-video-overview.mp4"
 draft: false
-audio: "/audio/2602.20813-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.20813-audio-overview.m4a"
 image: "/images/daily-paper/2602.20813-infographic.webp"
 ---
 

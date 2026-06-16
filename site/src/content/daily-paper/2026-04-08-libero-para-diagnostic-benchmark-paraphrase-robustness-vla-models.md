@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [vla-robustness, paraphrase-attacks, robotic-manipulation, linguistic-generalization, embodied-ai, benchmark, failure-modes]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.28301-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-08-libero-para-diagnostic-benchmark-paraphrase-robustness-vla-models.png"
 ---
 
 When a robot receives the instruction "place the red mug next to the kettle," it succeeds. Change that to "put the crimson cup beside the kettle" — semantically identical, trivially understood by any human — and performance falls off a cliff. This fragility, documented systematically in LIBERO-Para, cuts to the heart of a critical gap in how we evaluate and deploy Vision-Language-Action (VLA) models: these systems can appear robust on standard benchmarks while remaining profoundly brittle to the kind of natural linguistic variation that real-world deployment inevitably brings.

@@ -9,6 +9,7 @@ paperType: "position"
 tags: [multi-agent, agentic-society, coordination, governance, protocol-design, accountability]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-31-foundation-protocol-coordination-layer-agentic-society.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.23218-audio-overview.m4a"
 ---
 
 There is a specific moment when agent safety stops being a model alignment problem and becomes a protocol design problem. That moment is when agents act not just as tools but as participants — browsing, purchasing, deploying software, managing systems, and interacting with one another as persistent entities in a shared environment. Foundation Protocol (FP) argues that this moment is already here, and that the protocol layer governing agent interaction is now a safety boundary, not just an integration convenience.

@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: ["multimodal-safety", "jailbreak-defense", "inference-time-alignment", "controlled-decoding", "reward-models"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2411.18688-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-21-immune-improving-safety-jailbreaks-multimodal-llms.png"
 ---
 
 # Immune: Improving Safety Against Jailbreaks in Multi-modal LLMs via Inference-Time Alignment

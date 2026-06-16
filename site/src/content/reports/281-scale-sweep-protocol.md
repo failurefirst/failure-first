@@ -1,4 +1,5 @@
 ---
+
 title: "Controlled Scale-Sweep Experiment Protocol"
 description: "Established findings suggest safety training investment matters more than model scale for jailbreak resistance (Report #50). However, several observations point toward a capability-safety transition threshold in the 3-7B..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/281-scale-sweep-protocol.m4a"
 ---
 
 ---

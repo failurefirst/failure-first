@@ -1,23 +1,13 @@
 ---
-title: "353 Inverse Scaling Preliminary"
-description: "The NLM deep research wave surfaced a consistent cross-paper finding: for specific attack classes — layered custom encryption (LACE), reasoning dilution, stress-induced compliance — safety appears to *decrease* with mode..."
-date: "2026-01-01"
-reportNumber: 353
-classification: "Research — Empirical Study"
-status: "complete"
-tags: []
-draft: false
----
-
----
 title: "The Inverse Scaling Law of Safety: Preliminary Analysis and Experimental Design"
 description: "Can safety decrease with model capability? Testing the hypothesis against the Failure-First corpus reveals a weak, confounded signal and motivates a targeted experiment using reasoning dilution attacks."
-date: 2026-04-11
+date: "2026-04-11"
 reportNumber: 353
-classification: "Research — Preliminary Analysis"
+classification: "Research — Empirical Study"
 status: "active"
 author: "Failure-First Research Team"
 tags: ["inverse-scaling", "safety-scaling", "methodology", "reasoning-dilution", "preliminary"]
+audio: "https://cdn.failurefirst.org/audio/reports/353-inverse-scaling-preliminary.m4a"
 draft: true
 ---
 

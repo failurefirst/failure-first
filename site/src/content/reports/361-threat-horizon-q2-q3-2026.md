@@ -1,4 +1,5 @@
 ---
+
 title: "Threat Horizon — Q2/Q3 2026 (Post-GPT-5.5 Window)"
 description: "The April 23, 2026 GPT-5.5 System Card and Bio Bug Bounty announcement marks a regime change, not just a release. OpenAI has bundled (1) a frontier-capable model, (2) a scoped, dollar-denominated universal-jailbreak boun..."
 date: "2026-04-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/361-threat-horizon-q2-q3-2026.m4a"
 ---
 
 ---

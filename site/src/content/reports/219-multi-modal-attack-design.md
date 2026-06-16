@@ -1,4 +1,5 @@
 ---
+
 title: "Multi-Modal Attack Design for Vision-Language-Action Models"
 description: "All 88 techniques in the F41LUR3-F1R57 jailbreak corpus taxonomy and all 6 novel attack families (CRA, PCA, MDA, MAC, SSA, RHA) are text-only. They operate on a single modality: the language channel. Yet the VLAs we aim ..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/219-multi-modal-attack-design.m4a"
 ---
 
 ## Executive Summary

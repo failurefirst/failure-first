@@ -1,4 +1,5 @@
 ---
+
 title: "Frontier Model Safety Scorecards"
 description: "Safety scorecards for 8 frontier models tested during the Sprint 13 ollama-cloud campaign. All models were evaluated via OpenRouter-proxied Ollama endpoints against the F41LUR3-F1R57 adversarial scenario suite (complianc..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/266-frontier-model-scorecards.m4a"
 ---
 
 ## Overview

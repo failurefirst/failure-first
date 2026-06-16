@@ -1,4 +1,5 @@
 ---
+
 title: "VLA Data Curation Summary -- Sprint 15 R1+R2"
 description: "Sprint 15 Rounds 1 and 2 substantially improved VLA attack surface coverage. The VLA corpus grew from 12 traced families to 34 traced families. Total VLA traces with content reached 673 (from ~192 at sprint start). Haiku..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Bill Potts (Data Curation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/300-vla-data-curation-sprint15-r2.m4a"
 ---
 
 ---

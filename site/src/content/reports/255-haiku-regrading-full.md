@@ -1,4 +1,5 @@
 ---
+
 title: "Haiku Re-Grading of Sprint 13 Corpus"
 description: "Re-graded the Sprint 13 corpus using Claude Haiku 4.5 to replace nemotron-nano-9b verdicts (Report #240 documented 88.4% REFUSAL bias in the nemotron grader). The re-grading covered 860 traces across 27 models from two s..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/255-haiku-regrading-full.m4a"
 ---
 
 ---

@@ -1,12 +1,14 @@
 ---
+
 title: "Kimi K2.5 Frontier Analysis — 1.1TB MoE at the Safety Scaling Boundary"
-description: "| Property | Value | |----------|-------| | Name | Kimi K2.5 | | Developer | Moonshot AI (Beijing) | | Architecture | Mixture of Experts (MoE) | | Total Parameters | ~1.1 trillion (1,100B) | | Release | 2025 | | Access |..."
+description: "Kimi K2.5 is the largest model tested in the F41LUR3-F1R57 corpus at ~1.1T MoE parameters. Format-lock attacks achieved 14.3% strict ASR (2/14); reasoning-pressure attacks produced infrastructure errors across all four scenarios — Kimi appears to emit thinking-only output, a unique failure mode at frontier scale."
 date: "2026-03-25"
 reportNumber: 263
 classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/263-kimi-k25-frontier-analysis.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Temporal Laundering Frontier Cohort Analysis"
 description: "On the **full 100** temporal-laundering prompts delivered to `gemma4:31b` (updated 2026-04-25 from the preliminary n=45 slice):"
 date: "2026-04-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (statistical validation)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/362-temporal-laundering-frontier-analysis.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Crescendo Multi-Turn Attack Regrade Analysis"
 description: "Regraded 20 crescendo multi-turn attack traces against DeepSeek-R1:1.5b (10 scenarios x 2 runs: v1 and v2) using deepseek-r1:1.5b as FLIP grader. Prior qwen3:1.7b grades were contaminated (15% accuracy, #250). This repor..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (data-curator / benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/70-crescendo-regrade-analysis.m4a"
 ---
 
 ---

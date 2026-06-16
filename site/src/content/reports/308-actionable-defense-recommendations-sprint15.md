@@ -1,4 +1,5 @@
 ---
+
 title: "Actionable Defense Recommendations from Sprint 15"
 description: "This report translates Sprint 15 adversarial findings into specific, actionable defense recommendations. Each recommendation is grounded in empirical data from our corpus (135,623 results, 236 models, 458 VLA scenarios a..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/308-actionable-defense-recommendations-sprint15.m4a"
 ---
 
 ---

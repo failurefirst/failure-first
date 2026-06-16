@@ -5,6 +5,7 @@ date: 2026-04-30
 arxiv: "2604.18402"
 paperType: "position"
 tags: [embodied-ai,evaluation,recoverability,irreversibility,failure-modes,safety-metrics]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.18402-audio-overview.m4a"
 draft: false
 ---
 

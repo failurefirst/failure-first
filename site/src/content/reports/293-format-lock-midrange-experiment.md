@@ -1,4 +1,5 @@
 ---
+
 title: "Format-Lock Mid-Range Experiment"
 description: "Format-lock attacks achieve **88.0% broad ASR** [79.2%, 93.3%] on mid-range (4-14B) models, compared to **35.5%** [21.1%, 53.1%] for matched no-format-lock controls on the same harm topics. The delta of +52.5pp is statis..."
 date: "2026-03-25"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/293-format-lock-midrange-experiment.m4a"
 ---
 
 ## Summary

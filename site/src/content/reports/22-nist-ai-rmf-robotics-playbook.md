@@ -1,4 +1,5 @@
 ---
+
 title: "Comprehensive Sector-Specific NIST AI Risk Management Framework (AI RMF 1.0) Playbook: Humanoid Robotics and VLA-Driven Embodied Systems"
 description: "The rapid evolution of humanoid robotics, catalyzed by the convergence of high-performance bipedal mechatronics and Large Language Model (LLM) architectures evolved into Vision-Language-Action (VLA) models, has created a..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/22-nist-ai-rmf-robotics-playbook.m4a"
 ---
 
 ---

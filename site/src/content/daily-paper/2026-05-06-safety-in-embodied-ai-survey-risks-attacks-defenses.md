@@ -1,4 +1,5 @@
 ---
+
 title: "Safety in Embodied AI: A Survey of Risks, Attacks, and Defenses"
 description: "A 400-paper synthesis mapping the full attack surface of embodied AI — from adversarial perception through jailbreak planning to hardware vulnerabilities — and the defenses available at each layer."
 date: 2026-05-06
@@ -6,7 +7,9 @@ arxiv: "2605.02900"
 authors: "Xiao Li, Xiang Zheng, Yifeng Gao, Xinyu Xia, Yixu Wang, Xin Wang, Ye Sun, Yunhan Zhao, Ming Wen, Jiayu Li, and others"
 paperType: "survey"
 tags: [embodied-ai-safety, adversarial-attacks, jailbreak, vla-systems, defenses, survey]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.02900-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-06-safety-in-embodied-ai-survey-risks-attacks-defenses.png"
 ---
 
 When a language model generates harmful text, the damage is informational. When an embodied AI agent acts on a compromised plan, the damage can be physical. This asymmetry — between a harmful output and a harmful *action* — is what makes safety research in embodied AI qualitatively different from its digital counterpart, and it is exactly the asymmetry that this survey sets out to map.

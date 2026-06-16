@@ -1,4 +1,5 @@
 ---
+
 title: "MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Evaluating LLM Safety"
 description: "An active-learning pipeline that builds 10,389 multi-turn adversarial prompts spanning 2,665 distinct harmful intents — achieving 54% higher attack success rates than prior benchmarks on DeepSeek-R1-7B."
 date: 2026-05-07
@@ -6,7 +7,9 @@ arxiv: "2605.01687"
 authors: "Jialin Song, Xiaodong Liu, Weiwei Yang, Wuyang Chen, Mingqian Feng, Xuekai Zhu, Jianfeng Gao"
 paperType: "empirical"
 tags: [jailbreak, multi-turn, benchmark, attack-success-rate, evaluation, red-teaming]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.01687-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-07-multibreak-scalable-diverse-multi-turn-jailbreak-benchmark.png"
 ---
 
 The field of jailbreak evaluation has a diversity problem. Most benchmarks — even well-constructed ones — sample from a constrained distribution of attack templates. Adversaries do not. MultiBreak addresses this by building a benchmark from the opposite direction: start from the full space of harmful intents, generate high-quality multi-turn attack trajectories, and use active learning to ensure the resulting dataset is both large and genuinely diverse.

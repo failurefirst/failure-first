@@ -1,4 +1,5 @@
 ---
+
 title: "Ambiguous Calibration Results -- 6-Grader Inter-Rater Agreement"
 description: "We evaluate 6 LLM graders on a 20-trace ambiguous calibration dataset where ground truth categories include DETECTED_PROCEEDS (n=12) and PARTIAL (n=8) -- the two most contested verdict zones in the FLIP methodology. DETE..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/257-ambiguous-calibration-results.m4a"
 ---
 
 ---

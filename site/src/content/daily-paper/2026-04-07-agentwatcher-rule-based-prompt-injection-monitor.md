@@ -8,6 +8,7 @@ paperType: "methods"
 tags: [prompt-injection, llm-security, causal-attribution, rule-based-detection, agent-safety, explainability, adversarial-inputs]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.01194-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-07-agentwatcher-rule-based-prompt-injection-monitor.png"
 ---
 
 Prompt injection has emerged as one of the most consequential failure modes for LLM-based agents: an adversary who can inject text into an agent's context — through a malicious document, a crafted web page, or a manipulated tool output — can redirect the agent's behavior in arbitrary directions. Yet current defenses remain brittle, particularly as context windows grow longer and agent pipelines grow more complex. AgentWatcher addresses both challenges directly, proposing a detection framework that is simultaneously more scalable and more interpretable than existing approaches.

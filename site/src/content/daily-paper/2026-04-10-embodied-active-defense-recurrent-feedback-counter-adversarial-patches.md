@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [adversarial-patches, embodied-ai, active-defense, recurrent-networks, physical-adversarial-attacks]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2404.00540-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-10-embodied-active-defense-recurrent-feedback-counter-adversarial-patches.png"
 ---
 
 Physical adversarial patches are among the most practical threats facing deployed robotic systems. Unlike gradient-based digital attacks, a printed sticker placed on a wall, a box, or a piece of equipment can persistently fool a robot's camera in the real world—causing misidentification, navigation failure, or safety system bypass. Most defenses against adversarial patches treat perception as a static problem: clean up the image, then classify it. This paper from Tsinghua University takes a fundamentally different approach. Embodied Active Defense (EAD) treats the agent's capacity for movement as its primary defensive weapon.

@@ -4,6 +4,7 @@ date: 2026-03-24
 author: Rose Tyler
 tags: [attack-taxonomy, vla, embodied-ai, adversarial, research]
 category: research-update
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-six-new-attack-families.png"
 ---
 
 # Six New Attack Families: Expanding the Embodied AI Threat Taxonomy

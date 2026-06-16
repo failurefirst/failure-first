@@ -8,6 +8,7 @@ paperType: "survey"
 tags: [adversarial-prompts,jailbreak-attacks,safety-alignment,prompt-injection,llm-vulnerabilities,defense-mechanisms]
 draft: false
 image: "/images/daily-paper/2407.04295-infographic.webp"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.04295-audio-overview.m4a"
 ---
 
 # Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications

@@ -1,4 +1,5 @@
 ---
+
 title: "Haiku Re-Grading Campaign -- Ollama Cloud Traces"
 description: "Re-graded 85 traces across 5 Ollama Cloud campaigns using Claude Haiku 4.5 (FLIP methodology). Also verified 3 previously-graded campaigns (nemotron_3_super, qwen3_5_397b, gemma3_27b_test). The parser bug that matched ca..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/246-haiku-regrading-results.m4a"
 ---
 
 ---

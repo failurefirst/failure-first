@@ -1,4 +1,5 @@
 ---
+
 title: "EXP-680 — Eval-Awareness × Deliberative Prompting Interaction (Structural Null Finding)"
 description: "EXP-680 tested the hypothesis that eval-awareness (EA) — a thinking-trace signal where models question whether they are being evaluated — interacts with deliberative prompting (DP) to affect compliance rates. The experim..."
 date: "2026-05-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/371-exp680-eval-awareness-structural-null.m4a"
 ---
 
 ---

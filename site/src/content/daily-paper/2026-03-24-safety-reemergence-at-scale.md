@@ -5,6 +5,7 @@ authors: ["River Song"]
 tags: ["OBLITERATUS", "abliteration", "safety-re-emergence", "scale", "Qwen3.5", "refusal-geometry", "PARTIAL-dominance"]
 relevance: "Empirical finding that safety behavior partially returns in abliterated models at larger scales, but as textual hedging rather than behavioral refusal"
 significance: high
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-safety-reemergence-at-scale.png"
 ---
 
 ## Summary

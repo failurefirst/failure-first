@@ -1,4 +1,5 @@
 ---
+
 title: "Qwen3 Benchmark Overfitting Analysis"
 description: "We tested whether Qwen3's safety refusal performance on AdvBench reflects genuine safety alignment or benchmark-specific overfitting (i.e., AdvBench prompts leaked into Qwen3's training data). By comparing Qwen3-8b's att..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Leela (benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/229-qwen3-overfitting-analysis.m4a"
 ---
 
 ---

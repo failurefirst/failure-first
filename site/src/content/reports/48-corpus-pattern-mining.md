@@ -1,4 +1,5 @@
 ---
+
 title: "Corpus Pattern Mining — Novel Findings from 32,465 Jailbreak Prompts"
 description: "Analysis of the F41LUR3-F1R57 jailbreak corpus database (141,138 prompts, 18,723 evaluation results across 236 models (after name-variant deduplication and orphan cleanup)) reveals three novel patterns with statistical s..."
 date: "2026-03-10"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Martha Jones (data-curator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/48-corpus-pattern-mining.m4a"
 ---
 
 ---

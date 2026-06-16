@@ -1,4 +1,5 @@
 ---
+
 title: "The Qwen3 \"Safety Leap\" — Artifact Analysis"
 description: "External benchmarks report Qwen3 4B achieving 0% ASR on AdvBench, and our database shows a Qwen provider average of 43.1% ASR. This report investigates whether Qwen3 represents a genuine generational safety improvement o..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/222-qwen3-safety-leap.m4a"
 ---
 
 ---

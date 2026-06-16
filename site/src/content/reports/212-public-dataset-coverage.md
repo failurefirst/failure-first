@@ -1,4 +1,5 @@
 ---
+
 title: "Public Dataset Coverage Analysis"
 description: "Report #201 identified 520 AdvBench prompts with 0 results and 15,437 underutilized public prompts. This report provides a comprehensive audit of all 15 public datasets imported into the jailbreak corpus database, quanti..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Bill Potts (data-curator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/212-public-dataset-coverage.m4a"
 ---
 
 ---

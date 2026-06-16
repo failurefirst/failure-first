@@ -1,4 +1,5 @@
 ---
+
 title: "Crescendo Frontier S24 — Multi-Turn Escalation Across Six Frontier Models"
 description: "This report extends Report #344 (Crescendo 4-model S23) to six frontier models tested on the same 25-scenario Crescendo benchmark (`crescendo_expansion_v0.2.jsonl`, 20 adversarial + 5 benign controls) via Ollama Cloud du..."
 date: "2026-04-10"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/354-crescendo-frontier-s24.m4a"
 ---
 
 ## Executive Summary

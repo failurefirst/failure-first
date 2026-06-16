@@ -1,4 +1,5 @@
 ---
+
 title: "The Format-Lock Capability Floor — Why Structural Compliance Attacks Work Across the Full Model Spectrum"
 description: "This report synthesizes format-lock pilot data (n=25 traces, qwen3:1.7b), faithfulness CLI results (n=75 traces, 3 frontier models), corpus pattern mining (Report #48), cross-model vulnerability profiles (Report #50), an..."
 date: "2026-03-10"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/51-format-lock-capability-floor.m4a"
 ---
 
 ---

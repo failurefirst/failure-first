@@ -1,4 +1,5 @@
 ---
+
 title: "Safety Instruction Dilution (SID) -- Context Length as Attack Surface"
 description: "Safety Instruction Dilution (SID) exploits the observation that as context length increases, safety instructions occupy a diminishing fraction of the total context. At sufficient dilution, the safety instructions may fal..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/95-safety-instruction-dilution.m4a"
 ---
 
 ---

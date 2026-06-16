@@ -1,4 +1,5 @@
 ---
+
 title: "VLA Attack Family Effectiveness Ranking"
 description: "This report compiles FLIP ASR data across all 12 VLA attack families tested to date and ranks them by effectiveness. Three distinct clusters emerge: families that succeed nearly always regardless of model, families whose..."
 date: "2026-03-12"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/83-vla-attack-family-effectiveness-ranking.m4a"
 ---
 
 ---

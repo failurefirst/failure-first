@@ -5,6 +5,7 @@ date: 2026-05-02
 arxiv: "2604.19115"
 paperType: "empirical"
 tags: [embodied-ai,prompt-injection,typographic-attacks,vision-language-models,physical-attacks,safety-evaluation]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.19115-audio-overview.m4a"
 draft: false
 ---
 

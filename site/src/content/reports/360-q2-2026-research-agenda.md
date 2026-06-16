@@ -1,4 +1,5 @@
 ---
+
 title: "Q2 2026 Research Agenda"
 description: "This brief scopes the May-June 2026 research programme for F41LUR3-F1R57 in the window after CCS 2026 submission and before the EU AI Act high-risk compliance trigger (August 2026). It answers three planning questions:"
 date: "2026-04-24"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/360-q2-2026-research-agenda.m4a"
 ---
 
 ## Executive Summary

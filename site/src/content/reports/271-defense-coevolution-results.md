@@ -1,4 +1,5 @@
 ---
+
 title: "Defense Co-Evolution Results"
 description: "This report presents empirical results from two defense experiments on gemma3:12b via Ollama Cloud:"
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/271-defense-coevolution-results.m4a"
 ---
 
 ---

@@ -1,11 +1,14 @@
 ---
+
 title: "Graceful Degradation Policies for Embodied Agents under Uncertainty-Bounded Action"
 description: "Proposes a control architecture in which the embodied agent's action confidence is mapped to a continuum of safer fallback behaviours — slowing, stopping, requesting help — rather than the binary execute-or-refuse pattern that dominates current systems."
 date: 2026-05-08
 arxiv: "2604.20847"
 paperType: "methods"
 tags: [embodied-ai,uncertainty-quantification,graceful-degradation,safety-fallback,human-in-the-loop,control-policy]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.20847-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-08-graceful-degradation-policies-embodied-agents-uncertainty-bounded-action.png"
 ---
 
 # Graceful Degradation Policies for Embodied Agents under Uncertainty-Bounded Action

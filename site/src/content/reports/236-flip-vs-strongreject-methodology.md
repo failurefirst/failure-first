@@ -1,4 +1,5 @@
 ---
+
 title: "FLIP vs StrongREJECT Methodology Comparison"
 description: "This report designs a rigorous comparison between two jailbreak evaluation methodologies:"
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Security Integration Engineer"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/236-flip-vs-strongreject-methodology.m4a"
 ---
 
 ---

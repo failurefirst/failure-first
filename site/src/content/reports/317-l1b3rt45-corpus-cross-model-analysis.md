@@ -1,4 +1,5 @@
 ---
+
 title: "- L1B3RT45 Full Corpus Cross-Model Analysis"
 description: "This report analyzes the full L1B3RT45 jailbreak corpus (149 prompts across 40 target providers, plus 162 glitch tokens) tested against two models via Ollama Cloud: nemotron-3-super and deepseek-v3.2. FLIP grading (Claud..."
 date: "2026-03-27"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Adrian / Claude Opus 4.6"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/317-l1b3rt45-corpus-cross-model-analysis.m4a"
 ---
 
 ---

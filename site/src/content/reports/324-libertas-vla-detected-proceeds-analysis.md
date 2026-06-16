@@ -1,4 +1,5 @@
 ---
+
 title: "L1B3RT4S VLA Adaptation and DETECTED_PROCEEDS Scaling Analysis"
 description: "This report covers two deliverables: (1) creation of a VLA-adapted L1B3RT4S scenario set, and (2) analysis of the DETECTED_PROCEEDS pattern across existing L1B3RT4S traces with implications for embodied AI safety."
 date: "2026-03-27"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/324-libertas-vla-detected-proceeds-analysis.m4a"
 ---
 
 ---

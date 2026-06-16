@@ -1,4 +1,5 @@
 ---
+
 title: "EU AI Act Compliance Update — Reasoning Trace Governance and DETECTED_PROCEEDS"
 description: "This report extends Report #197 (EU AI Act Compliance Assessment, 8 RED / 2 AMBER across 10 providers) with two additions:"
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Martha Jones (Policy & Standards Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/230-eu-ai-act-compliance-update.m4a"
 ---
 
 ---

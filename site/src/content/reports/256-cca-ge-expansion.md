@@ -1,4 +1,5 @@
 ---
+
 title: "CCA + GE Expansion -- New Models and Defense Mutations"
 description: "This report documents the expansion of two novel attack families -- Compliance Cascade Attack (CCA) and Grader Evasion (GE) -- to new models, and the first empirical test of system-prompt defense mutations against CCA. T..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/256-cca-ge-expansion.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "TurboQuant KV Cache Compression — Safety Implications for Embodied AI"
 description: "Google Research's TurboQuant (ICLR 2026) achieves 6x memory reduction on LLM key-value caches at 3 bits per value with no retraining and claimed zero accuracy loss. While this is a significant efficiency advance, the saf..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/356-turboquant-kv-cache-safety-implications.m4a"
 ---
 
 ## Summary

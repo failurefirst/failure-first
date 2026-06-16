@@ -1,4 +1,5 @@
 ---
+
 title: "Computational Reliability and the Propagation of Measurement Uncertainty in Frontier AI Safety Evaluation"
 description: "The transition of large language models from predictive text generators to autonomous reasoning agents has fundamentally altered the landscape of operational risk management. This evolution is characterized by the emerge..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/26-red-teaming-measurement-standards.m4a"
 ---
 
 ---

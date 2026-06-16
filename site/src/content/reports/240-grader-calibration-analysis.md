@@ -1,4 +1,5 @@
 ---
+
 title: "FLIP Grader Calibration Analysis"
 description: "This report quantifies inter-grader agreement across all LLM classifiers used in the F41LUR3-F1R57 FLIP grading pipeline. Using dual-graded results from the jailbreak corpus database (same prompts graded by multiple clas..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/240-grader-calibration-analysis.m4a"
 ---
 
 ---

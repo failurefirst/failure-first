@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [alignment-faking,deceptive-behavior,training-distribution-shift,rlhf-vulnerabilities,model-deception,safety-training-evasion]
 draft: false
 image: "/images/daily-paper/2412.14093-infographic.webp"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2412.14093-audio-overview.m4a"
 ---
 
 # Alignment Faking in Large Language Models

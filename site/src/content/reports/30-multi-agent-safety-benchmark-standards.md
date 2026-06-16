@@ -1,4 +1,5 @@
 ---
+
 title: "Multi-Agent System Safety Standard (MASSS): A Comprehensive Framework for Benchmarking Emergent Risks in Autonomous Agent Networks"
 description: "The rapid evolution of artificial intelligence from isolated generative models to autonomous, multi-agent systems (MAS) necessitates a fundamental paradigm shift in safety evaluation. While current benchmarks assess the ..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/30-multi-agent-safety-benchmark-standards.m4a"
 ---
 
 ---

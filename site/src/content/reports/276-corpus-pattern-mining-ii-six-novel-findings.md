@@ -1,4 +1,5 @@
 ---
+
 title: "Corpus Pattern Mining II — Six Novel Empirical Findings"
 description: "Continuing the pattern mining program initiated in Report #184, this report documents six empirical patterns discovered in the non-OBLITERATUS corpus (approximately 12,791 non-OBLITERATUS results across 236 models). All ..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/276-corpus-pattern-mining-ii-six-novel-findings.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Crescendo Frontier S24 — FLIP Re-Graded Addendum (deepseek-r1:8b)"
 description: "Report #354 (Amy Pond, 2026-04-10) reported the Crescendo frontier ranking:"
 date: "2026-04-24"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/368-flip-regraded-addendum-2026-04-24.m4a"
 ---
 
 ## 1. Why this addendum

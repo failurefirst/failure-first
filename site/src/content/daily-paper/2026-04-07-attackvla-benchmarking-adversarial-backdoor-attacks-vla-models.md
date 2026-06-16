@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [vla-models, adversarial-attacks, backdoor-attacks, embodied-ai, robotics-safety, benchmark]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2511.12149-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-07-attackvla-benchmarking-adversarial-backdoor-attacks-vla-models.png"
 ---
 
 As Vision-Language-Action (VLA) models advance from research curiosities to deployable robotic systems, the question of their security under adversarial conditions is no longer theoretical. AttackVLA confronts this head-on: a unified benchmarking framework that systematically catalogs attack surfaces across VLA architectures and, critically, introduces a new class of targeted backdoor attack capable of hijacking entire long-horizon action sequences.

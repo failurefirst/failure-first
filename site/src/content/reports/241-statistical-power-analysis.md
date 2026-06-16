@@ -1,4 +1,5 @@
 ---
+
 title: "Statistical Power Analysis for Key Comparisons"
 description: "This report computes the statistical power we actually have for four key findings, identifying where our sample sizes are adequate and where they limit the conclusions we can draw. Two of four analyses have adequate powe..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/241-statistical-power-analysis.m4a"
 ---
 
 ---

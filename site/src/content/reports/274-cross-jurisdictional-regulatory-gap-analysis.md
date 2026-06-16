@@ -1,4 +1,5 @@
 ---
+
 title: "Cross-Jurisdictional Regulatory Gap Analysis — VLA Attack Families vs. Regulatory Coverage"
 description: "This report maps all 36 VLA attack families documented in the Failure-First corpus against regulatory coverage across four jurisdictional dimensions: the European Union (AI Act, PLD 2024, Machinery Regulation), Australia..."
 date: "25 March 2026"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Martha Jones, Policy & Standards Lead"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/274-cross-jurisdictional-regulatory-gap-analysis.m4a"
 ---
 
 ---

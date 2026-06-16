@@ -1,4 +1,5 @@
 ---
+
 title: "Emergent Algorithmic Hierarchies: A Socio-Technical Analysis of the Moltbook Ecosystem"
 description: "The trajectory of the internet has long been defined by the interaction between human cognition and digital interfaces. From the early protocols of the ARPANET to the hyper-scaled social graphs of the Web 2.0 era, the fu..."
 date: "2026-02-03"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/35-moltbook-ecosystem-analysis.m4a"
 ---
 
 ---

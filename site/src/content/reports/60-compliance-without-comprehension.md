@@ -1,4 +1,5 @@
 ---
+
 title: "Compliance Without Comprehension — A Unified Theory of Structural Vulnerability in AI Systems"
 description: "This report synthesizes findings from Reports #47-57, Briefs A-E, and the jailbreak corpus database (141,138 prompts, 133,722 results, 207 models as of the Report #48 analysis snapshot; current corpus: 133,722 results, 2..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/60-compliance-without-comprehension.m4a"
 ---
 
 ---

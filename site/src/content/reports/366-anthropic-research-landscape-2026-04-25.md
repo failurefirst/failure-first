@@ -1,4 +1,5 @@
 ---
+
 title: "Anthropic Research Landscape Survey: Jan–Apr 2026"
 description: "- Anthropic's public research output from the past three months converges with Failure-First findings on four themes: multi-turn agentic misalignment, HITL oversight limitations, reasoning trace unreliability, and heuris..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/366-anthropic-research-landscape-2026-04-25.m4a"
 ---
 
 ---

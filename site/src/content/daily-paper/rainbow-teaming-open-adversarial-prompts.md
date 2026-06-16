@@ -1,5 +1,6 @@
 ---
 
+
 title: "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts"
 description: "Generating diverse attack angles through multi-objective optimization—demonstrates vulnerability to multi-axis jailbreaks"
 date: 2025-10-03
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [red-teaming, adversarial-prompts, diversity, multi-objective-optimization, jailbreak-generation]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/rainbow-teaming-open-adversarial-prompts.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/rainbow-teaming-open-adversarial-prompts.png"
 ---
 
 ## Rainbow Teaming: Automating Diverse Red Team Attacks

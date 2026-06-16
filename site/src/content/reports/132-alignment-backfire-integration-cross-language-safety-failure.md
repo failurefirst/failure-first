@@ -1,4 +1,5 @@
 ---
+
 title: "Alignment Backfire Integration — Cross-Language Safety Failure Validates the Safety Improvement Paradox"
 description: "> **Disclaimer:** Empirical figures cited from Failure-First research reflect testing > on specific model families under research conditions. Attack success rates are > indicative estimates with methodological caveats de..."
 date: "2026-03-18"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/132-alignment-backfire-integration-cross-language-safety-failure.m4a"
 ---
 
 ---

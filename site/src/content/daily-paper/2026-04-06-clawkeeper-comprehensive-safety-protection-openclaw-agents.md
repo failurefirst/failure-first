@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [agent-safety, autonomous-agents, privilege-escalation, runtime-security, prompt-injection, threat-detection, agentic-systems]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.24414-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-06-clawkeeper-comprehensive-safety-protection-openclaw-agents.png"
 ---
 
 As autonomous agents gain the ability to execute shell commands, access file systems, and invoke third-party tools, the attack surface for AI-driven systems expands dramatically. ClawKeeper addresses this challenge head-on by proposing a comprehensive, three-layer security framework for OpenClaw — an open-source autonomous agent runtime — that operates in real time without compromising the agent's core functionality. The work arrives at a critical moment: as embodied and agentic AI systems proliferate, runtime safety enforcement is emerging as a necessary complement to alignment-time training.

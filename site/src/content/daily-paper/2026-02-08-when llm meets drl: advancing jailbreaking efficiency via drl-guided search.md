@@ -9,6 +9,7 @@ tags: [llm-jailbreaking-attacks,reinforcement-learning-adversarial,black-box-pro
 draft: false
 video: "/video/2406.08705-video-overview.mp4"
 image: "/images/daily-paper/2406.08705-infographic.webp"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2406.08705-audio-overview.m4a"
 ---
 
 # Jailbreak Attacks and Defenses Against Large Language Models: A Survey

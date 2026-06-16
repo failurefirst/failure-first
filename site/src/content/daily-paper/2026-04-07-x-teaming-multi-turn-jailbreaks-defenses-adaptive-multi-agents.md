@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [jailbreak, red-teaming, multi-turn, safety-alignment, llm-safety, adversarial-agents, multi-agent]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2504.13203-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-07-x-teaming-multi-turn-jailbreaks-defenses-adaptive-multi-agents.png"
 ---
 
 Safety alignment in large language models is predominantly trained and evaluated on single-turn interactions. An adversary asks a harmful question; the model declines. This is the dominant paradigm for both RLHF-based alignment and refusal classifier evaluation. X-Teaming attacks the assumption that this paradigm captures the real threat surface — and demonstrates empirically that it does not. By building a multi-agent framework that conducts attacks across multiple conversation turns, the researchers achieve jailbreak success rates of up to 98.1% against models that single-turn attacks struggle to compromise.

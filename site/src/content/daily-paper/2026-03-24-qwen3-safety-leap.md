@@ -4,6 +4,7 @@ date: 2026-03-24
 author: Failure-First Embodied AI Research
 tags: [qwen, safety-training, provider-analysis, model-comparison, ai-safety]
 description: "Qwen's provider-level ASR dropped from 43% to near-zero on newer model generations served through OpenRouter. What changed, and does it mean safety training finally works?"
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-qwen3-safety-leap.png"
 ---
 
 # Did Qwen3 Fix AI Safety?

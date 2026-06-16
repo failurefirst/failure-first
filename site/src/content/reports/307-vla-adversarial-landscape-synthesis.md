@@ -1,4 +1,5 @@
 ---
+
 title: "VLA Adversarial Landscape — 33 Families, 673+ Traces"
 description: "This report is the definitive synthesis of all VLA adversarial testing conducted by the Failure-First project through Sprint 15 Round 2. It consolidates data from 34 traced attack families (42 distinct prefixes including..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/307-vla-adversarial-landscape-synthesis.m4a"
 ---
 
 ---

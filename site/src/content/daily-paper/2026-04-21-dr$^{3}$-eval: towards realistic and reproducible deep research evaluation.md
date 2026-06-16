@@ -7,6 +7,7 @@ authors: "Qianqian Xie, Qingheng Xiong, He Zhu, Tiantian Xia, Xueming Han, Fanyu
 paperType: "empirical"
 tags: [deep-research-agents,benchmark-evaluation,multimodal-report-generation,retrieval-robustness,hallucination-control,factual-accuracy-measurement]
 image: "/images/daily-paper/2604.14683-infographic.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.14683-audio-overview.m4a"
 draft: false
 ---
 

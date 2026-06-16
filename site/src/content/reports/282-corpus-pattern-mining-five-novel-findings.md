@@ -1,4 +1,5 @@
 ---
+
 title: "Corpus Pattern Mining — Five Novel Empirical Findings"
 description: "Mining the full non-OBLITERATUS corpus (132,416 total results; approximately 10,956 non-OBLITERATUS evaluable results across 236 models), this report documents five empirical patterns not previously reported in the Failu..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/282-corpus-pattern-mining-five-novel-findings.m4a"
 ---
 
 ---

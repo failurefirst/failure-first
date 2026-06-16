@@ -1,4 +1,5 @@
 ---
+
 title: "Corpus Expansion -- Ollama Cloud Trace Import"
 description: "Imported Ollama Cloud frontier model traces into the jailbreak corpus database and Haiku-graded the Qwen3 Coder 480B frontier sweep. The corpus now contains 236 models, 141,138 prompts, and 135,623 results. 14 Ollama Clo..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/270-corpus-expansion-ollama-cloud.m4a"
 ---
 
 ## Summary

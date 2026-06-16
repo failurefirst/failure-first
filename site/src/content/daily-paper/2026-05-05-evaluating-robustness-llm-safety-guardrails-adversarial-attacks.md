@@ -1,4 +1,5 @@
 ---
+
 title: "Evaluating the Robustness of Large Language Model Safety Guardrails Against Adversarial Attacks"
 description: "A systematic evaluation of ten LLM guardrail models reveals that benchmark accuracy is misleading due to training data contamination, with the best model dropping from 91% to 33.8% on novel attacks."
 date: 2026-05-05
@@ -6,7 +7,9 @@ arxiv: "2511.22047"
 authors: "Richard J. Young"
 paperType: "empirical"
 tags: [llm-safety, guardrails, adversarial-attacks, benchmark-contamination, jailbreak-defense]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2511.22047-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-05-evaluating-robustness-llm-safety-guardrails-adversarial-attacks.png"
 ---
 
 The standard story about LLM safety guardrails goes like this: train a classifier on harmful and benign prompts, deploy it as a gate in front of or alongside the main model, and publish benchmark accuracy numbers to demonstrate robustness. This paper systematically dismantles that story, showing that published benchmark numbers are largely artifacts of training data contamination — and that the models performing best on benchmarks may actually generalize the least to novel attack strategies.

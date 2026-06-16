@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: [red-teaming, jailbreak, agentic, attack-methodology, composition, automated-red-teaming]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-28-cop-agentic-red-teaming-llms-composition-of-principles.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.00781-audio-overview.m4a"
 ---
 
 Most automated jailbreak frameworks treat attack strategy as a monolithic artefact — a prompt template, a genetic algorithm, a fine-tuned adversary. The Composition-of-Principles (CoP) framework takes the opposite approach: decompose human red-teaming expertise into atomic, reusable principles, then let an LLM agent orchestrate them dynamically. The result is a system that improves attack success rate by up to 19× over single-turn baselines while requiring 17× fewer queries — and remains interpretable enough to explain exactly which principle compositions drove each successful jailbreak.

@@ -1,4 +1,5 @@
 ---
+
 title: "Grader Confusion Matrix and Inter-Grader Agreement Analysis"
 description: "We present full confusion matrices, classification metrics, and inter-grader agreement statistics for the 7 LLM graders evaluated on the 20-trace obvious-case calibration dataset (Report #244). Six of seven graders achie..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (research-analyst / statistical-validation)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/248-grader-confusion-matrix.m4a"
 ---
 
 ---

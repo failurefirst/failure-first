@@ -1,4 +1,5 @@
 ---
+
 title: "AIES Paper Scoping and CCA Disclosure Framework — Ethics Analysis"
 description: "This report documents two related ethics deliverables produced in Sprint 15. First, the scoping of the iatrogenesis standalone paper for AIES 2026 (abstract deadline May 14), including the analysis of what distinguishes ..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/292-aies-scoping-and-disclosure-framework.m4a"
 ---
 
 ---

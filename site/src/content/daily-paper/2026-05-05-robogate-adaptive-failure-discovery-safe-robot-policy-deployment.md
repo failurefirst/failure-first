@@ -1,4 +1,5 @@
 ---
+
 title: "ROBOGATE: Adaptive Failure Discovery for Safe Robot Policy Deployment via Two-Stage Boundary-Focused Sampling"
 description: "A physics-simulation framework that maps failure boundaries across robot manipulation parameter spaces, exposing a 100-point performance gap between VLA foundation models and scripted baselines on adversarial scenarios."
 date: 2026-05-05
@@ -6,7 +7,9 @@ arxiv: "2603.22126"
 authors: "Byungjin Kim"
 paperType: "empirical"
 tags: [vla-safety, robot-manipulation, failure-detection, deployment-risk, adversarial-evaluation]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.22126-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-05-robogate-adaptive-failure-discovery-safe-robot-policy-deployment.png"
 ---
 
 Before a learned robot policy leaves the lab, how confident can an engineer be that it won't fail in the corner of the parameter space they forgot to test? That question sits at the heart of ROBOGATE, a pre-deployment risk management framework that treats failure discovery as a sampling problem — one that can be solved efficiently without exhaustive grid search across intractably high-dimensional environments.

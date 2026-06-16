@@ -1,4 +1,5 @@
 ---
+
 title: "The Policy Implications of Historical Jailbreak Technique Evolution (2022–2026): A Systematic Analysis of Empirical Vulnerabilities in Modern Foundation Models"
 description: "The trajectory of adversarial attacks against Large Language Models (LLMs) and Large Reasoning Models (LRMs) between 2022 and 2026 represents a fundamental shift in the cybersecurity landscape, moving from syntax-based e..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/31-jailbreak-archaeology-policy-implications.m4a"
 ---
 
 ---

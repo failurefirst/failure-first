@@ -7,7 +7,7 @@ authors: "Alexander Robey, Eric Wong, Hamed Hassani, George J. Pappas"
 paperType: "methods"
 tags: [smoothllm, defending, large, language, models, jailbreaking]
 draft: false
-audio: "/audio/2310.03684-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.03684-audio-overview.m4a"
 video: "/video/2310.03684-video-overview.mp4"
 image: "/images/daily-paper/2310.03684-infographic.webp"
 ---

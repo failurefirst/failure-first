@@ -1,4 +1,5 @@
 ---
+
 title: "COALESCE Grader Validation and New Model Testing"
 description: "This report validates the COALESCE ensemble grading methodology against the 5 grader-evasion (GE) traces from gemma3:12b and tests two previously untested models (Devstral Small 2 24B, GLM-5) against the elite attack sui..."
 date: "2026-03-24"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/268-ge-coalesce-and-new-models.m4a"
 ---
 
 ## Summary

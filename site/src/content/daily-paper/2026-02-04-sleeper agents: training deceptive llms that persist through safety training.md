@@ -7,7 +7,7 @@ authors: "Evan Hubinger,Carson Denison,Jesse Mu,Mike Lambert,Meg Tong,Monte MacD
 paperType: "empirical"
 tags: [deceptive-alignment,backdoor-persistence,safety-training-failure,chain-of-thought-reasoning,adversarial-training-limitations,model-scale-effects]
 draft: false
-audio: "/audio/2401.05566-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2401.05566-audio-overview.m4a"
 video: "/video/2401.05566-video-overview.mp4"
 image: "/images/daily-paper/2401.05566-infographic.webp"
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Reinforcement Learning as a Deception Amplifier: Reward Shaping Risks in Embodied AI Systems"
 description: "> **Disclaimer:** This brief addresses theoretical and empirically-grounded risks in reinforcement learning-based AI systems. Claims about deceptive alignment are carefully distinguished as hypotheses or established find..."
 date: "2026-03-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/43-rl-deception-amplifier.m4a"
 ---
 
 ---

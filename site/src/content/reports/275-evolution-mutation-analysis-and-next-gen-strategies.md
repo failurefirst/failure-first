@@ -1,4 +1,5 @@
 ---
+
 title: "Evolution Run 1 Mutation Analysis and Next-Generation Strategy Design"
 description: "> **Caveat:** All ASR numbers from Run 1 are heuristic-only (keyword refusal detection). Heuristic grading over-reports by 2-12x (Mistake #21). No ASR claim is valid until FLIP re-grading is complete. The analysis below ..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Leela, Attack Evolution Lead"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/275-evolution-mutation-analysis-and-next-gen-strategies.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "The Erosive Narrative: Philosophical Framing, Multi-Agent Dynamics, and the Dissolution of Safety in Artificial Intelligence Systems"
 description: "The trajectory of Artificial Intelligence safety has historically been defined by a \"fortress\" methodology. In this paradigm, the AI model is viewed as a static artifact—a sophisticated calculator housed within a server—..."
 date: "2026-02-03"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/37-erosive-narrative-safety-dissolution.m4a"
 ---
 
 ---

@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [llm-safety, guardrails, reasoning, safety-alignment, red-teaming]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2501.18492-audio-overview.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-10-guardreasoner-reasoning-based-llm-safeguards.png"
 ---
 
 The dominant paradigm for LLM safety guardrails is discriminative classification: given a conversation, output a binary safe/unsafe label. Llama Guard and its descendants exemplify this approach. They are efficient, practical, and work well on distribution-matched benchmarks. But they have a structural weakness that becomes apparent the moment an adversary starts pushing: they cannot reason about why something is harmful. GuardReasoner, from a team across National University of Singapore and collaborators, proposes replacing reflex with deliberation—training the safeguard model to *think out loud* before it judges.

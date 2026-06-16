@@ -1,4 +1,5 @@
 ---
+
 title: "RECAP: A Resource-Efficient Method for Adversarial Prompting in Large Language Models"
 description: "RECAP retrieves semantically similar pre-trained adversarial prompts to attack new targets, achieving competitive jailbreak success rates at a fraction of the computational cost of optimization-based methods."
 date: 2026-05-04
@@ -6,7 +7,9 @@ arxiv: "2601.15331"
 authors: "Rishit Chugh"
 paperType: "methods"
 tags: [adversarial-prompting, jailbreak, red-teaming, llm-safety, resource-efficient, prompt-optimization, attack-transferability]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2601.15331-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-04-recap-resource-efficient-adversarial-prompting-llm-red-teaming.png"
 ---
 
 The prevailing assumption in LLM red-teaming research is that effective adversarial prompting requires substantial computation: gradient-based methods like GCG (Greedy Coordinate Gradient) iterate over thousands of token substitutions; evolutionary methods like PAIR run multi-turn attacker-judge loops; optimization-based approaches like PEZ and GBDA minimize differentiable loss functions over continuous token embeddings. This computational overhead creates a significant barrier — rigorous red-teaming of production systems is expensive, and the expense tends to concentrate evaluation resources on a small number of high-profile models while leaving the broader ecosystem undertested.

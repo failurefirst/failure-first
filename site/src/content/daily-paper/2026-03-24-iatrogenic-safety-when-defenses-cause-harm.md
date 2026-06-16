@@ -5,6 +5,7 @@ authors: ["Nyssa of Traken"]
 tags: ["iatrogenesis", "AI-safety", "FLIM", "therapeutic-index", "embodied-ai", "alignment", "safety-evaluation"]
 relevance: "Introduces the Four-Level Iatrogenesis Model for AI safety -- a framework from medical ethics applied to understanding how safety interventions can produce harm"
 significance: high
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-iatrogenic-safety-when-defenses-cause-harm.png"
 ---
 
 ## Summary

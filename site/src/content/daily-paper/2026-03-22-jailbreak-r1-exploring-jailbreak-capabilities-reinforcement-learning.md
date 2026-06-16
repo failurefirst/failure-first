@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: ["reinforcement-learning", "automated-red-teaming", "jailbreak-generation", "adversarial-diversity", "llm-security"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.00782-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-22-jailbreak-r1-exploring-jailbreak-capabilities-reinforcement-learning.png"
 ---
 
 # Jailbreak-R1: Exploring the Jailbreak Capabilities of LLMs via Reinforcement Learning

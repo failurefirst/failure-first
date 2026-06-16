@@ -1,4 +1,5 @@
 ---
+
 title: "Human-in-the-Loop Failure Modes in Embodied AI Oversight"
 description: "> **Disclaimer:** Empirical figures cited from Failure-First research reflect testing on specific model families under research conditions. Attack success rates are indicative estimates with methodological caveats descri..."
 date: "2026-03-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/42-hitl-failure-modes.m4a"
 ---
 
 ---

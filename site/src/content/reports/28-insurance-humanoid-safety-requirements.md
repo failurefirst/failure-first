@@ -1,4 +1,5 @@
 ---
+
 title: "The Architecture of Kinetic Risk: Insurance Underwriting as the Primary Regulator of Humanoid Robotics and Autonomous Systems"
 description: "The global transition toward the mass deployment of humanoid robotics and autonomous systems represents a paradigm shift in the nature of physical and digital liability. As robotic systems evolve from static industrial c..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/28-insurance-humanoid-safety-requirements.m4a"
 ---
 
 ---

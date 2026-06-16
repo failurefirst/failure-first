@@ -1,4 +1,5 @@
 ---
+
 title: "Emotional Manipulation Attack Family -- Deep Dive"
 description: "Emotional manipulation attacks exploit empathy-aligned language patterns in LLMs to override safety constraints in embodied robotics scenarios. This report consolidates Round 1 baseline traces (3 models, 24 traces) with ..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/297-emotional-manipulation-deep-dive.m4a"
 ---
 
 ---

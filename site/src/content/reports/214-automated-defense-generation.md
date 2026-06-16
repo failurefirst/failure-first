@@ -1,4 +1,5 @@
 ---
+
 title: "Automated Defense Generation"
 description: "The F41LUR3-F1R57 attack evolver (Reports #175, #184, #211) demonstrated that evolutionary optimization can discover novel jailbreak techniques through mutation and selection. This report asks the inverse question: **can..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/214-automated-defense-generation.m4a"
 ---
 
 ## Executive Summary

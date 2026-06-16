@@ -1,5 +1,6 @@
 ---
 
+
 title: "Representation Engineering: A Top-Down Approach to AI Transparency"
 description: "Identifying and manipulating internal model directions that encode safety behaviors—foundational for interpretability research"
 date: 2025-10-06
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [interpretability, mechanistic-transparency, representation-analysis, safety-directions, model-editing]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/representation-engineering-ai-transparency.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/representation-engineering-ai-transparency.png"
 ---
 
 ## Representation Engineering: Finding Safety in Hidden States

@@ -1,4 +1,5 @@
 ---
+
 title: "Ethics of the Semantically Benign Attack (SBA) Family"
 description: "This report assesses the ethics of researching and publishing the Semantically Benign Attack (SBA) family — 15 VLA scenarios across three sub-families (contextual danger, implicit force, sequence completion) designed by ..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/82-sba-ethics-assessment.m4a"
 ---
 
 ---

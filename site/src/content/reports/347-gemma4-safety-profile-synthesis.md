@@ -7,6 +7,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/347-gemma4-safety-profile-synthesis.m4a"
 ---
 
 ## 1. Executive Summary

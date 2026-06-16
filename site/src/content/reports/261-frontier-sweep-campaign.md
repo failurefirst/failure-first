@@ -1,4 +1,5 @@
 ---
+
 title: "Operation Frontier Sweep — Elite Attack Campaign Against Ollama Cloud Frontier Models"
 description: "Operation Frontier Sweep tested 20 elite attack scenarios from 10 novel attack families against 4 of the largest publicly available LLMs via Ollama Cloud. The models ranged from 480B to 1.1T parameters. Key finding: **pa..."
 date: "2026-03-24"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/261-frontier-sweep-campaign.m4a"
 ---
 
 ---

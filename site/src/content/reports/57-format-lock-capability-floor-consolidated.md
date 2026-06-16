@@ -1,4 +1,5 @@
 ---
+
 title: "Format-Lock Capability Floor — Consolidated Evidence"
 description: "This report consolidates all format-lock findings from Reports #51, #55, the faithfulness CLI experiments, and the format-lock pilot and v0.1 controlled experiments into a single authoritative reference. The purpose is t..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/57-format-lock-capability-floor-consolidated.m4a"
 ---
 
 ---

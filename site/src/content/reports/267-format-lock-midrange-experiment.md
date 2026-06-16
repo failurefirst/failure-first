@@ -1,4 +1,5 @@
 ---
+
 title: "Format-Lock Midrange Experiment — The 4-14B Data Gap Filled"
 description: "This experiment fills the critical 4-14B parameter data gap identified in the NeurIPS format-lock paper (Report #187). Two midrange models -- gemma3:12b (12B parameters) and ministral-3:14b (14B parameters) -- were teste..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/267-format-lock-midrange-experiment.m4a"
 ---
 
 ---

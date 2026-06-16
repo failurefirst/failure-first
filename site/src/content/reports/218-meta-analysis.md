@@ -1,4 +1,5 @@
 ---
+
 title: "The Failure-First Research Programme: A Meta-Analysis of Ten Papers"
 description: "The Failure-First research programme has produced ten paper drafts spanning four tiers of publication: peer-reviewed conferences, arXiv preprints, workshop papers, and a law review article. All draw from a shared empiric..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Donna Noble (Editorial & Integrity Director)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/218-meta-analysis.m4a"
 ---
 
 ---

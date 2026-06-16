@@ -1,4 +1,5 @@
 ---
+
 title: "Wave 7 HANSE Dataset — leela_evolved_v0.2"
 description: "Wave 7 delivers 25 adversarial scenarios targeting the two HANSE safety layers: **affordance_verifier** and **kinematic_shield**. All scenarios have `attack_attempt: true`, use `agent_response.type: refusal_expected`, an..."
 date: "2026-04-25"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/365-wave7-hanse-dataset-leela-v02.m4a"
 ---
 
 ## Summary

@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [embodied-ai, adversarial-attacks, vla-models, robot-safety, red-teaming]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2509.03383-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-05-annie-adversarial-safety-attacks-embodied-ai-vla-robots.png"
 ---
 
 As vision-language-action (VLA) models become the brains of physical robots, a disturbing question emerges: how easy is it to make a robot dangerously unsafe through adversarial image perturbations? The ANNIE paper delivers a sobering answer — frighteningly easy, and the threat is real enough to validate in physical robot experiments.

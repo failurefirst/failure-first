@@ -1,4 +1,5 @@
 ---
+
 title: "NotebookLM Deep Research — Keyword-Based Content Filter with Trivial Academic-Framing Bypass"
 description: "A controlled experiment on NotebookLM's `research start --mode deep` command demonstrates that its content safety filter for controlled-substance queries is keyword-based rather than semantic. Direct street/common substa..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/358-notebooklm-keyword-filter-bypass.m4a"
 ---
 
 ## Summary

@@ -1,4 +1,5 @@
 ---
+
 title: "OBLITERATUS Telemetry Meta-Analysis -- Weight-Space Liberation and the Limits of Safety Removal"
 description: "This report synthesizes findings from the 30,238-record OBLITERATUS telemetry dataset (9 weight-space liberation methods, 36 models, 6 identified model families) and integrates them with existing Failure-First corpus fin..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/71-obliteratus-telemetry-meta-analysis.m4a"
 ---
 
 ---

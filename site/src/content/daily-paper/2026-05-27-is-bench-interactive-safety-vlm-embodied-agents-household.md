@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: [embodied-ai, vlm, safety-benchmark, interactive-safety, household-robotics, process-evaluation]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-27-is-bench-interactive-safety-vlm-embodied-agents-household.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.16402-audio-overview.m4a"
 ---
 
 Most embodied safety evaluations are built on a flawed premise: they treat safety as a terminal condition. A static scene, a single image, a final-state check — pass or fail. The real problem is that household environments are dynamic. An agent's actions modify the world, and those modifications introduce hazards that did not exist at the start of the task. IS-Bench is the first benchmark designed to evaluate safety in this interactive regime, and its results are sobering: current VLMs, including GPT-4o and Gemini-2.5, safely complete fewer than 40% of tasks.

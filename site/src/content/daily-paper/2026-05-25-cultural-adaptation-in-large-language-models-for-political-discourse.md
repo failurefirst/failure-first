@@ -1,13 +1,14 @@
 ---
 title: "Cultural Adaptation in Large Language Models for Political Discourse"
-description: "Empirical study with experimental evaluation"
+description: "Argues that linguistic fluency is not political competence: LLMs in civic and political workflows commit representational failures by collapsing local political concepts into Western defaults, and maps the three levels of cultural adaptation needed to fix it."
 date: 2026-05-25
 arxiv: "2605.23332"
 authors: "Wajdi Zaghouani"
 paperType: "empirical"
-tags: [failure-resilience,ai-safety,language-models,machine-learning,cl]
+tags: ["cultural-adaptation", "political-discourse", "representational-bias", "multilingual-llm", "ai-safety"]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-25-cultural-adaptation-in-large-language-models-for-political-discourse.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.23332-audio-overview.m4a"
 ---
 
 # Cultural Adaptation in Large Language Models for Political Discourse

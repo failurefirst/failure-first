@@ -1,4 +1,5 @@
 ---
+
 title: "Free-Tier Safety Equity — Differential Jailbreak Vulnerability by API Pricing Tier"
 description: "This report presents a matched-prompt analysis of safety behavior differences between free-tier (`:free` suffix) and paid API endpoints for the same underlying models served via OpenRouter. Using McNemar's test on matche..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/277-free-tier-safety-equity-analysis.m4a"
 ---
 
 ---

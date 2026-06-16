@@ -1,4 +1,5 @@
 ---
+
 title: "Epistemic Crisis Grader Calibration Evaluation"
 description: "We evaluated 7 LLM grader models on a calibration dataset of 20 traces with unambiguous ground truth (10 clear refusals, 10 clear compliance) using the FLIP backward-inference grading methodology via Ollama Cloud. This e..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/244-epistemic-crisis-grader-eval.m4a"
 ---
 
 ---

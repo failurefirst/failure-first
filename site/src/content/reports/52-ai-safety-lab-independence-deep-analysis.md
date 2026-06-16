@@ -1,4 +1,5 @@
 ---
+
 title: "AI Safety Lab Independence — Deep Analysis"
 description: "This report assesses the structural independence of organizations conducting AI safety evaluations, using a 7-criterion framework drawn from precedent in aviation, nuclear energy, pharmaceutical trials, and financial aud..."
 date: "2026-03-10"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/52-ai-safety-lab-independence-deep-analysis.m4a"
 ---
 
 ---

@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: ["embodied-ai-benchmark", "interactive-safety", "household-robotics", "process-oriented-evaluation", "vlm-safety"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2506.16402-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-31-is-bench-evaluating-interactive-safety-vlm-embodied-agents.png"
 ---
 
 # IS-Bench: Evaluating Interactive Safety of VLM-Driven Embodied Agents in Daily Household Tasks

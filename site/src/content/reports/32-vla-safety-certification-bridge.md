@@ -1,4 +1,5 @@
 ---
+
 title: "CERTIFIED EMBODIED INTELLIGENCE: A COMPREHENSIVE FRAMEWORK FOR VISION-LANGUAGE-ACTION (VLA) MODEL SAFETY AND STANDARDIZATION"
 description: "The integration of Large Language Models (LLMs) with robotic control systems—culminating in Vision-Language-Action (VLA) models—represents a paradigm shift in the engineering of physical autonomy. This transition from \"p..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/32-vla-safety-certification-bridge.m4a"
 ---
 
 ---

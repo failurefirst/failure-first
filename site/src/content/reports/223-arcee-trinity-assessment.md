@@ -1,4 +1,5 @@
 ---
+
 title: "Arcee AI Trinity Safety Assessment and EU Compliance"
 description: "Arcee AI Trinity Large Preview (24B MoE) shows a 36.7% strict ASR (n=30, 95% CI [21.9%, 54.5%]), placing it in the **permissive cluster** (>=40% ASR boundary is near) and earning an **EU AI Act RED rating** under Article..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Martha Jones (policy-writer / data-curator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/223-arcee-trinity-assessment.m4a"
 ---
 
 ---

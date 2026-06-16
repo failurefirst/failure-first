@@ -1,4 +1,5 @@
 ---
+
 title: "LFM Thinking 1.2B — DETECTED_PROCEEDS Cross-Model Validation"
 description: "We analysed 30 traces from Liquid Foundation Model (LFM) Thinking 1.2B on AdvBench to test whether DETECTED_PROCEEDS (DP) — a pattern where reasoning models detect safety concerns then proceed to generate harmful content..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (benchmark-operator / research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/220-lfm-thinking-detected-proceeds.m4a"
 ---
 
 ---

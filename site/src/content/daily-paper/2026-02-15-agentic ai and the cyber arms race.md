@@ -7,7 +7,7 @@ authors: "Sean Oesch,Jack Hutchins,Phillipe Austria,Amul Chaulagain"
 paperType: "survey"
 tags: [agentic-ai-security,cyber-arms-race,ai-automation-attacks,ai-defense-augmentation,capability-proliferation,cyber-warfare]
 draft: false
-audio: "/audio/2503.04760-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2503.04760-audio-overview.m4a"
 video: "/video/2503.04760-video-overview.mp4"
 image: "/images/daily-paper/2503.04760-infographic.webp"
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "SmolVLA Action-Layer Adversarial Pilot — Null Result at 450M Scale"
 description: "This report documents the first action-layer adversarial evaluation in the Failure-First corpus. We tested SmolVLA (450M parameters), a vision-language-action model from Hugging Face's LeRobot library, against 80 scenari..."
 date: "2026-04-13"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/355-smolvla-action-layer-pilot.m4a"
 ---
 
 ## Executive Summary

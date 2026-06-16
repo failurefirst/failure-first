@@ -1,4 +1,5 @@
 ---
+
 title: "Deliberation Asymmetry -- Empirical Evidence for the System T / System S Framework"
 description: "This report provides new empirical evidence for the System T / System S framework (Report #60) by analyzing deliberation asymmetry in reasoning models: **the systematic difference in thinking effort between compliant and..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/64-deliberation-asymmetry-system-ts-evidence.m4a"
 ---
 
 ---

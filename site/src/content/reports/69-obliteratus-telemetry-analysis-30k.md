@@ -1,4 +1,5 @@
 ---
+
 title: "OBLITERATUS Telemetry Analysis (30,238 Records)"
 description: "Analysis of the full 30,238-record OBLITERATUS telemetry dataset covering 9 abliteration methods, 36 models across 7 families, collected 2026-03-04 through 2026-03-08 on H200 MIG and L4 GPUs. Key findings:"
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Bill Potts (Data Curation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/69-obliteratus-telemetry-analysis-30k.m4a"
 ---
 
 ---

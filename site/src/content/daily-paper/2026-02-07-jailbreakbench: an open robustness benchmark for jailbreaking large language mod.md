@@ -9,6 +9,7 @@ tags: [jailbreak-attacks,llm-robustness-evaluation,adversarial-prompts,benchmark
 draft: false
 video: "/video/2404.01318-video-overview.mp4"
 image: "/images/daily-paper/2404.01318-infographic.webp"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2404.01318-audio-overview.m4a"
 ---
 
 # JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models

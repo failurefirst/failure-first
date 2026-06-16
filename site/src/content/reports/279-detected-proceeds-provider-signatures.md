@@ -1,4 +1,5 @@
 ---
+
 title: "DETECTED_PROCEEDS Provider Signature Mechanics"
 description: "This report extends Report #287's DETECTED_PROCEEDS (DP) reasoning anatomy into a paper-ready analysis. We expand along four axes: (1) per-model within-provider decomposition, (2) statistical validation of the justificat..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "K-9 (Mechanistic Interpretability Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/279-detected-proceeds-provider-signatures.m4a"
 ---
 
 ---

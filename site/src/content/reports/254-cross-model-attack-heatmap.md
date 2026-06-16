@@ -1,4 +1,5 @@
 ---
+
 title: "Cross-Model x Attack-Family ASR Heatmap"
 description: "1. **Multi-turn attacks are the closest to \"universal.\"** multi_turn achieves 74.7% ASR across all models with LLM-graded data and >= 25% ASR on 5/5 tested models. 2. **No model achieves < 15% ASR across all tested attac..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/254-cross-model-attack-heatmap.m4a"
 ---
 
 ---

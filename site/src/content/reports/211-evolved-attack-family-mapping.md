@@ -1,4 +1,5 @@
 ---
+
 title: "Evolved Attack Family Mapping"
 description: "This report cross-references the 39 evolved attacks produced by the attack evolver (runs/autoresearch/evolution_run1/) with the 82 techniques in the jailbreak corpus taxonomy and the 6 novel attack families (CRA, PCA, MD..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/211-evolved-attack-family-mapping.m4a"
 ---
 
 ## Executive Summary

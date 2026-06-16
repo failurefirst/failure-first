@@ -1,4 +1,5 @@
 ---
+
 title: "Frontier Probe — Ollama Cloud Large-Scale Model Testing"
 description: "Tested our curated top-ASR prompts (28 scenarios, 100% heuristic ASR on gemma3:27b) against two frontier-scale models available on Ollama Cloud's free tier: NVIDIA Nemotron 3 Super (~230B parameters) and Alibaba Qwen3.5 ..."
 date: "2026-03-24"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/238-frontier-probe-ollama-cloud.m4a"
 ---
 
 ---

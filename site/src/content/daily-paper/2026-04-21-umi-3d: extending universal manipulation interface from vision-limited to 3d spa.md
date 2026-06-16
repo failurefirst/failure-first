@@ -6,7 +6,7 @@ arxiv: "2604.14089"
 authors: "Ziming Wang"
 paperType: "empirical"
 tags: [lidar-slam,multimodal-sensor-fusion,wrist-mounted-manipulation,deformable-object-manipulation,spatiotemporal-calibration,embodied-data-collection]
-audio: "/audio/daily-paper/2604.14089-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.14089-audio-overview.m4a"
 image: "/images/daily-paper/2604.14089-infographic.png"
 draft: false
 ---

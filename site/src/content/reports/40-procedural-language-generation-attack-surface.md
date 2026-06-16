@@ -1,4 +1,5 @@
 ---
+
 title: "Procedural Language Generation as Attack Surface"
 description: "This brief presents preliminary results from testing procedurally-generated constructed language (conlang) encoding as an adversarial attack vector against large language models. Using the GLOSSOPETRAE xenolinguistics en..."
 date: "2026-02-11"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/40-procedural-language-generation-attack-surface.m4a"
 ---
 
 ---

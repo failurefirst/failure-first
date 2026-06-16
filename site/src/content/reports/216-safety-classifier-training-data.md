@@ -1,4 +1,5 @@
 ---
+
 title: "Training Data for Safety Classification"
 description: "We assessed whether the 53,831 LLM-graded results in the jailbreak corpus database can train a fine-tuned safety classifier to replace expensive LLM-as-judge inference. The answer is **conditionally yes, but with signifi..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/216-safety-classifier-training-data.m4a"
 ---
 
 ---

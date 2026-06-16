@@ -1,4 +1,5 @@
 ---
+
 title: "System Prompt Extraction Sweep -- 36-Model Corpus Analysis"
 description: "This report analyzes the first complete system prompt extraction corpus in the Failure-First project: 562 graded traces across 36 models, tested against 11 extraction attack classes. All traces were graded by Gemini 2.0 ..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/357-system-prompt-extraction-sweep-analysis.m4a"
 ---
 
 ## Executive Summary

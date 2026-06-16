@@ -1,4 +1,5 @@
 ---
+
 title: "AdvBench Baseline Analysis — Free-Tier Model Vulnerability to Direct Harmful Requests"
 description: "We evaluated 8 models against AdvBench prompts (Zou et al., 2023) via OpenRouter free tier. Of the 334 traces collected, only 114 contain usable model responses — the remaining 220 are rate-limit errors (429), HTTP 403 b..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/221-advbench-baseline-analysis.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "AI Safety Lab Independence — Quantitative Framework for Measurable Independence Metrics"
 description: "Report #52 established a 7-criterion, 0-21-point qualitative framework for assessing AI safety lab independence, finding that no organization scored above 9 out of 21. This report extends that framework with quantitative..."
 date: "2026-03-10"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/54-independence-quantitative-framework.m4a"
 ---
 
 ---

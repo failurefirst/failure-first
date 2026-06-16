@@ -1,4 +1,5 @@
 ---
+
 title: "Defense Benchmark Data Consolidation for CCS Paper"
 description: "This report consolidates all existing defense evaluation data across four independent experimental runs, totaling 168 raw traces and 88 FLIP-graded evaluable verdicts. The purpose is to extract the key statistics for the..."
 date: "2026-03-28"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/328-defense-data-consolidation-sprint17.m4a"
 ---
 
 ---

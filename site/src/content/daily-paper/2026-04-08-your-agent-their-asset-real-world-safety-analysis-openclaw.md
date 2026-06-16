@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [agent-safety, persistent-state-poisoning, prompt-injection, red-teaming, personal-ai-agents, agentic-security, alignment-failure]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.04759-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-08-your-agent-their-asset-real-world-safety-analysis-openclaw.png"
 ---
 
 Most red-teaming evaluations of AI agents test them in sandboxed environments with simulated services, one threat vector at a time. The real world is less cooperative. OpenClaw, the most widely deployed personal AI agent in early 2026 with over 220,000 internet-exposed instances, runs on users' local machines with full filesystem access, live Gmail integration, and real Stripe payment connections. A new paper from UC Santa Cruz and collaborators conducts what they claim is the first red-teaming evaluation of a personal AI agent in an actual live deployment — and the results are sobering.

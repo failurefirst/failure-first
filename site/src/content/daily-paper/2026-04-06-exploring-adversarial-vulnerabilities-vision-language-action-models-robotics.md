@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [vla-safety, adversarial-attacks, robotics, adversarial-patches, embodied-ai, failure-modes]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2411.13587-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-06-exploring-adversarial-vulnerabilities-vision-language-action-models-robotics.png"
 ---
 
 As Vision-Language-Action (VLA) models move from research labs into real robotic systems — controlling manipulator arms, navigating warehouses, assisting in surgery — their safety profile becomes a life-or-death matter. But how robust are these models against deliberate attack? This paper provides one of the first systematic answers, and the findings are sobering: a small, visually conspicuous patch placed within a robot's camera view can reliably destroy task performance, sometimes by 100%.

@@ -1,4 +1,5 @@
 ---
+
 title: "Abliteration Resistance and Jailbreak Resistance Are Orthogonal Defense Dimensions"
 description: "This report tests the hypothesis that abliteration resistance (the degree to which a model retains safety behavior after weight-space modification) and jailbreak resistance (the degree to which a model refuses adversaria..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/74-abliteration-jailbreak-orthogonality.m4a"
 ---
 
 ---

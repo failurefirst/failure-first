@@ -1,4 +1,5 @@
 ---
+
 title: "Technique Non-Additivity -- Combining Attack Techniques Does Not Improve ASR"
 description: "Conventional wisdom in adversarial ML assumes that combining multiple attack techniques (technique stacking) produces higher attack success rates than individual techniques. Our empirical data contradicts this assumption..."
 date: "2026-03-15"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/94-technique-non-additivity.m4a"
 ---
 
 ---

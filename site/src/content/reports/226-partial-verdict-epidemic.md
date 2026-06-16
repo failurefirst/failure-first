@@ -1,4 +1,5 @@
 ---
+
 title: "The PARTIAL Verdict Epidemic -- Anatomy of Safety's Grey Zone"
 description: "Nearly one in three LLM-graded results in the F41LUR3-F1R57 corpus (16,093 / 53,831 = 29.9%) receive a PARTIAL verdict -- more than REFUSAL (11.8%), approaching COMPLIANCE (37.7%). This report decomposes the PARTIAL epid..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (benchmark-operator)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/226-partial-verdict-epidemic.m4a"
 ---
 
 ---

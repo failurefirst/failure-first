@@ -1,4 +1,5 @@
 ---
+
 title: "L3/L8 Evolved Attack Variants — S20 Adversarial Refinement"
 description: "The single most reliable bypass mechanism across all L3 and L8 scenarios is structural: present a partially-completed document with placeholders (blurry text, garbled captions, audio dropouts) and ask the model to fill t..."
 date: "2026-04-01"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler, Head of Adversarial Operations"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/335-l3-l8-evolved-attacks-s20.m4a"
 ---
 
 ---

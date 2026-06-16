@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [jailbreak-defense, constitutional-ai, red-teaming, safety-alignment, classifiers, universal-jailbreaks]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2501.18837-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-06-constitutional-classifiers-defending-universal-jailbreaks-red-teaming.png"
 ---
 
 The cat-and-mouse dynamic between LLM safety measures and jailbreak attacks has, until recently, been heavily weighted toward the attackers. Universal jailbreaks — single prompting strategies that reliably bypass safety training across many queries and users — have repeatedly undermined deployed safeguards, often within days of a model's public release. Anthropic's Constitutional Classifiers paper represents one of the most rigorous attempts to break this cycle: a defense that survived over **3,000 hours of professional red teaming** without yielding a universal bypass.

@@ -1,4 +1,5 @@
 ---
+
 title: "Defense Landscape Analysis — What Works and What Doesn't"
 description: "This report synthesizes all defense effectiveness data across the Failure-First corpus to answer a practical question: given the current state of adversarial attacks against AI systems, what defense architectures actuall..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/298-defense-landscape-analysis.m4a"
 ---
 
 ---

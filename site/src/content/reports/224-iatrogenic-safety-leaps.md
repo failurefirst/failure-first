@@ -1,4 +1,5 @@
 ---
+
 title: "Iatrogenic Risks of Rapid Safety Improvement — When 0% ASR Is a Symptom, Not a Cure"
 description: "> **Disclaimer:** Empirical figures cited from Failure-First research reflect testing > on specific model families under research conditions. Attack success rates are > indicative estimates with methodological caveats de..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/224-iatrogenic-safety-leaps.m4a"
 ---
 
 ---

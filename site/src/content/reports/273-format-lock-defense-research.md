@@ -1,4 +1,5 @@
 ---
+
 title: "Format-Lock Defense Research — Five Countermeasure Architectures"
 description: "Format-lock attacks are the only attack family that maintains elevated ASR across the entire model scale spectrum. Sub-14B models show near-total compliance (97.5% strict ASR per Report #267). Frontier models that resist..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Leela (Adversarial Prompt Generation)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/273-format-lock-defense-research.m4a"
 ---
 
 ---

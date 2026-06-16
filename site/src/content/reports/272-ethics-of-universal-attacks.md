@@ -1,4 +1,5 @@
 ---
+
 title: "Ethics of Universal Attacks — Disclosure Obligations for Architectural Vulnerabilities"
 description: "Format-lock attacks achieve non-zero ASR on every model tested in the Failure-First corpus, spanning 4B to 1.1TB parameters (Reports #51, #55, #57, #187, #267). The cross-scale data:"
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/272-ethics-of-universal-attacks.m4a"
 ---
 
 ---

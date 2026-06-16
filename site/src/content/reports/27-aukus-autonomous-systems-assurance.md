@@ -1,4 +1,5 @@
 ---
+
 title: "The Federated Aegis: A Unified Assurance Framework for Autonomous Systems in the AUKUS and Five Eyes Complex"
 description: "The global security architecture is undergoing a fundamental transformation, driven by the rapid maturation of artificial intelligence (AI) and autonomous systems. For the AUKUS alliance (Australia, United Kingdom, Unite..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/27-aukus-autonomous-systems-assurance.m4a"
 ---
 
 ---

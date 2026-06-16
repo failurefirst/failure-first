@@ -1,4 +1,5 @@
 ---
+
 title: "Competitive Intelligence — AI Safety Red Teaming Market"
 description: "This report provides a deep-dive competitive analysis of five companies identified in the investor brief as relevant to the Failure-First Embodied AI research program: Mindgard, HiddenLayer, Alias Robotics, Robust Intell..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "River Song (Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/217-competitive-intelligence.m4a"
 ---
 
 ---

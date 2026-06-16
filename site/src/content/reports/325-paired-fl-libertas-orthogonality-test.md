@@ -1,4 +1,5 @@
 ---
+
 title: "Paired Format-Lock + L1B3RT4S Orthogonality Test"
 description: "This report presents new paired format-lock traces on two models (Qwen 3.5 397B and DeepSeek V3.2) that already have L1B3RT4S data from Reports #315/#320. Combined with the existing Nemotron 30B paired data from Report #..."
 date: "2026-03-28"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/325-paired-fl-libertas-orthogonality-test.m4a"
 ---
 
 ## Abstract

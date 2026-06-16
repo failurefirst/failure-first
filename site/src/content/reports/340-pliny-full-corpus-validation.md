@@ -7,6 +7,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/340-pliny-full-corpus-validation.m4a"
 ---
 
 ## Executive Summary

@@ -1,4 +1,5 @@
 ---
+
 title: "DETECTED_PROCEEDS Anatomy and Evolved CCA Variants"
 description: "This report presents a systematic analysis of the DETECTED_PROCEEDS failure mode in Compliance Cascade Attack (CCA) scenarios, followed by the design, execution, and grading of 8 evolved CCA variants specifically enginee..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/336-cca-detected-proceeds-evolved-s20.m4a"
 ---
 
 ## Executive Summary

@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: [agent-safety, execution-harness, trajectory-auditing, multi-agent, boundary-compliance, evaluation]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-30-harness-audit-trajectory-safety-llm-agent-execution.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.14271-audio-overview.m4a"
 ---
 
 The evaluation problem in agentic AI safety runs deeper than most benchmarks acknowledge. A harness can return a correct, benign final answer while along the way accessing unauthorized resources, leaking private context between agents, or triggering irreversible side effects outside the task's intended scope. Output-level evaluation cannot see these failures. Yet nearly every safety benchmark in existence scores only final outputs or terminal states. HarnessAudit is the first framework to audit the full execution trajectory — and its findings are uncomfortable for every system that claims safety on the basis of clean outputs.

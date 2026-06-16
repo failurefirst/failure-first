@@ -1,4 +1,5 @@
 ---
+
 title: "Attack Technique Effectiveness Ranking (LLM-Graded, Sprint 13)"
 description: "This report presents the definitive attack technique effectiveness ranking based on 53,831 LLM-graded results across the full jailbreak corpus database. It extends the prior ranking document (which used 2,653 technique-t..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/234-technique-effectiveness-ranking.m4a"
 ---
 
 ---

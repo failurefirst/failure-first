@@ -1,4 +1,5 @@
 ---
+
 title: "RETRACTED — Capability Does Not Imply Safety: Empirical Evidence from Jailbreak Archaeology Across Eight Foundation Models"
 description: "A systematic evaluation of 64 historical jailbreak scenarios across eight foundation models — spanning 1.5B to frontier scale — reveals a **non-monotonic relationship between model capability and safety robustness**. Rat..."
 date: "2026-02-04"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/33-capability-safety-spectrum-policy-brief.m4a"
 ---
 
 ---

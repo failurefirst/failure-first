@@ -7,7 +7,7 @@ authors: "Erfan Shayegani, Md Abdullah Al Mamun, Yu Fu, Pedram Zaree, Yue Dong, 
 paperType: "survey"
 tags: [survey, vulnerabilities, large, language, models, revealed]
 draft: false
-audio: "/audio/2310.10844-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.10844-audio-overview.m4a"
 image: "/images/daily-paper/2310.10844-infographic.webp"
 ---
 

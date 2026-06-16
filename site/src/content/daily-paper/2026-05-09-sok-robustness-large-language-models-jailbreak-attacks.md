@@ -1,4 +1,5 @@
 ---
+
 title: "SoK: Robustness in Large Language Models against Jailbreak Attacks"
 description: "A systematization of knowledge paper from IEEE S&P 2026 introducing Security Cube — a unified multi-dimensional evaluation framework exposing the inadequacy of attack success rate as a single safety metric."
 date: 2026-05-09
@@ -6,7 +7,9 @@ arxiv: "2605.05058"
 authors: "Feiyue Xu, Hongsheng Hu, Chaoxiang He, Sheng Hang, Hanqing Hu, Xiuming Liu, Yubo Zhao, Zhengyan Zhou, Bin Benjamin Zhu, Shi-Feng Sun, Dawu Gu, Shuo Wang"
 paperType: "systematization"
 tags: [jailbreak, robustness, evaluation-framework, attack-success-rate, llm-safety, sok]
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.05058-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-09-sok-robustness-large-language-models-jailbreak-attacks.png"
 ---
 
 The jailbreak research community has a measurement problem. Attack success rate (ASR) has become the default metric for evaluating both attacks and defenses, but ASR is a one-dimensional projection of a fundamentally multi-dimensional security space. A defense that reduces ASR by 30% while simultaneously degrading general capability by 40% and increasing susceptibility to a different attack family is not a net improvement in security — but current evaluation practice would report it as one.

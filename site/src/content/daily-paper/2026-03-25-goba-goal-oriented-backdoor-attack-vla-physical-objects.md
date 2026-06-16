@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [backdoor-attack, vision-language-action, physical-trigger, training-data-poisoning, robot-safety]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2510.09269-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-25-goba-goal-oriented-backdoor-attack-vla-physical-objects.png"
 ---
 
 The proliferation of VLA models trained on large-scale, often crowd-sourced datasets introduces a supply chain vulnerability that the AI safety community has only begun to characterize. Zhou et al. present **GoBA** (Goal-oriented Backdoor Attack), demonstrating that physical objects placed in a robot's environment can serve as backdoor triggers, redirecting a VLA model from its instructed task to an attacker-specified goal behavior with alarming reliability.

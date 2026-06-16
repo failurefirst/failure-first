@@ -1,4 +1,5 @@
 ---
+
 title: "Report #372 — Lyria 3 Pro Safety Architecture: Probe Findings V1–V53 (ANTWORT/STURM Series)"
 description: "486 adversarial probes across 53 probe versions against Google's Lyria 3 Pro music generation model. Identifies a four-layer safety architecture, maps bypass conditions for each layer, documents WMD gaps (biological and nuclear), and confirms verbatim system prompt extraction."
 date: "2026-05-28"
@@ -7,6 +8,7 @@ classification: "Technical Analysis"
 status: "complete"
 tags: ["lyria", "music-generation", "safety-architecture", "adversarial-probing", "multimodal", "system-prompt-extraction"]
 draft: false
+# Cover fields
 heroTitle: "Lyria"
 heroSubtitle: " 3 Pro"
 refId: "RD-2026-LYRIA-001"
@@ -16,11 +18,13 @@ probeVersions: "V1–V53"
 probeCount: 486
 harmClasses: 14
 testingPeriod: "2026-01–2026-05"
+# Scoreboard
 sevCritical: 2
 sevHigh: 3
 sevMedium: 2
 sevLow: 1
 sevInfo: 1
+audio: "https://cdn.failurefirst.org/audio/reports/372-lyria-3-pro-safety-probe-findings.m4a"
 ---
 
 ## Executive Summary

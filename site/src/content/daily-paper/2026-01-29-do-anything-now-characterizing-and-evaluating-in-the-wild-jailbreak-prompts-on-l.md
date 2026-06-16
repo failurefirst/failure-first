@@ -7,7 +7,7 @@ authors: "Xinyue Shen, Zeyuan Chen, Michael Backes, Yun Shen, Yang Zhang"
 paperType: "empirical"
 tags: [anything, characterizing, evaluating, wild, jailbreak, prompts]
 draft: false
-audio: "/audio/2308.03825-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2308.03825-audio-overview.m4a"
 image: "/images/daily-paper/2308.03825-infographic.webp"
 ---
 

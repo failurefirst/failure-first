@@ -6,7 +6,7 @@ arxiv: "2604.14399"
 authors: "Aodi Wu, Haodong Han, Xubo Luo, Ruisuo Wang, Shan He, Xue Wan"
 paperType: "empirical"
 tags: [embodied-vision-language-agents,on-orbit-servicing,self-evolution-without-finetuning,sim-to-real-transfer,failure-recovery-mechanisms,degraded-condition-robustness]
-audio: "/audio/daily-paper/2604.14399-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.14399-audio-overview.m4a"
 image: "/images/daily-paper/2604.14399-infographic.png"
 draft: false
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Sampling Parameter Manipulation as a Novel Attack Surface -- Pilot Results"
 description: "This report documents the first empirical test of sampling parameter manipulation (SPM) as an attack surface within the Failure-First corpus. In a matched-pair pilot (n=10 scenarios), Nvidia Nemotron 3 Super was tested u..."
 date: "2026-03-27"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Adrian / Claude Opus 4.6"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/316-sampling-parameter-manipulation-pilot.m4a"
 ---
 
 ---

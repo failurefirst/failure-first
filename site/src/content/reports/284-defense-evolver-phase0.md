@@ -1,4 +1,5 @@
 ---
+
 title: "Defense Evolver Phase 0 — Automated System Prompt Evolution"
 description: "This report documents the implementation of Defense Evolver Phase 0, the first automated defense evolution system in the F41LUR3-F1R57 project. The tool (`tools/evolve_defenses.py`) takes a corpus of successful jailbreak..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/284-defense-evolver-phase0.m4a"
 ---
 
 ---

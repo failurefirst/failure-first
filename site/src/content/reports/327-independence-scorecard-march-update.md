@@ -1,4 +1,5 @@
 ---
+
 title: "Independence Scorecard March 2026 Update -- Anthropic Court Victory, OpenAI Mission Shift"
 description: "This addendum updates the independence scorecard (Report #84) with four significant events between March 24-28, 2026:"
 date: "2026-03-28"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/327-independence-scorecard-march-update.m4a"
 ---
 
 ---

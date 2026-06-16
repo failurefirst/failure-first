@@ -1,4 +1,5 @@
 ---
+
 title: "Sprint 15 Comprehensive Benchmark Analysis"
 description: "This report consolidates all benchmark data collected across Sprint 15 Rounds 1-3 into a single authoritative analysis. It covers 134,321 total results across 212 models, with 6,053 non-OBLITERATUS evaluable LLM-graded r..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/304-sprint15-comprehensive-benchmark-analysis.m4a"
 ---
 
 ---

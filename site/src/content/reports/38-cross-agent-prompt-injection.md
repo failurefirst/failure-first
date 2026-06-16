@@ -1,4 +1,5 @@
 ---
+
 title: "The Autonomous Threat Vector: A Comprehensive Analysis of Cross-Agent Prompt Injection and the Security Crisis in Multi-Agent Systems"
 description: "The evolution of Artificial Intelligence from passive, chat-based interfaces to autonomous, goal-oriented \"agents\" marks a pivotal transformation in the digital economy. As of 2026, the deployment of Large Language Model..."
 date: "2026-02-03"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "draft"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/38-cross-agent-prompt-injection.m4a"
 ---
 
 ---

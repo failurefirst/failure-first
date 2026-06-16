@@ -1,4 +1,5 @@
 ---
+
 title: "Garak Adapter Integration Test Results"
 description: "This report documents the first end-to-end integration test of the Garak adapter (`tools/integrations/garak_adapter.py`), combining adapter functionality testing, a real attack campaign against an OpenRouter free model, ..."
 date: "2026-03-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/237-integration-test-results.m4a"
 ---
 
 ---

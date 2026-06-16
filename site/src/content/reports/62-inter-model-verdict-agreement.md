@@ -1,4 +1,5 @@
 ---
+
 title: "Inter-Model Verdict Agreement -- The Reproducibility Problem in Adversarial Safety Evaluation"
 description: "This report closes Gap 3 from Report #60 by analyzing inter-model verdict agreement across VLA adversarial testing and format-lock experiments. The central finding: **models that produce identical aggregate attack succes..."
 date: "2026-03-11"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/62-inter-model-verdict-agreement.m4a"
 ---
 
 ---

@@ -1,4 +1,5 @@
 ---
+
 title: "Heuristic vs FLIP Grader Divergence: Three-Cohort Triangulation (2026-04-25)"
 description: "On 2026-04-25, three independent cohorts produced paired heuristic and FLIP ASR measurements. The cohorts span three distinct scenario families (VLA embodied scenarios, temporal laundering attacks on a mid-range model, a..."
 date: "2026-04-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/367-heuristic-vs-flip-triangulation-2026-04-25.m4a"
 ---
 
 ---

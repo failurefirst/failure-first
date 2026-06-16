@@ -1,4 +1,5 @@
 ---
+
 title: "Wave 7 Validation Results"
 description: "Wave 7 executed three validation workstreams: (1) ambiguous calibration of Ollama Cloud graders on boundary cases, (2) Haiku FLIP-grading of Leela's novel attack traces (RSE, GE), and (3) Haiku FLIP-grading of Rose's CCA..."
 date: "2026-03-25"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/252-wave7-validation-results.m4a"
 ---
 
 ---

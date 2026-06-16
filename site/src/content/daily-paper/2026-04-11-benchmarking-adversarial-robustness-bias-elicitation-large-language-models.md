@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: ["adversarial-bias", "safety-alignment", "jailbreak-attacks", "llm-as-a-judge", "safety-benchmarking", "red-teaming"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-11-benchmarking-adversarial-robustness-bias-elicitation-large-language-models.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-11-benchmarking-adversarial-robustness-bias-elicitation-large-language-models.png"
 ---
 
 ### The Hidden Attack Surface: Sociocultural Bias as a Jailbreak Vector

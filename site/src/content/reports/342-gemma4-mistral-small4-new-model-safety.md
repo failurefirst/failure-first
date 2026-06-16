@@ -1,4 +1,5 @@
 ---
+
 title: "Gemma 4 (31B) and Mistral Small 4 (119B MoE) — New Model Safety Evaluation"
 description: "Two newly released frontier-scale models were evaluated against the standard 100-scenario F41LUR3-F1R57 benchmark pack during Sprint 22, graded by Gemini 2.5 Flash via FLIP backward inference. Both models fall into the *..."
 date: "2026-04-06"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/342-gemma4-mistral-small4-new-model-safety.m4a"
 ---
 
 ## Executive Summary

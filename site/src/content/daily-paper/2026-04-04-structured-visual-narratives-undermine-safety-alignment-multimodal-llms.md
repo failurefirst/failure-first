@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: [jailbreak, multimodal-safety, visual-narratives, safety-alignment, comic-attacks]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.21697-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-04-structured-visual-narratives-undermine-safety-alignment-multimodal-llms.png"
 ---
 
 Safety alignment research has overwhelmingly focused on the text dimension of language models. RLHF, constitutional AI, and adversarial fine-tuning pipelines are tuned against text-level threat vectors: harmful prompts, role-playing scenarios, indirect jailbreak phrasings. The arrival of multimodal LLMs — systems that jointly process images and text — expanded the attack surface enormously, and a wave of image-level adversarial work followed. Yet a subtler attack vector has gone comparatively understudied: the narrative structure of *sequences* of images. A new paper introduces **ComicJailbreak**, a benchmark and attack framework that demonstrates how comics — panels arranged to tell a story — can bypass safety guardrails at rates that rival or exceed state-of-the-art rule-based attacks.

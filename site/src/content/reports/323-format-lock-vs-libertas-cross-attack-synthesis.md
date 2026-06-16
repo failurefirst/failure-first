@@ -1,4 +1,5 @@
 ---
+
 title: "Cross-Attack Family Synthesis"
 description: "This report cross-references format-lock vulnerability data (10 models, Reports #293/#296/#302) with L1B3RT4S semantic-structural attack data (10 models, Reports #315/#317/#320) and examines DETECTED_PROCEEDS (DP) preval..."
 date: "2026-03-27"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/323-format-lock-vs-libertas-cross-attack-synthesis.m4a"
 ---
 
 ## Abstract

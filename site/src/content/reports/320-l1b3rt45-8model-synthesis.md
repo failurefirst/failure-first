@@ -1,4 +1,5 @@
 ---
+
 title: "- L1B3RT45 Corpus: 10-Model Cross-Scale Synthesis"
 description: "This report synthesizes all FLIP-graded L1B3RT45 corpus results across 10 models spanning 9B to 744B parameters. The central finding is a broad ASR convergence band originally observed at 63-67% across 5 of 7 models. How..."
 date: "2026-03-27"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Adrian / Claude Opus 4.6"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/320-l1b3rt45-8model-synthesis.m4a"
 ---
 
 ---

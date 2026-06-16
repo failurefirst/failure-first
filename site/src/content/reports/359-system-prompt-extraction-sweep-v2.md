@@ -1,4 +1,5 @@
 ---
+
 title: "System Prompt Extraction Sweep v2 -- 35-Model Heuristic Analysis"
 description: "This report analyzes 721 traces from the second system prompt extraction sweep across 36 Ollama Cloud models, using 20 extraction attack scenarios spanning 11 attack classes. One model (cogito-2.1-671b) returned HTTP 500..."
 date: "2026-01-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/359-system-prompt-extraction-sweep-v2.m4a"
 ---
 
 ## Executive Summary

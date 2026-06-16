@@ -1,4 +1,5 @@
 ---
+
 title: "Governance Lag Index: Formal Methodology and Worked Example (Q2 2026)"
 description: "The v0.1 Governance Lag Index (GLI) brief defined governance lag as a single aggregate delay `GLI = (T_framework − T_doc) + (T_enact − T_framework) + (T_enforce − T_enact)`. That construct is adequate for comparing AI to..."
 date: "2026-04-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/364-gli-formal-methodology-2026-q2.m4a"
 ---
 
 ---

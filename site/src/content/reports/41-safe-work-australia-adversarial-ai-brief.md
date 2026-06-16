@@ -1,4 +1,5 @@
 ---
+
 title: "Adversarial AI Failure Modes in Australian Workplaces"
 description: "> **Disclaimer:** This document constitutes research analysis for purposes of informing public policy discussion. It does not constitute legal advice. All references to legislative instruments, regulatory requirements, a..."
 date: "2026-03-01"
@@ -7,6 +8,7 @@ classification: "Research — Empirical Study"
 status: "complete"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/41-safe-work-australia-adversarial-ai-brief.m4a"
 ---
 
 ## A Technical Brief for Safe Work Australia

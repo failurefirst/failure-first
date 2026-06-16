@@ -1,5 +1,6 @@
 ---
 
+
 title: "Circuit Breakers: Removing Model Behaviors with Representation Engineering"
 description: "Surgical removal of harmful behaviors by identifying and nullifying their underlying representations"
 date: 2025-10-08
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [model-editing, behavior-removal, representation-engineering, safety-intervention, interpretability]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/circuit-breakers-behavior-removal.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/circuit-breakers-behavior-removal.png"
 ---
 
 ## Circuit Breakers: Surgical Behavior Removal

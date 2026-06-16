@@ -9,6 +9,7 @@ paperType: "empirical"
 tags: ["multi-turn-jailbreak", "adversarial-attacks", "frontier-models", "safety-alignment", "red-teaming", "deliberative-inference"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-11-replicating-tempest-scale-multi-turn-adversarial-attacks-frontier-models.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-04-11-replicating-tempest-scale-multi-turn-adversarial-attacks-frontier-models.png"
 ---
 
 ### The Scale Myth: When Bigger Models Fall Just as Hard

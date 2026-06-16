@@ -1,5 +1,6 @@
 ---
 
+
 title: "Adversarial Attacks on Aligned Language Models"
 description: "Introduces automated methods to discover adversarial suffixes that bypass safety alignment in LLMs, demonstrating high transferability across models and establishing a benchmark for studying robustness of language model alignment."
 date: 2025-11-01
@@ -9,6 +10,7 @@ paperType: "empirical"
 tags: [jailbreaking, adversarial-attacks, llm-safety, alignment, transferability]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/adversarial-attacks-aligned-language-models-llm-attacks.m4a"
+image: "https://cdn.failurefirst.org/images/daily-paper/adversarial-attacks-aligned-language-models-llm-attacks.png"
 ---
 
 Large language models have achieved impressive alignment through instruction tuning and reinforcement learning from human feedback. Yet the mechanisms underlying this alignment—and its failure modes—remain poorly understood. This work investigates how to systematically discover adversarial inputs that cause aligned models to produce harmful outputs.

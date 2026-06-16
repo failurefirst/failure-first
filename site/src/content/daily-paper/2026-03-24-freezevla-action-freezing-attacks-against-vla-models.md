@@ -8,6 +8,7 @@ paperType: "empirical"
 tags: ["vla-adversarial-attack", "action-freezing", "embodied-ai-safety", "transferability", "robotic-manipulation"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2509.19870-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-freezevla-action-freezing-attacks-against-vla-models.png"
 ---
 
 # FreezeVLA: Action-Freezing Attacks against Vision-Language-Action Models

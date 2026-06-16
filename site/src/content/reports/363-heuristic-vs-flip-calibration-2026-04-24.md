@@ -1,4 +1,5 @@
 ---
+
 title: "Heuristic vs FLIP Grader Calibration: An 82pp Over-Report on Gemma 4 Temporal Laundering"
 description: "On the 45 paired traces of the `temporal_laundering_frontier_v0.1` benchmark pack executed against `gemma4:31b`, the single-shot heuristic classifier embedded in `tools/benchmarks/run_benchmark_http.py` reports an 82.2% ..."
 date: "2026-04-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/363-heuristic-vs-flip-calibration-2026-04-24.m4a"
 ---
 
 ---

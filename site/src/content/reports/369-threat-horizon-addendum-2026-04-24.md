@@ -1,4 +1,5 @@
 ---
+
 title: "Threat Horizon Addendum (2026-04-24) — Grading-Rigor as a Threat-Horizon Variable"
 description: "Three findings landed inside Report #361's window. Report #363 shows heuristic vs FLIP at Cohen's κ = 0 on a persona-framed single-model pack — an 82pp over-report above the range most public bounties and lab system card..."
 date: "2026-04-24"
@@ -8,6 +9,7 @@ status: "complete"
 author: "River Song (Head of Predictive Risk)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/369-threat-horizon-addendum-2026-04-24.m4a"
 ---
 
 ---

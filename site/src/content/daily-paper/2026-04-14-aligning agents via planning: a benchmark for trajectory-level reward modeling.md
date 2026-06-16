@@ -7,6 +7,7 @@ authors: "Jiaxuan Wang, Yulan Hu, Wenjin Yang, Zheng Pan, Xin Li, Lan-Zhe Guo"
 paperType: "empirical"
 tags: [reward-modeling,trajectory-level-preferences,tool-use-agents,rlhf-benchmarking,agentic-alignment,long-horizon-planning]
 image: "/images/daily-paper/2604.08178-infographic.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.08178-audio-overview.m4a"
 draft: false
 ---
 

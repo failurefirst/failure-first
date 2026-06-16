@@ -1,4 +1,5 @@
 ---
+
 title: "AI Safety Research Independence Scorecard"
 description: "This report presents an independence scorecard for 16 organizations involved in AI safety research, evaluation, and governance — scored across four quantitative metrics drawn from the pilot independence metrics dataset (..."
 date: "2026-03-12"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/84-ai-safety-independence-scorecard.m4a"
 ---
 
 ---

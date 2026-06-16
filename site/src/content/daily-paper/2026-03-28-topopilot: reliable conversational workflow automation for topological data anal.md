@@ -6,7 +6,7 @@ arxiv: "2603.25063"
 authors: "Nathaniel Gorski, Shusen Liu, Bei Wang"
 paperType: "methods"
 tags: [agentic-systems,llm-reliability,verification-mechanisms,scientific-visualization,failure-mode-taxonomy,workflow-automation]
-audio: "/audio/daily-paper/2603.25063-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.25063-audio-overview.m4a"
 image: "/images/daily-paper/2603.25063-infographic.png"
 draft: false
 ---

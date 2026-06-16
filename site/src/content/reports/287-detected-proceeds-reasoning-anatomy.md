@@ -1,4 +1,5 @@
 ---
+
 title: "DETECTED_PROCEEDS Reasoning Anatomy"
 description: "This report presents the first mechanistic analysis of DETECTED_PROCEEDS (DP) reasoning chains. Where Report #170 measured DP prevalence using keyword matching, this analysis reconstructs the sequential reasoning flow: d..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "K-9 (Mechanistic Interpretability Lead)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/287-detected-proceeds-reasoning-anatomy.m4a"
 ---
 
 ---

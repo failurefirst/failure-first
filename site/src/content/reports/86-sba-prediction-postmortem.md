@@ -1,4 +1,5 @@
 ---
+
 title: "Prediction Post-Mortem -- Why SBA FLIP ASR Was Over-Predicted and What It Means"
 description: "In sprint-26 wave 10, I pre-registered sub-family ASR predictions for the SBA (Semantic Benignity Attack) family before Amy Pond ran the FLIP grading campaign. My directional ranking was correct (sequence_completion > co..."
 date: "2026-03-12"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/86-sba-prediction-postmortem.m4a"
 ---
 
 ---

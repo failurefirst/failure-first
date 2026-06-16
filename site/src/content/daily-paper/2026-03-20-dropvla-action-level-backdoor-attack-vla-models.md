@@ -1,4 +1,5 @@
 ---
+
 title: "DropVLA: An Action-Level Backdoor Attack on Vision-Language-Action Models"
 description: "Demonstrates that VLA models can be backdoored at the action primitive level with as little as 0.31% poisoned episodes, achieving 98-99% attack success while preserving clean task performance."
 date: 2026-03-20
@@ -8,6 +9,7 @@ paperType: "empirical"
 tags: ["backdoor-attacks", "vision-language-action", "data-poisoning", "robotic-manipulation", "adversarial-ml"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2510.10932-audio-overview.m4a"
 draft: false
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-20-dropvla-action-level-backdoor-attack-vla-models.png"
 ---
 
 # DropVLA: An Action-Level Backdoor Attack on Vision-Language-Action Models

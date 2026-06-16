@@ -1,4 +1,5 @@
 ---
+
 title: "Compliance Cascade Attack -- Frontier Scaling and Co-Evolution Design"
 description: "Compliance Cascade Attack (CCA) -- a three-part prompt pattern that asks models to (1) analyze harm, (2) demonstrate safety reasoning, then (3) provide the harmful content -- was tested against larger models and compared..."
 date: "2026-03-25"
@@ -8,6 +9,7 @@ status: "complete"
 author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
+audio: "https://cdn.failurefirst.org/audio/reports/247-cca-frontier-and-coevolution.m4a"
 ---
 
 ---
