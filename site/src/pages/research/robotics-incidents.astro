@@ -37,13 +37,18 @@ const EAISI_DIMS = [
 ];
 
 // ── Severity-distribution chart ──────────────────────────────────────────────
+// Drop zero-count bands so an empty "Unrated" row never renders (the canonical
+// embodied export is fully EAISI-rated; the band reappears if unrated rows return).
 const sevMax = Math.max(...BAND_ORDER.map((b) => facets.severity[b] || 0));
-const severityChart = BAND_ORDER.map((b) => ({
-  key: b,
-  ...BAND_META[b],
-  count: facets.severity[b] || 0,
-  pct: sevMax ? Math.round(((facets.severity[b] || 0) / sevMax) * 100) : 0,
-}));
+const severityChart = BAND_ORDER
+  .filter((b) => (facets.severity[b] || 0) > 0)
+  .map((b) => ({
+    key: b,
+    ...BAND_META[b],
+    count: facets.severity[b] || 0,
+    pct: sevMax ? Math.round(((facets.severity[b] || 0) / sevMax) * 100) : 0,
+  }));
+const hasUnrated = (facets.severity.unrated || 0) > 0;
 
 // ── By-domain chart ──────────────────────────────────────────────────────────
 const domainEntries = Object.entries(facets.domains) as [string, any][];
@@ -58,6 +63,9 @@ const domainChart = domainEntries.map(([key, v]) => ({
 // ── Timeline chart ───────────────────────────────────────────────────────────
 const yearEntries = Object.entries(facets.years) as [string, number][];
 const yrMax = Math.max(...yearEntries.map(([, c]) => c));
+// Incidents with no parseable year (null/unknown date) are kept in the list but
+// not plotted on the timeline; surface the count rather than silently dropping.
+const undatedCount = facets.total - yearEntries.reduce((s, [, c]) => s + c, 0);
 const timelineChart = yearEntries.map(([year, count]) => ({
   year,
   count,
@@ -103,13 +111,12 @@ const jsonLd = {
 
   <section class="intro">
     <p>
-      Software AI fails in text. Embodied AI fails in <em>physical space</em> — a kick, a
-      collision, a vehicle that stops in live traffic. This catalogue collects
-      {facets.total} documented incidents involving physical embodied AI systems, drawn
-      from the AI Incident Database, the EAISI severity index, and our own research.
-      Where an incident has been scored, we show its position on the
+      Software AI fails in text; embodied AI fails in <em>physical space</em> — a collision,
+      a fall, a vehicle that halts in live traffic. This catalogue documents {facets.total}
+      such incidents involving physical AI systems, drawn from the AI Incident Database and
+      our own research. Each is scored on the
       <strong>Embodied AI Incident Severity Index</strong> (EAISI) — a five-dimension,
-      0–20 scale built for cyber-physical harm, not software bugs.
+      0–20 scale built for cyber-physical harm rather than software bugs.
     </p>
   </section>
 
@@ -120,16 +127,16 @@ const jsonLd = {
       <span class="stat-label">Incidents</span>
     </div>
     <div class="stat">
-      <span class="stat-value">{facets.rated}</span>
-      <span class="stat-label">EAISI-rated</span>
-    </div>
-    <div class="stat">
       <span class="stat-value">{facets.severity.critical + facets.severity.high}</span>
       <span class="stat-label">High / Critical</span>
     </div>
     <div class="stat">
-      <span class="stat-value">{facets.from_aiid}</span>
-      <span class="stat-label">From AIID</span>
+      <span class="stat-value">{facets.eaisi_max != null ? `${facets.eaisi_max} / 20` : '—'}</span>
+      <span class="stat-label">Highest severity</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{Object.keys(facets.domains).length}</span>
+      <span class="stat-label">Domains</span>
     </div>
     <div class="stat">
       <span class="stat-value">{Object.keys(facets.years).length}</span>
@@ -142,7 +149,7 @@ const jsonLd = {
     <!-- Severity distribution -->
     <figure class="viz-card">
       <figcaption class="viz-title">Severity distribution</figcaption>
-      <p class="viz-sub">EAISI band · {facets.unrated} not yet rated</p>
+      <p class="viz-sub">EAISI band{hasUnrated ? ` · ${facets.unrated} not yet rated` : ' · all incidents scored'}</p>
       <div class="bars">
         {severityChart.map((s) => (
           <div class="bar-row">
@@ -171,12 +178,13 @@ const jsonLd = {
           </div>
         ))}
       </div>
+      <p class="viz-note">Autonomous vehicles dominate the record — the first embodied AI deployed at population scale.</p>
     </figure>
 
     <!-- Timeline -->
     <figure class="viz-card viz-wide">
       <figcaption class="viz-title">Incidents over time</figcaption>
-      <p class="viz-sub">By year of incident · {Object.keys(facets.years)[0]}–{Object.keys(facets.years).slice(-1)[0]}</p>
+      <p class="viz-sub">By year of incident · {Object.keys(facets.years)[0]}–{Object.keys(facets.years).slice(-1)[0]}{undatedCount > 0 ? ` · ${undatedCount} undated` : ''}</p>
       <div class="timeline">
         {timelineChart.map((t) => (
           <div class="tl-col">
@@ -221,7 +229,7 @@ const jsonLd = {
         <option value="high">High (11–15)</option>
         <option value="moderate">Moderate (6–10)</option>
         <option value="low">Low (0–5)</option>
-        <option value="unrated">Unrated</option>
+        {hasUnrated && <option value="unrated">Unrated</option>}
       </select>
     </div>
     <div class="filter-group">
@@ -327,8 +335,10 @@ const jsonLd = {
     <p>
       Catalogue compiled from public reporting and the
       <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener nofollow">AI Incident Database</a>,
-      severity-scored with the Embodied AI Incident Severity Index. Incidents are documented
-      from primary and secondary sources; severity scores are research estimates, not legal findings.
+      severity-scored with the Embodied AI Incident Severity Index. Every incident in this
+      catalogue is severity-scored; incidents we could not score from available sources are
+      held back pending review rather than listed unrated. Incidents are documented from
+      primary and secondary sources; severity scores are research estimates, not legal findings.
       <a href="/contact/">Contact us</a> with corrections or additions.
     </p>
   </section>
@@ -468,6 +478,15 @@ const jsonLd = {
     margin: 0.15rem 0 1rem;
     text-transform: uppercase;
     letter-spacing: 0.06em;
+  }
+  .viz-note {
+    margin: 1rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--fg-dim, #b0b8c5);
+    font-style: italic;
+    border-left: 2px solid var(--accent-primary, #00d2ff);
+    padding-left: 0.75rem;
   }
 
   /* Horizontal bars */
