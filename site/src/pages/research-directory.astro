@@ -169,9 +169,9 @@ const jsonLd = {
       {roboticsSorted.map((e: any) => {
         const disc = DISCLOSURE_META[e.disclosure_maturity] || null;
         const links = [
-          ['Site', e.official_website], ['Product', e.product_page],
-          ['Press', e.press_blog], ['GitHub', e.github_opensource],
-          ['LinkedIn', e.linkedin_company_url],
+          [e.official_website ? host(e.official_website) : 'Site', e.official_website],
+          ['Product', e.product_page], ['Press', e.press_blog],
+          ['GitHub', e.github_opensource], ['LinkedIn', e.linkedin_company_url],
         ].filter(([, u]) => u);
         const secLinks = [
           ['security.txt', e.security_txt_url], ['CVD policy', e.cvd_policy_url],
@@ -262,8 +262,9 @@ const jsonLd = {
     <div class="card-grid" id="grid-org">
       {orgsSorted.map((e: any) => {
         const links = [
-          ['Site', e.official_website], ['Key page', e.key_page],
-          ['GitHub', e.github_opensource], ['LinkedIn', e.linkedin_org_url],
+          [e.official_website ? host(e.official_website) : 'Site', e.official_website],
+          ['Key page', e.key_page], ['GitHub', e.github_opensource],
+          ['LinkedIn', e.linkedin_org_url],
         ].filter(([, u]) => u);
         const hasDetail = e.english_summary || e.scope_description || e.key_programs_outputs
           || e.partners_customers || e.funding_signals || e.publications_reports;
