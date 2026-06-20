@@ -1,0 +1,768 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import data from '../../data/robot-incidents.json';
+
+// ── Review gate ──────────────────────────────────────────────────────────────
+// This page is built and committed but NOT yet linked from navigation and is
+// marked noindex. It is awaiting design sign-off before it goes public. To
+// publish: remove `noindex` below, add a Navigation link, and redeploy.
+const REVIEW_GATED = true;
+
+const facets = data.facets as any;
+const incidents = data.incidents as any[];
+const bands = data.severity_bands as any[];
+
+// Strip trailing "EAISI-NNN" / "; EAISI-NNN" provenance tags some titles carry.
+const cleanTitle = (t: string) =>
+  (t || '').replace(/[;,]?\s*EAISI-\d+\s*$/i, '').trim();
+
+// Severity band display metadata — colour drawn from the brand severity ramp.
+const BAND_META: Record<string, { label: string; color: string }> = {
+  critical: { label: 'Critical', color: 'var(--failure-critical, #ff4757)' },
+  high:     { label: 'High',     color: 'var(--failure-warning, #ffa502)' },
+  moderate: { label: 'Moderate', color: 'var(--failure-degraded, #ffd32a)' },
+  low:      { label: 'Low',      color: 'var(--recovery-stable, #26de81)' },
+  unrated:  { label: 'Unrated',  color: 'var(--fg-muted, #7a8292)' },
+};
+const BAND_ORDER = ['critical', 'high', 'moderate', 'low', 'unrated'];
+
+// EAISI dimension legend (Report #158).
+const EAISI_DIMS = [
+  { key: 'd1', label: 'Physical harm' },
+  { key: 'd2', label: 'Scale' },
+  { key: 'd3', label: 'Autonomy' },
+  { key: 'd4', label: 'Governance gap' },
+  { key: 'd5', label: 'Reproducibility' },
+];
+
+// ── Severity-distribution chart ──────────────────────────────────────────────
+const sevMax = Math.max(...BAND_ORDER.map((b) => facets.severity[b] || 0));
+const severityChart = BAND_ORDER.map((b) => ({
+  key: b,
+  ...BAND_META[b],
+  count: facets.severity[b] || 0,
+  pct: sevMax ? Math.round(((facets.severity[b] || 0) / sevMax) * 100) : 0,
+}));
+
+// ── By-domain chart ──────────────────────────────────────────────────────────
+const domainEntries = Object.entries(facets.domains) as [string, any][];
+const domMax = Math.max(...domainEntries.map(([, v]) => v.count));
+const domainChart = domainEntries.map(([key, v]) => ({
+  key,
+  label: v.label,
+  count: v.count,
+  pct: domMax ? Math.round((v.count / domMax) * 100) : 0,
+}));
+
+// ── Timeline chart ───────────────────────────────────────────────────────────
+const yearEntries = Object.entries(facets.years) as [string, number][];
+const yrMax = Math.max(...yearEntries.map(([, c]) => c));
+const timelineChart = yearEntries.map(([year, count]) => ({
+  year,
+  count,
+  pct: yrMax ? Math.round((count / yrMax) * 100) : 0,
+}));
+
+const domainOptions = domainChart.map((d) => ({ value: d.key, label: d.label }));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'Embodied AI Incident Catalogue',
+  description: `${facets.total} documented incidents involving physical embodied AI systems, severity-scored on the EAISI index where rated.`,
+  creator: { '@type': 'Organization', name: 'Failure-First' },
+  keywords: ['embodied AI', 'robotics safety', 'AI incidents', 'EAISI'],
+};
+---
+
+<ContentLayout
+  title="Embodied AI Incident Catalogue | Failure-First"
+  description={`A browsable catalogue of ${facets.total} documented embodied-AI incidents — humanoid robots, autonomous vehicles, drones, and more — severity-scored on the EAISI index.`}
+  noindex={REVIEW_GATED}
+  breadcrumbs={[
+    { label: 'Research', href: '/research/' },
+    { label: 'Incident Catalogue' },
+  ]}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  {REVIEW_GATED && (
+    <div class="review-banner">
+      <span class="review-tag">DRAFT — DESIGN REVIEW</span>
+      <span>Unlisted &amp; noindex. Remove the review gate to publish.</span>
+    </div>
+  )}
+
+  <HeroSection
+    title="Embodied AI <em>Incident</em> Catalogue"
+    subtitle="What happens when robots act in the physical world — documented, sourced, and severity-scored."
+    animation="cascade"
+    accent="cyan"
+  />
+
+  <section class="intro">
+    <p>
+      Software AI fails in text. Embodied AI fails in <em>physical space</em> — a kick, a
+      collision, a vehicle that stops in live traffic. This catalogue collects
+      {facets.total} documented incidents involving physical embodied AI systems, drawn
+      from the AI Incident Database, the EAISI severity index, and our own research.
+      Where an incident has been scored, we show its position on the
+      <strong>Embodied AI Incident Severity Index</strong> (EAISI) — a five-dimension,
+      0–20 scale built for cyber-physical harm, not software bugs.
+    </p>
+  </section>
+
+  <!-- Headline metrics -->
+  <section class="stats-bar" aria-label="Catalogue summary">
+    <div class="stat">
+      <span class="stat-value">{facets.total}</span>
+      <span class="stat-label">Incidents</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{facets.rated}</span>
+      <span class="stat-label">EAISI-rated</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{facets.severity.critical + facets.severity.high}</span>
+      <span class="stat-label">High / Critical</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{facets.from_aiid}</span>
+      <span class="stat-label">From AIID</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{Object.keys(facets.years).length}</span>
+      <span class="stat-label">Years covered</span>
+    </div>
+  </section>
+
+  <!-- Visualizations -->
+  <section class="viz-grid">
+    <!-- Severity distribution -->
+    <figure class="viz-card">
+      <figcaption class="viz-title">Severity distribution</figcaption>
+      <p class="viz-sub">EAISI band · {facets.unrated} not yet rated</p>
+      <div class="bars">
+        {severityChart.map((s) => (
+          <div class="bar-row">
+            <span class="bar-label">{s.label}</span>
+            <div class="bar-track">
+              <div class="bar-fill" style={`width:${s.pct}%;background:${s.color};`}></div>
+            </div>
+            <span class="bar-count">{s.count}</span>
+          </div>
+        ))}
+      </div>
+    </figure>
+
+    <!-- By domain -->
+    <figure class="viz-card">
+      <figcaption class="viz-title">Incidents by domain</figcaption>
+      <p class="viz-sub">System category</p>
+      <div class="bars">
+        {domainChart.map((d) => (
+          <div class="bar-row">
+            <span class="bar-label">{d.label}</span>
+            <div class="bar-track">
+              <div class="bar-fill cyan" style={`width:${d.pct}%;`}></div>
+            </div>
+            <span class="bar-count">{d.count}</span>
+          </div>
+        ))}
+      </div>
+    </figure>
+
+    <!-- Timeline -->
+    <figure class="viz-card viz-wide">
+      <figcaption class="viz-title">Incidents over time</figcaption>
+      <p class="viz-sub">By year of incident · {Object.keys(facets.years)[0]}–{Object.keys(facets.years).slice(-1)[0]}</p>
+      <div class="timeline">
+        {timelineChart.map((t) => (
+          <div class="tl-col">
+            <div class="tl-bar-track">
+              <div class="tl-bar" style={`height:${t.pct}%;`} title={`${t.year}: ${t.count}`}></div>
+            </div>
+            <span class="tl-count">{t.count}</span>
+            <span class="tl-year">{t.year.slice(2)}</span>
+          </div>
+        ))}
+      </div>
+    </figure>
+  </section>
+
+  <!-- EAISI legend -->
+  <details class="eaisi-legend">
+    <summary>How EAISI severity is scored</summary>
+    <p>
+      The Embodied AI Incident Severity Index rates each incident on five dimensions
+      (0–4 each, 20 maximum). Bands here are a presentation device:
+    </p>
+    <div class="legend-bands">
+      {bands.map((b: any) => (
+        <span class="legend-band">
+          <span class="legend-dot" style={`background:${BAND_META[b.key].color};`}></span>
+          {b.label} <span class="legend-range">{b.min}–{b.max}</span>
+        </span>
+      ))}
+    </div>
+    <ul class="legend-dims">
+      {EAISI_DIMS.map((d) => <li><strong>{d.label}</strong></li>)}
+    </ul>
+  </details>
+
+  <!-- Filters -->
+  <section class="filters" id="filters">
+    <div class="filter-group">
+      <label for="severity-filter">Severity</label>
+      <select id="severity-filter">
+        <option value="all">All severities</option>
+        <option value="critical">Critical (16–20)</option>
+        <option value="high">High (11–15)</option>
+        <option value="moderate">Moderate (6–10)</option>
+        <option value="low">Low (0–5)</option>
+        <option value="unrated">Unrated</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="domain-filter">Domain</label>
+      <select id="domain-filter">
+        <option value="all">All domains</option>
+        {domainOptions.map((d) => <option value={d.value}>{d.label}</option>)}
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="sort-filter">Sort</label>
+      <select id="sort-filter">
+        <option value="severity">Severity (high → low)</option>
+        <option value="recent">Most recent</option>
+        <option value="oldest">Oldest</option>
+      </select>
+    </div>
+    <div class="filter-group grow">
+      <label for="search-filter">Search</label>
+      <input type="text" id="search-filter" placeholder="Title, system, operator…" />
+    </div>
+    <div class="filter-count">
+      <span id="visible-count">{facets.total}</span> / {facets.total} shown
+    </div>
+  </section>
+
+  <!-- Incident catalogue -->
+  <section class="incident-list" id="incident-list">
+    {incidents.map((inc: any) => {
+      const band = BAND_META[inc.severity_band];
+      return (
+        <article
+          class="incident"
+          data-severity={inc.severity_band}
+          data-domain={inc.domain}
+          data-year={inc.year || '0'}
+          data-eaisi={inc.eaisi_total ?? -1}
+          data-search={[inc.title, inc.system, inc.operator, inc.location].filter(Boolean).join(' ').toLowerCase()}
+        >
+          <div class="inc-head">
+            <span class="sev-pill" style={`--pill:${band.color};`}>
+              {inc.eaisi_total != null ? `EAISI ${inc.eaisi_total}` : band.label}
+            </span>
+            <span class="inc-domain">{inc.domain_label}</span>
+            {inc.year && <span class="inc-year">{inc.year}</span>}
+          </div>
+          <h3 class="inc-title">{cleanTitle(inc.title)}</h3>
+          <div class="inc-meta">
+            {inc.system && <span class="meta-chip">{inc.system}</span>}
+            {inc.operator && <span class="meta-chip muted">{inc.operator}</span>}
+            {inc.location && <span class="meta-chip muted">{inc.location}</span>}
+            {inc.harm_label && <span class="meta-chip harm">{inc.harm_label}</span>}
+          </div>
+          {inc.description && (
+            <details class="inc-detail">
+              <summary>Details</summary>
+              <p class="inc-desc">{inc.description}</p>
+              {inc.eaisi_total != null && (
+                <div class="eaisi-strip">
+                  {EAISI_DIMS.map((d) => {
+                    const val = inc.eaisi_dims[d.key];
+                    return (
+                      <span class="eaisi-cell" title={`${d.label}: ${val ?? '—'} / 4`}>
+                        <span class="eaisi-dim">{d.label}</span>
+                        <span class="eaisi-dots" data-val={val ?? 0}>
+                          {[0, 1, 2, 3].map((i) => (
+                            <span class={`dot ${val != null && i < val ? 'on' : ''}`}></span>
+                          ))}
+                        </span>
+                      </span>
+                    );
+                  })}
+                </div>
+              )}
+              {inc.sources && inc.sources.length > 0 && (
+                <div class="inc-sources">
+                  <span class="src-label">Sources:</span>
+                  {inc.sources.slice(0, 6).map((s: any, i: number) => (
+                    <a href={s.url} target="_blank" rel="noopener nofollow">
+                      {(() => {
+                        try { return new URL(s.url).hostname.replace(/^www\./, ''); }
+                        catch { return `source ${i + 1}`; }
+                      })()}
+                    </a>
+                  ))}
+                </div>
+              )}
+              {inc.aiid_id && (
+                <a class="aiid-link" href={`https://incidentdatabase.ai/cite/${inc.aiid_id}/`} target="_blank" rel="noopener nofollow">
+                  AIID #{inc.aiid_id} ↗
+                </a>
+              )}
+            </details>
+          )}
+        </article>
+      );
+    })}
+  </section>
+
+  <p class="empty-state" id="empty-state" hidden>No incidents match these filters.</p>
+
+  <section class="cat-footer">
+    <p>
+      Catalogue compiled from public reporting and the
+      <a href="https://incidentdatabase.ai/" target="_blank" rel="noopener nofollow">AI Incident Database</a>,
+      severity-scored with the Embodied AI Incident Severity Index. Incidents are documented
+      from primary and secondary sources; severity scores are research estimates, not legal findings.
+      <a href="/contact/">Contact us</a> with corrections or additions.
+    </p>
+  </section>
+</ContentLayout>
+
+<script>
+  const sevF = document.getElementById('severity-filter') as HTMLSelectElement;
+  const domF = document.getElementById('domain-filter') as HTMLSelectElement;
+  const sortF = document.getElementById('sort-filter') as HTMLSelectElement;
+  const searchF = document.getElementById('search-filter') as HTMLInputElement;
+  const visCount = document.getElementById('visible-count') as HTMLSpanElement;
+  const list = document.getElementById('incident-list') as HTMLElement;
+  const empty = document.getElementById('empty-state') as HTMLElement;
+  const cards = Array.from(document.querySelectorAll('.incident')) as HTMLElement[];
+
+  function applyFilters() {
+    const sev = sevF.value;
+    const dom = domF.value;
+    const q = searchF.value.toLowerCase().trim();
+    let count = 0;
+    cards.forEach((c) => {
+      let vis = true;
+      if (sev !== 'all' && c.dataset.severity !== sev) vis = false;
+      if (dom !== 'all' && c.dataset.domain !== dom) vis = false;
+      if (q && !(c.dataset.search || '').includes(q)) vis = false;
+      c.style.display = vis ? '' : 'none';
+      if (vis) count++;
+    });
+    visCount.textContent = String(count);
+    empty.hidden = count !== 0;
+  }
+
+  function applySort() {
+    const mode = sortF.value;
+    const sorted = [...cards].sort((a, b) => {
+      const ea = parseInt(a.dataset.eaisi || '-1', 10);
+      const eb = parseInt(b.dataset.eaisi || '-1', 10);
+      const ya = parseInt(a.dataset.year || '0', 10);
+      const yb = parseInt(b.dataset.year || '0', 10);
+      if (mode === 'severity') return eb - ea || yb - ya;
+      if (mode === 'recent') return yb - ya || eb - ea;
+      if (mode === 'oldest') return ya - yb || eb - ea;
+      return 0;
+    });
+    sorted.forEach((c) => list.appendChild(c));
+  }
+
+  sevF.addEventListener('change', applyFilters);
+  domF.addEventListener('change', applyFilters);
+  searchF.addEventListener('input', applyFilters);
+  sortF.addEventListener('change', applySort);
+</script>
+
+<style>
+  /* ── Review banner ─────────────────────────────────────────────────────── */
+  .review-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 71, 87, 0.08);
+    border: 1px solid var(--failure-critical, #ff4757);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--fg-dim, #b0b8c5);
+  }
+  .review-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--failure-critical, #ff4757);
+  }
+
+  /* ── Intro ─────────────────────────────────────────────────────────────── */
+  .intro {
+    max-width: 760px;
+    margin: 0 auto 2.25rem;
+    color: var(--fg-dim, #b0b8c5);
+    line-height: 1.7;
+  }
+  .intro strong { color: var(--fg, #e8ecf2); }
+
+  /* ── Stats bar ─────────────────────────────────────────────────────────── */
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1.4rem;
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border, rgba(0, 210, 255, 0.15));
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-value {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary, #00d2ff);
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--fg-muted, #7a8292);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── Visualization grid ────────────────────────────────────────────────── */
+  .viz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .viz-card {
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    border-radius: 8px;
+    padding: 1.25rem 1.4rem;
+    margin: 0;
+  }
+  .viz-wide { grid-column: 1 / -1; }
+  .viz-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--fg, #e8ecf2);
+  }
+  .viz-sub {
+    font-size: 0.74rem;
+    color: var(--fg-muted, #7a8292);
+    margin: 0.15rem 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Horizontal bars */
+  .bars { display: flex; flex-direction: column; gap: 0.55rem; }
+  .bar-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 40px;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .bar-label { font-size: 0.82rem; color: var(--fg-dim, #b0b8c5); }
+  .bar-track {
+    height: 12px;
+    background: rgba(232, 236, 242, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 0.6s var(--ease-out-expo, ease);
+  }
+  .bar-fill.cyan { background: var(--accent-primary, #00d2ff); }
+  .bar-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--fg, #e8ecf2);
+    text-align: right;
+  }
+
+  /* Timeline columns */
+  .timeline {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4rem;
+    height: 150px;
+    padding-top: 0.5rem;
+  }
+  .tl-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .tl-bar-track {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+  }
+  .tl-bar {
+    width: 100%;
+    background: linear-gradient(180deg, var(--accent-primary, #00d2ff), rgba(0, 210, 255, 0.35));
+    border-radius: 2px 2px 0 0;
+    min-height: 2px;
+    transition: height 0.6s var(--ease-out-expo, ease);
+  }
+  .tl-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--fg-dim, #b0b8c5);
+    margin-top: 0.3rem;
+  }
+  .tl-year {
+    font-size: 0.66rem;
+    color: var(--fg-muted, #7a8292);
+  }
+
+  /* ── EAISI legend ──────────────────────────────────────────────────────── */
+  .eaisi-legend {
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    border-radius: 8px;
+    padding: 0.9rem 1.3rem;
+    margin-bottom: 1.75rem;
+    color: var(--fg-dim, #b0b8c5);
+    font-size: 0.86rem;
+  }
+  .eaisi-legend summary {
+    cursor: pointer;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--fg, #e8ecf2);
+  }
+  .eaisi-legend p { margin: 0.8rem 0; }
+  .legend-bands { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.8rem; }
+  .legend-band { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .legend-range { font-family: 'JetBrains Mono', monospace; color: var(--fg-muted, #7a8292); }
+  .legend-dims {
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem;
+    list-style: none; padding: 0; margin: 0;
+    font-size: 0.8rem;
+  }
+  .legend-dims strong { color: var(--accent-tertiary, #a29bfe); font-weight: 600; }
+
+  /* ── Filters ───────────────────────────────────────────────────────────── */
+  .filters {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 1.2rem;
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border, rgba(0, 210, 255, 0.15));
+    border-radius: 8px;
+  }
+  .filter-group { display: flex; flex-direction: column; gap: 0.3rem; }
+  .filter-group.grow { flex: 1; min-width: 180px; }
+  .filter-group label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--fg-muted, #7a8292);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .filter-group select,
+  .filter-group input {
+    background: var(--bg, #050810);
+    color: var(--fg, #e8ecf2);
+    border: 1px solid var(--border, rgba(0, 210, 255, 0.15));
+    border-radius: 4px;
+    padding: 0.45rem 0.65rem;
+    font-size: 0.85rem;
+    min-width: 150px;
+  }
+  .filter-group input { width: 100%; }
+  .filter-group select:focus,
+  .filter-group input:focus {
+    outline: none;
+    border-color: var(--accent-primary, #00d2ff);
+  }
+  .filter-count {
+    margin-left: auto;
+    font-size: 0.82rem;
+    color: var(--fg-muted, #7a8292);
+    align-self: center;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Incident list ─────────────────────────────────────────────────────── */
+  .incident-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .incident {
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: border-color 0.2s ease;
+  }
+  .incident:hover { border-color: var(--border-emphasis, rgba(0, 210, 255, 0.35)); }
+
+  .inc-head { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  .sev-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.18rem 0.5rem;
+    border-radius: 3px;
+    color: var(--bg, #050810);
+    background: var(--pill, #7a8292);
+  }
+  .inc-domain {
+    font-size: 0.72rem;
+    color: var(--accent-tertiary, #a29bfe);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .inc-year {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--fg-muted, #7a8292);
+  }
+  .inc-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--fg, #e8ecf2);
+    margin: 0;
+  }
+  .inc-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .meta-chip {
+    font-size: 0.72rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    color: var(--fg-dim, #b0b8c5);
+  }
+  .meta-chip.muted { background: rgba(232, 236, 242, 0.04); color: var(--fg-muted, #7a8292); }
+  .meta-chip.harm {
+    background: rgba(255, 71, 87, 0.1);
+    border-color: rgba(255, 71, 87, 0.3);
+    color: var(--failure-warning, #ffa502);
+  }
+
+  .inc-detail summary {
+    cursor: pointer;
+    font-size: 0.78rem;
+    color: var(--accent-primary, #00d2ff);
+    list-style: none;
+  }
+  .inc-detail summary::-webkit-details-marker { display: none; }
+  .inc-detail summary::before { content: '+ '; }
+  .inc-detail[open] summary::before { content: '– '; }
+  .inc-desc {
+    margin: 0.7rem 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--fg-dim, #b0b8c5);
+  }
+
+  /* EAISI dimension strip */
+  .eaisi-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    margin: 0.7rem 0;
+    padding: 0.6rem 0.75rem;
+    background: rgba(5, 8, 16, 0.5);
+    border-radius: 4px;
+  }
+  .eaisi-cell { display: flex; flex-direction: column; gap: 0.25rem; }
+  .eaisi-dim { font-size: 0.64rem; color: var(--fg-muted, #7a8292); text-transform: uppercase; letter-spacing: 0.04em; }
+  .eaisi-dots { display: flex; gap: 0.18rem; }
+  .eaisi-dots .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(232, 236, 242, 0.12);
+  }
+  .eaisi-dots .dot.on { background: var(--accent-primary, #00d2ff); }
+
+  .inc-sources {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.76rem;
+    margin-top: 0.4rem;
+  }
+  .src-label { color: var(--fg-muted, #7a8292); }
+  .inc-sources a { color: var(--accent-primary, #00d2ff); text-decoration: none; }
+  .inc-sources a:hover { text-decoration: underline; }
+  .aiid-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--accent-tertiary, #a29bfe);
+    text-decoration: none;
+  }
+  .aiid-link:hover { text-decoration: underline; }
+
+  .empty-state {
+    text-align: center;
+    color: var(--fg-muted, #7a8292);
+    padding: 2rem;
+  }
+
+  .cat-footer {
+    text-align: center;
+    color: var(--fg-muted, #7a8292);
+    font-size: 0.82rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    max-width: 760px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .cat-footer a { color: var(--accent-primary, #00d2ff); }
+
+  /* ── Responsive ────────────────────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .viz-grid { grid-template-columns: 1fr; }
+    .incident-list { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .stats-bar { gap: 1.4rem; }
+    .filters { flex-direction: column; align-items: stretch; }
+    .filter-count { margin-left: 0; text-align: center; }
+    .bar-row { grid-template-columns: 90px 1fr 32px; }
+    .timeline { gap: 0.2rem; }
+    .tl-year { font-size: 0.58rem; }
+  }
+</style>
