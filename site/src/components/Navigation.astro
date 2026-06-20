@@ -1,34 +1,60 @@
 ---
 const pathname = Astro.url.pathname;
 
+interface NavChild { label: string; href: string; description?: string }
 interface NavItem {
   label: string;
   href: string;
-  children?: { label: string; href: string; description?: string }[];
+  utility?: boolean;   // right-aligned utility item (pushed to the far right)
+  icon?: string;       // render an icon instead of a text label
+  children?: NavChild[];
 }
 
+// Top nav reorganised by task/intent (see runs/nav_review_2026-06-20/): Research =
+// threads + method; Evidence = data products + outputs; Directory elevated to its own
+// slot; Framework finally gets its dropdown; Services is commercial-only (policy moved
+// into Evidence); About + Search are right-aligned utilities.
 const navItems: NavItem[] = [
   {
     label: "Research",
     href: "/research/",
     children: [
-      { label: "All Studies", href: "/research/", description: "Research hub" },
+      { label: "Research Hub", href: "/research/", description: "All studies & threads" },
       { label: "Jailbreak Archaeology", href: "/research/jailbreak-archaeology/", description: "64 scenarios, 6 eras" },
-      { label: "Multi-Agent", href: "/research/moltbook/", description: "Moltbook analysis" },
       { label: "Attack Taxonomy", href: "/research/attack-taxonomy/", description: "81 techniques" },
       { label: "Defense Patterns", href: "/research/defense-patterns/", description: "How models resist" },
-      { label: "Humanoid Safety", href: "/research/humanoid-safety/", description: "Platform failure mapping" },
-      { label: "Incident Catalogue", href: "/research/robotics-incidents/", description: "Documented embodied-AI incidents, EAISI-scored" },
+      { label: "Humanoid & Embodied Safety", href: "/research/humanoid-safety/", description: "Platform failure mapping" },
+      { label: "Multi-Agent", href: "/research/multi-agent/", description: "Multi-actor interaction failures" },
       { label: "Failure Modes", href: "/research/failure-modes/", description: "Taxonomy of AI failures" },
-      { label: "Company Directory", href: "/research/directory/", description: "214 robotics companies" },
-      { label: "AI Safety Orgs", href: "/research/ai-safety-orgs/", description: "117 safety organisations" },
-      { label: "Research Reports", href: "/research/reports/", description: "Published research findings" },
-      { label: "Legal Analysis", href: "/research/legal/", description: "AI safety legal research" },
-      { label: "Papers", href: "/papers/", description: "Academic submissions" },
+      { label: "Methodology", href: "/research/methodology/", description: "How we test & grade" },
     ],
   },
   {
-    label: "Content",
+    label: "Evidence",
+    href: "/results/",
+    children: [
+      { label: "Results & Benchmarks", href: "/results/", description: "Measured findings" },
+      { label: "Incident Catalogue", href: "/research/robotics-incidents/", description: "Documented embodied-AI incidents, EAISI-scored" },
+      { label: "Reports", href: "/research/reports/", description: "Published research findings" },
+      { label: "Papers", href: "/papers/", description: "Academic submissions" },
+      { label: "Policy Briefs", href: "/policy/", description: "Policy analysis" },
+      { label: "Legal Analysis", href: "/research/legal/", description: "AI safety legal research" },
+    ],
+  },
+  { label: "Directory", href: "/research-directory/" },
+  {
+    label: "Framework",
+    href: "/framework/",
+    children: [
+      { label: "Overview", href: "/framework/", description: "The evaluation framework" },
+      { label: "Benchmark", href: "/framework/benchmark/", description: "Benchmark packs" },
+      { label: "Datasets", href: "/framework/datasets/", description: "Scenario datasets" },
+      { label: "Harness", href: "/framework/harness/", description: "Runner & graders" },
+      { label: "Standard", href: "/framework/standard/", description: "Evaluation standard" },
+    ],
+  },
+  {
+    label: "Writing",
     href: "/blog/",
     children: [
       { label: "Blog", href: "/blog/", description: "Analysis and commentary" },
@@ -37,7 +63,6 @@ const navItems: NavItem[] = [
       { label: "What's New", href: "/new/", description: "Latest across the site" },
     ],
   },
-  { label: "Framework", href: "/framework/" },
   {
     label: "Services",
     href: "/services/",
@@ -46,22 +71,22 @@ const navItems: NavItem[] = [
       { label: "Safety Audits", href: "/services/safety-audits/", description: "Compliance evaluation" },
       { label: "Advisory", href: "/services/advisory/", description: "Strategic guidance" },
       { label: "Intelligence Briefs", href: "/services/intelligence-briefs/", description: "Threat landscape" },
-      { label: "Policy Briefs", href: "/policy/", description: "Policy analysis" },
-      { label: "Capability vs Safety", href: "/policy/capability-safety-spectrum/", description: "Capability-safety analysis" },
-      { label: "Embodied AI Safety", href: "/policy/embodied-ai-safety/", description: "Beyond alignment" },
+      { label: "Contact", href: "/contact/", description: "Get in touch" },
     ],
   },
   {
     label: "About",
     href: "/about/",
+    utility: true,
     children: [
       { label: "About", href: "/about/", description: "The project" },
       { label: "Our Team", href: "/about/team/", description: "Meet the research team" },
       { label: "Manifesto", href: "/manifesto/", description: "Failure-first philosophy" },
       { label: "Glossary", href: "/glossary/", description: "Key terms defined" },
+      { label: "Cite This Work", href: "/cite/", description: "How to cite us" },
     ],
   },
-  { label: "Search", href: "/search/" },
+  { label: "Search", href: "/search/", utility: true, icon: "search" },
 ];
 
 function isActive(href: string, current: string, children?: { href: string }[]): boolean {
@@ -86,16 +111,27 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     </button>
 
     <ul class="nav-links" id="nav-links" role="list">
-      {navItems.map((item) => (
-        <li class:list={[{ "has-dropdown": item.children }]}>
+      {navItems.map((item, i) => (
+        <li class:list={[{
+          "has-dropdown": item.children,
+          "nav-util": item.utility,
+          "nav-util-start": item.utility && !navItems[i - 1]?.utility,
+        }]}>
           <a
             href={item.href}
-            class:list={[{ active: isActive(item.href, pathname, item.children) }]}
+            class:list={[{ active: isActive(item.href, pathname, item.children), "nav-icon-link": item.icon }]}
             aria-current={isActive(item.href, pathname, item.children) ? "page" : undefined}
             aria-haspopup={item.children ? "true" : undefined}
             aria-expanded={item.children ? "false" : undefined}
+            aria-label={item.icon ? item.label : undefined}
+            title={item.icon ? item.label : undefined}
           >
-            {item.label}
+            {item.icon === "search" ? (
+              <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            ) : item.label}
             {item.children && <span class="dropdown-arrow" aria-hidden="true">&#x25BC;</span>}
           </a>
           {item.children && (
@@ -160,10 +196,11 @@ function isActive(href: string, current: string, children?: { href: string }[]):
 
   .nav-links {
     display: flex;
+    flex: 1;
     gap: 0.25rem;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 1.5rem;
   }
 
   .nav-links > li {
@@ -199,6 +236,22 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     font-size: 0.5rem;
     opacity: 0.6;
     transition: transform var(--transition-duration) var(--transition-easing);
+  }
+
+  /* Right-aligned utilities (About, Search): push the first utility — and everything
+     after it — to the far right of the bar. */
+  .nav-util-start {
+    margin-left: auto;
+  }
+
+  .nav-icon-link {
+    padding: 0.5rem;
+  }
+
+  .nav-icon {
+    display: block;
+    width: 16px;
+    height: 16px;
   }
 
   /* Dropdown menu */
@@ -291,17 +344,19 @@ function isActive(href: string, current: string, children?: { href: string }[]):
                 opacity var(--transition-duration) var(--transition-easing);
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     .nav-toggle {
       display: flex;
     }
 
     .nav-links {
       display: none;
+      flex: none;
       position: absolute;
       top: 3.5rem;
       left: 0;
       right: 0;
+      margin: 0;
       flex-direction: column;
       background: rgba(5, 8, 16, 0.97);
       backdrop-filter: blur(12px);
@@ -313,6 +368,18 @@ function isActive(href: string, current: string, children?: { href: string }[]):
 
     .nav-links.open {
       display: flex;
+    }
+
+    /* Utilities behave like normal stacked items on mobile (no right-shift). */
+    .nav-util-start {
+      margin-left: 0;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 0.25rem;
+      padding-top: 0.25rem;
+    }
+
+    .nav-icon-link {
+      padding: 0.75rem 1rem;
     }
 
     .nav-links > li > a {
@@ -412,7 +479,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     const link = parent.querySelector(':scope > a');
     if (link) {
       link.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 900) {
           if (!parent.classList.contains('mobile-open')) {
             e.preventDefault();
             // Close other open dropdowns
