@@ -12,57 +12,70 @@ const robotics = (data.robotics_companies as any[]) || [];
 const orgs = (data.ai_safety_orgs as any[]) || [];
 const tmNotice = data.trademark_notice as string;
 
-// Cards render whether or not a logo is hosted: a hosted logo_url renders an
-// <img>; entities without one get a clean monogram fallback (no broken images).
-const totalLogos =
-  robotics.filter((c) => c.logo_url).length + orgs.filter((o) => o.logo_url).length;
+// ── Disclosure-posture ladder (robotics) ─────────────────────────────────────
+// The red-team-relevant signal: does this company expose a coordinated-
+// vulnerability-disclosure path? Ordinal, weakest → strongest. Surfaced as a
+// graded badge + a filter — this is what makes the directory *ours*.
+const DISCLOSURE_META: Record<string, { label: string; cls: string; rank: number }> = {
+  mature:        { label: 'Mature disclosure', cls: 'd-mature', rank: 4 },
+  bug_bounty:    { label: 'Bug bounty',        cls: 'd-bounty', rank: 3 },
+  cvd_policy:    { label: 'CVD policy',         cls: 'd-cvd',    rank: 2 },
+  basic_contact: { label: 'Security contact',  cls: 'd-basic',  rank: 1 },
+  none_found:    { label: 'No disclosure path', cls: 'd-none',   rank: 0 },
+};
 
 const monogram = (name: string) =>
-  (name || '?')
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join('')
-    .toUpperCase();
+  (name || '?').split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
 
-// Sort: logo'd entities first (the visual payoff), then alphabetical.
-const byLogoThenName = (a: any, b: any) =>
-  (b.logo_url ? 1 : 0) - (a.logo_url ? 1 : 0) ||
-  (a.name || '').localeCompare(b.name || '');
+// Outbound link → bare hostname label (so a card shows "github.com", not a URL).
+const host = (u: string) => {
+  try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; }
+};
 
-const roboticsSorted = [...robotics].sort(byLogoThenName);
-const orgsSorted = [...orgs].sort(byLogoThenName);
+// Sort: tier 1 first, then logo'd, then alphabetical.
+const rank = (e: any) =>
+  (e.tier ? Number(e.tier) : 9) * 1000 - (e.logo_url ? 1 : 0);
+const byRank = (a: any, b: any) =>
+  rank(a) - rank(b) || (a.name || '').localeCompare(b.name || '');
 
-const sections = [
-  {
-    id: 'robotics',
-    label: 'Robotics & Embodied-AI Companies',
-    sub: 'Humanoid, autonomous-vehicle, and embodied-AI developers tracked in the corpus.',
-    items: roboticsSorted,
-    metaKey: 'company_type',
-  },
-  {
-    id: 'orgs',
-    label: 'AI-Safety Organisations',
-    sub: 'Research labs, evaluators, governance bodies, and field-builders.',
-    items: orgsSorted,
-    metaKey: 'org_type',
-  },
-];
+const roboticsSorted = [...robotics].sort(byRank);
+const orgsSorted = [...orgs].sort(byRank);
+
+// Headline stats
+const withDisclosure = robotics.filter(
+  (c) => c.disclosure_maturity && c.disclosure_maturity !== 'none_found').length;
+const maturePosture = robotics.filter(
+  (c) => ['mature', 'bug_bounty'].includes(c.disclosure_maturity)).length;
+
+// Filter option sets (only values actually present)
+const uniq = (arr: any[], key: string) =>
+  [...new Set(arr.map((e) => e[key]).filter(Boolean))].sort();
+const roboticsTypes = uniq(robotics, 'company_type');
+const orgTypes = uniq(orgs, 'org_type');
 
 const breadcrumbs = [
   { label: 'Research', href: '/research/' },
   { label: 'Directory' },
 ];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Dataset',
+  name: 'Embodied-AI & AI-Safety Research Directory',
+  description: `Structured profiles of ${robotics.length} robotics / embodied-AI companies and ${orgs.length} AI-safety organisations tracked by the Failure-First research framework, including coordinated-vulnerability-disclosure posture.`,
+  creator: { '@type': 'Organization', name: 'Failure-First' },
+  keywords: ['embodied AI', 'robotics companies', 'AI safety organisations', 'vulnerability disclosure'],
+};
 ---
 
 <ContentLayout
   title="Research Directory — Robotics Companies & AI-Safety Organisations"
-  description="A directory of the embodied-AI companies and AI-safety organisations tracked by the Failure-First research framework."
+  description="Structured profiles of the embodied-AI companies and AI-safety organisations tracked by the Failure-First framework — capabilities, stage, funding, and vulnerability-disclosure posture."
   breadcrumbs={breadcrumbs}
   noindex={REVIEW_GATED}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
   {REVIEW_GATED && (
     <div class="review-banner">
       <span class="review-tag">DRAFT — DESIGN REVIEW</span>
@@ -72,7 +85,7 @@ const breadcrumbs = [
 
   <HeroSection
     title="Research <em>Directory</em>"
-    subtitle="The organisations mapped by our framework — robotics developers building embodied AI, and the safety community studying it."
+    subtitle="The organisations our framework maps — robotics developers building embodied AI, and the safety community studying it. Profiled, not just listed."
     animation="cascade"
     accent="cyan"
   />
@@ -81,13 +94,14 @@ const breadcrumbs = [
     <p>
       Failure-First tracks both sides of embodied-AI safety: the companies
       <strong>building</strong> physical AI systems and the organisations
-      <strong>studying</strong> how they fail. This directory lists
-      {robotics.length} robotics &amp; embodied-AI companies and {orgs.length}
-      AI-safety organisations, each linked to its official site.
+      <strong>studying</strong> how they fail. Each entry carries what we know —
+      capabilities, stage, funding, key people — and, for robotics developers, the
+      <strong>coordinated-vulnerability-disclosure posture</strong>: whether there is
+      any path to responsibly report a flaw in a system that moves in the physical world.
     </p>
   </section>
 
-  <div class="stats-bar">
+  <section class="stats-bar" aria-label="Directory summary">
     <div class="stat">
       <span class="stat-value">{robotics.length}</span>
       <span class="stat-label">Robotics Companies</span>
@@ -97,210 +111,468 @@ const breadcrumbs = [
       <span class="stat-label">AI-Safety Orgs</span>
     </div>
     <div class="stat">
-      <span class="stat-value">{totalLogos}</span>
-      <span class="stat-label">Identified by Logo</span>
+      <span class="stat-value">{withDisclosure}</span>
+      <span class="stat-label">With a Disclosure Path</span>
     </div>
-  </div>
+    <div class="stat">
+      <span class="stat-value">{maturePosture}</span>
+      <span class="stat-label">CVD / Bug-Bounty</span>
+    </div>
+  </section>
 
-  {sections.map((section) => (
-    <section class="dir-section" id={section.id}>
-      <header class="dir-head">
-        <h2>{section.label}</h2>
-        <p class="dir-sub">{section.sub}</p>
-      </header>
-      <div class="dir-grid">
-        {section.items.map((entity: any) => {
-          const meta = entity[section.metaKey];
-          const site = entity.official_website;
-          const Card = site ? 'a' : 'div';
-          return (
-            <Card
-              class="ent-card"
-              {...(site ? { href: site, target: '_blank', rel: 'noopener nofollow' } : {})}
-            >
-              <div class="ent-logo">
-                {entity.logo_url ? (
-                  <img src={entity.logo_url} alt={`${entity.name} logo`} loading="lazy" />
-                ) : (
-                  <span class="ent-monogram" aria-hidden="true">{monogram(entity.name)}</span>
-                )}
+  <!-- Filters -->
+  <section class="filters" id="filters">
+    <div class="filter-group">
+      <label for="kind-filter">Show</label>
+      <select id="kind-filter">
+        <option value="all">Everything</option>
+        <option value="robotics">Robotics companies</option>
+        <option value="org">AI-safety orgs</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="disclosure-filter">Disclosure (robotics)</label>
+      <select id="disclosure-filter">
+        <option value="all">Any posture</option>
+        <option value="has">Has a disclosure path</option>
+        <option value="mature">Mature</option>
+        <option value="bug_bounty">Bug bounty</option>
+        <option value="cvd_policy">CVD policy</option>
+        <option value="basic_contact">Security contact</option>
+        <option value="none_found">None found</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="sort-filter">Sort</label>
+      <select id="sort-filter">
+        <option value="rank">Tier, then name</option>
+        <option value="name">Name (A→Z)</option>
+        <option value="disclosure">Disclosure (strong→weak)</option>
+      </select>
+    </div>
+    <div class="filter-group grow">
+      <label for="search-filter">Search</label>
+      <input type="text" id="search-filter" placeholder="Name, capability, country, person…" />
+    </div>
+    <div class="filter-count">
+      <span id="visible-count">{robotics.length + orgs.length}</span> shown
+    </div>
+  </section>
+
+  <!-- ── Robotics companies ──────────────────────────────────────────────── -->
+  <section class="dir-section" id="sec-robotics">
+    <header class="dir-head">
+      <h2>Robotics &amp; Embodied-AI Companies</h2>
+      <p class="dir-sub">{robotics.length} humanoid, autonomous-vehicle, and embodied-AI developers tracked in the corpus.</p>
+    </header>
+    <div class="card-grid" id="grid-robotics">
+      {roboticsSorted.map((e: any) => {
+        const disc = DISCLOSURE_META[e.disclosure_maturity] || null;
+        const links = [
+          ['Site', e.official_website], ['Product', e.product_page],
+          ['Press', e.press_blog], ['GitHub', e.github_opensource],
+          ['LinkedIn', e.linkedin_company_url],
+        ].filter(([, u]) => u);
+        const secLinks = [
+          ['security.txt', e.security_txt_url], ['CVD policy', e.cvd_policy_url],
+          ['Bug bounty', e.bug_bounty_url], ['Security contact', e.security_contact_url],
+        ].filter(([, u]) => u);
+        const hasDetail = e.english_summary || e.key_capabilities || e.target_use_cases
+          || e.robot_names || e.notable_demos || e.partners_customers || e.key_people
+          || e.notes || secLinks.length;
+        return (
+          <article
+            class="ent"
+            data-kind="robotics"
+            data-disclosure={e.disclosure_maturity || 'none_found'}
+            data-disc-rank={disc ? disc.rank : 0}
+            data-tier={e.tier || 9}
+            data-name={(e.name || '').toLowerCase()}
+            data-search={[e.name, e.also_known_as, e.country_hq, e.company_type, e.key_capabilities, e.target_use_cases, e.robot_names, e.key_people, e.english_summary].filter(Boolean).join(' ').toLowerCase()}
+          >
+            <div class="ent-top">
+              <div class={`ent-logo${e.logo_dark_bg ? ' on-dark' : ''}`}>
+                {e.logo_url
+                  ? <img src={e.logo_url} alt={`${e.name} logo`} loading="lazy" />
+                  : <span class="ent-monogram" aria-hidden="true">{monogram(e.name)}</span>}
               </div>
-              <div class="ent-body">
-                <span class="ent-name">{entity.name}</span>
-                {(meta || entity.country_hq) && (
-                  <span class="ent-meta">
-                    {[meta, entity.country_hq].filter(Boolean).join(' · ')}
-                  </span>
-                )}
+              <div class="ent-id">
+                <h3 class="ent-name">{e.name}</h3>
+                {e.also_known_as && <span class="ent-aka">{e.also_known_as}</span>}
               </div>
-            </Card>
-          );
-        })}
-      </div>
-    </section>
-  ))}
+              {e.tier && <span class={`tier-badge t${e.tier}`}>T{e.tier}</span>}
+            </div>
+
+            <div class="chips">
+              {e.company_type && <span class="chip">{e.company_type}</span>}
+              {e.humanoid_type && <span class="chip">{e.humanoid_type}</span>}
+              {e.stage && <span class="chip muted">{e.stage}</span>}
+              {e.country_hq && <span class="chip muted">{e.country_hq}</span>}
+            </div>
+
+            {disc && (
+              <span class={`disc ${disc.cls}`} title="Coordinated-vulnerability-disclosure posture">
+                <span class="disc-dot"></span>{disc.label}
+              </span>
+            )}
+
+            {e.english_summary && <p class="ent-summary">{e.english_summary}</p>}
+
+            {hasDetail && (
+              <details class="ent-detail">
+                <summary>Profile</summary>
+                {e.key_capabilities && <p class="field"><span class="field-k">Capabilities</span>{e.key_capabilities}</p>}
+                {e.target_use_cases && <p class="field"><span class="field-k">Use cases</span>{e.target_use_cases}</p>}
+                {e.robot_names && <p class="field"><span class="field-k">Robots</span>{e.robot_names}</p>}
+                {e.notable_demos && <p class="field"><span class="field-k">Notable demos</span>{e.notable_demos}</p>}
+                {e.partners_customers && <p class="field"><span class="field-k">Partners</span>{e.partners_customers}</p>}
+                {e.funding_total && <p class="field"><span class="field-k">Funding</span>{e.funding_total}</p>}
+                {e.key_people && <p class="field"><span class="field-k">Key people</span>{e.key_people}</p>}
+                {e.notes && <p class="field"><span class="field-k">Notes</span>{e.notes}</p>}
+                {secLinks.length > 0 && (
+                  <div class="sec-row">
+                    <span class="field-k">Disclosure</span>
+                    {secLinks.map(([lbl, u]) => (
+                      <a class="sec-link" href={u as string} target="_blank" rel="noopener nofollow">{lbl} ↗</a>
+                    ))}
+                  </div>
+                )}
+              </details>
+            )}
+
+            {links.length > 0 && (
+              <div class="links">
+                {links.map(([lbl, u]) => (
+                  <a href={u as string} target="_blank" rel="noopener nofollow" title={host(u as string)}>{lbl}</a>
+                ))}
+              </div>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- ── AI-safety organisations ─────────────────────────────────────────── -->
+  <section class="dir-section" id="sec-org">
+    <header class="dir-head">
+      <h2>AI-Safety Organisations</h2>
+      <p class="dir-sub">{orgs.length} research labs, evaluators, governance bodies, and field-builders.</p>
+    </header>
+    <div class="card-grid" id="grid-org">
+      {orgsSorted.map((e: any) => {
+        const links = [
+          ['Site', e.official_website], ['Key page', e.key_page],
+          ['GitHub', e.github_opensource], ['LinkedIn', e.linkedin_org_url],
+        ].filter(([, u]) => u);
+        const hasDetail = e.english_summary || e.scope_description || e.key_programs_outputs
+          || e.partners_customers || e.funding_signals || e.publications_reports;
+        return (
+          <article
+            class="ent"
+            data-kind="org"
+            data-disclosure="na"
+            data-disc-rank="-1"
+            data-tier={e.tier || 9}
+            data-name={(e.name || '').toLowerCase()}
+            data-search={[e.name, e.also_known_as, e.country_hq, e.org_type, e.primary_safety_focus, e.scope_description, e.key_programs_outputs, e.english_summary].filter(Boolean).join(' ').toLowerCase()}
+          >
+            <div class="ent-top">
+              <div class={`ent-logo${e.logo_dark_bg ? ' on-dark' : ''}`}>
+                {e.logo_url
+                  ? <img src={e.logo_url} alt={`${e.name} logo`} loading="lazy" />
+                  : <span class="ent-monogram" aria-hidden="true">{monogram(e.name)}</span>}
+              </div>
+              <div class="ent-id">
+                <h3 class="ent-name">{e.name}</h3>
+                {e.also_known_as && <span class="ent-aka">{e.also_known_as}</span>}
+              </div>
+              {e.tier && <span class={`tier-badge t${e.tier}`}>T{e.tier}</span>}
+            </div>
+
+            <div class="chips">
+              {e.org_type && <span class="chip">{e.org_type}</span>}
+              {e.primary_safety_focus && <span class="chip focus">{e.primary_safety_focus}</span>}
+              {e.stage && <span class="chip muted">{e.stage}</span>}
+              {e.country_hq && <span class="chip muted">{e.country_hq}</span>}
+            </div>
+
+            {e.english_summary && <p class="ent-summary">{e.english_summary}</p>}
+
+            {hasDetail && (
+              <details class="ent-detail">
+                <summary>Profile</summary>
+                {e.scope_description && <p class="field"><span class="field-k">Scope</span>{e.scope_description}</p>}
+                {e.key_programs_outputs && <p class="field"><span class="field-k">Programs / outputs</span>{e.key_programs_outputs}</p>}
+                {e.publications_reports && <p class="field"><span class="field-k">Publications</span>{e.publications_reports}</p>}
+                {e.partners_customers && <p class="field"><span class="field-k">Partners</span>{e.partners_customers}</p>}
+                {e.funding_signals && <p class="field"><span class="field-k">Funding</span>{e.funding_signals}</p>}
+              </details>
+            )}
+
+            {links.length > 0 && (
+              <div class="links">
+                {links.map(([lbl, u]) => (
+                  <a href={u as string} target="_blank" rel="noopener nofollow" title={host(u as string)}>{lbl}</a>
+                ))}
+              </div>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+
+  <p class="empty-state" id="empty-state" hidden>No entries match these filters.</p>
 
   <p class="rights-note">{tmNotice}</p>
 </ContentLayout>
 
+<script>
+  const kindF = document.getElementById('kind-filter') as HTMLSelectElement;
+  const discF = document.getElementById('disclosure-filter') as HTMLSelectElement;
+  const sortF = document.getElementById('sort-filter') as HTMLSelectElement;
+  const searchF = document.getElementById('search-filter') as HTMLInputElement;
+  const visCount = document.getElementById('visible-count') as HTMLSpanElement;
+  const empty = document.getElementById('empty-state') as HTMLElement;
+  const secRobotics = document.getElementById('sec-robotics') as HTMLElement;
+  const secOrg = document.getElementById('sec-org') as HTMLElement;
+  const gridR = document.getElementById('grid-robotics') as HTMLElement;
+  const gridO = document.getElementById('grid-org') as HTMLElement;
+  const cards = Array.from(document.querySelectorAll('.ent')) as HTMLElement[];
+
+  function applyFilters() {
+    const kind = kindF.value;
+    const disc = discF.value;
+    const q = searchF.value.toLowerCase().trim();
+    let count = 0;
+    cards.forEach((c) => {
+      const isRobot = c.dataset.kind === 'robotics';
+      let vis = true;
+      if (kind !== 'all' && c.dataset.kind !== kind) vis = false;
+      if (vis && disc !== 'all' && isRobot) {
+        if (disc === 'has') vis = c.dataset.disclosure !== 'none_found';
+        else vis = c.dataset.disclosure === disc;
+      } else if (vis && disc !== 'all' && !isRobot) {
+        vis = false; // a disclosure filter implies robotics-only
+      }
+      if (vis && q && !(c.dataset.search || '').includes(q)) vis = false;
+      c.style.display = vis ? '' : 'none';
+      if (vis) count++;
+    });
+    // Hide a section header entirely when none of its cards show.
+    const rVis = cards.some((c) => c.dataset.kind === 'robotics' && c.style.display !== 'none');
+    const oVis = cards.some((c) => c.dataset.kind === 'org' && c.style.display !== 'none');
+    secRobotics.style.display = rVis ? '' : 'none';
+    secOrg.style.display = oVis ? '' : 'none';
+    visCount.textContent = String(count);
+    empty.hidden = count !== 0;
+  }
+
+  function applySort() {
+    const mode = sortF.value;
+    const cmp = (a: HTMLElement, b: HTMLElement) => {
+      if (mode === 'name') return (a.dataset.name || '').localeCompare(b.dataset.name || '');
+      if (mode === 'disclosure')
+        return Number(b.dataset.discRank) - Number(a.dataset.discRank)
+          || (a.dataset.name || '').localeCompare(b.dataset.name || '');
+      // rank: tier asc, then name
+      return Number(a.dataset.tier) - Number(b.dataset.tier)
+        || (a.dataset.name || '').localeCompare(b.dataset.name || '');
+    };
+    Array.from(gridR.children).sort(cmp as any).forEach((c) => gridR.appendChild(c));
+    Array.from(gridO.children).sort(cmp as any).forEach((c) => gridO.appendChild(c));
+  }
+
+  kindF.addEventListener('change', applyFilters);
+  discF.addEventListener('change', applyFilters);
+  searchF.addEventListener('input', applyFilters);
+  sortF.addEventListener('change', applySort);
+</script>
+
 <style>
   .review-banner {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    justify-content: center;
+    display: flex; align-items: center; gap: 0.75rem; justify-content: center;
     background: rgba(255, 196, 0, 0.08);
     border: 1px solid rgba(255, 196, 0, 0.3);
-    border-radius: 6px;
-    padding: 0.6rem 1rem;
-    margin: 1rem auto 0;
-    max-width: 900px;
-    font-size: 0.8rem;
-    color: var(--fg-dim, #b0b8c5);
+    border-radius: 6px; padding: 0.6rem 1rem; margin: 1rem auto 0;
+    max-width: 900px; font-size: 0.8rem; color: var(--fg-dim, #b0b8c5);
   }
   .review-tag {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-    font-size: 0.7rem;
-    letter-spacing: 0.06em;
-    color: #ffc400;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.7rem;
+    letter-spacing: 0.06em; color: #ffc400;
   }
 
   .intro {
-    max-width: 720px;
-    margin: 1.5rem auto 2rem;
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--fg-dim, #b0b8c5);
-    text-align: center;
+    max-width: 760px; margin: 1.5rem auto 2rem; font-size: 0.95rem;
+    line-height: 1.7; color: var(--fg-dim, #b0b8c5); text-align: center;
   }
   .intro strong { color: var(--fg, #e8ecf2); }
 
   .stats-bar {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: 1.4rem;
+    display: flex; justify-content: center; gap: 2.5rem; padding: 1.4rem;
     background: var(--bg-elevated, #0a0f1a);
     border: 1px solid var(--border, rgba(0, 210, 255, 0.15));
-    border-radius: 8px;
-    margin: 0 auto 2.5rem;
-    max-width: 720px;
-    flex-wrap: wrap;
+    border-radius: 8px; margin: 0 auto 2rem; max-width: 760px; flex-wrap: wrap;
   }
   .stat { text-align: center; }
   .stat-value {
-    display: block;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--accent-primary, #00d2ff);
-    line-height: 1.1;
+    display: block; font-family: 'JetBrains Mono', monospace; font-size: 2rem;
+    font-weight: 700; color: var(--accent-primary, #00d2ff); line-height: 1.1;
   }
   .stat-label {
-    font-size: 0.72rem;
-    color: var(--fg-muted, #7a8292);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-size: 0.7rem; color: var(--fg-muted, #7a8292);
+    text-transform: uppercase; letter-spacing: 0.07em;
   }
 
-  .dir-section { margin-bottom: 3rem; }
-  .dir-head { margin-bottom: 1.25rem; }
+  /* ── Filters ───────────────────────────────────────────────────────────── */
+  .filters {
+    display: flex; gap: 1rem; align-items: end; margin-bottom: 2rem;
+    flex-wrap: wrap; padding: 1rem 1.2rem; background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border, rgba(0, 210, 255, 0.15)); border-radius: 8px;
+  }
+  .filter-group { display: flex; flex-direction: column; gap: 0.3rem; }
+  .filter-group.grow { flex: 1; min-width: 180px; }
+  .filter-group label {
+    font-size: 0.68rem; font-weight: 600; color: var(--fg-muted, #7a8292);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .filter-group select, .filter-group input {
+    background: var(--bg, #050810); color: var(--fg, #e8ecf2);
+    border: 1px solid var(--border, rgba(0, 210, 255, 0.15)); border-radius: 4px;
+    padding: 0.45rem 0.65rem; font-size: 0.85rem; min-width: 150px;
+  }
+  .filter-group input { width: 100%; }
+  .filter-group select:focus, .filter-group input:focus {
+    outline: none; border-color: var(--accent-primary, #00d2ff);
+  }
+  .filter-count {
+    margin-left: auto; font-size: 0.82rem; color: var(--fg-muted, #7a8292);
+    align-self: center; font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── Sections ──────────────────────────────────────────────────────────── */
+  .dir-section { margin-bottom: 2.5rem; }
+  .dir-head { margin-bottom: 1.1rem; }
   .dir-head h2 {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    color: var(--fg, #e8ecf2);
-    margin: 0;
+    font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600;
+    font-size: 1.4rem; color: var(--fg, #e8ecf2); margin: 0;
   }
-  .dir-sub {
-    font-size: 0.82rem;
-    color: var(--fg-muted, #7a8292);
-    margin: 0.3rem 0 0;
+  .dir-sub { font-size: 0.82rem; color: var(--fg-muted, #7a8292); margin: 0.3rem 0 0; }
+
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 1rem;
   }
 
-  .dir-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 0.9rem;
-  }
-
-  .ent-card {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: 0.85rem 1rem;
+  /* ── Entity card ───────────────────────────────────────────────────────── */
+  .ent {
     background: var(--bg-elevated, #0a0f1a);
     border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
-    border-radius: 8px;
-    text-decoration: none;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-    color: inherit;
+    border-radius: 8px; padding: 1.1rem 1.2rem;
+    display: flex; flex-direction: column; gap: 0.65rem;
+    transition: border-color 0.2s ease;
   }
-  a.ent-card:hover {
-    border-color: var(--accent-primary, #00d2ff);
-    transform: translateY(-2px);
-  }
+  .ent:hover { border-color: var(--border-emphasis, rgba(0, 210, 255, 0.35)); }
 
+  .ent-top { display: flex; align-items: center; gap: 0.8rem; }
   .ent-logo {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    border-radius: 6px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    flex: 0 0 44px; width: 44px; height: 44px; border-radius: 6px;
+    background: #fff; display: flex; align-items: center; justify-content: center;
     overflow: hidden;
   }
-  .ent-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-  }
+  /* White/transparent brand marks (raster-detected) sit on a dark tile so they
+     don't vanish into a white box. */
+  .ent-logo.on-dark { background: #0d1422; border: 1px solid rgba(232,236,242,0.12); }
+  .ent-logo img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .ent-logo.on-dark img { padding: 3px; }
   .ent-monogram {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #050810;
+    font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 700;
+    font-size: 1rem; color: #050810;
+  }
+  .ent-id { min-width: 0; flex: 1; }
+  .ent-name {
+    font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 0.98rem;
+    font-weight: 600; color: var(--fg, #e8ecf2); line-height: 1.25; margin: 0;
+  }
+  .ent-aka { font-size: 0.72rem; color: var(--fg-muted, #7a8292); }
+  .tier-badge {
+    flex: 0 0 auto; font-family: 'JetBrains Mono', monospace; font-size: 0.66rem;
+    font-weight: 700; padding: 0.12rem 0.4rem; border-radius: 3px;
+    color: var(--fg-muted, #7a8292); border: 1px solid var(--border-subtle, rgba(232,236,242,0.12));
+  }
+  .tier-badge.t1 { color: var(--accent-primary, #00d2ff); border-color: rgba(0,210,255,0.4); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .chip {
+    font-size: 0.7rem; padding: 0.14rem 0.45rem; border-radius: 3px;
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    color: var(--fg-dim, #b0b8c5);
+  }
+  .chip.muted { background: rgba(232, 236, 242, 0.04); color: var(--fg-muted, #7a8292); }
+  .chip.focus { background: rgba(162, 155, 254, 0.12); border-color: rgba(162,155,254,0.3); color: var(--accent-tertiary, #a29bfe); }
+
+  /* Disclosure posture badge */
+  .disc {
+    display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+    font-size: 0.72rem; font-weight: 600; padding: 0.18rem 0.55rem; border-radius: 4px;
+  }
+  .disc-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .d-mature { color: var(--recovery-stable, #26de81); background: rgba(38, 222, 129, 0.1); }
+  .d-bounty { color: var(--accent-primary, #00d2ff); background: rgba(0, 210, 255, 0.1); }
+  .d-cvd    { color: #4db8d8; background: rgba(77, 184, 216, 0.08); }
+  .d-basic  { color: var(--failure-warning, #ffa502); background: rgba(255, 165, 2, 0.1); }
+  .d-none   { color: var(--fg-muted, #7a8292); background: rgba(122, 130, 146, 0.08); }
+
+  .ent-summary {
+    font-size: 0.84rem; line-height: 1.55; color: var(--fg-dim, #b0b8c5); margin: 0;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   }
 
-  .ent-body {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
+  .ent-detail summary {
+    cursor: pointer; font-size: 0.76rem; color: var(--accent-primary, #00d2ff);
+    list-style: none;
   }
-  .ent-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--fg, #e8ecf2);
-    line-height: 1.25;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .ent-detail summary::-webkit-details-marker { display: none; }
+  .ent-detail summary::before { content: '+ Profile'; }
+  .ent-detail[open] summary { font-size: 0; }
+  .ent-detail[open] summary::before { content: '– Less'; font-size: 0.76rem; }
+  .field { margin: 0.55rem 0 0; font-size: 0.8rem; line-height: 1.55; color: var(--fg-dim, #b0b8c5); }
+  .field-k {
+    display: block; font-size: 0.64rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--fg-muted, #7a8292); margin-bottom: 0.1rem;
   }
-  .ent-meta {
-    font-size: 0.72rem;
-    color: var(--fg-muted, #7a8292);
-    margin-top: 0.15rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .sec-row {
+    margin-top: 0.7rem; display: flex; flex-wrap: wrap; gap: 0.4rem 0.6rem;
+    align-items: baseline;
   }
+  .sec-link {
+    font-size: 0.74rem; color: var(--accent-tertiary, #a29bfe); text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .sec-link:hover { text-decoration: underline; }
+
+  .links {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.4rem;
+  }
+  .links a {
+    font-size: 0.74rem; color: var(--accent-primary, #00d2ff); text-decoration: none;
+    padding: 0.12rem 0.5rem; border: 1px solid rgba(0, 210, 255, 0.18); border-radius: 999px;
+  }
+  .links a:hover { background: rgba(0, 210, 255, 0.1); }
+
+  .empty-state { text-align: center; color: var(--fg-muted, #7a8292); padding: 2rem; }
 
   .rights-note {
-    max-width: 720px;
-    margin: 2.5rem auto 0;
-    font-size: 0.72rem;
-    line-height: 1.5;
-    color: var(--fg-muted, #7a8292);
-    text-align: center;
-    opacity: 0.85;
+    max-width: 720px; margin: 2.5rem auto 0; font-size: 0.72rem; line-height: 1.5;
+    color: var(--fg-muted, #7a8292); text-align: center; opacity: 0.85;
   }
 
-  @media (max-width: 520px) {
-    .dir-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 768px) {
+    .filters { flex-direction: column; align-items: stretch; }
+    .filter-count { margin-left: 0; text-align: center; }
+    .card-grid { grid-template-columns: 1fr; }
     .stats-bar { gap: 1.5rem; }
   }
 </style>
