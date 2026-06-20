@@ -532,13 +532,12 @@ const jsonLd = {
   }
 
   .ent-detail summary {
-    cursor: pointer; font-size: 0.76rem; color: var(--accent-primary, #00d2ff);
+    cursor: pointer; font-size: 0; color: var(--accent-primary, #00d2ff);
     list-style: none;
   }
   .ent-detail summary::-webkit-details-marker { display: none; }
-  .ent-detail summary::before { content: '+ Profile'; }
-  .ent-detail[open] summary { font-size: 0; }
-  .ent-detail[open] summary::before { content: '– Less'; font-size: 0.76rem; }
+  .ent-detail summary::before { content: '+ Profile'; font-size: 0.76rem; }
+  .ent-detail[open] summary::before { content: '– Less'; }
   .field { margin: 0.55rem 0 0; font-size: 0.8rem; line-height: 1.55; color: var(--fg-dim, #b0b8c5); }
   .field-k {
     display: block; font-size: 0.64rem; font-weight: 700; text-transform: uppercase;
