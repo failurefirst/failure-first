@@ -4,10 +4,10 @@ import HeroSection from '../../components/HeroSection.astro';
 import data from '../../data/robot-incidents.json';
 
 // ── Review gate ──────────────────────────────────────────────────────────────
-// This page is built and committed but NOT yet linked from navigation and is
-// marked noindex. It is awaiting design sign-off before it goes public. To
-// publish: remove `noindex` below, add a Navigation link, and redeploy.
-const REVIEW_GATED = true;
+// Design sign-off received; published 2026-06-20 (#709): noindex dropped, linked
+// from Navigation under Research. Flip back to true to pull the page from index +
+// re-show the draft banner if it ever needs to return to review.
+const REVIEW_GATED = false;
 
 const facets = data.facets as any;
 const incidents = data.incidents as any[];
