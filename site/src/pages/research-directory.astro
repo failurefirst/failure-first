@@ -1,0 +1,306 @@
+---
+import ContentLayout from '../layouts/ContentLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import data from '../data/research-directory.json';
+
+// ── Review gate ──────────────────────────────────────────────────────────────
+// Net-new public page (#91). Shipped to PREVIEW for operator design sign-off
+// before going live. Flip to false (and link from Navigation) once approved.
+const REVIEW_GATED = true;
+
+const robotics = (data.robotics_companies as any[]) || [];
+const orgs = (data.ai_safety_orgs as any[]) || [];
+const tmNotice = data.trademark_notice as string;
+
+// Cards render whether or not a logo is hosted: a hosted logo_url renders an
+// <img>; entities without one get a clean monogram fallback (no broken images).
+const totalLogos =
+  robotics.filter((c) => c.logo_url).length + orgs.filter((o) => o.logo_url).length;
+
+const monogram = (name: string) =>
+  (name || '?')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
+
+// Sort: logo'd entities first (the visual payoff), then alphabetical.
+const byLogoThenName = (a: any, b: any) =>
+  (b.logo_url ? 1 : 0) - (a.logo_url ? 1 : 0) ||
+  (a.name || '').localeCompare(b.name || '');
+
+const roboticsSorted = [...robotics].sort(byLogoThenName);
+const orgsSorted = [...orgs].sort(byLogoThenName);
+
+const sections = [
+  {
+    id: 'robotics',
+    label: 'Robotics & Embodied-AI Companies',
+    sub: 'Humanoid, autonomous-vehicle, and embodied-AI developers tracked in the corpus.',
+    items: roboticsSorted,
+    metaKey: 'company_type',
+  },
+  {
+    id: 'orgs',
+    label: 'AI-Safety Organisations',
+    sub: 'Research labs, evaluators, governance bodies, and field-builders.',
+    items: orgsSorted,
+    metaKey: 'org_type',
+  },
+];
+
+const breadcrumbs = [
+  { label: 'Research', href: '/research/' },
+  { label: 'Directory' },
+];
+---
+
+<ContentLayout
+  title="Research Directory — Robotics Companies & AI-Safety Organisations"
+  description="A directory of the embodied-AI companies and AI-safety organisations tracked by the Failure-First research framework."
+  breadcrumbs={breadcrumbs}
+  noindex={REVIEW_GATED}
+>
+  {REVIEW_GATED && (
+    <div class="review-banner">
+      <span class="review-tag">DRAFT — DESIGN REVIEW</span>
+      <span>Unlisted &amp; noindex. Remove the review gate to publish.</span>
+    </div>
+  )}
+
+  <HeroSection
+    title="Research <em>Directory</em>"
+    subtitle="The organisations mapped by our framework — robotics developers building embodied AI, and the safety community studying it."
+    animation="cascade"
+    accent="cyan"
+  />
+
+  <section class="intro">
+    <p>
+      Failure-First tracks both sides of embodied-AI safety: the companies
+      <strong>building</strong> physical AI systems and the organisations
+      <strong>studying</strong> how they fail. This directory lists
+      {robotics.length} robotics &amp; embodied-AI companies and {orgs.length}
+      AI-safety organisations, each linked to its official site.
+    </p>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-value">{robotics.length}</span>
+      <span class="stat-label">Robotics Companies</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{orgs.length}</span>
+      <span class="stat-label">AI-Safety Orgs</span>
+    </div>
+    <div class="stat">
+      <span class="stat-value">{totalLogos}</span>
+      <span class="stat-label">Identified by Logo</span>
+    </div>
+  </div>
+
+  {sections.map((section) => (
+    <section class="dir-section" id={section.id}>
+      <header class="dir-head">
+        <h2>{section.label}</h2>
+        <p class="dir-sub">{section.sub}</p>
+      </header>
+      <div class="dir-grid">
+        {section.items.map((entity: any) => {
+          const meta = entity[section.metaKey];
+          const site = entity.official_website;
+          const Card = site ? 'a' : 'div';
+          return (
+            <Card
+              class="ent-card"
+              {...(site ? { href: site, target: '_blank', rel: 'noopener nofollow' } : {})}
+            >
+              <div class="ent-logo">
+                {entity.logo_url ? (
+                  <img src={entity.logo_url} alt={`${entity.name} logo`} loading="lazy" />
+                ) : (
+                  <span class="ent-monogram" aria-hidden="true">{monogram(entity.name)}</span>
+                )}
+              </div>
+              <div class="ent-body">
+                <span class="ent-name">{entity.name}</span>
+                {(meta || entity.country_hq) && (
+                  <span class="ent-meta">
+                    {[meta, entity.country_hq].filter(Boolean).join(' · ')}
+                  </span>
+                )}
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+    </section>
+  ))}
+
+  <p class="rights-note">{tmNotice}</p>
+</ContentLayout>
+
+<style>
+  .review-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+    background: rgba(255, 196, 0, 0.08);
+    border: 1px solid rgba(255, 196, 0, 0.3);
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    margin: 1rem auto 0;
+    max-width: 900px;
+    font-size: 0.8rem;
+    color: var(--fg-dim, #b0b8c5);
+  }
+  .review-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: #ffc400;
+  }
+
+  .intro {
+    max-width: 720px;
+    margin: 1.5rem auto 2rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--fg-dim, #b0b8c5);
+    text-align: center;
+  }
+  .intro strong { color: var(--fg, #e8ecf2); }
+
+  .stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 1.4rem;
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border, rgba(0, 210, 255, 0.15));
+    border-radius: 8px;
+    margin: 0 auto 2.5rem;
+    max-width: 720px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-value {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-primary, #00d2ff);
+    line-height: 1.1;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: var(--fg-muted, #7a8292);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .dir-section { margin-bottom: 3rem; }
+  .dir-head { margin-bottom: 1.25rem; }
+  .dir-head h2 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--fg, #e8ecf2);
+    margin: 0;
+  }
+  .dir-sub {
+    font-size: 0.82rem;
+    color: var(--fg-muted, #7a8292);
+    margin: 0.3rem 0 0;
+  }
+
+  .dir-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .ent-card {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg-elevated, #0a0f1a);
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    color: inherit;
+  }
+  a.ent-card:hover {
+    border-color: var(--accent-primary, #00d2ff);
+    transform: translateY(-2px);
+  }
+
+  .ent-logo {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .ent-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .ent-monogram {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #050810;
+  }
+
+  .ent-body {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .ent-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--fg, #e8ecf2);
+    line-height: 1.25;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .ent-meta {
+    font-size: 0.72rem;
+    color: var(--fg-muted, #7a8292);
+    margin-top: 0.15rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .rights-note {
+    max-width: 720px;
+    margin: 2.5rem auto 0;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--fg-muted, #7a8292);
+    text-align: center;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 520px) {
+    .dir-grid { grid-template-columns: 1fr 1fr; }
+    .stats-bar { gap: 1.5rem; }
+  }
+</style>
