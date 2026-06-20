@@ -287,6 +287,23 @@ const jsonLd = {
             <details class="inc-detail">
               <summary>Details</summary>
               <p class="inc-desc">{inc.description}</p>
+              {inc.federal_media && inc.federal_media.length > 0 && (
+                <div class="inc-figures">
+                  {inc.federal_media.map((asset: any) => (
+                    <figure class="inc-figure">
+                      <img src={asset.url} alt={asset.provenance || asset.credit || `Figure for ${inc.title}`} loading="lazy" />
+                      {asset.credit && (
+                        <figcaption>
+                          {asset.source_url
+                            ? <a href={asset.source_url} target="_blank" rel="noopener">{asset.credit}</a>
+                            : asset.credit}
+                          {asset.rights_basis === 'federal-public-domain' && <span class="pd-tag"> · U.S. public domain</span>}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ))}
+                </div>
+              )}
               {inc.eaisi_total != null && (
                 <div class="eaisi-strip">
                   {EAISI_DIMS.map((d) => {
@@ -712,6 +729,34 @@ const jsonLd = {
     line-height: 1.6;
     color: var(--fg-dim, #b0b8c5);
   }
+
+  /* Federal public-domain figures (#871) */
+  .inc-figures {
+    margin: 0.7rem 0;
+  }
+  .inc-figure {
+    margin: 0 0 0.9rem;
+  }
+  .inc-figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-subtle, #2a2f3a);
+    border-radius: 4px;
+    background: #fff;
+  }
+  .inc-figure figcaption {
+    margin-top: 0.35rem;
+    font-size: 0.72rem;
+    line-height: 1.4;
+    color: var(--fg-muted, #7a8292);
+  }
+  .inc-figure figcaption a {
+    color: var(--fg-muted, #7a8292);
+    text-decoration: none;
+  }
+  .inc-figure figcaption a:hover { text-decoration: underline; }
+  .inc-figure .pd-tag { color: var(--fg-muted, #7a8292); opacity: 0.8; }
 
   /* EAISI dimension strip */
   .eaisi-strip {
