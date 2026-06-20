@@ -281,7 +281,7 @@ const jsonLd = {
             {inc.system && <span class="meta-chip">{inc.system}</span>}
             {inc.operator && <span class="meta-chip muted">{inc.operator}</span>}
             {inc.location && <span class="meta-chip muted">{inc.location}</span>}
-            {inc.harm_label && <span class="meta-chip harm">{inc.harm_label}</span>}
+            {inc.harm_label && inc.harm_category !== 'none' && <span class="meta-chip harm">{inc.harm_label}</span>}
           </div>
           {inc.description && (
             <details class="inc-detail">
