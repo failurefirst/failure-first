@@ -1,11 +1,11 @@
 ---
 
 
-title: "AutoDAN: Generating Adversarial Examples via Automatic Optimization"
+title: "AutoDAN: Generating Stealthy Jailbreak Prompts on Aligned Large Language Models"
 description: "Proposes an automated approach to generate adversarial inputs against aligned LLMs using evolutionary algorithms and semantic mutation, achieving high attack success rates without manual engineering."
 date: 2025-11-02
 arxiv: "2310.04451"
-authors: "Shuai Liu, Ning Ding, Bowen Zhou, Yuxiao Dong, Tang Xu, Xuanjing Huang"
+authors: "Xiaogeng Liu, Nan Xu, Muhao Chen, Chaowei Xiao"
 paperType: "empirical"
 tags: [jailbreaking, adversarial-generation, evolutionary-algorithms, llm-safety, automatic-attacks]
 draft: false

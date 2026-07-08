@@ -5,7 +5,7 @@ title: "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts"
 description: "Generating diverse attack angles through multi-objective optimization—demonstrates vulnerability to multi-axis jailbreaks"
 date: 2025-10-03
 arxiv: "2402.16822"
-authors: "Mikayel Samvelyan, Drummond Hu, Andries Crinnion, Yutian Chen, Tom Brown, Google DeepMind"
+authors: "Mikayel Samvelyan, Sharath Chandra Raparthy, Andrei Lupu, Eric Hambro, Aram H. Markosyan, Manish Bhatt, Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, Tim Rocktäschel, Roberta Raileanu (Meta AI, UCL)"
 paperType: "empirical"
 tags: [red-teaming, adversarial-prompts, diversity, multi-objective-optimization, jailbreak-generation]
 draft: false

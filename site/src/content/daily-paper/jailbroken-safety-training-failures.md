@@ -5,7 +5,7 @@ title: "Jailbroken: How Does LLM Safety Training Fail?"
 description: "Comprehensive taxonomy of failure modes in safety training, establishing that RLHF alone is insufficient for robust safety"
 date: 2025-10-10
 arxiv: "2307.02483"
-authors: "Alexander Wei, Nika Haghtalab, Jacob Steinhardt, CMU, UC Berkeley, Meta"
+authors: "Alexander Wei, Nika Haghtalab, Jacob Steinhardt (UC Berkeley)"
 paperType: "empirical"
 tags: [safety-training-failures, rlhf-limitations, adversarial-robustness, taxonomy, training-methodology]
 draft: false

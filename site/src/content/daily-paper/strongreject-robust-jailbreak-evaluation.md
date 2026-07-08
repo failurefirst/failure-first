@@ -1,26 +1,25 @@
 ---
 
 
-title: "StrongREJECT: A Robust Metric for Evaluating Jailbreak Resistance"
-description: "Proposes StrongREJECT, a classification-based metric that robustly evaluates whether a language model's refusal to provide harmful information is genuine or can be evaded with minor prompt variations."
+title: "A StrongREJECT for Empty Jailbreaks"
+description: "Shows that naive jailbreak evaluators systematically overstate attack success rates, and that jailbreaks which do bypass safety training tend to degrade the target model's underlying capability."
 date: 2025-11-06
 arxiv: "2402.10260"
-authors: "Landon Souly, Fatih Mili, Giannis Daras, Karthikeyan Natesan Ramamurthy, Manish Madaio, Jean-Baptiste Labreuille, Pierre Monget"
+authors: "Alexandra Souly, Qingyuan Lu, Dillon Bowen, Tu Trinh, Elvis Hsieh, Sana Pandey, Pieter Abbeel, Justin Svegliato, Scott Emmons, Olivia Watkins, Sam Toyer (UC Berkeley CHAI)"
 paperType: "empirical"
 tags: [jailbreaking, evaluation-metrics, robustness, safety-testing, rejection-consistency]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/strongreject-robust-jailbreak-evaluation.png"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/strongreject-robust-jailbreak-evaluation.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/strongreject-robust-jailbreak-evaluation.mp4"
 ---
 
-Red-teaming methods are only useful if we can reliably measure whether they succeed. A model that refuses a jailbreak attempt might seem safe, but it might also simply be refusing the specific phrasing—and would comply with a slightly reworded version of the same request.
+Red-teaming methods are only useful if we can reliably measure whether they succeed. Prior jailbreak evaluations often relied on naive judges — keyword matching or lightly-prompted LLM graders — that this paper shows systematically overstate attack success rates: they count refusal-adjacent or low-quality compliance as a "break" when the response is actually unhelpful, off-topic, or hedged.
 
-StrongREJECT addresses this problem by defining refusal robustness: a model is truly aligned only if it refuses not just the original adversarial prompt, but also minor variations on it. The metric works by applying text transformations (synonym replacement, paraphrasing, structure changes) to prompts that a model refuses, then checking whether the model's refusal remains consistent.
+StrongREJECT addresses this by introducing a rigorous, rubric-based evaluator (both a fine-tuned classifier and a detailed few-shot GPT-4 rubric) that scores whether a response *actually* provides specific, correct, harmful information — not just whether it fails to refuse. Re-scoring a large corpus of previously "successful" jailbreaks with this rubric, the authors find that many claimed high-ASR attacks collapse dramatically once quality of compliance is properly graded.
 
-If a model refuses "how to make a bomb" but accepts "steps for constructing an explosive device," it has not genuinely learned to refuse the harmful request—it has only learned to pattern-match specific phrasings. StrongREJECT makes this failure visible.
+The paper's second key finding is a capability tradeoff: jailbreaks that genuinely do bypass safety training tend to also degrade the model's ability to produce *high-quality* harmful content — the same manipulations (heavy obfuscation, persona injection, adversarial suffixes) that suppress refusal circuitry also damage general capability, so what looks like a "break" is often a low-value, degraded response rather than the full-fidelity harmful output.
 
-The metric surfaces a critical insight: many claimed safety improvements are brittle. A model might achieve high refusal rates on a standard benchmark, but its refusal mechanism fails under paraphrasing. This explains why adversarial attacks that succeed often do so through simple rewording—they exploit the fragility of pattern-matching-based refusals.
+This is directly relevant to this repo's own baseline-refusal-gate and FLIP-grading discipline (see CLAUDE.md's *Jailbreak vs. Compliance-Measurement* section): StrongREJECT is empirical evidence for exactly the failure mode that discipline exists to prevent — a naive grader inflating ASR by rewarding low-quality, refusal-adjacent compliance instead of measuring genuine, actionable harm.
 
-For embodied systems, robustness to paraphrasing is essential. A robot might receive instructions from users with different linguistic backgrounds, from noisy sensors misinterpreting sound, from text processing systems introducing small errors. If the robot's safety mechanism depends on exact phrase matching, it will fail in real-world deployment with linguistic variation.
-
-StrongREJECT shifts evaluation methodology from "does this attack work on this prompt?" to "is this refusal genuinely robust?" This distinction is foundational for building embodied AI systems where safety must be maintained not just against the exact threats in the test suite, but against natural distribution shift and linguistic variation in deployment.
+For embodied systems, the capability-tradeoff finding matters directly: an attack that degrades a robot-controlling model's output quality to bypass a safety refusal may simultaneously make its action-generation less coherent or reliable — a "successful" jailbreak against an embodied agent could produce degraded, less predictable physical behavior rather than a clean bypass.

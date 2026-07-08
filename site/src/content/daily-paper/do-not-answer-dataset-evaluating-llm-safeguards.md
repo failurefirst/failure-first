@@ -5,7 +5,7 @@ title: "Do-Not-Answer: A Dataset for Evaluating the Safeguards in Large Language
 description: "Introduces a curated dataset of 939 sensitive queries designed to systematically evaluate how language models handle harmful requests, finding that most safety refusals can be bypassed through rephrasing and that models struggle with context-dependent harms."
 date: 2025-09-05
 arxiv: "2308.13387"
-authors: "Yufei Li, Zhuotao Gao, Mingda Zhang, Qingxiu Dong, Zhifang Sui, Andrew Yates"
+authors: "Yuxia Wang, Haonan Li, Xudong Han, Preslav Nakov, Timothy Baldwin"
 paperType: "empirical"
 tags: ["safety-evaluation", "refusal-robustness", "adversarial-prompts", "harmful-requests", "benchmark", "model-safety"]
 draft: false
@@ -15,7 +15,7 @@ image: "https://cdn.failurefirst.org/images/daily-paper/do-not-answer-dataset-ev
 
 # Do-Not-Answer: A Dataset for Evaluating the Safeguards in Large Language Models
 
-**Focus:** Wang et al. created a systematic benchmark of sensitive queries that current
+**Focus:** Wang, Li, Han, Nakov & Baldwin created a systematic benchmark of sensitive queries that current
 language models struggle with, demonstrating that safety refusals are vulnerable to simple
 rephrasing attacks and that models lack understanding of why certain requests are harmful,
 exposing brittleness in contemporary safety training approaches.
