@@ -27,7 +27,3 @@ The cold-start safety gap introduces a failure mode class absent from most red-t
 The Consistency Illusion finding complicates multi-agent safety evaluation design. If debate protocols can converge on correct answers while participants diverge on the reasoning paths that produced them, then output-level agreement metrics — widely used in safety ensemble architectures and human-AI teaming validation — are insufficient. Reasoning-level coherence checks are required. This is a direct challenge to evaluation designs that treat consensus as a correctness proxy.
 
 The Hide-and-Seek result has methodological implications for the failure-first episode schema. The finding that failure-predictive signals are temporally localized within trajectories — rather than uniformly distributed — reinforces the scene-level safety check design in `data/episodes/`: individual trajectory moments carry disproportionate failure signal, and red-teaming frameworks that evaluate only endpoints will miss them.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

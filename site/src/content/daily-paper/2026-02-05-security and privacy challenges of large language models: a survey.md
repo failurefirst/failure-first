@@ -6,7 +6,6 @@ arxiv: "2402.00888"
 authors: "Badhan Chandra Das, M. Hadi Amini, Yanzhao Wu"
 paperType: survey
 tags: [not-analyzed]
-image: "/images/daily-paper/2402.00888-infographic.webp"
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2402.00888-audio-overview.m4a"
 video: "/video/2402.00888-video-overview.mp4"

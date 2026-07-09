@@ -10,6 +10,7 @@ author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/94-technique-non-additivity.m4a"
+image: "https://cdn.failurefirst.org/images/reports/94-technique-non-additivity.png"
 ---
 
 ---

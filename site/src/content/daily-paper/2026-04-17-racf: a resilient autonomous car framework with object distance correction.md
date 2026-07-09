@@ -7,7 +7,7 @@ authors: "Chieh Tsai, Hossein Rastgoftar, Salim Hariri"
 paperType: "empirical"
 tags: [autonomous-vehicle-perception,sensor-fusion-redundancy,adversarial-robustness,depth-estimation-correction,real-time-safety-critical-systems,environmental-corruption-resilience]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.12418-audio-overview.m4a"
-image: "/images/daily-paper/2604.12418-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2604.12418-infographic.webp"
 draft: false
 ---
 

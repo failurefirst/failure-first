@@ -9,7 +9,6 @@ tags: ["alignment-evaluation", "behavioural-stress-testing", "multi-turn", "ai-s
 video: "/video/daily-paper/2602.20813-video-overview.mp4"
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.20813-audio-overview.m4a"
-image: "/images/daily-paper/2602.20813-infographic.webp"
 ---
 
 # Pressure Reveals Character: Behavioural Alignment Evaluation at Depth

@@ -29,7 +29,3 @@ The LPS-Bench result refines the failure model that motivates the episode corpus
 The refusal cliff in reasoning models has direct implications for grading generation traces. If reasoning models suppress their own refusal intent at the final output step, graders treating the complete response as the safety signal will systematically underdetect failures that are visible in the intermediate reasoning chain. This argues for updating FLIP grader configurations for reasoning models to score over the chain, not only the terminal output.
 
 The modality divergence in frontier safety profiles reinforces the corpus design decision to evaluate across text, vision, and embodied inputs rather than optimising for a single modality. A model that scores well on text-only benchmarks may still fail on multimodal adversarial inputs of the kind relevant to the PiCar-X visual pipeline and any camera-equipped embodied platform.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

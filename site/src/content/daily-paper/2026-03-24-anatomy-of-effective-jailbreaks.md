@@ -5,6 +5,7 @@ author: Failure-First Embodied AI Research
 tags: [jailbreaks, format-lock, adversarial-attacks, ai-safety]
 description: "An analysis of the most effective jailbreak techniques across 190 AI models, revealing that format-compliance attacks dominate and even frontier models are vulnerable."
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-anatomy-of-effective-jailbreaks.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-anatomy-of-effective-jailbreaks.m4a"
 ---
 
 # Anatomy of Effective Jailbreaks: What Makes an Attack Actually Work?

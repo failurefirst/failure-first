@@ -10,6 +10,7 @@ author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/60-compliance-without-comprehension.m4a"
+image: "https://cdn.failurefirst.org/images/reports/60-compliance-without-comprehension.png"
 ---
 
 ---

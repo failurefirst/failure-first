@@ -27,7 +27,3 @@ LITMUS's execution hallucination finding has direct implications for the failure
 The VLA survey's training-versus-inference attack taxonomy exposes a coverage gap in the current corpus. Existing failure-first scenarios concentrate on inference-time adversarial inputs, while the survey's synthesis shows training-time threats — backdoor triggers, fine-tuning set poisoning — are comparably represented in the research literature. Expanding the episode schema to tag attack timing would enable stratified benchmark coverage of both axes rather than the current inference-heavy skew.
 
 AgentWall's declarative intercept-before-execution architecture is a direct reference design for the HANSE Layer 4 Kinematic Shield. An intercept-and-evaluate layer operating at action-proposal time — before physical execution — mirrors the proposed Layer 4 design; the 92.9% enforcement rate establishes a practical accuracy baseline for what runtime-only intervention achieves without any model-side changes.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

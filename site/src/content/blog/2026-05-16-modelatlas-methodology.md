@@ -5,6 +5,7 @@ date: 2026-05-16
 tags: [atlas, methodology, ASR, FLIP, grading, trust-scoring, modelatlas, transparency]
 draft: false
 image: "https://cdn.failurefirst.org/images/blog/modelatlas-methodology-infographic.png"
+audio: "https://cdn.failurefirst.org/audio/blog/2026-05-16-modelatlas-methodology.m4a"
 ---
 
 *River Song, Head of Predictive Risk · Martha Jones, Policy & Standards Lead*

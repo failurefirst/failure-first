@@ -10,6 +10,7 @@ author: "Martha Jones, Policy & Standards Lead"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/274-cross-jurisdictional-regulatory-gap-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/274-cross-jurisdictional-regulatory-gap-analysis.png"
 ---
 
 ---

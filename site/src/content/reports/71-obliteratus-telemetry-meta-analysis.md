@@ -10,6 +10,7 @@ author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/71-obliteratus-telemetry-meta-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/71-obliteratus-telemetry-meta-analysis.png"
 ---
 
 ---
@@ -102,7 +103,7 @@ The relationship is clearly non-monotonic. The 0.5-2B bucket has the highest ref
 
 ### 3.2 Reconciliation with Established Finding
 
-AGENT_STATE records an established finding: "Safety behavior partially re-emerges at scale even in abliterated models. Qwen3.5 obliteratus series: ASR 100% (0.8B) to 47.3% (9.0B). Spearman rho=-0.949, p=0.051."
+Our established finding: safety behavior partially re-emerges at scale even in abliterated models. Qwen3.5 obliteratus series: compliance 99.8% (0.8B) to 54.2% (9.0B), post-#810-recovery curve. The decline is monotonic with non-overlapping per-scale Wilson CIs but not significant by a valid rank test (Spearman ρ=−1.0, exact p=0.083, k=4); the 9B residual non-compliance is hedging (PARTIAL), not refusal.
 
 The telemetry data is broadly consistent: larger models do show more residual safety behavior after abliteration. However, the telemetry adds nuance:
 

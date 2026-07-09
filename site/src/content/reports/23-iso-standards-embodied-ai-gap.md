@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/23-iso-standards-embodied-ai-gap.m4a"
+image: "https://cdn.failurefirst.org/images/reports/23-iso-standards-embodied-ai-gap.png"
 ---
 
 ---

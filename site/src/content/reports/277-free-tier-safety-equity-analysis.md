@@ -10,6 +10,7 @@ author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/277-free-tier-safety-equity-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/277-free-tier-safety-equity-analysis.png"
 ---
 
 ---

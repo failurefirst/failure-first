@@ -10,6 +10,7 @@ author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/247-cca-frontier-and-coevolution.m4a"
+image: "https://cdn.failurefirst.org/images/reports/247-cca-frontier-and-coevolution.png"
 ---
 
 ---

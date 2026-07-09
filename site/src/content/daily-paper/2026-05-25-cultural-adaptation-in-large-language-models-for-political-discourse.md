@@ -7,7 +7,7 @@ authors: "Wajdi Zaghouani"
 paperType: "empirical"
 tags: ["cultural-adaptation", "political-discourse", "representational-bias", "multilingual-llm", "ai-safety"]
 draft: false
-image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-25-cultural-adaptation-in-large-language-models-for-political-discourse.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2605.23332-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.23332-audio-overview.m4a"
 ---
 

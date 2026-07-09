@@ -10,6 +10,7 @@ author: "Leela (benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/229-qwen3-overfitting-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/229-qwen3-overfitting-analysis.png"
 ---
 
 ---

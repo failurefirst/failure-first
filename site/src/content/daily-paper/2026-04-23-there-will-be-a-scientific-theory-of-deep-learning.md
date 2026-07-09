@@ -7,7 +7,7 @@ arxiv: "2604.21691"
 authors: "Jamie Simon, Daniel Kunin, Alexander Atanasov, Enric Boix-Adserà, Blake Bordelon, Jeremy Cohen, Nikhil Ghosh, Florentin Guth, Arthur Jacot, Mason Kamb, Dhruva Karkada, Eric J. Michaud, Berkan Ottlik, Joseph Turnbull"
 paperType: "position"
 tags: [deep-learning-theory, learning-mechanics, mechanistic-interpretability, training-dynamics, failure-prediction]
-image: "/images/daily-paper/2604.21691-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2604.21691-infographic.webp"
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-23-there-will-be-a-scientific-theory-of-deep-learning.m4a"
 ---

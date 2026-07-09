@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/24-post-jailbreak-persistence-policy.m4a"
+image: "https://cdn.failurefirst.org/images/reports/24-post-jailbreak-persistence-policy.png"
 ---
 
 ---

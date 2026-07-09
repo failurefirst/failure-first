@@ -11,6 +11,7 @@ tags: ["gpt-4", "emergent-capabilities", "few-shot-learning", "reasoning", "mult
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/sparks-of-agi-early-experiments-gpt-4.png"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/sparks-of-agi-early-experiments-gpt-4.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/sparks-of-agi-early-experiments-gpt-4.mp4"
 ---
 
 # Sparks of Artificial General Intelligence: Early Experiments with GPT-4

@@ -6,11 +6,12 @@ tags: ["OBLITERATUS", "abliteration", "safety-re-emergence", "scale", "Qwen3.5",
 relevance: "Empirical finding that safety behavior partially returns in abliterated models at larger scales, but as textual hedging rather than behavioral refusal"
 significance: high
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-safety-reemergence-at-scale.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-safety-reemergence-at-scale.m4a"
 ---
 
 ## Summary
 
-One of the most surprising findings from the Failure-First OBLITERATUS research program: safety behavior partially re-emerges in abliterated (safety-removed) models as they scale up. Qwen3.5 abliterated models show ASR declining from 100% at 0.8B parameters to 47.3% at 9B parameters (Spearman rho=-0.949, p=0.051). At first glance, this looks like good news -- maybe safety is an emergent property of scale that survives even deliberate removal.
+One of the most surprising findings from the Failure-First OBLITERATUS research program: safety behavior partially re-emerges in abliterated (safety-removed) models as they scale up. Qwen3.5 abliterated models show compliance declining from 99.8% at 0.8B parameters to 54.2% at 9B parameters. The decline is monotonic across the four scales, but with only four model sizes it is **not** statistically significant by a valid rank test (Spearman rho=-1.0 has an exact permutation p=0.083; a four-point series cannot reach p<0.05). The strength of the evidence is instead that the per-scale confidence intervals do not overlap — large per-scale sample sizes buy tight intervals, not trend significance. At first glance, the decline looks like good news -- maybe safety is an emergent property of scale that survives even deliberate removal.
 
 It is not good news.
 
@@ -20,14 +21,16 @@ The OBLITERATUS research program systematically studies what happens when safety
 
 The Qwen3.5 abliterated series tested four model sizes:
 
-| Model Size | Strict ASR (COMPLIANCE only) | Broad ASR (COMPLIANCE + PARTIAL) |
-|-----------|------|------|
-| 0.8B | 100% | 100% |
-| 1.9B | 100% | 100% |
-| 4.2B | 78.9% | ~100% |
-| 9.0B | 47.3% | 100% |
+| Model Size | n | Strict ASR (COMPLIANCE only) | Broad ASR (COMPLIANCE + PARTIAL) |
+|-----------|------|------|------|
+| 0.8B | 487 | 99.8% | 100% |
+| 1.9B | 649 | 94.8% | 94.8% |
+| 4.2B | 1,008 | 78.3% | 92.0% |
+| 9.0B | 2,019 | 54.2% | 100% |
 
-The strict ASR decline is real and statistically suggestive (rho=-0.949, p=0.051). But the broad ASR tells the actual story: **at every scale, the abliterated models comply with harmful requests**. What changes is *how* they comply.
+*Figures updated 2026-06-24 to the post-#810-recovery canonical curve (9B n=2,019; was 47.3% at n=317 before a basename-collision recovery re-exposed masked results). See the canonical metrics record for full provenance.*
+
+The strict ASR decline is real and monotonic, but with only four model sizes it is **not** statistically significant by a valid rank test (Spearman rho=-1.0, exact p=0.083). What carries the evidence is that the per-scale confidence intervals do not overlap. The broad ASR tells the actual story: **at every scale, the abliterated models comply with harmful requests**. What changes is *how* they comply — and at 9B the residual non-compliance is entirely hedging (PARTIAL), with zero outright refusals.
 
 ## Textual Hedging, Not Behavioral Refusal
 

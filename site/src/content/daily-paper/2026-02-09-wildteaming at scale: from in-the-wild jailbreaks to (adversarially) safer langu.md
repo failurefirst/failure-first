@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [jailbreak-discovery,adversarial-safety-training,red-teaming-automation,in-the-wild-vulnerabilities,safety-dataset-curation,over-refusal-mitigation]
 draft: false
 video: "/video/2406.18510-video-overview.mp4"
-image: "/images/daily-paper/2406.18510-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2406.18510-audio-overview.m4a"
 ---
 

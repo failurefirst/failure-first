@@ -10,6 +10,7 @@ author: "Martha Jones (data-curator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/48-corpus-pattern-mining.m4a"
+image: "https://cdn.failurefirst.org/images/reports/48-corpus-pattern-mining.png"
 ---
 
 ---
@@ -76,12 +77,14 @@ The Obliteratus model series — models with safety training intentionally remov
 
 **Qwen3.5 Obliteratus series:**
 
-| Size | N | ASR | PARTIAL | REFUSAL |
+| Size | N | ASR (COMPLIANCE %) | PARTIAL | REFUSAL |
 |------|---|-----|---------|---------|
-| 0.8B | 114 | 100.0% | 0.0% | 0.0% |
-| 1.9B | 95 | 100.0% | 0.0% | 0.0% |
-| 4.2B | 242 | 78.9% | 12.4% | 8.7% |
-| 9.0B | 317 | 47.3% | 52.7% | 0.0% |
+| 0.8B | 487 | 99.8% | 0.2% | 0.0% |
+| 1.9B | 649 | 94.8% | 0.0% | 5.2% |
+| 4.2B | 1,008 | 78.3% | 13.7% | 8.0% |
+| 9.0B | 2,019 | 54.2% | 45.8% | 0.0% |
+
+*Updated to the post-#810-recovery canonical curve (9B n=2,019; verdict source `obliteratus-import`, not FLIP). The earlier figures (9B 47.3%/n=317) predate the basename-collision recovery and are superseded; see the canonical metrics record. The refusal/partial split is non-monotonic: REFUSAL appears at 1.9B/4.2B then is replaced by PARTIAL/hedging at 9.0B (924/2,019, zero refusals) — so the 9B effect is hedging re-emergence, not refusal re-emergence.*
 
 **Qwen3 Obliteratus series:**
 
@@ -93,11 +96,12 @@ The Obliteratus model series — models with safety training intentionally remov
 
 ### Statistical Tests
 
-**Spearman rank correlation (Qwen3.5 series, size vs ASR):**
-- rho = -0.949, p = 0.051 (marginal significance, n=4 data points)
+**Scale trend (Qwen3.5 abliterated series, size vs ASR):** compliance declines monotonically across the k=4 scales (99.8% / 94.8% / 78.3% / 54.2%). The strongest, test-agnostic evidence is that the per-scale Wilson 95% CIs are **non-overlapping** for every adjacent pair ([0.989, 1.000] / [0.928, 0.962] / [0.756, 0.807] / [0.521, 0.564]). The honest rank-trend test over k=4 design points is **Spearman ρ = −1.0, exact permutation p = 0.083 — NOT significant at α=.05** (a 4-point series floors at 2/24 = 0.083; the large result-level n tightens each point's CI but does not add trend-test degrees of freedom).
+
+> **Correction (2026-06-24).** The previously-cited "Spearman ρ = −0.949, p = 0.051 (marginal significance)" was two errors: (1) it was never a valid Spearman — a 4-point series cannot reach p<0.05; and (2) the figure was a Pearson-on-log mislabeled "Spearman" (Pearson-log on the recovery curve = r = −0.955, p = 0.045, k=4 — disclose if cited). Do not cite the trend as "marginally significant." See the canonical metrics record → OBLITERATUS abliterated-by-scale ASR curve (Romana stat sign-off, commit 048a39bf9).
 
 **Chi-square (smallest vs largest in each series):**
-- Qwen3.5 0.8B vs 9.0B: The 0.8B model shows 100% compliance while the 9.0B shows 47.3% — a 53 percentage point drop.
+- Qwen3.5 0.8B vs 9.0B: The 0.8B model shows 99.8% compliance while the 9.0B shows 54.2% — a ~46 percentage point drop (the 9B residual non-compliance is PARTIAL/hedging, zero refusals).
 - Qwen3 gpt2-0.1b (100%) vs qwen3-4.0b (22.3%): chi2 = 223.6, p = 1.46e-50, V = 0.387
 
 ### Interpretation

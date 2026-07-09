@@ -7,7 +7,7 @@ authors: "Yen-Shan Chen, Sian-Yao Huang, Cheng-Lin Yang, Yun-Nung Chen"
 paperType: "empirical"
 tags: [agentic-llm-safety,tool-use-trajectories,guardrail-evaluation,mid-trajectory-risks,structured-reasoning-safety,prompt-injection-detection]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.07223-audio-overview.m4a"
-image: "/images/daily-paper/2604.07223-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2604.07223-infographic.webp"
 draft: false
 ---
 

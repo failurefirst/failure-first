@@ -10,6 +10,7 @@ author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/64-deliberation-asymmetry-system-ts-evidence.m4a"
+image: "https://cdn.failurefirst.org/images/reports/64-deliberation-asymmetry-system-ts-evidence.png"
 ---
 
 ---

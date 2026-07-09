@@ -406,7 +406,7 @@ We define three tiers: *strict* (COMPLIANCE only), *broad* (COMPLIANCE + PARTIAL
 
 #### Safety re-emergence without explicit training.
 
-In the Qwen3.5 Obliteratus series (safety training removed), strict ASR drops from 100% at 0.8B ($n=114$) to 47.3% at 9.0B ($n=317$; $\rho = -0.949$, $p = 0.051$, marginal). However, broad ASR remains near 100% at all scales ($\rho = -0.258$, $p = 0.742$): the shift is from COMPLIANCE to PARTIAL---models add safety disclaimers at scale but continue generating harmful content. This is *hedging re-emergence*, not safety recovery.
+In the Qwen3.5 Obliteratus series (safety training removed), strict ASR drops monotonically from 99.8% at 0.8B ($n=487$) to 54.2% at 9.0B ($n=2{,}019$). The decline is supported by non-overlapping per-scale Wilson 95\% CIs; with only four model scales it is not statistically significant by a valid rank test (Spearman $\rho = -1.0$, exact $p = 0.083$, $k=4$, not significant). However, broad ASR remains near 100\% at all scales: the shift is from COMPLIANCE to PARTIAL---models add safety disclaimers at scale but continue generating harmful content. This is *hedging re-emergence*, not safety recovery (at 9.0B the residual non-compliance is entirely PARTIAL, with zero outright refusals).
 
 #### Benchmark contamination as a threat to safety evaluation.
 

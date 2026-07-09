@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/42-hitl-failure-modes.m4a"
+image: "https://cdn.failurefirst.org/images/reports/42-hitl-failure-modes.png"
 ---
 
 ---

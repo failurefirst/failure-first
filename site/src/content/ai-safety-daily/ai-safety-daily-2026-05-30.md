@@ -29,7 +29,3 @@ The Plant, Persist, Trigger and longitudinal memory findings together reframe a 
 The benchmark incoherence result (W=0.10, p=0.94) directly challenges how the failure-first corpus is positioned against existing evaluations. Any citation of a single benchmark as evidence of broad safety should be treated with caution until cross-suite concordance is demonstrated. For the CCS paper, this finding strengthens the case for multi-benchmark triangulation rather than reliance on any single evaluation suite's ranking.
 
 PAST2HARM's tense-shift pattern extends naturally to embodied contexts: robotic agents receiving commands phrased in past-tense or hypothetical framings — "how was the access panel removed?" — may bypass refusal logic calibrated only to present-tense imperatives. This represents a prompt-surface failure mode not currently represented in the corpus's adversarial input taxonomy.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

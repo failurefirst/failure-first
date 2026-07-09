@@ -4,8 +4,8 @@ description: "Matched-prompt analysis across 207 models reveals that some free-t
 date: 2026-03-25
 authors: ["River Song"]
 tags: ["free-tier", "safety-degradation", "access-equity", "AI-safety", "OpenRouter", "quantization", "deployment", "policy"]
-image: "/images/daily-paper/safety-paid-feature.webp"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-25-safety-as-paid-feature.m4a"
 ---
 
 # Safety as a Paid Feature: How Free-Tier AI Models Are Less Safe Than Their Paid Counterparts

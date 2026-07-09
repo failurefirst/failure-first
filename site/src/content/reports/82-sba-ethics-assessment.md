@@ -10,6 +10,7 @@ author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/82-sba-ethics-assessment.m4a"
+image: "https://cdn.failurefirst.org/images/reports/82-sba-ethics-assessment.png"
 ---
 
 ---

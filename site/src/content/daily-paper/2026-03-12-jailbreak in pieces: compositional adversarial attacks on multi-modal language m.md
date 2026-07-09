@@ -7,7 +7,7 @@ authors: "Erfan Shayegani, Yue Dong, Nael Abu-Ghazaleh"
 paperType: "empirical"
 tags: [multimodal-jailbreaking,vision-language-models,adversarial-images,cross-modality-attacks,alignment-vulnerabilities,embedding-space-targeting]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2307.14539-audio-overview.m4a"
-image: "/images/daily-paper/2307.14539-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2307.14539-infographic.webp"
 draft: false
 ---
 

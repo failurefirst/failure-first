@@ -10,6 +10,7 @@ author: "Nyssa of Traken (research-analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/57-format-lock-capability-floor-consolidated.m4a"
+image: "https://cdn.failurefirst.org/images/reports/57-format-lock-capability-floor-consolidated.png"
 ---
 
 ---

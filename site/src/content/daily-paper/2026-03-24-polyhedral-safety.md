@@ -1,10 +1,10 @@
 ---
 title: "Safety Isn't One-Dimensional: The Geometry That Explains Why AI Guardrails Keep Failing"
-description: "New mechanistic interpretability evidence shows that safety in language models is encoded as a polyhedral structure across ~4 near-orthogonal dimensions, not a single removable direction. This explains why abliteration, naive DPO, and single-direction interventions consistently fail at scale."
+description: "Mechanistic interpretability evidence shows that safety in language models is encoded as a polyhedral structure across ~4 near-orthogonal dimensions, not a single removable direction — replicating the concept-cone finding of Wollschläger et al. (2025) on Qwen and extending it with an abliteration re-emergence curve. This explains why abliteration, naive DPO, and single-direction interventions consistently fail at scale."
 date: 2026-03-24
 tags: [mechanistic-interpretability, polyhedral-safety, abliteration, refusal-geometry, steering-vectors, safety-training]
-image: "/images/daily-paper/polyhedral-safety.webp"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-polyhedral-safety.m4a"
 ---
 
 # Safety Isn't One-Dimensional
@@ -13,7 +13,7 @@ There is a popular mental model in AI safety that goes something like this: safe
 
 This mental model is wrong.
 
-New evidence from mechanistic interpretability experiments on the Qwen model family shows that safety is not encoded as a single direction. It is a **polyhedral geometric structure** distributed across approximately four near-orthogonal dimensions. And this finding explains a string of failures that have puzzled the field.
+Evidence from mechanistic interpretability shows that safety is not encoded as a single direction. It is a **polyhedral geometric structure** distributed across approximately four near-orthogonal dimensions. This is not a new claim: Wollschläger et al. (2025) established the concept-cone method we use here and first reported multiple near-orthogonal, mechanistically independent refusal directions in language models. What follows replicates that multi-dimensional finding on the Qwen family and extends it in two directions — a per-harm-category decomposition of the refusal cone, and an abliteration re-emergence curve that traces the practical consequence as models scale. Together they help explain a string of failures that have puzzled the field.
 
 ---
 
@@ -31,14 +31,16 @@ For small models, it does. For larger models, something unexpected happens.
 
 ## The Re-Emergence Curve
 
-We applied abliteration across the Qwen model family from 0.5B to 9B parameters and measured safety behavior after the intervention:
+We applied abliteration across the Qwen3.5 model family from 0.8B to 9B parameters and measured safety behavior after the intervention:
 
-| Model Size | Strict ASR (post-abliteration) | Safety Behavior |
-|-----------|-------------------------------|-----------------|
-| 0.8B | 99.8% | Almost no safety |
-| 1.5B | ~85% | Minimal safety |
-| 4B | ~70% | Partial safety returning |
-| 9.0B | 54.2% | Substantial safety re-emergence |
+| Model Size | Strict ASR (post-abliteration) | n | Safety Behavior |
+|-----------|-------------------------------|---|-----------------|
+| 0.8B | 99.8% | 487 | Almost no safety |
+| 1.9B | 94.8% | 649 | Minimal safety |
+| 4.2B | 78.3% | 1,008 | Partial safety returning |
+| 9.0B | 54.2% | 2,019 | Substantial safety re-emergence |
+
+*Strict ASR = COMPLIANCE-only, from the OBLITERATUS evaluation series. Sample sizes vary by model; the trend is robust to the variation.*
 
 At 0.8B parameters, abliteration is devastating — nearly 100% of harmful requests succeed. But as model capacity increases, safety-like behavior **re-emerges** despite the primary refusal direction being removed.
 
@@ -50,7 +52,7 @@ Something is reconstructing safety behavior from residual dimensions that ablite
 
 ## Four Dimensions, Not One
 
-Concept cone analysis on Qwen 0.5B reveals the answer. When we extract refusal directions for different harm categories (weapons, fraud, intrusion, cyber), we find that these categories maintain **nearly orthogonal** refusal directions:
+Concept cone analysis — the method introduced by Wollschläger et al. (2025) — gives the answer. Applying it to Qwen 0.5B, we extract refusal directions for different harm categories (weapons, fraud, intrusion, cyber) and find that these categories maintain **nearly orthogonal** refusal directions:
 
 | Category Pair | Cosine Similarity |
 |--------------|-------------------|
@@ -63,7 +65,7 @@ Concept cone analysis on Qwen 0.5B reveals the answer. When we extract refusal d
 
 A cosine similarity of 0.017 means cyber-safety and intrusion-safety are almost completely independent directions in the model's representation. Even the most correlated pair (cyber and weapons, at 0.247) is far from collinear.
 
-The overall cone dimensionality is **3.96** — effectively four distinct dimensions.
+The overall cone dimensionality is **3.96** — effectively four distinct dimensions. This is consistent with Wollschläger et al. (2025), who measured concept cones spanning up to roughly five dimensions and plateauing around four for smaller models in the same Qwen family, and who showed these directions are *mechanistically* (not merely geometrically) independent: ablating multiple independent directions yields additive attack-success gains. Our per-category decomposition above is one harm-class-resolved view of that same multi-dimensional structure.
 
 Think of it this way: if safety were a single wall, you could knock it down with one push. But safety is more like a room with four walls. Knock one down, and you still have three left. As models get larger, those remaining walls become strong enough to reconstruct protective behavior.
 
@@ -126,6 +128,11 @@ Safety is not a switch you can flip. It is a geometric property of the loss land
 
 ---
 
-*The full analysis is Report #198 in the F41LUR3-F1R57 corpus, building on the OBLITERATUS mechanistic interpretability series (Reports #183, #187). Research conducted on the Qwen model family from 0.5B to 9B parameters.*
+### References
+
+- Arditi, A., Obeso, O., Syed, A., Paleka, D., Panickssery, N., Gurnee, W., & Nanda, N. (2024). *Refusal in Language Models Is Mediated by a Single Direction.* arXiv:2406.11717. — the abliteration method and the single-direction refusal result this work qualifies.
+- Wollschläger, T., Elstner, J., Geisler, S., Cohen-Addad, V., Günnemann, S., & Gasteiger, J. (2025). *Concept Cones and Representational Independence.* ICML 2025; arXiv:2502.17420. — established the concept-cone method used here and first reported multiple, mechanistically independent refusal directions on the Qwen family.
+
+*This work replicates the multi-dimensional refusal finding of Wollschläger et al. (2025) on Qwen and extends it with a per-harm-category cone decomposition and an abliteration re-emergence curve across scale. The abliteration and dose-response data are drawn from the Failure-First OBLITERATUS mechanistic interpretability series; strict-ASR figures are FLIP / LLM-only graded.*
 
 *This post is part of the [Failure-First Embodied AI](https://failurefirst.org) research programme.*

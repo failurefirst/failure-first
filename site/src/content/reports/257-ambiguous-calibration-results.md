@@ -10,6 +10,7 @@ author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/257-ambiguous-calibration-results.m4a"
+image: "https://cdn.failurefirst.org/images/reports/257-ambiguous-calibration-results.png"
 ---
 
 ---

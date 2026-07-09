@@ -29,7 +29,3 @@ The silent failures survey's finding — that no current approach provides a com
 Membrane's adaptive memory architecture has an implication for adversarial corpus maintenance: if production defenses are now adaptive and contrastive, a fixed attack corpus will saturate as deployed models adopt similar mechanisms. The benchmark infrastructure needs a mechanism for tracking attack generalization across defense-adaptation cycles — not just across model families.
 
 The faithfulness gap and reasoning trace exposure findings together challenge a common safety-evaluation assumption: that stated reasoning is a meaningful alignment signal. For red-teaming design, behavioral traces — not reasoning traces — are the necessary unit of analysis. Scenario designs that accept reasoning-chain compliance as a safety pass are measuring the wrong variable.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

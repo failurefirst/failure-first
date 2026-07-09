@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/356-turboquant-kv-cache-safety-implications.m4a"
+image: "https://cdn.failurefirst.org/images/reports/356-turboquant-kv-cache-safety-implications.png"
 ---
 
 ## Summary

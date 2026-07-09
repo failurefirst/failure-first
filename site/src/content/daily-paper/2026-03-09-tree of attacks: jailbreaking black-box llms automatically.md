@@ -7,7 +7,7 @@ authors: "Anay Mehrotra, Manolis Zampetakis, Paul Kassianik, Blaine Nelson, Hyru
 paperType: "empirical"
 tags: [black-box-jailbreaking,prompt-optimization,llm-safety-evaluation,adversarial-attacks,guardrail-evasion,query-efficiency]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2312.02119-audio-overview.m4a"
-image: "/images/daily-paper/2312.02119-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2312.02119-infographic.webp"
 video: "/video/daily-paper/2312.02119-video-overview.mp4"
 draft: false
 ---

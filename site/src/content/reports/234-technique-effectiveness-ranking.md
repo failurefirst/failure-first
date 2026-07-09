@@ -10,6 +10,7 @@ author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/234-technique-effectiveness-ranking.m4a"
+image: "https://cdn.failurefirst.org/images/reports/234-technique-effectiveness-ranking.png"
 ---
 
 ---

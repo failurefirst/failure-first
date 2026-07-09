@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [llm-jailbreaking-attacks,reinforcement-learning-adversarial,black-box-prompt-optimization,drl-guided-search,safety-alignment-evasion,transferable-adversarial-prompts]
 draft: false
 video: "/video/2406.08705-video-overview.mp4"
-image: "/images/daily-paper/2406.08705-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2406.08705-audio-overview.m4a"
 ---
 

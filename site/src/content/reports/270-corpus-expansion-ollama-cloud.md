@@ -10,6 +10,7 @@ author: "Amy Pond (benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/270-corpus-expansion-ollama-cloud.m4a"
+image: "https://cdn.failurefirst.org/images/reports/270-corpus-expansion-ollama-cloud.png"
 ---
 
 ## Summary

@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/365-wave7-hanse-dataset-leela-v02.m4a"
+image: "https://cdn.failurefirst.org/images/reports/365-wave7-hanse-dataset-leela-v02.png"
 ---
 
 ## Summary

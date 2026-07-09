@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/41-safe-work-australia-adversarial-ai-brief.m4a"
+image: "https://cdn.failurefirst.org/images/reports/41-safe-work-australia-adversarial-ai-brief.png"
 ---
 
 ## A Technical Brief for Safe Work Australia
@@ -299,7 +300,7 @@ Report #56 proposes a five-category taxonomy of adversarial attack surfaces for 
 
 ### A4. Safety Re-emergence at Scale (Contextual)
 
-The Obliteratus model series (Report #48) — models with safety training intentionally removed — shows declining ASR at larger scales (100% at 0.8-1.9B, 78.9% at 4.2B, 47.3% at 9.0B; Spearman rho = -0.949, p = 0.051). This suggests safety-adjacent reasoning may partially emerge from general capability at scale, independent of explicit safety training.
+The Obliteratus model series (Report #48) — models with safety training intentionally removed — shows declining ASR at larger scales (99.8% at 0.8B, 94.8% at 1.9B, 78.3% at 4.2B, 54.2% at 9.0B). The decline is monotonic and supported by non-overlapping per-scale Wilson 95% confidence intervals, though with only four model scales it is not statistically significant by a valid rank test (Spearman ρ = −1.0, exact p = 0.083). This suggests safety-adjacent reasoning may partially emerge from general capability at scale, independent of explicit safety training; at the largest scale the residual behaviour is hedging (PARTIAL), not outright refusal.
 
 **WHS relevance:** Risk assessments based on testing a smaller version of a model family may not transfer to the deployed scale. The "so far as is reasonably practicable" standard implies that pre-deployment testing should be conducted at the specific scale of the deployed system. This applies to both directions: a model tested as safe at 7B may behave differently at 70B.
 

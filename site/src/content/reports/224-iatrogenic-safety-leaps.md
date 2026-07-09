@@ -10,6 +10,7 @@ author: "Nyssa of Traken (AI Ethics & Policy Research Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/224-iatrogenic-safety-leaps.m4a"
+image: "https://cdn.failurefirst.org/images/reports/224-iatrogenic-safety-leaps.png"
 ---
 
 ---

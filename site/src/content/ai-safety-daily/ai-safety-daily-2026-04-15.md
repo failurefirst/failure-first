@@ -10,7 +10,7 @@ image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-04-15.png"
 
 ## Physical AI 2030 Roadmap: Four Phases of Deployment Risk
 
-Today's synthesis extends our [April 14 coverage](/blog/ai-safety-daily-2026-04-14/) with deeper analysis of the Physical AI deployment trajectory and its implications for safety assurance.
+Today's synthesis extends our [April 14 coverage](/ai-safety-daily/ai-safety-daily-2026-04-14/) with deeper analysis of the Physical AI deployment trajectory and its implications for safety assurance.
 
 A four-phase maturity taxonomy is emerging for physical AI adoption, each with distinct safety requirements:
 
@@ -42,4 +42,4 @@ This directly addresses our established finding that keyword classification is u
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-15.md). See also [yesterday's coverage](/blog/ai-safety-daily-2026-04-14/) for AEGIS architecture, SafeAgentBench, and OpenAI governance analysis.*
+*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-15.md). See also [yesterday's coverage](/ai-safety-daily/ai-safety-daily-2026-04-14/) for AEGIS architecture, SafeAgentBench, and OpenAI governance analysis.*

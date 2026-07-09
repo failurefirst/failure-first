@@ -80,7 +80,7 @@ The authors frame this as a benchmark contribution rather than a solved problem,
 
 ### Failure-First Connections
 
-- **Action-level vs. instruction-level safety:** HomeSafe-Bench makes precise the distinction our [FreezeVLA analysis](/daily-paper/2025-11-freezevla) touched on: safety measures at the language interface cannot substitute for safety measures at the action interface. The two failure modes are distinct and require distinct mitigations.
+- **Action-level vs. instruction-level safety:** HomeSafe-Bench makes precise the distinction our [FreezeVLA analysis](/daily-paper/freezevla-action-freezing-attacks-against-vla-models) touched on: safety measures at the language interface cannot substitute for safety measures at the action interface. The two failure modes are distinct and require distinct mitigations.
 - **Streaming evaluation as the honest benchmark:** Our prior coverage of IS-Bench raised the issue that static evaluations miss dynamic risk. HomeSafe-Bench operationalizes this critique: the streaming evaluation mode is a methodological contribution as much as the dataset itself.
 - **FastBrain/SlowBrain as a deployment pattern:** The dual-brain architecture offers a practical path for embodied systems that cannot run full VLM inference at frame rate. This pattern — cheap trigger, expensive confirm — will likely become standard in safety-critical robotics.
 

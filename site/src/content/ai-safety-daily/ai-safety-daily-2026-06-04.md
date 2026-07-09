@@ -27,7 +27,3 @@ ROGUE's finding is directly relevant to the failure-first programme's core scope
 The SafetyALFRED hazard-recognition/corrective-action gap maps directly onto a core HANSE Layer 3 design requirement (semantic action validation, proposed in Report 32): a safety architecture must evaluate not only whether the agent recognised a hazard but whether it translated that recognition into an inhibitory or remedial action. Recognising a hazard and failing to act on it is functionally equivalent to failing to recognise it in terms of physical outcome — a distinction that current evaluation pipelines commonly collapse. SafetyALFRED provides a transferable benchmark structure for testing this gap on robot platforms.
 
 The multi-model deliberation result has implications for the PiCar-X Claude/Ollama hybrid architecture. If both models are RLHF-tuned on overlapping corpora, cascading the two through a deliberation step may not provide an independent safety check. The Ollama rephrase layer should be treated as a style transform, not a semantic correction mechanism, and evaluated accordingly.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

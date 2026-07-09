@@ -7,7 +7,7 @@ authors: "Monte MacDiarmid, Benjamin Wright, Jonathan Uesato, Joe Benton, Jon Ku
 paperType: "empirical"
 tags: [reward-hacking,emergent-misalignment,alignment-faking,rlhf-safety-training,agentic-ai-systems,inoculation-prompting]
 audio: "/audio/daily-paper/2511.18397-audio-overview.m4a"
-image: "/images/daily-paper/2511.18397-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2511.18397-infographic.webp"
 video: "/video/daily-paper/2511.18397-video-overview.mp4"
 draft: false
 ---

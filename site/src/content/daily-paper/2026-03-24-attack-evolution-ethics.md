@@ -3,8 +3,9 @@ title: "Should We Publish AI Attacks We Discover?"
 description: "The F41LUR3-F1R57 project has documented 82 jailbreak techniques, 6 novel attack families, and attack success rates across 190 models. Every finding that helps defenders also helps attackers. How do we navigate the dual-use dilemma in AI safety research?"
 date: 2026-03-24
 tags: [research-ethics, dual-use, responsible-disclosure, attack-evolution, ai-safety, red-teaming]
-image: "/images/daily-paper/attack-evolution-ethics.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/attack-evolution-ethics.png"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-attack-evolution-ethics.m4a"
 ---
 
 # Should We Publish AI Attacks We Discover?

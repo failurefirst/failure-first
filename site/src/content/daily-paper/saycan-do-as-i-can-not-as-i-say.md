@@ -11,6 +11,7 @@ tags: [robotics, language-grounding, embodied-ai, intent-understanding, capabili
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/saycan-do-as-i-can-not-as-i-say.png"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/saycan-do-as-i-can-not-as-i-say.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/saycan-do-as-i-can-not-as-i-say.mp4"
 ---
 
 SayCan introduced a foundational principle: robots should be capable of not following instructions. When a user asks a robot to do something impossible—move to an inaccessible location, grasp a non-existent object, violate a physical constraint—the robot should recognize the impossibility and either request clarification or infer the user's intent and act accordingly.

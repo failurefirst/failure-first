@@ -7,7 +7,7 @@ authors: "Hengle Jiang, Ke Tang"
 paperType: "empirical"
 tags: [agentic-pressure,safety-constraint-violation,normative-drift,llm-agent-alignment,goal-safety-tradeoff,reasoning-capability-scaling]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.14975-audio-overview.m4a"
-image: "/images/daily-paper/2603.14975-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2603.14975-infographic.webp"
 video: "/video/daily-paper/2603.14975-video-overview.mp4"
 draft: false
 ---

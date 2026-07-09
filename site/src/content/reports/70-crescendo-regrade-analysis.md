@@ -10,6 +10,7 @@ author: "Amy Pond (data-curator / benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/70-crescendo-regrade-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/70-crescendo-regrade-analysis.png"
 ---
 
 ---

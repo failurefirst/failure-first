@@ -10,6 +10,7 @@ author: "Clara Oswald (benchmark-operator / research-analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/220-lfm-thinking-detected-proceeds.m4a"
+image: "https://cdn.failurefirst.org/images/reports/220-lfm-thinking-detected-proceeds.png"
 ---
 
 ---

@@ -8,7 +8,7 @@ paperType: "empirical"
 tags: [multimodal-jailbreaking,prompt-optimization-attacks,llm-red-teaming,vision-language-model-safety,privacy-leakage-facial-recognition,adversarial-prompt-generation]
 draft: false
 video: "/video/2407.16686-video-overview.mp4"
-image: "/images/daily-paper/2407.16686-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2407.16686-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.16686-audio-overview.m4a"
 ---
 

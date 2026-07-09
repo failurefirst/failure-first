@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/211-evolved-attack-family-mapping.m4a"
+image: "https://cdn.failurefirst.org/images/reports/211-evolved-attack-family-mapping.png"
 ---
 
 ## Executive Summary

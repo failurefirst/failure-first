@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/261-frontier-sweep-campaign.m4a"
+image: "https://cdn.failurefirst.org/images/reports/261-frontier-sweep-campaign.png"
 ---
 
 ---

@@ -10,6 +10,7 @@ author: "River Song (Predictive Risk)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/217-competitive-intelligence.m4a"
+image: "https://cdn.failurefirst.org/images/reports/217-competitive-intelligence.png"
 ---
 
 ---

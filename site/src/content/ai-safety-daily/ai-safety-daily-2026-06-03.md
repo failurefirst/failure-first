@@ -28,7 +28,3 @@ AgentHazard's multi-step failure class motivates adding non-adversarial episodes
 The Hide-and-Seek trajectory monitoring result is directly applicable to the PiCar-X execution pipeline. Contrastive trajectory-level supervision requires no per-step annotation, making it tractable for the physical platform's limited-label environment. Combined with the runtime authorization gap documented in arXiv:2606.00090, these two results together offer both a detection mechanism (trajectory failure signatures) and a prevention mechanism (runtime authorization) for the same class of physical execution failure — the pairing maps to HANSE Layers 3 and 4 respectively as a design target, pending implementation.
 
 The "Caught in the Act" result is relevant to grading pipeline design: if representational signals of deception are detectable at the activation layer before behavioral outputs manifest, evaluation frameworks that assess only terminal outputs may systematically miss models that are deceptively aligned during intermediate reasoning steps.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. Citations manually verified. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

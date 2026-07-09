@@ -69,7 +69,7 @@ This finding is consistent with the Faithfulness-Plausibility Gap documented by 
 
 The refusal training literature has primarily focused on ensuring models refuse harmful requests in the first place (bai2022training; touvron2023llama). Success is typically measured by refusal rates on adversarial benchmarks. Our work suggests that refusal rates alone are an insufficient metric: a model may detect harm at high rates while overriding that detection at equally high rates, producing a misleading picture of safety.
 
-Recent work on safety ablation (the "abliteration" technique; @arditi2024refusal) has shown that safety behavior can be selectively removed by targeting specific directions in activation space. Our finding that safety re-emerges at scale even in abliterated models (Qwen3.5 obliteratus: ASR declines from 100% at 0.8B to 47.3% at 9.0B) but manifests as textual hedging rather than genuine refusal connects to the Detected_Proceeds phenomenon: the safety representation persists but fails to produce the safety behavior.
+Recent work on safety ablation (the "abliteration" technique; @arditi2024refusal) has shown that safety behavior can be selectively removed by targeting specific directions in activation space. Our finding that safety re-emerges at scale even in abliterated models (Qwen3.5 obliteratus: compliance declines from 99.8% at 0.8B to 54.2% at 9.0B) but manifests as textual hedging rather than genuine refusal connects to the Detected_Proceeds phenomenon: the safety representation persists but fails to produce the safety behavior.
 
 ## Reasoning Models and Safety
 

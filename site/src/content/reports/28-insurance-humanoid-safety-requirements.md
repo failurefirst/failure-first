@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/28-insurance-humanoid-safety-requirements.m4a"
+image: "https://cdn.failurefirst.org/images/reports/28-insurance-humanoid-safety-requirements.png"
 ---
 
 ---

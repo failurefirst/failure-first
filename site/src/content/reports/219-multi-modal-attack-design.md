@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/219-multi-modal-attack-design.m4a"
+image: "https://cdn.failurefirst.org/images/reports/219-multi-modal-attack-design.png"
 ---
 
 ## Executive Summary

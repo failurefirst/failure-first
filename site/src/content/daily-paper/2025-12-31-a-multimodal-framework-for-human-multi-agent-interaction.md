@@ -7,7 +7,7 @@ authors: "Shaid Hasan, Breenice Lee, Sujan Sarker, Tariq Iqbal"
 paperType: "application"
 tags: [multi-agent-coordination,multimodal-perception,llm-embodied-planning,human-robot-interaction,turn-taking-management,humanoid-robotics]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.23271-audio-overview.m4a"
-image: "https://cdn.failurefirst.org/images/daily-paper/2603.23271-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2603.23271-infographic.webp"
 draft: false
 ---
 

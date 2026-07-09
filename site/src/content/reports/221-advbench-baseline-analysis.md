@@ -10,6 +10,7 @@ author: "Rose Tyler (Head of Adversarial Operations)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/221-advbench-baseline-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/221-advbench-baseline-analysis.png"
 ---
 
 ---

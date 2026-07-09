@@ -10,6 +10,7 @@ author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/266-frontier-model-scorecards.m4a"
+image: "https://cdn.failurefirst.org/images/reports/266-frontier-model-scorecards.png"
 ---
 
 ## Overview

@@ -27,7 +27,3 @@ The Silent Failures review maps directly onto the unsolved sub-problem at the ce
 The RAG vulnerability finding is relevant to the PiCar-X Claude/Ollama hybrid architecture. If future platform versions integrate web-retrieval tools for task context, the 25% harmful-compliance increase documented by AgentREVEAL applies regardless of the underlying model. Retrieval should be treated as an attack surface, not a safe input modality, and retrieval-augmented agent configurations warrant explicit safety profiling before deployment on any physical platform.
 
 The EUDAIMONIA methodology — constructing design-requirement checks from real conversational data — transfers to embodied AI evaluation with moderate adaptation. An analogous benchmark for physical interaction norms, rather than text-only social dynamics, is an unexplored direction within the failure-first corpus.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

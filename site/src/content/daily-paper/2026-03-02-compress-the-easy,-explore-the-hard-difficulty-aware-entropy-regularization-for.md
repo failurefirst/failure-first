@@ -7,7 +7,7 @@ authors: "Qin-Wen Luo, Sheng Ren, Xiang Chen, Rui Liu, Jun Fang, Naiqiang Tan, S
 paperType: "empirical"
 tags: [chain-of-thought-compression,entropy-regularization,reinforcement-learning-reasoning,difficulty-aware-optimization,inference-efficiency,reasoning-robustness]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.22642-audio-overview.m4a"
-image: "https://cdn.failurefirst.org/images/daily-paper/2602.22642-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2602.22642-infographic.webp"
 video: "https://cdn.failurefirst.org/video/daily-paper/2602.22642-video-overview.mp4"
 draft: false
 ---

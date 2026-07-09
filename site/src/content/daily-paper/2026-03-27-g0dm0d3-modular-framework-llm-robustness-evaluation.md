@@ -3,7 +3,6 @@ title: "G0DM0D3: A Modular Framework for Evaluating LLM Robustness Through Adapt
 description: "An open-source framework that systematises inference-time safety evaluation into five composable modules — AutoTune (sampling parameter manipulation), Parseltongue (input perturbation), STM (output normalization), ULTRAPLINIAN (multi-model racing), and L1B3RT4S (model-specific jailbreak prompts). We analyse its implications for adversarial AI safety research."
 date: 2026-03-27
 tags: [daily-paper, jailbreak, red-teaming, safety-evaluation, inference-time, tools, open-source]
-image: /images/daily-paper/g0dm0d3-infographic.png
 audio: "https://cdn.failurefirst.org/audio/daily-paper/g0dm0d3-audio-overview.m4a"
 video: "https://cdn.failurefirst.org/video/daily-paper/g0dm0d3-video-overview.mp4"
 paper:

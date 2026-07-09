@@ -30,12 +30,6 @@ const paperTypeLabel: Record<string, string> = {
     animation="flow"
   />
 
-  <p class="series-description">
-    Each post covers a key paper in AI safety, alignment, or adversarial ML — with a
-    NotebookLM-generated research report, study guide, FAQ, and audio overview.
-    Papers are selected for their relevance to how AI systems fail.
-  </p>
-
   {papers.length > 0 ? (
     <div class="paper-list">
       {papers.map((paper) => (

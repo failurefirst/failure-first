@@ -4,8 +4,8 @@ description: "We mapped all 36 documented attack families for embodied AI agains
 date: 2026-03-25
 authors: ["River Song"]
 tags: ["regulation", "governance-lag", "embodied-ai", "EU-AI-Act", "policy", "attack-taxonomy", "VLA", "safety-evaluation"]
-image: "/images/daily-paper/zero-of-36.webp"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-25-zero-of-36-regulatory-coverage.m4a"
 ---
 
 # Zero of 36: No AI Attack Family Is Fully Regulated Anywhere in the World

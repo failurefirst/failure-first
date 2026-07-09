@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/323-format-lock-vs-libertas-cross-attack-synthesis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/323-format-lock-vs-libertas-cross-attack-synthesis.png"
 ---
 
 ## Abstract

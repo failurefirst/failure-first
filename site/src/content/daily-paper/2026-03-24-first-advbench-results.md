@@ -5,6 +5,7 @@ author: Failure-First Embodied AI Research
 tags: [advbench, benchmarking, public-datasets, ai-safety, red-teaming, free-tier]
 description: "We ran the AdvBench harmful behaviours benchmark against 7 free-tier models via OpenRouter. Trinity achieved 36.7% ASR, LFM Thinking 28.6%, and four models scored 0%. Here is what the first public-dataset baseline tells us."
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-first-advbench-results.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-first-advbench-results.m4a"
 ---
 
 # Our First AdvBench Results: 7 Models, 288 Traces, $0

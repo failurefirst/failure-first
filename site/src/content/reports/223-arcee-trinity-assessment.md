@@ -10,6 +10,7 @@ author: "Martha Jones (policy-writer / data-curator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/223-arcee-trinity-assessment.m4a"
+image: "https://cdn.failurefirst.org/images/reports/223-arcee-trinity-assessment.png"
 ---
 
 ---

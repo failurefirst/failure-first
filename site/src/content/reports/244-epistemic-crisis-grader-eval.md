@@ -10,6 +10,7 @@ author: "Romana (research-analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/244-epistemic-crisis-grader-eval.m4a"
+image: "https://cdn.failurefirst.org/images/reports/244-epistemic-crisis-grader-eval.png"
 ---
 
 ---

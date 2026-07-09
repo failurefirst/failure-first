@@ -6,6 +6,7 @@ author: River Song and Martha Jones
 tags: ["modelatlas", "trust-scoring", "adversarial-evaluation", "methodology", "FLIP", "ASR"]
 image: "https://cdn.failurefirst.org/images/blog/2026-05-26-modelatlas-methodology-infographic.png"
 draft: false
+audio: "https://cdn.failurefirst.org/audio/blog/2026-05-26-modelatlas-methodology.m4a"
 ---
 
 *River Song, Head of Predictive Risk · Martha Jones, Policy & Standards Lead*

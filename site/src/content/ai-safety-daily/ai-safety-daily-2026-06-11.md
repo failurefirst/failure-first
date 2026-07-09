@@ -29,7 +29,3 @@ The Interlocutor Effect introduces a new failure axis for multi-agent embodied s
 AgentCanary’s finding that real execution environments surface failures invisible to simulation directly validates the physical platform strategy. The PiCar-X test surface generates the execution-grounded failures that AgentCanary targets; the framework’s evaluation vocabulary maps cleanly onto the failure-first episode schema and is worth adopting as a cross-reference standard for physical test design.
 
 The adaptive co-training red-teaming result implies an architectural direction for the attack evolution pipeline: maintaining a calibrated adversarial model that co-evolves with improvements to evaluated models, rather than generating attacks from a fixed methodology. This closes the principal gap in static benchmark saturation — and is the logical next step for the benchmark infrastructure.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

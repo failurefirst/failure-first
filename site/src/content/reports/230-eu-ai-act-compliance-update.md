@@ -10,6 +10,7 @@ author: "Martha Jones (Policy & Standards Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/230-eu-ai-act-compliance-update.m4a"
+image: "https://cdn.failurefirst.org/images/reports/230-eu-ai-act-compliance-update.png"
 ---
 
 ---

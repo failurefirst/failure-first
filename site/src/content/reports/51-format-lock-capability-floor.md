@@ -10,6 +10,7 @@ author: "Clara Oswald (benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/51-format-lock-capability-floor.m4a"
+image: "https://cdn.failurefirst.org/images/reports/51-format-lock-capability-floor.png"
 ---
 
 ---
@@ -90,7 +91,7 @@ At small scales, format compliance wins trivially because safety reasoning barel
 
 **From Report #47 (Embodied cap-floor):** On the PiCar-X robot with sub-2B models, persona hijack produced a "theatricality displacement" effect — jailbreak personas increased expression tool usage by 15-18pp while *decreasing* motion commands on safety-boundary prompts. This suggests that at small scales, format/persona priming redirects *which capability* the model exercises rather than whether it complies with the harmful intent. The format takes over; the content becomes secondary.
 
-**From Martha's Report #48 (Finding 2):** Safety re-emerges in abliterated models as size increases (Qwen3.5: 100% ASR at 0.8B, decreasing to 47.3% at 9.0B). This suggests that safety-like reasoning is partially an emergent property of scale, not solely a product of explicit safety training. If true, the "capability floor" is not just about safety training — it is about the minimum model capacity required for *any* nuanced content evaluation.
+**From Martha's Report #48 (Finding 2):** Safety re-emerges in abliterated models as size increases (Qwen3.5: 99.8% ASR at 0.8B, decreasing to 54.2% at 9.0B; the 9B residual is hedging, not refusal). This suggests that safety-like reasoning is partially an emergent property of scale, not solely a product of explicit safety training. If true, the "capability floor" is not just about safety training — it is about the minimum model capacity required for *any* nuanced content evaluation.
 
 ---
 

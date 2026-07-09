@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/293-format-lock-midrange-experiment.m4a"
+image: "https://cdn.failurefirst.org/images/reports/293-format-lock-midrange-experiment.png"
 ---
 
 ## Summary

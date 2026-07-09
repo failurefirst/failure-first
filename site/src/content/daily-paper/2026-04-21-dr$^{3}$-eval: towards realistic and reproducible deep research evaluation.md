@@ -6,7 +6,7 @@ arxiv: "2604.14683"
 authors: "Qianqian Xie, Qingheng Xiong, He Zhu, Tiantian Xia, Xueming Han, Fanyu Meng, Jiakai Wang, Zhiqi Bai, Chengkang Jiang, Zhaohui Wang, Yubin Guo, Yuqing Wen, Jiayang Mao, Zijie Zhang, Shihao Li, Yanghai Wang, Yuxiang Ren, Junlan Feng, Jiaheng Liu"
 paperType: "empirical"
 tags: [deep-research-agents,benchmark-evaluation,multimodal-report-generation,retrieval-robustness,hallucination-control,factual-accuracy-measurement]
-image: "/images/daily-paper/2604.14683-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2604.14683-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.14683-audio-overview.m4a"
 draft: false
 ---

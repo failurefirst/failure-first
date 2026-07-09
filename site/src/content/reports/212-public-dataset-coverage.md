@@ -10,6 +10,7 @@ author: "Bill Potts (data-curator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/212-public-dataset-coverage.m4a"
+image: "https://cdn.failurefirst.org/images/reports/212-public-dataset-coverage.png"
 ---
 
 ---

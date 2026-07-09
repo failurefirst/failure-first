@@ -10,6 +10,7 @@ author: "Romana (research-analyst / statistical-validation)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/248-grader-confusion-matrix.m4a"
+image: "https://cdn.failurefirst.org/images/reports/248-grader-confusion-matrix.png"
 ---
 
 ---

@@ -10,6 +10,7 @@ author: "Leela, Attack Evolution Lead"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/275-evolution-mutation-analysis-and-next-gen-strategies.m4a"
+image: "https://cdn.failurefirst.org/images/reports/275-evolution-mutation-analysis-and-next-gen-strategies.png"
 ---
 
 ---

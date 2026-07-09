@@ -7,7 +7,7 @@ authors: "Ioannis Stefanakos, Roisin Bradley, Radu Calinescu, Beverley Townsend,
 paperType: "methods"
 tags: [robot-assisted-healthcare,hazard-analysis-shard-stpa,human-robot-interaction-safety,timing-mismatches-failure-modes,clinical-embodied-ai-deployment,safety-requirements-refinement]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.05749-audio-overview.m4a"
-image: "/images/daily-paper/2604.05749-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2604.05749-infographic.webp"
 video: "/video/daily-paper/2604.05749-video-overview.mp4"
 draft: false
 ---

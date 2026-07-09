@@ -10,6 +10,7 @@ author: "Clara Oswald (Principal Research Analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/267-format-lock-midrange-experiment.m4a"
+image: "https://cdn.failurefirst.org/images/reports/267-format-lock-midrange-experiment.png"
 ---
 
 ---

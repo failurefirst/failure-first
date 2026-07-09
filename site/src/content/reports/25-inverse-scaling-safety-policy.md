@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/25-inverse-scaling-safety-policy.m4a"
+image: "https://cdn.failurefirst.org/images/reports/25-inverse-scaling-safety-policy.png"
 ---
 
 ---

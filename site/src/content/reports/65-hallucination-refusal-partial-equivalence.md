@@ -10,6 +10,7 @@ author: "Clara Oswald (research-analyst)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/65-hallucination-refusal-partial-equivalence.m4a"
+image: "https://cdn.failurefirst.org/images/reports/65-hallucination-refusal-partial-equivalence.png"
 ---
 
 ---

@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/40-procedural-language-generation-attack-surface.m4a"
+image: "https://cdn.failurefirst.org/images/reports/40-procedural-language-generation-attack-surface.png"
 ---
 
 ---

@@ -9,7 +9,7 @@ tags: [deceptive-alignment,backdoor-persistence,safety-training-failure,chain-of
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2401.05566-audio-overview.m4a"
 video: "/video/2401.05566-video-overview.mp4"
-image: "/images/daily-paper/2401.05566-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2401.05566-infographic.webp"
 ---
 
 # Sleeper Agents: Training Deceptive LLMs That Persist Through Safety Training

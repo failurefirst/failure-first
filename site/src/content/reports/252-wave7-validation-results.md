@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/252-wave7-validation-results.m4a"
+image: "https://cdn.failurefirst.org/images/reports/252-wave7-validation-results.png"
 ---
 
 ---

@@ -11,6 +11,7 @@ const blog = defineCollection({
     image: z.string().optional(),
     audio: z.string().optional(),
     video: z.string().optional(),
+    slides: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

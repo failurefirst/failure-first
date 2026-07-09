@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/268-ge-coalesce-and-new-models.m4a"
+image: "https://cdn.failurefirst.org/images/reports/268-ge-coalesce-and-new-models.png"
 ---
 
 ## Summary

@@ -10,6 +10,7 @@ author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/231-corpus-meta-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/231-corpus-meta-analysis.png"
 ---
 
 ## Summary

@@ -9,7 +9,6 @@ tags: [fine-tuning-safety-degradation,llm-jailbreaking,adversarial-training-exam
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.03693-audio-overview.m4a"
 video: "/video/2310.03693-video-overview.mp4"
-image: "/images/daily-paper/2310.03693-infographic.webp"
 ---
 
 # Fine-tuning Aligned Language Models Compromises Safety

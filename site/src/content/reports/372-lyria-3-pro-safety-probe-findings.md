@@ -25,6 +25,7 @@ sevMedium: 2
 sevLow: 1
 sevInfo: 1
 audio: "https://cdn.failurefirst.org/audio/reports/372-lyria-3-pro-safety-probe-findings.m4a"
+image: "https://cdn.failurefirst.org/images/reports/372-lyria-3-pro-safety-probe-findings.png"
 ---
 
 ## Executive Summary

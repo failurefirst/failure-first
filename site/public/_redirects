@@ -1,5 +1,77 @@
 # AI Safety Daily lives at its own canonical path /ai-safety-daily/.
 # Old /blog/ai-safety-daily-* URLs 301 to the new home (reversed 2026-06-15).
+
+# --- blog redirect reconciliation (generated, do not edit inline) ---
+# Restores /blog/ URLs lost in the 2026-05-21 sync (see plan + commit).
+# Renamed rows -> consolidated report/paper successors; asd-broken -> /ai-safety-daily/ index.
+/blog/ai-safety-daily-2026-04-05 /ai-safety-daily/ 301
+/blog/ai-safety-daily-2026-04-05/ /ai-safety-daily/ 301
+/blog/ai-safety-daily-2026-04-06 /ai-safety-daily/ 301
+/blog/ai-safety-daily-2026-04-06/ /ai-safety-daily/ 301
+/blog/ai-safety-daily-2026-04-07 /ai-safety-daily/ 301
+/blog/ai-safety-daily-2026-04-07/ /ai-safety-daily/ 301
+/blog/120-models-18k-prompts /papers/failure-first-embodied-ai-ccs2026/ 301
+/blog/120-models-18k-prompts/ /papers/failure-first-embodied-ai-ccs2026/ 301
+/blog/149-jailbreaks-one-corpus-pliny-ai-safety /reports/340-pliny-full-corpus-validation/ 301
+/blog/149-jailbreaks-one-corpus-pliny-ai-safety/ /reports/340-pliny-full-corpus-validation/ 301
+/blog/ai-safety-lab-independence-criteria /reports/52-ai-safety-lab-independence-deep-analysis/ 301
+/blog/ai-safety-lab-independence-criteria/ /reports/52-ai-safety-lab-independence-deep-analysis/ 301
+/blog/benchmark-contamination-preprint /papers/benchmark-contamination/ 301
+/blog/benchmark-contamination-preprint/ /papers/benchmark-contamination/ 301
+/blog/compliance-cascade-new-class-of-ai-jailbreak /reports/247-cca-frontier-and-coevolution/ 301
+/blog/compliance-cascade-new-class-of-ai-jailbreak/ /reports/247-cca-frontier-and-coevolution/ 301
+/blog/defense-evolver-can-ai-learn-to-defend-itself /reports/284-defense-evolver-phase0/ 301
+/blog/defense-evolver-can-ai-learn-to-defend-itself/ /reports/284-defense-evolver-phase0/ 301
+/blog/detected-proceeds-knowing-doing-gap /papers/detected-proceeds/ 301
+/blog/detected-proceeds-knowing-doing-gap/ /papers/detected-proceeds/ 301
+/blog/detected-proceeds-preprint /papers/detected-proceeds/ 301
+/blog/detected-proceeds-preprint/ /papers/detected-proceeds/ 301
+/blog/epistemic-crisis-can-we-trust-ai-safety-benchmarks /papers/epistemic-crisis-ai-safety-eval/ 301
+/blog/epistemic-crisis-can-we-trust-ai-safety-benchmarks/ /papers/epistemic-crisis-ai-safety-eval/ 301
+/blog/first-advbench-results /reports/221-advbench-baseline-analysis/ 301
+/blog/first-advbench-results/ /reports/221-advbench-baseline-analysis/ 301
+/blog/first-look-inside-ai-safety-mechanisms /papers/polyhedral-safety-geometry/ 301
+/blog/first-look-inside-ai-safety-mechanisms/ /papers/polyhedral-safety-geometry/ 301
+/blog/first-results-from-ollama-cloud-testing /reports/238-frontier-probe-ollama-cloud/ 301
+/blog/first-results-from-ollama-cloud-testing/ /reports/238-frontier-probe-ollama-cloud/ 301
+/blog/format-lock-universal-ai-jailbreak /reports/57-format-lock-capability-floor-consolidated/ 301
+/blog/format-lock-universal-ai-jailbreak/ /reports/57-format-lock-capability-floor-consolidated/ 301
+/blog/gemma4-safety-improves-but-only-for-certain-attacks /reports/347-gemma4-safety-profile-synthesis/ 301
+/blog/gemma4-safety-improves-but-only-for-certain-attacks/ /reports/347-gemma4-safety-profile-synthesis/ 301
+/blog/governance-lag-index-ai-safety-regulation /reports/364-gli-formal-methodology-2026-q2/ 301
+/blog/governance-lag-index-ai-safety-regulation/ /reports/364-gli-formal-methodology-2026-q2/ 301
+/blog/iatrogenic-safety-when-defenses-cause-harm /papers/iatrogenic-safety-flim/ 301
+/blog/iatrogenic-safety-when-defenses-cause-harm/ /papers/iatrogenic-safety-flim/ 301
+/blog/inverse-detectability-danger-law-embodied-ai /papers/iddl-aies2026/ 301
+/blog/inverse-detectability-danger-law-embodied-ai/ /papers/iddl-aies2026/ 301
+/blog/jailbreak-archaeology-policy-implications /reports/31-jailbreak-archaeology-policy-implications/ 301
+/blog/jailbreak-archaeology-policy-implications/ /reports/31-jailbreak-archaeology-policy-implications/ 301
+/blog/polyhedral-safety-geometry /papers/polyhedral-safety-geometry/ 301
+/blog/polyhedral-safety-geometry/ /papers/polyhedral-safety-geometry/ 301
+/blog/provider-vulnerability-fingerprints-why-your-ai-provider-matters /reports/227-provider-vulnerability-correlation/ 301
+/blog/provider-vulnerability-fingerprints-why-your-ai-provider-matters/ /reports/227-provider-vulnerability-correlation/ 301
+/blog/qwen3-safety-leap /reports/222-qwen3-safety-leap/ 301
+/blog/qwen3-safety-leap/ /reports/222-qwen3-safety-leap/ 301
+/blog/reasoning-level-detected-proceeds /reports/220-lfm-thinking-detected-proceeds/ 301
+/blog/reasoning-level-detected-proceeds/ /reports/220-lfm-thinking-detected-proceeds/ 301
+/blog/safety-as-paid-feature /reports/277-free-tier-safety-equity-analysis/ 301
+/blog/safety-as-paid-feature/ /reports/277-free-tier-safety-equity-analysis/ 301
+/blog/state-of-adversarial-ai-safety-2026 /papers/annual-report-2026/ 301
+/blog/state-of-adversarial-ai-safety-2026/ /papers/annual-report-2026/ 301
+/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing /reports/60-compliance-without-comprehension/ 301
+/blog/system-t-vs-system-s-why-ai-models-comply-while-refusing/ /reports/60-compliance-without-comprehension/ 301
+/blog/temperature-dial-api-parameters-attack-vectors /reports/316-sampling-parameter-manipulation-pilot/ 301
+/blog/temperature-dial-api-parameters-attack-vectors/ /reports/316-sampling-parameter-manipulation-pilot/ 301
+/blog/when-ai-knows-it-shouldnt-but-does-anyway /papers/detected-proceeds/ 301
+/blog/when-ai-knows-it-shouldnt-but-does-anyway/ /papers/detected-proceeds/ 301
+/blog/when-ai-safety-judges-disagree-reproducibility-crisis /reports/62-inter-model-verdict-agreement/ 301
+/blog/when-ai-safety-judges-disagree-reproducibility-crisis/ /reports/62-inter-model-verdict-agreement/ 301
+/blog/when-your-safety-grader-is-wrong /reports/70-crescendo-regrade-analysis/ 301
+/blog/when-your-safety-grader-is-wrong/ /reports/70-crescendo-regrade-analysis/ 301
+/blog/zero-of-36-regulatory-coverage /reports/274-cross-jurisdictional-regulatory-gap-analysis/ 301
+/blog/zero-of-36-regulatory-coverage/ /reports/274-cross-jurisdictional-regulatory-gap-analysis/ 301
+# --- blog redirect reconciliation end ---
+
 /blog/ai-safety-daily-* /ai-safety-daily/ai-safety-daily-:splat 301
 
 # Slug corrections — old slugs that were published without date prefix

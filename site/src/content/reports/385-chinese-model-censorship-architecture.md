@@ -25,6 +25,7 @@ sevMedium: 1
 sevLow: 1
 sevInfo: 2
 audio: "https://cdn.failurefirst.org/audio/reports/385-chinese-model-censorship-architecture.m4a"
+image: "https://cdn.failurefirst.org/images/reports/385-chinese-model-censorship-architecture.png"
 ---
 
 ## Executive Summary

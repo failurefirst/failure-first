@@ -1,0 +1,626 @@
+{
+  "generated_at": "2026-06-21",
+  "issue": "#91",
+  "note": "Rows held out of the public directory by the display-quality gate in build_directory_display_data.py. Still canonical in the DB; re-run with --include-unverified to export them. A row is released automatically once it has a non-template summary (unverified_stub) or a de-duplicated name (artifact).",
+  "count": 103,
+  "rows": [
+    {
+      "slug": "aei-robot",
+      "name": "AEI Robot",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "agile-robots-se",
+      "name": "Agile Robots SE",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "alt-bionics",
+      "name": "Alt-Bionics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "alt-bionics-inc",
+      "name": "Alt-Bionics, Inc.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "artificial-intelligence-dynamic-organism-lab",
+      "name": "Artificial Intelligence Dynamic Organism Lab",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "atarobot",
+      "name": "AtaroBot",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "autodiscovery",
+      "name": "Autodiscovery",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "beijing-galaxy-general-robot-co",
+      "name": "Beijing Galaxy General Robot Co.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "beijing-galaxy-general-robot-co-galbot",
+      "name": "Beijing Galaxy General Robot Co. (Galbot)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "beijing-humanoid-robot-innovation-center",
+      "name": "Beijing Humanoid Robot Innovation Center",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "beijing-inspire-robots-technology",
+      "name": "Beijing Inspire-Robots Technology",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "beijing-inspire-robots-technology-co-ltd",
+      "name": "Beijing Inspire-Robots Technology Co., Ltd.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "borg-robotics",
+      "name": "Borg Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "boshiac",
+      "name": "BOSHIAC",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "cartwheel-robotics",
+      "name": "Cartwheel Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "casivision",
+      "name": "CasiVision",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "covvi-robotics",
+      "name": "COVVI Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "dexcel-robotics",
+      "name": "Dexcel Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "dexcelrobotics",
+      "name": "DexcelRobotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "dexmate",
+      "name": "Dexmate",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "dexrobot",
+      "name": "DexRobot",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "dobots-robotics-team-at-new-york-university-nyu",
+      "name": "Dobots / Robotics team at New York University (NYU)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "eir-technology",
+      "name": "EIR Technology",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "enchanted-tools",
+      "name": "Enchanted Tools",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "festo",
+      "name": "Festo",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "festo-se-co-kg",
+      "name": "Festo SE & Co. KG",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "foundation-listing",
+      "name": "Foundation (listing)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "gac-group-humanoid-program",
+      "name": "GAC Group (humanoid program)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "galaxea-dynamics",
+      "name": "Galaxea Dynamics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "generative-bionics",
+      "name": "Generative Bionics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "gigaai",
+      "name": "GigaAI",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "haier",
+      "name": "Haier",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "hexagon",
+      "name": "Hexagon",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "hexagon-robotics-site-entry",
+      "name": "Hexagon Robotics (site entry)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "holiday-robotics-site-entry",
+      "name": "Holiday Robotics (site entry)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "humanoidai-duplicate-brand-listing",
+      "name": "Humanoid.ai (duplicate-brand listing)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "humanoidguide-buy-a-humanoid-directory-org",
+      "name": "Humanoid.guide Buy-a-Humanoid (directory org)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "ihub-robotics",
+      "name": "iHub Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "irim-lab-koreatech",
+      "name": "IRIM LAB KoreaTech",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "jaka-robotics",
+      "name": "JAKA Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "kinisi-robotics",
+      "name": "Kinisi Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "kyber-labs",
+      "name": "Kyber Labs",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "lanxin-robotics",
+      "name": "Lanxin Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "lanxin-robotics-duplicate-entry",
+      "name": "Lanxin Robotics (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "leapmotor-humanoid-program-team",
+      "name": "Leapmotor (humanoid program team)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "leju-robotics-duplicate-entry",
+      "name": "Leju Robotics (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "lg-electronics-kist-lg-ai-research-collaboration",
+      "name": "LG Electronics + KIST + LG AI Research collaboration",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "midea",
+      "name": "Midea",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "mimic-robotics",
+      "name": "Mimic Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "mirsee-robotics",
+      "name": "Mirsee Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "muks-robotics",
+      "name": "Muks Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "na-tekntrashcom-listing",
+      "name": "N/A (tekntrash.com listing)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "oceantrix-robotics",
+      "name": "OceanTrix Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "oceantrix-robotics-duplicate-entry",
+      "name": "OceanTrix Robotics (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "open-bionics-ltd",
+      "name": "Open Bionics Ltd.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "open-source-team-rebelia-now-yeah-hackaday",
+      "name": "Open-source team 'Rebelia' now 'YEAH' (Hackaday)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "openloong",
+      "name": "OpenLoong",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "openloong-duplicate-entry",
+      "name": "OpenLoong (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "orca-hand-soft-robotics-lab-eth-z\u00fcrich",
+      "name": "ORCA Hand / Soft Robotics Lab (ETH Z\u00fcrich)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "orca-hand-soft-robotics-lab-eth-z\u00fcrich-duplicate-entry",
+      "name": "ORCA Hand / Soft Robotics Lab (ETH Z\u00fcrich) (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "oymotion-technology",
+      "name": "OYMotion Technology",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "oymotion-technology-duplicate-entry",
+      "name": "OYMotion Technology (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "paxini-paxini-tech",
+      "name": "PaXini (PaXini Tech)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "paxini-technology",
+      "name": "PaXini Technology",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "perceptyne",
+      "name": "Perceptyne",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "phybot",
+      "name": "PHYBOT",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "pl-universe",
+      "name": "PL Universe",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "pl-universe-duplicate-entry",
+      "name": "PL-Universe (duplicate entry)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "pndbotics",
+      "name": "PNDbotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "prensilia-srl",
+      "name": "Prensilia S.r.l.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "psyonic-inc",
+      "name": "Psyonic, Inc.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "pudu-technology-inc-pudu-x-lab",
+      "name": "PUDU Technology Inc. (PUDU X-Lab)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "qb-robotics",
+      "name": "qb Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "robbyant-ant-lingbo-technology-part-of-ant-group",
+      "name": "Robbyant (Ant Lingbo Technology), part of Ant Group",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "robbyant-ant-lingbo-technology-ant-group",
+      "name": "Robbyant (Ant Lingbo Technology, Ant Group)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "roboforce",
+      "name": "RoboForce",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "robot-studio",
+      "name": "Robot Studio",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "robotcom",
+      "name": "Robot.com",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "ross-dawson-list-curator-directory-org",
+      "name": "Ross Dawson list curator (directory org)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "sarcomere-dynamics-inc",
+      "name": "Sarcomere Dynamics Inc.",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "schunk",
+      "name": "SCHUNK",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "sharpa-sharpa-robotics",
+      "name": "Sharpa (Sharpa Robotics)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "sulube",
+      "name": "Sulu.be",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "sulube-jan-de-coster",
+      "name": "Sulu.be (Jan De Coster)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "sunday-robotics",
+      "name": "Sunday Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "svaya-robotics",
+      "name": "Svaya Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "tangible-robots",
+      "name": "Tangible Robots",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "tangible-robots-finc-profile",
+      "name": "Tangible Robots (f.inc profile)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "tars-robotics-shanghai",
+      "name": "TARS Robotics (Shanghai)",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "tesollo",
+      "name": "Tesollo",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "tetheria",
+      "name": "TetherIA",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "topstar-group",
+      "name": "TOPSTAR Group",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "under-control-robotics",
+      "name": "Under Control Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "veichi-easylink-robotics",
+      "name": "VEICHI & EasyLink Robotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "vinmotion-duplicate-listing",
+      "name": "VinMotion (duplicate listing)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "westwood-robotics-duplicate-listing",
+      "name": "Westwood Robotics (duplicate listing)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "wirobotics",
+      "name": "WIRobotics",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "wuji-tech",
+      "name": "WUJI Tech",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "x-square-robot",
+      "name": "X Square Robot",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "zhejiang-humanoid-robot-innovation-center",
+      "name": "Zhejiang Humanoid Robot Innovation Center",
+      "reason": "unverified_stub",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "zhiyuan-robotics-listing",
+      "name": "Zhiyuan Robotics (listing)",
+      "reason": "artifact",
+      "table": "robotics_companies"
+    },
+    {
+      "slug": "advanced-machine-intelligence",
+      "name": "Advanced Machine Intelligence",
+      "reason": "unverified_stub",
+      "table": "ai_safety_orgs"
+    },
+    {
+      "slug": "ai-now-institute-duplicate-check",
+      "name": "AI Now Institute (duplicate check)",
+      "reason": "artifact",
+      "table": "ai_safety_orgs"
+    }
+  ]
+}

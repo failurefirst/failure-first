@@ -29,7 +29,3 @@ The reward hacking generalisation result challenges an assumption embedded in th
 The Latent Guard result from the harmfulness/refusal paper suggests a concrete defensive addition to the PiCar-X architecture. An input-side harmfulness-direction classifier could intercept unsafe commands before the refusal circuit is reached, providing protection that remains active when jailbreaks suppress refusal specifically — consistent with HANSE Layer 4 intent and prototypable ahead of the kinematic shield implementation.
 
 IS-Bench's global-versus-local failure mode directly mirrors a known pattern in the episode corpus: safety context established in early turns fails to propagate into later execution steps. The household benchmark offers an external dataset for cross-validating episode designs that target stateful safety degradation.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available. Limited new-paper signal today; curated from a broader recent window as prior posts covered the most recent crop.*

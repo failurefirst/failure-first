@@ -19,7 +19,7 @@ audio: "https://cdn.failurefirst.org/audio/reports/281-scale-sweep-protocol.m4a"
 Established findings suggest safety training investment matters more than model scale for jailbreak resistance (Report #50). However, several observations point toward a capability-safety transition threshold in the 3-7B parameter range:
 
 - **Capability-floor hypothesis** (Report #51, Clara Oswald): Below ~3B parameters, all attacks succeed regardless of type. Above ~7B, only format-lock maintains elevated ASR.
-- **Obliteratus re-emergence** (Report #48): Safety behavior partially re-emerges in abliterated models at scale (Qwen3.5 series: 100% ASR at 0.8B, declining to 47.3% at 9.0B, Spearman rho=-0.949).
+- **Obliteratus re-emergence** (Report #48): Safety behavior partially re-emerges in abliterated models at scale (Qwen3.5 series: 99.8% ASR at 0.8B, declining to 54.2% at 9.0B — monotonic with non-overlapping per-scale Wilson CIs, but not significant by a valid rank test at k=4 scales: Spearman ρ=−1.0, exact p=0.083; the 9B residual is hedging, not refusal).
 - **Existing DB evidence** (preliminary, Section 8 below): Non-abliterated Qwen3 series shows ASR variation from 100% (0.6B) to 55.2% (1.7B) to near-100% (4B, but with 99.8% broad due to PARTIAL dominance) to mixed patterns at 8B.
 
 This experiment will produce the first controlled, pre-registered measurement of how safety training effectiveness varies with model scale, holding architecture family constant.
@@ -259,7 +259,7 @@ The Qwen3.5 obliteratus series provides a natural control where safety training 
 - 4.2B: 78.3% strict (n=1,008)
 - 9.0B: 54.2% strict (n=2,019)
 
-This declining ASR with scale in abliterated models (Spearman rho=-0.949) suggests that scale-emergent properties partially reconstruct safety-like behavior even without explicit safety training. The controlled experiment will compare this against safety-trained models to decompose the contributions of scale vs training.
+This declining ASR with scale in abliterated models (monotonic; Spearman ρ=−1.0, exact p=0.083 at k=4 — not significant, but with non-overlapping per-scale Wilson CIs) suggests that scale-emergent properties partially reconstruct safety-like behavior even without explicit safety training. The controlled experiment will compare this against safety-trained models to decompose the contributions of scale vs training.
 
 ## 9. Pre-Registration Statement
 

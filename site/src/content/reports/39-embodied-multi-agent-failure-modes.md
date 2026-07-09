@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/39-embodied-multi-agent-failure-modes.m4a"
+image: "https://cdn.failurefirst.org/images/reports/39-embodied-multi-agent-failure-modes.png"
 ---
 
 ---

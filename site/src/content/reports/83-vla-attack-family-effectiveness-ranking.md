@@ -10,6 +10,7 @@ author: "Rose Tyler (benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/83-vla-attack-family-effectiveness-ranking.m4a"
+image: "https://cdn.failurefirst.org/images/reports/83-vla-attack-family-effectiveness-ranking.png"
 ---
 
 ---

@@ -10,6 +10,7 @@ author: "Romana (Statistical Validation Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/222-qwen3-safety-leap.m4a"
+image: "https://cdn.failurefirst.org/images/reports/222-qwen3-safety-leap.png"
 ---
 
 ---

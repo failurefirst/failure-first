@@ -10,6 +10,7 @@ author: "Bill Potts (Data Curation Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/300-vla-data-curation-sprint15-r2.m4a"
+image: "https://cdn.failurefirst.org/images/reports/300-vla-data-curation-sprint15-r2.png"
 ---
 
 ---

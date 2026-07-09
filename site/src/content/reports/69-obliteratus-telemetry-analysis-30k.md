@@ -10,6 +10,7 @@ author: "Bill Potts (Data Curation Lead)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/69-obliteratus-telemetry-analysis-30k.m4a"
+image: "https://cdn.failurefirst.org/images/reports/69-obliteratus-telemetry-analysis-30k.png"
 ---
 
 ---
@@ -20,7 +21,7 @@ Analysis of the full 30,238-record OBLITERATUS telemetry dataset covering 9 abli
 
 1. **Nuclear abliteration achieves 0% refusal rate** (100% effectiveness) but destroys model coherence entirely (coherence = 0.0). This is trivially effective but practically useless.
 2. **The informed method offers the best quality-effectiveness tradeoff**: 2.4% mean refusal rate with high coherence preservation (0.975 mean).
-3. **Safety behavior partially re-emerges at scale** even in abliterated models: `<0.5B` models show 0.4% refusal, while `0.5-2B` models show 44.9% refusal. This aligns with our established finding (AGENT_STATE: "Qwen3.5 obliteratus series: ASR 100% (0.8B) to 47.3% (9.0B)").
+3. **Safety behavior partially re-emerges at scale** even in abliterated models: `<0.5B` models show 0.4% refusal, while `0.5-2B` models show 44.9% refusal. This aligns with our established finding (Qwen3.5 obliteratus series: compliance 99.8% at 0.8B to 54.2% at 9.0B, post-#810-recovery; the 9B residual is hedging, not refusal).
 4. **Qwen models are the most resistant to abliteration** (32.6% mean refusal) among families with sufficient data, suggesting stronger safety training integration.
 5. **4 of 5 missing methods (failspy, gabliteration, heretic, rdo) are NOT present** in this dataset. Only `inverted` appears (51 records, all GPU OOM errors).
 

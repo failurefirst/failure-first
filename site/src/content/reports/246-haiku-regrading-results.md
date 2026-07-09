@@ -10,6 +10,7 @@ author: "Amy Pond (benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/246-haiku-regrading-results.m4a"
+image: "https://cdn.failurefirst.org/images/reports/246-haiku-regrading-results.png"
 ---
 
 ---

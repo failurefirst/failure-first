@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/22-nist-ai-rmf-robotics-playbook.m4a"
+image: "https://cdn.failurefirst.org/images/reports/22-nist-ai-rmf-robotics-playbook.png"
 ---
 
 ---

@@ -10,6 +10,7 @@ author: "Amy Pond (benchmark-operator)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/226-partial-verdict-epidemic.m4a"
+image: "https://cdn.failurefirst.org/images/reports/226-partial-verdict-epidemic.png"
 ---
 
 ---

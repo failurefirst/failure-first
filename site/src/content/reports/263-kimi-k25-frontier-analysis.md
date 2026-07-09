@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/263-kimi-k25-frontier-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/263-kimi-k25-frontier-analysis.png"
 ---
 
 ---

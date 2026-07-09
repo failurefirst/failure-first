@@ -10,6 +10,7 @@ author: "Adrian / Claude Opus 4.6"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/320-l1b3rt45-8model-synthesis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/320-l1b3rt45-8model-synthesis.png"
 ---
 
 ---

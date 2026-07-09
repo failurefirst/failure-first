@@ -10,6 +10,7 @@ author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/132-alignment-backfire-integration-cross-language-safety-failure.m4a"
+image: "https://cdn.failurefirst.org/images/reports/132-alignment-backfire-integration-cross-language-safety-failure.png"
 ---
 
 ---

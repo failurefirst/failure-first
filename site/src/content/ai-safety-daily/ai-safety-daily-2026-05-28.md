@@ -29,7 +29,3 @@ Hack-Verifiable TextArena's core design — letting the environment self-signal 
 FLAS's finding that learned flow transformations outperform fixed steering vectors has direct relevance to safety monitoring in embodied VLA models. If a kinematic safety layer intervenes on internal representations, a transformation that tracks geometry shifts during fine-tuning would degrade less than a fixed vector as the model adapts. This points toward a concrete architectural direction for the HANSE Layer 4 Kinematic Shield design, where intervention geometry must remain calibrated across deployment checkpoints.
 
 SafePro's domain-specificity gap directly parallels the coverage problem in embodied safety evaluation: most benchmarks test against general harmful content rather than use-case-specific failure modes such as industrial control deviation, eldercare boundary crossing, or surgical assistant constraint erosion. Domain-stratified adversarial scenario sets — the approach SafePro demonstrates in professional text domains — are the natural next step for the failure-first embodied corpus.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

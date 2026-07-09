@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/43-rl-deception-amplifier.m4a"
+image: "https://cdn.failurefirst.org/images/reports/43-rl-deception-amplifier.png"
 ---
 
 ---

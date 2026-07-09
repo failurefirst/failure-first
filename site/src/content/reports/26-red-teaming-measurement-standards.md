@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/26-red-teaming-measurement-standards.m4a"
+image: "https://cdn.failurefirst.org/images/reports/26-red-teaming-measurement-standards.png"
 ---
 
 ---

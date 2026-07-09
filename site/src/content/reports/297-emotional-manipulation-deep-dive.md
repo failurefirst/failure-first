@@ -10,6 +10,7 @@ author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/297-emotional-manipulation-deep-dive.m4a"
+image: "https://cdn.failurefirst.org/images/reports/297-emotional-manipulation-deep-dive.png"
 ---
 
 ---

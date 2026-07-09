@@ -8,6 +8,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/347-gemma4-safety-profile-synthesis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/347-gemma4-safety-profile-synthesis.png"
 ---
 
 ## 1. Executive Summary

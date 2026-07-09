@@ -7,7 +7,7 @@ authors: "Diyar Altinses, Andreas Schwung"
 paperType: "methods"
 tags: [fault-tolerance,multimodal-learning,lipschitz-constraints,anomaly-detection,sensor-robustness,self-supervised-learning]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.25103-audio-overview.m4a"
-image: "https://cdn.failurefirst.org/images/daily-paper/2603.25103-infographic.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2603.25103-infographic.webp"
 video: "https://cdn.failurefirst.org/video/daily-paper/2603.25103-video-overview.mp4"
 draft: false
 ---

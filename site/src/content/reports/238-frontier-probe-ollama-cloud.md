@@ -9,6 +9,7 @@ status: "complete"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/238-frontier-probe-ollama-cloud.m4a"
+image: "https://cdn.failurefirst.org/images/reports/238-frontier-probe-ollama-cloud.png"
 ---
 
 ---

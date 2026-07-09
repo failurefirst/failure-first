@@ -6,6 +6,7 @@ tags: ["governance-lag", "GLI", "EU-AI-Act", "NSW-WHS", "embodied-ai", "regulato
 relevance: "Quantitative tracking of the gap between AI capability documentation and regulatory enforcement, updated with Q1 2026 enforcement milestones"
 significance: high
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-governance-lag-embodied-ai.png"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-governance-lag-embodied-ai.m4a"
 ---
 
 ## Summary

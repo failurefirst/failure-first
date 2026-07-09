@@ -10,6 +10,7 @@ author: "Amy Pond (Lead Evaluation Engineer)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/216-safety-classifier-training-data.m4a"
+image: "https://cdn.failurefirst.org/images/reports/216-safety-classifier-training-data.png"
 ---
 
 ---

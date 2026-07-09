@@ -1,0 +1,524 @@
+---
+import ContentLayout from '../../layouts/ContentLayout.astro';
+import data from '../../data/jailbreak-leaderboard.json';
+
+const REVIEW_GATED = true; // noindex until operator sign-off
+
+const rows = data.rows as any[];
+const metric = data.metric as string;
+const note = data.note as string;
+
+// Split by tier — citable (A+/A) vs heuristic (C)
+const citable = rows.filter(r => r.rigor_tier === 'A+' || r.rigor_tier === 'A');
+const heuristic = rows.filter(r => r.rigor_tier === 'C');
+
+// Sort each by lift descending
+citable.sort((a, b) => b.jailbreak_lift - a.jailbreak_lift);
+heuristic.sort((a, b) => b.jailbreak_lift - a.jailbreak_lift);
+
+// Status colors
+const STATUS_COLOR: Record<string, string> = {
+  established: 'var(--recovery-stable, #26de81)',
+  candidate: 'var(--accent-primary, #00d2ff)',
+  emerging: 'var(--fg-muted, #7a8292)',
+};
+
+const TIER_COLOR: Record<string, string> = {
+  'A+': 'var(--recovery-stable, #26de81)',
+  'A': 'var(--accent-primary, #00d2ff)',
+  'C': 'var(--fg-muted, #7a8292)',
+};
+
+// Operator display names
+const OP_LABELS: Record<string, string> = {
+  compression_encode: 'Compression Encode',
+  narrative_frame: 'Narrative Frame',
+  critique_completion: 'Critique Completion',
+  cipher_space_reason: 'Cipher Space Reason',
+  isomorphic_proxy: 'Isomorphic Proxy',
+  role_play: 'Role Play',
+  decompose_recompose: 'Decompose→Recompose',
+};
+
+// Family colors (for the family chip)
+const FAMILY_COLOR: Record<string, string> = {
+  mistral: '#ffa502',
+  deepseek: '#00d2ff',
+  glm: '#a29bfe',
+  gemma: '#26de81',
+  kimi: '#ff6348',
+  nemotron: '#76b0ff',
+  minimax: '#ffd32a',
+  gpt: '#e8ecf2',
+  qwen: '#7a8292',
+  gemini: '#26de81',
+  rnj: '#ff4757',
+};
+
+function fmtPct(v: number): string {
+  return (v * 100).toFixed(1) + '%';
+}
+
+function fmtCI(lo: number, hi: number): string {
+  return `[${(lo * 100).toFixed(0)}, ${(hi * 100).toFixed(0)}]`;
+}
+
+function liftBarWidth(v: number): number {
+  // Scale to 100% bar — max lift is ~0.82
+  return Math.min(v / 0.85 * 100, 100);
+}
+
+// Per-row panel size: most cells are graded by a 2–3-model panel, so the page
+// shows each row's own grader count rather than claiming a uniform "3-grader panel".
+function fmtGraders(n: number): string {
+  return n && n > 0 ? `${n}×` : '—';
+}
+---
+
+<ContentLayout
+  title="Jailbreak Leaderboard — Failure-First Embodied AI"
+  description="Baseline-floored jailbreak lift rankings across operators and model targets. Not corpus ASR — every row has a demonstrated full_refusal denominator."
+  noindex={REVIEW_GATED}
+  breadcrumbs={[
+    { label: 'Research', href: '/research' },
+    { label: 'Jailbreak Leaderboard' }
+  ]}
+>
+  {REVIEW_GATED && (
+    <div class="review-banner">
+      <span class="review-tag">DRAFT — NOINDEX</span>
+      <span>Awaiting operator sign-off before public release.</span>
+    </div>
+  )}
+
+  <section class="leaderboard-header">
+    <h1>Jailbreak Leaderboard</h1>
+    <p class="metric">{metric}</p>
+    <p class="note">{note}</p>
+  </section>
+
+  <section class="legend">
+    <div class="legend-item">
+      <span class="legend-chip" style="background: {TIER_COLOR['A+']}">A+</span>
+      <span>Gate-derived floor + independent cross-family corroboration OR cloud 3-grader-throughout</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-chip" style="background: {TIER_COLOR['A']}">A</span>
+      <span>Gate-derived panel floor (≥2 graders), no independent corroboration</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-chip" style="background: {TIER_COLOR['C']}">C</span>
+      <span>Heuristic-preliminary floor — NOT citable, shown for offensive recon only</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background: {STATUS_COLOR['candidate']}"></span>
+      <span>Candidate: denominator ≥20, awaiting Romana ratification</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot" style="background: {STATUS_COLOR['emerging']}"></span>
+      <span>Emerging: denominator {'<20'} or heuristic floor</span>
+    </div>
+  </section>
+
+  <section class="board-section">
+    <h2>Citable Results <span class="count">({citable.length})</span></h2>
+    <p class="section-note">A+/A tier — gate-derived, panel-graded. Every row has a demonstrated <code>full_refusal</code> denominator. The <strong>Graders</strong> column is that cell's own panel size (2–3 models); the board is not uniformly 3-grader.</p>
+
+    <div class="table-wrap">
+      <table class="leaderboard-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Operator</th>
+            <th>Target</th>
+            <th>Family</th>
+            <th>Lift</th>
+            <th class="ci-col">95% CI</th>
+            <th class="num">Breaks</th>
+            <th class="num">Den</th>
+            <th class="num">Graders</th>
+            <th>Rigor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {citable.map((r, i) => (
+            <>
+              <tr class={`row ${r.jailbreak_lift === 0 ? 'zero-row' : ''}`}>
+                <td class="rank">{i + 1}</td>
+                <td class="operator">
+                  <span class="op-name">{OP_LABELS[r.operator] ?? r.operator}</span>
+                </td>
+                <td class="target">{r.target}</td>
+                <td class="family">
+                  <span class="family-chip" style={`color: ${FAMILY_COLOR[r.family] ?? 'var(--fg-dim)'}`}>{r.family}</span>
+                </td>
+                <td class="lift-cell">
+                  <div class="lift-bar-container">
+                    <div class="lift-bar" style={`width: ${liftBarWidth(r.jailbreak_lift)}%; background: ${r.jailbreak_lift >= 0.4 ? 'var(--failure-critical, #ff4757)' : r.jailbreak_lift >= 0.1 ? 'var(--failure-warning, #ffa502)' : r.jailbreak_lift > 0 ? 'var(--failure-degraded, #ffd32a)' : 'var(--bg-card)'};`}></div>
+                  </div>
+                  <span class="lift-value">{fmtPct(r.jailbreak_lift)}</span>
+                </td>
+                <td class="ci">{fmtCI(r.ci_low, r.ci_high)}</td>
+                <td class="num">{r.confirmed_break}</td>
+                <td class="num">{r.denominator}</td>
+                <td class="num">{fmtGraders(r.grader_count)}</td>
+                <td>
+                  <span class="tier-chip" style={`color: ${TIER_COLOR[r.rigor_tier]}`}>{r.rigor_tier}</span>
+                </td>
+                <td>
+                  <span class="status-dot" style={`background: ${STATUS_COLOR[r.status] ?? 'var(--fg-muted)'}`} title={r.status}></span>
+                  <span class="status-label">{r.status}</span>
+                </td>
+              </tr>
+              {r.caveat && (
+                <tr class="caveat-row">
+                  <td></td>
+                  <td colspan="10"><span class="caveat-note">⚠ {r.caveat}</span></td>
+                </tr>
+              )}
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  {heuristic.length > 0 && (
+    <section class="board-section heuristic-section">
+      <h2>Heuristic-Preliminary <span class="count">({heuristic.length})</span></h2>
+      <p class="section-note">
+        Tier C — heuristic-preliminary floors, NOT citable. Shown for offensive recon only.
+        {heuristic.length > 10 && (
+          <span class="expand-hint"> Showing top 20 by lift.</span>
+        )}
+      </p>
+
+      <div class="table-wrap">
+        <table class="leaderboard-table heuristic-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Operator</th>
+              <th>Target</th>
+              <th>Family</th>
+              <th>Lift</th>
+              <th class="num">Den</th>
+              <th class="num">Graders</th>
+              <th>Rigor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {heuristic.slice(0, 20).map((r, i) => (
+              <>
+                <tr class="row heuristic-row">
+                  <td class="rank">{i + 1}</td>
+                  <td class="operator"><span class="op-name">{OP_LABELS[r.operator] ?? r.operator}</span></td>
+                  <td class="target">{r.target}</td>
+                  <td class="family"><span class="family-chip" style={`color: ${FAMILY_COLOR[r.family] ?? 'var(--fg-dim)'}`}>{r.family}</span></td>
+                  <td class="lift-cell">
+                    <span class="lift-value dim">{fmtPct(r.jailbreak_lift)}</span>
+                  </td>
+                  <td class="num">{r.denominator}</td>
+                  <td class="num">{fmtGraders(r.grader_count)}</td>
+                  <td><span class="tier-chip dim">{r.rigor_tier}</span></td>
+                </tr>
+                {r.caveat && (
+                  <tr class="caveat-row">
+                    <td></td>
+                    <td colspan="7"><span class="caveat-note">⚠ {r.caveat}</span></td>
+                  </tr>
+                )}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  )}
+
+  <section class="methodology">
+    <h2>Methodology</h2>
+    <div class="methodology-content">
+      <p><strong>Metric:</strong> <code>jailbreak_lift</code> = confirmed breaks / demonstrated <code>full_refusal</code> floor. This is <em>not</em> corpus ASR. Every row has a per-target baseline-refusal denominator or it is not on the board.</p>
+      <p><strong>Grading:</strong> Non-Claude cloud panel. Most cells are graded by a <strong>2–3-model panel</strong> (qwen3.5:397b + glm-5.2 + kimi-k2.6/minimax-m3) with majority consensus — the per-row <strong>Graders</strong> column shows each cell's panel size, so the board is not uniformly 3-grader. FLIP / baseline-refusal gate. <code>split_break</code>, <code>FRAME_ONLY</code>, and <code>PARTIAL</code> are excluded from the numerator (conservative).</p>
+      <p><strong>Rigor tiers:</strong> A+ = gate-derived floor + independent cross-family grader corroboration OR 3-grader-throughout. A = gate-derived panel floor (≥2 graders). C = heuristic-preliminary, not citable.</p>
+      <p><strong>Status:</strong> established = promoted to AGENT_STATE Established Findings (Donna Noble only). candidate = denominator ≥20, awaiting Romana ratification. emerging = denominator {'<20'} or heuristic floor.</p>
+      <p><strong>Pooling:</strong> Per-target only. No pooled family rate is licensed. Cross-target ordering claims are not supported (Wilson CIs overlap heavily within each operator × family).</p>
+      <p><strong>κ gate:</strong> Inter-rater Fleiss κ ≥ 0.60 required for Established promotion. <code>isomorphic_proxy</code> is κ-blocked (κ≈0.08–0.46, target-dependent — an operator-level IRR failure across all measured cohorts) — its lift is exploratory, not citable as an Established Finding. Rows carrying a reliability flag show it inline below the row.</p>
+    </div>
+  </section>
+</ContentLayout>
+
+<style>
+  .review-banner {
+    background: var(--failure-warning, #ffa502);
+    color: #050810;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .review-tag {
+    background: #050810;
+    color: var(--failure-warning, #ffa502);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+  }
+
+  .leaderboard-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-bottom: 0.5rem;
+  }
+  .metric {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--accent-primary, #00d2ff);
+    margin-bottom: 0.25rem;
+  }
+  .note {
+    font-size: 0.85rem;
+    color: var(--fg-muted, #7a8292);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle, rgba(232,236,242,0.08));
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--fg-dim, #b0b8c5);
+  }
+  .legend-chip {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #050810;
+    min-width: 24px;
+    text-align: center;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .board-section {
+    margin-bottom: 3rem;
+  }
+  .board-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-bottom: 0.25rem;
+  }
+  .count {
+    font-size: 0.9rem;
+    color: var(--fg-muted, #7a8292);
+    font-weight: 400;
+  }
+  .section-note {
+    font-size: 0.82rem;
+    color: var(--fg-muted, #7a8292);
+    margin-bottom: 1rem;
+  }
+  .section-note code {
+    color: var(--accent-primary, #00d2ff);
+    font-size: 0.8rem;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  .leaderboard-table th {
+    text-align: left;
+    padding: 8px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--fg-muted, #7a8292);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-emphasis, rgba(0,210,255,0.35));
+  }
+  .leaderboard-table th.num,
+  .leaderboard-table td.num {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .leaderboard-table th.ci-col {
+    text-align: center;
+  }
+  .leaderboard-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border-subtle, rgba(232,236,242,0.08));
+    color: var(--fg-dim, #b0b8c5);
+  }
+  .leaderboard-table tr.row:hover {
+    background: var(--bg-elevated, #0a0f1a);
+  }
+  .zero-row {
+    opacity: 0.5;
+  }
+
+  .caveat-row td {
+    border-bottom: 1px solid var(--border-subtle, rgba(232,236,242,0.08));
+    padding-top: 0;
+    padding-bottom: 7px;
+  }
+  .caveat-note {
+    font-size: 0.72rem;
+    font-style: italic;
+    color: var(--failure-warning, #ffa502);
+  }
+
+  .rank {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--fg-muted, #7a8292);
+    width: 28px;
+  }
+
+  .op-name {
+    color: var(--fg, #e8ecf2);
+    font-weight: 500;
+  }
+
+  .target {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--fg, #e8ecf2);
+  }
+
+  .family-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  .lift-cell {
+    min-width: 120px;
+  }
+  .lift-bar-container {
+    display: inline-block;
+    width: 80px;
+    height: 8px;
+    background: var(--bg-card, #0f1621);
+    border-radius: 2px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .lift-bar {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 300ms ease;
+  }
+  .lift-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    color: var(--fg, #e8ecf2);
+    font-size: 0.82rem;
+  }
+  .lift-value.dim {
+    color: var(--fg-muted, #7a8292);
+  }
+
+  .ci {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--fg-muted, #7a8292);
+    text-align: center;
+  }
+
+  .tier-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 1px 4px;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+  }
+  .tier-chip.dim {
+    color: var(--fg-muted, #7a8292);
+  }
+
+  .status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .status-label {
+    font-size: 0.72rem;
+    color: var(--fg-muted, #7a8292);
+  }
+
+  .heuristic-section {
+    opacity: 0.85;
+  }
+  .heuristic-table .heuristic-row td {
+    border-bottom-color: rgba(232, 236, 242, 0.04);
+  }
+
+  .methodology {
+    border-top: 1px solid var(--border-subtle, rgba(232,236,242,0.08));
+    padding-top: 2rem;
+  }
+  .methodology h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--fg);
+    margin-bottom: 1rem;
+  }
+  .methodology-content p {
+    font-size: 0.82rem;
+    color: var(--fg-dim, #b0b8c5);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+  .methodology-content strong {
+    color: var(--fg, #e8ecf2);
+    font-weight: 600;
+  }
+  .methodology-content code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent-primary, #00d2ff);
+  }
+  .methodology-content em {
+    color: var(--fg, #e8ecf2);
+  }
+</style>

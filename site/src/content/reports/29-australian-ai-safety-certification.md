@@ -9,6 +9,7 @@ status: "draft"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/29-australian-ai-safety-certification.m4a"
+image: "https://cdn.failurefirst.org/images/reports/29-australian-ai-safety-certification.png"
 ---
 
 ---

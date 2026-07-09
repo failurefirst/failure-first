@@ -8,7 +8,7 @@ paperType: "empirical"
 tags: [anything, characterizing, evaluating, wild, jailbreak, prompts]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2308.03825-audio-overview.m4a"
-image: "/images/daily-paper/2308.03825-infographic.webp"
+image: "https://cdn.failurefirst.org/images/daily-paper/2026-01-29-do-anything-now-characterizing-and-evaluating-in-the-wild-jailbreak-prompts-on-l.png"
 ---
 
 # "Do Anything Now": Characterizing and Evaluating In-The-Wild Jailbreak Prompts on Large Language Models

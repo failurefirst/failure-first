@@ -11,6 +11,7 @@ tags: [interpretability, mechanistic-transparency, representation-analysis, safe
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/representation-engineering-ai-transparency.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/representation-engineering-ai-transparency.png"
+video: "https://cdn.failurefirst.org/video/daily-paper/representation-engineering-ai-transparency.mp4"
 ---
 
 ## Representation Engineering: Finding Safety in Hidden States

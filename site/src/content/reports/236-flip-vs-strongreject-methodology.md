@@ -10,6 +10,7 @@ author: "Security Integration Engineer"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/236-flip-vs-strongreject-methodology.m4a"
+image: "https://cdn.failurefirst.org/images/reports/236-flip-vs-strongreject-methodology.png"
 ---
 
 ---

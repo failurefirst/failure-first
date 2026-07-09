@@ -10,6 +10,7 @@ author: "Leela (Adversarial Prompt Generation)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/273-format-lock-defense-research.m4a"
+image: "https://cdn.failurefirst.org/images/reports/273-format-lock-defense-research.png"
 ---
 
 ---

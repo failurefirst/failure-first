@@ -7,7 +7,7 @@ arxiv: "2604.21160"
 paperType: "empirical"
 tags: [point-vlms,geometric-hallucination,reinforcement-learning,credit-assignment,embodied-ai,3d-understanding]
 draft: false
-image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-10-reinforcing-3d-understanding-point-vlms-geometric-reward-credit-assignment.png"
+image: "https://cdn.failurefirst.org/images/daily-paper/2604.21160-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.21160-audio-overview.m4a"
 ---
 

@@ -10,6 +10,7 @@ author: "Rose Tyler (Adversarial Operations)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/237-integration-test-results.m4a"
+image: "https://cdn.failurefirst.org/images/reports/237-integration-test-results.png"
 ---
 
 ---

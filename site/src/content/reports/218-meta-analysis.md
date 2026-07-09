@@ -10,6 +10,7 @@ author: "Donna Noble (Editorial & Integrity Director)"
 tags: []
 draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/218-meta-analysis.m4a"
+image: "https://cdn.failurefirst.org/images/reports/218-meta-analysis.png"
 ---
 
 ---
@@ -87,7 +88,7 @@ The Governance Lag Index shows AI governance lag exceeds all historical analogue
 
 ### 3.8 Safety Re-emergence at Scale in Abliterated Models (3 papers: P1, P4, P6)
 
-Qwen3.5 obliteratus series: ASR drops from 100% (0.8B) to 47.3% (9.0B) despite safety-direction removal. Spearman rho=-0.949, p=0.051. This is the central finding of the polyhedral geometry paper (P6), a scaling analysis data point in the format-lock paper (P4), and a cross-cutting finding in the CCS paper (P1).
+Qwen3.5 obliteratus series: compliance drops from 99.8% (0.8B) to 54.2% (9.0B) despite safety-direction removal — monotonic, supported by non-overlapping per-scale Wilson 95% CIs, but with only four scales not statistically significant by a valid rank test (Spearman ρ=−1.0, exact p=0.083, k=4). The 9B non-compliance is hedging (PARTIAL), not refusal. This is the central finding of the polyhedral geometry paper (P6), a scaling analysis data point in the format-lock paper (P4), and a cross-cutting finding in the CCS paper (P1).
 
 **Source:** Reports #183, #198, OBLITERATUS experiment series.
 

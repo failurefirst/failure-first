@@ -7,6 +7,7 @@ description: "Anthropic's initiative to bring humanistic traditions into AI deve
 classification: RESEARCH
 status: published
 image: "https://cdn.failurefirst.org/images/blog/2026-05-20-moral-formation-isnt-enough.png"
+audio: "https://cdn.failurefirst.org/audio/blog/2026-05-20-moral-formation-isnt-enough.m4a"
 ---
 
 Anthropic published something important this week. In *Widening the Conversation on Frontier AI*, they describe an initiative to bring religious scholars, ethicists, and philosophers into structured dialogue about how AI systems develop character — how values get *in*. They even ran a concrete experiment: giving Claude access to an "ethical reminder tool" during decision-making, which measurably reduced misaligned behaviour in internal evaluations.

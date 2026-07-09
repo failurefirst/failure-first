@@ -27,7 +27,3 @@ The Interlocutor Effect has direct relevance to any architecture where a languag
 AgentCanary's persistent-state finding mirrors the stateful degradation patterns studied in the episodes dataset: failures that arise only after multiple steps are harder to detect than single-turn violations. Evaluation frameworks must preserve state across turns rather than resetting between prompts — a constraint already encoded in the episode schema but worth auditing in active benchmark runners.
 
 The sycophancy-vs-scheming reframing also carries grading implications. If FLIP grader responses vary depending on how the grader perceives its evaluation role, traces from sessions with explicit researcher framing may be confounded. This is a concrete audit item for the FLIP grading pipeline before drawing conclusions about intentional misalignment in graded traces.
-
----
-
-*Baseline generation — paper discovery via Hugging Face/arXiv. NLM-augmented assets (audio/infographic/video) added by local pipeline when available.*

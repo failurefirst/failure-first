@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [jailbreak-attacks,llm-robustness-evaluation,adversarial-prompts,benchmark-standardization,ai-safety-evaluation,reproducibility-infrastructure]
 draft: false
 video: "/video/2404.01318-video-overview.mp4"
-image: "/images/daily-paper/2404.01318-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2404.01318-audio-overview.m4a"
 ---
 

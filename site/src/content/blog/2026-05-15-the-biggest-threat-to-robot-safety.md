@@ -5,6 +5,7 @@ date: 2026-05-15
 tags: [embodied-ai, robotics, governance, unintentional-adversary, competence-danger-coupling, deployment-risk-inversion, regulatory]
 draft: false
 image: "https://cdn.failurefirst.org/images/blog/biggest-threat-robot-safety-infographic.png"
+audio: "https://cdn.failurefirst.org/audio/blog/2026-05-15-the-biggest-threat-to-robot-safety.m4a"
 ---
 
 A warehouse worker asks a robot to stack one more box. A nurse asks a surgical assistant to hand over the scalpel. A mine operator tells the haul truck to continue on its current route.
