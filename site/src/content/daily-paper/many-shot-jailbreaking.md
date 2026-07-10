@@ -4,7 +4,6 @@
 title: "Many-Shot Jailbreaking: Exploiting In-Context Learning at Scale"
 description: "Demonstrates that providing many demonstrations of harmful behavior within the context window can teach language models to override their safety training, with attack success scaling with context size."
 date: 2025-11-04
-arxiv: "2404.11499"
 authors: "Anthropic Research"
 paperType: "empirical"
 tags: [in-context-learning, long-context, few-shot, jailbreaking, context-window, safety-training]

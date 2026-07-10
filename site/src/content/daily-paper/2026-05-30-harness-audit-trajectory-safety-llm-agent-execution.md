@@ -4,7 +4,7 @@ title: "Auditing Agent Harness Safety: Why Final Outputs Are Not Enough"
 description: "HarnessAudit introduces trajectory-level auditing of LLM agent execution harnesses — finding that task completion is systematically misaligned with safe execution, and violations accumulate with trajectory length."
 date: 2026-05-30
 arxiv: "2605.14271"
-authors: "Yichen Guo, Yepeng Liu, Yuzhe Yang, Qianqi Yan, Xuandong Zhao, Wenyue Hua, Sheng Liu, Sharon Li, Yuheng Bu, Xin Eric Wang"
+authors: "Chengzhi Liu, Yichen Guo, Yepeng Liu, Yuzhe Yang, Qianqi Yan, Xuandong Zhao, Wenyue Hua, Sheng Liu, Sharon Li, Yuheng Bu, Xin Eric Wang"
 paperType: "empirical"
 tags: [agent-safety, execution-harness, trajectory-auditing, multi-agent, boundary-compliance, evaluation]
 draft: false

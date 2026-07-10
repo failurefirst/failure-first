@@ -4,7 +4,7 @@ title: "Refusal Falls off a Cliff: How Safety Alignment Fails in Reasoning Model
 description: "Mechanistic analysis of reasoning models discovers the 'refusal cliff'—models correctly identify harmful prompts during thinking but systematically suppress their refusal at the final output tokens."
 date: 2026-04-27
 arxiv: "2510.06036"
-authors: "Qingyu Yin, Chak Tou Leong, Linyi Yang, Wenxuan Huang, Wenjie Li, Xiting Wang, Jaehong Yoon, YunXing"
+authors: "Qingyu Yin, Chak Tou Leong, Linyi Yang, Wenxuan Huang, Wenjie Li, Xiting Wang, Jaehong Yoon, YunXing, XingYu, Jinjin Gu"
 paperType: "empirical"
 tags: [safety-alignment, reasoning-models, mechanistic-interpretability, refusal, alignment-failures, red-teaming, jailbreak]
 draft: false

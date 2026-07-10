@@ -4,8 +4,8 @@
 title: "In-Context Attacks: Natural Language Inference Exploitation"
 description: "Explores how adversarial inputs embedded in context windows can trigger unsafe outputs in language models, leveraging the model's natural-language inference capabilities as an attack surface."
 date: 2025-11-03
-arxiv: "2311.00872"
-authors: "Prabhav Srivastava, Divyat Mahajan, Carsten Eickhoff, Arjun Gupta"
+arxiv: "2310.06387"
+authors: "Zeming Wei, Yifei Wang, Ang Li, Yichuan Mo, Yisen Wang"
 paperType: "empirical"
 tags: [in-context-attacks, prompt-injection, context-window-exploitation, llm-safety, inference]
 draft: false

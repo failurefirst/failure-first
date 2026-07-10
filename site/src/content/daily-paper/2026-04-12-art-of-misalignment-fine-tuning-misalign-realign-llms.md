@@ -4,7 +4,7 @@ title: "The Art of (Mis)alignment: How Fine-Tuning Methods Effectively Misalign 
 description: "An empirical study showing that misaligning an LLM via fine-tuning is significantly cheaper than realigning it, with asymmetric attack-defense dynamics that have serious implications for deployed safety."
 date: 2026-04-12
 arxiv: "2604.07754"
-authors: "Rui Zhang, Hongwei Li, Yun Shen, Xinyue Shen, Wenbo Jiang, Guowen Xu, Yang Liu, Michael Backes"
+authors: "Rui Zhang, Hongwei Li, Yun Shen, Xinyue Shen, Wenbo Jiang, Guowen Xu, Yang Liu, Michael Backes, Yang Zhang"
 paperType: "empirical"
 tags: [safety-alignment, fine-tuning, llm-safety, misalignment, post-training]
 draft: false

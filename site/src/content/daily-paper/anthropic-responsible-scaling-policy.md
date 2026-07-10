@@ -4,11 +4,10 @@
 title: "Towards Scalable, Trustworthy AI by Default: Alignment, Uncertainty, and Scalable Oversight"
 description: "Introduces Anthropic's Responsible Scaling Policy (RSP), a framework for developing AI systems that remain trustworthy and aligned as they scale, incorporating red-teaming, uncertainty quantification, and human oversight mechanisms to catch emergent risks before deployment."
 date: 2025-09-08
-arxiv: "2309.08956"
 authors: "Dario Amodei, Daniela Amodei, Tom Brown, Jared Kaplan, Sam McCandlish, Chris Olah, Darnell Wix"
 paperType: "position"
 tags: ["responsible-scaling", "alignment-as-scaling", "red-teaming", "uncertainty", "scalable-oversight", "rsp"]
-draft: false
+draft: true  # UNPUBLISHED 2026-07-09: fabricated entry (hallucinated author "Darnell Wix", RSP is not an arXiv paper, wrong id 2309.08956→astrophysics). Pending editorial rewrite/removal — #963/#969.
 audio: "https://cdn.failurefirst.org/audio/daily-paper/anthropic-responsible-scaling-policy.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/anthropic-responsible-scaling-policy.png"
 ---

@@ -4,7 +4,7 @@ title: "DualTHOR: A Dual-Arm Humanoid Simulation Platform for Contingency-Aware 
 description: "A physics-based simulator for dual-arm humanoid robots introduces a contingency mechanism that deliberately injects low-level execution failures, revealing critical robustness gaps in current VLMs."
 date: 2026-04-20
 arxiv: "2506.16012"
-authors: "Boyu Li, Siyuan He, Hang Xu, Haoqi Yuan, Yu Zang, Liwei Hu, Junpeng Yue, Zhenxiong Jiang"
+authors: "Boyu Li, Siyuan He, Hang Xu, Haoqi Yuan, Yu Zang, Liwei Hu, Junpeng Yue, Zhenxiong Jiang, Pengbo Hu, Börje F. Karlsson, Yehui Tang, Zongqing Lu"
 paperType: "empirical"
 tags: [embodied-ai, vla-models, simulation, failure-modes, contingency-planning, dual-arm-robotics, robustness-evaluation]
 draft: false

@@ -4,7 +4,7 @@ title: "AHA: A Vision-Language-Model for Detecting and Reasoning Over Failures i
 description: "AHA is an open-source VLM that detects robotic manipulation failures and generates natural-language explanations, enabling safer recovery pipelines and denser reward signals."
 date: 2026-04-15
 arxiv: "2410.00371"
-authors: "Jiafei Duan, Wilbert Pumacay, Nishanth Kumar, Yi Ru Wang, Shulin Tian, Wentao Yuan, Ranjay Krishna, Dieter Fox"
+authors: "Jiafei Duan, Wilbert Pumacay, Nishanth Kumar, Yi Ru Wang, Shulin Tian, Wentao Yuan, Ranjay Krishna, Dieter Fox, Ajay Mandlekar, Yijie Guo"
 paperType: "empirical"
 tags: [failure-detection, robotic-manipulation, vision-language-models, embodied-ai, failure-modes]
 draft: false

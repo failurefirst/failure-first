@@ -4,6 +4,7 @@ title: "Reinforcing 3D Understanding in Point-VLMs via Geometric Reward Credit A
 description: "Point-VLMs suffer geometric hallucination where predicted 3D structures contradict observed 2D reality. Geometric Reward Credit Assignment disentangles holistic supervision into field-specific signals, boosting 3D keypoint accuracy from 0.64 to 0.93."
 date: 2026-05-10
 arxiv: "2604.21160"
+authors: "Jingkun Chen, Ruoshi Xu, Mingqi Gao, Shengda Luo, Jungong Han"
 paperType: "empirical"
 tags: [point-vlms,geometric-hallucination,reinforcement-learning,credit-assignment,embodied-ai,3d-understanding]
 draft: false

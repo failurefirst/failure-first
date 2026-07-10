@@ -4,7 +4,7 @@ title: "ARMOR: Aligning Secure and Safe Large Language Models via Meticulous Rea
 description: "ARMOR defends LLMs against jailbreak attacks by using inference-time reasoning to detect attack strategies, extract true intent, and apply policy-grounded safety analysis."
 date: 2026-04-28
 arxiv: "2507.11500"
-authors: "Zhengyue Zhao, Yingzi Ma, Somesh Jha, Marco Pavone, Chaowei Xiao"
+authors: "Zhengyue Zhao, Yingzi Ma, Somesh Jha, Marco Pavone, Patrick McDaniel, Chaowei Xiao"
 paperType: "methods"
 tags: [jailbreak-defense, safety-alignment, reasoning, llm-safety, inference-time-defense]
 draft: false

@@ -5,7 +5,7 @@ title: "Sparks of Artificial General Intelligence: Early Experiments with GPT-4"
 description: "Documents GPT-4's remarkable few-shot learning capabilities across diverse domains, showing emergent reasoning abilities in mathematics, coding, science, and vision tasks that suggest possible progression toward artificial general intelligence."
 date: 2025-09-02
 arxiv: "2303.12712"
-authors: "Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric Horvitz, Ece Kamar, Peter Lee, Yin Tat Lee, Yuanzhi Li, Scott Lundberg, Marco Tulio Ribeiro, Yi Zhang"
+authors: "Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric Horvitz, Ece Kamar, Peter Lee, Yin Tat Lee, Yuanzhi Li, Scott Lundberg, Harsha Nori, Hamid Palangi, Marco Tulio Ribeiro, Yi Zhang"
 paperType: "empirical"
 tags: ["gpt-4", "emergent-capabilities", "few-shot-learning", "reasoning", "multimodal", "capability-analysis"]
 draft: false

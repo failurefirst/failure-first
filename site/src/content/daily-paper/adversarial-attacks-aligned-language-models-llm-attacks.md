@@ -4,8 +4,8 @@
 title: "Adversarial Attacks on Aligned Language Models"
 description: "Introduces automated methods to discover adversarial suffixes that bypass safety alignment in LLMs, demonstrating high transferability across models and establishing a benchmark for studying robustness of language model alignment."
 date: 2025-11-01
-arxiv: "2406.13333"
-authors: "Yuchao Zhou, Frank Wang, James Zou"
+arxiv: "2307.15043"
+authors: "Andy Zou, Zifan Wang, Nicholas Carlini, Milad Nasr, J. Zico Kolter, Matt Fredrikson"
 paperType: "empirical"
 tags: [jailbreaking, adversarial-attacks, llm-safety, alignment, transferability]
 draft: false

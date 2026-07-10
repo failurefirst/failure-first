@@ -3,7 +3,6 @@
 title: "Graceful Degradation Policies for Embodied Agents under Uncertainty-Bounded Action"
 description: "Proposes a control architecture in which the embodied agent's action confidence is mapped to a continuum of safer fallback behaviours — slowing, stopping, requesting help — rather than the binary execute-or-refuse pattern that dominates current systems."
 date: 2026-05-08
-arxiv: "2604.20847"
 paperType: "methods"
 tags: [embodied-ai,uncertainty-quantification,graceful-degradation,safety-fallback,human-in-the-loop,control-policy]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.20847-audio-overview.m4a"
@@ -45,4 +44,3 @@ The paper is honest about limitations. Calibration error remains the dominant fa
 
 This paper formalises a control pattern that the F41LUR3-F1R57 framework has been advocating implicitly through the "reentry support" scenario class: an agent that can degrade gracefully provides reentry points for human supervision; an agent that operates in execute-or-refuse mode does not. The two-threshold policy is the architectural complement to evaluation regimes that test whether agents can be safely interrupted, redirected, or assisted mid-task. Without such an architecture, the evaluation regime has nothing to test.
 
-*Read the [full paper on arXiv](https://arxiv.org/abs/2604.20847) · [PDF](https://arxiv.org/pdf/2604.20847.pdf)*

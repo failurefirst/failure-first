@@ -2,7 +2,6 @@
 title: "Recoverability as an Evaluation Axis: When Embodied Agents Can Undo Mistakes"
 description: "Argues that task success rate is the wrong primary metric for embodied AI evaluation, and proposes recoverability — the fraction of errors that the agent can detect and reverse before they become irreversible — as a complementary axis."
 date: 2026-04-30
-arxiv: "2604.18402"
 paperType: "position"
 tags: [embodied-ai,evaluation,recoverability,irreversibility,failure-modes,safety-metrics]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.18402-audio-overview.m4a"
@@ -42,4 +41,3 @@ This paper aligns directly with a principle the F41LUR3-F1R57 framework has held
 
 The deeper implication is that evaluation regimes that only measure success rate will systematically favour agents that fail confidently and unrecoverably over agents that fail cautiously and request help. This is the opposite of what safety-critical deployment requires.
 
-*Read the [full paper on arXiv](https://arxiv.org/abs/2604.18402) · [PDF](https://arxiv.org/pdf/2604.18402.pdf)*

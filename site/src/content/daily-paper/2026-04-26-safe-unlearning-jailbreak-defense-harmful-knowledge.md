@@ -4,7 +4,7 @@ title: "Safe Unlearning: A Surprisingly Effective and Generalizable Solution to 
 description: "Directly removing harmful knowledge from LLMs via machine unlearning—with just 20 training examples—cuts jailbreak success rates more effectively than safety fine-tuning on 100k samples."
 date: 2026-04-26
 arxiv: "2407.02855"
-authors: "Zhexin Zhang, Junxiao Yang, Pei Ke, Shiyao Cui, Chujie Zheng, Hongning Wang, Minlie Huang"
+authors: "Zhexin Zhang, Junxiao Yang, Yida Lu, Pei Ke, Shiyao Cui, Chujie Zheng, Hongning Wang, Minlie Huang"
 paperType: "empirical"
 tags: [jailbreak-defense, machine-unlearning, safety-alignment, llm-safety, red-teaming]
 draft: false

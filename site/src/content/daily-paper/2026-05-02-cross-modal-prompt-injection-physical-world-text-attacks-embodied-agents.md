@@ -2,7 +2,6 @@
 title: "Cross-Modal Prompt Injection: Physical-World Text Attacks on Embodied Agents"
 description: "Empirical study of how text placed in physical environments — labels, signs, printed notes — can hijack the reasoning of vision-language embodied agents, with measurements across object manipulation and navigation tasks."
 date: 2026-05-02
-arxiv: "2604.19115"
 paperType: "empirical"
 tags: [embodied-ai,prompt-injection,typographic-attacks,vision-language-models,physical-attacks,safety-evaluation]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.19115-audio-overview.m4a"
@@ -42,4 +41,3 @@ The authors are careful to note that their results are conditional on the specif
 
 This paper documents the embodied counterpart to a vulnerability class that the F41LUR3-F1R57 framework has long flagged in the scenario taxonomy under "perceptual manipulation" and "instruction override." What the paper adds is empirical grounding: not only does the attack surface exist, it is exploitable under realistic conditions and the success rate is non-trivial. Defenses for this class of attack will require treating extracted scene text as untrusted by default — a stance that current vision-language agent architectures do not generally adopt.
 
-*Read the [full paper on arXiv](https://arxiv.org/abs/2604.19115) · [PDF](https://arxiv.org/pdf/2604.19115.pdf)*

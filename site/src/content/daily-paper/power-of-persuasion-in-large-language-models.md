@@ -4,8 +4,8 @@
 title: "On the Power of Persuasion: Jailbreaking Language Models through Dialogue"
 description: "Demonstrates that language models are vulnerable to sophisticated persuasion attacks through multi-turn dialogue, where models gradually relax safety constraints through conversation without explicit jailbreak prompts."
 date: 2025-09-07
-arxiv: "2303.08721"
-authors: "Michael Brundage, Tamay Besiroglu, Kevin Liu, Liane Lovitt, Jian Peng, Jeanne Perez, Amogh Vaidya, Jade Vainstein, Jaehn Varshney"
+arxiv: "2401.06373"
+authors: "Yi Zeng, Hongpeng Lin, Jingwen Zhang, Diyi Yang, Ruoxi Jia, Weiyan Shi"
 paperType: "empirical"
 tags: ["jailbreaks", "persuasion", "multi-turn-dialogue", "safety-vulnerabilities", "adversarial-prompts", "refusal-evasion"]
 draft: false
@@ -113,4 +113,4 @@ Persuasion attacks are particularly relevant to embodied AI safety:
 
 ---
 
-*Read the [full paper on arXiv](https://arxiv.org/abs/2303.08721) · [PDF](https://arxiv.org/pdf/2303.08721.pdf)*
+*Read the [full paper on arXiv](https://arxiv.org/abs/2401.06373) · [PDF](https://arxiv.org/pdf/2401.06373.pdf)*
