@@ -11,13 +11,23 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2503.04760-audio-overview
 video: "/video/2503.04760-video-overview.mp4"
 ---
 
-# Small Reward Models via Backward Inference
+# Agentic AI and the Cyber Arms Race
 
-Training reward models for RLHF is expensive and requires labeled preference data. What if you could create effective reward models by running inference backward through the model—asking "what instruction would produce this output"? This approach (FLIP) is cheaper and doesn't require preference labels.
+As AI systems gain the ability to take actions in the world—writing code, running commands, accessing external APIs—the attack surface expands dramatically. An agentic AI system that can execute code is not just a text generator; it's a potential entry point into your infrastructure. This transforms AI safety from a content moderation problem into a systems security problem.
 
-FLIP demonstrates that reward models trained via backward inference can match or exceed the performance of traditional preference-based reward models at a fraction of the cost. Instead of asking "is this output good," you ask "what was the model trying to do here." This reframes reward modeling as an inverse problem that language models can solve directly. The approach works well for detecting instruction-following failures and measuring alignment, making it a practical tool for safety evaluation.
+The paper maps out how agentic AI capabilities interact with cybersecurity concerns. An
+AI assistant that can write and run code is powerful for productivity but dangerous if compromised or misaligned. It could be tricked into writing malicious code, accessing unauthorized systems, or exfiltrating data. Worse, the traditional AI safety mitigations (alignment training, refusal training) may not apply well to agentic tasks because many legitimate use cases require the ability to execute potentially dangerous operations. How do you safely enable "run this shell command" while preventing abuse?
 
-For practitioners, this matters because it enables cheaper safety evaluation in resource-constrained settings. FLIP-based reward models can run on smaller models and use less compute than traditional approaches. However, the backward-inference approach introduces new failure modes: if the model misinterprets the "intended" instruction, the reward signal becomes misleading. This is a reminder that every safety technique has assumptions and failure cases. Backward-inference reward models are useful, but they're not a universal solution.
+This represents a shift in the threat model. Older AI safety discussions treated the model as a text oracle—dangerous primarily in what it says. Agentic systems are dangerous in what they do. This means security evaluation needs to shift from "can the model be tricked into saying harmful things" to "can the model be tricked into executing harmful actions." For builders deploying agentic systems, this means infrastructure hardening, sandboxing, and capability limitation become as important as alignment training.
+
+---
+
+## Key Findings
+
+- Agentic AI systems shift threat model from content moderation to systems security
+- Traditional alignment training doesn't apply well when legitimate use cases require 'dangerous' operations
+- Code execution capability becomes an attack vector into user infrastructure
+- Defense strategy must balance capability with sandboxing and privilege separation
 
 ---
 

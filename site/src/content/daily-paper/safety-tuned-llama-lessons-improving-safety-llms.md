@@ -5,7 +5,7 @@ title: "Safety-Tuned LLaMA: Lessons From Improving Safety of LLMs"
 description: "Documents practical lessons from fine-tuning LLaMA with safety-focused instruction data, revealing that safety improvements on benchmarks often come at the cost of helpfulness and that models develop brittle heuristics rather than robust understanding of harm."
 date: 2025-09-06
 arxiv: "2309.07875"
-authors: "Francesco Bianchi, Pierpaolo Basile, Giuseppe Fiameni"
+authors: "Federico Bianchi, Mirac Suzgun, Giuseppe Attanasio, Paul Röttger, Dan Jurafsky, Tatsunori Hashimoto, James Zou"
 paperType: "empirical"
 tags: ["llama", "safety-fine-tuning", "instruction-tuning", "alignment-trade-offs", "safety-training", "model-behavior"]
 draft: false

@@ -4,7 +4,7 @@ title: "Vision-Language-Action Safety: Threats, Challenges, Evaluations, and Mec
 description: "A comprehensive survey unifying VLA safety research across adversarial attacks, defenses, benchmarks, and six deployment domains."
 date: 2026-04-28
 arxiv: "2604.23775"
-authors: "Qi Li, Bo Yin, Weiqi Huang, Ruhao Liu, Bojun Zou, Runpeng Yu, Jingwen Ye, Weihao Yu, et al."
+authors: "Qi Li, Bo Yin, Weiqi Huang, Ruhao Liu, Bojun Zou, Runpeng Yu, Jingwen Ye, Weihao Yu, Xinchao Wang"
 paperType: "survey"
 tags: [vla-safety, embodied-ai, adversarial-attacks, survey, robotics-security]
 draft: false

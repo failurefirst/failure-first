@@ -5,7 +5,7 @@ title: "HarmBench: A Standardized Evaluation Framework for Automated Red Teaming
 description: "Introduces HarmBench, a comprehensive benchmark for evaluating automated red-teaming methods against language models, establishing standardized metrics and harm categories to enable reproducible adversarial AI research."
 date: 2025-11-05
 arxiv: "2402.04249"
-authors: "Mantas Mazeika, Long Phan, Alexander Pan, Andy Zou, Alice Gatti, Justin Wang, Aidan O'Gara, Elohim Fomby, Samuel Wernsing, Evan Hubinger"
+authors: "Mantas Mazeika, Long Phan, Xuwang Yin, Andy Zou, Zifan Wang, Norman Mu, Elham Sakhaee, Nathaniel Li, Steven Basart, Bo Li, David Forsyth, Dan Hendrycks"
 paperType: "methods"
 tags: [red-teaming, jailbreaking, benchmarking, standardization, safety-evaluation, adversarial-ai]
 draft: false

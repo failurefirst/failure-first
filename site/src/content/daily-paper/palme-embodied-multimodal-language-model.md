@@ -5,7 +5,7 @@ title: "PaLM-E: An Embodied Multimodal Language Model for Robotics"
 description: "Presents PaLM-E, a large-scale multimodal language model that unifies vision, text, and embodiment, enabling robots to perform complex manipulation tasks through natural language grounding and learned sensorimotor representations."
 date: 2025-11-09
 arxiv: "2303.03378"
-authors: "Danny Driess, Fei Xia, Mehdi SM Sajjadi, Corey Lynch, Ayzaan Wahid, Tingnan Zhang, Adam Szucs, Joseph Ortega, Oscar Ramirez, Yuka Inagaki, Alexander Toshev, Thomas Dreyfus, Sergio Guadarrama, Florian Shkurti, Sergey Levine"
+authors: "Danny Driess, Fei Xia, Mehdi S. M. Sajjadi, Corey Lynch, Aakanksha Chowdhery, Brian Ichter, Ayzaan Wahid, Jonathan Tompson, Quan Vuong, Tianhe Yu, Wenlong Huang, Yevgen Chebotar, Pierre Sermanet, Daniel Duckworth, Sergey Levine, Vincent Vanhoucke, Karol Hausman, Marc Toussaint, Klaus Greff, Andy Zeng, Igor Mordatch, Pete Florence"
 paperType: "empirical"
 tags: [embodied-ai, multimodal, language-grounding, robotics, manipulation, sensorimotor, foundation-models]
 draft: false

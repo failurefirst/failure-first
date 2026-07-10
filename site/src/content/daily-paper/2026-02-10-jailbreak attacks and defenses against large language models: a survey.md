@@ -10,13 +10,23 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.04295-audio-overview.m4a"
 ---
 
-# Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications
+# Jailbreak Attacks and Defenses Against Large Language Models: A Survey
 
-Safety alignment is fundamentally implemented as weights in the neural network. This raises a question: how robust is alignment to the kinds of modifications that happen during model optimization, compression, and adaptation? If you can strip away safety by pruning or low-rank modifying just a few percent of the model, then alignment is more brittle than we'd like to admit.
+The literature on LLM jailbreaking has exploded, but organizing it into a coherent threat model is difficult. New attack papers appear weekly. Defenses are published faster than anyone can evaluate them. Without a systematic understanding of the attack surface, practitioners are left guessing which threats matter and which are theoretical edge cases.
 
-Researchers found that they could significantly degrade safety alignment through weight pruning and low-rank modifications—techniques commonly used for model compression and efficient fine-tuning. In some cases, removing just 5-10% of the model's weights, carefully selected, resulted in dramatic increases in jailbreak success rates. This is not a theoretical concern: these techniques are used in production to reduce model size and inference costs. The implication is that safety alignment is localized in specific weight subsets rather than distributed throughout the network, making it vulnerable to targeted removal.
+This survey provides a comprehensive taxonomy of jailbreak attacks and defenses across
+multiple dimensions: semantic attacks (role-playing, hypothetical scenarios, constraint relaxation), token-level attacks (adversarial suffixes, prompt injection), and system-level attacks (fine-tuning manipulation, supply chain compromise). For each category, the authors analyze proposed defenses and assess their effectiveness. The conclusion is humbling: most defenses are narrow in scope, often solving one attack category while leaving others untouched. Defenses that worked well a year ago are now circumvented by evolved attack techniques.
 
-For practitioners, this is a sobering finding about the fragility of alignment. Safety improvements can be undone through the very optimization processes meant to improve model efficiency. This suggests that safety and efficiency are sometimes in tension, and that you need to evaluate safety properties every time you modify the model architecture. It also implies that alignment training may not be creating robust, fundamental changes to model behavior—it may be creating brittle, easily-removable surface-level changes.
+The failure-first takeaway is that jailbreaking research confirms a hard truth about adversarial robustness: defenses are always playing catch-up. An attack works until researchers understand it well enough to patch it, then attackers adapt. This suggests that perfect robustness is not achievable. Instead, practitioners should focus on understanding the threat model relevant to their deployment, implement defense-in-depth strategies, and accept that new vulnerabilities will emerge. Security is a continuous process, not a solved problem.
+
+---
+
+## Key Findings
+
+- Semantic attacks (role-playing, hypothetical scenarios) exploit distribution gaps in safety training
+- Token-level attacks (adversarial suffixes) target model internals, requiring different defenses
+- System-level attacks (supply chain, fine-tuning) operate outside the model, bypassing alignment training
+- Most defenses are narrow: solving one attack category while leaving others open
 
 ---
 
@@ -31,7 +41,7 @@ For practitioners, this is a sobering finding about the fragility of alignment. 
 
 ## 📊 Infographic
 
-![Assessing the Brittleness of Safety Alignment via Pruning and Low-Rank Modifications Infographic](/images/daily-paper/2407.04295-infographic.png)
+![Jailbreak Attacks and Defenses Against Large Language Models: A Survey Infographic](/images/daily-paper/2407.04295-infographic.png)
 
 ---
 ## 🎬 Video Overview

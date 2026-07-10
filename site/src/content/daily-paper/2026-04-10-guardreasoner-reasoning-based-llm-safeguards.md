@@ -3,7 +3,7 @@ title: "GuardReasoner: Towards Reasoning-based LLM Safeguards"
 description: "GuardReasoner trains safety guardrails to produce explicit reasoning chains before verdicts, outperforming GPT-4o+CoT and LLaMA Guard on safety benchmarks while improving generalization to novel adversarial inputs."
 date: 2026-04-10
 arxiv: "2501.18492"
-authors: "Yue Liu, Hongcheng Gao, Shengfang Zhai, Jun Xia, Tianyi Wu, Zhiwei Xue, Yulin Chen, Kenji Kawaguchi"
+authors: "Yue Liu, Hongcheng Gao, Shengfang Zhai, Yufei He, Jun Xia, Zhengyu Hu, Yulin Chen, Xihong Yang, Jiaheng Zhang, Stan Z. Li, Hui Xiong, Bryan Hooi"
 paperType: "empirical"
 tags: [llm-safety, guardrails, reasoning, safety-alignment, red-teaming]
 draft: false

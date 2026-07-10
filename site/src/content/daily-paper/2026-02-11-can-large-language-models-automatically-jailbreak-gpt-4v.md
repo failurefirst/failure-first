@@ -12,13 +12,23 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2407.16686-infographic.w
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.16686-audio-overview.m4a"
 ---
 
-# Agentic AI and the Cyber Arms Race
+# Can Large Language Models Automatically Jailbreak GPT-4V?
 
-As AI systems gain the ability to take actions in the world—writing code, running commands, accessing external APIs—the attack surface expands dramatically. An agentic AI system that can execute code is not just a text generator; it's a potential entry point into your infrastructure. This transforms AI safety from a content moderation problem into a systems security problem.
+Jailbreak research has traditionally focused on manual prompt engineering or running gradient-based attacks on models you have access to. But what if you could train one model to automatically generate jailbreaks against another model without ever seeing its weights? This question matters because it describes the real attack surface: an attacker with API access to a strong open-source model, trying to break a closed commercial system.
 
-The paper maps out how agentic AI capabilities interact with cybersecurity concerns. An AI assistant that can write and run code is powerful for productivity but dangerous if compromised or misaligned. It could be tricked into writing malicious code, accessing unauthorized systems, or exfiltrating data. Worse, the traditional AI safety mitigations (alignment training, refusal training) may not apply well to agentic tasks because many legitimate use cases require the ability to execute potentially dangerous operations. How do you safely enable "run this shell command" while preventing abuse?
+Researchers showed that you can train an attacker LLM on a small set of successful
+jailbreaks, then use it to generate novel attacks against GPT-4V without any access to GPT-4V's internals. The trained attacker model learns patterns about what makes jailbreaks work and can generalize to new targets. Success rates were significant enough to demonstrate the vulnerability, and the approach generalizes: an attacker model trained on one target can often break other targets. This is concerning because it means the cost of attacking is not proportional to the sophistication of the target—you just need a capable LLM and some seed jailbreaks.
 
-This represents a shift in the threat model. Older AI safety discussions treated the model as a text oracle—dangerous primarily in what it says. Agentic systems are dangerous in what they do. This means security evaluation needs to shift from "can the model be tricked into saying harmful things" to "can the model be tricked into executing harmful actions." For builders deploying agentic systems, this means infrastructure hardening, sandboxing, and capability limitation become as important as alignment training.
+The failure-first insight here is that attack automation democratizes jailbreaking. You no longer need to be an elite prompt engineer or have a GPU farm running gradient attacks. You need API access and a capable model. This fundamentally changes the threat model for deployed systems. Defenders must assume that attacks will be systematized and automated, not handcrafted. This shifts the burden from "can humans find this jailbreak" to "can we defend against systematic, LLM-generated attacks that exploit our vulnerabilities at scale.
+
+---
+
+## Key Findings
+
+- Attacker LLM trained on seed jailbreaks can generate novel attacks on closed-source models
+- Attack works through API access only—no white-box access required
+- Attack automation generalizes across models: patterns learned from one target transfer to others
+- Cost barrier to jailbreaking drops dramatically with attack automation
 
 ---
 

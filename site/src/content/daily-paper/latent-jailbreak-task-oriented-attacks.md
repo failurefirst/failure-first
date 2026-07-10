@@ -5,7 +5,7 @@ title: "Latent Jailbreak: A Benchmark for Evaluating LLM Safety under Task-Orien
 description: "Safety evaluation for goal-directed attacks where the harmful intent is latent in system instructions, not explicit requests"
 date: 2025-10-04
 arxiv: "2307.08487"
-authors: "Yuancheng Xu, Jiayi Liu, Rama Chellat, Zizhou Liu, Qiang Liu, University of Texas at Austin"
+authors: "Huachuan Qiu, Shuai Zhang, Anqi Li, Hongliang He, Zhenzhong Lan"
 paperType: "empirical"
 tags: [task-oriented-jailbreak, latent-intent, benchmark, safety-evaluation, implicit-harm]
 draft: false

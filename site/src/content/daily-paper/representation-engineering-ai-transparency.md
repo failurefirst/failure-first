@@ -5,7 +5,7 @@ title: "Representation Engineering: A Top-Down Approach to AI Transparency"
 description: "Identifying and manipulating internal model directions that encode safety behaviors—foundational for interpretability research"
 date: 2025-10-06
 arxiv: "2310.01405"
-authors: "Andy Zou, Long Phan, Sarah Chen, James Campbell, Philippe Tillet, Yonatan Belinkov, CAIS, Anthropic, MIT-IBM Lab"
+authors: "Andy Zou, Long Phan, Sarah Chen, James Campbell, Phillip Guo, Richard Ren, Alexander Pan, Xuwang Yin, Mantas Mazeika, Ann-Kathrin Dombrowski, Shashwat Goel, Nathaniel Li, Michael J. Byun, Zifan Wang, Alex Mallen, Steven Basart, Sanmi Koyejo, Dawn Song, Matt Fredrikson, J. Zico Kolter, Dan Hendrycks"
 paperType: "empirical"
 tags: [interpretability, mechanistic-transparency, representation-analysis, safety-directions, model-editing]
 draft: false

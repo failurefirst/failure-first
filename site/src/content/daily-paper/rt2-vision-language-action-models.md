@@ -5,7 +5,7 @@ title: "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Co
 description: "Demonstrates that vision-language models trained on web text and images can directly control robots by treating robotic control as a language modeling problem, achieving generalization to new tasks without task-specific training."
 date: 2025-11-08
 arxiv: "2307.15818"
-authors: "Anthony Brohan, Noah Brown, Justice Erwin, Pedro Figueroa, Karol Hausman, Alex Herzog, Jasmine Hsu, Julian Ibarz, Brian Ichien, Rosario Jauregui, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Linxi Fan, Kuang-Huei Lee, Sergey Levine, Yao Lu, Jornada Lye, Isabel Nvarrete Contreras, Erik Miquel, Danny Rewcastle, Florence Rishard, Diego Romeres, Danilo Sippl, Ayzaan Wahid, Fei Xia, Peng Xu, Mengyuan Yan, Andy Zeng"
+authors: "Anthony Brohan, Noah Brown, Justice Carbajal, Yevgen Chebotar, Xi Chen, Krzysztof Choromanski, Tianli Ding, Danny Driess, Avinava Dubey, Chelsea Finn, Pete Florence, Chuyuan Fu, Montse Gonzalez Arenas, Keerthana Gopalakrishnan, Kehang Han, Karol Hausman, Alexander Herzog, Jasmine Hsu, Brian Ichter, Alex Irpan, Nikhil Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Isabel Leal, Lisa Lee, Tsang-Wei Edward Lee, Sergey Levine, Yao Lu, Henryk Michalewski, Igor Mordatch, Karl Pertsch, Kanishka Rao, Krista Reymann, Michael Ryoo, Grecia Salazar, Pannag Sanketi, Pierre Sermanet, Jaspiar Singh, Anikait Singh, Radu Soricut, Huong Tran, Vincent Vanhoucke, Quan Vuong, Ayzaan Wahid, Stefan Welker, Paul Wohlhart, Jialin Wu, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Tianhe Yu, Brianna Zitkovich"
 paperType: "empirical"
 tags: [vision-language-action, robotics, generalization, web-knowledge-transfer, language-grounding, embodied-ai]
 draft: false

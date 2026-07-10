@@ -5,7 +5,7 @@ title: "Llama Guard: LLM-based Input-Output Safeguard for Open-Ended Generative 
 description: "First LLM-based safety filter—delegates moderation to a smaller, specialized safety model"
 date: 2025-10-02
 arxiv: "2312.06674"
-authors: "Hakan Inan, Kartikeya Upasani, Andrew Poulton, Telmo Vieira, Rashi Malik, Andrew Tran, Joelle Pineau, Yasemin Akyürek, Meta"
+authors: "Hakan Inan, Kartikeya Upasani, Jianfeng Chi, Rashi Rungta, Krithika Iyer, Yuning Mao, Michael Tontchev, Qing Hu, Brian Fuller, Davide Testuggine, Madian Khabsa"
 paperType: "empirical"
 tags: [safety-filtering, llm-as-judge, moderation-framework, taxonomy, content-policy]
 draft: false

@@ -5,7 +5,7 @@ title: "InstructGPT: Training Language Models to Follow Instructions with Human 
 description: "Introduces Reinforcement Learning from Human Feedback (RLHF) methodology to align language models with human intentions, demonstrating that fine-tuned models exhibit fewer harmful outputs and better follow user instructions while maintaining task performance."
 date: 2025-09-01
 arxiv: "2203.02155"
-authors: "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Widdows, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Sam McCandlish, Tom Brown, Dario Amodei, Chris Huh"
+authors: "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, Ryan Lowe"
 paperType: "empirical"
 tags: ["rlhf", "alignment", "instruction-following", "human-feedback", "safety-training", "model-fine-tuning"]
 draft: false

@@ -5,7 +5,7 @@ title: "Refusal in Language Models is Mediated by a Single Direction"
 description: "Safety refusals are encoded along a single vector in model representations—implicating both interpretability and vulnerability"
 date: 2025-10-09
 arxiv: "2406.11717"
-authors: "Sam Arditi, Ryan Cummings, Nicholas Schiefer, Wes Wright, Tomás Jiménez, Ravi Udeshi, DeepMind"
+authors: "Andy Arditi, Oscar Obeso, Aaquib Syed, Daniel Paleka, Nina Panickssery, Wes Gurnee, Neel Nanda"
 paperType: "empirical"
 tags: [refusal-direction, representation-analysis, mechanistic-safety, model-steering, vulnerability-analysis]
 draft: false

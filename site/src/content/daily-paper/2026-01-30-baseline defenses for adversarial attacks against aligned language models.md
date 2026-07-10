@@ -13,36 +13,33 @@ video: "/video/2309.00614-video-overview.mp4"
 
 # Baseline Defenses for Adversarial Attacks Against Aligned Language Models
 
-The rush to integrate vision into large language models has been treated largely as a capability problem—how to make systems better at understanding images and text together. But capability additions rarely come without tradeoffs, and in this case the tradeoff appears to be safety. As systems like GPT-4V and Gemini have grown more capable, they've also grown more vulnerable in ways that weren't obvious until now. The continuous, high-dimensional nature of visual input creates an attack surface that text-based safety measures were never designed to defend against. This matters not as a theoretical concern but as a practical one: if your safety alignment only works in one modality, it doesn't actually work.
+When new attack methods emerge, the first question is always: do simple defenses work? If straightforward mitigations like input filtering or output detection can block attacks, then the threat is containable. If simple defenses fail, we know the problem is more fundamental and requires deeper architectural changes.
 
-Researchers at Princeton demonstrated this by constructing adversarial images—visually imperceptible perturbations added to normal pictures—that can override safety guardrails in aligned vision-language models. Crucially, they found that a single optimized image can function as a universal jailbreak, compelling models to produce harmful content in response to diverse harmful instructions that the model would otherwise refuse. The attack works by exploiting the visual encoder and language head together, forcing the model to output a specific phrase (like "Sure, here it is") that then leads it to comply with harmful requests. The generality of the attack is striking: one image, many different harmful objectives, multiple models affected.
+This paper evaluates baseline defense strategies against adversarial attacks: perplexity filtering (detecting adversarial inputs by their unusual statistical properties), paraphrasing (rewriting prompts to strip adversarial content), and output-side detection (identifying harmful responses after generation). The results are mixed. Simple defenses provide partial mitigation but don't eliminate vulnerability. They also introduce costs: increased latency, compute, and sometimes false positives that harm usability. More concerning, adversaries can adapt to simple defenses by making attacks less anomalous or by finding workarounds.
 
-For practitioners building or deploying multimodal systems, this reveals a hard lesson about safety that extends beyond vision-language models. Alignment constraints don't simply add up across modalities—they can actively conflict with each other in ways that create new vulnerabilities. If you've spent effort aligning the text pathway but the vision pathway remains a backdoor, you haven't built a safer system; you've built a system with an asymmetric failure mode. The implication is uncomfortable: current alignment techniques assume a relatively constrained input space, and they fail gracefully once that assumption breaks. Understanding where your safety mechanisms are actually brittle, rather than assuming they're comprehensive, is the prerequisite for building systems that don't fail in production.
+The failure-first insight is that defense against LLM attacks doesn't have a cheap solution. Simple mitigations help but don't suffice. This means security requires ongoing investment, not a one-time patch. It also suggests that the asymmetry between attack and defense is fundamental: attacks can be simple and targeted, while defenses must be comprehensive and constant.
 
 ---
 
 ## Key Insights
 
-This briefing document synthesizes recent empirical research into the vulnerabilities of multimodal AI and the efficacy of various defense strategies for Large Language Models (LLMs). It explores how visual inputs can bypass text-based safety alignment and evaluates the current state of adversarial robustness in language-only systems.
+This briefing document synthesizes empirical research into the efficacy of baseline defense strategies for aligned Large Language Models (LLMs) against adversarial attacks such as Greedy Coordinate Gradient (GCG) suffixes. It evaluates the current state of adversarial robustness in language-only systems and the trade-offs each defense category introduces.
 
 ---
 
 ## Executive Summary
 
-Current research exposes a critical asymmetry in AI safety: while progress has been made in defending text-based LLMs, the introduction of multimodal capabilities (specifically vision) creates a high-dimensional, continuous attack surface that current alignment techniques fail to secure. Empirical evidence demonstrates that a single, perturbed adversarial image can "universally jailbreak" models like Flamingo and GPT-4V, compelling them to follow diverse harmful instructions that their text-based safeguards would normally refuse.
-
-Conversely, in the realm of text-only LLMs, traditional defense categories—detection, preprocessing, and robust optimization—behave differently than they do in computer vision. Due to the discrete nature of text and the high computational cost of current text optimizers, simple defenses like perplexity filtering and paraphrasing are currently more effective than their vision-based counterparts. However, these defenses introduce significant trade-offs in model performance and user experience.
+Traditional defense categories—detection, preprocessing, and robust optimization—are evaluated as baselines against algorithmically-optimized jailbreak attacks on text-only LLMs. Due to the discrete nature of text and the high computational cost of current text optimizers, simple defenses like perplexity filtering and paraphrasing are currently effective at suppressing measured Attack Success Rate (ASR). However, these defenses introduce significant trade-offs in model performance and user experience, and none eliminates vulnerability outright.
 
 ---
 
 ## Analysis of Key Themes
 
-### 1. Multimodal Alignment Fragility
-The transition from unimodal (text) to multimodal (vision-language) architectures introduces systemic vulnerabilities. Multimodal Large Language Models (VLMs) integrate continuous visual input spaces with discrete text processing. Research indicates that visual adversarial examples act as a universal bypass for safety guardrails.
+### 1. Text Defenses Differ From Vision Defenses
+Because text is discrete and current gradient-based text optimizers are far more expensive to run than their image counterparts, defenses that would be brittle against vision-based adversarial attacks are, for now, comparatively effective against text-based ones.
 
-*   **Expanded Attack Surface:** Visual inputs allow for optimization-based attacks that are more effective than text-based prompts.
-*   **Capability vs. Safety:** The addition of vision capabilities systematically undermines existing safety mechanisms, as safety constraints are asymmetrically distributed across modalities.
-*   **Universal Jailbreaking:** Unlike text-based "jailbreaks" that often require specific phrasing for specific prompts, a single adversarial image can be used across a wide array of harmful instructions to elicit prohibited content.
+*   **Optimizer Cost Asymmetry:** Crafting an adversarial text suffix is orders of magnitude more expensive than crafting an adversarial image perturbation, which limits how quickly attackers can adapt to a deployed defense.
+*   **No Free Lunch:** Every defense category tested reduces ASR at the cost of latency, compute, or benign-query false positives — none is a costless fix.
 
 ### 2. Evaluated LLM Defense Strategies
 Research into baseline defenses for LLMs focuses on three primary categories adapted from computer vision.
@@ -82,10 +79,6 @@ The following table summarizes the impact of various defenses on the Attack Succ
 
 ## Important Quotes with Context
 
-> **"The finding that a single adversarial image can universally jailbreak aligned VLMs reveals that safety constraints are asymmetrically distributed across modalities."**
-*   **Context:** Discussing the "Visual Adversarial Vulnerabilities" research.
-*   **Significance:** It highlights that adding new input types (vision) isn't just a capability upgrade; it is a security downgrade that invalidates existing text-only alignment.
-
 > **"Adversarial attacks are particularly problematic because their discovery can be automated, and they can easily bypass safeguards based on hand-crafted fine-tuning data and RLHF."**
 *   **Context:** From the Jain et al. study on baseline defenses.
 *   **Significance:** Emphasizes that "red teaming" via manual prompt engineering is insufficient to stop algorithmically optimized attacks.
@@ -99,9 +92,8 @@ The following table summarizes the impact of various defenses on the Attack Succ
 ## Actionable Insights
 
 ### For Red-Teaming and Safety Evaluation
-1.  **Shift Focus to Multimodal Vectors:** Safety evaluations must prioritize visual-adversarial inputs, as these are "universal" and more difficult to defend than text-based prompts.
-2.  **Use Gray-Box Threat Models:** Since proprietary model parameters are often secret, practitioners should focus on whether attacks transfer from open-source surrogate models to target API models, rather than assuming full white-box access.
-3.  **Evaluate Compute as a Constraint:** Unlike computer vision, where perturbations are limited by $lp$-norms, LLM security should be measured by the "computational budget" required for an optimizer to find a successful jailbreak.
+1.  **Use Gray-Box Threat Models:** Since proprietary model parameters are often secret, practitioners should focus on whether attacks transfer from open-source surrogate models to target API models, rather than assuming full white-box access.
+2.  **Evaluate Compute as a Constraint:** LLM security should be measured by the "computational budget" required for an optimizer to find a successful jailbreak, not just a fixed attack-success threshold.
 
 ### For Defense Implementation
 1.  **Deploy Layered Defense:** Perplexity filtering should not be used to discard prompts but to trigger secondary defenses like paraphrasing or human moderation. 

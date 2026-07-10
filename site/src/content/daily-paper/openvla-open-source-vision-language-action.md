@@ -5,7 +5,7 @@ title: "OpenVLA: An Open-Source Vision-Language-Action Model for Robotic Manipul
 description: "Introduces OpenVLA, a 7B parameter open-source vision-language-action model trained on 970M robot demonstrations, achieving competitive performance on robotic manipulation benchmarks and enabling wide accessibility for embodied AI research."
 date: 2025-11-07
 arxiv: "2406.09246"
-authors: "Mayank Sinha, Kunal Prakash, Abhinav Gupta, Lili Chen, Tsung-Yen Yang, Pieter Abbeel, Ion Stoica, Sergey Levine"
+authors: "Moo Jin Kim, Karl Pertsch, Siddharth Karamcheti, Ted Xiao, Ashwin Balakrishna, Suraj Nair, Rafael Rafailov, Ethan Foster, Grace Lam, Pannag Sanketi, Quan Vuong, Thomas Kollar, Benjamin Burchfiel, Russ Tedrake, Dorsa Sadigh, Sergey Levine, Percy Liang, Chelsea Finn"
 paperType: "empirical"
 tags: [vision-language-action, robotics, embodied-ai, open-source, manipulation, language-grounding]
 draft: false

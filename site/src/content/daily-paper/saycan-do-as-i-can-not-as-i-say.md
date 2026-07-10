@@ -5,7 +5,7 @@ title: "SayCan: Do As I Can, Not As I Say"
 description: "Demonstrates that language models can ground abstract instructions in robotic capabilities by combining language understanding with value functions learned from robot interaction data, enabling robots to reject impossible requests and achieve human intent rather than literal instruction following."
 date: 2025-11-10
 arxiv: "2204.01691"
-authors: "Ahn Micheal, Anthony Brohan, Noah Brown, Yevgen Chebotar, Omar Corrado, Kazi Islam, David Kappler, Daniel Kemp, Ian Kwan, Cewlis Leongson, Minsuk Lee, Satoshi Matsushima, Kelvin Mei, Pedro Miranda, Sylvia Pan, Daniel Qian, Jeremy Quackenbusch, Anusha Ramakrishnan, Soňa Rebeník, Yoav Rubin, Adi Shamir, Dmitry Shvartsman, Jui-Shan Su, Paul Susskind, Oleg Svidchenko, Caitlin Tormanen, Rui Wang, Ayzaan Wahid, Ruxi Wang, Rui Xu, Shaoting Zhang, Jonathan Xiaojun Zhang"
+authors: "Michael Ahn, Anthony Brohan, Noah Brown, Yevgen Chebotar, Omar Cortes, Byron David, Chelsea Finn, Chuyuan Fu, Keerthana Gopalakrishnan, Karol Hausman, Alex Herzog, Daniel Ho, Jasmine Hsu, Julian Ibarz, Brian Ichter, Alex Irpan, Eric Jang, Rosario Jauregui Ruano, Kyle Jeffrey, Sally Jesmonth, Nikhil J Joshi, Ryan Julian, Dmitry Kalashnikov, Yuheng Kuang, Kuang-Huei Lee, Sergey Levine, Yao Lu, Linda Luu, Carolina Parada, Peter Pastor, Jornell Quiambao, Kanishka Rao, Jarek Rettinghouse, Diego Reyes, Pierre Sermanet, Nicolas Sievers, Clayton Tan, Alexander Toshev, Vincent Vanhoucke, Fei Xia, Ted Xiao, Peng Xu, Sichun Xu, Mengyuan Yan, Andy Zeng"
 paperType: "empirical"
 tags: [robotics, language-grounding, embodied-ai, intent-understanding, capability-awareness, policy-learning]
 draft: false

@@ -5,7 +5,7 @@ title: "Circuit Breakers: Removing Model Behaviors with Representation Engineeri
 description: "Surgical removal of harmful behaviors by identifying and nullifying their underlying representations"
 date: 2025-10-08
 arxiv: "2406.04313"
-authors: "Andy Zou, Andrew Wang, Zifan Carl Zhao, Long Phan, Alexander Pan, Alexander Matt Turner, Yonatan Belinkov, Kewen Zhou, CAIS, MIT"
+authors: "Andy Zou, Long Phan, Justin Wang, Derek Duenas, Maxwell Lin, Maksym Andriushchenko, Rowan Wang, Zico Kolter, Matt Fredrikson, Dan Hendrycks"
 paperType: "empirical"
 tags: [model-editing, behavior-removal, representation-engineering, safety-intervention, interpretability]
 draft: false
