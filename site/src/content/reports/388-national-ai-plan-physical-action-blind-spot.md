@@ -121,9 +121,9 @@ The point of presenting these is not to advertise a product; it is to demonstrat
 
 ### 5.3 Build independent embodied red-teaming and assurance capacity
 
-**Recommendation:** As part of any independent-assurance ecosystem the government accredits, explicitly include physical-action red-teaming and conformity assessment, not only content evaluation. Treat it as a potentially exportable capability — we are not aware of a comparable jurisdiction that has yet claimed embodied-AI assurance as a national niche, though we have not surveyed exhaustively.
+**Recommendation:** As part of any independent-assurance ecosystem the government accredits, explicitly include physical-action red-teaming and conformity assessment, not only content evaluation. Treat it as a potentially exportable capability — precedent already exists abroad: Japan's AI Safety Institute has stood up an operational Robotics Sub-Working Group building a standardised "AI × Robot" safety-evaluation framework with physical demonstration trials (J-AISI, *Implementation of AI Safety Evaluation in the Robotics Field*, 15 January 2026). Australia has not made the equivalent move.
 
-**Rationale:** The *Guidance* already asks for "independent (internal or external)" review of testing methodologies (§5.3.2). Extending that expectation to embodied systems requires an assurance market that can actually perform the tests — which does not exist yet and will not appear without a demand signal.
+**Rationale:** The *Guidance* already asks for "independent (internal or external)" review of testing methodologies (§5.3.2). Extending that expectation to embodied systems requires an assurance market that can actually perform the tests — which does not exist yet in Australia and will not appear without a demand signal. (A partial international analogue on the machinery side: the EU's Machinery Regulation 2023/1230, mandatory from January 2027, classifies self-evolving ML safety components as high-risk requiring third-party conformity assessment — a regulatory move Australia has not made either.)
 
 ### 5.4 Specify what an embodied-AI test must demonstrate
 

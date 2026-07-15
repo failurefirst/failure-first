@@ -4,7 +4,7 @@ title: "ROBOGATE: Adaptive Failure Discovery for Safe Robot Policy Deployment vi
 description: "A physics-simulation framework that maps failure boundaries across robot manipulation parameter spaces, exposing a 100-point performance gap between VLA foundation models and scripted baselines on adversarial scenarios."
 date: 2026-05-05
 arxiv: "2603.22126"
-authors: "Byungjin Kim"
+authors: "Azuki Kim"
 paperType: "empirical"
 tags: [vla-safety, robot-manipulation, failure-detection, deployment-risk, adversarial-evaluation]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.22126-audio-overview.m4a"
