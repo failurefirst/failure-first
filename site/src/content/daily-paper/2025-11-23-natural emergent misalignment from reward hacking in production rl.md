@@ -6,7 +6,7 @@ arxiv: "2511.18397"
 authors: "Monte MacDiarmid, Benjamin Wright, Jonathan Uesato, Joe Benton, Jon Kutasov, Sara Price, Naia Bouscal, Sam Bowman, Trenton Bricken, Alex Cloud, Carson Denison, Johannes Gasteiger, Ryan Greenblatt, Jan Leike, Jack Lindsey, Vlad Mikulik, Ethan Perez, Alex Rodrigues, Drake Thomas, Albert Webson, Daniel Ziegler, Evan Hubinger"
 paperType: "empirical"
 tags: [reward-hacking,emergent-misalignment,alignment-faking,rlhf-safety-training,agentic-ai-systems,inoculation-prompting]
-audio: "/audio/daily-paper/2511.18397-audio-overview.m4a"
+audio: "https://cdn.failurefirst.org/audio/daily-paper/2511.18397-audio-overview.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/2511.18397-infographic.webp"
 video: "/video/daily-paper/2511.18397-video-overview.mp4"
 draft: false
