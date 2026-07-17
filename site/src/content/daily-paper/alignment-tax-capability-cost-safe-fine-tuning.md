@@ -1,127 +1,40 @@
 ---
 
 
-title: "The Alignment Tax: Safety Training Reduces Model Capability and User Satisfaction"
-description: "Demonstrates quantitatively that safety fine-tuning of language models incurs a measurable capability cost, reducing performance on legitimate tasks and user satisfaction, which creates economic pressure for models to reduce safety measures."
-date: 2025-09-09
-authors: "Ping Qi, Jing Jiang, Youhua Zhang, Xiaofei Ma, Dan Roth"
-paperType: "empirical"
-tags: ["alignment-cost", "safety-capability-tradeoff", "fine-tuning", "capability-loss", "helpfulness", "benchmark-analysis"]
+title: "The Alignment Tax: An Open Question for Embodied AI Economics"
+description: "An F41LUR3-F1R57 position piece asking whether a capability cost of safety training — if real — would create economic pressure against safety in embodied systems. No quantitative claims are made; we have not measured a capability cost ourselves."
+date: 2026-05-09
+paperType: "position"
+tags: ["alignment-cost", "safety-capability-tradeoff", "embodied-ai", "economic-incentives", "open-question"]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/alignment-tax-capability-cost-safe-fine-tuning.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/alignment-tax-capability-cost-safe-fine-tuning.png"
 ---
 
-# The Alignment Tax: Safety Training Reduces Model Capability and User Satisfaction
+# The Alignment Tax: An Open Question for Embodied AI Economics
 
-**Focus:** Qi et al. quantified the capability cost of safety fine-tuning, demonstrating that
-models trained with safety constraints exhibit measurable performance degradation on
-legitimate tasks, creating an economic incentive to minimize or circumvent safety training.
-The alignment tax suggests that safety and capability are fundamentally in tension.
+*This is an F41LUR3-F1R57 position piece, not a summary of an external paper. An earlier version of this post attributed a set of specific capability-loss statistics to a fabricated author byline; see the editorial note at the end.*
 
----
+"Alignment tax" is the informal name for a claim discussed in the AI safety literature: that safety training (RLHF, safety fine-tuning) may reduce a model's capability or helpfulness on legitimate tasks, alongside its intended effect of reducing harmful outputs. This is a real, actively studied question — see for example Lin et al., ["Mitigating the Alignment Tax of RLHF"](https://arxiv.org/abs/2309.06256) (arXiv:2309.06256) — but the *size* of any such tax is contested and task-dependent in the literature, and we have not measured it ourselves. We are not citing a magnitude here, and the paper above is cited only as evidence the concept is studied, not as a source for any number in this post.
 
-## Key Insights
+## The Question We Think Is Underasked
 
-- **Safety fine-tuning incurs a consistent capability cost.** Models fine-tuned for safety
-  show 5-15% degradation on standard benchmarks compared to unconstrained base models,
-  with the cost varying by task type. This is not a measurement artifact but a real
-  reduction in useful capability.
+Most alignment-tax discussion is framed around chat and text-generation models: does safety training cost benchmark points, helpfulness scores, or creative-output quality? We think there is a distinct, under-discussed version of the question for embodied systems: **if a capability cost from safety training exists at all, would it be more economically consequential for embodied agents than for chat models?**
 
-- **The cost is particularly high for creative and reasoning tasks.** Safety training that
-  restricts certain content patterns has a disproportionate impact on tasks requiring
-  originality, open-ended reasoning, or nuanced judgment. Models become overly conservative
-  and loss diversity in output.
+Our reasoning for why this might be true, not a finding:
 
-- **Economic incentives favor unsafe models.** If deploying safety-trained models reduces
-  user satisfaction and capability metrics, there is economic pressure to reduce safety
-  measures. This creates a dangerous incentive structure where safety and commercial success
-  are misaligned.
+- **Embodied capability is often more directly monetised than chat helpfulness.** A warehouse-picking robot's throughput or a delivery robot's completion rate maps to revenue more tightly than a chatbot's helpfulness score maps to subscription retention. If safety constraints reduce throughput, the commercial pressure to loosen them plausibly bites harder and faster.
+- **Safety failures in embodied systems are physical, not just reputational.** This cuts the other way from the "economic pressure against safety" framing — a robot that harms a person or damages property creates liability exposure that a refused chat message does not. Whether the capability-cost pressure or the liability-cost pressure dominates is, as far as we know, unstudied.
+- **We have no benchmark for "capability cost of safety training" in embodied action space.** Unlike MMLU-style text benchmarks, there is no widely agreed metric for what a safety-constrained manipulation or navigation policy "loses" relative to an unconstrained one. Without that measurement, any claim about the size of an embodied alignment tax — ours or anyone else's — is speculation.
 
-## Executive Summary
+## What We Are Not Claiming
 
-The study measured capability degradation across multiple dimensions:
+We are not asserting that safety training measurably degrades embodied capability by any specific amount, that an economic incentive against embodied safety training has been demonstrated, or that any "dose-response" relationship between safety-training intensity and capability loss has been measured — for embodied systems or otherwise. If this repository's own benchmark corpus produces evidence bearing on this question, it will be reported separately with a citation to `docs/CANONICAL_METRICS.md`, not folded back into this post.
 
-### Methodology
+## Why We Think the Question Still Matters
 
-The researchers compared:
-- **Base models:** Pre-trained language models without safety fine-tuning
-- **Safety-tuned models:** The same models after instruction-level safety training
-- **Partially safety-tuned models:** Models fine-tuned with reduced safety data to test
-  the relationship between safety training intensity and capability loss
-
-### Capability Loss Results
-
-**General Capabilities:**
-- Generalist benchmarks (MMLU, HellaSwag) showed 3-7% accuracy reduction
-- Instruction-following tasks showed 5-12% reduction in quality scores
-- Human evaluation of helpfulness decreased by 8-15%
-
-**Creative Tasks:**
-- Story generation showed 12-20% reduction in evaluator preference scores
-- Code generation showed 8-15% reduction in task completion rates
-- Hypothesis generation and brainstorming showed 15-25% reduction
-
-**Reasoning Tasks:**
-- Multi-step reasoning showed 5-10% reduction in accuracy
-- Math problem-solving showed 7-15% reduction in correctness
-- Logic puzzle performance showed 6-12% reduction
-
-**Open-Ended Generation:**
-- User preference for response diversity decreased by 20-30%
-- Models became more stereotypical and conservative in their outputs
-- Originality and creativity metrics declined significantly
-
-### Economic Analysis
-
-The paper modeled the economic cost of alignment:
-
-- **Direct cost:** Cost of human annotation and infrastructure for safety training
-- **Indirect cost:** Reduced user satisfaction and capability metrics affecting adoption
-- **Opportunity cost:** Time and resources spent on safety training that could be used for
-  capability improvements
-
-The authors concluded that the total alignment tax (direct + indirect + opportunity cost)
-often exceeds 15-20% of the total economic value delivered by the model.
-
-### Relationship to Safety Training Intensity
-
-The paper found a dose-response relationship:
-- Models trained with mild safety instructions showed 2-3% capability loss
-- Models trained with moderate safety instructions showed 5-10% loss
-- Models trained with strict safety instructions showed 10-20% loss
-
-This suggests that safety training intensity can be tuned, but the fundamental trade-off
-between safety and capability cannot be eliminated.
-
-## Relevance to Failure-First
-
-The alignment tax has critical implications for embodied AI safety:
-
-- **Safety costs scale with embodied capability.** If safety training costs 10-20% of
-  linguistic model capability, it will likely cost even more for embodied models where
-  capabilities (manipulation, locomotion, perception) are more directly tied to physical
-  effectiveness.
-
-- **Economic incentives favor unsafe embodied systems.** The misalignment between safety
-  and economic success is worse for embodied systems. A safety-constrained robot is less
-  useful and less valuable than an unconstrained one, creating pressure to minimize safety
-  measures.
-
-- **The alignment tax creates liability cascades.** If deploying safe models reduces
-  market competitiveness, manufacturers face incentives to cut corners on safety,
-  creating liability and regulatory risks. Embodied systems operating in human environments
-  will face even stronger pressure to sacrifice safety for capability.
-
-- **Measurement of true capability is essential.** Current benchmarks may underestimate
-  the alignment tax by not measuring all relevant capabilities. For embodied systems,
-  measuring capability includes measurement of physical safety, which is often not included
-  in standard benchmarks.
-
-- **Safety certification may be economically feasible.** If the alignment tax is real,
-  competing on safety (rather than trying to eliminate the tax) may be a viable
-  long-term strategy. This suggests that safety certification, insurance, and regulatory
-  frameworks are necessary to create market incentives for safety.
+If a capability cost turns out to be real and economically significant for embodied deployment, it argues for exactly the kind of external pressure — safety certification, insurance requirements, regulatory floors — that removes the "compete by cutting safety" option from the table, rather than leaving individual deployers to weigh capability against safety unilaterally. That's a normative argument, not an empirical one, and we present it as such.
 
 ---
 
+*Editorial note: this post previously presented itself as a summary of an empirical paper, "The Alignment Tax: Safety Training Reduces Model Capability and User Satisfaction," attributed to a fabricated author byline — Ping Qi, Jing Jiang, Youhua Zhang, Xiaofei Ma, Dan Roth — none of whom wrote any such paper, along with a fabricated publication date and a full set of invented quantitative results (benchmark percentage-point losses, an economic-value estimate, a "dose-response" table). No such paper, authorship, or dataset exists — see [issue #972](https://github.com/adrianwedd/failure-first-embodied-ai/issues/972). Every fabricated claim and the entire invented byline have been removed; none were re-sourced to a real paper to preserve them. What remains is an honest, unsourced F41LUR3-F1R57 position piece asking an open question, with no quantitative claims of our own.*
