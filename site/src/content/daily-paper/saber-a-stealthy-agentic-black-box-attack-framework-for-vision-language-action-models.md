@@ -7,6 +7,7 @@ authors: "Xiyang Wu, Guangyao Shi, Qingzi Wang, Zongxia Li, Amrit Singh Bedi, Di
 paperType: "empirical"
 tags: ["vla-safety", "embodied-ai", "adversarial-robustness", "black-box-attacks", "red-teaming", "instruction-perturbation"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2603.24935-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/saber-a-stealthy-agentic-black-box-attack-framework-for-vision-language-action-models.mp4"
 image: "https://cdn.failurefirst.org/images/daily-paper/2603.24935-infographic.png"
 draft: false
 ---

@@ -7,6 +7,7 @@ authors: "Si Chen, Xiao Yu, Ninareh Mehrabi, Rahul Gupta, Zhou Yu, Ruoxi Jia"
 paperType: "empirical"
 tags: ["jailbreaking", "multi-turn-attacks", "red-teaming", "adversarial-robustness", "automated-attacks", "escalation"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2504.01278-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/strategize-globally-adapt-locally-a-multi-turn-red-teaming-agent-with-dual-level-learning.mp4"
 image: "https://cdn.failurefirst.org/images/daily-paper/2504.01278-infographic.png"
 draft: false
 ---

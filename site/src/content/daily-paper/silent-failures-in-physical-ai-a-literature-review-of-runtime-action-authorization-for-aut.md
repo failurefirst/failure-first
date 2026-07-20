@@ -7,6 +7,7 @@ authors: "Barak Or"
 paperType: "survey"
 tags: ["physical-ai", "embodied-ai", "runtime-assurance", "safety-benchmarks", "guardrails", "silent-failure", "vla-safety"]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2606.00090-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/daily-paper/silent-failures-in-physical-ai-a-literature-review-of-runtime-action-authorization-for-aut.mp4"
 image: "https://cdn.failurefirst.org/images/daily-paper/2606.00090-infographic.png"
 draft: false
 ---
