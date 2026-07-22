@@ -7,7 +7,6 @@ authors: "Xuan Chen,Yuzhou Nie,Wenbo Guo,Xiangyu Zhang"
 paperType: "empirical"
 tags: [llm-jailbreaking-attacks,reinforcement-learning-adversarial,black-box-prompt-optimization,drl-guided-search,safety-alignment-evasion,transferable-adversarial-prompts]
 draft: false
-video: "/video/2406.08705-video-overview.mp4"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2406.08705-audio-overview.m4a"
 ---
 

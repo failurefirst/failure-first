@@ -6,7 +6,6 @@ arxiv: "2602.20813"
 authors: "Nora Petrova, John Burden"
 paperType: "empirical"
 tags: ["alignment-evaluation", "behavioural-stress-testing", "multi-turn", "ai-safety", "llm-judge"]
-video: "/video/daily-paper/2602.20813-video-overview.mp4"
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.20813-audio-overview.m4a"
 ---

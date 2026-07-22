@@ -7,7 +7,6 @@ authors: "Yuanwei Wu,Yue Huang,Yixin Liu,Xiang Li,Pan Zhou,Lichao Sun"
 paperType: "empirical"
 tags: [multimodal-jailbreaking,prompt-optimization-attacks,llm-red-teaming,vision-language-model-safety,privacy-leakage-facial-recognition,adversarial-prompt-generation]
 draft: false
-video: "/video/2407.16686-video-overview.mp4"
 image: "https://cdn.failurefirst.org/images/daily-paper/2407.16686-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.16686-audio-overview.m4a"
 ---

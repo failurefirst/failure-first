@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [humanoid-manipulation,distance-field-representations,reference-free-learning,geometric-generalization,skill-composition,vision-transfer]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21723-audio-overview.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/2602.21723-infographic.png"
-video: "/video/daily-paper/2602.21723-video-overview.mp4"
 draft: false
 ---
 

@@ -9,7 +9,6 @@ authors: "Zhaoxin Wang, Handing Wang, Cong Tian, Yaochu Jin"
 paperType: "empirical"
 tags: [jailbreak, vision-language-models, steganography, cross-modal-attacks, multimodal-safety]
 draft: false
-audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-05-02-implicit-jailbreak-cross-modal-information-concealment-vlm.m4a"
 video: "https://cdn.failurefirst.org/video/daily-paper/2026-05-02-implicit-jailbreak-cross-modal-information-concealment-vlm.mp4"
 ---
 

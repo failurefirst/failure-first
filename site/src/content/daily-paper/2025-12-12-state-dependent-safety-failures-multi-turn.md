@@ -9,7 +9,6 @@ authors: "Pengcheng Li, Jie Zhang, Tianwei Zhang, Han Qiu, Zhang Kejun, Weiming 
 paperType: "methods"
 tags: ["multi-turn-attacks", "safety-alignment", "state-transitions", "conversational-safety", "phase-transitions", "mechanistic-interpretability", "refusal-drift"]
 draft: false
-audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-12-state-dependent-safety-failures-multi-turn.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-12-state-dependent-safety-failures-multi-turn.png"
 ---
 

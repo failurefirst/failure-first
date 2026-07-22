@@ -10,7 +10,6 @@ paperType: "empirical"
 tags: [vision-language-action, robotics, generalization, web-knowledge-transfer, language-grounding, embodied-ai]
 draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/rt2-vision-language-action-models.png"
-audio: "https://cdn.failurefirst.org/audio/daily-paper/rt2-vision-language-action-models.m4a"
 ---
 
 RT-2 (Robotic Transformer 2) introduced a pivotal insight: instead of training separate models for vision understanding and robotic control, a single vision-language model pretrained on web data can be finetuned to directly output robot actions. The robot becomes a client of a language model trained on the entire internet.

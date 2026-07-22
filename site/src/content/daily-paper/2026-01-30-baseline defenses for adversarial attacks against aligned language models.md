@@ -8,7 +8,6 @@ paperType: survey
 tags: [not-analyzed]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2309.00614-audio-overview.m4a"
-video: "/video/2309.00614-video-overview.mp4"
 ---
 
 # Baseline Defenses for Adversarial Attacks Against Aligned Language Models

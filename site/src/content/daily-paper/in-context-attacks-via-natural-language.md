@@ -9,7 +9,6 @@ authors: "Zeming Wei, Yifei Wang, Ang Li, Yichuan Mo, Yisen Wang"
 paperType: "empirical"
 tags: [in-context-attacks, prompt-injection, context-window-exploitation, llm-safety, inference]
 draft: false
-audio: "https://cdn.failurefirst.org/audio/daily-paper/in-context-attacks-via-natural-language.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/in-context-attacks-via-natural-language.png"
 ---
 

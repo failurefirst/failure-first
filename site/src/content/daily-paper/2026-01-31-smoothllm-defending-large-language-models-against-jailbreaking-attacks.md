@@ -8,7 +8,6 @@ paperType: "methods"
 tags: [smoothllm, defending, large, language, models, jailbreaking]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.03684-audio-overview.m4a"
-video: "/video/2310.03684-video-overview.mp4"
 ---
 
 # SmoothLLM: Defending Large Language Models Against Jailbreaking Attacks

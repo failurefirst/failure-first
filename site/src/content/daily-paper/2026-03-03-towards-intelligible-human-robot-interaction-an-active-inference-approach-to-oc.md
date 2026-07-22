@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [active-inference,occluded-pedestrian-detection,autonomous-driving-safety,belief-state-estimation,model-predictive-control,long-tail-scenarios]
 image: "https://cdn.failurefirst.org/images/daily-paper/2602.23109-infographic.webp"
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.23109-audio-overview.m4a"
-video: "https://cdn.failurefirst.org/video/daily-paper/2602.23109-video-overview.mp4"
 draft: false
 ---
 

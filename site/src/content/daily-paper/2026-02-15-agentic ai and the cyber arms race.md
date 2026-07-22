@@ -8,7 +8,6 @@ paperType: "survey"
 tags: [agentic-ai-security,cyber-arms-race,ai-automation-attacks,ai-defense-augmentation,capability-proliferation,cyber-warfare]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2503.04760-audio-overview.m4a"
-video: "/video/2503.04760-video-overview.mp4"
 ---
 
 # Agentic AI and the Cyber Arms Race

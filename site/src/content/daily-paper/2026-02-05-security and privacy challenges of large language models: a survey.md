@@ -8,7 +8,6 @@ paperType: survey
 tags: [not-analyzed]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2402.00888-audio-overview.m4a"
-video: "/video/2402.00888-video-overview.mp4"
 ---
 
 # Security and Privacy Challenges of Large Language Models: A Survey

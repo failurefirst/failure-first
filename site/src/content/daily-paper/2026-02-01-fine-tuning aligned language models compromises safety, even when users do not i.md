@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [fine-tuning-safety-degradation,llm-jailbreaking,adversarial-training-examples,alignment-robustness,red-teaming,safety-infrastructure-gaps]
 draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.03693-audio-overview.m4a"
-video: "/video/2310.03693-video-overview.mp4"
 ---
 
 # Fine-tuning Aligned Language Models Compromises Safety

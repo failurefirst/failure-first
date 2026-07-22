@@ -8,7 +8,6 @@ paperType: "empirical"
 tags: [llm-jailbreaking,adversarial-prompting,safety-guardrails,personification-exploitation,nested-scene-construction,continuous-jailbreak]
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2311.03191-audio-overview.m4a"
 image: "https://cdn.failurefirst.org/images/daily-paper/2311.03191-infographic.webp"
-video: "/video/daily-paper/2311.03191-video-overview.mp4"
 draft: false
 ---
 
