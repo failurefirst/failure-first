@@ -1,0 +1,29 @@
+name: podcast-feed-monitor
+
+# Runtime health check for the LIVE podcast feeds — complements the deploy-time build
+# gate (site/tools/verify-podcast-build.mjs). The build gate proves the emitted feed is
+# internally consistent at generation time; this probes the serving layer for failures a
+# green build can't see: CDN 404s, out-of-band object replacement, MIME drift, and lost
+# byte-range (206) support. A failed run raises a native GitHub Actions failure
+# notification (no external webhook wired — see repo notes on the Ask-First credential
+# protocol before adding one).
+
+on:
+  schedule:
+    - cron: '17 6 * * *'   # daily 06:17 UTC (offset off the top of the hour)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Probe live enclosures (206 / total size / ftyp / MIME family)
+        run: node site/tools/monitor-podcast-feed.mjs
