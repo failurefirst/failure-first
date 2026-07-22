@@ -8,9 +8,9 @@ export async function GET(context: APIContext) {
   const site = context.site!.toString().replace(/\/$/, '');
   const episodes = await loadEpisodes(site);
   const xml = buildPodcastFeed(episodes, {
-    audioOnly: false,
+    audioOnly: true,
     site,
-    selfPath: '/audio/feed.xml',
+    selfPath: '/audio/podcast.xml',
     sizes: sizes as Record<string, number>,
     durations: durations as Record<string, number>,
     copyrightYear: new Date().getUTCFullYear(),
