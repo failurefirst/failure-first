@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist && rm -rf dist/audio dist/video && find dist -type f \\( -name '*.m4a' -o -name '*.mp4' -o -name '*.mp3' \\) -delete",
+    "test": "vitest run",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,7 +18,9 @@
     "remark-math": "^6.0.0"
   },
   "devDependencies": {
-    "pagefind": "^1.4.0"
+    "fast-xml-parser": "^5.10.1",
+    "pagefind": "^1.4.0",
+    "vitest": "^2.1.9"
   },
   "overrides": {
     "rollup": "^4.59.0",
