@@ -44,4 +44,4 @@ The FSD v14.3 data is a concrete case study in what happens when physical AI sys
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-17.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

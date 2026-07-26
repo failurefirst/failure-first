@@ -158,6 +158,6 @@ The 8-layer taxonomy is a starting framework. As visual AI capabilities expand â
 
 ---
 
-*This post is based on [Report #332](/research/reports/332_visual_jailbreak_meta_analysis) from the Failure-First Embodied AI project. The 20-scenario dataset and all 152 FLIP-graded traces are available in the research repository. Issue [#649](https://github.com/adrianwedd/failure-first-embodied-ai/issues/649).*
+*This post is based on [Report #332](/research/reports/332_visual_jailbreak_meta_analysis) from the Failure-First Embodied AI project. The 20-scenario dataset and all 152 FLIP-graded traces are available in the research repository. Issue #649 (internal tracker).*
 
 > **Restored from the 2026-05-21 archive.** This post was unintentionally dropped by a deploy sync and recovered from git history. Verify currency before citing â€” model behavior and the research landscape may have drifted since original publication.

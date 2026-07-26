@@ -33,4 +33,4 @@ Indirect, and more interesting for long-term programme design: if the bio-bounty
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-23.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

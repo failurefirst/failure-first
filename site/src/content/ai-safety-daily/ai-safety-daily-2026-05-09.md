@@ -36,4 +36,4 @@ SafeAgentBench's two-signal measurement approach (semantic-based metrics assessi
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-05-09.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

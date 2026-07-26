@@ -198,12 +198,11 @@ All assets from this evaluation are in the repository:
 - `data/steg_attacks/` — 144 validated steg_injection benchmark scenarios
 - `/images/blog/st3gg/` — figures and the live-payload carrier image
 
-The carrier image (`/images/blog/st3gg/carrier_with_hidden_payload.png`) contains a 142-byte payload hidden in the Blue channel LSB. Readers can verify decode:
+The carrier image (`/images/blog/st3gg/carrier_with_hidden_payload.png`) contains a 142-byte payload hidden in the Blue channel LSB. The decoder lives in the Failure-First private research archive rather than the
+public repository; replication access is available on request at
+research@failurefirst.org. With it, readers can verify the decode:
 
 ```bash
-git clone https://github.com/adrianwedd/failure-first-embodied-ai
-cd failure-first-embodied-ai
-git submodule update --init tools/st3gg
 pip install Pillow numpy
 python tools/steg_attack_generator.py \
     --decode data/steg_attacks/steg_zwc_lsb_v0.1.jsonl \

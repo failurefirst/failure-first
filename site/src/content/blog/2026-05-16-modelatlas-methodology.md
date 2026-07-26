@@ -85,4 +85,4 @@ If you find a model that the corpus has graded poorly but your evaluation contra
 **Further reading:**
 - [ModelAtlas](https://atlas.failurefirst.org) — the live catalog with per-model trust tiers and ASR signals
 - [How ModelAtlas Scores 704 AI Models for Trust](/blog/2026-05-26-modelatlas-methodology) — the scoring methodology post
-- [Failure-First repository](https://github.com/adrianwedd/failure-first-embodied-ai) — methodology questions and corpus-coverage requests
+- [Failure-First repository](https://github.com/failurefirst/failure-first) — methodology questions and corpus-coverage requests

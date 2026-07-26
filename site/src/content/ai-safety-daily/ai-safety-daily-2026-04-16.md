@@ -36,4 +36,4 @@ The Perception-Action Gap remains the central challenge. Video-generation "world
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-16.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

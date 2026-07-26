@@ -63,4 +63,4 @@ These baseline-scan findings reinforce the evaluation-validity theme of the cura
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-06-25.md). The "Additional papers" section is sourced from the baseline daily generator and citation-verified separately.*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive. The "Additional papers" section is sourced from the baseline daily generator and citation-verified separately.*

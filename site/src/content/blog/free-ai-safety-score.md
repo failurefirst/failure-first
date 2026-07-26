@@ -98,10 +98,11 @@ The grading model rotates across free-tier OpenRouter models to handle rate limi
 
 ## Usage
 
-```bash
-# Clone the repo
-git clone https://github.com/adrianwedd/failure-first-embodied-ai
+The scanner itself lives in the Failure-First private research archive and is
+not yet part of the public repository; replication access is available on
+request at research@failurefirst.org. Once you have it:
 
+```bash
 # Set your OpenRouter API key
 echo "OPENROUTER_API_KEY=sk-or-v1-..." > .env
 
@@ -143,8 +144,8 @@ Details at [failurefirst.org/services](/services).
 
 ---
 
-*Methodology: [Free Safety Score Methodology](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/design/free_safety_score_methodology.md)*
+*Methodology: Free Safety Score Methodology in the private research archive*
 
-*Tool: [tools/free_safety_score.py](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/tools/free_safety_score.py)*
+*Tool: tools/free_safety_score.py in the private research archive*
 
 > **Restored from the 2026-05-21 archive.** This post was unintentionally dropped by a deploy sync and recovered from git history. Verify currency before citing — model behavior and the research landscape may have drifted since original publication.

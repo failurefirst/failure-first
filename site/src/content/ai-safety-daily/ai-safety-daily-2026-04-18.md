@@ -36,4 +36,4 @@ The CHAIN and SafeAgentBench results land in exactly the failure region F41LUR3-
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-18.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

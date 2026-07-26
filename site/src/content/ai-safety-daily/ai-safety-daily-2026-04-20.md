@@ -36,4 +36,4 @@ Two action items for F41LUR3-F1R57 from this week's red-teaming literature. Firs
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-20.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

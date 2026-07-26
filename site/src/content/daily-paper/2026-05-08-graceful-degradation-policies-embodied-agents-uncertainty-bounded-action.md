@@ -48,5 +48,5 @@ This proposal formalises a control pattern the F41LUR3-F1R57 framework has been 
 
 ---
 
-*Editorial note: this post previously described itself as summarising a "paper" with a reference implementation and an empirical results section reporting specific task-completion rates. No such paper or empirical study exists — see [issue #972](https://github.com/adrianwedd/failure-first-embodied-ai/issues/972). It has been corrected to an honest first-person F41LUR3-F1R57 design proposal, with all fabricated quantitative results removed, not re-sourced.*
+*Editorial note: this post previously described itself as summarising a "paper" with a reference implementation and an empirical results section reporting specific task-completion rates. No such paper or empirical study exists — see issue #972 (internal tracker). It has been corrected to an honest first-person F41LUR3-F1R57 design proposal, with all fabricated quantitative results removed, not re-sourced.*
 

@@ -45,5 +45,5 @@ The deeper implication is that evaluation regimes that only measure success rate
 
 ---
 
-*Editorial note: this post previously described itself as a summary of a third-party paper titled "Recoverability as an Evaluation Axis." No such paper exists — see [issue #972](https://github.com/adrianwedd/failure-first-embodied-ai/issues/972). It has been corrected to an honest first-person F41LUR3-F1R57 position piece; the underlying idea and all quantitative framing above are ours, not attributed to any external source.*
+*Editorial note: this post previously described itself as a summary of a third-party paper titled "Recoverability as an Evaluation Axis." No such paper exists — see issue #972 (internal tracker). It has been corrected to an honest first-person F41LUR3-F1R57 position piece; the underlying idea and all quantitative framing above are ours, not attributed to any external source.*
 

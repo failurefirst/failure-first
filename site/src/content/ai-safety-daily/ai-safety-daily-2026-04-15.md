@@ -42,4 +42,4 @@ This directly addresses our established finding that keyword classification is u
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-15.md). See also [yesterday's coverage](/ai-safety-daily/ai-safety-daily-2026-04-14/) for AEGIS architecture, SafeAgentBench, and OpenAI governance analysis.*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive. See also [yesterday's coverage](/ai-safety-daily/ai-safety-daily-2026-04-14/) for AEGIS architecture, SafeAgentBench, and OpenAI governance analysis.*

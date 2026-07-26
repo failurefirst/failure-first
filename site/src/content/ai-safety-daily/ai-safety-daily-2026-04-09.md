@@ -28,4 +28,4 @@ Tesla FSD v14.3: NHTSA upgraded its investigation to Engineering Analysis coveri
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-09.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*

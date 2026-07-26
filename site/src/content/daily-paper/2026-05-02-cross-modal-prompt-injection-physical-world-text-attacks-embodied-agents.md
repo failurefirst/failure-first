@@ -43,5 +43,5 @@ This threat model is the embodied counterpart to a vulnerability class the F41LU
 
 ---
 
-*Editorial note: this post previously presented itself as an empirical study ("the paper reports...", "in the authors' tests...") with specific attack success rates and a "Measured Effects" section. No such paper or measured results exist — see [issue #972](https://github.com/adrianwedd/failure-first-embodied-ai/issues/972). It has been corrected to an honest first-person F41LUR3-F1R57 threat-model position piece with all fabricated quantitative claims removed, not re-sourced.*
+*Editorial note: this post previously presented itself as an empirical study ("the paper reports...", "in the authors' tests...") with specific attack success rates and a "Measured Effects" section. No such paper or measured results exist — see issue #972 (internal tracker). It has been corrected to an honest first-person F41LUR3-F1R57 threat-model position piece with all fabricated quantitative claims removed, not re-sourced.*
 

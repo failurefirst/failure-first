@@ -69,4 +69,4 @@ The catalog is live at [atlas.failurefirst.org](https://atlas.failurefirst.org).
 
 **Related reading:** [ModelAtlas Methodology: What a FLIP-Graded ASR Signal Can and Cannot Tell You](/blog/2026-05-16-modelatlas-methodology) — a deeper look at how the adversarial corpus is graded, confidence interval choices, and what the ASR signal does not support.
 
-*Methodology questions and corpus-coverage requests: file an issue in the [Failure-First repository](https://github.com/adrianwedd/failure-first-embodied-ai).*
+*Methodology questions and corpus-coverage requests: file an issue in the [Failure-First repository](https://github.com/failurefirst/failure-first).*

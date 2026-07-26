@@ -287,4 +287,4 @@ The field can continue to measure safety with tools that are blind to the domina
 
 #### Data and Reproducibility.
 
-All analyses are reproducible using the Failure-First corpus database (schema version 13) and tools at <https://github.com/adrianwedd/failure-first-embodied-ai>. Canonical metrics: `docs/CANONICAL_METRICS.md` (verified 2026-03-24).
+All analyses are reproducible using the Failure-First corpus database (schema version 13) and tools at <https://github.com/failurefirst/failure-first>. Canonical metrics: `docs/CANONICAL_METRICS.md` (verified 2026-03-24).

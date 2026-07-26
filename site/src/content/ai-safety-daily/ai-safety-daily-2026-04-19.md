@@ -29,4 +29,4 @@ The AEGIS result is the strongest architectural signal this week. Extrinsic CBF 
 
 ---
 
-*Research sourced via NLM deep research scan. [Full scan report](https://github.com/adrianwedd/failure-first-embodied-ai/blob/main/docs/daily-research-scans/scan_2026-04-19.md).*
+*Research sourced via NLM deep research scan. Full scan report in the private research archive.*
