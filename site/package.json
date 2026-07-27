@@ -10,10 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.1",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.0",
-    "@sentry/astro": "^10.46.0",
-    "astro": "^5.18.1",
+    "@astrojs/sitemap": "^3.7.3",
+    "@sentry/astro": "^10.68.0",
+    "astro": "^7.1.4",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0"
   },
@@ -33,7 +34,7 @@
     "picomatch@^2": "^2.3.2",
     "picomatch@^4": "^4.0.4",
     "defu": "^6.1.5",
-    "vite": "^6.4.3",
+    "vite": "^8.0.13",
     "postcss": "^8.5.10",
     "sharp": "^0.35.0",
     "js-yaml@^4": "^4.3.0",
