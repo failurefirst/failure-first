@@ -10,7 +10,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.15",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.0",
     "@sentry/astro": "^10.46.0",
     "astro": "^5.18.1",
@@ -27,13 +27,19 @@
   "overrides": {
     "rollup": "^4.59.0",
     "fast-xml-parser": "^5.7.0",
-    "svgo": "^4.0.1",
+    "svgo": "^4.0.2",
     "devalue": "^5.8.1",
     "h3": "^1.15.9",
     "picomatch@^2": "^2.3.2",
     "picomatch@^4": "^4.0.4",
     "defu": "^6.1.5",
-    "vite": "^6.4.2",
-    "postcss": "^8.5.10"
+    "vite": "^6.4.3",
+    "postcss": "^8.5.10",
+    "sharp": "^0.35.0",
+    "js-yaml@^4": "^4.3.0",
+    "brace-expansion": "^5.0.7",
+    "@babel/core": "^7.29.6",
+    "@opentelemetry/core": "^2.8.0",
+    "esbuild@^0.27": "^0.28.1"
   }
 }
