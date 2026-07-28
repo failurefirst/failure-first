@@ -7,6 +7,9 @@
 # IDE
 .vscode/
 
+# Dependencies — site/.gitignore only covers site/node_modules/, not the root
+node_modules/
+
 # Superpowers brainstorm artifacts
 .superpowers/
 .wrangler/
