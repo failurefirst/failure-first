@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import sentry from '@sentry/astro';
+import { unified } from '@astrojs/markdown-remark';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
@@ -235,8 +236,13 @@ export default defineConfig({
     assets: 'assets'
   },
   markdown: {
-    remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    // Astro v7 replaced the default remark/rehype pipeline with Sätteri.
+    // KaTeX rendering depends on remark-math + rehype-katex, so we opt back
+    // into the unified processor from @astrojs/markdown-remark.
+    processor: unified({
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
   },
   integrations: [
     // DSN and runtime init options live in sentry.client.config.js / sentry.server.config.js

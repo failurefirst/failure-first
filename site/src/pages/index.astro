@@ -216,8 +216,10 @@ const recentPapers = (await getCollection('dailyPaper'))
     <h2>Engagements</h2>
     <p>
       The commercial side of the practice. Every engagement is grounded in the same corpus
-      and graded by the same rubric — {stats.promptsDisplay} prompts, {stats.modelsDisplay} models,
-      {stats.techniquesPlus} documented attack techniques — so what an insurer, a regulator, and a
+      {/* Keep every {expression} junction on ONE line: Astro 7 collapses a
+          newline that sits directly against an expression, so a line break
+          between "models," and {stats.techniquesPlus} renders as "models,346+". */}
+      and graded by the same rubric — {stats.promptsDisplay} prompts, {stats.modelsDisplay} models, {stats.techniquesPlus} documented attack techniques — so what an insurer, a regulator, and a
       procurement officer get from us is comparable, auditable, and defensible.
     </p>
     <div class="services-grid">
