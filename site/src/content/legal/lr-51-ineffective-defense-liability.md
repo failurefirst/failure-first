@@ -80,7 +80,7 @@ Once this research is published or otherwise made available, a PCBU deploying AI
 
 Limb (d) raises a harder question: what alternative controls are "available and suitable"? Report #174's recommendation to investigate output-format-level defenses (output validators, post-processing) suggests that alternative architectures exist in principle, but their effectiveness is not yet empirically established. If no suitable alternative exists, the SFAIRP analysis may support a conclusion that deployment itself is not reasonably practicable in high-risk settings without additional engineering controls.
 
-**NSW-specific instrument:** *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW), inserting s 21A into the *WHS Act 2011* (NSW). Binding legislation (passed 13 February 2026; commencement by proclamation, date TBD).
+**NSW-specific instrument:** *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW), inserting s 21A into the *WHS Act 2011* (NSW). Binding legislation (passed 12 February 2026 (NSW Parliament bill pk=18847; Act No. 5 of 2026, legislation.nsw.gov.au); commencement by proclamation, date TBD).
 
 When commenced, s 21A extends WHS obligations to "digital work systems" including AI. A PCBU that deploys AI systems with demonstrably ineffective safety defenses may face heightened exposure under s 21A, although the Act's primary focus is workload, metrics, and monitoring rather than adversarial manipulation.
 

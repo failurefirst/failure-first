@@ -105,7 +105,7 @@ We track a metric called the Governance Lag Index (GLI) that measures how long i
 
 For IMB, the GLI is straightforward: **null**. No regulatory framework anywhere in the world specifically requires infrastructure-layer security testing for AI-controlled robotic systems. The EU AI Act high-risk system requirements (entering application August 2, 2026) address cybersecurity obliquely but do not mandate penetration testing of the control plane that mediates between the AI and the actuators.
 
-The NSW WHS Digital Work Systems Bill 2026 (passed February 13) creates binding testing duties for AI systems but focuses on workload management and surveillance AI, not on the infrastructure layer of embodied systems.
+The NSW WHS Digital Work Systems Bill 2026 (passed 12 February 2026) creates binding testing duties for AI systems but focuses on workload management and surveillance AI, not on the infrastructure layer of embodied systems.
 
 For context: the longest fully computed governance lag in our dataset is adversarial examples in computer vision -- 3,362 days (9.2 years) from Szegedy et al. (2013) to the first NIST framework specifically addressing the attack class (2023). IMB was first empirically documented in March 2026. If the adversarial examples timeline is any guide, we should not expect specific governance for approximately a decade.
 

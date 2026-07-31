@@ -36,7 +36,7 @@ The regulation addresses *design intent* -- systems built to manipulate. It does
 
 Article 4 requires organizations deploying AI to ensure staff have "sufficient AI literacy." This is a meaningful step. But our HITL findings show human reviewers approve approximately 78% of subtly subverted plans. AI literacy that does not include adversarial awareness does not protect against the failure modes that matter most.
 
-### NSW WHS Digital Work Systems Bill (February 13, 2026)
+### NSW WHS Digital Work Systems Bill (February 12, 2026)
 
 Australia's first binding AI workplace safety legislation. Covers systems that allocate work or make decisions affecting workers. Does not cover autonomous physical systems operating without direct worker interaction. Does not require adversarial testing.
 

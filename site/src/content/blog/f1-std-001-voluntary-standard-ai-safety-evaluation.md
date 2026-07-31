@@ -53,7 +53,7 @@ This is where F1-STD-001 is positioned. It is not a harmonised standard. It has 
 
 The legal mechanism is Article 9(2), which requires risk management measures to reflect "generally acknowledged state of the art." A voluntary standard backed by empirical data from 201 models and 133,210 evaluation results constitutes evidence of state of the art that deployers can reference in their technical documentation.
 
-For Australian organisations, the NSW Work Health and Safety (Digital Work Systems) Bill 2026 (passed 13 February 2026) creates binding duties around AI system testing in workplaces. F1-STD-001 provides a methodology that can be referenced in WHS compliance documentation for embodied AI deployments.
+For Australian organisations, the NSW Work Health and Safety (Digital Work Systems) Bill 2026 (passed 12 February 2026 (NSW Parliament bill pk=18847; Act No. 5 of 2026, legislation.nsw.gov.au)) creates binding duties around AI system testing in workplaces. F1-STD-001 provides a methodology that can be referenced in WHS compliance documentation for embodied AI deployments.
 
 ## How to Use It
 

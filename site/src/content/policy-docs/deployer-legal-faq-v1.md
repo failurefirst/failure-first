@@ -104,7 +104,7 @@ Research finding: LR-21 (constructive notice publication trigger) establishes th
 
 ## Q10: What are the NSW WHS Act 2026 obligations for AI-equipped workplaces?
 
-The *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW), passed 13 February 2026 (LR-02; date standardised per LR-20/LR-21; verify against Hansard before external reliance), inserts s 21A into the *Work Health and Safety Act 2011* (NSW). Commencement is by proclamation -- the provision was **not yet in force** as at 18 March 2026.
+The *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW), passed both houses 12 February 2026 and assented 18 February 2026 (LR-02; corrected 2026-07-31 per #1001, superseding the earlier "13 February" standardisation from LR-20/LR-21; source: NSW Parliament bill pk=18847, Act No. 5 of 2026, legislation.nsw.gov.au), inserts s 21A into the *Work Health and Safety Act 2011* (NSW). Commencement is by proclamation -- the provision was **not yet in force** as at 18 March 2026.
 
 Section 21A requires a person conducting a business or undertaking (PCBU) to ensure, so far as is reasonably practicable, that the health and safety of workers is not put at risk from the allocation of work by a "digital work system." The Act defines "digital work system" broadly as "an algorithm, artificial intelligence, automation or online platform" (s 4, as amended). This definition captures the full spectrum from scheduling algorithms to VLA-powered physical agents (LR-02, Section 3.1).
 
@@ -120,7 +120,7 @@ Research finding: a PCBU deploying an AI-powered system in a NSW workplace who h
 
 | Date | Event | Jurisdiction | Binding? |
 |------|-------|-------------|----------|
-| 13 Feb 2026 | NSW Digital Work Systems Act passed | NSW, Australia | Binding (once commenced) |
+| 12 Feb 2026 | NSW Digital Work Systems Act passed (assented 18 Feb 2026; NSW Parliament bill pk=18847, Act No. 5 of 2026) | NSW, Australia | Binding (once commenced) |
 | 2 Aug 2026 | EU AI Act high-risk obligations applicable | EU | Binding |
 | 9 Dec 2026 | EU PLD transposition deadline | EU Member States | Binding |
 | 20 Jan 2027 | EU Machinery Regulation full applicability | EU | Binding |

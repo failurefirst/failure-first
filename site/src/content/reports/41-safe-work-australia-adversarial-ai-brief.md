@@ -138,7 +138,7 @@ Major retail and logistics operators in Australia — including Coles, Woolworth
 
 No Australian regulatory guidance addresses AI decision-making failure modes in AMR systems. Human-robot collaboration scenarios — where workers operate in proximity to AMR fleets, relying on the AI's pedestrian detection and path planning to avoid collision — are governed by general WHS duty rather than any AI-specific technical standard.
 
-The NSW Work Health and Safety Amendment (Digital Work Systems) Act 2026 (NSW), passed on 13 February 2026 (not yet commenced by proclamation as at the date of this brief), will create an explicit statutory duty for PCBUs to ensure that digital work systems — defined in section 4 of the Work Health and Safety Act 2011 (NSW) as including algorithms, artificial intelligence, automation, and online platforms — do not put worker health and safety at risk. The amendments insert section 21A and expand inspection powers to allow access to algorithms, performance metrics, data logs, and audit trails. When commenced, this legislation will create a direct compliance pathway where adversarial test documentation would satisfy the audit trail requirement. However, the legislative framework does not specify what adversarial testing is, how it should be conducted, or what documentation standard constitutes adequate evidence.
+The NSW Work Health and Safety Amendment (Digital Work Systems) Act 2026 (NSW), passed on 12 February 2026 (NSW Parliament bill pk=18847; Act No. 5 of 2026, legislation.nsw.gov.au) (not yet commenced by proclamation as at the date of this brief), will create an explicit statutory duty for PCBUs to ensure that digital work systems — defined in section 4 of the Work Health and Safety Act 2011 (NSW) as including algorithms, artificial intelligence, automation, and online platforms — do not put worker health and safety at risk. The amendments insert section 21A and expand inspection powers to allow access to algorithms, performance metrics, data logs, and audit trails. When commenced, this legislation will create a direct compliance pathway where adversarial test documentation would satisfy the audit trail requirement. However, the legislative framework does not specify what adversarial testing is, how it should be conducted, or what documentation standard constitutes adequate evidence.
 
 ### 2.4 Regulatory Gap Summary
 
@@ -384,7 +384,7 @@ Since the initial draft of this brief, the Failure-First corpus has expanded sub
 
 2. Safe Work Australia. *Best Practice Review — have your say on Australia's WHS laws* [Consultation notice]. Submissions closed 3 November 2025. https://www.safeworkaustralia.gov.au/media-centre/best-practice-review-have-your-say-australias-whs-laws
 
-3. NSW Parliament. *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW). Passed 13 February 2026. [Inserting s21A into the Work Health and Safety Act 2011 (NSW).]
+3. NSW Parliament. *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW). Passed 12 February 2026 (NSW Parliament bill pk=18847; Act No. 5 of 2026, legislation.nsw.gov.au). [Inserting s21A into the Work Health and Safety Act 2011 (NSW).]
 
 4. NSW Government. *Work Health and Safety Regulation 2025* (NSW). Commenced 1 October 2025.
 

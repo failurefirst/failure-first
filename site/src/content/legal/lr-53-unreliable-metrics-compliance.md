@@ -123,7 +123,7 @@ Under Art 11(e) (state of the art defence), the manufacturer must show that "the
 ### 4.1 Applicable Instruments
 
 - *Work Health and Safety Act 2011* (Cth + State harmonised versions). Binding legislation.
-- *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW). Binding legislation (passed 13 February 2026; commencement by proclamation, date TBD).
+- *Work Health and Safety Amendment (Digital Work Systems) Act 2026* (NSW). Binding legislation (passed 12 February 2026 (NSW Parliament bill pk=18847; Act No. 5 of 2026, legislation.nsw.gov.au); commencement by proclamation, date TBD).
 - *Australian Consumer Law* (Schedule 2, *Competition and Consumer Act 2010* (Cth)). Binding legislation.
 - *Voluntary AI Safety Standard* (VAISS). Non-binding guidance. Guardrail 4: pre-deployment testing.
 

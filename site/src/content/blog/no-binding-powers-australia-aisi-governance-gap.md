@@ -55,7 +55,7 @@ The governance landscape for these systems:
 
 - **AU AISI:** Cannot require adversarial testing. Cannot access safety data. Cannot impose pre-deployment requirements.
 - **Safe Work Australia:** Best Practice Review on AI in the workplace underway, final report expected mid-2026. No adversarial robustness requirements in any WHS instrument.
-- **NSW WHS Digital Work Systems Bill 2026:** Passed February 13, 2026 — creates binding AI testing duty for systems affecting workers. But the guidance does not specify methodology for adversarial physical failure modes, and NSW is one state. Mining operations span multiple jurisdictions.
+- **NSW WHS Digital Work Systems Bill 2026:** Passed February 12, 2026 — creates binding AI testing duty for systems affecting workers. But the guidance does not specify methodology for adversarial physical failure modes, and NSW is one state. Mining operations span multiple jurisdictions.
 - **No federal embodied AI regulation:** No federal instrument of any kind addresses adversarial attacks on robotic or autonomous systems.
 
 The result: Australia's most safety-critical AI deployments — autonomous vehicles operating in environments with human workers — have no pre-deployment adversarial testing requirement, no mandatory incident reporting for AI-caused safety events, and no regulator with the power to intervene.
