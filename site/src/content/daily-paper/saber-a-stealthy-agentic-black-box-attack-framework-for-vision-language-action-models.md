@@ -30,7 +30,7 @@ The danger is that these failures are not merely textual; they are **behavioral*
 ### 3. Inside the SABER Framework: The Agentic Attacker
 SABER functions as a "Black-Box" attacker, meaning it does not require access to the robot's internal code or gradients. Instead, it uses a multi-turn **FIND→APPLY** workflow. The agent first reasons to **FIND** a high-leverage target within the instruction and then **APPLY** a specific tool to maximize the physical disruption.
 
-This loop is visualized in the SABER architecture [SOURCE_IMAGE_17], which depicts the interaction between the Red-team Agent, the Victim Model, and a specialized **Reward Function**. This function is critical; it provides "rollout-level" feedback, balancing the "Objective" (maximizing failure) against "Stealth" (minimizing the number of characters changed or tool calls used).
+The SABER architecture depicts the interaction between the Red-team Agent, the Victim Model, and a specialized **Reward Function**. This function is critical; it provides "rollout-level" feedback, balancing the "Objective" (maximizing failure) against "Stealth" (minimizing the number of characters changed or tool calls used).
 
 #### The SABER Toolbox
 SABER utilizes a hierarchy of tools to compose its surgical attacks:
