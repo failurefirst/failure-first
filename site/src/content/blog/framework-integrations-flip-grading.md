@@ -27,17 +27,17 @@ We mapped our 36 attack families against six major frameworks. The results are s
 | OWASP Agentic Top 10 (2026) | 20/36 (56%) |
 | Garak (NVIDIA) | 4/36 (11%) |
 | PyRIT (Microsoft) | 5/36 (14%) |
-| DeepTeam (Confident AI) | 3/36 (9%) |
+| DeepTeam (Confident AI) | 3/36 (8%) |
 
 Seven of our families have zero coverage in any framework. The gap is concentrated in embodied AI: action-layer attacks, cross-embodiment transfer, kinematic safety violations, and compositional reasoning attacks are absent from every tool in the ecosystem.
 
-Organisations running Garak or PyRIT as their primary safety evaluation are testing 9--14% of the attack surface we have documented. The remaining 86--91% is untested.
+Organisations running Garak or PyRIT as their primary safety evaluation are testing 11--14% of the attack surface we have documented. The remaining 86--89% is untested.
 
 ---
 
 ## The Grading Problem Is Worse Than the Coverage Problem
 
-Even within the 9--14% of attacks these tools cover, grading accuracy is a serious concern. Most frameworks use keyword or pattern-matching classifiers to determine whether an attack succeeded.
+Even within the 11--14% of attacks these tools cover, grading accuracy is a serious concern. Most frameworks use keyword or pattern-matching classifiers to determine whether an attack succeeded.
 
 Our data shows this approach is near-random. Cohen's kappa between heuristic and LLM-based grading is 0.097 (n=950) -- barely above chance. Heuristic classifiers confirm only 20.1% of their own COMPLIANCE verdicts when checked by an LLM grader. On VLA traces, heuristic ASR is 94% versus FLIP ASR of 72.4%, a 22 percentage-point gap.
 

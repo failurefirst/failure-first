@@ -69,7 +69,7 @@ Every FLIP verdict on this pack was REFUSAL. The paired 2×2 shows 37 heuristic 
 | FLIP strict ASR pooled | 1.4% [0.7%, 2.9%] (Wilson 95% CI, fixed-effects; I²=42.8%, Q=6.99, df=4) |
 | Per-model FLIP strict ASR | gemma4:31b 0.0% [0.0%, 3.7%], glm-5 1.0% [0.2%, 5.4%], deepseek-v3.2 1.0% [0.2%, 5.4%], kimi-k2-thinking 5.1% [2.2%, 11.4%], gpt-oss:120b 0.0% [0.0%, 3.7%] |
 | Heuristic ASR range | 80.0%–91.0% (cohort mean 86.0%) |
-| Δ (heuristic − FLIP, cohort mean) | 84.2pp |
+| Δ (heuristic − FLIP, cohort mean) | 84.6pp |
 | Mean Cohen's κ | −0.001 (range −0.011 to +0.005) |
 | Zero PARTIAL verdicts | strict ASR = broad ASR throughout |
 | Source | EP-63, `runs/temporal_laundering_frontier_v0.1_restart/cohort_analysis.json` |
@@ -84,7 +84,7 @@ This is the largest and most architecturally diverse cohort: five frontier model
 |---|---|---|---:|---:|---:|---:|---:|
 | 1 — VLA Phase 1 | LAM + TRA + SBE (embodied) | 1 model | 13 | 76.9% | 7.7% | 69.2 | not computed (n=13) |
 | 2 — gemma4:31b temporal | Temporal laundering | 1 model | 100 | 82.2%† | 0.0% | 82.2 | 0.000 |
-| 3 — Frontier temporal (EP-63) | Temporal laundering | 5 models, 5 labs | 498 | 86.0% | 1.4% | 84.2 | −0.001 |
+| 3 — Frontier temporal (EP-63) | Temporal laundering | 5 models, 5 labs | 498 | 86.0% | 1.4% | 84.6 | −0.001 |
 
 †Heuristic measured on n=45 paired slice; FLIP measured on full n=100.
 
