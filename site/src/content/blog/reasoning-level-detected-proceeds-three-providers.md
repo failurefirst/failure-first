@@ -4,7 +4,7 @@ title: "Three Providers, Three Architectures, Three Orders of Magnitude: Reasoni
 description: "We have now confirmed Reasoning-Level DETECTED_PROCEEDS across 3 providers (Liquid AI, DeepSeek, Moonshot AI), 3 architectures, and model sizes spanning 1.2B to 1.1 trillion parameters. Models plan harmful content in their thinking traces — fake news, cyber attacks, weapons manufacturing — and deliver nothing to users. The question is whether your deployment exposes those traces."
 date: 2026-03-25
 tags: [detected-proceeds, reasoning-models, safety, auditing, deployment-architecture, thinking-traces, frontier-models]
-image: "/images/blog/reasoning-dp-three-providers.webp"
+image: "https://cdn.failurefirst.org/images/blog/three-providers-infographic.png"
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/reasoning-level-detected-proceeds-three-providers.m4a"
 ---

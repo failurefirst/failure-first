@@ -4,7 +4,7 @@ title: "Frontier Model Safety: Why 1.1 Trillion Parameters Does Not Mean Safe"
 description: "We tested models up to 1.1 trillion parameters for adversarial safety. The result: safety varies 3.9x across frontier models, and parameter count is not predictive of safety robustness. Mistral Large 3 (675B) shows 70% broad ASR while Qwen3.5 (397B) shows 18%. What enterprises need to know before choosing an AI provider."
 date: 2026-03-25
 tags: [frontier-models, safety, parameter-count, scaling, enterprise, red-teaming, benchmarking]
-image: "/images/blog/frontier-safety-scaling.webp"
+image: "https://cdn.failurefirst.org/images/blog/frontier-safety-infographic.png"
 draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/frontier-model-safety-trillion-parameters.m4a"
 ---

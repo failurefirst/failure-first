@@ -3,7 +3,7 @@ title: "Robots in Extreme Environments: Fukushima, the Ocean Floor, and Outer Sp
 description: "When robots operate in environments where humans cannot follow — inside melted-down reactors, at crushing ocean depths, in the vacuum of space — every failure is permanent. No one is coming to fix it. These incidents from Fukushima, the deep ocean, and the ISS reveal what happens when embodied AI meets environments that destroy the hardware faster than software can adapt."
 date: 2026-03-18
 tags: [embodied-ai, robotics, incident-analysis, safety, extreme-environments, fukushima, space, ocean, radiation, deep-sea]
-image: "https://cdn.failurefirst.org/infographic/featured/06-robots-extreme-environments.webp"
+image: "https://cdn.failurefirst.org/images/featured/06-robots-extreme-environments.png"
 audio: "https://cdn.failurefirst.org/audio/blog/robots-extreme-environments-fukushima-space-ocean.m4a"
 ---
 

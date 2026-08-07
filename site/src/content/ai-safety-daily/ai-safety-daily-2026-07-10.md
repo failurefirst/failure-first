@@ -2,6 +2,7 @@
 title: "AI Safety Daily — July 10, 2026"
 description: "The UK AI Security Institute reports universal cyber jailbreaks in OpenAI's GPT-5.6 Sol, built in hours and capable of autonomous exploitation — a sharper capability-elicitation result than the June Fable 5 finding that triggered export controls."
 date: 2026-07-10
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-07-10.png"
 tags: ["ai-safety-daily", "ai-governance", "jailbreak", "red-teaming", "frontier-models"]
 citations_verified: true
 draft: false

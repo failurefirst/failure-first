@@ -2,6 +2,7 @@
 title: "AI Safety Daily — August 2, 2026"
 description: "The EU AI Act's Article 50 transparency obligations — disclosing AI interaction, labeling AI-generated content, flagging deepfakes — take effect today, even as high-risk obligations remain deferred to 2027–2028 under the Digital Omnibus."
 date: 2026-08-02
+image: "https://cdn.failurefirst.org/images/blog/ai-safety-daily-2026-08-02.png"
 tags: ["ai-safety-daily", "ai-governance", "eu-ai-act", "embodied-ai"]
 citations_verified: true
 draft: false

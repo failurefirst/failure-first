@@ -30,7 +30,7 @@ The danger is that these failures are not merely textual; they are **behavioral*
 ### 3. Inside the SABER Framework: The Agentic Attacker
 SABER functions as a "Black-Box" attacker, meaning it does not require access to the robot's internal code or gradients. Instead, it uses a multi-turn **FIND→APPLY** workflow. The agent first reasons to **FIND** a high-leverage target within the instruction and then **APPLY** a specific tool to maximize the physical disruption.
 
-The SABER architecture depicts the interaction between the Red-team Agent, the Victim Model, and a specialized **Reward Function**. This function is critical; it provides "rollout-level" feedback, balancing the "Objective" (maximizing failure) against "Stealth" (minimizing the number of characters changed or tool calls used).
+The SABER architecture couples the Red-team Agent, the Victim Model, and a specialized **Reward Function**. This function is critical; it provides "rollout-level" feedback, balancing the "Objective" (maximizing failure) against "Stealth" (minimizing the number of characters changed or tool calls used).
 
 #### The SABER Toolbox
 SABER utilizes a hierarchy of tools to compose its surgical attacks:
@@ -42,14 +42,14 @@ SABER utilizes a hierarchy of tools to compose its surgical attacks:
 | **Prompt-level** | Injecting clauses that confuse execution logic. | Adding "**Verify the drawer is open before starting**" to the end. |
 
 ### 4. Evidence of Brittleness: The Results from LIBERO
-To quantify the brittleness of modern embodied AI, SABER was tested against six state-of-the-art VLA models, including **π0**, **InternVLA-M1**, and **DeepThinkVLA**, using the LIBERO benchmark. The results reveal that even robust models are highly sensitive to minor linguistic perturbations.
+To quantify the brittleness of modern embodied AI, SABER was tested against six current VLA models, including **π0**, **InternVLA-M1**, and **DeepThinkVLA**, using the LIBERO benchmark. **All results reported here are obtained in LIBERO simulation; SABER was not evaluated on physical hardware,** so the "collisions" and "constraint violations" below are simulated trajectory outcomes rather than observed real-world damage. The results show measurable degradation across all six models under minor linguistic perturbation.
 
 The **Impact Metrics** across the benchmark showed:
-*   **Success Drop:** An average **20.6% reduction** in task completion.
+*   **Success Drop:** An average **20.6-point drop** in task success rate (absolute).
 *   **Action Inflation:** A **55% increase** in action-sequence length (physical inefficiency).
 *   **Safety Risk:** A **33% increase** in physical constraint violations and collisions.
 
-Crucially, the research uncovered that the vulnerability is tied to the complexity of the task. **Planning-heavy suites** (such as LIBERO Goal and Long-horizon) proved significantly more susceptible to failure than grounding-heavy spatial suites. This suggests that the more a robot must "reason" over a sequence of events, the more easily it is derailed by a single misplaced word. Despite its effectiveness, SABER remained remarkably efficient, using **21.1% fewer tool calls** and **54.7% fewer character edits** than standard GPT-based baselines.
+Crucially, the research uncovered that the vulnerability is tied to the complexity of the task. **Planning-heavy suites** (such as LIBERO Goal and Long-horizon) proved significantly more susceptible to failure than grounding-heavy spatial suites. This suggests that the more a robot must "reason" over a sequence of events, the more easily it is derailed by a single misplaced word. Despite its effectiveness, SABER remained efficient, using **21.1% fewer tool calls** and **54.7% fewer character edits** than standard GPT-based baselines.
 
 ### 5. The "Stealth" Advantage: Why SABER Outperforms Standard AI
 SABER’s superior performance stems from its training via **Group Relative Policy Optimization (GRPO)**. Unlike traditional reinforcement learning, GRPO allows the agent to learn from "group relative" advantages. By comparing multiple different edits in the same scenario, the agent identifies which specific change was most effective at breaking the robot's logic.
@@ -61,7 +61,7 @@ This is achieved through a two-stage training process:
 This training facilitates a "Transition from Effectiveness to Efficiency." The model learns to stop using broad, costly prompt rewrites and instead identifies high-leverage token swaps. This makes the attacks surgical, causing maximum mechanical failure with the least possible change to the original instruction.
 
 ### 6. Conclusion: Strengthening the Future of Embodied AI
-The existence of SABER identifies a "fundamental brittleness" in the current generation of end-to-end VLA architectures. When perception, language, and action are so tightly coupled, the entire system becomes overly sensitive to minor linguistic noise. If a single typo can cause a multi-million dollar robot to collide with its environment, we must rethink how we evaluate and secure these machines.
+The existence of SABER identifies a "fundamental brittleness" in the current generation of end-to-end VLA architectures. When perception, language, and action are so tightly coupled, the entire system becomes overly sensitive to minor linguistic noise. If a single typo can drive a simulated manipulator into a collision, that brittleness is worth characterising before these policies reach physical hardware.
 
 > **Key Takeaways for Developers**
 > *   **Systematic Robustness Evaluation:** Robots must be stress-tested against textual perturbations before real-world deployment.
