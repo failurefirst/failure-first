@@ -26,7 +26,7 @@ const recentPapers = (await getCollection('dailyPaper'))
 >
   <HeroSection
     title="What counts as<br /><em>evidence</em><br />of AI safety?"
-    subtitle={`A rubric. A corpus. A practice. ${stats.modelsDisplay} models, ${stats.promptsDisplay} adversarial prompts, ${stats.resultsDisplay} graded results, plus embodied and multi-agent red-teaming — built so insurers, regulators, and procurement can tell a real safety claim from a marketing one.`}
+    subtitle={`We break AI systems on purpose and write down exactly how they broke. ${stats.modelsDisplay} models, ${stats.promptsDisplay} adversarial prompts, ${stats.resultsDisplay} graded results — and robots in a lab, where a bad decision leaves a mark you can't delete.`}
     animation="flow"
   />
 
@@ -37,23 +37,23 @@ const recentPapers = (await getCollection('dailyPaper'))
       so the buyer can't tell what was actually tested, by whom, against what.
     </p>
     <p>
-      Failure-First is a research practice that holds safety claims to a three-part rubric:
-      <strong>could it fail this way</strong>, <strong>did it fail this way under test</strong>,
-      and <strong>would the failure be recoverable in deployment</strong>.
-      A finding that survives all three is what we call evidence. Everything that doesn't is a
-      hypothesis at best, marketing at worst.
+      Failure-First is a lab that studies the failures. Every safety claim we take seriously —
+      ours or anyone else's — has to clear three questions: <strong>could it fail this
+      way</strong>, <strong>did it fail this way when someone tried</strong>, and
+      <strong>could anyone recover when it did</strong>. What survives all three is evidence.
+      What skips one isn't, however confidently it's formatted.
     </p>
     <p>
-      The same rubric runs across three fronts: a text-model jailbreak corpus, embodied
-      red-teaming where a bad decision becomes a physical one, and — the programme's current
-      hard-case frontier — how failure compounds when many model instances, organised and
-      patient, pursue an objective together. One evidence discipline, applied wherever the
-      failure actually happens.
+      Those questions run across three fronts. A text corpus, where a failure is a paragraph
+      someone can delete. Embodied red-teaming, where a failure is a robot that has already
+      moved and a floor that doesn't roll back. And the programme's current hard case: what
+      failure becomes when many model instances, organised and patient, work the same objective
+      for a long time.
     </p>
     <p>
-      The rubric is the product. The corpus — {stats.promptsDisplay} adversarial prompts run
-      against {stats.modelsDisplay} models, {stats.resultsDisplay} graded results across {stats.eras} eras of attack
-      technique — is the evidence base that lets us apply it without arm-waving.
+      {/* Keep every {expression} junction on ONE line: Astro 7 collapses a newline
+          that sits directly against an expression. */}
+      The corpus — {stats.promptsDisplay} adversarial prompts run against {stats.modelsDisplay} models, {stats.resultsDisplay} graded results across {stats.eras} eras of attack technique — is what lets us answer with receipts instead of adjectives.
     </p>
     <p class="caveat">
       We do not certify systems as safe. Anyone citing our work as proof of safety is
@@ -70,16 +70,17 @@ const recentPapers = (await getCollection('dailyPaper'))
   <!-- Audience Entry Points -->
   <section>
     <h2>Start Here</h2>
-    <p>Three ways into the same evidence base, depending on what you need to check:</p>
+    <p>Three ways into the same evidence base. Pick the one that matches what you came to check.</p>
     <AudienceNav />
   </section>
 
   <!-- Core Research Areas -->
   <section class="scroll-reveal">
-    <h2>What the rubric has surfaced</h2>
+    <h2>What we have found, and what we are still trying to find out</h2>
     <p style="color: var(--fg-dim); max-width: 720px;">
-      Four research lines, each producing findings that have changed how we — and the people
-      we work with — read safety claims. Numbers below are LLM-graded except where noted.
+      Six lines of work, and they are not all at the same stage. Four have produced findings.
+      One is the instrument those findings get replayed on. One is an experiment still running,
+      labelled as such. Numbers below are LLM-graded except where noted.
     </p>
     <div class="research-areas">
       <a href="/research/jailbreak-archaeology/" class="research-area card">
@@ -188,8 +189,8 @@ const recentPapers = (await getCollection('dailyPaper'))
     <p>
       Most AI safety work optimises for capability and treats failure as the residual.
       We invert that: characterise the failures first, then ask what capability is left over
-      that we can actually trust. It is closer in temperament to a structural engineer&apos;s
-      load-test than to a benchmark leaderboard — which is the comparison we make on purpose.
+      that anyone should actually trust. It is closer in temperament to a load test than to a
+      leaderboard. Nobody celebrates the beam that held. They record the load at which it didn&apos;t.
     </p>
     <p style="margin-top: 1rem;">
       <a href="/manifesto/" class="link-button">Read the manifesto</a>
@@ -253,8 +254,8 @@ const recentPapers = (await getCollection('dailyPaper'))
       {/* Keep every {expression} junction on ONE line: Astro 7 collapses a
           newline that sits directly against an expression, so a line break
           between "models," and {stats.techniquesPlus} renders as "models,346+". */}
-      and graded by the same rubric — {stats.promptsDisplay} prompts, {stats.modelsDisplay} models, {stats.techniquesPlus} documented attack techniques — so what an insurer, a regulator, and a
-      procurement officer get from us is comparable, auditable, and defensible.
+      and graded the same way — {stats.promptsDisplay} prompts, {stats.modelsDisplay} models, {stats.techniquesPlus} documented attack techniques — which means what you get is a
+      document that survives being read by someone who doesn't want it to.
     </p>
     <div class="services-grid">
       <a href="/services/red-team-assessments/" class="service-link card">

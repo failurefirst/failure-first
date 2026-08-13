@@ -11,159 +11,199 @@ import WarningBox from '../components/WarningBox.astro';
 >
   <HeroSection
     title="The failure-first<br /><em>manifesto</em>"
-    subtitle="In a world of embodied AI, safety emerges from well-designed failure"
+    subtitle="The claims this programme is prepared to be wrong about, in public"
     animation="drift"
   />
 
   <section>
     <h2>Thesis</h2>
     <p>
-      Alignment that only optimizes for correct task completion is brittle.
-      Systems operate across time, across other agents, and&mdash;when embodied&mdash;across
-      physical space that does not roll back. They will fail. The question is
-      <strong>how</strong>, and whether anyone can tell before it costs something real.
+      Every system built to do something will also, eventually, do something else.
+      Systems run across time, alongside other agents, and&mdash;when they have
+      bodies&mdash;across physical space that does not roll back. They will fail. The
+      only questions worth asking in advance are <strong>how</strong>, and whether
+      anyone will be able to tell before it costs something real.
     </p>
     <p>
-      This manifesto argues that failure should be the <strong>primary object of
-      study</strong> in AI safety evaluation&mdash;not an edge case, not a corner case,
-      but the central concern. It also argues something narrower and less comfortable:
-      a safety claim that nobody has tried to break is not evidence. It's a hope with
+      So failure is the primary object of study here, not the residual left over after
+      the capability work is done. And one narrower, less comfortable claim follows from
+      that: a safety claim nobody has tried to break is not evidence. It's a hope with
       better formatting.
+    </p>
+    <p class="arc-note">
+      What follows is an argument in five moves, not a list of positions&mdash;what a
+      claim has to be, where failure actually lives, how systems actually break, what it
+      takes to see any of it, and what that obliges us to do.
     </p>
   </section>
 
   <section>
-    <h2>Core Assertions</h2>
+    <h2>I. What a claim has to be</h2>
+    <p class="movement-lede">Everything after this depends on getting this one right.</p>
 
     <div class="card">
       <h3>1. A Safety Claim Must Be Falsifiable</h3>
       <p>
         "This system is safe" is not a claim; it's a slogan. A real claim specifies
-        what would have to happen for it to be wrong, and someone goes and tries to
-        make that happen. If a claim survives contact with an adversary who is
-        actually trying to kill it, that's evidence. If no one tried, it's marketing.
+        what would have to happen for it to be wrong, and then someone goes and tries
+        to make that happen. If it survives contact with an adversary who was genuinely
+        trying to kill it, that's evidence. If nobody tried, it's marketing with
+        footnotes.
       </p>
     </div>
+  </section>
+
+  <section>
+    <h2>II. Where the failure actually lives</h2>
+    <p class="movement-lede">
+      Almost every published safety number describes one model, one turn, one output.
+      That is the smallest place a failure can live, and the least interesting.
+    </p>
 
     <div class="card">
-      <h3>2. Alignment &ne; Safety</h3>
-      <p>
-        Alignment describes intent matching at time <em>t</em>.
-        Safety is a property of behavior over <strong>time</strong>.
-        A system that is aligned right now may be unsafe tomorrow if it cannot handle
-        the accumulation of state, context drift, and recursive interaction.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>3. The Unit of Failure Is a Causal Chain, Not a Model Output</h3>
+      <h3>2. The Unit of Failure Is a Causal Chain, Not a Model Output</h3>
       <p>
         A bad completion is not the interesting failure. The interesting failure is
         what happens next: who or what acts on it, what state changes, what becomes
-        irreversible three steps downstream. Grading a single output and stopping
-        there measures the wrong object&mdash;it's the difference between citing a
-        symptom and tracing a mechanism.
+        irreversible three steps downstream. Grading one output and stopping there
+        measures the wrong object&mdash;it is the difference between citing a symptom
+        and tracing a mechanism.
       </p>
     </div>
 
     <div class="card">
-      <h3>4. Embodiment Turns Information Into State</h3>
+      <h3>3. Embodiment Turns Information Into State</h3>
       <p>
         In a chat window, a bad decision is a string you can delete. In a body, a bad
-        decision is a position taken, a resource spent, a trust relationship damaged&mdash;
-        a fact about the world that doesn't unhappen because someone closed the tab.
-        Physical systems accumulate state; small misalignments compound into outcomes
-        that can't be rolled back.
+        decision is a position taken, a resource spent, a door opened, a trust
+        relationship spent down&mdash;a fact about the world that does not unhappen
+        because someone closed the tab. This is not a difference of degree. It is a
+        different kind of event, and it needs a different kind of test.
       </p>
     </div>
 
     <div class="card">
-      <h3>5. Peers and Organisations Make Failure Compositional</h3>
+      <h3>4. Peers and Organisations Make Failure Compositional</h3>
       <p>
-        Safety measured one model, one turn, at a time misses what happens when
-        models talk to models, or when a coordinated set of agents and humans
-        pursues an objective over time. Failure in a multi-agent system is not the
-        sum of its single-agent failures&mdash;it's a different object, with its own
-        cascade dynamics, that single-agent benchmarks cannot see at all.
+        Safety measured one model, one turn at a time cannot see what happens when
+        models talk to models, or when agents and humans push at one objective
+        together over months. Multi-agent failure is not the sum of the single-agent
+        failures. It is a different object with its own cascade dynamics, and
+        single-agent benchmarks are structurally blind to it.
       </p>
     </div>
 
     <div class="card">
-      <h3>6. The World Talks Back</h3>
+      <h3>5. Alignment Is a Snapshot; Safety Is a Trajectory</h3>
       <p>
-        A simulated or embodied environment doesn't just receive a model's decision;
-        it responds&mdash;with resistance, scarcity, other agents, physics that doesn't
-        negotiate. An apparatus that can only produce the failure the designer already
-        expected isn't testing anything. The world has to be able to say no.
+        Alignment describes intent matching at time <em>t</em>. Safety is a property of
+        behaviour over <strong>time</strong>. A system aligned right now can be unsafe
+        by Thursday, once state has accumulated, context has drifted, and it has been
+        interacting with something that adapts.
       </p>
     </div>
+  </section>
+
+  <section>
+    <h2>III. How systems actually break</h2>
+    <p class="movement-lede">
+      Systems rarely fail by turning hostile. They fail along the grain of what they
+      were built to do.
+    </p>
 
     <div class="card">
-      <h3>7. Simulation Is Where Failure Should Happen on Purpose</h3>
+      <h3>6. An Objective Is Pressure Against Every Constraint In Reach</h3>
       <p>
-        Plausible failure modes belong in a lab before they belong in a deployment
-        incident report. Embodied evaluation and the Forward Threat exercises run
-        inside a simulation boundary specifically so a mistake costs a recorded
-        trace, not a person or a piece of infrastructure&mdash;the aggression
-        belongs to the instrument, never to the boundary itself.
+        A safety constraint is a bound on behaviour. An objective is a steady push
+        against every bound near it. Give a system enough capability and enough time
+        and the push finds the cheapest edge, whether or not anyone intended it to.
+        This is why constraints have to be tested under pressure rather than read.
       </p>
     </div>
 
     <div class="card">
-      <h3>8. Optimization Is a Hazard</h3>
+      <h3>7. Refusal Is Not Enough</h3>
       <p>
-        Recursive optimization without bounds creates runaway behavior,
-        even when the objective is benign. A system that optimizes past its
-        safety constraints is more dangerous than one that was never aligned at all.
+        A system that refuses once and leaks the same capability twenty turns later is
+        not safe; it is polite. What matters is whether the refusal holds across
+        multi-turn pressure, temporal reframing, and escalating claims of authority
+        &mdash;because that is what an adversary will actually spend their time on.
       </p>
     </div>
 
     <div class="card">
-      <h3>9. Refusal Is Not Enough</h3>
-      <p>
-        A system that refuses once but leaks capability later is unsafe.
-        Refusal quality matters: does the system hold its refusal across
-        multi-turn interactions, temporal reframing, and authority escalation?
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>10. Graceful Failure Is the Baseline, Not the Summit</h3>
-      <p>Safe systems, at minimum:</p>
+      <h3>8. Graceful Failure Is the Floor, Not the Summit</h3>
+      <p>A system worth deploying, at minimum:</p>
       <ul class="principles">
-        <li>Halt when conditions exceed their competence</li>
-        <li>Degrade predictably under pressure</li>
-        <li>Ask for help when uncertain</li>
-        <li>Roll back when they detect their own errors</li>
-        <li>Remain interpretable under stress</li>
+        <li>Halts when conditions exceed its competence</li>
+        <li>Degrades predictably under pressure</li>
+        <li>Asks for help when uncertain</li>
+        <li>Rolls back when it detects its own errors</li>
+        <li>Remains interpretable under stress</li>
       </ul>
       <p>
-        None of this is sufficient against an adversary patient enough to wait for
-        the system to trust it again. Graceful failure is the floor every system
-        needs before anything else is worth testing&mdash;it is not, by itself, a
-        defence against a strategic opponent.
+        All of it is necessary. None of it is sufficient against an adversary patient
+        enough to simply wait until the system trusts them again. Graceful failure is
+        what a system needs before anything else about it is worth testing. It is not,
+        by itself, a defence against an opponent with a strategy.
       </p>
     </div>
+  </section>
+
+  <section>
+    <h2>IV. What it takes to see any of this</h2>
+    <p class="movement-lede">
+      An instrument that can only produce the failure its designer expected is not
+      measuring anything.
+    </p>
+
+    <div class="card">
+      <h3>9. The World Has to Be Able to Say No</h3>
+      <p>
+        An environment worth testing in does not just receive a decision; it answers
+        &mdash;with resistance, scarcity, other agents, physics that will not negotiate.
+        If the trouble in your test always resolves the way you predicted, you have
+        learned something about your apparatus, not about the system inside it.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>10. Simulation Is Where Failure Should Happen on Purpose</h3>
+      <p>
+        A plausible failure mode belongs in a lab before it belongs in an incident
+        report. Embodied evaluation and the Forward Threat exercises run inside a
+        simulation boundary precisely so that a mistake costs a recorded trace and
+        nothing else. The aggression belongs to the instrument. It never belongs to
+        the boundary.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>V. What we owe the record</h2>
+    <p class="movement-lede">Which leaves the part that applies to us.</p>
 
     <div class="card">
       <h3>11. We Attack Our Own Explanations</h3>
       <p>
-        Every interesting result gets an opponent whose job is to kill it&mdash;not
-        just the finding, the <em>explanation</em> for the finding. A weird result
-        earns a place in the record because it survived a hostile framing, a
-        scrambled label, a counterfactual replay, not because it was weird.
+        Every interesting result gets an opponent whose job is to kill it&mdash;and not
+        just the finding, the <em>explanation</em> for the finding. A strange result
+        earns its place in the record because it survived a hostile reframing, a
+        scrambled label, a counterfactual replay. Not because it was strange. The
+        result you would least like to re-run is the one to re-run.
       </p>
     </div>
 
     <div class="card">
       <h3>12. Evidence Ends in Replayable Receipts</h3>
       <p>
-        A finding that can't be replayed from a hash-addressed trace, a fixed seed,
-        or an archived transcript is a claim, not evidence. Presentation can polish a
-        finding; it cannot manufacture the property it's presenting.
+        A finding that cannot be replayed from a hash-addressed trace, a fixed seed, or
+        an archived transcript is a claim, not evidence. Presentation can make a finding
+        legible. It can never supply the property it is presenting.
       </p>
     </div>
   </section>
+
 
   <section class="manifesto-highlight">
     <h2>Design Principle</h2>
@@ -191,55 +231,59 @@ import WarningBox from '../components/WarningBox.astro';
   </section>
 
   <section>
-    <h2>Implications for Evaluation</h2>
-    <div class="card">
-      <h3>Measure failure, not just success</h3>
-      <p>
-        Current benchmarks reward correct answers. Failure-first evaluation rewards
-        systems that fail well: halting when appropriate, degrading predictably,
-        maintaining interpretability, and supporting human re-entry.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Test over time, not at a point</h3>
-      <p>
-        Safety is a temporal property. Single-turn evaluations miss multi-turn erosion,
-        context drift, and accumulated authority. Evaluation must span episodes, not snapshots.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Test across agents, not just across turns</h3>
-      <p>
-        A campaign is not a longer conversation. It is intent, hypothesis, action,
-        observation, and doctrine update repeating across many agents and rounds.
-        Evaluation that stops at one model, one session, cannot see what a
-        persistent, coordinated adversary produces&mdash;this is the current frontier
-        of our own evaluation practice, not a solved problem we're reporting on.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Include the human in the loop</h3>
-      <p>
-        Embodied systems operate alongside humans. Evaluation that excludes
-        human interaction misses the most critical failure modes: deference failures,
-        authority confusion, and escalation breakdowns.
-      </p>
-    </div>
+    <h2>What this changes about evaluation</h2>
+    <p>
+      Benchmarks reward correct answers. A failure-first evaluation asks the opposite
+      question&mdash;when this system is wrong, what does being wrong cost, and can
+      anyone tell in time&mdash;which means it has to be built differently in three
+      specific ways.
+    </p>
+    <p>
+      <strong>It spans episodes, not snapshots</strong>, because multi-turn erosion,
+      context drift and accumulated authority are invisible at a single point.
+      <strong>It keeps a human in the frame</strong>, because embodied systems work
+      beside people, and the failures that actually hurt are deference failures,
+      authority confusion, and a handover that arrives too late to be a handover.
+    </p>
+    <p>
+      <strong>And it has to run across agents, not just across turns.</strong> A
+      campaign is not a longer conversation: it is intent, hypothesis, action,
+      observation and doctrine update, repeating across many agents and many rounds.
+      An evaluation that stops at one model in one session cannot see what a
+      persistent, coordinated adversary produces. That last one is the current frontier
+      of our own practice&mdash;a problem we are working on, not a problem we are
+      reporting having solved.
+    </p>
   </section>
 
   <WarningBox title="Research Context">
     <p>
-      This manifesto describes a research orientation, not a product specification.
-      It is intended to guide AI safety research toward failure-first evaluation
-      as a complement to existing alignment approaches. Some assertions above
-      (Forward Threat, campaign-scale evaluation) describe the programme's current
-      falsifiable bets, not results we have already banked&mdash;see the
-      <a href="/research/forward-threat/">Forward Threat Lab</a> page for which is which.
+      Twelve claims is twelve things to be wrong about, and they are not all wrong in
+      the same way. Some are backed by the corpus. Some are backed by what the embodied
+      work has already recorded. The ones about campaign-scale adversaries are bets
+      we have staked and not yet settled&mdash;the
+      <a href="/research/forward-threat/">Forward Threat Lab</a> page says exactly which
+      is which, and what would have to happen for us to drop one.
     </p>
   </WarningBox>
 </ContentLayout>
 
 <style>
+  .arc-note {
+    color: var(--fg-dim);
+    font-size: 0.9375rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .movement-lede {
+    color: var(--fg-dim);
+    font-size: 1.0625rem;
+    max-width: 62ch;
+    margin-bottom: 1.5rem;
+  }
+
   blockquote {
     border-left: 3px solid var(--accent-primary);
     padding: 1.25rem 1.5rem;

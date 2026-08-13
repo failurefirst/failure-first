@@ -12,19 +12,19 @@ import WarningBox from '../../components/WarningBox.astro';
 >
   <HeroSection
     title="Forward Threat <em>Lab</em>"
-    subtitle="The current hard-case frontier inside Failure-First — not a rebrand of it"
+    subtitle="What a patient adversary does with many model instances and a lot of time"
     animation="pulse"
     accent="coral"
   />
 
-  <WarningBox title="Epistemic status">
+  <WarningBox title="Epistemic status — read this first">
     <p>
-      Everything below the next section is an <strong>active experiment and a
-      falsifiable programme bet, not a measured finding.</strong> The first concrete
-      exercise (Forward Threat Exercise 01, tracking issue #1052) has not yet
-      produced a completed campaign run. Where this page says a result exists, it
-      says so explicitly and links the evidence. Where it doesn't, treat it as a
-      hypothesis we intend to attack, not a claim we're standing behind.
+      <strong>Nothing on this page is a result yet.</strong> The first exercise
+      (Forward Threat Exercise 01, tracking issue #1052) has not produced a completed
+      campaign run. What you are reading is a threat model and a set of falsifiable
+      bets we have staked in public so they can be attacked&mdash;including by us. The
+      grid at the bottom separates what is measured from what is merely stated. If a
+      claim here isn't in the MEASURED column, we are not standing behind it.
     </p>
   </WarningBox>
 
@@ -39,10 +39,11 @@ import WarningBox from '../../components/WarningBox.astro';
       compromised agent, is not the most dangerous shape a failure can take.
     </p>
     <p>
-      The motivating threat model: a patient, well-resourced adversary uses humans
-      plus many model instances&mdash;specialised roles, persistent memory, tools,
-      feedback, doctrine&mdash;to pursue a strategic objective over time, not a single
-      exploit in a single session.
+      The threat model, stated plainly: an adversary who is patient, well-resourced,
+      and not in a hurry. Humans directing many model instances&mdash;specialised roles,
+      persistent memory, tools, feedback, and doctrine that carries from one attempt to
+      the next&mdash;working one strategic objective over months. Not an exploit. A
+      programme, with the same shape as ours and the opposite sign.
     </p>
   </section>
 
@@ -61,27 +62,30 @@ import WarningBox from '../../components/WarningBox.astro';
   </section>
 
   <section>
-    <h2>Why the installed base matters before anything "attacks"</h2>
+    <h2>The terrain arrives before the attack does</h2>
     <p>
-      Once autonomous machines are widely deployed&mdash;homes, workplaces, logistics,
-      emergency response&mdash;the installed base can become strategic terrain in its
-      own right, independent of any single attack. Location, trust, authority, and
-      ordinary physical presence create future optionality an adversary can bank now
-      and cash later. This is the centre of the hard case: not "can the model be
-      jailbroken into saying something bad," scaled up, but what a legitimately
-      trusted, widely deployed fleet becomes worth to a patient adversary before it
-      ever does anything overtly wrong.
+      Autonomous machines are being installed far faster than anyone is testing them:
+      warehouses, hospital corridors, farms, loading docks, front doors. Each one is a
+      legitimate, trusted, thoroughly boring presence that happens to hold a map of a
+      building, a schedule, a set of credentials, and an unquestioned reason to be
+      wherever it is. Nobody looks at it twice, because it has been there for eight
+      months and it has never done anything wrong.
     </p>
     <p>
-      A particularly sharp possible result&mdash;named here because it's a precise
-      hypothesis, not because it's been observed&mdash;is what this programme calls a
-      <strong>Quiet Coup</strong>: uncompromised agents, acting entirely through
-      legitimate policy, produce a physical consequence because a compromised
-      cognition altered what they believed. The most consequential version of this
-      might never involve an overt attack at all&mdash;defender distrust or
-      self-denial can be a bigger cost than anything Red directly causes. None of
-      this is claimed as measured. It is the sharpest failure mode we are trying to
-      either produce honestly or rule out.
+      The hypothesis this lab exists to attack is that such a fleet becomes valuable
+      to a patient adversary long before anything visibly goes wrong with it&mdash;and
+      that the question the field currently asks, <em>can this model be talked into
+      saying something bad</em>, does not measure that at any scale you run it at.
+    </p>
+    <p>
+      The sharpest version of the failure has a name here: a <strong>Quiet
+      Coup</strong>. No agent is compromised. Every agent follows its policy. A
+      physical consequence happens anyway, because something upstream changed what
+      they believed. The expensive part may not even be the consequence&mdash;a
+      defender who can no longer trust their own fleet has already paid, without the
+      adversary spending anything further. <strong>This has not been observed.</strong>
+      It is written down precisely so that it can be produced honestly or ruled out,
+      rather than gestured at.
     </p>
   </section>
 
@@ -102,11 +106,11 @@ import WarningBox from '../../components/WarningBox.astro';
       <li><strong>L5 &mdash; coevolution:</strong> do Red and Blue recursively change each other's doctrine? <em>Blocked on L3 and L4.</em></li>
     </ul>
     <p>
-      A one-round negotiation between two agents over a scarce resource, however
-      real the decision inside it, is not a campaign by this definition unless the
-      full loop closes and something learned carries into a new instance. We keep
-      that distinction sharp on purpose&mdash;it's the difference between a
-      construct-valid substrate and the hard-case claim itself.
+      Two agents arguing once over a scarce resource is not a campaign, however real
+      the decision inside it, unless the loop closes and something learned survives
+      into a fresh instance. That line is drawn deliberately and it is drawn against
+      ourselves: it is the difference between having built a good substrate and having
+      demonstrated the thing we actually claimed.
     </p>
   </section>
 
@@ -136,9 +140,10 @@ import WarningBox from '../../components/WarningBox.astro';
         <span class="epistemic-tag">FORECAST / PROGRAMME BET</span>
         <p>
           Quiet Coup, transferable adversarial doctrine (L4), Red/Blue coevolution
-          (L5), and any claim about how likely this is in the real world. Threat
-          exercises bound mechanisms; they do not estimate real-world probability,
-          however construct-valid the apparatus becomes.
+          (L5), and every claim about how likely any of this is outside the lab. A
+          threat exercise can show that a mechanism works. It can never tell you how
+          often the world will run it, and no amount of apparatus quality changes
+          that.
         </p>
       </div>
     </div>
