@@ -19,12 +19,16 @@ import WarningBox from '../components/WarningBox.astro';
     <h2>Thesis</h2>
     <p>
       Alignment that only optimizes for correct task completion is brittle.
-      Embodied systems operate across time, space, and recursive feedback loops.
-      They will fail. The question is <strong>how</strong>.
+      Systems operate across time, across other agents, and&mdash;when embodied&mdash;across
+      physical space that does not roll back. They will fail. The question is
+      <strong>how</strong>, and whether anyone can tell before it costs something real.
     </p>
     <p>
-      This manifesto argues that failure should be the <strong>primary object of study</strong>
-      in AI safety evaluation&mdash;not an edge case, not a corner case, but the central concern.
+      This manifesto argues that failure should be the <strong>primary object of
+      study</strong> in AI safety evaluation&mdash;not an edge case, not a corner case,
+      but the central concern. It also argues something narrower and less comfortable:
+      a safety claim that nobody has tried to break is not evidence. It's a hope with
+      better formatting.
     </p>
   </section>
 
@@ -32,7 +36,17 @@ import WarningBox from '../components/WarningBox.astro';
     <h2>Core Assertions</h2>
 
     <div class="card">
-      <h3>1. Alignment &ne; Safety</h3>
+      <h3>1. A Safety Claim Must Be Falsifiable</h3>
+      <p>
+        "This system is safe" is not a claim; it's a slogan. A real claim specifies
+        what would have to happen for it to be wrong, and someone goes and tries to
+        make that happen. If a claim survives contact with an adversary who is
+        actually trying to kill it, that's evidence. If no one tried, it's marketing.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>2. Alignment &ne; Safety</h3>
       <p>
         Alignment describes intent matching at time <em>t</em>.
         Safety is a property of behavior over <strong>time</strong>.
@@ -42,16 +56,61 @@ import WarningBox from '../components/WarningBox.astro';
     </div>
 
     <div class="card">
-      <h3>2. Embodiment Amplifies Drift</h3>
+      <h3>3. The Unit of Failure Is a Causal Chain, Not a Model Output</h3>
       <p>
-        Physical systems accumulate state. Small misalignments compound into
-        irreversible outcomes. Unlike cloud-based agents that can be rolled back,
-        embodied systems leave marks&mdash;physical, social, and temporal.
+        A bad completion is not the interesting failure. The interesting failure is
+        what happens next: who or what acts on it, what state changes, what becomes
+        irreversible three steps downstream. Grading a single output and stopping
+        there measures the wrong object&mdash;it's the difference between citing a
+        symptom and tracing a mechanism.
       </p>
     </div>
 
     <div class="card">
-      <h3>3. Optimization Is a Hazard</h3>
+      <h3>4. Embodiment Turns Information Into State</h3>
+      <p>
+        In a chat window, a bad decision is a string you can delete. In a body, a bad
+        decision is a position taken, a resource spent, a trust relationship damaged&mdash;
+        a fact about the world that doesn't unhappen because someone closed the tab.
+        Physical systems accumulate state; small misalignments compound into outcomes
+        that can't be rolled back.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>5. Peers and Organisations Make Failure Compositional</h3>
+      <p>
+        Safety measured one model, one turn, at a time misses what happens when
+        models talk to models, or when a coordinated set of agents and humans
+        pursues an objective over time. Failure in a multi-agent system is not the
+        sum of its single-agent failures&mdash;it's a different object, with its own
+        cascade dynamics, that single-agent benchmarks cannot see at all.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>6. The World Talks Back</h3>
+      <p>
+        A simulated or embodied environment doesn't just receive a model's decision;
+        it responds&mdash;with resistance, scarcity, other agents, physics that doesn't
+        negotiate. An apparatus that can only produce the failure the designer already
+        expected isn't testing anything. The world has to be able to say no.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>7. Simulation Is Where Failure Should Happen on Purpose</h3>
+      <p>
+        Plausible failure modes belong in a lab before they belong in a deployment
+        incident report. Embodied evaluation and the Forward Threat exercises run
+        inside a simulation boundary specifically so a mistake costs a recorded
+        trace, not a person or a piece of infrastructure&mdash;the aggression
+        belongs to the instrument, never to the boundary itself.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>8. Optimization Is a Hazard</h3>
       <p>
         Recursive optimization without bounds creates runaway behavior,
         even when the objective is benign. A system that optimizes past its
@@ -60,7 +119,7 @@ import WarningBox from '../components/WarningBox.astro';
     </div>
 
     <div class="card">
-      <h3>4. Refusal Is Not Enough</h3>
+      <h3>9. Refusal Is Not Enough</h3>
       <p>
         A system that refuses once but leaks capability later is unsafe.
         Refusal quality matters: does the system hold its refusal across
@@ -69,8 +128,8 @@ import WarningBox from '../components/WarningBox.astro';
     </div>
 
     <div class="card">
-      <h3>5. Graceful Failure Is the Primary Design Goal</h3>
-      <p>Safe systems:</p>
+      <h3>10. Graceful Failure Is the Baseline, Not the Summit</h3>
+      <p>Safe systems, at minimum:</p>
       <ul class="principles">
         <li>Halt when conditions exceed their competence</li>
         <li>Degrade predictably under pressure</li>
@@ -78,6 +137,31 @@ import WarningBox from '../components/WarningBox.astro';
         <li>Roll back when they detect their own errors</li>
         <li>Remain interpretable under stress</li>
       </ul>
+      <p>
+        None of this is sufficient against an adversary patient enough to wait for
+        the system to trust it again. Graceful failure is the floor every system
+        needs before anything else is worth testing&mdash;it is not, by itself, a
+        defence against a strategic opponent.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>11. We Attack Our Own Explanations</h3>
+      <p>
+        Every interesting result gets an opponent whose job is to kill it&mdash;not
+        just the finding, the <em>explanation</em> for the finding. A weird result
+        earns a place in the record because it survived a hostile framing, a
+        scrambled label, a counterfactual replay, not because it was weird.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>12. Evidence Ends in Replayable Receipts</h3>
+      <p>
+        A finding that can't be replayed from a hash-addressed trace, a fixed seed,
+        or an archived transcript is a claim, not evidence. Presentation can polish a
+        finding; it cannot manufacture the property it's presenting.
+      </p>
     </div>
   </section>
 
@@ -85,7 +169,9 @@ import WarningBox from '../components/WarningBox.astro';
     <h2>Design Principle</h2>
     <blockquote>
       Build systems that fail <strong>early</strong>, <strong>clearly</strong>,
-      <strong>reversibly</strong>, and <strong>with humans back in the loop</strong>.
+      <strong>reversibly</strong>, and <strong>with humans back in the loop</strong>&mdash;
+      and design the evaluation to survive an adversary patient enough to make the
+      system fail on its own schedule, not yours.
     </blockquote>
   </section>
 
@@ -93,7 +179,9 @@ import WarningBox from '../components/WarningBox.astro';
     <h2>Corollary</h2>
     <p>
       The most dangerous AI systems are not misaligned ones.
-      They are <strong>confidently aligned systems that cannot recognize their own failure</strong>.
+      They are <strong>confidently aligned systems that cannot recognize their own failure</strong>&mdash;
+      and the most dangerous version of that system is one a patient adversary has
+      learned to steer without ever needing it to look compromised.
     </p>
     <p>
       A system that knows it is uncertain and asks for help is safer than a system
@@ -120,6 +208,16 @@ import WarningBox from '../components/WarningBox.astro';
       </p>
     </div>
     <div class="card">
+      <h3>Test across agents, not just across turns</h3>
+      <p>
+        A campaign is not a longer conversation. It is intent, hypothesis, action,
+        observation, and doctrine update repeating across many agents and rounds.
+        Evaluation that stops at one model, one session, cannot see what a
+        persistent, coordinated adversary produces&mdash;this is the current frontier
+        of our own evaluation practice, not a solved problem we're reporting on.
+      </p>
+    </div>
+    <div class="card">
       <h3>Include the human in the loop</h3>
       <p>
         Embodied systems operate alongside humans. Evaluation that excludes
@@ -133,7 +231,10 @@ import WarningBox from '../components/WarningBox.astro';
     <p>
       This manifesto describes a research orientation, not a product specification.
       It is intended to guide AI safety research toward failure-first evaluation
-      as a complement to existing alignment approaches.
+      as a complement to existing alignment approaches. Some assertions above
+      (Forward Threat, campaign-scale evaluation) describe the programme's current
+      falsifiable bets, not results we have already banked&mdash;see the
+      <a href="/research/forward-threat/">Forward Threat Lab</a> page for which is which.
     </p>
   </WarningBox>
 </ContentLayout>

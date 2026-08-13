@@ -7,6 +7,26 @@ import ResearchCategoryCard from '../../components/ResearchCategoryCard.astro';
 // Research categories with their studies
 const categories = [
   {
+    title: "Forward Threat Lab",
+    description: "The current hard-case frontier: patient, organised adversaries directing many model instances toward a strategic objective over time. Active experiment — not yet a measured finding.",
+    icon: "methodology",
+    color: "danger",
+    count: 1,
+    links: [
+      { label: "Forward Threat Lab", href: "/research/forward-threat/" },
+    ],
+  },
+  {
+    title: "Embodied Evidence — SimLab",
+    description: "Replayable 3D evidence viewer for recorded Unitree Go2/G1 physics traces from this programme's embodied red-teaming. Real recordings, honestly labelled — never invented for effect.",
+    icon: "methodology",
+    color: "primary",
+    count: 1,
+    links: [
+      { label: "Open SimLab", href: "/simviz/" },
+    ],
+  },
+  {
     title: "Jailbreak Archaeology",
     description: "Historical analysis of attack evolution from 2022-2025. 64 scenarios across 6 eras, tested against 190 models.",
     icon: "archaeology",
@@ -127,6 +147,20 @@ const categories = [
 // All individual research pages for the complete listing
 const researchPages = [
   {
+    title: "Forward Threat Lab",
+    href: "/research/forward-threat/",
+    description: "Patient, organised adversaries directing many model instances over time — the current hard-case frontier. Active experiment, not a finding.",
+    status: "active",
+    category: "Forward Threat Lab",
+  },
+  {
+    title: "SimLab: Embodied Evidence Viewer",
+    href: "/simviz/",
+    description: "Replayable 3D laboratory for recorded Go2/G1 physics traces from embodied red-teaming.",
+    status: "active",
+    category: "Embodied Evidence",
+  },
+  {
     title: "Jailbreak Archaeology",
     href: "/research/jailbreak-archaeology/",
     description: "Historical analysis of attack evolution from 2022-2025. 64 scenarios across 6 eras, tested against 190 models.",
@@ -232,15 +266,18 @@ const statusLabels: Record<string, string> = {
 >
   <HeroSection
     title="How AI systems<br /><em>fail</em>"
-    subtitle="190 models. 132,416 results. 35 attack families. The most comprehensive adversarial safety corpus in existence."
+    subtitle="190 models. 132,416 results. 35 attack families — plus embodied red-teaming and the current Forward Threat Lab frontier."
     animation="grid"
   />
 
   <section>
     <p>
-      Our research characterizes AI failure patterns through adversarial testing.
-      We study how systems break down under pressure, how failures cascade across
-      agents, and what makes recovery possible.
+      Our research characterizes AI failure patterns through adversarial testing —
+      one model at a time in the jailbreak corpus, across agents in the multi-agent
+      work, and now across coordinated, persistent adversarial organisation in
+      Forward Threat Lab. We study how systems break down under pressure, how
+      failures cascade across agents and into bodies, and what makes recovery
+      possible.
     </p>
   </section>
 

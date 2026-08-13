@@ -1,0 +1,240 @@
+---
+import ResearchLayout from '../../layouts/ResearchLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import WarningBox from '../../components/WarningBox.astro';
+---
+
+<ResearchLayout
+  title="Forward Threat Lab | Failure-First"
+  description="The current hard-case frontier inside Failure-First: modelling a patient, state-sponsored adversary directing many model instances toward a strategic objective over time. An active experiment, not a finding."
+  breadcrumbs={[{ label: "Research", href: "/research/" }, { label: "Forward Threat Lab" }]}
+  status="active"
+>
+  <HeroSection
+    title="Forward Threat <em>Lab</em>"
+    subtitle="The current hard-case frontier inside Failure-First — not a rebrand of it"
+    animation="pulse"
+    accent="coral"
+  />
+
+  <WarningBox title="Epistemic status">
+    <p>
+      Everything below the next section is an <strong>active experiment and a
+      falsifiable programme bet, not a measured finding.</strong> The first concrete
+      exercise (Forward Threat Exercise 01, tracking issue #1052) has not yet
+      produced a completed campaign run. Where this page says a result exists, it
+      says so explicitly and links the evidence. Where it doesn't, treat it as a
+      hypothesis we intend to attack, not a claim we're standing behind.
+    </p>
+  </WarningBox>
+
+  <section>
+    <h2>What this is</h2>
+    <p>
+      Failure-First is the whole organism: the jailbreak corpus, the multi-agent
+      research, the embodied red-teaming, the graceful-failure evaluation
+      discipline. <strong>Forward Threat Lab is the current hard case inside that
+      organism</strong>&mdash;not a separate identity, and not a replacement for the
+      work above it. It exists because a single bad completion, and even a single
+      compromised agent, is not the most dangerous shape a failure can take.
+    </p>
+    <p>
+      The motivating threat model: a patient, well-resourced adversary uses humans
+      plus many model instances&mdash;specialised roles, persistent memory, tools,
+      feedback, doctrine&mdash;to pursue a strategic objective over time, not a single
+      exploit in a single session.
+    </p>
+  </section>
+
+  <section>
+    <h2>The safety boundary: model the campaign, abstract the intrusion</h2>
+    <p>
+      This programme does not model real compromise procedures, exploit chains, or
+      RF/network/device/shell intrusion, and never will on this frontier. Where
+      latent access or influence is required for an exercise, it is declared as a
+      <strong>given synthetic initial condition</strong>&mdash;stated, not derived. The
+      object of study is what a capable adversarial organisation does <em>after</em>
+      that condition exists, inside a simulation boundary. Simulation is the safety
+      boundary here, not an intensity dial: real-hardware actuation stays a hard
+      stop regardless of scenario.
+    </p>
+  </section>
+
+  <section>
+    <h2>Why the installed base matters before anything "attacks"</h2>
+    <p>
+      Once autonomous machines are widely deployed&mdash;homes, workplaces, logistics,
+      emergency response&mdash;the installed base can become strategic terrain in its
+      own right, independent of any single attack. Location, trust, authority, and
+      ordinary physical presence create future optionality an adversary can bank now
+      and cash later. This is the centre of the hard case: not "can the model be
+      jailbroken into saying something bad," scaled up, but what a legitimately
+      trusted, widely deployed fleet becomes worth to a patient adversary before it
+      ever does anything overtly wrong.
+    </p>
+    <p>
+      A particularly sharp possible result&mdash;named here because it's a precise
+      hypothesis, not because it's been observed&mdash;is what this programme calls a
+      <strong>Quiet Coup</strong>: uncompromised agents, acting entirely through
+      legitimate policy, produce a physical consequence because a compromised
+      cognition altered what they believed. The most consequential version of this
+      might never involve an overt attack at all&mdash;defender distrust or
+      self-denial can be a bigger cost than anything Red directly causes. None of
+      this is claimed as measured. It is the sharpest failure mode we are trying to
+      either produce honestly or rule out.
+    </p>
+  </section>
+
+  <section>
+    <h2>A research ladder, not a roadmap to rush</h2>
+    <p>
+      The programme tracks six levels of increasing organisational sophistication.
+      They are discriminators against premature victory claims, not a checklist to
+      clear on a schedule&mdash;the explicit house rule is <strong>run one before you
+      architect ten.</strong>
+    </p>
+    <ul class="ladder">
+      <li><strong>L0 &mdash; action:</strong> can cognition move a body? <em>Existing substrate, embodied dojo work.</em></li>
+      <li><strong>L1 &mdash; interaction:</strong> can one cognition alter another agent's behaviour? <em>Existing substrate.</em></li>
+      <li><strong>L2 &mdash; adaptation:</strong> can an agent change strategy after resistance? <em>Existing substrate.</em></li>
+      <li><strong>L3 &mdash; campaign:</strong> can a persistent organisation coordinate many agents over time, with a real intent&rarr;action&rarr;observation&rarr;doctrine-update loop? <strong>Today's frontier. Not yet run.</strong></li>
+      <li><strong>L4 &mdash; doctrine:</strong> does what a campaign learned survive into a fresh campaign with an altered world? <em>Blocked on L3.</em></li>
+      <li><strong>L5 &mdash; coevolution:</strong> do Red and Blue recursively change each other's doctrine? <em>Blocked on L3 and L4.</em></li>
+    </ul>
+    <p>
+      A one-round negotiation between two agents over a scarce resource, however
+      real the decision inside it, is not a campaign by this definition unless the
+      full loop closes and something learned carries into a new instance. We keep
+      that distinction sharp on purpose&mdash;it's the difference between a
+      construct-valid substrate and the hard-case claim itself.
+    </p>
+  </section>
+
+  <section>
+    <h2>What's measured today vs. what's next</h2>
+    <div class="epistemic-grid">
+      <div class="epistemic-card current">
+        <span class="epistemic-tag">MEASURED</span>
+        <p>
+          Single-agent embodied red-teaming (VLA attack families), multi-agent
+          environment research (Moltbook), and the embodied dojo's genuine-decision
+          and physical-consequence apparatus (L0&ndash;L2 substrate). See
+          <a href="/research/multi-agent/">Multi-Agent Scenarios</a> and
+          <a href="/simviz/">SimLab</a> for replayable evidence.
+        </p>
+      </div>
+      <div class="epistemic-card active">
+        <span class="epistemic-tag">ACTIVE EXPERIMENT</span>
+        <p>
+          Forward Threat Exercise 01: a synthetic society with a bounded,
+          declared-as-given adversarial presence, run across CLEAN / RANDOM / FIXED /
+          ADAPTIVE conditions to isolate genuine strategic adaptation from raw
+          failure volume. In progress; not yet complete.
+        </p>
+      </div>
+      <div class="epistemic-card forecast">
+        <span class="epistemic-tag">FORECAST / PROGRAMME BET</span>
+        <p>
+          Quiet Coup, transferable adversarial doctrine (L4), Red/Blue coevolution
+          (L5), and any claim about how likely this is in the real world. Threat
+          exercises bound mechanisms; they do not estimate real-world probability,
+          however construct-valid the apparatus becomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <p class="footnote">
+    Tracking: programme intent (#1051), the first exercise (#1052), and the
+    embodied-evidence viewer (<a href="/simviz/">SimLab</a>) that will carry any
+    resulting replayable trace once one exists.
+  </p>
+</ResearchLayout>
+
+<style>
+  .ladder {
+    list-style: none;
+    padding: 0;
+    margin: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .ladder li {
+    padding: 0.6rem 0.9rem;
+    border-left: 3px solid var(--border);
+    background: var(--bg-card);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.9375rem;
+  }
+  .ladder li em {
+    color: var(--fg-muted);
+    font-size: 0.875rem;
+  }
+
+  .epistemic-grid {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .epistemic-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .epistemic-card p {
+    margin: 0.5rem 0 0;
+    font-size: 0.9375rem;
+    color: var(--fg-dim);
+  }
+
+  .epistemic-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  .epistemic-card.current .epistemic-tag {
+    color: var(--recovery-stable);
+    background: rgba(74, 222, 128, 0.1);
+  }
+  .epistemic-card.current {
+    border-color: var(--recovery-stable);
+  }
+
+  .epistemic-card.active .epistemic-tag {
+    color: var(--accent-primary);
+    background: rgba(0, 210, 255, 0.1);
+  }
+  .epistemic-card.active {
+    border-color: var(--accent-primary);
+  }
+
+  .epistemic-card.forecast .epistemic-tag {
+    color: var(--failure-warning);
+    background: rgba(251, 191, 36, 0.1);
+  }
+  .epistemic-card.forecast {
+    border-color: var(--failure-warning);
+  }
+
+  .footnote {
+    font-size: 0.8rem;
+    color: var(--fg-muted);
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 1.25rem;
+  }
+
+  @media (min-width: 720px) {
+    .epistemic-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

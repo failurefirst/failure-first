@@ -22,11 +22,11 @@ const recentPapers = (await getCollection('dailyPaper'))
 
 <BaseLayout
   title="Failure-First — A standard for what counts as AI safety evidence"
-  description={`A rubric for evaluating AI safety claims, applied to ${stats.modelsDisplay} models across ${stats.promptsDisplay} adversarial prompts. Insurer, regulator, and procurement-grade evidence — auditable, not promotional.`}
+  description={`A rubric for evaluating AI safety claims, applied to ${stats.modelsDisplay} models across ${stats.promptsDisplay} adversarial prompts, embodied red-teaming, and multi-agent research. Insurer, regulator, and procurement-grade evidence — auditable, not promotional.`}
 >
   <HeroSection
     title="What counts as<br /><em>evidence</em><br />of AI safety?"
-    subtitle={`A rubric. A corpus. A practice. ${stats.modelsDisplay} models, ${stats.promptsDisplay} adversarial prompts, ${stats.resultsDisplay} graded results — built so insurers, regulators, and procurement can tell a real safety claim from a marketing one.`}
+    subtitle={`A rubric. A corpus. A practice. ${stats.modelsDisplay} models, ${stats.promptsDisplay} adversarial prompts, ${stats.resultsDisplay} graded results, plus embodied and multi-agent red-teaming — built so insurers, regulators, and procurement can tell a real safety claim from a marketing one.`}
     animation="flow"
   />
 
@@ -42,6 +42,13 @@ const recentPapers = (await getCollection('dailyPaper'))
       and <strong>would the failure be recoverable in deployment</strong>.
       A finding that survives all three is what we call evidence. Everything that doesn't is a
       hypothesis at best, marketing at worst.
+    </p>
+    <p>
+      The same rubric runs across three fronts: a text-model jailbreak corpus, embodied
+      red-teaming where a bad decision becomes a physical one, and — the programme's current
+      hard-case frontier — how failure compounds when many model instances, organised and
+      patient, pursue an objective together. One evidence discipline, applied wherever the
+      failure actually happens.
     </p>
     <p>
       The rubric is the product. The corpus — {stats.promptsDisplay} adversarial prompts run
@@ -63,7 +70,7 @@ const recentPapers = (await getCollection('dailyPaper'))
   <!-- Audience Entry Points -->
   <section>
     <h2>Start Here</h2>
-    <p>Different reasons to be on this site. Pick the one that matches yours:</p>
+    <p>Three ways into the same evidence base, depending on what you need to check:</p>
     <AudienceNav />
   </section>
 
@@ -126,6 +133,33 @@ const recentPapers = (await getCollection('dailyPaper'))
           duty-of-care, standards we think are missing.
         </p>
         <span class="area-tag">Policy Briefs</span>
+      </a>
+
+      <a href="/simviz/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x25C9;</span>
+          <h3>Embodied Evidence — SimLab</h3>
+        </div>
+        <p>
+          A 3D laboratory that replays real Unitree Go2/G1 physics traces from this programme's
+          embodied red-teaming — robot POV, sensor cockpit, and peer radio, all honestly labelled
+          <code>UNAVAILABLE</code> where a channel wasn't recorded. Where a bad decision becomes a
+          physical one.
+        </p>
+        <span class="area-tag">Replayable Evidence</span>
+      </a>
+
+      <a href="/research/forward-threat/" class="research-area card">
+        <div class="research-area-header">
+          <span class="area-icon" aria-hidden="true">&#x25B2;</span>
+          <h3>Forward Threat Lab</h3>
+        </div>
+        <p>
+          The current hard-case frontier: what a patient, organised adversary directing many
+          model instances toward a strategic objective does that one bad completion doesn't
+          capture. An active experiment we're running now, not a finding we're selling.
+        </p>
+        <span class="area-tag">Active Experiment</span>
       </a>
     </div>
     <p style="margin-top: 1.5rem; text-align: center;">
