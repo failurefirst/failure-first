@@ -151,3 +151,9 @@
 /daily-paper/2604.24086/ /daily-paper/260424086/ 301
 /daily-paper/2604.24668/ /daily-paper/260424668/ 301
 /daily-paper/2606.12683/ /daily-paper/260612683/ 301
+
+# --- SimLab naming convergence (2026-08-12) ---
+# SimLab is the product name; /simviz/ is the historical published URL and
+# keeps serving (external links). /simlab is the name-shaped alias.
+/simlab /simviz/ 301
+/simlab/ /simviz/ 301
