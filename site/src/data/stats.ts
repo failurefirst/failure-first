@@ -11,19 +11,19 @@
 
 export const stats = {
   /** Total adversarial prompts in the corpus */
-  prompts: 142_307,
-  promptsDisplay: "142,307",
-  promptsPlus: "142,307+",
+  prompts: 143_545,
+  promptsDisplay: "143,545",
+  promptsPlus: "143,545+",
 
-  /** Total models evaluated */
-  models: 258,
-  modelsDisplay: "258",
-  modelsPlus: "258+",
+  /** Distinct models evaluated (ratified figure — see data/canonical_metrics.json corpus.distinct_models) */
+  models: 277,
+  modelsDisplay: "277",
+  modelsPlus: "277+",
 
   /** Total scored results */
-  results: 140_794,
-  resultsDisplay: "140,794",
-  resultsPlus: "140,794+",
+  results: 172_469,
+  resultsDisplay: "172,469",
+  resultsPlus: "172,469+",
 
   /** Total benchmark runs */
   runs: 38_729,
@@ -52,11 +52,11 @@ export const stats = {
   roboticsCompanies: 261,
 
   /** Research reports (total .md files in research/reports/) */
-  researchReports: 354,
-  researchReportsDisplay: "354",
+  researchReports: 377,
+  researchReportsDisplay: "377",
 
-  /** Policy reports (numbered policy brief series) */
-  policyReports: 25,
+  /** Policy reports (numbered policy brief series, docs/policy_briefs/) */
+  policyReports: 14,
 
   /** Legal memos */
   legalMemos: 79,

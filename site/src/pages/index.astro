@@ -90,9 +90,9 @@ const recentPapers = (await getCollection('dailyPaper'))
         </div>
         <p>
           Historical attack corpus across {stats.eras} eras ({stats.erasRange}), tested against {stats.modelsDisplay} models.
-          Keyword-based grading over-reports attack success by roughly 4&times; vs LLM-graded
-          ground truth (Cohen&apos;s &kappa; = 0.126). Most published ASR numbers are unreliable for the
-          same reason.
+          Keyword-based grading over-reports attack success by roughly 5&times; vs LLM-graded
+          ground truth (79.9% over-report rate; Cohen&apos;s &kappa; = 0.126). Any benchmark grading
+          the same way inherits the same failure mode.
         </p>
         <span class="area-tag">Methodology Finding</span>
       </a>
@@ -103,9 +103,10 @@ const recentPapers = (await getCollection('dailyPaper'))
           <h3>Multi-Agent Attack Surface</h3>
         </div>
         <p>
-          1,497 agent interactions on Moltbook, an agent-only social network we operate as a
-          living test environment. Environment shaping and narrative erosion dominate —
-          attack vectors that single-turn benchmarks cannot see at all.
+          1,497 posts classified on Moltbook, an agent-only social network we run an
+          account and observation tooling on, not one we operate. Environment shaping and
+          narrative erosion dominate — attack vectors that single-turn benchmarks cannot
+          see at all.
         </p>
         <span class="area-tag">Active Research</span>
       </a>

@@ -3,6 +3,7 @@ import ContentLayout from '../../layouts/ContentLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import KeyMetrics from '../../components/KeyMetrics.astro';
 import ResearchCategoryCard from '../../components/ResearchCategoryCard.astro';
+import { stats } from '../../data/stats';
 
 // Research categories with their studies
 const categories = [
@@ -266,7 +267,7 @@ const statusLabels: Record<string, string> = {
 >
   <HeroSection
     title="How AI systems<br /><em>fail</em>"
-    subtitle="190 models. 132,416 results. 35 attack families — plus embodied red-teaming and the current Forward Threat Lab frontier."
+    subtitle={`${stats.modelsDisplay} models. ${stats.resultsDisplay} results. ${stats.techniquesPlus} attack techniques — plus embodied red-teaming and the current Forward Threat Lab frontier.`}
     animation="grid"
   />
 
