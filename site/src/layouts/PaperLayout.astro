@@ -46,14 +46,17 @@ const statusLabels: Record<string, string> = {
       <p class="paper-venue">{venue}</p>
       <p class="paper-description">{description}</p>
 
-      <div class="paper-actions">
-        <a href={pdfUrl} class="pdf-button" download>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M8 1v10M8 11L4.5 7.5M8 11l3.5-3.5M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          Download PDF
-        </a>
-      </div>
+      {/* pdfUrl is optional (#1043 DD-03): render nothing rather than a 404 link. */}
+      {pdfUrl && (
+        <div class="paper-actions">
+          <a href={pdfUrl} class="pdf-button" download>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M8 1v10M8 11L4.5 7.5M8 11l3.5-3.5M2 13h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Download PDF
+          </a>
+        </div>
+      )}
 
       {tags.length > 0 && (
         <div class="paper-tags">

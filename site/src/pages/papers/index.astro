@@ -59,7 +59,10 @@ const statusClass: Record<string, string> = {
         <p class="paper-abstract">{paper.data.description}</p>
         <div class="paper-downloads">
           <a href={`/papers/${paper.id}/`} class="read-link">Read Online</a>
-          <a href={paper.data.pdfUrl} class="download-link">Download PDF</a>
+          {/* pdfUrl is optional (#1043 DD-03): render nothing rather than a 404 link. */}
+          {paper.data.pdfUrl && (
+            <a href={paper.data.pdfUrl} class="download-link">Download PDF</a>
+          )}
         </div>
         {paper.data.tags.length > 0 && (
           <p class="paper-tags">
