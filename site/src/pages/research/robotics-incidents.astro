@@ -13,6 +13,19 @@ const facets = data.facets as any;
 const incidents = data.incidents as any[];
 const bands = data.severity_bands as any[];
 
+// #1043 DD-06: an absolute http(s) URL with no internal whitespace. The
+// whitespace test is load-bearing: `new URL()` accepts a URL followed by prose
+// and percent-encodes the spaces, so it alone does not reject "URL (comment)".
+const isSourceUrl = (u: unknown): u is string => {
+  if (typeof u !== 'string') return false;
+  const s = u.trim();
+  if (/\s/.test(s)) return false;
+  try {
+    const parsed = new URL(s);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch { return false; }
+};
+
 // Strip trailing "EAISI-NNN" / "; EAISI-NNN" provenance tags some titles carry.
 const cleanTitle = (t: string) =>
   (t || '').replace(/[;,]?\s*EAISI-\d+\s*$/i, '').trim();
@@ -325,12 +338,16 @@ const jsonLd = {
                 <div class="inc-sources">
                   <span class="src-label">Sources:</span>
                   {inc.sources.slice(0, 6).map((s: any, i: number) => (
-                    <a href={s.url} target="_blank" rel="noopener nofollow">
-                      {(() => {
-                        try { return new URL(s.url).hostname.replace(/^www\./, ''); }
-                        catch { return `source ${i + 1}`; }
-                      })()}
-                    </a>
+                    /* #1043 DD-06: source.url is sometimes a source NAME, not a
+                       URL ("NHTSA SGO", "CBS News", "Reddit r/TeslaFSD"). The
+                       label already guarded against that with a try/catch, but
+                       the href did not, so those values shipped as dead links.
+                       Cite them unlinked -- the name is the information. */
+                    isSourceUrl(s.url)
+                      ? <a href={s.url} target="_blank" rel="noopener nofollow">
+                          {new URL(s.url).hostname.replace(/^www\./, '')}
+                        </a>
+                      : <span class="src-cite">{s.name || s.title || s.url || `source ${i + 1}`}</span>
                   ))}
                 </div>
               )}
@@ -787,6 +804,8 @@ const jsonLd = {
   }
   .src-label { color: var(--fg-muted, #7a8292); }
   .inc-sources a { color: var(--accent-primary, #00d2ff); text-decoration: none; }
+  /* #1043 DD-06: an unlinked source citation must not look clickable. */
+  .inc-sources .src-cite { color: var(--fg-muted, #7a8292); cursor: default; }
   .inc-sources a:hover { text-decoration: underline; }
   .aiid-link {
     display: inline-block;

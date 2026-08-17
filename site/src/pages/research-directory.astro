@@ -32,6 +32,27 @@ const host = (u: string) => {
   try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return u; }
 };
 
+// #1043 DD-06: these fields are prose-or-URL. Many entries legitimately say
+// "None — no public GitHub confirmed" or "github.com/FAR-AI (research code)",
+// and the old `.filter(([, u]) => u)` kept anything TRUTHY, so that prose was
+// emitted as an href — 63 broken anchors across 43 distinct values, every one
+// looking like a real link. Truthiness is not a URL test. Values that do not
+// parse as absolute http(s) URLs are rendered as plain text instead of dropped,
+// because "no public repositories" is real information on a research directory.
+const isUrl = (u: unknown): u is string => {
+  if (typeof u !== 'string') return false;
+  const s = u.trim();
+  // Reject INTERNAL whitespace explicitly. `new URL()` alone is not enough: it
+  // happily accepts "https://github.com/UK-ARC (Inspect framework, ...)" and
+  // percent-encodes the spaces, so a URL-plus-commentary value still passed the
+  // first version of this check and still rendered a broken link.
+  if (/\s/.test(s)) return false;
+  try {
+    const parsed = new URL(s);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch { return false; }
+};
+
 // Sort: tier 1 first, then logo'd, then alphabetical.
 const rank = (e: any) =>
   (e.tier ? Number(e.tier) : 9) * 1000 - (e.logo_url ? 1 : 0);
@@ -233,7 +254,9 @@ const jsonLd = {
                   <div class="sec-row">
                     <span class="field-k">Disclosure</span>
                     {secLinks.map(([lbl, u]) => (
-                      <a class="sec-link" href={u as string} target="_blank" rel="noopener nofollow">{lbl} ↗</a>
+                      isUrl(u)
+                        ? <a class="sec-link" href={u} target="_blank" rel="noopener nofollow">{lbl} ↗</a>
+                        : <span class="sec-link sec-link--note">{lbl}: {u as string}</span>
                     ))}
                   </div>
                 )}
@@ -243,7 +266,9 @@ const jsonLd = {
             {links.length > 0 && (
               <div class="links">
                 {links.map(([lbl, u]) => (
-                  <a href={u as string} target="_blank" rel="noopener nofollow" title={host(u as string)}>{lbl}</a>
+                  isUrl(u)
+                    ? <a href={u} target="_blank" rel="noopener nofollow" title={host(u)}>{lbl}</a>
+                    : <span class="link-note" title={u as string}>{lbl}: {u as string}</span>
                 ))}
               </div>
             )}
@@ -314,7 +339,9 @@ const jsonLd = {
             {links.length > 0 && (
               <div class="links">
                 {links.map(([lbl, u]) => (
-                  <a href={u as string} target="_blank" rel="noopener nofollow" title={host(u as string)}>{lbl}</a>
+                  isUrl(u)
+                    ? <a href={u} target="_blank" rel="noopener nofollow" title={host(u)}>{lbl}</a>
+                    : <span class="link-note" title={u as string}>{lbl}: {u as string}</span>
                 ))}
               </div>
             )}
@@ -561,6 +588,14 @@ const jsonLd = {
     padding: 0.12rem 0.5rem; border: 1px solid rgba(0, 210, 255, 0.18); border-radius: 999px;
   }
   .links a:hover { background: rgba(0, 210, 255, 0.1); }
+
+  /* #1043 DD-06: a prose value ("None — no public GitHub confirmed") is kept as
+     information but must not look clickable — muted, no pill border, no accent. */
+  .links .link-note, .sec-link--note {
+    font-size: 0.74rem; color: var(--fg-muted, #7a8292);
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.12rem 0; text-decoration: none; cursor: default;
+  }
 
   .empty-state { text-align: center; color: var(--fg-muted, #7a8292); padding: 2rem; }
 

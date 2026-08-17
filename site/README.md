@@ -2,7 +2,7 @@
 
 The public research site for the Failure-First Embodied AI project.
 
-Built with [Astro 5](https://astro.build/) (static output), deployed to [failurefirst.org](https://failurefirst.org) via **Cloudflare Pages**. Cloudflare builds from source on every push to `main` — there is no separate publish step.
+Built with [Astro 7](https://astro.build/) (static output), deployed to [failurefirst.org](https://failurefirst.org) via **Cloudflare Pages**. Cloudflare builds from source on every push to `main` — there is no separate publish step.
 
 ## Contents
 
