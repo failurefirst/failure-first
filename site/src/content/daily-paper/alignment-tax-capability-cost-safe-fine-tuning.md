@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/alignment-tax-capability-
 image: "https://cdn.failurefirst.org/images/daily-paper/alignment-tax-capability-cost-safe-fine-tuning.png"
 ---
 
-# The Alignment Tax: An Open Question for Embodied AI Economics
-
 *This is an F41LUR3-F1R57 position piece, not a summary of an external paper. An earlier version of this post attributed a set of specific capability-loss statistics to a fabricated author byline; see the editorial note at the end.*
 
 "Alignment tax" is the informal name for a claim discussed in the AI safety literature: that safety training (RLHF, safety fine-tuning) may reduce a model's capability or helpfulness on legitimate tasks, alongside its intended effect of reducing harmful outputs. This is a real, actively studied question — see for example Lin et al., ["Mitigating the Alignment Tax of RLHF"](https://arxiv.org/abs/2309.06256) (arXiv:2309.06256) — but the *size* of any such tax is contested and task-dependent in the literature, and we have not measured it ourselves. We are not citing a magnitude here, and the paper above is cited only as evidence the concept is studied, not as a source for any number in this post.

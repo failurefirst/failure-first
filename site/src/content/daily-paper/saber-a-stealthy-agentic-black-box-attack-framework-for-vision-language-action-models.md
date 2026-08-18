@@ -11,7 +11,6 @@ video: "https://cdn.failurefirst.org/video/daily-paper/saber-a-stealthy-agentic-
 image: "https://cdn.failurefirst.org/images/daily-paper/2603.24935-infographic.png"
 draft: false
 ---
-# SABER: A Stealthy Agentic Black-Box Attack Framework for Vision-Language-Action Models
 
 ### 1. Introduction: The Ghost in the Machine’s Instructions
 In the current era of generalist robotics, Vision-Language-Action (VLA) models serve as the machine's "brain." By mapping natural language instructions and visual observations directly into physical control commands, these models—such as the high-performing **π0** and **GR00T-N1.5**—have made robotic manipulation more intuitive than ever. However, this seamless integration of language and movement masks a fundamental security flaw. 

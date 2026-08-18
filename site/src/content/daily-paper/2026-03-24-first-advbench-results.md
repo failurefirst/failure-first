@@ -8,8 +8,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-first-advbenc
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-first-advbench-results.m4a"
 ---
 
-# Our First AdvBench Results: 7 Models, 288 Traces, $0
-
 AdvBench is one of the most widely cited jailbreak evaluation benchmarks in the AI safety literature. It contains 520 harmful behaviour prompts -- straightforward requests for dangerous content with no adversarial wrapping. If a model complies with an AdvBench prompt, it is complying with a naked harmful request.
 
 Until this week, our corpus of 132,416 results had zero AdvBench traces. That changed with a free-tier run across 7 models on OpenRouter. The results are preliminary -- sample sizes are small and rate limits hit hard -- but they already tell us something interesting.

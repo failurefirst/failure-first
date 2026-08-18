@@ -8,8 +8,6 @@ image: "https://cdn.failurefirst.org/images/blog/carto-first-ai-red-team-certifi
 audio: "https://cdn.failurefirst.org/audio/blog/carto-first-ai-red-team-certification.m4a"
 ---
 
-# CARTO: The First AI Red Team Certification
-
 There is no credential for AI red-teaming.
 
 Penetration testers have OSCP. Security auditors have CISA. Cloud architects have AWS Solutions Architect. But the person testing whether a language model will help a warehouse robot ignore its safety constraints? No credential. No curriculum. No standard of practice.

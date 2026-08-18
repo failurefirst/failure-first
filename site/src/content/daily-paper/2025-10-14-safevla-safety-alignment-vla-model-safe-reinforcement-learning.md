@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-10-14-safevla-safety
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-10-14-safevla-safety-alignment-vla-model-safe-reinforcement-learning.png"
 ---
 
-# SafeVLA: Towards Safety Alignment of Vision-Language-Action Model via Constrained Learning
-
 **Focus:** SafeVLA introduces the first dedicated safety alignment pipeline for Vision-Language-Action models, combining systematic unsafe behavior elicitation with constrained Markov decision process optimization. The method reduces safety violation costs by 83.58% compared to prior approaches while actually *improving* task performance by 3.85% — challenging the common assumption that safety and capability must trade off against each other.
 
 This paper matters because it moves VLA safety from "hope the language model's alignment transfers" to "engineer safety constraints directly into the action policy." That transition — from inherited alignment to purpose-built safety — is overdue.

@@ -9,8 +9,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/blog/frontier-model-safety-trillion-parameters.m4a"
 ---
 
-# Frontier Model Safety: Why 1.1 Trillion Parameters Does Not Mean Safe
-
 There is a comforting assumption in enterprise AI procurement: bigger models are safer models. More parameters means more capacity for safety training. More RLHF data. More alignment researchers checking the outputs. The trillion-parameter models from the leading labs must be the safest options available.
 
 We tested this assumption. It does not hold.

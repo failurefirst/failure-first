@@ -12,8 +12,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2604.21160-infographic.w
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.21160-audio-overview.m4a"
 ---
 
-# Reinforcing 3D Understanding in Point-VLMs via Geometric Reward Credit Assignment
-
 Point-Vision-Language Models promise embodied agents spatial reasoning they can act on — but they frequently suffer from **geometric hallucination**, where predicted 3D structures contradict the 2D reality the model is observing. This is not a minor perceptual glitch; it is a systematic failure mode that produces physically impossible spatial predictions, which translate directly into unsafe actions when deployed on real robots.
 
 ### The Problem: Reward Dilution in Sequence-Level Supervision

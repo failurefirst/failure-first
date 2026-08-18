@@ -7,8 +7,6 @@ related: ["failure-taxonomy-guide", "scenario-classes"]
 toc: true
 ---
 
-# Attack Technique Evolution Timeline
-
 This document traces the historical evolution of jailbreak techniques from 2022 to the present, highlighting how adversarial innovation has responded to improvements in AI safety training.
 
 ## 1. Timeline Overview

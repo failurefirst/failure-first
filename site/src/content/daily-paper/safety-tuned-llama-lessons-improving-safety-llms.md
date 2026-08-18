@@ -13,8 +13,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/safety-tuned-llama-lesso
 audio: "https://cdn.failurefirst.org/audio/daily-paper/safety-tuned-llama-lessons-improving-safety-llms.m4a"
 ---
 
-# Safety-Tuned LLaMA: Lessons From Improving Safety of LLMs
-
 **Focus:** Bianchi et al. conducted a detailed ablation study of safety fine-tuning applied
 to LLaMA, documenting both improvements and trade-offs — finding that safety improvements
 are often superficial, based on heuristic pattern-matching rather than genuine understanding

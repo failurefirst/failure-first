@@ -58,4 +58,4 @@ Optimizing large language models (LLMs) for downstream use cases often involves 
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2310.03693) · [PDF](https://arxiv.org/pdf/2310.03693.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

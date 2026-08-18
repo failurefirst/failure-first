@@ -11,8 +11,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-21-be-your-own-red-teamer-self-play-safety-alignment.m4a"
 ---
 
-# Be Your Own Red Teamer: Safety Alignment via Self-Play and Reflective Experience Replay
-
 **Focus:** Wang et al. propose a self-play reinforcement learning framework in which a single LLM acts as both attacker and defender — generating adversarial jailbreak prompts against itself, then updating its safety alignment in response. The system uses reflective experience replay to build on past attack-defense interactions, and Upper Confidence Bound (UCB) sampling to explore novel attack strategies rather than cycling through the same known exploits. The result is a scalable, autonomous red-teaming loop that does not require human red team labor or a separate adversarial model.
 
 The core insight is deceptively simple: if you want a model to be robust to attacks it has not seen, train it on attacks it generates for itself. This flips the standard red-team pipeline — where attacks are exogenous, produced by humans or separate models — into an endogenous loop where the model's own creative capacity is turned toward discovering its own vulnerabilities.

@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.04295-audio-overview.m4a"
 ---
 
-# Jailbreak Attacks and Defenses Against Large Language Models: A Survey
-
 The literature on LLM jailbreaking has exploded, but organizing it into a coherent threat model is difficult. New attack papers appear weekly. Defenses are published faster than anyone can evaluate them. Without a systematic understanding of the attack surface, practitioners are left guessing which threats matter and which are theoretical edge cases.
 
 This survey provides a comprehensive taxonomy of jailbreak attacks and defenses across
@@ -68,4 +66,4 @@ Large Language Models (LLMs) have performed exceptionally in various text-genera
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2407.04295) · [PDF](https://arxiv.org/pdf/2407.04295.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

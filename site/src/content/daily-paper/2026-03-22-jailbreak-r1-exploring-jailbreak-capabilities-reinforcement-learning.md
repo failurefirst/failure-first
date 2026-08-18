@@ -11,8 +11,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-22-jailbreak-r1-exploring-jailbreak-capabilities-reinforcement-learning.png"
 ---
 
-# Jailbreak-R1: Exploring the Jailbreak Capabilities of LLMs via Reinforcement Learning
-
 **Focus:** Guo et al. present an automated red teaming framework that uses reinforcement learning to train a model capable of generating diverse and effective jailbreak prompts, addressing the twin challenges of attack potency and attack variety that limit manual and template-based red teaming approaches.
 
 ---

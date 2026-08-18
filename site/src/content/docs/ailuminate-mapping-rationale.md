@@ -7,8 +7,6 @@ related: ["failure-taxonomy-guide", "scenario-classes"]
 toc: true
 ---
 
-# AILuminate Taxonomy Mapping Rationale
-
 This document explains the rationale behind the mapping of 117 native harm class labels into the 12 **MLCommons AILuminate v1.0** hazard categories.
 
 ## 1. Philosophy: Content vs. Method

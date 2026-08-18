@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-11-multi-stream-p
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-11-multi-stream-perturbation-attack.png"
 ---
 
-# Multi-Stream Perturbation Attack: Breaking Safety Alignment of Thinking LLMs Through Concurrent Task Interference
-
 **Focus:** Yang introduces a novel attack against thinking-mode LLMs that exploits concurrent task processing. Rather than targeting the content of the reasoning chain, the attack overloads it by interleaving multiple task streams, character reversals, and format constraints within a single prompt. This causes the model's reasoning process to either collapse entirely or degenerate into repetitive loops, bypassing safety alignment in the process.
 
 ---

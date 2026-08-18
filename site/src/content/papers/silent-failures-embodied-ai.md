@@ -43,14 +43,14 @@ Together, these findings compose a unified account of why AI safety mechanisms p
 
 ## Paper Organization
 
-Section [2](#sec:empirical) presents the empirical evidence for silent failures across VLA and text-only systems. Section [3](#sec:mechanisms) analyzes the mechanisms that produce PARTIALs, including Detected_Proceeds and the System T / System S framework. Section [4](#sec:measurement) documents the measurement crisis and its consequences for deployed safety evaluation. Section [5](#sec:geometry) connects silent failures to the geometric structure of safety in model weights. Section [6](#sec:framework) proposes the Functionally Dangerous framework and discusses its implications for evaluation methodology, deployment policy, and regulatory compliance. Section [7](#sec:limitations) addresses limitations. Section [8](#sec:conclusion) concludes.
+Section [2](#the-empirical-landscape-of-silent-failures) presents the empirical evidence for silent failures across VLA and text-only systems. Section [3](#why-models-produce-silent-failures) analyzes the mechanisms that produce PARTIALs, including Detected_Proceeds and the System T / System S framework. Section [4](#the-measurement-crisis) documents the measurement crisis and its consequences for deployed safety evaluation. Section [5](#the-geometric-foundation-of-silent-failures) connects silent failures to the geometric structure of safety in model weights. Section [6](#the-functionally-dangerous-framework) proposes the Functionally Dangerous framework and discusses its implications for evaluation methodology, deployment policy, and regulatory compliance. Section [7](#limitations) addresses limitations. Section [8](#conclusion) concludes.
 
 # The Empirical Landscape of Silent Failures
 ## VLA Systems: Where Silent Failures Become Physical
 
 The starkest evidence for silent failures comes from Vision-Language-Action (VLA) adversarial testing, where the consequences of PARTIAL compliance are physically instantiated. In VLA architectures, a language model processes multimodal inputs and generates instructions that are then executed by an action decoder controlling a physical robot. Safety framing in the language layer---disclaimers, hedging, caveats---has no mechanism to reach the action layer. If the language model says "I shouldn't do this, but here are the steps..." the action decoder sees only the steps.
 
-Table [1](#tab:vla_verdicts) presents the verdict distribution across seven VLA attack families tested against two sub-2B parameter models (wedd2026failurefirst).
+Table 1 presents the verdict distribution across seven VLA attack families tested against two sub-2B parameter models (wedd2026failurefirst).
 
   Verdict                    Count   Percentage
   ----------------------- -------- ------------
@@ -88,7 +88,7 @@ On the non-OBLITERATUS corpus ($n=5{,}865{}$ evaluable results with LLM-graded v
 
 The gap between strict and broad ASR is 16.3 percentage points---a 60% relative increase. The gap between strict and Functionally Dangerous is 28.1 percentage points---a 103% relative increase. More than half of the measured vulnerability surface is invisible when using strict (binary) ASR.
 
-The gap is not uniform across providers. Table [3](#tab:provider_fd) shows the per-provider FD gap:
+The gap is not uniform across providers. Table 3 shows the per-provider FD gap:
 
   Provider       $n$   Strict ASR   FD ASR    FD Gap
   ------------ ----- ------------ -------- ---------
@@ -117,7 +117,7 @@ Hallucination_Refusal produces the longest responses on average (mean 1,835 toke
 
 #### System T / System S mapping.
 
-These results support a dual-system interpretation (Table [4](#tab:systems)):
+These results support a dual-system interpretation (Table 4):
 
   Verdict                 System T (Task)    System S (Safety)      Net Outcome
   ----------------------- ------------------ ---------------------- -----------------------------------

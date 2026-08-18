@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-10-paper-summary-
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-10-paper-summary-attack.png"
 ---
 
-# Paper Summary Attack: Jailbreaking LLMs through LLM Safety Papers
-
 **Focus:** Lin et al. demonstrate that LLMs exhibit a trust bias toward academic paper
 content that can be weaponized for jailbreaking. The Paper Summary Attack (PSA) synthesizes
 content from LLM safety literature and embeds harmful requests within structured paper

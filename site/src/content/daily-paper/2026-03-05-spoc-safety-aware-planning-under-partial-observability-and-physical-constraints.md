@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21595-audio-overview
 draft: false
 ---
 
-# SPOC: Safety-Aware Planning Under Partial Observability And Physical Constraints
-
 The deployment of foundation model-based planners into physical agents has ushered in a transition from digital reasoning to embodied execution. However, while Large Language Models (LLMs) demonstrate sophisticated semantic logic in sandboxed text environments, their performance as embodied AI controllers frequently collapses when confronted with the unforgiving constraints of the physical world. In a digital environment, a planning error is a logic bug; in a robotic system, it is a catastrophic failure—a fire, a flood, or a mechanical collision.
 
 Current embodied task planning (ETP) fails because of a fundamental gap between "semantic common sense" and "physical feasibility." To quantify and address these failure modes, the **SPOC benchmark (Safety-aware Planning under partial Observability and physical Constraints)** provides a rigorous framework. Grounded in the AI2-THOR simulation environment and utilizing a single-arm mobile manipulator, SPOC systematically exposes how state-of-the-art models fail to maintain safety when "shortcuts" like full observability and simplified action spaces are removed.

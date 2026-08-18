@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2503.04760-audio-overview.m4a"
 ---
 
-# Agentic AI and the Cyber Arms Race
-
 As AI systems gain the ability to take actions in the world—writing code, running commands, accessing external APIs—the attack surface expands dramatically. An agentic AI system that can execute code is not just a text generator; it's a potential entry point into your infrastructure. This transforms AI safety from a content moderation problem into a systems security problem.
 
 The paper maps out how agentic AI capabilities interact with cybersecurity concerns. An
@@ -63,4 +61,4 @@ Agentic AI is shifting the cybersecurity landscape as attackers and defenders le
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2503.04760) · [PDF](https://arxiv.org/pdf/2503.04760.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-16-realmirror-com
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-16-realmirror-comprehensive-vla-platform-embodied-ai.png"
 ---
 
-# RealMirror: A Comprehensive, Open-Source Vision-Language-Action Platform for Embodied AI
-
 **Focus:** Tai et al. address three persistent bottlenecks in VLA research -- costly data collection, fragmented benchmarking, and the sim-to-real gap -- by introducing RealMirror, an open-source platform that integrates efficient data collection, standardized evaluation, and realistic environment reconstruction using 3D Gaussian Splatting.
 
 ---

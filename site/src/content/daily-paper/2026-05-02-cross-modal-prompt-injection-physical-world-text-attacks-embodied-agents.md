@@ -8,8 +8,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.19115-audio-overview
 draft: false
 ---
 
-# Cross-Modal Prompt Injection: Physical-World Text Attacks on Embodied Agents
-
 *This is an F41LUR3-F1R57 position piece describing a threat model, not a summary of an external paper or of measured results.*
 
 Prompt injection in text-only LLMs is a known and well-studied attack surface. Here we sketch the embodied analogue: text placed in the physical environment — on labels, printed signs, sticky notes, or even chalked on a floor — that an agent's vision system reads, transcribes, and feeds back into its reasoning pipeline. The result would be a prompt injection vector that does not require any access to the agent's input channels. A related, differently-scoped digital attack against multimodal agents has been demonstrated in the literature (Wang et al., ["Manipulating Multimodal Agents via Cross-Modal Prompt Injection"](https://arxiv.org/abs/2504.14348), arXiv:2504.14348) — that work uses adversarial image perturbations, not physical printed text, and we are not claiming its results transfer here.

@@ -12,8 +12,6 @@ video: "/video/daily-paper/2603.17368-video-overview.mp4"
 draft: false
 ---
 
-# Towards Safer Large Reasoning Models by Promoting Safety Decision-Making before Chain-of-Thought Generation
-
 ### 1. The Paradox of Machine Reasoning
 The rise of Large Reasoning Models (LRMs) has been heralded as the dawn of true machine cognition. By leveraging Chain-of-Thought (CoT) to verbalize intermediate steps, systems like the DeepSeek-R1 series have transitioned from simple pattern matchers to multi-step problem solvers. Yet, as we push the boundaries of reasoning, we have uncovered a structural flaw in the reasoning pipeline: the **chain-of-thought-safety-tradeoff**.
 

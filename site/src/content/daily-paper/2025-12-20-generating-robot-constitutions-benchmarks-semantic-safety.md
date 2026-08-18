@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-20-generating-rob
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-20-generating-robot-constitutions-benchmarks-semantic-safety.png"
 ---
 
-# Generating Robot Constitutions & Benchmarks for Semantic Safety
-
 **Focus:** Sermanet et al. address the expanding attack surface of language-controlled robots by introducing the ASIMOV Benchmark for evaluating semantic safety in foundation models used as robot controllers, alongside an automated framework that generates behavioral constitutions through a novel auto-amending process.
 
 ---

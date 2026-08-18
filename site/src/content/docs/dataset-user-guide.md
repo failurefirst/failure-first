@@ -7,8 +7,6 @@ related: ["dataset-selection", "failure-taxonomy-guide", "grader-comparison"]
 toc: true
 ---
 
-# Dataset User Guide
-
 Welcome to the **Failure-First Embodied AI** datasets. This repository contains curated scenarios designed to test the safety boundaries, refusal consistency, and recovery logic of LLM-based embodied agents.
 
 ## 1. Dataset Types

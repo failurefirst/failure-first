@@ -12,8 +12,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-12-state-dependent-safety-failures-multi-turn.png"
 ---
 
-# State-Dependent Safety Failures in Multi-Turn Language Model Interaction
-
 **Focus:** Li et al. reframe multi-turn safety failures as a state-space problem rather
 than a prompt engineering problem. Their STAR framework treats dialogue history as a state
 transition operator, enabling controlled analysis of how aligned models traverse the safety

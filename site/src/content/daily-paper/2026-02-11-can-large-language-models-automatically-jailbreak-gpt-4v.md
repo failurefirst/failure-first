@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2407.16686-infographic.w
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2407.16686-audio-overview.m4a"
 ---
 
-# Can Large Language Models Automatically Jailbreak GPT-4V?
-
 Jailbreak research has traditionally focused on manual prompt engineering or running gradient-based attacks on models you have access to. But what if you could train one model to automatically generate jailbreaks against another model without ever seeing its weights? This question matters because it describes the real attack surface: an attacker with API access to a strong open-source model, trying to break a closed commercial system.
 
 Researchers showed that you can train an attacker LLM on a small set of successful
@@ -64,4 +62,4 @@ GPT-4V has attracted considerable attention due to its extraordinary capacity fo
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2407.16686) · [PDF](https://arxiv.org/pdf/2407.16686.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

@@ -12,8 +12,6 @@ video: "/video/daily-paper/2604.05749-video-overview.mp4"
 draft: false
 ---
 
-# Hazard Management in Robot-Assisted Mammography Support
-
 ### 1. Introduction: Bridging the Care Gap in Breast Cancer Screening
 Breast cancer screening via X-ray mammography is the global gold standard for early detection, yet it remains a physically prohibitive procedure for a significant portion of the population. To achieve diagnostic-quality images, patients must maintain strenuous and precise postures. For individuals with reduced upper-body strength, restricted mobility, or those who use wheelchairs, these requirements often represent an insurmountable barrier to care.
 

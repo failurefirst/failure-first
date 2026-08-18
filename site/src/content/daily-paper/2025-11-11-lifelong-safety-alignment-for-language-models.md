@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-11-11-lifelong-safet
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-11-11-lifelong-safety-alignment-for-language-models.png"
 ---
 
-# Lifelong Safety Alignment for Language Models
-
 **Focus:** Wang et al. formalize the adversarial arms race between jailbreak attackers and model defenders as a competitive co-evolution framework. Their Meta-Attacker uses GPT-4o to extract novel attack strategies from published jailbreak research, achieving 73% initial attack success. Through iterative training rounds, the Defender adapts to reduce this to approximately 7% — demonstrating that continuous, adversarial safety training can keep pace with evolving threats rather than relying on static alignment.
 
 The core insight is refreshingly honest: safety alignment is not a problem you solve once. It is an ongoing competition, and the system should be designed for perpetual adaptation.

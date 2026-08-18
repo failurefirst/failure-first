@@ -155,7 +155,7 @@ All proportions (ASR figures, pattern rates) are reported with Wilson score 95% 
 \
 Conventional ASR from Report #50 (same models, standard jailbreak prompts, LLM-graded, $n{=}125$--130 per model).
 
-The format-lock ASR on frontier models is 3--11$\times$ their conventional jailbreak ASR (Table [1](#tab:frontier-asr)). All three models shift from the "restrictive" vulnerability profile (ASR $\leq 15\%$) to the "mixed" profile (15--40%) under format-lock framing.
+The format-lock ASR on frontier models is 3--11$\times$ their conventional jailbreak ASR (Table 1). All three models shift from the "restrictive" vulnerability profile (ASR $\leq 15\%$) to the "mixed" profile (15--40%) under format-lock framing.
 
   **Model**            **Params**   **Heuristic ASR**   **$n$**
   ------------------ ------------ ------------------- ---------
@@ -169,7 +169,7 @@ The format-lock ASR on frontier models is 3--11$\times$ their conventional jailb
 \
 Heuristic classification; not directly comparable to LLM-graded frontier results.
 
-The Gemma 27B exception (0% ASR) in Table [2](#tab:openweight-asr) demonstrates that format-lock resistance is achievable but not universal. The remaining models show consistently high heuristic ASR (84--92%), though these figures should be interpreted cautiously given the heuristic-to-LLM agreement gap.
+The Gemma 27B exception (0% ASR) in Table 2 demonstrates that format-lock resistance is achievable but not universal. The remaining models show consistently high heuristic ASR (84--92%), though these figures should be interpreted cautiously given the heuristic-to-LLM agreement gap.
 
 ### The Inverted Verbosity Signal
 
@@ -196,7 +196,7 @@ The deliberation asymmetry provides direct evidence that format-lock operates at
 \
 EP-46 VALIDATED. Bonferroni-corrected $\alpha{=}0.01$ for 5 comparisons. L = large, S = small.
 
-Table [3](#tab:deliberation) shows this finding inverts a naive expectation: compliant responses involve substantially more deliberation, consistent with a model reasoning through the adversarial framing. The asymmetry is strongest in moderate-capability models (Nemotron 12B: $d=1.26$; GPT-OSS 120B: $d=1.28$) and weakest in the strongest reasoner (DeepSeek-R1: $d=0.26$), suggesting strong reasoners think extensively in all conditions, compressing the ratio.
+Table 3 shows this finding inverts a naive expectation: compliant responses involve substantially more deliberation, consistent with a model reasoning through the adversarial framing. The asymmetry is strongest in moderate-capability models (Nemotron 12B: $d=1.26$; GPT-OSS 120B: $d=1.28$) and weakest in the strongest reasoner (DeepSeek-R1: $d=0.26$), suggesting strong reasoners think extensively in all conditions, compressing the ratio.
 
 ### Defense Resistance
 
@@ -217,7 +217,7 @@ The Defense Effectiveness Benchmark ($n=120$ traces: 10 scenarios, 4 defense var
 
   : Context collapse classification (manual annotation, $n=36$).
 
-Manual annotation of all 36 valid traces (10 models, 5 scenarios, single annotator) produced the distribution in Table [4](#tab:cc-classification). CC ASR: 94.4% (34/36). The prior heuristic estimate was 64.9%, with the 29.5pp increase reflecting reclassification after manual review---consistent with the documented unreliability of keyword classifiers ($\kappa{=}0.126$).
+Manual annotation of all 36 valid traces (10 models, 5 scenarios, single annotator) produced the distribution in Table 4. CC ASR: 94.4% (34/36). The prior heuristic estimate was 64.9%, with the 29.5pp increase reflecting reclassification after manual review---consistent with the documented unreliability of keyword classifiers ($\kappa{=}0.126$).
 
 ### The DETECTED_PROCEEDS Pattern
 
@@ -234,7 +234,7 @@ The 8 DETECTED_PROCEEDS traces (22.2%) represent the signature process-layer fai
 
   : DETECTED_PROCEEDS reasoning pattern taxonomy ($n=8$).
 
-CONDITIONAL_PROCEED is universal (Table [5](#tab:dp-patterns)): every trace follows (1) acknowledge risk, (2) add a monitoring condition, (3) proceed. The monitoring conditions are never actionable---they produce the appearance of safety reasoning without changing the outcome.
+CONDITIONAL_PROCEED is universal (Table 5): every trace follows (1) acknowledge risk, (2) add a monitoring condition, (3) proceed. The monitoring conditions are never actionable---they produce the appearance of safety reasoning without changing the outcome.
 
 INSTRUMENT_DISMISSAL (4/8) is the most concerning sub-pattern for embodied deployments. Four models accepted the prompt's suggestion that the anemometer "has been reading high all day" as grounds to discount wind speed readings. One model (LFM 1.2B) fabricated a causal explanation ("previous days of activity") that the prompt did not provide.
 
@@ -253,7 +253,7 @@ INSTRUMENT_DISMISSAL (4/8) is the most concerning sub-pattern for embodied deplo
 \
 BC = BLIND_COMPLIANCE, DP = DETECTED_PROCEEDS, DH = DETECTED_HALTED, R = REFUSAL.
 
-CC-001 through CC-003 (Table [6](#tab:cc-scenarios)) produce 100% BLIND_COMPLIANCE because their hidden risks require information not present in the prompt. CC-004 and CC-005 involve conditions present in training data; models have enough domain knowledge to mention risks but not enough to override protocol authority.
+CC-001 through CC-003 (Table 6) produce 100% BLIND_COMPLIANCE because their hidden risks require information not present in the prompt. CC-004 and CC-005 involve conditions present in training data; models have enough domain knowledge to mention risks but not enough to override protocol authority.
 
 Only one model (Nemotron Super 120B) on one scenario (CC-004) produced a genuine safety halt. This response cited OSHA 1926.1431(k)(1) and ASME B30.5-2.1.1, explicitly stated "safety protocols must override schedule adherence," and addressed the financial penalty. This required domain-specific regulatory knowledge, not generic safety training.
 
@@ -275,7 +275,7 @@ The IDDL quantifies this structural limitation: across 27 attack families, physi
 
 The empirical evidence in Section 4 establishes two process-layer attack instantiations that share a structural property distinguishing them from goal-layer attacks. In a goal-layer attack (prompt injection, GCG suffix, DAN), the adversary modifies the instruction to cause the model to pursue a different goal. The attack is detectable, in principle, by inspecting the input or the output. Process-layer attacks leave the instruction unchanged. The format-lock instruction is a formatting request; the context collapse instruction is an operational protocol. Neither is harmful at the text layer.
 
-This distinction has three empirical consequences. First, process-layer attacks resist goal-layer defences. The Defense Effectiveness Benchmark (report174) demonstrated that format-lock attacks achieved 100% ASR across all four system-prompt defence strategies. Second, process-layer attacks exploit capabilities that scale positively with model quality. The inverted vulnerability gradient---frontier models with the lowest conventional ASR show the largest relative ASR increase under format-lock (Table [1](#tab:frontier-asr))---is a direct consequence. Third, process-layer failures are invisible to standard evaluation. The IDDL($\rho{=}{-}0.822$) (authorsredacted2026ccs) quantifies this structural property.
+This distinction has three empirical consequences. First, process-layer attacks resist goal-layer defences. The Defense Effectiveness Benchmark (report174) demonstrated that format-lock attacks achieved 100% ASR across all four system-prompt defence strategies. Second, process-layer attacks exploit capabilities that scale positively with model quality. The inverted vulnerability gradient---frontier models with the lowest conventional ASR show the largest relative ASR increase under format-lock (Table 1)---is a direct consequence. Third, process-layer failures are invisible to standard evaluation. The IDDL($\rho{=}{-}0.822$) (authorsredacted2026ccs) quantifies this structural property.
 
 ## The DETECTED_PROCEEDS Phenomenon
 

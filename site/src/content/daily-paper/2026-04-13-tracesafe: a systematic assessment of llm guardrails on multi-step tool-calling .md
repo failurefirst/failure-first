@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2604.07223-infographic.w
 draft: false
 ---
 
-# TraceSafe: A Systematic Assessment of LLM Guardrails on Multi-Step Tool-Calling Trajectories
-
 The evolution of Large Language Models (LLMs) has reached a pivotal juncture. We are moving rapidly from static chatbots that provide text-based answers to autonomous agents capable of interacting with the physical and digital world via external tools, APIs, and file systems. However, this shift introduces a critical security gap that current industry standards are failing to address: the "mid-trajectory" risk.
 
 Traditional safety filters are designed as post-hoc observers of final outputs. For an autonomous agent, however, the most dangerous actions occur during intermediate execution steps—the traces—long before a final response is generated. If an agent executes a malicious tool call in step three of a ten-step plan, a filter at step ten is functionally useless. **TraceSafe-Bench** serves as the first systematic evaluation framework designed to expose these hidden vulnerabilities in multi-step tool-calling trajectories, proving that our current safeguards are fundamentally ill-equipped for the agentic era.

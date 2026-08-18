@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2604.14089-infographic.w
 draft: false
 ---
 
-# UMI-3D: Extending Universal Manipulation Interface from Vision-Limited to 3D Spatial Perception
-
 ### 1. Introduction: The Vision Bottleneck in Robot Learning
 The Universal Manipulation Interface (UMI) represents a seminal leap in the democratization of robotic data collection, enabling the capture of "in-the-wild" human demonstrations. However, we have reached a critical juncture where the "vision bottleneck" threatens the trajectory of embodied foundation models. Reliance on monocular visual SLAM (Simultaneous Localization and Mapping) creates a systemic failure point; tracking often collapses in textureless environments, under severe occlusions, or during dynamic interactions.
 

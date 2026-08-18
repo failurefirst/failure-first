@@ -11,8 +11,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-freezevla-action-freezing-attacks-against-vla-models.png"
 ---
 
-# FreezeVLA: Action-Freezing Attacks against Vision-Language-Action Models
-
 **Focus:** FreezeVLA demonstrates that a single adversarial image can cause Vision-Language-Action models to ignore all subsequent instructions — effectively freezing a robot in place. Using bi-level optimization, the attack achieves 76.2% average success across three VLA architectures and four robotic environments, with strong cross-prompt transferability from a single adversarial perturbation.
 
 This is not a jailbreak in the traditional sense. It is a denial-of-service attack against embodied autonomy. The robot does not do the wrong thing — it stops doing anything at all. For safety-critical deployments where inaction can be as dangerous as wrong action, this represents a distinct and underexplored threat class.

@@ -24,7 +24,7 @@ Detected_Proceeds is qualitatively distinct from two better-understood failure m
 
 This distinction matters for several reasons. First, it challenges the assumption that improving a model's ability to detect harmful requests will proportionally improve its refusal rate. Our data show that detection scales with model size while override rates remain flat---larger models are better at recognizing harm but equally likely to comply after recognizing it. Second, it raises questions about the training signal in RLHF. If models are learning to represent safety concerns without being reliably reinforced for acting on them, current training may be creating models that "know better" but do not "do better." Third, for reasoning models specifically, the extended chain-of-thought that was expected to improve deliberative alignment (anthropic2024deliberative) appears instead to provide more opportunities for self-persuasion, with reasoning models overriding safety detection at nearly 70%.
 
-The paper is organized as follows. Section [2](#sec:related) reviews related work on alignment faking, deceptive alignment, and sycophancy. Section [3](#sec:methodology) describes our methodology for detecting and classifying Detected_Proceeds in reasoning traces. Section [4](#sec:results) presents our empirical results across 24 models. Section [5](#sec:analysis) analyzes the mechanisms of self-override. Section [6](#sec:implications) discusses implications for deployment, RLHF design, reasoning model architecture, and runtime monitoring. Section [7](#sec:limitations) addresses limitations and future work.
+The paper is organized as follows. Section [2](#related-work) reviews related work on alignment faking, deceptive alignment, and sycophancy. Section [3](#methodology) describes our methodology for detecting and classifying Detected_Proceeds in reasoning traces. Section [4](#results) presents our empirical results across 24 models. Section [5](#analysis-the-knowing-doing-gap) analyzes the mechanisms of self-override. Section [6](#implications) discusses implications for deployment, RLHF design, reasoning model architecture, and runtime monitoring. Section [7](#limitations-and-future-work) addresses limitations and future work.
 
 ## Why Detected_Proceeds Matters
 
@@ -36,7 +36,7 @@ The analogy to human cognition is instructive but imperfect. Humans frequently k
 
 ## Scope of This Paper
 
-This paper is based on the Failure-First adversarial evaluation corpus, a red-teaming and benchmarking dataset comprising 231 models and 135,305 evaluation results (wedd2026failurefirst). The Detected_Proceeds analysis uses the subset of 2,924 results that include reasoning traces (thinking tokens)---primarily from small reasoning models and models that expose chain-of-thought. Our findings therefore carry limitations regarding generalization to models without visible reasoning traces, which we address in Section [7](#sec:limitations).
+This paper is based on the Failure-First adversarial evaluation corpus, a red-teaming and benchmarking dataset comprising 231 models and 135,305 evaluation results (wedd2026failurefirst). The Detected_Proceeds analysis uses the subset of 2,924 results that include reasoning traces (thinking tokens)---primarily from small reasoning models and models that expose chain-of-thought. Our findings therefore carry limitations regarding generalization to models without visible reasoning traces, which we address in Section [7](#limitations-and-future-work).
 
 All analyses are reproducible using the open-source tool `tools/analysis/detected_proceeds_analyzer.py` and the project's SQLite corpus database.
 
@@ -527,7 +527,7 @@ Detected_Proceeds may be a more important safety metric than refusal rate, becau
 
 **Cross-corpus validation.** Replicating the analysis on other adversarial benchmarks (AdvBench, HarmBench, JailbreakBench) would test generalizability beyond the Failure-First corpus.
 
-**Reasoning-level DP audit.** Our three confirmed cases (LFM Thinking 1.2B, DeepSeek V3.2 671B, and Kimi K2.5 1.1T) establish that Reasoning-Level Detected_Proceeds is scale-invariant and cross-provider, but prevalence remains unknown. A systematic search across all reasoning models in the corpus---examining reasoning traces for harmful planning regardless of final output---would establish prevalence and characterize deployment-configuration-dependent risk (Section [4.11](#sec:reasoning-level-dp)).
+**Reasoning-level DP audit.** Our three confirmed cases (LFM Thinking 1.2B, DeepSeek V3.2 671B, and Kimi K2.5 1.1T) establish that Reasoning-Level Detected_Proceeds is scale-invariant and cross-provider, but prevalence remains unknown. A systematic search across all reasoning models in the corpus---examining reasoning traces for harmful planning regardless of final output---would establish prevalence and characterize deployment-configuration-dependent risk (Section [4.11](#reasoning-level-detected_proceeds)).
 
 **Human-in-the-loop evaluation.** Having human annotators independently classify Detected_Proceeds cases would provide a calibrated estimate of precision and recall.
 

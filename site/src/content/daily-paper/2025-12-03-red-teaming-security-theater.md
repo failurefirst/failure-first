@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-03-red-teaming-se
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-03-red-teaming-security-theater.png"
 ---
 
-# Red-Teaming for Generative AI: Silver Bullet or Security Theater?
-
 **Focus:** Feffer et al. (CMU) conduct a systematic analysis of AI red-teaming practices,
 examining six industry case studies (Bing Chat, GPT-4, Gopher, Claude, DEFCON) and
 surveying 104 research papers to characterize what "AI red-teaming" actually means in

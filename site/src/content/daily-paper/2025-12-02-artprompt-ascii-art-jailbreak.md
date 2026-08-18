@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-02-artprompt-asci
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-02-artprompt-ascii-art-jailbreak.png"
 ---
 
-# ArtPrompt: ASCII Art-based Jailbreak Attacks against Aligned LLMs
-
 **Focus:** Jiang et al. identify a fundamental gap in LLM safety alignment: current techniques assume prompts are interpreted solely through semantics, but real-world text can encode meaning visually through ASCII art. The paper demonstrates that five major LLMs struggle to recognize text rendered as ASCII art, and exploits this blind spot to bypass safety measures. The attack requires only black-box access, making it broadly practical.
 
 ---

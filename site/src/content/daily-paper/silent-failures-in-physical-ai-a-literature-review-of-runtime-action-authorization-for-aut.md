@@ -11,7 +11,6 @@ video: "https://cdn.failurefirst.org/video/daily-paper/silent-failures-in-physic
 image: "https://cdn.failurefirst.org/images/daily-paper/2606.00090-infographic.png"
 draft: false
 ---
-# Silent Failures in Physical AI: A Literature Review of Runtime Action Authorization for Autonomous Systems
 
 ## 1. Introduction: When "Confident" AI Goes Wrong
 

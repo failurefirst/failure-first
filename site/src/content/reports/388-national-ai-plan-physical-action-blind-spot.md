@@ -11,8 +11,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/reports/388-national-ai-plan-physical-action-blind-spot.m4a"
 ---
 
-# The National AI Plan's Physical-Action Blind Spot: Why Australia's AI Safety Architecture Stops at the Screen
-
 **Respondent:** Failure-First Embodied AI Research Programme (failurefirst.org), an independent AI safety research programme conducting adversarial red-teaming and benchmarking of language and embodied AI systems.
 
 **Subject:** The treatment of embodied, agentic, and physical-action AI in Australia's *National AI Plan* (Department of Industry, Science and Resources, November 2025) and its operational companion, the National AI Centre's *Guidance for AI Adoption*.

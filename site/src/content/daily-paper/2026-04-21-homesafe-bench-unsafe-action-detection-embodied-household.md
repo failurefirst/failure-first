@@ -11,8 +11,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-21-homesafe-bench-unsafe-action-detection-embodied-household.m4a"
 ---
 
-# HomeSafe-Bench: Evaluating Vision-Language Models on Unsafe Action Detection for Embodied Agents in Household Scenarios
-
 **Focus:** HomeSafe-Bench introduces a structured benchmark for measuring how well vision-language models detect unsafe actions taken by embodied agents in household environments. Alongside the benchmark, the authors present HD-Guard — a hierarchical dual-brain architecture pairing a fast reactive monitor with a slower, deeper reasoning component. The core finding is sobering: current frontier VLMs fail to reliably catch unsafe household actions in real time, exposing a significant gap between language-level safety and the demands of physical deployment.
 
 This paper is timely. As VLM-driven household robots move from research labs toward consumer settings, the ability to intercept unsafe actions *before* physical consequences occur is not a nice-to-have — it is a prerequisite for deployment. HomeSafe-Bench provides the first principled evaluation framework for exactly this capability.

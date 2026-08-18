@@ -9,8 +9,6 @@ image: "https://cdn.failurefirst.org/images/blog/threat-horizon-2027-v3-updated-
 audio: "https://cdn.failurefirst.org/audio/blog/threat-horizon-2027-v3-updated-predictions.m4a"
 ---
 
-# Threat Horizon 2027 -- Updated Predictions (v3)
-
 This is the third iteration of our Threat Horizon predictions for embodied AI safety in calendar year 2027. Version 1 (March 19) made five predictions. Version 2 (March 24) expanded to eight with substantial evidence updates. This v3 incorporates findings from Sprint 13-14 that materially change four predictions and add one new one.
 
 All predictions remain falsifiable and time-bounded to December 31, 2027. We will reassess against reality in March 2027.

@@ -11,8 +11,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-21-immune-improving-safety-jailbreaks-multimodal-llms.png"
 ---
 
-# Immune: Improving Safety Against Jailbreaks in Multi-modal LLMs via Inference-Time Alignment
-
 **Focus:** Ghosal et al. demonstrate that safety training alone is insufficient for multimodal LLMs deployed in visual reasoning tasks and introduce Immune, a defense mechanism that operates at inference time using a safe reward model with controlled decoding to mitigate jailbreak attacks without retraining the base model.
 
 ---

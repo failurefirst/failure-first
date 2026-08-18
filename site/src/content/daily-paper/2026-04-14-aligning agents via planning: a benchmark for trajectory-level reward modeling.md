@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.08178-audio-overview
 draft: false
 ---
 
-# Aligning Agents via Planning: A Benchmark for Trajectory-Level Reward Modeling
-
 ### 1. Introduction: The Evolution from Chatbots to Proactive Agents
 We are witnessing the death of the passive chatbot. The era of Large Language Models (LLMs) that merely react to prompts with static text is being superseded by "proactive agents"—systems capable of autonomous tool invocation, environment interaction, and multi-step reasoning. In this new agentic frontier, model behavior is no longer defined by a single response; it is defined by a **trajectory**. 
 

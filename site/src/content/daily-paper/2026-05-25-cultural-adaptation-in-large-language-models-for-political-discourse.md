@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2605.23332-infographic.w
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2605.23332-audio-overview.m4a"
 ---
 
-# Cultural Adaptation in Large Language Models for Political Discourse
-
 ### 1. Introduction: The High Stakes of Political AI
 
 The integration of Large Language Models (LLMs) into political workflows—ranging from automated content moderation and policy narrative analysis to the summarization of public testimony—has shifted the focus of AI safety from simple "hallucinations" to profound sociotechnical risks. When these models mediate civic participation, their limitations are no longer mere technical glitches; they are "representational failures" that threaten the very foundations of institutional trust.

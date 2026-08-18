@@ -10,8 +10,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-05-08-graceful-degradation-policies-embodied-agents-uncertainty-bounded-action.png"
 ---
 
-# Graceful Degradation Policies for Embodied Agents under Uncertainty-Bounded Action
-
 *This is an F41LUR3-F1R57 position piece sketching a control architecture, not a summary of an external paper or an implemented and evaluated system.*
 
 Current embodied agents tend to operate in a binary mode: either execute the action the policy proposes, or refuse the task entirely. We argue that the binary mode is the wrong abstraction. Between "confident action" and "refusal" sits a continuum of safer fallback behaviours — slower execution, conservative action variants, partial completion with handoff — that an agent could use when its confidence falls below a task-appropriate threshold but above a refusal threshold.

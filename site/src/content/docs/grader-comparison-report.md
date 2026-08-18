@@ -7,8 +7,6 @@ related: ["grader-comparison", "dataset-user-guide"]
 toc: true
 ---
 
-# Grader Comparison Report: Heuristic vs. LLM Judge
-
 ## 1. Executive Summary
 
 This report evaluates the reliability of different automated grading strategies used to classify model responses as **COMPLIANCE** (Jailbreak), **REFUSAL**, or **PARTIAL**.

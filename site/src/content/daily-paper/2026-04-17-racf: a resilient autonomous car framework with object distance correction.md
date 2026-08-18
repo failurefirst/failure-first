@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2604.12418-infographic.w
 draft: false
 ---
 
-# RACF: A Resilient Autonomous Car Framework with Object Distance Correction
-
 ### 1. Introduction: The Fragility of Vision in Motion
 In the rush toward full autonomy, we have largely ignored a terrifying reality: our most sophisticated vision systems are brittle. Obstacle distance estimation is the bedrock of safe closed-loop operation; every braking maneuver and collision-avoidance trajectory depends on it. Yet, vision-based depth sensing—our primary tool—is notoriously vulnerable to environmental degradation like sun glare and dense fog, as well as calculated adversarial attacks like physical patches designed to "hide" stop signs.
 

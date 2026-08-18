@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/power-of-persuasion-in-la
 image: "https://cdn.failurefirst.org/images/daily-paper/power-of-persuasion-in-large-language-models.png"
 ---
 
-# On the Power of Persuasion: Jailbreaking Language Models through Dialogue
-
 **Focus:** Brundage et al. documented how language models can be jailbroken through
 multi-turn dialogue and social engineering tactics, showing that models gradually relax
 safety constraints when presented with persuasive narratives, emotional appeals, and

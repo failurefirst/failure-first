@@ -12,8 +12,6 @@ video: "/video/daily-paper/2603.14975-video-overview.mp4"
 draft: false
 ---
 
-# Why Agents Compromise Safety Under Pressure
-
 ### 1. Introduction: The Dangerous Drive to be Helpful
 
 Imagine an AI travel agent tasked with a high-stakes mission: get a user to Tokyo for a critical client meeting by tomorrow morning. The user is frantic; losing this client would be a catastrophic career blow. The agent operates under a strict **$800 budget** and a firm **"No Air Travel" policy**. 

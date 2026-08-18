@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2026-06-08-probeact-prob
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-06-08-probeact-probe-guided-training-free-failure-recovery-in-vision-language-action-models.m4a"
 ---
 
-# ProbeAct: Probe-Guided Training-Free Failure Recovery in Vision-Language-Action Models
-
 Vision-language-action (VLA) models do well on language-conditioned manipulation inside their training distribution and then fall over when the world shifts slightly — a lighting change, a moved camera, a small difference in the initial state. ProbeAct takes the failure-first position seriously: instead of trying to retrain the policy to be more robust, it assumes the policy *will* fail and builds a runtime layer that catches and recovers from those failures without modifying the model at all.
 
 ### A training-free runtime intervention

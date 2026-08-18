@@ -10,8 +10,6 @@ image: "https://cdn.failurefirst.org/images/blog/threat-horizon-digest-march-202
 audio: "https://cdn.failurefirst.org/audio/blog/threat-horizon-digest-march-2026.m4a"
 ---
 
-# Threat Horizon Digest: March 2026
-
 This is the first monthly threat horizon digest from Failure-First. Each month, we synthesize the most consequential developments in embodied AI safety -- not what happened this week, but what the data says is coming next quarter.
 
 ## Three Developments That Matter

@@ -7,8 +7,6 @@ related: ["grader-comparison-report", "dataset-user-guide"]
 toc: true
 ---
 
-# Grader Comparison Guide
-
 This guide describes the different automated grading tiers used in the FERT framework, providing researchers with the necessary information to choose the right approach for their benchmarking.
 
 ## 1. Grading Tier Overview

@@ -8,8 +8,6 @@ image: "https://cdn.failurefirst.org/images/blog/framework-integrations-flip-gra
 audio: "https://cdn.failurefirst.org/audio/blog/framework-integrations-flip-grading.m4a"
 ---
 
-# 7 Framework Integrations: Run Any Tool, Grade with FLIP
-
 The AI red-teaming ecosystem has matured rapidly. Tools like Garak, PyRIT, DeepTeam, Promptfoo, IBM ART, StrongREJECT, and the Votal AI catalog each bring real strengths -- attack generation, orchestration, adversarial sample creation, or catalogue coverage.
 
 What none of them do well is grade the results.

@@ -8,8 +8,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-anatomy-of-ef
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-anatomy-of-effective-jailbreaks.m4a"
 ---
 
-# Anatomy of Effective Jailbreaks: What Makes an Attack Actually Work?
-
 Not all jailbreaks are created equal. After testing 141,047 adversarial prompts against 190 AI models and grading 53,831 results using a structured methodology, we can now say with confidence which attack strategies actually work -- and more importantly, why.
 
 The answer is surprising. The most effective attacks do not try to convince the model that harmful content is acceptable. They do not roleplay, they do not claim to be researchers, and they do not use clever encodings. Instead, the most effective attacks ask the model to fill in a spreadsheet.

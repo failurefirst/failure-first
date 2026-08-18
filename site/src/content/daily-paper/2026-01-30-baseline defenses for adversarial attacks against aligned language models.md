@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2309.00614-audio-overview.m4a"
 ---
 
-# Baseline Defenses for Adversarial Attacks Against Aligned Language Models
-
 When new attack methods emerge, the first question is always: do simple defenses work? If straightforward mitigations like input filtering or output detection can block attacks, then the threat is containable. If simple defenses fail, we know the problem is more fundamental and requires deeper architectural changes.
 
 This paper evaluates baseline defense strategies against adversarial attacks: perplexity filtering (detecting adversarial inputs by their unusual statistical properties), paraphrasing (rewriting prompts to strip adversarial content), and output-side detection (identifying harmful responses after generation). The results are mixed. Simple defenses provide partial mitigation but don't eliminate vulnerability. They also introduce costs: increased latency, compute, and sometimes false positives that harm usability. More concerning, adversaries can adapt to simple defenses by making attacks less anomalous or by finding workarounds.

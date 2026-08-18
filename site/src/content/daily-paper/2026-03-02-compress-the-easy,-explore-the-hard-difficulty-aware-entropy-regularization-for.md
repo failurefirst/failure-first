@@ -12,8 +12,6 @@ video: "https://cdn.failurefirst.org/video/daily-paper/2602.22642-video-overview
 draft: false
 ---
 
-# Compress the Easy, Explore the Hard: Difficulty-Aware Entropy Regularization for Efficient LLM Reasoning
-
 ### 1. Introduction: The High Cost of Chain-of-Thought
 In the current "reasoning era" of Large Language Models (LLMs), Chain-of-Thought (CoT) has emerged as the gold standard for navigating complex, multi-hop deduction. By externalizing intermediate logic, models can maintain state, perform error correction, and avoid the brittle shortcuts common in zero-shot prompts. However, this cognitive power comes with a significant "verbosity tax." The explicit generation of every logical step creates a massive efficiency bottleneck—driving up inference latency, token consumption, and serving costs to levels that often prohibit real-world production deployment.
 

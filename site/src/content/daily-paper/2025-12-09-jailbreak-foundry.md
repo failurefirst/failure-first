@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-09-jailbreak-foun
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-09-jailbreak-foundry.png"
 ---
 
-# Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking
-
 **Focus:** Fang et al. address a fundamental infrastructure problem in jailbreak research:
 attack techniques advance faster than evaluation benchmarks, making cross-study comparisons
 unreliable. Jailbreak Foundry (JBF) provides three components — a shared utility library,

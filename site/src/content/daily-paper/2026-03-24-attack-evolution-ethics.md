@@ -8,8 +8,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-attack-evolution-ethics.m4a"
 ---
 
-# Should We Publish AI Attacks We Discover?
-
 We have a problem, and it is the kind of problem that does not have a clean answer.
 
 The F41LUR3-F1R57 project has catalogued 82 jailbreak techniques spanning four years of adversarial AI research. We have tested them against 190 models and collected 132,416 evaluation results. We have documented 6 novel attack families that exploit surfaces the field had not previously examined. We have measured which attacks work, how often, and against which models.

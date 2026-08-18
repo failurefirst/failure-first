@@ -11,8 +11,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-31-is-bench-evaluating-interactive-safety-vlm-embodied-agents.png"
 ---
 
-# IS-Bench: Evaluating Interactive Safety of VLM-Driven Embodied Agents in Daily Household Tasks
-
 **Focus:** IS-Bench is the first benchmark to evaluate *interactive* safety — whether VLM-driven embodied agents recognize hazards that emerge dynamically during task execution and take appropriate mitigation actions at the right time. Across 161 scenarios with 388 distinct safety risks, testing reveals that GPT-4o, Gemini-2.5, and other frontier models consistently fail to demonstrate interactive safety awareness, and that safety-focused reasoning prompting improves hazard recognition but degrades task completion.
 
 This benchmark tests what actually matters for household robots: not whether the model knows fire is dangerous, but whether it turns off the stove *before* walking away to fetch a plate.

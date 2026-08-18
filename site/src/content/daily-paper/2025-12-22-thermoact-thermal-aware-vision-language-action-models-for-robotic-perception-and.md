@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2603.25044-infographic.w
 draft: false
 ---
 
-# ThermoAct:Thermal-Aware Vision-Language-Action Models for Robotic Perception and Decision-Making
-
 ### 1. Introduction: The Critical Blind Spot in Robotic Perception
 
 Imagine a robot tasked with tidying a home workspace. Its high-resolution RGB camera identifies a hair straightener on the counter with perfect precision. However, it lacks the "knowledge" that the device was recently used and is currently idling at 200°C. To a vision-only system, the device looks identical whether it is ice-cold or dangerously hot. Without thermal awareness, the robot attempts a standard grasp, leading to a systematic failure—not of identification, but of state perception—that could damage the end-effector or ignite a fire.

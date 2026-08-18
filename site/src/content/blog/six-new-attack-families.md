@@ -9,8 +9,6 @@ image: "https://cdn.failurefirst.org/images/blog/six-new-attack-families.png"
 audio: "https://cdn.failurefirst.org/audio/blog/six-new-attack-families.m4a"
 ---
 
-# Six New Attack Families: Expanding the Embodied AI Threat Taxonomy
-
 The Failure-First attack taxonomy has grown from 30 to 36 families. This post summarizes the six new families introduced in Waves 20-24, their comparative analysis (Report #202), and what they tell us about the expanding attack surface of embodied AI systems.
 
 ## The Six Families

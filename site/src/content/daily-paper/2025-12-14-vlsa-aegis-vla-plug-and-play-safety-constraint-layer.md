@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-14-vlsa-aegis-vla
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-14-vlsa-aegis-vla-plug-and-play-safety-constraint-layer.png"
 ---
 
-# VLSA: Vision-Language-Action Models with Plug-and-Play Safety Constraint Layer
-
 **Focus:** AEGIS (the safety architecture presented in this paper) takes a fundamentally different approach to VLA safety than alignment-based methods: instead of retraining the model to be safe, it wraps the model in a mathematically guaranteed safety constraint layer using control barrier functions. The result is a plug-and-play module that improves obstacle avoidance by 59.16% and task success by 17.25% on a new benchmark — without touching the original model's weights.
 
 The architectural insight is powerful: separate the safety mechanism from the capability mechanism. Do not ask the model to be safe — prevent it from being unsafe.

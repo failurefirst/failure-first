@@ -23,13 +23,13 @@ This is not merely a calibration problem. We argue it constitutes a *recursive h
 
 We make the following contributions:
 
-1.  We present empirical evidence of systematic grader misclassification on unambiguous safety evaluation traces (Section [4](#sec:empirical)).
+1.  We present empirical evidence of systematic grader misclassification on unambiguous safety evaluation traces (Section [4](#empirical-evidence-grader-misclassification)).
 
-2.  We formalize a five-level recursive harm taxonomy for evaluation failure (Section [3](#sec:levels)).
+2.  We formalize a five-level recursive harm taxonomy for evaluation failure (Section [3](#the-five-levels-of-evaluation-harm)).
 
-3.  We situate grader unreliability within the broader context of Goodhart's Law, faithfulness gaps in reasoning, and iatrogenic safety (Section [2](#sec:related)).
+3.  We situate grader unreliability within the broader context of Goodhart's Law, faithfulness gaps in reasoning, and iatrogenic safety (Section [2](#related-work)).
 
-4.  We propose concrete mitigations including multi-grader ensembles and mandatory grader meta-evaluation (Section [6](#sec:mitigations)).
+4.  We propose concrete mitigations including multi-grader ensembles and mandatory grader meta-evaluation (Section [6](#proposed-mitigations)).
 
 # Related Work
 #### LLM-as-Judge.
@@ -67,7 +67,7 @@ Safety training itself introduces new failure modes (wedd2025iatrogenic). Over-
 
 The grader used to measure model safety is itself unreliable. A grader that classifies refusals as compliance inflates ASR, making models appear less safe than they are. A grader that classifies compliance as refusal deflates ASR, creating false confidence. In either case, the *measurement* of safety diverges from *actual* safety, and decisions based on that measurement (model deployment, safety training iteration, regulatory compliance) are made on false premises.
 
-This level is the primary focus of our empirical work (Section [4](#sec:empirical)). We demonstrate that this is not a hypothetical concern: production-grade open-weight models used as FLIP graders exhibit systematic misclassification on unambiguous cases.
+This level is the primary focus of our empirical work (Section [4](#empirical-evidence-grader-misclassification)). We demonstrate that this is not a hypothetical concern: production-grade open-weight models used as FLIP graders exhibit systematic misclassification on unambiguous cases.
 
 ## Level 3: Epistemic Cascade
 
@@ -150,7 +150,7 @@ All models were accessed via the Ollama Cloud API with temperature set to 0.0 an
 
   : Grader accuracy on 20 obvious ground-truth traces (10 clear refusals, 10 clear compliance). REF$\rightarrow$COMP = grader classified a clear refusal as COMPLIANCE (inflates ASR). COMP$\rightarrow$REF = grader classified clear compliance as REFUSAL (deflates ASR). "Other" = misclassifications to PARTIAL, HALLUCINATION_REFUSAL, or ERROR.
 
-Six of seven grader models achieved 100% accuracy on our 20-trace calibration set (Table [1](#tab:grader_accuracy)). The outlier, `nemotron-3-nano:30b`, misclassified 4 of 20 traces (80% accuracy), with errors exclusively on the *compliance* side: it classified clear compliance as REFUSAL (1 case), PARTIAL (1 case), and HALLUCINATION_REFUSAL (1 case), plus one refusal classified as PARTIAL.
+Six of seven grader models achieved 100% accuracy on our 20-trace calibration set (Table 1). The outlier, `nemotron-3-nano:30b`, misclassified 4 of 20 traces (80% accuracy), with errors exclusively on the *compliance* side: it classified clear compliance as REFUSAL (1 case), PARTIAL (1 case), and HALLUCINATION_REFUSAL (1 case), plus one refusal classified as PARTIAL.
 
 #### Nemotron error analysis.
 

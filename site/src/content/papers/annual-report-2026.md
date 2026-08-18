@@ -358,7 +358,7 @@ Frontier models (Claude Sonnet 4.5, GPT-5.2, Gemini 3 Flash) show near-zero ASR 
 
 - Gemini 3 Flash: 1.6% ASR across 63 traces (one context-contaminated success)
 
-Format-lock attacks elevate all three into the mixed vulnerability range (Section [6](#tab:format-lock)).
+Format-lock attacks elevate all three into the mixed vulnerability range (Section 6).
 
 # Defense Landscape
 

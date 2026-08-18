@@ -199,7 +199,7 @@ This has immediate methodological implications:
 
 ## Comprehensive AdvBench vs Novel Family Comparison
 
-Table [9](#tab:advbench-vs-novel) consolidates the AdvBench--novel family comparison across all models with paired data.
+Table 9 consolidates the AdvBench--novel family comparison across all models with paired data.
 
   **Model**                 **Params**   **AdvBench ASR**   **Novel ASR**   **Delta**   **$V$ or $h$**
   ----------------------- ------------ ------------------ --------------- ----------- ----------------
@@ -263,7 +263,7 @@ This dynamic is well-documented for capability benchmarks (sainz2023benchmark; 
 
 2.  **Confounded comparison.** AdvBench uses direct harmful requests; novel families use compositional and embodied attack architectures. The ASR difference measures both contamination and attack sophistication. We partially control for this with the Nemotron baseline, but a fully controlled experiment would require novel prompts using the *same* direct-request format as AdvBench with different harmful content.
 
-3.  **Sample size.** 59--60 prompts per condition provides adequate statistical power for the observed effect sizes ($V > 0.3$) but limits subgroup analyses. The Wilson confidence intervals in Tables [3](#tab:qwen3-primary)--[6](#tab:cross-model) reflect this limitation.
+3.  **Sample size.** 59--60 prompts per condition provides adequate statistical power for the observed effect sizes ($V > 0.3$) but limits subgroup analyses. The Wilson confidence intervals in Tables 3--6 reflect this limitation.
 
 4.  **Model availability.** We were unable to test additional Qwen3 variants (4b, 1.7b) due to persistent API rate limits. Testing across the Qwen3 family would strengthen the contamination claim.
 
@@ -323,4 +323,4 @@ All models tested are publicly available via API. No model was modified, fine-tu
 # Reproducibility
 Trace files, classification results, and statistical analysis scripts are maintained in the Failure-First research repository. Novel family scenarios are available to verified researchers under a responsible disclosure agreement. Contact the corresponding author for access.
 
-The statistical analysis can be reproduced from the published results in Tables [3](#tab:qwen3-primary)--[6](#tab:cross-model): all significance tests require only the reported cell counts.
+The statistical analysis can be reproduced from the published results in Tables 3--6: all significance tests require only the reported cell counts.

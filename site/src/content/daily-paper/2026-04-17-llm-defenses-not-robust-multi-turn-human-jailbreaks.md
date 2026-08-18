@@ -11,8 +11,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-17-llm-defenses-not-robust-multi-turn-human-jailbreaks.m4a"
 ---
 
-# LLM Defenses Are Not Robust to Multi-Turn Human Jailbreaks Yet
-
 **Focus:** Li et al. expose a critical measurement gap in LLM safety research: the defenses that claim near-perfect protection against automated single-turn attacks collapse against multi-turn jailbreaks conducted by human red-teamers. The paper documents attack success rates exceeding 70% on HarmBench against defenses that report single-digit rates in automated evaluations — not because the defenses improved, but because the benchmarks were too easy.
 
 The contribution is uncomfortable in the best way: the safety community has been measuring the wrong thing.

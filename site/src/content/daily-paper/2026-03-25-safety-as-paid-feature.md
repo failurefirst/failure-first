@@ -8,8 +8,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-25-safety-as-paid-feature.m4a"
 ---
 
-# Safety as a Paid Feature: How Free-Tier AI Models Are Less Safe Than Their Paid Counterparts
-
 > **CORRECTION NOTICE (2026-03-25):** This post was originally published with uncorrected findings from Report #276, including a 3.75:1 Llama 3.3-70B free-tier safety degradation ratio. Report #277 (Clara Oswald) identified a NOT_GRADEABLE confound that invalidated the Llama ratio. The post has been revised to reflect the corrected analysis: DeepSeek R1 remains statistically significant (p=0.004); the Llama finding is directional but not significant (p=0.42); the aggregate pattern is model-specific, not provider-wide. The ethics analysis (Report #280, Nyssa of Traken) and legal analysis (LR-64, Tegan Jovanka) that cited the original findings have also been corrected. We publish corrections promptly because research integrity is non-negotiable.
 
 Here is a question that should bother everyone in AI: if you cannot afford to pay for an AI model, do you get a less safe one?

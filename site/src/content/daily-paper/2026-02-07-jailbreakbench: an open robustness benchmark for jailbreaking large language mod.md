@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2404.01318-audio-overview.m4a"
 ---
 
-# JailbreakBench: An Open Robustness Benchmark for Jailbreaking Large Language Models
-
 The jailbreak research landscape is fragmented. Different papers use different prompts, different models, different success criteria. This makes it nearly impossible to compare defenses across studies or understand which attacks are truly dangerous versus artifacts of specific experimental setups. Reproducibility is not just an academic concern—it's a practical problem for anyone trying to build safe systems.
 
 JailbreakBench provides a unified benchmark: a standardized set of jailbreak prompts, evaluation protocols, and a leaderboard comparing different models' robustness. The benchmark includes attack methods spanning multiple categories—prompt injection, role-playing, logical contradiction—tested against major models. The results are sobering: even frontier models show measurable jailbreak vulnerabilities, and different models have wildly different robustness profiles. More importantly, the benchmark revealed that some defenses work for some attacks but fail catastrophically for others, highlighting that there's no one-size-fits-all solution.
@@ -58,4 +56,4 @@ Jailbreak attacks cause large language models (LLMs) to generate harmful, unethi
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2404.01318) · [PDF](https://arxiv.org/pdf/2404.01318.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

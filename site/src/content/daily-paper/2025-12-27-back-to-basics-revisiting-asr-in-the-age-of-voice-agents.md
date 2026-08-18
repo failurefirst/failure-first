@@ -12,8 +12,6 @@ video: "https://cdn.failurefirst.org/video/daily-paper/2603.25727-video-overview
 draft: false
 ---
 
-# Back to Basics: Revisiting ASR in the Age of Voice Agents
-
 ### 1. Introduction: The Diagnostic Gap in Modern ASR
 
 For nearly a decade, the Automatic Speech Recognition (ASR) community has been haunted by the "Human Parity" paradox. On paper, transcription appears solved; top-tier models routinely report Word Error Rates (WER) below 5% on curated benchmarks like FLEURS. Yet, the moment these models are deployed as the primary interface for voice agents in the wild, they fracture under pressure.

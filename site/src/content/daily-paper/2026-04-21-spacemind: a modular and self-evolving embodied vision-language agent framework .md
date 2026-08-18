@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2604.14399-infographic.w
 draft: false
 ---
 
-# SpaceMind: A Modular and Self-Evolving Embodied Vision-Language Agent Framework for Autonomous On-orbit Servicing
-
 The low Earth orbit (LEO) environment is approaching a critical threshold. As of 2023, there are over 20,000 cataloged objects—ranging from aging satellites to hazardous debris—threatening global orbital infrastructure. Addressing this crisis requires a paradigm shift toward **On-Orbit Servicing, Assembly, and Manufacturing (OSAM)**. However, current autonomous systems are largely tethered to pre-programmed sequences designed for cooperative, well-known targets. These legacy architectures fail in the unpredictable, high-stakes environment of space, where agents must navigate **6-degree-of-freedom (6-DoF)** physical space over long horizons.
 
 Traditional AI agents struggle in orbit because monolithic prompting strategies are unmaintainable for complex **visuomotor control** and unpredictable scenarios. To bridge the gap between static simulation and real-world autonomy, we have developed **SpaceMind**: a modular, self-evolving Vision-Language Model (VLM) framework designed as a decision-control hub for the next generation of autonomous space robotics.

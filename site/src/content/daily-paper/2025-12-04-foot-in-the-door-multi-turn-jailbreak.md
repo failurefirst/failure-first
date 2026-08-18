@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-04-foot-in-the-do
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-04-foot-in-the-door-multi-turn-jailbreak.png"
 ---
 
-# Foot-In-The-Door: A Multi-turn Jailbreak for LLMs
-
 **Focus:** Weng et al. adapt the foot-in-the-door psychological compliance technique to
 LLM jailbreaking. FITD progressively escalates the malicious intent of user queries
 through intermediate bridge prompts, starting with benign requests and gradually shifting

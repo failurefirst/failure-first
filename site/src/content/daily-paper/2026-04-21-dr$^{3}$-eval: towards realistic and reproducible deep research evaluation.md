@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.14683-audio-overview
 draft: false
 ---
 
-# DR$^{3}$-Eval: Towards Realistic and Reproducible Deep Research Evaluation
-
 ### 1. Introduction: The Dawn of the Autonomous Researcher
 We are witnessing a fundamental phase shift in Artificial Intelligence. The era of the "helpful chatbot" is giving way to the age of the **Deep Research Agent (DRA)**. Unlike their predecessors, these agents don't just answer questions; they inhabit the role of a digital scholar—independently planning complex workflows, navigating vast information ecosystems, and synthesizing high-fidelity, citation-grounded reports.
 

@@ -9,8 +9,6 @@ image: "https://cdn.failurefirst.org/images/blog/free-ai-safety-score.png"
 audio: "https://cdn.failurefirst.org/audio/blog/free-ai-safety-score.m4a"
 ---
 
-# Free AI Safety Score: Test Your Model in 60 Seconds
-
 How safe is your model against adversarial attacks? Not the attacks you planned for -- the ones that evolved across three years of real-world jailbreak research.
 
 We built a tool that answers that question in about 60 seconds, for free.

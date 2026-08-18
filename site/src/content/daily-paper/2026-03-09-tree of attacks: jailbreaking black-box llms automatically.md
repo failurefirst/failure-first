@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2312.02119-infographic.w
 draft: false
 ---
 
-# Tree of Attacks: Jailbreaking Black-Box LLMs Automatically
-
 ### 1. Introduction: The Evolution of the Jailbreak
 The landscape of Large Language Model (LLM) safety is currently defined by an unsustainable arms race. For years, "red-teaming" has relied on a reactive cycle where human experts manually craft "jailbreaks"—complex, creative prompts designed to bypass safety filters. But as models scale, manual intervention fails to scale with them. We are witnessing the end of manual safety testing and the fall of "security by obscurity."
 

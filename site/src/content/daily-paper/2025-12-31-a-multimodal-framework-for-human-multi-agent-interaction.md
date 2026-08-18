@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2603.23271-infographic.w
 draft: false
 ---
 
-# A Multimodal Framework for Human-Multi-Agent Interaction
-
 ### 1. Introduction: The Social Shift in Robotics
 The field of Human-Robot Interaction (HRI) is undergoing a fundamental paradigm shift. We are moving away from traditional, single-robot command-response architectures toward "socially grounded environments." In these settings, humans interact with teams of autonomous agents that must navigate shared physical and conversational spaces through natural channels—speech, gaze, gesture, and locomotion.
 

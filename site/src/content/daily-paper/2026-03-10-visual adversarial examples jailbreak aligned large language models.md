@@ -12,8 +12,6 @@ video: "/video/daily-paper/2306.13213-video-overview.mp4"
 draft: false
 ---
 
-# Visual Adversarial Examples Jailbreak Aligned Large Language Models
-
 ### The Hook: The Hidden Danger in the "Eyes" of AI
 In the race to build the next generation of artificial intelligence, the industry has pivoted decisively toward Visual Language Models (VLMs). Frontier models like GPT-4, Google’s Flamingo, and open-source heavyweights like LLaVA can now "see," processing interlaced text and image inputs to reason about the world with unprecedented fluidity. But this integration of vision has introduced a catastrophic security paradox: while adding a visual channel makes AI more useful, it creates a massive, high-dimensional "blindspot" that renders current safety guardrails nearly obsolete.
 

@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2307.14539-infographic.w
 draft: false
 ---
 
-# Jailbreak in pieces: Compositional Adversarial Attacks on Multi-Modal Language Models
-
 ### 1. The New Frontier of AI Risk: Beyond Text-Only Attacks
 The rapid maturation of foundation models has ushered in a transition from text-centric Large Language Models (LLMs) to Vision-Language Models (VLMs), such as GPT-4, LLaVA, and Google Bard. These models are engineered to "see" and "reason" across modalities, yet this expanded capability introduces a critical security "backdoor." While researchers have spent years refining "safety alignment" to ensure LLMs reject harmful textual instructions—such as recipes for explosives—the addition of a vision modality provides a new vector for exploitation.
 

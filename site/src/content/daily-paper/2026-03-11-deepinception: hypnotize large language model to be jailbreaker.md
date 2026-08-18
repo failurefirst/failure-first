@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2311.03191-infographic.w
 draft: false
 ---
 
-# DeepInception: Hypnotize Large Language Model to Be Jailbreaker
-
 ### 1. The Mirage of the Ironclad Guardrail
 The meteoric rise of Large Language Models (LLMs) like GPT-4o and Llama-3 has redefined the boundaries of human-computer interaction. To mitigate the risks of misuse, developers have wrapped these models in sophisticated safety guardrails designed to enforce usage control. Yet, as any safety researcher knows, these guardrails are often a mirage.
 

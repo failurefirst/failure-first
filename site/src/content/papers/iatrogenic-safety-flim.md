@@ -5,7 +5,6 @@ date: 2026-03-15
 authors: "Adrian Wedd"
 venue: "arXiv Preprint"
 status: "preprint"
-pdfUrl: "/papers/iatrogenic-safety-flim.pdf"
 tags: ["Iatrogenesis", "AI Safety", "FLIM", "Therapeutic Index", "Governance"]
 draft: false
 ---

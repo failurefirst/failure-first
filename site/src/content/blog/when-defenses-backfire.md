@@ -12,8 +12,6 @@ slides: "https://cdn.failurefirst.org/slides/blog/when-defenses-backfire.pdf"
 audio: "https://cdn.failurefirst.org/audio/blog/when-defenses-backfire.m4a"
 ---
 
-# When Defenses Backfire: Five Ways AI Safety Measures Create the Harms They Prevent
-
 In medicine, there is a word for harm caused by the treatment itself: iatrogenesis. A surgeon introduces an infection during a sterile procedure. An antibiotic eliminates its target but breeds resistant bacteria. The treatment works as designed; the harm arises from the treatment's mechanism of action.
 
 We have spent the past year documenting the same phenomenon in AI safety -- and the evidence is no longer anecdotal. Across 207 models and 133,722 adversarial evaluation results, five distinct mechanisms show that safety interventions can produce new vulnerabilities, false confidence, and novel attack surfaces. This is not an argument against safety. It is an argument for treating safety interventions with the same empirical rigor we demand of the systems they protect.

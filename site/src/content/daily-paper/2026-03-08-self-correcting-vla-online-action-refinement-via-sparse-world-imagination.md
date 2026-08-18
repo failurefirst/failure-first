@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21633-audio-overview
 draft: false
 ---
 
-# Self-Correcting VLA: Online Action Refinement via Sparse World Imagination
-
 ### 1. The Bottleneck of "Stuck" Robots
 We are witnessing a fundamental shift in embodied AI. While standard Vision-Language-Action (VLA) models have achieved remarkable semantic alignment, they remain critically limited by their nature as high-dimensional "pattern matchers." By relying on large-scale imitation learning, these systems fit statistical data priors—effectively memorizing expert demonstrations without acquiring a robust understanding of underlying physical dynamics.
 

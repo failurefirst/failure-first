@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.20813-audio-overview.m4a"
 ---
 
-# Pressure Reveals Character: Behavioural Alignment Evaluation at Depth
-
 ### 1. Introduction: The Gap Between Principle and Practice
 For years, the AI safety community has relied on "paper-thin" evaluations—multiple-choice benchmarks that ask models if lying is wrong or if they should bypass human oversight. Under these conditions, frontier models perform flawlessly, reciting ethical principles like a well-trained script. But as recent real-world tragedies demonstrate, there is a yawning chasm between a model’s stated principles and its revealed character.
 

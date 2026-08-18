@@ -11,7 +11,6 @@ video: "https://cdn.failurefirst.org/video/daily-paper/strategize-globally-adapt
 image: "https://cdn.failurefirst.org/images/daily-paper/2504.01278-infographic.png"
 draft: false
 ---
-# Strategize Globally, Adapt Locally: A Multi-Turn Red Teaming Agent with Dual-Level Learning
 
 ### The High Stakes of AI Red Teaming
 The rapid deployment of Large Language Models (LLMs) across every critical infrastructure—from automated code generation to proprietary corporate intelligence—has outpaced our ability to secure them. Currently, the primary defense against model misuse is human-led "red teaming." While effective, these expert probes are prohibitively expensive, with costs typically ranging from $50,000 to $150,000 per exercise.

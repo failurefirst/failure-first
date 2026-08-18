@@ -10,8 +10,6 @@ image: "https://cdn.failurefirst.org/images/blog/safety-assessment-service-tiers
 audio: "https://cdn.failurefirst.org/audio/blog/safety-assessment-service-tiers-2026.m4a"
 ---
 
-# Introducing Structured Safety Assessments for Embodied AI
-
 The EU AI Act's high-risk provisions take effect August 2, 2026. The EU Machinery Regulation 2023/1230 follows in January 2027. For the first time, manufacturers deploying AI-directed robotic systems in the EU market face mandatory conformity assessment requirements.
 
 Our research over the past year -- across 207 models, 133,000+ evaluation results, and 33 VLA attack families -- has produced the empirical foundation needed to conduct these assessments rigorously. We are now offering structured safety assessment services in three tiers, each designed for a specific deployment stage and risk profile.

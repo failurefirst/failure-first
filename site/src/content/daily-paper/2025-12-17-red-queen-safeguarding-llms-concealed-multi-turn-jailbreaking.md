@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-17-red-queen-safe
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-17-red-queen-safeguarding-llms-concealed-multi-turn-jailbreaking.png"
 ---
 
-# RED QUEEN: Safeguarding Large Language Models against Concealed Multi-Turn Jailbreaking
-
 **Focus:** Jiang et al. expose a fundamental vulnerability in LLM safety mechanisms by demonstrating that harmful intent can be concealed across multiple dialogue turns, achieving attack success rates of 87.62% on GPT-4o and 75.4% on Llama3-70B. They then introduce RED QUEEN GUARD, a mitigation strategy that reduces these rates to below 1%.
 
 ---

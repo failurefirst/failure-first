@@ -11,8 +11,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-17-ten-open-challenges-vision-language-action-models.m4a"
 ---
 
-# 10 Open Challenges Steering the Future of Vision-Language-Action Models
-
 **Focus:** Poria et al. survey the frontier of Vision-Language-Action (VLA) models — systems that combine perception, language understanding, and physical action generation into a single end-to-end architecture — and name ten challenges that must be addressed before VLAs can be reliably deployed in the real world. Safety appears explicitly as one of those ten challenges, not as an afterthought, but as a core research problem on equal footing with efficiency and generalization.
 
 The paper's value is in making the challenges explicit and public. Many practitioners navigate these problems informally; a consensus taxonomy from AAAI 2026 gives the field shared vocabulary for the work ahead.

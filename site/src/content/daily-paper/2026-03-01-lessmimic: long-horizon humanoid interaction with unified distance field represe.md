@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2602.21723-infographic.p
 draft: false
 ---
 
-# LessMimic: Long-Horizon Humanoid Interaction with Unified Distance Field Representations
-
 ### The "Room Tidying" Challenge
 Imagine a humanoid robot tasked with a common household chore: tidying a room. To get the job done, the robot must push a heavy flight case aside, pick up a box, carry it across the room, and finally sit down. While a human performs these contact-rich interactions with fluid ease, they represent a monumental hurdle for robotics. Each sub-task involves vastly different contact patterns, object geometries, and body configurations. 
 

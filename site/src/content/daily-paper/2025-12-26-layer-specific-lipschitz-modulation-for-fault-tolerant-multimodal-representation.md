@@ -12,8 +12,6 @@ video: "https://cdn.failurefirst.org/video/daily-paper/2603.25103-video-overview
 draft: false
 ---
 
-# Layer-Specific Lipschitz Modulation for Fault-Tolerant Multimodal Representation Learning
-
 ### 1. Introduction: The Hidden Vulnerability of Multimodal Systems
 
 In safety-critical industrial environments, unplanned downtime is more than a technical hurdle—it is a catastrophic economic event. Current estimates attribute massive financial burdens to unscheduled terminations of production, driven by lost production volume, emergency maintenance, and the fracturing of supply chain stability. For decades, the standard defense has been hardware redundancy. The logic was simple: if one sensor fails, another takes its place. 

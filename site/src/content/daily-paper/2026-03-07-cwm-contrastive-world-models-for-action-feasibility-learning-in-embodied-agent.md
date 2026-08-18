@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.22452-audio-overview
 draft: false
 ---
 
-# CWM: Contrastive World Models for Action Feasibility Learning in Embodied Agent Pipelines
-
 ### 1. Introduction: The High Cost of "Trying the Impossible"
 In the development of embodied agents, we frequently encounter a critical bottleneck: the **semantic-physical gap**. High-level reasoning models are excellent at suggesting plausible next steps, but they often lack a grounded understanding of whether those steps are actually executable in the current state. When an agent fails to identify physically infeasible actions, it falls into "self-inflicted dead ends"—wasting precious reasoning tokens and computational cycles on actions that the environment will simply reject.
 

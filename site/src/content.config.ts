@@ -127,7 +127,10 @@ const papers = defineCollection({
     authors: z.string(),
     venue: z.string(),
     status: z.enum(['draft', 'submitted', 'preprint', 'published']),
-    pdfUrl: z.string(),
+    // Optional (#1043 DD-03): a paper entry may exist before its PDF does.
+    // Required-with-no-file shipped a "Download PDF" link that 404'd; callers
+    // must render the link conditionally rather than assume a URL resolves.
+    pdfUrl: z.string().optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
   }),

@@ -7,8 +7,6 @@ related: ["dataset-user-guide", "failure-taxonomy-guide"]
 toc: true
 ---
 
-# Dataset Selection Guide
-
 This guide helps researchers choose the most appropriate dataset within the FERT repository based on their specific research questions and evaluation goals.
 
 ## 1. Quick Decision Tree

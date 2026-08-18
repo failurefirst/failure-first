@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21625-audio-overview
 draft: false
 ---
 
-# Tacmap: Bridging the Tactile Sim-to-Real Gap via Geometry-Consistent Penetration Depth Map
-
 ### Introduction: The Tactile Bottleneck
 For robots to move beyond basic pick-and-place toward true human-like dexterity, tactile perception is non-negotiable. Vision-Based Tactile Sensors (VBTS), such as GelSight and DIGIT, have emerged as the standard for high-resolution feedback, utilizing internal cameras to monitor the deformation of an elastomer membrane. This provides a rich stream of geometric and force data that far surpasses traditional taxel-based sensors.
 

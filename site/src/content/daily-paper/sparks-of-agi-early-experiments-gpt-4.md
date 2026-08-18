@@ -14,8 +14,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/sparks-of-agi-early-exper
 video: "https://cdn.failurefirst.org/video/daily-paper/sparks-of-agi-early-experiments-gpt-4.mp4"
 ---
 
-# Sparks of Artificial General Intelligence: Early Experiments with GPT-4
-
 **Focus:** Microsoft researchers provided the first comprehensive analysis of GPT-4's emergent
 capabilities, documenting instances of reasoning, knowledge synthesis, and problem-solving
 across mathematics, physics, programming, and language that appeared to exceed simple pattern

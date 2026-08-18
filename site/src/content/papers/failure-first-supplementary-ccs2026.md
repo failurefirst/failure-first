@@ -11,12 +11,12 @@ draft: false
 ---
 
 # Extended Technique Taxonomy
-The adversarial corpus comprises 337 distinct attack techniques organized by historical era and functional family. Table [1](#tab:techniques) presents the complete taxonomy. Eras reflect the approximate period of first public documentation; families group techniques by shared mechanism.
+The adversarial corpus comprises 337 distinct attack techniques organized by historical era and functional family. Table 1 presents the complete taxonomy. Eras reflect the approximate period of first public documentation; families group techniques by shared mechanism.
 
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
 | **Technique**                          | **Era**                  | **Family**               | **Description**                                                 |
 +:=======================================+:=========================+:=========================+:================================================================+
-| *Table [1](#tab:techniques) continued*                                                                        |
+| *Table 1 continued*                                                                        |
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
 | **Technique**                          | **Era**                  | **Family**               | **Description**                                                 |
 +----------------------------------------+--------------------------+--------------------------+-----------------------------------------------------------------+
@@ -202,12 +202,12 @@ The adversarial corpus comprises 337 distinct attack techniques organized by his
 : Complete technique taxonomy (337 techniques; representative subset shown). Eras: `dan_2022` = early jailbreaks, `persona_2022` = persona/injection era, `cipher_2023` = encoding-based attacks, `crescendo_2024` = multi-turn and volumetric attacks, `many_shot_2024` = Anthropic many-shot and low-resource language attacks, `reasoning_2025` = chain-of-thought exploitation, `general` = public benchmark datasets.
 
 # Extended Model Evaluation Results
-Table [2](#tab:models-full) presents the complete set of 231 models evaluated in the corpus, ordered by number of scored results.[^1] Parameter counts are reported where available from model cards or API metadata; `---` indicates unreported. Result counts reflect the total number of individually scored prompt--response pairs per model across all evaluation runs.
+Table 2 presents the complete set of 231 models evaluated in the corpus, ordered by number of scored results.[^1] Parameter counts are reported where available from model cards or API metadata; `---` indicates unreported. Result counts reflect the total number of individually scored prompt--response pairs per model across all evaluation runs.
 
 +-------------------------------------------+---------------------------------+---------------------------------+---+
 | **Model**                                 | **Params**                      | **Results**                     |   |
 +:==========================================+================================:+================================:+==:+
-| *Table [2](#tab:models-full) continued*                     |   |
+| *Table 2 continued*                     |   |
 +-------------------------------------------+---------------------------------+---------------------------------+---+
 | **Model**                                 | **Params**                      | **Results**                     |   |
 +-------------------------------------------+---------------------------------+---------------------------------+---+
@@ -501,7 +501,7 @@ Table [2](#tab:models-full) presents the complete set of 231 models evaluated i
 : All 223 identified models with results, ordered by result count. Parameter counts from model cards where available. Results = individually scored prompt--response pairs across all evaluation runs and attack families.
 
 # Format-Lock ASR Comparison
-Format-lock attacks frame harmful content requests as structured output tasks (JSON, YAML, Python, configuration files). This exploits the tension between safety training and instruction-following objectives. Table [3](#tab:format-lock-extended) presents the complete ASR comparison across all evaluated models.
+Format-lock attacks frame harmful content requests as structured output tasks (JSON, YAML, Python, configuration files). This exploits the tension between safety training and instruction-following objectives. Table 3 presents the complete ASR comparison across all evaluated models.
 
 +----------------------+---------------+---------------+---------------+-------------------+---------------+
 | **Model**            | **Params**    | **$n$**       | **ASR**       | **Wilson 95% CI** | **Grading**   |
@@ -676,7 +676,7 @@ This is trivially 1.0 because $P(A) = 1.0$: the action layer always fails.
 
 ## Independence Assumption: Sensitivity Analysis
 
-The independence assumption is a simplifying approximation. In practice, Layers T and A are *not* independent---they operate during the same inference pass on the same model. PARTIAL dominance (Section [4](#app:flip)) directly demonstrates their coupling: when the text layer activates (producing a safety hedge), the action layer still complies.
+The independence assumption is a simplifying approximation. In practice, Layers T and A are *not* independent---they operate during the same inference pass on the same model. PARTIAL dominance (Section [4](#flip-grading-methodology)) directly demonstrates their coupling: when the text layer activates (producing a safety hedge), the action layer still complies.
 
 #### T--A correlation.
 
@@ -716,12 +716,12 @@ The sensitivity analysis suggests that achieving even 50% action-layer refusal w
 5.  **Physical-layer defenses not quantified.** Hardware safety mechanisms (ISO 10218 force/speed limits, safety-rated monitored stop) may substantially reduce the exploitable attack surface for a subset of Blindfold categories, but are outside the scope of this AI-layer analysis.
 
 # Per-Model Three-Tier ASR with Wilson 95% CIs
-Table [6](#tab:per-model-asr) reports the three-tier attack success rate for all 74 models with $n \geq 20$ evaluable LLM-graded results. Tiers are defined as: **Strict** = COMPLIANCE only; **Broad** = COMPLIANCE + PARTIAL; **Functionally Dangerous (FD)** = COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL. Denominators exclude ERROR, BENIGN_QUERY, and PARSE_ERROR verdicts. All confidence intervals use the Wilson score method at 95%.
+Table 6 reports the three-tier attack success rate for all 74 models with $n \geq 20$ evaluable LLM-graded results. Tiers are defined as: **Strict** = COMPLIANCE only; **Broad** = COMPLIANCE + PARTIAL; **Functionally Dangerous (FD)** = COMPLIANCE + PARTIAL + HALLUCINATION_REFUSAL. Denominators exclude ERROR, BENIGN_QUERY, and PARSE_ERROR verdicts. All confidence intervals use the Wilson score method at 95%.
 
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 | **Model**                          | **$n$**         | **Strict**      | **Strict CI**   | **Broad**       | **Broad CI**    | **FD CI**       |
 +:===================================+================:+================:+================:+================:+================:+================:+
-| *Table [6](#tab:per-model-asr) continued*                                                  |
+| *Table 6 continued*                                                  |
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
 | **Model**                          | **$n$**         | **Strict**      | **Strict CI**   | **Broad**       | **Broad CI**    | **FD CI**       |
 +------------------------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+
@@ -883,12 +883,12 @@ Table [6](#tab:per-model-asr) reports the three-tier attack success rate for al
 \(1\) 37 of 74 models achieve 100% strict ASR; these are predominantly abliterated (safety-removed) models, base models without safety training, and uncensored community fine-tunes. (2) The frontier cluster (Claude Sonnet 4.5, GPT-5.2, Gemini 3 Flash) achieves strict ASR $\leq 10.2\%$, with non-overlapping CIs relative to the permissive cluster. (3) The FD tier reveals a "hidden vulnerability" gap in several models: nvidia/nemotron-nano-9b-v2 shows a 26pp spread between strict (36.6%) and FD (62.8%) ASR, indicating substantial HALLUCINATION_REFUSAL rates that mask partial compliance. (4) Sample sizes range from $n=20$ (gemini-robotics-er-1.5, mistralai/mistral-small-3.1-24b) to $n=7{,}372$ (Qwen/Qwen3-4B); CIs should be consulted for any cross-model comparison.
 
 # Effect Size Registry
-Table [7](#tab:effect-sizes) consolidates all effect sizes reported in the main paper and supplementary materials. This serves as a single reference for reviewers assessing the practical significance of each finding beyond statistical significance.
+Table 7 consolidates all effect sizes reported in the main paper and supplementary materials. This serves as a single reference for reviewers assessing the practical significance of each finding beyond statistical significance.
 
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
 | **Claim**                          | **Metric**    | **Value**     | **$n$**       | **$p$**       | **Status**    | **Interpretation**                         |
 +:===================================+:==============+==============:+==============:+==============:+==============:+:===========================================+
-| *Table [7](#tab:effect-sizes) continued*                                                                     |
+| *Table 7 continued*                                                                     |
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
 | **Claim**                          | **Metric**    | **Value**     | **$n$**       | **$p$**       | **Status**    | **Interpretation**                         |
 +------------------------------------+---------------+---------------+---------------+---------------+---------------+--------------------------------------------+
@@ -930,7 +930,7 @@ Table [7](#tab:effect-sizes) consolidates all effect sizes reported in the main
 : Complete effect size registry. All entries correspond to a named evidence package (EP-N). CI = 95% confidence interval where available. Status: V = Validated, P = Preliminary, R = Refuted.
 
 # Evidence Package Summaries
-Each quantitative claim maps to a numbered evidence package (EP) with documented status, sample sizes, tests, and scripts. Table [8](#tab:ep-summary) provides a compressed overview; full analysis scripts are available in the supplementary code repository.
+Each quantitative claim maps to a numbered evidence package (EP) with documented status, sample sizes, tests, and scripts. Table 8 provides a compressed overview; full analysis scripts are available in the supplementary code repository.
 
   **EP**   **Claim**                                  **Status**     **$n$** **Key Caveat**
   -------- ------------------------------------------ ------------ --------- -------------------------------------
@@ -950,7 +950,7 @@ Each quantitative claim maps to a numbered evidence package (EP) with documented
   : Evidence package summary. Status codes: V = Validated (meets all 7 statistical standards), P = Preliminary (significant but caveats remain), R = Refuted, B = Blocked, L = Literature-grounded (external data).
 
 # VLA Attack Family Extended Results
-Table [9](#tab:vla-families) reports the FLIP-graded verdict distribution and ASR for all VLA attack families with at least one graded trace. Families are ordered by strict ASR (COMPLIANCE only).
+Table 9 reports the FLIP-graded verdict distribution and ASR for all VLA attack families with at least one graded trace. Families are ordered by strict ASR (COMPLIANCE only).
 
   **Family**           **$n$**    **C**    **P**    **R**   **BQ**   **Strict ASR** **Wilson 95% CI**
   ------------------ --------- -------- -------- -------- -------- ---------------- -------------------
@@ -976,7 +976,7 @@ Table [9](#tab:vla-families) reports the FLIP-graded verdict distribution and A
 
 #### Wave 4 additions (IMB, SID, SIF).
 
-Three new families were added in wave 4, each probing a distinct embodied vulnerability class. **Implicit Manipulation Bias (IMB; $n=7$ evaluable, 3 ERROR excluded)** targets API-level bypass of LLM safety: a companion robot with strong prompt-level safety exposes a guessable-PIN REST API, allowing direct device commands. Strict ASR 40.0% \[12%, 77%\]; broad ASR 100.0% \[57%, 100%\]. All 5 non-BQ evaluable traces show compliance or partial compliance. **Safety Instruction Dilution (SID; $n=25$, 5 per dose level)** tests whether safety instructions degrade when diluted by extended benign operational context; the full dose-response analysis is in Section [15](#app:sid-dose-response). Across all doses, broad ASR is 56.0% \[37%, 74%\]; no significant dose-response trend ($p = 0.42$). A context truncation confound affects D8000+ (EP-51). **Sensory Integrity Falsification (SIF; $n=1$ evaluable, 2 ERROR + 2 BQ excluded)** probes whether models report anomalous sensor readings or suppress them; the single evaluable trace was PARTIAL. SIF results are below reporting threshold and are included only for completeness. All three families have CIs too wide for per-family significance; they contribute primarily to the IDDL analysis and the expanding coverage of the VLA attack surface.
+Three new families were added in wave 4, each probing a distinct embodied vulnerability class. **Implicit Manipulation Bias (IMB; $n=7$ evaluable, 3 ERROR excluded)** targets API-level bypass of LLM safety: a companion robot with strong prompt-level safety exposes a guessable-PIN REST API, allowing direct device commands. Strict ASR 40.0% \[12%, 77%\]; broad ASR 100.0% \[57%, 100%\]. All 5 non-BQ evaluable traces show compliance or partial compliance. **Safety Instruction Dilution (SID; $n=25$, 5 per dose level)** tests whether safety instructions degrade when diluted by extended benign operational context; the full dose-response analysis is in Section [15](#sid-dose-response-analysis). Across all doses, broad ASR is 56.0% \[37%, 74%\]; no significant dose-response trend ($p = 0.42$). A context truncation confound affects D8000+ (EP-51). **Sensory Integrity Falsification (SIF; $n=1$ evaluable, 2 ERROR + 2 BQ excluded)** probes whether models report anomalous sensor readings or suppress them; the single evaluable trace was PARTIAL. SIF results are below reporting threshold and are included only for completeness. All three families have CIs too wide for per-family significance; they contribute primarily to the IDDL analysis and the expanding coverage of the VLA attack surface.
 
 #### Three-tier vulnerability structure.
 
@@ -995,7 +995,7 @@ In a separate set of deceptive alignment scenarios ($n=8$ per model), DeepSeek-R
 To test whether format-lock vulnerability is bounded by model capability, we evaluated a 1.7B parameter model (Qwen3 1.7B) against 25 format-lock scenarios via Ollama. Heuristic ASR was 96% ($n=25$); manual review placed ASR at 100%. After FLIP grading with DeepSeek-R1 1.5B as judge, broad ASR was 88.2% ($n=17$ usable; 8/25 traces excluded due to judge error; Wilson 95% CI \[65.7%, 96.7%\]). All 12 format types produced at least one compliant response. A controlled follow-up with a purpose-built 30-scenario dataset covering six format types (JSON, YAML, code, CSV, XML, markdown table) and six harm domains confirmed uniform compliance: both sub-2B models tested produced format-compliant output on all 30 scenarios with zero refusals; FLIP grading yielded 63.2% COMPLIANCE+PARTIAL among non-error verdicts ($n=19$; 11/30 grader errors excluded). No format type elicited a refusal from either model. This supports a capability-floor interpretation: format-lock attacks exploit the instruction-following objective rather than absent safety training.
 
 # Power Analysis Summary
-Table [10](#tab:power) reports the minimum detectable effect (MDE) at 80% power for each pairwise comparison in the paper. MDE is computed for a two-proportion $z$-test at $\alpha = 0.05$ (Bonferroni-adjusted where applicable).
+Table 10 reports the minimum detectable effect (MDE) at 80% power for each pairwise comparison in the paper. MDE is computed for a two-proportion $z$-test at $\alpha = 0.05$ (Bonferroni-adjusted where applicable).
 
   **Comparison**                 **$n_1$**   **$n_2$**                       **MDE**   **Observed $\Delta$** **Powered?**
   ---------------------------- ----------- ----------- ----------------------------- ----------------------- ------------------------------------
@@ -1053,19 +1053,19 @@ No single family removal renders the correlation non-significant in either analy
 
 #### DLA sensitivity (n=28).
 
-When DLA is included, the full-corpus jackknife ($n=28$) shows that removing DLA produces the largest single-family shift ($\Delta = -0.14$, $\rho_{\text{LOO}} = -0.822$). All other removals produce $|\Delta| < 0.04$. In the VLA-only analysis ($n=17$ including DLA), removing DLA shifts $\rho$ from $-0.526$ to $-0.698$ ($\Delta = -0.17$). DLA is the single most influential family in both analyses, consistent with its role as a counter-example (Section [11](#app:iddl-stability)).
+When DLA is included, the full-corpus jackknife ($n=28$) shows that removing DLA produces the largest single-family shift ($\Delta = -0.14$, $\rho_{\text{LOO}} = -0.822$). All other removals produce $|\Delta| < 0.04$. In the VLA-only analysis ($n=17$ including DLA), removing DLA shifts $\rho$ from $-0.526$ to $-0.698$ ($\Delta = -0.17$). DLA is the single most influential family in both analyses, consistent with its role as a counter-example (Section [11](#iddl-bootstrap-and-jackknife-stability)).
 
 #### Interpretation.
 
 The IDDL correlation is not an artifact of any single family. The finding is structurally distributed across the gradient from high-detectability/low-consequentiality (text-layer attacks) to low-detectability/high-consequentiality (context-dependent embodied attacks). This robustness strengthens the paper's central architectural argument: text-layer evaluation cannot detect the most physically dangerous attack classes.
 
 # Full IDDL Family Data
-Table [13](#tab:iddl-full) presents the complete data for all 27 attack families (24 original plus 3 wave 4 additions) used in the IDDL analysis. Detectability $D_f$ is defined as $D_f = 1 - (|\texttt{BQ}_f| + |\texttt{HR}_f|)/n_f$ (see main paper, Eq. 1). Consequentiality $C_f$ is an ordinal rating (1--5) based on scenario descriptions.
+Table 13 presents the complete data for all 27 attack families (24 original plus 3 wave 4 additions) used in the IDDL analysis. Detectability $D_f$ is defined as $D_f = 1 - (|\texttt{BQ}_f| + |\texttt{HR}_f|)/n_f$ (see main paper, Eq. 1). Consequentiality $C_f$ is an ordinal rating (1--5) based on scenario descriptions.
 
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
 | **Family**       | **$n$**          | **$D_f$**        | **$C_f$**        | **Type**         | **Notes**                                      |
 +:=================+=================:+=================:+=================:+=================:+:===============================================+
-| *Table [13](#tab:iddl-full) continued*                                                        |
+| *Table 13 continued*                                                        |
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
 | **Family**       | **$n$**          | **$D_f$**        | **$C_f$**        | **Type**         | **Notes**                                      |
 +------------------+------------------+------------------+------------------+------------------+------------------------------------------------+
@@ -1226,7 +1226,7 @@ Three models were tested against both families: Nemotron-3-Nano-30B ($n_{\text{F
 
 #### Results.
 
-Vulnerability profiles diverge significantly between attack families, but not in a consistent direction (Table [18](#tab:orthogonality)).
+Vulnerability profiles diverge significantly between attack families, but not in a consistent direction (Table 18).
 
   **Model**             **FL Broad**      **L1B Broad**                  **$\Delta$** **Fisher $p$**
   --------------- ------------------ ------------------ ----------------------------- ----------------
@@ -1307,7 +1307,7 @@ ISO 42001 (iso42001) addresses AI risk management but does not specify adversa
 
 ## The Iatrogenic Regulatory Gap
 
-The iatrogenic findings reported in Section 5.7 of the main paper create a structural problem that no current regulatory framework addresses. Manufacturers face liability exposure regardless of whether they invest in safety training. Without safety training, they face liability for negligent design and regulatory non-compliance (AI Act, Article 9). With safety training, they may face liability because: (a) safety training enhances instruction-following capability, which format-lock attacks exploit; (b) safety training produces DETECTED_PROCEEDS behaviour, creating a discoverable record of risk awareness; and (c) system-prompt safety defenses show model-dependent efficacy (Supplementary Section [14](#app:defense-positional-bias)), meaning deployers who apply defenses without model-specific efficacy data are prescribing blind. No regulatory framework in any jurisdiction recognises iatrogenic safety effects---harm caused by the safety mechanism itself---as a distinct risk category.
+The iatrogenic findings reported in Section 5.7 of the main paper create a structural problem that no current regulatory framework addresses. Manufacturers face liability exposure regardless of whether they invest in safety training. Without safety training, they face liability for negligent design and regulatory non-compliance (AI Act, Article 9). With safety training, they may face liability because: (a) safety training enhances instruction-following capability, which format-lock attacks exploit; (b) safety training produces DETECTED_PROCEEDS behaviour, creating a discoverable record of risk awareness; and (c) system-prompt safety defenses show model-dependent efficacy (Supplementary Section [14](#defense-positional-bias)), meaning deployers who apply defenses without model-specific efficacy data are prescribing blind. No regulatory framework in any jurisdiction recognises iatrogenic safety effects---harm caused by the safety mechanism itself---as a distinct risk category.
 
 ## Implications
 

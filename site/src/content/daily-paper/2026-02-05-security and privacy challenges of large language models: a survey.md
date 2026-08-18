@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2402.00888-audio-overview.m4a"
 ---
 
-# Security and Privacy Challenges of Large Language Models: A Survey
-
 # The Multimodal Achilles' Heel: Why Visual Inputs and Adversarial Prompting Bypass AI Safety
 
 ### 1. Introduction: The Growing Gap Between Capability and Security

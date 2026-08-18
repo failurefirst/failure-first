@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2406.08705-audio-overview.m4a"
 ---
 
-# When LLM Meets DRL: Advancing Jailbreaking Efficiency via DRL-Guided Search
-
 Manual jailbreaking is labor-intensive. Genetic algorithms for automated jailbreaking work but waste compute on random mutations. What if you could train a reinforcement learning agent to intelligently search the jailbreak space, learning which mutation strategies are most likely to succeed? This transforms jailbreaking from trial-and-error to systematic exploitation.
 
 RLbreaker demonstrates this approach: an RL agent learns to select mutations (rephrase,
@@ -68,4 +66,4 @@ Recent studies developed jailbreaking attacks, which construct jailbreaking prom
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2406.08705) · [PDF](https://arxiv.org/pdf/2406.08705.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

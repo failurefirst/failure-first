@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-08-agentsafe-embo
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-08-agentsafe-embodied-safety-benchmark.png"
 ---
 
-# AGENTSAFE: Benchmarking the Safety of Embodied Agents on Hazardous Instructions
-
 **Focus:** Ying et al. present SAFE, a three-component benchmark system for evaluating
 embodied AI safety. SAFE-THOR provides an adaptable simulation environment, SAFE-VERSE
 offers 45 adversarial scenarios with 1,350 hazardous tasks and 9,900 instructions inspired

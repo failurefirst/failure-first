@@ -8,8 +8,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-silent-ai-insurance.m4a"
 ---
 
-# The Insurance Industry's Next Silent Crisis
-
 In 2017, the insurance industry woke up to a problem it had been ignoring for years. Massive cyber losses were hitting policies that had never been designed to cover them — commercial general liability, property, marine cargo. The policies said nothing about cyber risk. They did not include it. They did not exclude it. They were **silent**.
 
 The "silent cyber" crisis cost the industry billions and took three years, two Lloyd's Market Bulletins, and a market-wide remediation effort to address.

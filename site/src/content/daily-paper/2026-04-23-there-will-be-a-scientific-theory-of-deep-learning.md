@@ -12,8 +12,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-04-23-there-will-be-a-scientific-theory-of-deep-learning.m4a"
 ---
 
-# There Will Be a Scientific Theory of Deep Learning
-
 ### 1. Introduction: Beyond the Black Box
 Deep learning is currently the most technologically significant yet scientifically inscrutable member of the machine learning pantheon. While our models achieve superhuman performance across diverse modalities, they are largely treated as "black boxes." Our engineering capacity to scale these systems has far outpaced our theoretical grasp of why they work; today's models are often trained via trial and error—a form of modern alchemy—rather than first principles.
 

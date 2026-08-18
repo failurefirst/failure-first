@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2603.25063-infographic.w
 draft: false
 ---
 
-# TopoPilot: Reliable Conversational Workflow Automation for Topological Data Analysis and Visualization
-
 ### 1. Introduction: The "Black Box" Problem in AI Science
 In the race to automate scientific discovery, we have encountered a critical "unreliability gap." While Large Language Models (LLMs) can generate complex code on the fly, they operate in a vast, unconstrained output space. When tasked with multi-step scientific visualizations, standard AI agents act as "black boxes"—stochastic systems that frequently hallucinate parameters, skip essential validations, or execute semantically invalid operations. For high-stakes research, raw code generation is fundamentally incompatible with the scientific requirement for "Ground Truth."
 

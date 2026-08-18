@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-07-robust-secure-
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-07-robust-secure-embodied-ai-survey.png"
 ---
 
-# Towards Robust and Secure Embodied AI: A Survey on Vulnerabilities and Attacks
-
 **Focus:** Xing et al. provide a systematic survey of vulnerabilities and attacks against
 embodied AI systems including robots and autonomous vehicles. The work introduces a
 two-axis taxonomy: exogenous sources (physical adversarial attacks, cybersecurity threats)

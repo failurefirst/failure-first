@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.10844-audio-overview.m4a"
 ---
 
-# Survey of Vulnerabilities in Large Language Models Revealed by Adversarial Attacks
-
 Adversarial attack research on LLMs has grown explosively, but organizing the findings into a coherent threat model is difficult. Without a systematic understanding of vulnerability classes, practitioners can't prioritize which threats to defend against or assess whether their security measures are comprehensive.
 
 This survey provides taxonomy and analysis of adversarial attacks across multiple dimensions: token-level attacks (adversarial suffixes), semantic attacks (prompt injection, jailbreaking), training-time attacks (fine-tuning manipulation, data poisoning), and system-level attacks (model extraction, membership inference). For each class, the authors assess the feasibility, impact, and availability of defenses. The conclusion is sobering: the attack surface is broad, defenses are fragmented and model-specific, and no single defense effectively mitigates the full range of threats.
@@ -38,4 +36,4 @@ Large Language Models (LLMs) are swiftly advancing in architecture and capabilit
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2310.10844) · [PDF](https://arxiv.org/pdf/2310.10844.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

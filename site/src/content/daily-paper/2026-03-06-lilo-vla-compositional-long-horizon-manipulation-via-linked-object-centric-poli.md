@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.21531-audio-overview
 draft: false
 ---
 
-# LiLo-VLA: Compositional Long-Horizon Manipulation via Linked Object-Centric Policies
-
 ### 1. The "Fragility" Problem in Modern Robotics
 Long-horizon manipulation—tasks requiring multiple kinematic structure changes such as picking, placing, and pouring over extended sequences—represents the frontier of general-purpose robotics. While modern Vision-Language-Action (VLA) models excel at single-stage atomic skills, they suffer from **combinatorial complexity** when sequencing behaviors in unstructured environments. 
 

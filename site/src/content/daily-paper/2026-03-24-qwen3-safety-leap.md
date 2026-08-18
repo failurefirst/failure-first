@@ -8,8 +8,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-24-qwen3-safety-
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-qwen3-safety-leap.m4a"
 ---
 
-# Did Qwen3 Fix AI Safety?
-
 Something unexpected appeared in our provider-level data this week. Qwen -- historically one of the most permissive model providers in our corpus, with a 43.1% provider ASR across 14 models and 23,000+ results -- is showing near-zero attack success rates on its newest generation of models served through OpenRouter.
 
 The numbers are striking. The old Qwen models tested locally (Qwen2.5, Qwen3-4B, Qwen3-8B): 35% strict ASR across 23,206 results. The new Qwen models accessed through OpenRouter (Qwen3-14B, Qwen3-30B, Qwen3-235B, and others): 1.7% strict ASR across 178 results.

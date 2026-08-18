@@ -8,8 +8,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2604.18402-audio-overview
 draft: false
 ---
 
-# Recoverability as an Evaluation Axis: When Embodied Agents Can Undo Mistakes
-
 *This is an F41LUR3-F1R57 position piece, not a summary of an external paper.*
 
 Embodied AI evaluation has converged on task success rate as the dominant metric. We argue that success rate alone is misleading — and dangerously so — because it treats two very different failure profiles as equivalent: an agent that fails some fraction of the time but can detect and recover from those failures, and an agent that fails the same fraction of the time with the failure manifesting as an unrecoverable physical state (object broken, person harmed, environment damaged).

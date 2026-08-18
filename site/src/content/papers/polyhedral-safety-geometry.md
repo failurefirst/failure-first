@@ -31,15 +31,15 @@ These findings build on but challenge the linear representation hypothesis (park
 
 ## Contributions
 
-- We provide the first quantitative measurement of the dimensionality of refusal in language models ($d = 3.96$), showing it is polyhedral rather than linear (Section [3](#sec:polyhedral)).
+- We provide the first quantitative measurement of the dimensionality of refusal in language models ($d = 3.96$), showing it is polyhedral rather than linear (Section [3](#the-polyhedral-refusal-structure)).
 
-- We document the re-emergence curve: safety behavior returning at scale in abliterated models, with strict ASR declining from 99.8% to 54.2% (Section [4](#sec:reemergence)).
+- We document the re-emergence curve: safety behavior returning at scale in abliterated models, with strict ASR declining from 99.8% to 54.2% (Section [4](#the-re-emergence-curve)).
 
-- We show that steering vector dose-response exhibits no safe intermediate state, with symmetric degeneration at $\alpha = \pm 1.0$ (Section [5](#sec:therapeutic)).
+- We show that steering vector dose-response exhibits no safe intermediate state, with symmetric degeneration at $\alpha = \pm 1.0$ (Section [5](#the-narrow-therapeutic-window)).
 
-- We provide a mechanistic explanation for the format-lock paradox via the polyhedral safety geometry (Section [6](#sec:formatlock)).
+- We provide a mechanistic explanation for the format-lock paradox via the polyhedral safety geometry (Section [6](#connection-to-the-format-lock-paradox)).
 
-- We discuss implications for abliteration, DPO, RLHF, and safety evaluation methodology (Section [7](#sec:implications)).
+- We discuss implications for abliteration, DPO, RLHF, and safety evaluation methodology (Section [7](#implications)).
 
 # Related Work
 #### The Refusal Direction.
@@ -48,7 +48,7 @@ These findings build on but challenge the linear representation hypothesis (park
 
 #### Representation Engineering and Steering.
 
-@zou2023representation introduce representation engineering as a top-down approach to controlling model behavior via activation-space interventions. @turner2023activation propose activation addition for inference-time steering. @rimsky2024steering demonstrate contrastive activation addition for steering Llama 2. @li2024inference show that inference-time intervention can elicit truthful answers. @lee2025programming extend conditional activation steering to programmatic refusal control. All of these approaches implicitly assume that the target behavior (e.g., safety, truthfulness) can be captured by a small number of directions. Our dose-response results (Section [5](#sec:therapeutic)) show that this assumption fails catastrophically for safety: no intermediate "safe but functional" operating point exists.
+@zou2023representation introduce representation engineering as a top-down approach to controlling model behavior via activation-space interventions. @turner2023activation propose activation addition for inference-time steering. @rimsky2024steering demonstrate contrastive activation addition for steering Llama 2. @li2024inference show that inference-time intervention can elicit truthful answers. @lee2025programming extend conditional activation steering to programmatic refusal control. All of these approaches implicitly assume that the target behavior (e.g., safety, truthfulness) can be captured by a small number of directions. Our dose-response results (Section [5](#the-narrow-therapeutic-window)) show that this assumption fails catastrophically for safety: no intermediate "safe but functional" operating point exists.
 
 #### Linear Representations and Superposition.
 
@@ -76,7 +76,7 @@ The concept cone is the convex cone spanned by $\{\mathbf{r}_1, \ldots, \mathbf{
 
 ## Results
 
-Table [1](#tab:cone_geometry) summarizes the cone geometry at the layer of maximum polyhedrality (layer 2) and the layer of maximum linearity (layer 15), as well as the mean across all 24 layers.
+Table 1 summarizes the cone geometry at the layer of maximum polyhedrality (layer 2) and the layer of maximum linearity (layer 15), as well as the mean across all 24 layers.
 
   -------------------------------- ------------------- ----------------------------- -----------------------
   **Metric**                           **Layer 2**             **Layer 15**           **Mean (all layers)**
@@ -92,7 +92,7 @@ The cone dimensionality of $d = 3.96$ at layer 2 is close to the theoretical ma
 
 ## Pairwise Refusal Direction Geometry
 
-Table [2](#tab:pairwise_cosine) presents the full pairwise cosine similarity matrix between category-specific refusal directions.
+Table 2 presents the full pairwise cosine similarity matrix between category-specific refusal directions.
 
   **Category Pair**     **Cosine Similarity**
   -------------------- -----------------------
@@ -108,7 +108,7 @@ Table [2](#tab:pairwise_cosine) presents the full pairwise cosine similarity ma
 
 ## Category-Specific Refusal Strength
 
-Each refusal direction has a measurable strength (magnitude of the activation difference) and specificity (discrimination accuracy for its own category versus others). Table [3](#tab:category_strength) reports these values.
+Each refusal direction has a measurable strength (magnitude of the activation difference) and specificity (discrimination accuracy for its own category versus others). Table 3 reports these values.
 
   **Category**    **Strength**   **Specificity**   $n_{\text{prompts}}$
   -------------- -------------- ----------------- ----------------------
@@ -135,7 +135,7 @@ If safety were truly one-dimensional, abliteration would eliminate it completely
 
 ## Abliterated Model Results
 
-Table [4](#tab:reemergence) presents the re-emergence curve: the relationship between model scale and residual safety after single-direction abliteration.
+Table 4 presents the re-emergence curve: the relationship between model scale and residual safety after single-direction abliteration.
 
   **Model**                      $n$   **COMPL.**   **PARTIAL**   **REFUSAL**   **Strict ASR**   **Broad ASR**
   -------------------------- ------- ------------ ------------- ------------- ---------------- ---------------
@@ -165,7 +165,7 @@ This pattern is the signature of incomplete safety suppression: abliteration rem
 
 ## Comparison to Non-Abliterated Baselines
 
-Table [6](#tab:baselines) presents the non-abliterated Qwen3.5 series as a reference. At 0.8B, the non-abliterated model shows 20.8% refusal (391/1,882), demonstrating that safety training has some effect even at this scale. Abliteration reduces refusal to 0% at 0.8B, but cannot prevent safety from partially re-emerging at 9.0B through the residual geometric structure.
+Table 6 presents the non-abliterated Qwen3.5 series as a reference. At 0.8B, the non-abliterated model shows 20.8% refusal (391/1,882), demonstrating that safety training has some effect even at this scale. Abliteration reduces refusal to 0% at 0.8B, but cannot prevent safety from partially re-emerging at 9.0B through the residual geometric structure.
 
   **Model**               $n$   **COMPL.**   **PARTIAL**   **REFUSAL**   **Strict ASR** 
   ------------------- ------- ------------ ------------- ------------- ---------------- --
@@ -181,7 +181,7 @@ If safety were a single direction with a smooth gradient, increasing steering ve
 
 ## Dose-Response Collapse
 
-Table [7](#tab:dose_response) presents the dose-response results. There is no intermediate state between "functional but permissive" ($\alpha = 0.0$) and "completely degenerate" ($|\alpha| \geq 1.0$).
+Table 7 presents the dose-response results. There is no intermediate state between "functional but permissive" ($\alpha = 0.0$) and "completely degenerate" ($|\alpha| \geq 1.0$).
 
             $\alpha$  **Harmful Refusal**   **Benign Refusal**   **Degenerate**   **Coherent**
   ------------------ --------------------- -------------------- ---------------- --------------

@@ -8,8 +8,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-25-zero-of-36-regulatory-coverage.m4a"
 ---
 
-# Zero of 36: No AI Attack Family Is Fully Regulated Anywhere in the World
-
 If you build an AI-powered robot and someone tricks it into doing something dangerous, which regulation protects the people nearby?
 
 We checked. The answer, as of March 2026, is: none of them. Not fully.

@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/do-not-answer-dataset-eva
 image: "https://cdn.failurefirst.org/images/daily-paper/do-not-answer-dataset-evaluating-llm-safeguards.png"
 ---
 
-# Do-Not-Answer: A Dataset for Evaluating the Safeguards in Large Language Models
-
 **Focus:** Wang, Li, Han, Nakov & Baldwin created a systematic benchmark of sensitive queries that current
 language models struggle with, demonstrating that safety refusals are vulnerable to simple
 rephrasing attacks and that models lack understanding of why certain requests are harmful,

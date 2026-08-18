@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-01-drattack-promp
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-01-drattack-prompt-decomposition.png"
 ---
 
-# DrAttack: Prompt Decomposition and Reconstruction Makes Powerful LLM Jailbreakers
-
 **Focus:** Li et al. demonstrate that decomposing a malicious prompt into separated sub-prompts effectively obscures its intent by presenting it in a fragmented, less detectable form. DrAttack automates this process with three components: decomposition of the original prompt, reconstruction via in-context learning with harmless reassembly demonstrations, and synonym search to find substitute sub-prompts that maintain intent while evading detection.
 
 ---

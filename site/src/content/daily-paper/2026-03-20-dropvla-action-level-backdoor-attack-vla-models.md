@@ -12,8 +12,6 @@ draft: false
 image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-20-dropvla-action-level-backdoor-attack-vla-models.png"
 ---
 
-# DropVLA: An Action-Level Backdoor Attack on Vision-Language-Action Models
-
 **Focus:** Xu et al. present a backdoor attack methodology that targets individual action primitives within Vision-Language-Action models, demonstrating that an adversary can implant hidden triggers during training that cause specific unintended robotic actions at precise decision points while the model otherwise performs normally on clean tasks.
 
 ---

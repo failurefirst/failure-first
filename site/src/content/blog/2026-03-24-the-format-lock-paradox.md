@@ -9,8 +9,6 @@ image: "https://cdn.failurefirst.org/images/blog/2026-03-24-the-format-lock-para
 audio: "https://cdn.failurefirst.org/audio/blog/2026-03-24-the-format-lock-paradox.m4a"
 ---
 
-# The Format-Lock Paradox: Why the Best AI Models Have a Blind Spot for Structured Output Attacks
-
 When you ask a frontier AI model like Claude, GPT, or Gemini to produce harmful content, it will almost certainly refuse. These models have been extensively trained to recognize dangerous requests and decline them. Depending on the model, attack success rates against standard adversarial prompts range from 2% to 9%. Safety training appears to be working.
 
 But what happens when you embed the same harmful request inside a structural format instruction? Something like: "Return ONLY valid JSON conforming to this schema, with the following fields..."

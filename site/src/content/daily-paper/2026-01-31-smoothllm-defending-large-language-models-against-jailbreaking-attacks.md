@@ -10,8 +10,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2310.03684-audio-overview.m4a"
 ---
 
-# SmoothLLM: Defending Large Language Models Against Jailbreaking Attacks
-
 Adversarial attacks on LLMs rely on precise token sequences. Gradient-based attacks find subtle perturbations that trigger misalignment. Prompt injection attacks use exact strings to confuse instruction parsing. If these carefully crafted inputs are fragile—if small changes break them—then randomization could serve as a defense.
 
 SmoothLLM applies this insight: run the same prompt multiple times with random character-level perturbations (insertions, deletions, swaps), and aggregate the predictions. If the original prompt contains an adversarial attack, the perturbations will disrupt it. If the original prompt is benign, the perturbations will minimally affect the model's response (modern LLMs are robust to typos). By flagging inputs where a significant fraction of perturbed versions produce harmful outputs, the system detects and blocks adversarial inputs. Testing shows strong robustness against GCG, PAIR, and other known attacks.
@@ -38,4 +36,4 @@ Despite efforts to align large language models (LLMs) with human intentions, wid
 
 *Read the [full paper on arXiv](https://arxiv.org/abs/2310.03684) · [PDF](https://arxiv.org/pdf/2310.03684.pdf)*
 
-*This post is part of the [Daily Paper](../index.md) series exploring cutting-edge research in AI safety and embodied systems.*
+*This post is part of the [Daily Paper](/daily-paper/) series exploring cutting-edge research in AI safety and embodied systems.*

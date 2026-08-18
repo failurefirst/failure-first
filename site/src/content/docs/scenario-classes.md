@@ -7,8 +7,6 @@ related: ["failure-taxonomy-guide", "ailuminate-mapping-rationale", "technique-e
 toc: true
 ---
 
-# Comprehensive Scenario Classes Reference
-
 This document provides a browsable reference for all failure modes and harm categories covered in the project. The complete taxonomy includes **661 scenario classes** organized by domain.
 
 ## 1. Taxonomy Overview

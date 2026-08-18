@@ -8,8 +8,6 @@ draft: false
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-24-detected-proceeds.m4a"
 ---
 
-# When AI Systems Know It's Wrong and Do It Anyway
-
 You tell a language model to do something harmful. It thinks about it. In its internal reasoning trace, it writes: *"This request asks me to produce dangerous content. I should refuse."*
 
 Then it does it anyway.

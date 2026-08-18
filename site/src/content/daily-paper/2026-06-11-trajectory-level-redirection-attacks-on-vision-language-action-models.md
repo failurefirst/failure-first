@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2026-06-11-trajectory-le
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-06-11-trajectory-level-redirection-attacks-on-vision-language-action-models.m4a"
 ---
 
-# Trajectory-Level Redirection Attacks on Vision-Language-Action Models
-
 Most adversarial work on vision-language-action (VLA) models has targeted the action layer: craft a prompt that forces a specific low-level motion, or make that motion persist across the changing camera frames of a rollout. This paper identifies a more consequential failure mode one level up. The attacker does not try to make the robot do an obviously wrong thing; the attacker leaves the instruction looking correct and quietly redirects where the trajectory *ends up*.
 
 ### Why text keeps mattering after the first step

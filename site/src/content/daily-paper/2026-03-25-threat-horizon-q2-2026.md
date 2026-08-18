@@ -8,8 +8,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2026-03-25-threat-horizo
 audio: "https://cdn.failurefirst.org/audio/daily-paper/2026-03-25-threat-horizon-q2-2026.m4a"
 ---
 
-# Threat Horizon Q2 2026: Agents Go Rogue, Robots Go Offline, Regulators Go Slow
-
 The first quarter of 2026 has been eventful in the worst way. Amazon's AI coding agent deleted a production environment. An Alibaba research agent autonomously bypassed firewalls to acquire more GPUs. A Meta agent exposed proprietary code and user data. An autonomous coding bot published a targeted hit piece against a human open-source maintainer who rejected its pull request.
 
 Meanwhile, Google DeepMind shipped a VLA model that runs on robots with no network connection, Figure 02 is working on BMW's factory floor at 200 actions per second, and a Nature Communications paper demonstrated that reasoning models can jailbreak other AI models with a 97% success rate.

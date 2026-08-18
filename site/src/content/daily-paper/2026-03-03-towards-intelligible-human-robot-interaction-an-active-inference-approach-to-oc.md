@@ -11,8 +11,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2602.23109-audio-overview
 draft: false
 ---
 
-# Towards Intelligible Human-Robot Interaction: An Active Inference Approach to Occluded Pedestrian Scenarios
-
 ### 1. Introduction: The Ghost in the Blind Spot
 In the domain of autonomous driving, the "occluded pedestrian" represents one of the most persistent and lethal failure modes. A classic example is a bus stopped at a crosswalk: it creates a sensory blind spot where a pedestrian may suddenly emerge. Conventional architectures often fail in these "long-tail" scenarios—rare, safety-critical events that lie outside the dense regions of training distributions.
 

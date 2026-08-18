@@ -11,8 +11,6 @@ image: "https://cdn.failurefirst.org/images/daily-paper/2603.23983-infographic.w
 draft: false
 ---
 
-# SafeFlow: Real-Time Text-Driven Humanoid Whole-Body Control via Physics-Guided Rectified Flow and Selective Safety Gating
-
 ### 1. Introduction: The Crisis of Physical Hallucinations
 In the pursuit of seamless human-robot interaction, the robotics community has leaned heavily into generative AI. While text-to-motion models offer unprecedented expressiveness, they introduce a lethal vulnerability: "physical hallucinations." These occur when a kinematics-only generator produces motion trajectories that are semantically aligned with a prompt but mechanically catastrophic. On hardware like the Unitree G1, these hallucinations manifest as joint limit violations, self-collisions, and balance loss—leading to "structural collapse."
 

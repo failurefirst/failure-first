@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/2025-12-06-mousetrap-iter
 image: "https://cdn.failurefirst.org/images/daily-paper/2025-12-06-mousetrap-iterative-chaos.png"
 ---
 
-# A Mousetrap: Fooling Large Reasoning Models for Jailbreak with Chain of Iterative Chaos
-
 **Focus:** Yao et al. present Mousetrap, the first jailbreak framework purpose-built for Large Reasoning Models (LRMs). The core mechanism is a "Chaos Machine" that transforms attack prompts through diverse one-to-one mappings, which are then iteratively embedded into the model's reasoning chain. By introducing competing objectives that exploit the model's tendency to maintain reasoning inertia, the attack causes LRMs to reason themselves into producing harmful content.
 
 ---

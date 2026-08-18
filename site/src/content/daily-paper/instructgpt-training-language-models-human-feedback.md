@@ -13,8 +13,6 @@ audio: "https://cdn.failurefirst.org/audio/daily-paper/instructgpt-training-lang
 image: "https://cdn.failurefirst.org/images/daily-paper/instructgpt-training-language-models-human-feedback.png"
 ---
 
-# InstructGPT: Training Language Models to Follow Instructions with Human Feedback
-
 **Focus:** OpenAI's InstructGPT introduced Reinforcement Learning from Human Feedback (RLHF)
 as a practical method to align language models with human preferences, enabling smaller
 models to outperform larger ones on alignment metrics while establishing the fundamental
