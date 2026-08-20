@@ -1,0 +1,99 @@
+name: content-freshness-monitor
+
+# Independent freshness observer for this repo's own content, per
+# adrianwedd/failure-first-embodied-ai#1089 (2026-08-20 vacation-readiness
+# audit finding). The private repo drives content into this repo via
+# `publish: scheduled automated deploy` commits; nothing here or there was
+# watching whether those commits actually kept landing. 08-10 and
+# 08-14..08-17 (2026) were silent 4-day gaps nobody found from the public
+# repo alone. This runs on GitHub's clock (laptop-independent, same
+# reasoning as podcast-feed-monitor.yml) and checks git history directly —
+# not a script's own log, which a dead automation host would never write.
+#
+# Deliberately does NOT touch Discord/Telegram or any cross-repo secret: a
+# stale-content finding is routine organisational work (per the vacation
+# goal, "a watchdog firing" is never itself an escalation), so this only
+# files/updates a durable issue in THIS repo using the default GITHUB_TOKEN
+# — no new credential, mirrors external-intel-health.yml's design in the
+# private repo.
+
+on:
+  schedule:
+    - cron: '40 6 * * *'   # daily 06:40 UTC — offset from podcast-feed-monitor (06:17)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check content publish cadence
+        id: freshness
+        run: |
+          set -euo pipefail
+          MAX_AGE_HOURS=48
+          LATEST=$(git log -1 --format=%cI -- \
+            site/src/content/daily-paper/ \
+            site/src/content/blog/ \
+            site/src/content/ai-safety-daily/ 2>/dev/null || true)
+          if [ -z "$LATEST" ]; then
+            echo "::error::No commit history found for content paths -- cannot assess freshness"
+            echo "stale=unknown" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          LATEST_EPOCH=$(date -d "$LATEST" +%s)
+          NOW_EPOCH=$(date -u +%s)
+          AGE_HOURS=$(( (NOW_EPOCH - LATEST_EPOCH) / 3600 ))
+          echo "Newest content commit: $LATEST ($AGE_HOURS hours ago)"
+          echo "age_hours=$AGE_HOURS" >> "$GITHUB_OUTPUT"
+          echo "latest_commit_date=$LATEST" >> "$GITHUB_OUTPUT"
+          if [ "$AGE_HOURS" -gt "$MAX_AGE_HOURS" ]; then
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+            echo "::error::Content publish cadence stale: newest content commit is ${AGE_HOURS}h old (threshold ${MAX_AGE_HOURS}h)"
+          else
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: File or update staleness issue
+        if: always() && steps.freshness.outputs.stale == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ageHours = '${{ steps.freshness.outputs.age_hours }}';
+            const latestDate = '${{ steps.freshness.outputs.latest_commit_date }}';
+            const title = 'Content publish cadence stale (auto-filed)';
+            const body = `## Finding\n\nNo commit touching \`site/src/content/{daily-paper,blog,ai-safety-daily}/\` in over 48 hours.\n\n- Newest content commit: ${latestDate}\n- Age: ${ageHours} hours\n\nThis is a routine cadence check, not an operator escalation (per the vacation-readiness fire-door contract) -- filed as a durable, self-updating issue so the gap doesn't go silently unnoticed the way the 2026-08-10/08-14..17 gaps did. If this reflects an intentional pause (mirroring the AI Safety Daily pattern), close this issue noting the policy decision that covers it; otherwise this is a signal the private-repo publish pipeline needs attention.\n\n_Auto-filed by \`content-freshness-monitor.yml\`._`;
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'content-freshness',
+            });
+            if (existing.data.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body: `Still stale as of this run: ${ageHours}h since ${latestDate}.`,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['content-freshness'],
+              });
+            }
+
+      - name: Fail the job on staleness
+        if: steps.freshness.outputs.stale == 'true'
+        run: exit 1
