@@ -19,9 +19,11 @@ two response headers separately.
 
 The enforced AdSense failures were reproduced against exact live resources:
 `ep2.adtrafficquality.google/sodar/sodar2.js` returned 200 and
-`pagead2.googlesyndication.com/pagead/gen_204` returned 204. The repo policy
-now allows only the missing exact `ep2` script/connect origin and exact
-`pagead2` connect origin. LinkedIn and Cloudflare `ERR_CONNECTION_REFUSED`
+`pagead2.googlesyndication.com/pagead/gen_204` returned 204. Applying the real
+header in the browser gate additionally exposed the `ep2`/Google frame loads
+and confirmed that `gen_204` is sometimes dispatched as an image beacon. The
+repo policy now allows only those exact origins in the resource directives the
+browser actually used. LinkedIn and Cloudflare `ERR_CONNECTION_REFUSED`
 are retained as network evidence unless independently reproduced as response or
 enforced-CSP failures.
 
@@ -57,4 +59,3 @@ The repaired local build subsequently passed the desktop/mobile runtime suite,
 including decoded portraits, explicit renderer ownership, non-background
 cyan/coral pixel evidence, reduced motion, header-enforced CSP, and visual
 snapshots. Production re-observation is required after deployment.
-
