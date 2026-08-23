@@ -8,7 +8,7 @@ const { animation, accent } = Astro.props;
 <canvas id="sensor-grid-bg" aria-hidden="true" data-animation={animation} data-accent={accent} data-renderer-owner="generative-background" data-renderer-state="pending"></canvas>
 
 <script>
-(() => {
+const initialiseGenerativeBackground = () => {
 /**
  * Generative canvas animations — renders to #sensor-grid-bg (fixed fullscreen canvas).
  * The animation flows behind the entire page, not just the hero.
@@ -17,9 +17,19 @@ const canvas = document.getElementById('sensor-grid-bg') as HTMLCanvasElement | 
 const request = document.querySelector<HTMLElement>('[data-generative-background-request]');
 if (canvas) {
   canvas.dataset.rendererOwner = 'generative-background';
+  const rawAnim = canvas.dataset.animation || request?.dataset.animation || 'none';
+  const accentName = canvas.dataset.accent || request?.dataset.accent || 'cyan';
+  canvas.dataset.animation = rawAnim;
+  canvas.dataset.accent = accentName;
+  if (rawAnim === 'none') {
+    canvas.dataset.rendererState = 'disabled';
+    return;
+  }
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reducedMotion) canvas.dataset.rendererState = 'paused-reduced-motion';
-  if (!reducedMotion) {
+  if (reducedMotion) {
+    canvas.dataset.rendererState = 'paused-reduced-motion';
+    return;
+  }
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   canvas.style.opacity = '0.7';
@@ -84,7 +94,6 @@ if (canvas) {
     green:    { r: 38,  g: 222, b: 129 },
     gold:     { r: 255, g: 211, b: 42  },
   };
-  const accentName = canvas.dataset.accent || request?.dataset.accent || 'cyan';
   const ac = accentMap[accentName] || accentMap.cyan;
   const acRgb = `${ac.r},${ac.g},${ac.b}`;
 
@@ -115,13 +124,6 @@ if (canvas) {
   }
 
   /* ── Animation state ───────────────────────────────────────────── */
-  const rawAnim = canvas.dataset.animation || request?.dataset.animation || 'none';
-  canvas.dataset.animation = rawAnim;
-  canvas.dataset.accent = accentName;
-  if (rawAnim === 'none') {
-    canvas.dataset.rendererState = 'disabled';
-    return;
-  }
   const allAnims = ['flow', 'neural', 'terrain', 'cascade', 'pulse', 'drift', 'weave', 'signal'] as const;
   type AnimName = typeof allAnims[number];
   let currentAnim: AnimName = rawAnim === 'auto'
@@ -726,7 +728,11 @@ if (canvas) {
     if (rotateTimer) clearInterval(rotateTimer);
     window.removeEventListener('resize', onResize);
   });
-  }
 }
-})();
+};
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initialiseGenerativeBackground, { once: true });
+} else {
+  initialiseGenerativeBackground();
+}
 </script>

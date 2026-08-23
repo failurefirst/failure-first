@@ -196,10 +196,17 @@ test('a page without an atmosphere request stays transparent', async ({ page }) 
 test('reduced motion pauses the global renderer without losing ownership', async ({ browser }) => {
   const context = await browser.newContext({ reducedMotion: 'reduce' });
   const page = await context.newPage();
-  await page.goto('/services/');
-  const canvas = page.locator('#sensor-grid-bg');
-  await expect(canvas).toHaveAttribute('data-renderer-owner', 'generative-background');
-  await expect(canvas).toHaveAttribute('data-animation', 'pulse');
-  await expect(canvas).toHaveAttribute('data-renderer-state', 'paused-reduced-motion');
+  for (const [path, owner, animation, state] of [
+    ['/services/', 'generative-background', 'pulse', 'paused-reduced-motion'],
+    ['/lab-log/', 'generative-background', 'signal', 'paused-reduced-motion'],
+    ['/research/jailbreak-leaderboard/', 'generative-background', 'none', 'disabled'],
+    ['/about/team/', 'team-signal-canvas', 'signal', 'paused-reduced-motion'],
+  ] as const) {
+    await page.goto(path);
+    const canvas = page.locator('#sensor-grid-bg');
+    await expect(canvas).toHaveAttribute('data-renderer-owner', owner);
+    await expect(canvas).toHaveAttribute('data-animation', animation);
+    await expect(canvas).toHaveAttribute('data-renderer-state', state);
+  }
   await context.close();
 });
