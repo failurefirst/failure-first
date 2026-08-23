@@ -3,11 +3,12 @@ import ContentLayout from '../../layouts/ContentLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
 import StatGrid from '../../components/StatGrid.astro';
 import LinkButton from '../../components/LinkButton.astro';
+import { stats } from '../../data/stats.ts';
 ---
 
 <ContentLayout
   title="About | Failure-First"
-  description="Failure-First is an AI safety research lab studying how AI systems fail — across 258 models, 142,000 adversarial prompts, and 42 embodied attack families."
+  description={`Failure-First is an AI safety research lab studying how AI systems fail — across ${stats.modelsDisplay} models, ${stats.promptsDisplay} adversarial prompts, and ${stats.vlaFamilies} embodied attack families.`}
   breadcrumbs={[{ label: 'About' }]}
 >
   <HeroSection
@@ -48,12 +49,12 @@ import LinkButton from '../../components/LinkButton.astro';
   <section>
     <h2>By the Numbers</h2>
     <StatGrid items={[
-      { value: "258", label: "Models Tested" },
-      { value: "142K", label: "Adversarial Prompts" },
-      { value: "141K", label: "Graded Results" },
-      { value: "346", label: "Attack Techniques" },
-      { value: "42", label: "VLA Attack Families" },
-      { value: "163", label: "Governance Lag Entries" },
+      { value: stats.modelsDisplay, label: "Models Tested" },
+      { value: stats.promptsDisplay, label: "Adversarial Prompts" },
+      { value: stats.resultsDisplay, label: "Graded Results" },
+      { value: stats.techniquesDisplay, label: "Attack Techniques" },
+      { value: String(stats.vlaFamilies), label: "VLA Attack Families" },
+      { value: String(stats.gliEntries), label: "Governance Lag Entries" },
     ]} />
   </section>
 
