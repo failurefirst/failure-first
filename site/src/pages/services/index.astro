@@ -75,7 +75,12 @@ const engagements = [
   .section-heading span, .eyebrow { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
   .section-heading h2 { margin: .35rem 0 0; }
   .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .capability-card { border: 1px solid var(--border-dim, #333); border-radius: 8px; padding: 1.5rem; }
+  /* Keep the recovered pulse mesh present through the capability surface. */
+  :global(body:has(#adversarial-capabilities) #sensor-grid-bg) { z-index: 0; }
+  :global(body:has(#adversarial-capabilities) main) {
+    background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .48) 32rem, rgba(5, 8, 16, .7) 100%);
+  }
+  .capability-card { background: rgba(5, 8, 16, .46); border: 1px solid rgba(122, 130, 146, .34); border-radius: 8px; padding: 1.5rem; backdrop-filter: blur(2px); }
   .capability-card:first-child { grid-column: span 2; }
   .card-meta { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: .08em; }
   .status { color: var(--recovery-stable, #4ade80); }
@@ -89,10 +94,17 @@ const engagements = [
   .engagement-number { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .75rem; padding-top: .35rem; }
   .engagement-row h3 { margin: 0 0 .5rem; }
   .engagement-row p, .method p:last-child { max-width: 800px; }
-  .method { border: 1px solid var(--recovery-stable, #4ade80); border-radius: 8px; padding: clamp(1.5rem, 4vw, 3rem); }
+  .method { background: rgba(5, 8, 16, .42); border: 1px solid var(--recovery-stable, #4ade80); border-radius: 8px; padding: clamp(1.5rem, 4vw, 3rem); backdrop-filter: blur(2px); }
   .method h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin: .5rem 0 1rem; }
   .cta-section { text-align: center; }
   .cta-section p { margin-left: auto; margin-right: auto; }
   .contact-alt { font-size: .85rem; margin-top: 1rem; }
-  @media (max-width: 768px) { .capability-grid { grid-template-columns: 1fr; } .capability-card:first-child { grid-column: auto; } }
+  @media (max-width: 768px) {
+    :global(body:has(#adversarial-capabilities) main) { background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .56) 28rem, rgba(5, 8, 16, .74) 100%); }
+    .capability-grid { grid-template-columns: 1fr; }
+    .capability-card:first-child { grid-column: auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .capability-card, .method { backdrop-filter: none; }
+  }
 </style>
