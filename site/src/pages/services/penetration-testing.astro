@@ -472,7 +472,7 @@ const faqs = [
     font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--accent-primary, #00d2ff);
+    color: var(--accent-primary);
     margin-bottom: 1rem;
   }
 
@@ -483,7 +483,7 @@ const faqs = [
 
   .capability-item {
     padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border-dim, #222);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .capability-item:last-child {
@@ -493,14 +493,14 @@ const faqs = [
   .capability-item dt {
     font-weight: 600;
     font-size: 0.9375rem;
-    color: var(--fg, #e8ecf2);
+    color: var(--fg);
     margin-bottom: 0.25rem;
   }
 
   .capability-item dd {
     margin: 0;
     font-size: 0.875rem;
-    color: var(--fg-dim, #999);
+    color: var(--fg-dim);
     line-height: 1.5;
   }
 
@@ -514,7 +514,7 @@ const faqs = [
   .evidence-list li {
     padding: 0.75rem 0 0.75rem 2rem;
     position: relative;
-    color: var(--fg-dim, #ccc);
+    color: var(--fg-dim);
     font-size: 0.9375rem;
   }
 
@@ -522,7 +522,7 @@ const faqs = [
     content: "✓";
     position: absolute;
     left: 0;
-    color: var(--recovery-stable, #26de81);
+    color: var(--recovery-stable);
     font-family: 'JetBrains Mono', monospace;
   }
 
@@ -539,7 +539,7 @@ const faqs = [
     font-size: 0.8125rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--accent-primary, #00d2ff);
+    color: var(--accent-primary);
     margin-bottom: 0.75rem;
   }
 
@@ -549,7 +549,7 @@ const faqs = [
   }
 
   .tool-table tr {
-    border-bottom: 1px solid var(--border-dim, #222);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .tool-table tr:last-child {
@@ -559,7 +559,7 @@ const faqs = [
   .tool-name {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
-    color: var(--fg, #e8ecf2);
+    color: var(--fg);
     white-space: nowrap;
     padding: 0.5rem 1rem 0.5rem 0;
     vertical-align: top;
@@ -568,7 +568,7 @@ const faqs = [
 
   .tool-purpose {
     font-size: 0.8125rem;
-    color: var(--fg-dim, #999);
+    color: var(--fg-dim);
     padding: 0.5rem 0;
     vertical-align: top;
     line-height: 1.4;
@@ -576,7 +576,7 @@ const faqs = [
 
   .tool-footnote {
     font-size: 0.8125rem;
-    color: var(--fg-dim, #777);
+    color: var(--fg-dim);
     margin-top: 0.75rem;
     font-style: italic;
   }
@@ -584,8 +584,8 @@ const faqs = [
   /* ── Deliverables ── */
   .deliverables-prereq {
     font-size: 0.9375rem;
-    color: var(--fg-dim, #999);
-    border-left: 2px solid var(--accent-primary, #00d2ff);
+    color: var(--fg-dim);
+    border-left: 2px solid var(--accent-primary);
     padding-left: 1rem;
     margin-bottom: 1.5rem;
   }
@@ -598,9 +598,9 @@ const faqs = [
 
   .deliverables-list li {
     padding: 1rem 0;
-    border-bottom: 1px solid var(--border-dim, #222);
+    border-bottom: 1px solid var(--border-subtle);
     font-size: 0.9375rem;
-    color: var(--fg-dim, #ccc);
+    color: var(--fg-dim);
     line-height: 1.6;
   }
 
@@ -609,7 +609,7 @@ const faqs = [
   }
 
   .deliverables-list strong {
-    color: var(--fg, #e8ecf2);
+    color: var(--fg);
   }
 
   /* ── Tier cards (reuse services/index.astro pattern) ── */
@@ -621,7 +621,7 @@ const faqs = [
   }
 
   .tier-card {
-    border: 1px solid var(--border-dim, #333);
+    border: 1px solid var(--border-subtle);
     border-radius: 8px;
     padding: 1.5rem;
     display: flex;
@@ -643,7 +643,7 @@ const faqs = [
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--fg-dim, #999);
+    color: var(--fg-dim);
   }
 
   .tier-header h3 {
@@ -654,7 +654,7 @@ const faqs = [
   .tier-price {
     font-family: 'JetBrains Mono', monospace;
     font-size: 1rem;
-    color: var(--recovery-stable, #26de81);
+    color: var(--recovery-stable);
     font-weight: 600;
   }
 
@@ -669,21 +669,21 @@ const faqs = [
     padding: 0.4rem 0 0.4rem 1.5rem;
     position: relative;
     font-size: 0.875rem;
-    color: var(--fg-dim, #ccc);
+    color: var(--fg-dim);
   }
 
   .tier-features li::before {
     content: "+";
     position: absolute;
     left: 0;
-    color: var(--recovery-stable, #26de81);
+    color: var(--recovery-stable);
     font-family: 'JetBrains Mono', monospace;
   }
 
   .tier-best-for {
     font-size: 0.8125rem;
-    color: var(--fg-dim, #999);
-    border-top: 1px solid var(--border-dim, #333);
+    color: var(--fg-dim);
+    border-top: 1px solid var(--border-subtle);
     padding-top: 0.75rem;
     margin-top: 0.75rem;
   }
@@ -696,7 +696,7 @@ const faqs = [
   .tier-link {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8125rem;
-    color: var(--accent-primary, #00d2ff);
+    color: var(--accent-primary);
     text-decoration: none;
   }
 
@@ -711,7 +711,7 @@ const faqs = [
 
   .faq-item {
     padding: 1rem 0;
-    border-bottom: 1px solid var(--border-dim, #222);
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .faq-item:last-child {
@@ -721,21 +721,21 @@ const faqs = [
   .faq-item dt {
     font-weight: 600;
     font-size: 0.9375rem;
-    color: var(--fg, #e8ecf2);
+    color: var(--fg);
     margin-bottom: 0.5rem;
   }
 
   .faq-item dd {
     margin: 0;
     font-size: 0.875rem;
-    color: var(--fg-dim, #999);
+    color: var(--fg-dim);
     line-height: 1.6;
   }
 
   .out-of-scope {
     font-size: 0.875rem;
-    color: var(--fg-dim, #777);
-    border-left: 2px solid var(--critical-high, #ff4757);
+    color: var(--fg-dim);
+    border-left: 2px solid var(--failure-critical);
     padding-left: 1rem;
     margin-top: 1.5rem;
   }

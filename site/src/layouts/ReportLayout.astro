@@ -175,8 +175,8 @@ const breadcrumbs = briefNumber
 <style>
   /* ── Cover ─────────────────────────────── */
   .report-cover {
-    background: #050810;
-    border: 1px solid rgba(0, 210, 255, 0.12);
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 2.5rem;
@@ -187,7 +187,7 @@ const breadcrumbs = briefNumber
   }
 
   .cover-zone + .cover-zone {
-    border-top: 1px solid #0d1220;
+    border-top: 1px solid var(--border-subtle);
   }
 
   /* Zone 1 */
@@ -204,11 +204,11 @@ const breadcrumbs = briefNumber
     font-weight: 500;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #00d2ff;
+    color: var(--accent-primary);
   }
 
   .wordmark-sep {
-    color: rgba(0, 210, 255, 0.35);
+    color: var(--border-emphasis);
     margin: 0 0.15em;
   }
 
@@ -225,8 +225,8 @@ const breadcrumbs = briefNumber
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 0.2rem 0.55rem;
-    border: 1px solid rgba(0, 210, 255, 0.25);
-    color: rgba(0, 210, 255, 0.6);
+    border: 1px solid var(--border-emphasis);
+    color: color-mix(in srgb, var(--accent-primary) 60%, transparent);
     border-radius: 3px;
   }
 
@@ -234,7 +234,7 @@ const breadcrumbs = briefNumber
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.5625rem;
     letter-spacing: 0.06em;
-    color: #6c7a9a;
+    color: var(--fg-muted);
   }
 
   /* Zone 2 */
@@ -252,11 +252,11 @@ const breadcrumbs = briefNumber
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.02em;
-    color: #e8ecf2;
+    color: var(--fg);
   }
 
   .cover-subtitle {
-    color: #6c7a9a;
+    color: var(--fg-muted);
   }
 
   .cover-classification {
@@ -264,12 +264,12 @@ const breadcrumbs = briefNumber
     font-size: 0.625rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #6c7a9a;
+    color: var(--fg-muted);
   }
 
   /* Zone 3 */
   .zone-3 {
-    background: rgba(10, 15, 26, 0.6);
+    background: var(--surface-elevated);
   }
 
   .cover-meta-grid {
@@ -289,13 +289,13 @@ const breadcrumbs = briefNumber
     font-size: 0.5rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #6c7a9a;
+    color: var(--fg-muted);
   }
 
   .cover-meta-grid dd {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6875rem;
-    color: #e8ecf2;
+    color: var(--fg);
     margin: 0;
     line-height: 1.4;
   }
@@ -304,8 +304,8 @@ const breadcrumbs = briefNumber
   .report-scoreboard {
     display: flex;
     gap: 1px;
-    background: #0d1220;
-    border: 1px solid #0d1220;
+    background: var(--bg-elevated);
+    border: 1px solid var(--bg-elevated);
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 3rem;
@@ -318,7 +318,7 @@ const breadcrumbs = briefNumber
     align-items: center;
     justify-content: center;
     padding: 1.25rem 1rem;
-    background: #050810;
+    background: var(--bg);
     gap: 0.3rem;
     min-width: 72px;
   }
@@ -335,14 +335,14 @@ const breadcrumbs = briefNumber
     font-size: 0.5rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #6c7a9a;
+    color: var(--fg-muted);
   }
 
-  .sev-critical .sev-count { color: #ff4757; }
-  .sev-high .sev-count     { color: #ffa502; }
-  .sev-medium .sev-count   { color: #ffd32a; }
-  .sev-low .sev-count      { color: #26de81; }
-  .sev-info .sev-count     { color: #a29bfe; }
+  .sev-critical .sev-count { color: var(--failure-critical); }
+  .sev-high .sev-count     { color: var(--failure-warning); }
+  .sev-medium .sev-count   { color: var(--failure-degraded); }
+  .sev-low .sev-count      { color: var(--recovery-stable); }
+  .sev-info .sev-count     { color: var(--accent-tertiary); }
 
   /* ── Plain meta (no cover) ──────────── */
   .report-meta {
@@ -354,11 +354,11 @@ const breadcrumbs = briefNumber
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--fg-dim, #8892b0);
+    color: var(--fg-dim);
   }
 
   .report-number {
-    color: var(--accent-primary, #00d2ff);
+    color: var(--accent-primary);
     font-weight: 600;
   }
 
@@ -372,7 +372,7 @@ const breadcrumbs = briefNumber
     font-size: 0.625rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #6c7a9a;
+    color: var(--fg-muted);
     margin-bottom: 0.5rem;
   }
 
@@ -385,7 +385,7 @@ const breadcrumbs = briefNumber
     margin: 0 0 2rem;
     border-radius: 6px;
     overflow: hidden;
-    border: 1px solid #0d1220;
+    border: 1px solid var(--border-subtle);
   }
 
   .report-video video {
@@ -401,44 +401,44 @@ const breadcrumbs = briefNumber
   .report-body :global(h2) {
     margin-top: 2.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #0d1220;
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: 'Instrument Serif', Georgia, serif;
     font-size: 1.2rem;
-    font-weight: 600;
-    color: #e8ecf2;
+    font-weight: 400;
+    color: var(--fg);
   }
 
   .report-body :global(h3) {
     margin-top: 1.75rem;
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    color: #e8ecf2;
+    color: var(--fg);
   }
 
   .report-body :global(blockquote) {
-    border-left: 3px solid #00d2ff;
+    border-left: 3px solid var(--accent-primary);
     padding: 0.75rem 1.25rem;
     margin: 1.5rem 0;
-    background: rgba(0, 210, 255, 0.04);
+    background: var(--tint-accent-faint);
     border-radius: 0 4px 4px 0;
-    color: #8892b0;
+    color: var(--fg-dim);
     font-style: italic;
   }
 
   .report-body :global(code) {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8em;
-    background: rgba(10, 15, 26, 0.8);
-    border: 1px solid #0d1220;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
     padding: 0.125em 0.375em;
     border-radius: 3px;
-    color: #00d2ff;
+    color: var(--accent-primary);
   }
 
   .report-body :global(pre) {
-    background: rgba(10, 15, 26, 0.8);
-    border: 1px solid #0d1220;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
     border-radius: 4px;
     padding: 1.25rem;
     overflow-x: auto;
@@ -450,7 +450,7 @@ const breadcrumbs = briefNumber
     border: none;
     padding: 0;
     font-size: 0.8125rem;
-    color: #e8ecf2;
+    color: var(--fg);
   }
 
   .report-body :global(table) {
@@ -466,23 +466,23 @@ const breadcrumbs = briefNumber
   .report-body :global(th),
   .report-body :global(td) {
     padding: 0.5rem 0.75rem;
-    border: 1px solid #0d1220;
+    border: 1px solid var(--border-subtle);
     text-align: left;
   }
 
   .report-body :global(th) {
-    background: rgba(10, 15, 26, 0.8);
+    background: var(--surface-elevated);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #6c7a9a;
+    color: var(--fg-muted);
   }
 
   .report-body :global(.audio-overview) {
-    border-left: 3px solid var(--accent-primary, #00d2ff);
-    background: rgba(0, 210, 255, 0.04);
+    border-left: 3px solid var(--accent-primary);
+    background: var(--tint-accent-faint);
     padding: 1rem 1.25rem;
     border-radius: 0 6px 6px 0;
     margin: 1.5rem 0;
@@ -491,7 +491,7 @@ const breadcrumbs = briefNumber
   .report-body :global(.audio-overview p) {
     margin: 0 0 0.75rem 0;
     font-size: 0.8125rem;
-    color: var(--fg-dim, #8892b0);
+    color: var(--fg-dim);
   }
 
   .report-body :global(.audio-overview audio) {

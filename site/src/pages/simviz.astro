@@ -1,5 +1,6 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
+import LinkButton from '../components/LinkButton.astro';
 
 const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
 ---
@@ -21,9 +22,9 @@ const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
       that plainly instead of inventing cognition, sensors, peer messages, or a
       failure story the trace does not contain.
     </p>
-    <a class="cta" href={SIM_URL} target="_blank" rel="noopener noreferrer">
-      Watch what happened <span aria-hidden="true">&rarr;</span>
-    </a>
+    <div class="hero-actions">
+      <LinkButton href={SIM_URL} text="Watch what happened →" external />
+    </div>
     <p class="receipt-note">Open the forensic console in the replay to inspect the run identity, phase-scoped falsifier, unavailable channels, and source-trace hash.</p>
   </section>
 
@@ -98,39 +99,28 @@ const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
-    color: var(--fg-muted, #7a8292);
+    color: var(--fg-muted);
     margin-bottom: 0.5rem;
   }
   .hero h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--fg, #e8ecf2);
+    font-size: clamp(2rem, 5vw, 2.75rem);
     margin: 0 0 1rem;
   }
   .lede {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: var(--fg-dim, #b0b8c5);
+    color: var(--fg-dim);
     margin: 0 auto 1.75rem;
   }
-  .cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: var(--accent-primary, #00d2ff);
-    color: #050810;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border-radius: 6px;
-    border-bottom: none;
-    transition: transform 150ms ease, box-shadow 150ms ease;
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
-  .cta:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(0, 210, 255, 0.25);
-    border-bottom: none;
+  .receipt-note {
+    font-size: 0.85rem;
+    color: var(--fg-muted);
+    margin: 0 auto;
   }
 
   .grid {
@@ -142,40 +132,36 @@ const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
   @media (max-width: 700px) {
     .grid { grid-template-columns: 1fr; }
   }
-  .card {
-    padding: 1.5rem;
-    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
-    border-radius: 8px;
-    background: var(--bg-card, #0f1621);
+  /* Use the shared .card primitive from global.css — no local override.
+     The glassmorphism, shimmer, and hover are inherited. */
+  .grid .card {
+    margin-bottom: 0;
   }
-  .card h2 {
-    font-family: 'Space Grotesk', sans-serif;
+  .grid .card h2 {
     font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--fg, #e8ecf2);
     margin: 0 0 0.6rem;
   }
-  .card p {
+  .grid .card p {
     font-size: 0.9rem;
     line-height: 1.65;
-    color: var(--fg-dim, #b0b8c5);
+    color: var(--fg-dim);
     margin: 0;
   }
-  .card code {
+  .grid .card code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
-    color: var(--accent-primary, #00d2ff);
+    color: var(--accent-primary);
   }
 
   .footnote {
     font-size: 0.8rem;
-    color: var(--fg-muted, #7a8292);
+    color: var(--fg-muted);
     text-align: center;
-    border-top: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    border-top: 1px solid var(--border-subtle);
     padding-top: 1.5rem;
   }
   .footnote code {
     font-family: 'JetBrains Mono', monospace;
-    color: var(--fg-dim, #b0b8c5);
+    color: var(--fg-dim);
   }
 </style>

@@ -128,6 +128,12 @@ test.describe('public surface', () => {
             getComputedStyle(img).display !== 'none'
           )).toBe(true);
         }
+        // Verify the hero section has visible content (not a blank screenshot)
+        const heroName = page.locator('.hero-name');
+        await expect(heroName).toBeVisible();
+        await expect(heroName).toHaveText(/Adrian Wedd/);
+        const agentSections = page.locator('.agent-section');
+        expect(await agentSections.count()).toBeGreaterThan(10);
       }
 
       if (atmosphere[path]) {
@@ -181,12 +187,18 @@ test.describe('public surface', () => {
         await page.evaluate(() => scrollTo(0, 0));
         await page.waitForTimeout(300);
       }
+      // Team page: capture the hero viewport (Adrian's section) with content
+      // visible, not a full-page black screenshot. Mask only the animated canvas.
+      // Services page: keep the canvas visible (its atmosphere is part of the
+      // visual contract) but hide it via CSS to avoid animation flakiness.
+      const isTeam = path === '/about/team/';
+      const isServices = path === '/services/';
       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '-') || 'home'}-${testInfo.project.name}.png`, {
-        fullPage: path !== '/about/team/',
+        fullPage: !isTeam,
         animations: 'disabled',
-        mask: path === '/services/' ? [] : [page.locator('#sensor-grid-bg')],
+        mask: isServices ? [] : [page.locator('#sensor-grid-bg')],
         maskColor: '#050810',
-        style: path === '/services/' ? '#sensor-grid-bg { visibility: hidden !important; }' : undefined,
+        style: isServices ? '#sensor-grid-bg { visibility: hidden !important; }' : undefined,
         maxDiffPixelRatio: 0.01,
       });
     });

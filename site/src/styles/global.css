@@ -151,7 +151,7 @@ pre code {
 
 /* Cards and surfaces — glass morphism + shimmer */
 .card {
-  background: rgba(15, 22, 33, 0.6);
+  background: var(--surface-card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
@@ -173,9 +173,9 @@ pre code {
   background: linear-gradient(
     105deg,
     transparent 40%,
-    rgba(0, 210, 255, 0.06) 45%,
-    rgba(0, 210, 255, 0.12) 50%,
-    rgba(0, 210, 255, 0.06) 55%,
+    color-mix(in srgb, var(--accent-primary) 6%, transparent) 45%,
+    color-mix(in srgb, var(--accent-primary) 12%, transparent) 50%,
+    color-mix(in srgb, var(--accent-primary) 6%, transparent) 55%,
     transparent 60%
   );
   background-size: 200% 100%;
@@ -189,8 +189,8 @@ pre code {
   border-color: var(--border-emphasis);
   transform: translateY(-3px) scale(1.005);
   box-shadow:
-    0 8px 32px rgba(0, 210, 255, 0.12),
-    0 0 0 1px rgba(0, 210, 255, 0.05);
+    0 8px 32px color-mix(in srgb, var(--accent-primary) 12%, transparent),
+    0 0 0 1px color-mix(in srgb, var(--accent-primary) 5%, transparent);
 }
 
 .card:hover::before {
@@ -211,10 +211,10 @@ pre code {
 
 /* Warning box - research context, glass morphism */
 .warning {
-  background: rgba(255, 163, 2, 0.04);
+  background: var(--tint-warning);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 163, 2, 0.15);
+  border: 1px solid var(--border-warning);
   border-left: 4px solid var(--failure-warning);
   padding: 1.25rem;
   margin: 2rem 0;
@@ -238,7 +238,7 @@ pre code {
 }
 
 .stat {
-  background: rgba(15, 22, 33, 0.6);
+  background: var(--surface-card);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 1.5rem;
@@ -265,7 +265,7 @@ pre code {
   font-weight: 500;
   color: var(--accent-primary);
   font-family: 'JetBrains Mono', monospace;
-  text-shadow: 0 0 24px rgba(0, 210, 255, 0.35), 0 0 8px rgba(0, 210, 255, 0.15);
+  text-shadow: 0 0 24px color-mix(in srgb, var(--accent-primary) 35%, transparent), 0 0 8px color-mix(in srgb, var(--accent-primary) 15%, transparent);
 }
 
 .stat-label {
@@ -309,11 +309,11 @@ pre code {
 }
 
 .link-button:hover {
-  background: rgba(0, 210, 255, 0.1);
+  background: var(--tint-accent);
   border-color: var(--accent-primary);
   box-shadow:
-    0 0 16px rgba(0, 210, 255, 0.2),
-    0 0 40px rgba(0, 210, 255, 0.08);
+    0 0 16px color-mix(in srgb, var(--accent-primary) 20%, transparent),
+    0 0 40px color-mix(in srgb, var(--accent-primary) 8%, transparent);
   transform: translateY(-1px);
 }
 
@@ -413,7 +413,7 @@ pre code {
   transform: translateX(-50%);
   width: 70%;
   height: 140%;
-  background: radial-gradient(ellipse, rgba(0, 210, 255, 0.06) 0%, transparent 65%);
+  background: radial-gradient(ellipse, color-mix(in srgb, var(--accent-primary) 6%, transparent) 0%, transparent 65%);
   pointer-events: none;
   z-index: -1;
 }
@@ -466,7 +466,7 @@ pre code {
 }
 
 .info-cell {
-  background: rgba(10, 15, 26, 0.6);
+  background: var(--surface-elevated);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
@@ -477,7 +477,7 @@ pre code {
 
 .info-cell:hover {
   border-color: var(--border-emphasis);
-  box-shadow: 0 4px 20px rgba(0, 210, 255, 0.08);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--accent-primary) 8%, transparent);
 }
 
 .info-cell-label {
@@ -494,7 +494,7 @@ pre code {
   font-size: 1.5rem;
   color: var(--fg);
   line-height: 1.2;
-  text-shadow: 0 0 16px rgba(0, 210, 255, 0.15);
+  text-shadow: 0 0 16px color-mix(in srgb, var(--accent-primary) 15%, transparent);
 }
 
 .info-cell-detail {
@@ -505,7 +505,7 @@ pre code {
 
 /* ── Callout Blocks ────────────────────────────────────────────── */
 .callout {
-  background: rgba(0, 210, 255, 0.04);
+  background: var(--tint-accent-faint);
   border-left: 2px solid var(--accent-primary);
   border-radius: 0 8px 8px 0;
   padding: 1rem 1.25rem;
@@ -520,7 +520,7 @@ pre code {
 blockquote {
   border-left: 3px solid transparent;
   border-image: linear-gradient(to bottom, var(--accent-primary), transparent) 1;
-  background: rgba(0, 210, 255, 0.03);
+  background: var(--tint-accent-faint);
   padding: 1rem 1.25rem;
   margin: 1.5rem 0;
   border-radius: 0 6px 6px 0;
@@ -537,13 +537,13 @@ blockquote p:last-child {
 
 /* ── Inline strong accent ────────────────────────────────────── */
 p strong {
-  color: rgba(0, 210, 255, 0.85);
+  color: color-mix(in srgb, var(--accent-primary) 85%, var(--fg) 15%);
   font-weight: 500;
 }
 
 /* ── Glow text utility ───────────────────────────────────────── */
 .glow-text {
-  text-shadow: 0 0 20px rgba(0, 210, 255, 0.3), 0 0 6px rgba(0, 210, 255, 0.1);
+  text-shadow: 0 0 20px color-mix(in srgb, var(--accent-primary) 30%, transparent), 0 0 6px color-mix(in srgb, var(--accent-primary) 10%, transparent);
 }
 
 /* Selection */

@@ -74,7 +74,7 @@ const engagements = [
     <p>We preserve the inputs, outputs, state transitions, accepted commands, downstream effects, controls, and grading decisions needed to challenge our own explanation. The result is not a vulnerability anecdote. It is an evidence package a hostile reviewer can inspect.</p>
   </section>
 
-  <section class="cta-section card">
+  <section class="cta-section">
     <h2>Bring us the claim you need to trust.</h2><p>We will design the cheapest bounded experiment capable of proving it wrong.</p>
     <LinkButton href="mailto:services@failurefirst.org?subject=Adversarial%20engagement" text="Start with the claim" />
     <p class="contact-alt">Or use the <a href="/contact/">contact form</a>.</p>
@@ -90,7 +90,7 @@ const engagements = [
   section > h2 { margin-top: 0; }
   .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
   :global(body main) {
-    background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .48) 32rem, rgba(5, 8, 16, .7) 100%);
+    background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .88) 32rem, rgba(5, 8, 16, .92) 100%);
   }
   .capability-card { --card-accent: var(--accent-primary); border-left: 3px solid var(--card-accent); margin-bottom: 0; }
   .capability-card:first-child { grid-column: span 2; }
@@ -122,13 +122,12 @@ const engagements = [
   .engagement-number { color: var(--accent-primary); font-family: 'JetBrains Mono', monospace; font-size: .625rem; }
   .engagement-card h3 { font-size: 1.0625rem; margin: .35rem 0 .5rem; }
   .method { border-left: 3px solid var(--recovery-stable); padding: clamp(1.5rem, 4vw, 3rem); }
-  .method h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin: .5rem 0 1rem; }
-  .cta-section { background: transparent; border-color: var(--border-subtle); box-shadow: none; text-align: center; }
-  .cta-section:hover { border-color: var(--border-emphasis); transform: none; box-shadow: none; }
+  .method h2 { font-size: clamp(1.35rem, 3vw, 1.65rem); margin: .5rem 0 1rem; }
+  .cta-section { text-align: center; padding: 2rem 0; }
   .cta-section p { margin-left: auto; margin-right: auto; }
   .contact-alt { font-size: .85rem; margin-top: 1rem; }
   @media (max-width: 768px) {
-    :global(body main) { background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .56) 28rem, rgba(5, 8, 16, .74) 100%); }
+    :global(body main) { background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .88) 28rem, rgba(5, 8, 16, .92) 100%); }
     .capability-grid, .engagement-grid { grid-template-columns: 1fr; }
     .capability-card:first-child, .engagement-card:first-child { grid-column: auto; }
   }

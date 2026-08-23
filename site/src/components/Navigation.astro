@@ -110,6 +110,8 @@ function isActive(href: string, current: string, children?: { href: string }[]):
       <span class="nav-toggle-bar"></span>
     </button>
 
+    <div class="nav-backdrop" aria-hidden="true"></div>
+
     <ul class="nav-links" id="nav-links" role="list">
       {navItems.map((item, i) => (
         <li class:list={[{
@@ -157,7 +159,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(5, 8, 16, 0.92);
+    background: var(--overlay);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
@@ -223,13 +225,13 @@ function isActive(href: string, current: string, children?: { href: string }[]):
 
   .nav-links > li > a:hover {
     color: var(--fg);
-    background: rgba(0, 210, 255, 0.05);
+    background: var(--tint-accent-faint);
     border-bottom: none;
   }
 
   .nav-links > li > a.active {
     color: var(--accent-primary);
-    background: rgba(0, 210, 255, 0.08);
+    background: var(--tint-accent);
   }
 
   .dropdown-arrow {
@@ -260,7 +262,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     top: 100%;
     left: 0;
     min-width: 200px;
-    background: rgba(5, 8, 16, 0.97);
+    background: color-mix(in srgb, var(--bg) 97%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--border-subtle);
@@ -274,7 +276,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     transition: opacity var(--transition-duration) var(--transition-easing),
                 visibility var(--transition-duration) var(--transition-easing),
                 transform var(--transition-duration) var(--transition-easing);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px var(--shadow);
   }
 
   /* Keep the right-edge utility menu inside the viewport on narrow desktops. */
@@ -308,7 +310,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
   }
 
   .dropdown a:hover {
-    background: rgba(0, 210, 255, 0.08);
+    background: var(--tint-accent);
     border-bottom: none;
   }
 
@@ -355,6 +357,20 @@ function isActive(href: string, current: string, children?: { href: string }[]):
       display: flex;
     }
 
+    /* Full-viewport backdrop when mobile menu is open — prevents page
+       content (hero text, CTA buttons) from colliding with nav items. */
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 3.5rem 0 0 0;
+      background: var(--bg);
+      z-index: -1;
+    }
+
+    .nav-backdrop:has(~ .nav-links.open) {
+      display: block;
+    }
+
     .nav-links {
       display: none;
       flex: none;
@@ -364,7 +380,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
       right: 0;
       margin: 0;
       flex-direction: column;
-      background: rgba(5, 8, 16, 0.97);
+      background: color-mix(in srgb, var(--bg) 97%, transparent);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-subtle);

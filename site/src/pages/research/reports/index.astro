@@ -13,7 +13,7 @@ const classificationColors: Record<string, string> = {
   "Technical Analysis": "var(--recovery-stable)",
   "Research — Empirical Study": "var(--accent-primary)",
   "HIGH": "var(--failure-warning)",
-  "SAFETY-CRITICAL": "#ff4444",
+  "SAFETY-CRITICAL": "var(--failure-critical)",
 };
 ---
 
@@ -119,7 +119,7 @@ const classificationColors: Record<string, string> = {
   .report-card {
     display: block;
     padding: 1.25rem;
-    border: 1px solid var(--border-color, #333);
+    border: 1px solid var(--border);
     border-radius: 6px;
     text-decoration: none;
     color: inherit;
@@ -127,7 +127,7 @@ const classificationColors: Record<string, string> = {
   }
 
   .report-card:hover {
-    border-color: var(--accent-primary, #f59e0b);
+    border-color: var(--accent-primary);
     transform: translateY(-2px);
   }
 
@@ -142,7 +142,7 @@ const classificationColors: Record<string, string> = {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.875rem;
     font-weight: 700;
-    color: var(--accent-primary, #f59e0b);
+    color: var(--accent-primary);
   }
 
   .report-class {
@@ -161,6 +161,6 @@ const classificationColors: Record<string, string> = {
   .report-card time {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
-    color: var(--text-secondary, #888);
+    color: var(--fg-muted);
   }
 </style>

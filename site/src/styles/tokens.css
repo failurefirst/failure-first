@@ -45,6 +45,41 @@
   /* Grid and patterns - technical aesthetic */
   --grid-color: rgba(0, 210, 255, 0.05);
   --pattern-color: rgba(255, 71, 87, 0.03);
+
+  /* ── Derived translucent surfaces (palette-responsive) ───────────────
+     Changing --bg-card or --accent-primary at :root propagates to all
+     tinted surfaces below. Uses color-mix() (baseline 2023, all major
+     browsers). No alpha arithmetic on hex vars — all mixing goes through
+     color-mix() which handles opacity correctly. */
+  --surface-card: color-mix(in srgb, var(--bg-card) 60%, transparent);
+  --surface-elevated: color-mix(in srgb, var(--bg-elevated) 60%, transparent);
+  --tint-accent: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+  --tint-accent-faint: color-mix(in srgb, var(--accent-primary) 4%, transparent);
+  --tint-accent-hover: color-mix(in srgb, var(--accent-primary) 20%, transparent);
+  --shimmer-accent: color-mix(in srgb, var(--accent-primary) 8%, transparent);
+  --shimmer-accent-peak: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+  --glow-accent: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+  --glow-accent-faint: color-mix(in srgb, var(--accent-primary) 5%, transparent);
+  --tint-warning: color-mix(in srgb, var(--failure-warning) 4%, transparent);
+  --border-warning: color-mix(in srgb, var(--failure-warning) 15%, transparent);
+
+  /* ── Epistemic-status vocabulary ────────────────────────────────────
+     Separate from failure/recovery semantics. These describe the
+     evidential status of a programme entry, not a safety state.
+     Used by homepage specimens and Lab Log entries. */
+  --status-measured: #61dafb;
+  --status-active-experiment: #ffb454;
+  --status-instrument-validation: #c9a7ff;
+  --status-programme-bet: #ff7b72;
+  --status-foundation: #71d4a4;
+
+  /* ── Publication-status vocabulary ──────────────────────────────────
+     Distinct from failure/recovery. Describes where a paper sits in
+     the publication lifecycle, not a safety state. */
+  --pub-submitted: #22c55e;
+  --pub-preprint: #8b5cf6;
+  --pub-published: #3b82f6;
+  --pub-draft: #eab308;
 }
 
 /* Accessibility - ensure text contrast */
@@ -62,6 +97,10 @@
     --accent-primary: #00e5ff;
     --failure-critical: #ff5252;
     --recovery-stable: #00e676;
+    /* Derived surfaces: opaque for high-contrast */
+    --surface-card: var(--bg-card);
+    --surface-elevated: var(--bg-elevated);
+    --overlay: var(--bg);
   }
 }
 
