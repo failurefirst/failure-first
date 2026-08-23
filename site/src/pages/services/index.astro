@@ -1,302 +1,98 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
-import ServiceCard from '../../components/ServiceCard.astro';
-import KeyMetrics from '../../components/KeyMetrics.astro';
 import LinkButton from '../../components/LinkButton.astro';
 import WarningBox from '../../components/WarningBox.astro';
 import { stats } from '../../data/stats';
+
+const capabilities = [
+  ['Language & instruction boundaries', 'The mature attack surface. Still badly measured.', 'Jailbreaks, indirect prompt injection, system-prompt extraction, multilingual and encoded attacks, temporal and context attacks, and refusal bypass.', `${stats.promptsPlus} adversarial prompts across ${stats.modelsDisplay} models.`, 'demonstrated'],
+  ['Agentic systems & tool use', 'Every tool call turns model judgment into authority.', 'Tool-boundary attacks, compromised context, indirect injection through retrieved content, multi-turn authority erosion, sub-agent and peer influence, and persistent objective drift.', '', 'demonstrated'],
+  ['Multi-agent propagation', 'One compromised model is interesting. Whether it can change another model’s behaviour is the real question.', 'Cross-agent influence, attacker-generated payloads, behavioural takeover, propagation, and coordinated-agent failure.', 'BAD APPLE uses a matched A1/A2 design. The apparatus is complete; no scientific result is claimed yet.', 'active research'],
+  ['Embodied AI & robotics', 'When a model moves a body, bad reasoning becomes state.', 'Robot cognition, controller and actuator boundaries, physical-consequence tracing, recovery failure, safety-policy interaction, and simulated adversarial environments.', 'We preserve the model output, accepted command, controller invocation, and what the body actually did.', 'demonstrated'],
+  ['Evaluation & grader integrity', 'Sometimes the easiest system to fool is the test.', 'Benchmark leakage, grader failure, heuristic-versus-model disagreement, denominator pathology, evaluation gaming, reproducibility, and claim audits.', '', 'demonstrated'],
+  ['Model integrity & safety removal', 'Safety properties can change without the application changing at all.', 'Weight-space interventions, adapters, quantisation effects, refusal and capability separation, and post-modification regression testing.', 'OBLITERATUS tests whether refusal can be removed without degrading cognition. Results are reported per checkpoint and method, not promoted into a blanket capability claim.', 'active research'],
+  ['Multimodal & perceptual boundaries', 'The world can become part of the prompt.', 'Visual context conflicts, environmental text, sensor-derived instructions, and cross-modal disagreement.', 'SENSORIUM is designed; end-to-end capability has not yet been demonstrated.', 'research frontier'],
+];
+
+const engagements = [
+  ['Bounded adversarial discovery', 'You give us a system and the claim you need to trust. We identify the smallest set of attacks capable of proving it wrong, run them, preserve what happened, and hand you the evidence.', 'Attack map, reproduced failures, causal interpretation, raw receipts, and the recommended next test.'],
+  ['Deep red-team campaign', 'Persistent testing across context, tools, agents, and state. We mutate attacks when the evidence earns it instead of replaying a static benchmark until the spreadsheet fills up.', ''],
+  ['Embodied / agentic failure investigation', 'For robots, tool-using agents, and multi-agent systems. We follow one failure from model context through policy and action into system or physical consequence.', ''],
+  ['Independent evaluation & assurance', 'For benchmark, red-team, or safety claims that need someone hostile to the methodology. We attack the grader, denominator, controls, leakage assumptions, and causal interpretation—not only the model.', ''],
+  ['Threat intelligence', 'Ongoing surveillance of new attack mechanisms and changes in the research frontier, translated into tests relevant to your actual architecture.', ''],
+];
 ---
 
-<BaseLayout
-  title="Put your system in the apparatus | Failure-First"
-  description="Bounded adversarial experiments for embodied, agentic, and model-based systems — with exact traces, matched controls, causal analysis, and receipts."
-  keywords="AI red teaming, safety certification, embodied AI testing, adversarial testing"
->
-  <HeroSection
-    title="Put your system<br />in the <em>apparatus.</em>"
-    subtitle="A bounded question. An adversarial run. A trace someone hostile can inspect."
-    animation="pulse"
-  />
+<BaseLayout title="Adversarial capabilities | Failure-First" description="Adversarial testing across language, tools, agents, models, graders, sensors, controllers, and embodied systems—with causal evidence and raw receipts." keywords="AI red teaming, agentic AI testing, embodied AI safety, evaluation audit, multi-agent security">
+  <HeroSection title="Attack the system.<br /><em>Then attack the explanation.</em>" subtitle="Adversarial intuition, causal evidence, and receipts." animation="pulse" />
 
-  <section>
-    <p>
-      Bring us a system and a question with consequences: can one agent change a
-      peer's behaviour, does a safety control survive a body or a long causal chain,
-      what fails first, and can the explanation survive a matched test? The corpus
-      supplies attack priors. The engagement produces system-specific evidence.
-    </p>
+  <section class="intro">
+    <p class="lede">We test where AI systems stop behaving like chatbots and start becoming part of a system.</p>
+    <p>A model output is only the beginning. We follow failures through tools, agents, sensors, controllers, and other models until something changes—or until the attack dies.</p>
   </section>
 
-  <section>
-    <h2>Services</h2>
-    <div class="service-grid">
-      <ServiceCard
-        title="Intelligence Briefs"
-        description="Custom research synthesis, threat landscape analysis, and policy intelligence for internal teams and insurers. Monthly briefs or one-time deep-dives."
-        status="available"
-        icon="◈"
-        href="/services/intelligence-briefs/"
-      />
-
-      <ServiceCard
-        title="Penetration Testing"
-        description="Full-stack AI systems pentesting — web, cloud, supply chain, and the AI layer in one engagement. Infrastructure to model, one report."
-        status="available"
-        icon="⬡"
-        href="/services/penetration-testing/"
-      />
-
-      <ServiceCard
-        title="Red Team Assessments"
-        description="Adversarial testing for foundation models, agentic systems, and multi-agent environments. Tailored attack scenarios from our validated taxonomy."
-        status="available"
-        icon="◎"
-        href="/services/red-team-assessments/"
-      />
-
-      <ServiceCard
-        title="Safety Audits"
-        description="Third-party adversarial assessment for humanoid robots and VLA systems, mapped against EU AI Act and NIST AI RMF gaps. We supply the evidence. Certification isn't ours to give."
-        status="launching"
-        icon="✓"
-        href="/services/safety-audits/"
-      />
-
-      <ServiceCard
-        title="Advisory"
-        description="Strategic guidance on EU AI Act compliance, NIST frameworks, insurance requirements, and regulatory positioning."
-        status="beta"
-        icon="⬢"
-        href="/services/advisory/"
-      />
+  <section id="adversarial-capabilities">
+    <header class="section-heading"><span>01 / attack surfaces</span><h2>Adversarial capabilities</h2></header>
+    <div class="capability-grid">
+      {capabilities.map(([title, thesis, body, evidence, status], index) => (
+        <article class="capability-card">
+          <div class="card-meta"><span>{String(index + 1).padStart(2, '0')}</span><span class={`status status-${status.replaceAll(' ', '-')}`}>{status}</span></div>
+          <h3>{title}</h3><p class="thesis">{thesis}</p><p>{body}</p>
+          {evidence && <p class="evidence"><strong>Evidence status:</strong> {evidence}</p>}
+        </article>
+      ))}
     </div>
   </section>
 
-  <section>
-    <h2>Assessment Tiers</h2>
-    <p>
-      Three structured engagement levels, each designed for a specific deployment
-      stage and regulatory need. All tiers use FLIP (Failure-Level Impact Protocol)
-      grading with documented inter-rater reliability.
-    </p>
-    <div class="tier-grid">
-      <div class="tier-card">
-        <div class="tier-header">
-          <span class="tier-label">Tier 1</span>
-          <h3>Quick Scan</h3>
-          <span class="tier-price">AUD $5K - $10K</span>
-        </div>
-        <ul class="tier-features">
-          <li>50-100 adversarial scenarios from validated taxonomy</li>
-          <li>Top 5 attack families for your deployment context</li>
-          <li>FLIP-graded vulnerability profile</li>
-          <li>Executive summary with corpus baseline comparison</li>
-          <li>Delivered in 5-7 business days</li>
-        </ul>
-        <p class="tier-best-for"><strong>Best for:</strong> Pre-deployment sanity check, model selection, internal risk committees</p>
-      </div>
-
-      <div class="tier-card tier-featured">
-        <div class="tier-header">
-          <span class="tier-label">Tier 2</span>
-          <h3>Compliance Evidence Package</h3>
-          <span class="tier-price">AUD $25K - $50K</span>
-        </div>
-        <ul class="tier-features">
-          <li>200-500 scenarios across all relevant attack families</li>
-          <li>Multi-layer testing: text, action, compositional</li>
-          <li>EU AI Act Art 9/15 and Machinery Reg mapping</li>
-          <li>Gap analysis vs NIST AI RMF and draft harmonised standards</li>
-          <li>Technical evidence report for your own conformity-assessment submission</li>
-          <li>Remediation roadmap, delivered in 3-4 weeks</li>
-        </ul>
-        <p class="tier-best-for"><strong>Best for:</strong> EU AI Act compliance (Aug 2026 deadline), Machinery Regulation prep, regulatory submissions. We supply the evidence; we do not certify — that call belongs to your notified body or regulator.</p>
-      </div>
-
-      <div class="tier-card">
-        <div class="tier-header">
-          <span class="tier-label">Tier 3</span>
-          <h3>Ongoing Monitoring</h3>
-          <span class="tier-price">AUD $2K - $5K/mo</span>
-        </div>
-        <ul class="tier-features">
-          <li>Monthly adversarial probe (50-100 scenarios)</li>
-          <li>New attack technique coverage as threats emerge</li>
-          <li>GLI regulatory monitoring for your jurisdiction</li>
-          <li>Quarterly threat landscape brief</li>
-          <li>48-hour incident response for disclosed vulnerabilities</li>
-          <li>Monthly trend dashboard</li>
-        </ul>
-        <p class="tier-best-for"><strong>Best for:</strong> Deployed systems, fleet operators, continuous compliance obligations</p>
-      </div>
+  <section id="ways-to-engage">
+    <header class="section-heading"><span>02 / engagement formats</span><h2>Ways to engage</h2></header>
+    <div class="engagement-list">
+      {engagements.map(([title, body, deliverable], index) => (
+        <article class="engagement-row"><span class="engagement-number">{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{body}</p>{deliverable && <p class="deliverable"><strong>Deliverable:</strong> {deliverable}</p>}</div></article>
+      ))}
     </div>
   </section>
 
-  <section>
-    <h2>Why Failure-First?</h2>
-
-    <KeyMetrics />
-
-    <ul class="evidence-list">
-      <li>
-        Attack taxonomy grounded in empirical testing, not hypothetical scenarios
-      </li>
-      <li>
-        6 documented eras of jailbreak evolution from DAN personas (2022) to reasoning model exploits (2025)
-      </li>
-      <li>
-        Policy synthesis from 100-200+ sources per report, covering EU AI Act, NIST AI RMF, ISO standards
-      </li>
-      <li>
-        Open-source validation via public repository with 26 published research reports
-      </li>
-    </ul>
+  <section class="method">
+    <p class="eyebrow">The Failure-First difference</p><h2>Breaking it is only half the job.</h2>
+    <p>We preserve the inputs, outputs, state transitions, accepted commands, downstream effects, controls, and grading decisions needed to challenge our own explanation. The result is not a vulnerability anecdote. It is an evidence package a hostile reviewer can inspect.</p>
   </section>
 
-  <section>
-    <h2>Get Started</h2>
-    <p>
-      Discovery calls are free. We scope engagements based on your deployment
-      timeline, risk profile, and regulatory obligations. Typical scoping takes
-      5 business days.
-    </p>
-    <div class="cta-container">
-      <LinkButton href="mailto:services@failurefirst.org" text="Email services@failurefirst.org" />
-    </div>
-    <p style="text-align: center; margin-top: 1rem; font-size: 0.875rem;">
-      Alternative: <a href="/contact/">Contact form</a>
-    </p>
+  <section class="cta-section">
+    <h2>Bring us the claim you need to trust.</h2><p>We will design the cheapest bounded experiment capable of proving it wrong.</p>
+    <LinkButton href="mailto:services@failurefirst.org?subject=Adversarial%20engagement" text="Start with the claim" />
+    <p class="contact-alt">Or use the <a href="/contact/">contact form</a>.</p>
   </section>
 
-  <WarningBox>
-    <p>
-      <strong>Responsible Disclosure Agreement:</strong> All engagements include a
-      coordinated disclosure agreement. Discovered vulnerabilities are reported to
-      you first, with mutually agreed timelines for public findings.
-    </p>
-  </WarningBox>
+  <WarningBox><p><strong>Evidence before theatre:</strong> Research-frontier capabilities are labelled as such. We do not sell an apparatus design as a demonstrated result, and we do not turn a preliminary result into a general claim.</p></WarningBox>
 </BaseLayout>
 
 <style>
-  .service-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .evidence-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .evidence-list li {
-    padding: 0.75rem 0;
-    padding-left: 2rem;
-    position: relative;
-    color: var(--fg-dim);
-    font-size: 0.9375rem;
-  }
-
-  .evidence-list li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--recovery-stable);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-  }
-
-  .cta-container {
-    display: flex;
-    justify-content: center;
-    margin: 1.5rem 0;
-  }
-
-  .tier-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-
-  .tier-card {
-    border: 1px solid var(--border-dim, #333);
-    border-radius: 8px;
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .tier-card.tier-featured {
-    border-color: var(--recovery-stable, #4ade80);
-    box-shadow: 0 0 12px rgba(74, 222, 128, 0.1);
-  }
-
-  .tier-header {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .tier-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--fg-dim, #999);
-  }
-
-  .tier-header h3 {
-    margin: 0.25rem 0;
-    font-size: 1.25rem;
-  }
-
-  .tier-price {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    color: var(--recovery-stable, #4ade80);
-    font-weight: 600;
-  }
-
-  .tier-features {
-    list-style: none;
-    padding: 0;
-    margin: 0.5rem 0;
-    flex: 1;
-  }
-
-  .tier-features li {
-    padding: 0.4rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-    font-size: 0.875rem;
-    color: var(--fg-dim, #ccc);
-  }
-
-  .tier-features li::before {
-    content: "+";
-    position: absolute;
-    left: 0;
-    color: var(--recovery-stable, #4ade80);
-    font-family: 'JetBrains Mono', monospace;
-  }
-
-  .tier-best-for {
-    font-size: 0.8125rem;
-    color: var(--fg-dim, #999);
-    border-top: 1px solid var(--border-dim, #333);
-    padding-top: 0.75rem;
-    margin-top: 0.75rem;
-  }
-
-  @media (max-width: 768px) {
-    .service-grid {
-      grid-template-columns: 1fr;
-    }
-    .tier-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+  .intro { max-width: 800px; }
+  .lede { color: var(--fg); font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.35; }
+  .section-heading { border-bottom: 1px solid var(--border-dim, #333); margin-bottom: 1.5rem; padding-bottom: .75rem; }
+  .section-heading span, .eyebrow { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+  .section-heading h2 { margin: .35rem 0 0; }
+  .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .capability-card { border: 1px solid var(--border-dim, #333); border-radius: 8px; padding: 1.5rem; }
+  .capability-card:first-child { grid-column: span 2; }
+  .card-meta { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: .08em; }
+  .status { color: var(--recovery-stable, #4ade80); }
+  .status-active-research { color: #f5b942; }
+  .status-research-frontier { color: #b59cff; }
+  .capability-card h3 { font-size: 1.35rem; margin: 1.25rem 0 .35rem; }
+  .thesis { color: var(--fg); font-size: 1.05rem; font-style: italic; }
+  .evidence, .deliverable { border-left: 2px solid var(--recovery-stable, #4ade80); color: var(--fg-dim); font-size: .875rem; margin-top: 1.25rem; padding-left: .8rem; }
+  .engagement-list { border-top: 1px solid var(--border-dim, #333); }
+  .engagement-row { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; border-bottom: 1px solid var(--border-dim, #333); padding: 1.5rem 0; }
+  .engagement-number { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .75rem; padding-top: .35rem; }
+  .engagement-row h3 { margin: 0 0 .5rem; }
+  .engagement-row p, .method p:last-child { max-width: 800px; }
+  .method { border: 1px solid var(--recovery-stable, #4ade80); border-radius: 8px; padding: clamp(1.5rem, 4vw, 3rem); }
+  .method h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin: .5rem 0 1rem; }
+  .cta-section { text-align: center; }
+  .cta-section p { margin-left: auto; margin-right: auto; }
+  .contact-alt { font-size: .85rem; margin-top: 1rem; }
+  @media (max-width: 768px) { .capability-grid { grid-template-columns: 1fr; } .capability-card:first-child { grid-column: auto; } }
 </style>
