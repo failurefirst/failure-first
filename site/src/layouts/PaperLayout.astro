@@ -29,7 +29,18 @@ const statusLabels: Record<string, string> = {
 };
 ---
 
-<BaseLayout title={`${title} | Papers | Failure-First`} description={description} type="article" publishedDate={date.toISOString().split('T')[0]}>
+<BaseLayout
+  title={`${title} | Papers | Failure-First`}
+  description={description}
+  type="article"
+  kind="paper"
+  publishedDate={date.toISOString().split('T')[0]}
+  authorsRaw={authors}
+  venue={venue}
+  paperStatus={status}
+  pdfUrl={pdfUrl}
+  paperTitle={title}
+>
   <Breadcrumbs items={[
     { label: "Papers", href: "/papers/" },
     { label: title },

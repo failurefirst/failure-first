@@ -23,7 +23,7 @@ const formattedDate = date.toLocaleDateString('en-US', {
 });
 ---
 
-<BaseLayout title={`${title} | ${section} | Failure-First`} description={description} image={image} type="article" publishedDate={date.toISOString().split('T')[0]}>
+<BaseLayout title={`${title} | ${section} | Failure-First`} description={description} image={image} type="article" kind="blog-post" publishedDate={date.toISOString().split('T')[0]}>
   <Breadcrumbs items={[
     { label: section, href: sectionHref },
     { label: title },

@@ -12,12 +12,20 @@ interface Props {
   description?: string;
   image?: string;
   type?: 'website' | 'article';
+  kind?: 'webpage' | 'blog-post' | 'daily-paper' | 'report' | 'paper';
   publishedDate?: string;
   breadcrumbs?: Crumb[];
   status?: 'active' | 'draft' | 'complete';
+  // report-only (kind="report") — threaded through for ReportLayout/LegalMemoLayout
+  reportNumber?: number;
+  reportClassification?: string;
+  reportAuthor?: string;
 }
 
-const { title, description, image, type, publishedDate, breadcrumbs = [], status = 'active' } = Astro.props;
+const {
+  title, description, image, type, kind = 'webpage', publishedDate, breadcrumbs = [], status = 'active',
+  reportNumber, reportClassification, reportAuthor,
+} = Astro.props;
 
 const statusLabels: Record<string, { text: string; color: string }> = {
   active: { text: "Active Research", color: "var(--recovery-active)" },
@@ -28,7 +36,17 @@ const statusLabels: Record<string, { text: string; color: string }> = {
 const badge = statusLabels[status];
 ---
 
-<BaseLayout title={title} description={description} image={image} type={type} publishedDate={publishedDate}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  type={type}
+  kind={kind}
+  publishedDate={publishedDate}
+  reportNumber={reportNumber}
+  reportClassification={reportClassification}
+  reportAuthor={reportAuthor}
+>
   <div class="research-header">
     {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
     <div class="research-status">

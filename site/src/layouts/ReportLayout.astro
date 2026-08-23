@@ -10,6 +10,7 @@ interface Props {
   reportNumber?: number;
   briefNumber?: string;
   classification?: string;
+  author?: string;
   date?: string;
   status?: 'active' | 'draft' | 'complete';
   // Cover (rendered only when heroTitle is present)
@@ -33,7 +34,7 @@ interface Props {
 const props = Astro.props?.frontmatter ?? Astro.props;
 const {
   title, description, image, audio, video,
-  reportNumber, briefNumber, classification, date, status = 'draft',
+  reportNumber, briefNumber, classification, author, date, status = 'draft',
   heroTitle, heroSubtitle,
   refId, product, scope, probeVersions, probeCount, harmClasses, testingPeriod,
   sevCritical, sevHigh, sevMedium, sevLow, sevInfo,
@@ -80,9 +81,13 @@ const breadcrumbs = briefNumber
   description={description}
   image={image}
   type="article"
+  kind="report"
   publishedDate={date}
   breadcrumbs={breadcrumbs}
   status={status}
+  reportNumber={reportNumber}
+  reportClassification={classification}
+  reportAuthor={author}
 >
   <article class="report-content">
 

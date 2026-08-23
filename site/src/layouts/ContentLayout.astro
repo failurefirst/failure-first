@@ -13,6 +13,7 @@ interface Props {
   description?: string;
   breadcrumbs?: Crumb[];
   type?: 'website' | 'article';
+  kind?: 'webpage' | 'blog-post' | 'daily-paper' | 'report' | 'paper';
   publishedDate?: string;
   modifiedDate?: string;
   keywords?: string;
@@ -21,11 +22,12 @@ interface Props {
   accent?: AccentName;
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   breadcrumbs = [],
   type,
+  kind = 'webpage',
   publishedDate,
   modifiedDate,
   keywords,
@@ -35,10 +37,11 @@ const {
 } = Astro.props;
 ---
 
-<BaseLayout 
-  title={title} 
+<BaseLayout
+  title={title}
   description={description}
   type={type}
+  kind={kind}
   publishedDate={publishedDate}
   modifiedDate={modifiedDate}
   keywords={keywords}

@@ -22,14 +22,14 @@ interface Props {
 
 const {
   title,
-  description = "Meet the research team behind the Failure-First framework — fourteen specialists in adversarial evaluation, AI safety, and governance.",
+  description = "The Failure-First team — specialists in adversarial evaluation, embodied AI safety, and AI governance.",
   image,
   keywords,
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -39,6 +39,7 @@ const {
       description={description}
       image={image}
       keywords={keywords}
+      kind="webpage"
     />
     <link rel="alternate" type="application/rss+xml" title="Failure-First Embodied AI" href="/rss.xml" />
 
