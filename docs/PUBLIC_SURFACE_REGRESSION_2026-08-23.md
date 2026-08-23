@@ -55,7 +55,9 @@ SURFACE_BASE_URL=https://failurefirst.org npm run test:surface -- --project=desk
 /about/team/ — 404 portrait responses including adrian2, the-doctor, and river
 ```
 
-The repaired local build subsequently passed the desktop/mobile runtime suite,
-including decoded portraits, explicit renderer ownership, non-background
-cyan/coral pixel evidence, reduced motion, header-enforced CSP, and visual
-snapshots. Production re-observation is required after deployment.
+The repaired local build subsequently passed the desktop/mobile runtime suite.
+After deployment of `abafaecd12`, the same suite was rerun against
+`https://failurefirst.org`: **16/16 passed**. The production observation covered
+decoded portraits, favicon 200, explicit renderer ownership, non-background
+cyan/coral pixel evidence, reduced-motion identity, site-owned request health,
+enforced/report-only CSP separation, and desktop/mobile visual snapshots.
