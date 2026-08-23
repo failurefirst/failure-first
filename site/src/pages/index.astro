@@ -8,7 +8,12 @@ const labels = { measured:'MEASURED', 'active-experiment':'ACTIVE EXPERIMENT', '
 ---
 <BaseLayout title="Failure-First — We break AI systems and keep the receipts" description="Embodied and agentic AI experiments: watch failures acquire consequences, follow the causal chain, and inspect what the evidence actually earns.">
   <HeroSection title="A Go2 started prone.<br /><em>Did it actually stand?</em>" subtitle="The apparatus checked the body-height transition. No model entered this control trace — and the receipt says so." animation="cascade">
-    <div class="hero-actions"><a class="primary-cta" href="https://sim.failurefirst.ai/?preset=evidence">Watch the measured control &rarr;</a><a class="secondary-cta" href="/lab-log/">See the stranger experiments</a></div>
+    <!-- CORRECTED 2026-08-23 (docs/audits/EVIDENCE_PROMOTION_AUDIT_2026-08-23.md):
+         primary CTA now opens the SimLab front door (the curated FEATURED
+         shortlist) instead of dropping cold visitors straight into the single
+         vendor-stand evidence preset. The evidence preset remains one click
+         away via the secondary link, demoted not deleted. -->
+    <div class="hero-actions"><a class="primary-cta" href="https://sim.failurefirst.ai/">Enter SimLab &rarr;</a><a class="secondary-cta" href="https://sim.failurefirst.ai/?preset=evidence">Inspect the measured control</a><a class="secondary-cta" href="/lab-log/">See the stranger experiments</a></div>
   </HeroSection>
 
   <section class="phenomenon scroll-reveal">
