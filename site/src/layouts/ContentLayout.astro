@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import type { AnimationName, AccentName } from '../components/GenerativeBackground.astro';
 
 interface Crumb {
   label: string;
@@ -16,6 +17,8 @@ interface Props {
   modifiedDate?: string;
   keywords?: string;
   noindex?: boolean;
+  animation?: AnimationName;
+  accent?: AccentName;
 }
 
 const { 
@@ -26,7 +29,9 @@ const {
   publishedDate,
   modifiedDate,
   keywords,
-  noindex
+  noindex,
+  animation,
+  accent
 } = Astro.props;
 ---
 
@@ -38,6 +43,8 @@ const {
   modifiedDate={modifiedDate}
   keywords={keywords}
   noindex={noindex}
+  animation={animation}
+  accent={accent}
 >
   {breadcrumbs.length > 0 && <Breadcrumbs items={breadcrumbs} />}
   <slot />

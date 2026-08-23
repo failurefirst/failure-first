@@ -19,7 +19,7 @@ interface AgentData {
   tagline: string;
   bio: string;
   tags: string[];
-  audio: string;
+  audio?: string;
   isCloser?: boolean;
 }
 
@@ -59,7 +59,6 @@ const imgPriority = index < 2 ? 'high' : 'auto';
           style={`--agent-color: ${color}`}
           loading={index < 2 ? 'eager' : 'lazy'}
           fetchpriority={imgPriority}
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
         />
         <div class="agent-photo-fallback" style={`--agent-color: ${color}`} aria-hidden="true">
           {initials}
@@ -89,18 +88,16 @@ const imgPriority = index < 2 ? 'high' : 'auto';
     </div>
   </div>
 
-  <!-- Audio (hidden element — controlled by JS) -->
-  <audio
+  {audio && <audio
     data-agent={slug}
     preload={audioPreload}
     aria-label={`${name} voice introduction`}
   >
-    <source src={`https://cdn.failurefirst.org/audio/companions/${audio}.ogg`} type="audio/ogg; codecs=opus" />
-    <source src={`https://cdn.failurefirst.org/audio/companions/${audio}.mp3`} type="audio/mpeg" />
-  </audio>
+    <source src={`/audio/companions/${audio}.wav`} type="audio/wav" />
+  </audio>}
 
   <!-- Audio control button (always visible — WCAG 1.4.2) -->
-  <div class="audio-indicator" data-agent={slug}>
+  {audio && <div class="audio-indicator" data-agent={slug}>
     <button
       class="audio-btn"
       type="button"
@@ -124,11 +121,11 @@ const imgPriority = index < 2 ? 'high' : 'auto';
       <span class="audio-btn-label">Intro</span>
     </button>
     <noscript>
-      <a href={`https://cdn.failurefirst.org/audio/companions/${audio}.ogg`} class="audio-noscript-link">
+      <a href={`/audio/companions/${audio}.wav`} class="audio-noscript-link">
         Listen to {name} introduction
       </a>
     </noscript>
-  </div>
+  </div>}
 
   <!-- Scroll hint: next agent name injected by JS -->
   <div class="scroll-hint" aria-hidden="true">

@@ -6,7 +6,7 @@
  * - Adds body.page-team class so global.css main constraints are neutralised
  * - Does NOT use ContentLayout (no max-width 900px wrapper)
  * - Renders slot directly inside <main> with overridden styles
- * - Canvas (#sensor-grid-bg) is shared from BaseLayout but owned by team.astro JS
+ * - Its separate #sensor-grid-bg canvas is explicitly owned by team.astro JS
  */
 
 import Navigation from '../components/Navigation.astro';
@@ -70,7 +70,7 @@ const {
   </head>
   <body class="page-team">
     <a href="#main-content" class="skip-link">Skip to content</a>
-    <canvas id="sensor-grid-bg" aria-hidden="true"></canvas>
+    <canvas id="sensor-grid-bg" aria-hidden="true" data-renderer-owner="team-signal-canvas" data-animation="signal" data-renderer-state="pending"></canvas>
     <Navigation />
     <main id="main-content">
       <slot />

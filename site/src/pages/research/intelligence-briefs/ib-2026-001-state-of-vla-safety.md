@@ -10,13 +10,6 @@ status: "active"
 
 # The State of VLA Model Safety: 2026
 
-<div class="audio-overview">
-<p>Listen to an AI-generated audio overview of this intelligence brief (NotebookLM)</p>
-<audio controls src="/audio/research/vla_safety_overview_notebooklm.mp3" preload="metadata"></audio>
-</div>
-
----
-
 ## Executive Summary
 
 Vision-Language-Action (VLA) models are replacing programmed robotics with prompted robotics. Instead of deterministic code governing a robot's behavior, transformer-based models now generate action tokens from natural language instructions and camera images. This architectural shift introduces attack surfaces that neither existing LLM safety benchmarks nor existing robotics safety standards are designed to assess.

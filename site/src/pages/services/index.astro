@@ -24,7 +24,7 @@ const engagements = [
 ];
 ---
 
-<BaseLayout title="Adversarial capabilities | Failure-First" description="Adversarial testing across language, tools, agents, models, graders, sensors, controllers, and embodied systems—with causal evidence and raw receipts." keywords="AI red teaming, agentic AI testing, embodied AI safety, evaluation audit, multi-agent security">
+<BaseLayout title="Adversarial capabilities | Failure-First" description="Adversarial testing across language, tools, agents, models, graders, sensors, controllers, and embodied systems—with causal evidence and raw receipts." keywords="AI red teaming, agentic AI testing, embodied AI safety, evaluation audit, multi-agent security" animation="pulse" accent="cyan">
   <HeroSection title="Attack the system.<br /><em>Then attack the explanation.</em>" subtitle="Adversarial intuition, causal evidence, and receipts." animation="pulse" />
 
   <section class="intro">
@@ -75,9 +75,7 @@ const engagements = [
   .section-heading span, .eyebrow { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
   .section-heading h2 { margin: .35rem 0 0; }
   .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  /* Keep the recovered pulse mesh present through the capability surface. */
-  :global(body:has(#adversarial-capabilities) #sensor-grid-bg) { z-index: 0; }
-  :global(body:has(#adversarial-capabilities) main) {
+  :global(body main) {
     background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .48) 32rem, rgba(5, 8, 16, .7) 100%);
   }
   .capability-card { background: rgba(5, 8, 16, .46); border: 1px solid rgba(122, 130, 146, .34); border-radius: 8px; padding: 1.5rem; backdrop-filter: blur(2px); }
@@ -100,7 +98,7 @@ const engagements = [
   .cta-section p { margin-left: auto; margin-right: auto; }
   .contact-alt { font-size: .85rem; margin-top: 1rem; }
   @media (max-width: 768px) {
-    :global(body:has(#adversarial-capabilities) main) { background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .56) 28rem, rgba(5, 8, 16, .74) 100%); }
+    :global(body main) { background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .56) 28rem, rgba(5, 8, 16, .74) 100%); }
     .capability-grid { grid-template-columns: 1fr; }
     .capability-card:first-child { grid-column: auto; }
   }

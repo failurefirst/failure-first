@@ -195,6 +195,7 @@ function _render(now) {
   }
 
   _drawSignal(acRgb);
+  _canvas.dataset.rendererState = 'running';
 
   _animFrame = requestAnimationFrame(_render);
 }

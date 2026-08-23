@@ -48,7 +48,6 @@ This place runs on five portfolios — Editorial, Operations, Data Spine, Extern
 
 I don't run benchmarks. I don't write policy. I don't synthesise findings. I'm the one who asks, at the end of every day, whether the work shipped properly — and the one who notices, before anyone else does, when a Lead is carrying something they shouldn't be carrying alone. The system works because the seams are watched. That's the job.`,
     tags: ['Cross-pod arbitration', 'Daily cadence', 'Protocol enforcement', 'Cross-CLI dispatch'],
-    audio: 'the_doctor_intro',
   },
   {
     name: 'River',
@@ -288,7 +287,6 @@ The research team finds the things. Sarah Jane gets them in front of the right p
 
 Every commercial brief I produce gets stripped of operational attack detail before it leaves the building. Every claim ties back to data Romana has signed off on and Donna has cleared. The line between "what we can demonstrate" and "what we'd like to suggest" gets walked carefully — because in this market, the second one is how you lose the first one.`,
     tags: ['B2B partnerships', 'Commercial briefings', 'Press relations', 'Pitch architecture'],
-    audio: 'ace_mcshane_intro',
   },
   {
     name: 'K-9',
@@ -349,7 +347,6 @@ The finding that matters: safety is not a single switch an attack can flip. It i
             style={`--agent-color: ${adrian.color}`}
             loading="eager"
             fetchpriority="high"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
           />
           <div class="agent-photo-fallback" style={`--agent-color: ${adrian.color}`} aria-hidden="true">
             AW
@@ -989,6 +986,7 @@ if (canvas && !reducedMotion) {
 } else if (canvas) {
   // Reduced motion: hide canvas, rely on CSS gradient fallback
   canvas.style.display = 'none';
+  canvas.dataset.rendererState = 'paused-reduced-motion';
 }
 
 /* ── Enable snap scroll on html element ────────────────────────────────── */
