@@ -20,6 +20,9 @@ const { Content } = await render(memo);
   title={`${memo.data.title} | Legal Analysis | Failure-First`}
   description={memo.data.description}
   type="article"
+  kind="report"
+  publishedDate={memo.data.date instanceof Date ? memo.data.date.toISOString().split('T')[0] : memo.data.date}
+  reportClassification={`Legal Analysis — ${memo.data.jurisdiction}`}
   breadcrumbs={[
     { label: "Research", href: "/research/" },
     { label: "Legal Analysis", href: "/research/legal/" },

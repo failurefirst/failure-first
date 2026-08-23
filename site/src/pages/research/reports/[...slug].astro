@@ -24,6 +24,7 @@ const { Content } = await render(report);
   video={report.data.video}
   reportNumber={report.data.reportNumber}
   classification={report.data.classification}
+  author={report.data.author}
   date={report.data.date instanceof Date ? report.data.date.toISOString().split('T')[0] : report.data.date}
   status={report.data.status}
   heroTitle={report.data.heroTitle}
