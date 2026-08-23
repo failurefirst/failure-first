@@ -212,7 +212,7 @@ function isActive(href: string, current: string, children?: { href: string }[]):
     display: flex;
     align-items: center;
     gap: 0.25rem;
-    padding: 0.5rem 0.75rem;
+    padding: 0.5rem;
     color: var(--fg-muted);
     font-size: 0.8125rem;
     font-weight: 400;
@@ -276,6 +276,12 @@ function isActive(href: string, current: string, children?: { href: string }[]):
                 visibility var(--transition-duration) var(--transition-easing),
                 transform var(--transition-duration) var(--transition-easing);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Keep the right-edge utility menu inside the viewport on narrow desktops. */
+  .nav-util-start .dropdown {
+    right: 0;
+    left: auto;
   }
 
   .has-dropdown:hover .dropdown,
