@@ -1,15 +1,66 @@
 ---
+// SEOHead — shared mechanical head metadata (title, description, canonical,
+// robots, OG, Twitter, shared publisher/site identity) plus per-page structured
+// data whose Schema.org type is driven by an explicit `kind` the calling layout
+// already knows — never inferred from Astro.url.pathname.
+//
+// Content-authority contract (see issue tracking #1105-class structured-data
+// repair): a layout tells SEOHead what it is. SEOHead does not guess.
+//
+//   webpage      — generic page (methodology, taxonomy, directory, hub, tool,
+//                  services, SimLab, lab log, about, etc.) — no article-shaped
+//                  JSON-LD beyond the shared site graph.
+//   blog-post    — genuinely authored Failure-First blog post -> BlogPosting.
+//   daily-paper  — Failure-First's review/synthesis of an external arXiv paper.
+//                  This is OUR commentary, not the original scholarly work —
+//                  BlogPosting/Article authored by Failure-First, never
+//                  ScholarlyArticle, never Google Scholar citation_* tags.
+//   report       — a Failure-First report (empirical, technical, regulatory,
+//                  standards, legal memo, etc.) -> honest generic Report/Article
+//                  type. NOT ScholarlyArticle merely because it lives under
+//                  /research/reports/ — no Scholar metadata unless a report
+//                  explicitly opts in (no such opt-in mechanism exists yet;
+//                  see brief — do not invent one from title/classification).
+//   paper        — an actual Failure-First paper under /papers/ -> ScholarlyArticle
+//                  + Google Scholar Highwire meta, derived from the paper's own
+//                  frontmatter fields (authors, date, venue, pdfUrl).
+//
+// Google Scholar inclusion guidance (citation_pdf_url = absolute URL of the
+// actual PDF; citation_title/citation_author mandatory; scholarly content only):
+// https://scholar.google.com/intl/en/scholar/inclusion.html
+// Article/BlogPosting guidance (no strictly required fields, but headline/
+// image/datePublished/author/publisher recommended):
+// https://developers.google.com/search/docs/appearance/structured-data/article
+// WebSite site-name guidance (home page only, name + url, optional alternateName):
+// https://developers.google.com/search/docs/appearance/site-names
+
+type Kind = 'webpage' | 'blog-post' | 'daily-paper' | 'report' | 'paper';
+
 interface Props {
   title: string;
   description: string;
   canonical?: string;
   type?: 'website' | 'article';
+  kind?: Kind;
   publishedDate?: string;
   modifiedDate?: string;
   image?: string;
   author?: string;
   keywords?: string;
   noindex?: boolean;
+  // paper-only (kind="paper")
+  authorsRaw?: string;
+  venue?: string;
+  paperStatus?: 'draft' | 'submitted' | 'preprint' | 'published';
+  pdfUrl?: string;
+  // Clean, undecorated paper title for citation_title. `title` above carries
+  // the decorated <title> tag value (" | Papers | Failure-First" etc.) which
+  // must never leak into Scholar metadata. Falls back to `title` if absent.
+  paperTitle?: string;
+  // report-only (kind="report")
+  reportNumber?: number;
+  reportClassification?: string;
+  reportAuthor?: string;
 }
 
 const {
@@ -17,28 +68,46 @@ const {
   description,
   canonical,
   type = 'website',
+  kind = 'webpage',
   publishedDate,
   modifiedDate,
   image = '/images/failurefirst-og-v3.jpg',
   author = "Adrian Wedd",
   keywords,
   noindex = false,
+  authorsRaw,
+  venue,
+  paperStatus,
+  pdfUrl,
+  paperTitle,
+  reportNumber,
+  reportClassification,
+  reportAuthor,
 } = Astro.props;
 
 const canonicalURL = canonical || Astro.url.href;
-const siteName = "Failure-First Embodied AI";
+const siteName = "Failure-First";
+const legacySiteName = "Failure-First Embodied AI";
 const siteUrl = "https://failurefirst.org";
+const orgId = `${siteUrl}/#organization`;
+const projectId = `${siteUrl}/#project`;
+const isHomePage = Astro.url.pathname === '/';
 
-// JSON-LD: Organization schema
+// JSON-LD: Organization identity — stable @id so other nodes (publisher,
+// sponsor) can reference it instead of re-declaring a subtly different org.
+// `logo` is deliberately omitted: no verified canonical Failure-First brand-mark
+// asset exists on the CDN today (the previous value pointed at a non-existent
+// https://failurefirst.org/og-image.png). A missing optional property is
+// correct here; fabricating or repurposing the OG share card or the site
+// favicon as "the logo" would be false structured data. See session notes /
+// GH issue for the logo-asset gap.
 const jsonLdOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": orgId,
   name: siteName,
+  alternateName: [legacySiteName],
   url: siteUrl,
-  logo: {
-    "@type": "ImageObject",
-    url: `${siteUrl}/og-image.png`,
-  },
   sameAs: [
     "https://github.com/failurefirst/failure-first"
   ],
@@ -49,78 +118,132 @@ const jsonLdOrganization = {
   }
 };
 
-// JSON-LD: ResearchProject for the whole site
-const jsonLdBase = {
+// JSON-LD: WebSite — home page only, per Google's site-name guidance (it is
+// only read from the domain root; emitting it on every page adds nothing and
+// risks conflicting signals).
+const jsonLdWebSite = isHomePage ? {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Failure-First",
+  alternateName: ["Failure-First Embodied AI", "failurefirst.org"],
+  url: `${siteUrl}/`,
+  publisher: { "@id": orgId },
+} : null;
+
+// JSON-LD: ResearchProject — describes the research programme as a whole.
+// Emitted once, on the home page, rather than stamped on every page "because
+// every page belongs to the project" (that was the prior behaviour). Other
+// pages reference the organization by @id where relevant instead of
+// restating the whole graph as if it were their primary subject.
+const jsonLdProject = isHomePage ? {
   "@context": "https://schema.org",
   "@type": "ResearchProject",
+  "@id": projectId,
   name: siteName,
   description: "Failure-First breaks AI systems, gives failures consequences in bodies, peers, and worlds, and preserves the traces needed to test what caused them.",
   url: siteUrl,
   sameAs: [
     "https://github.com/failurefirst/failure-first"
   ],
-  author: {
-    "@type": "Person",
-    name: author,
-  },
-  sponsor: {
-    "@type": "Organization",
-    name: siteName,
-    url: siteUrl,
-  }
+  sponsor: { "@id": orgId },
+} : null;
+
+const publisherRef = {
+  "@type": "Organization",
+  "@id": orgId,
+  name: siteName,
+  url: siteUrl,
 };
 
-// JSON-LD: ScholarlyArticle for research pages
-const isResearchPage = Astro.url.pathname.startsWith('/research/') && Astro.url.pathname !== '/research/';
-const isBlogPost = Astro.url.pathname.startsWith('/blog/') && Astro.url.pathname !== '/blog/';
-const jsonLdArticle = isResearchPage ? {
+const imageAbs = new URL(image, Astro.site).href;
+
+// kind="paper" — real Failure-First papers under /papers/. PaperLayout is the
+// canonical authority for these fields; derived, never invented.
+const authorEntries = kind === 'paper' && authorsRaw
+  ? authorsRaw.split(',').map((a) => a.trim()).filter(Boolean)
+  : [];
+
+const jsonLdPaper = kind === 'paper' ? {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
   headline: title,
   description,
   url: canonicalURL,
-  image: new URL(image, Astro.site).href,
-  author: {
-    "@type": "Person",
-    name: author,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteName,
-    url: siteUrl,
-    logo: {
-      "@type": "ImageObject",
-      url: `${siteUrl}/og-image.png`,
-    }
-  },
+  image: imageAbs,
+  author: authorEntries.map((name) => ({ "@type": "Person", name })),
+  publisher: publisherRef,
   ...(publishedDate && { datePublished: publishedDate }),
   ...(modifiedDate && { dateModified: modifiedDate }),
-  inLanguage: "en-US",
+  ...(venue && { isPartOf: { "@type": "PublicationVolume", name: venue } }),
+  ...(pdfUrl && { encoding: { "@type": "MediaObject", contentUrl: new URL(pdfUrl, Astro.site).href, encodingFormat: "application/pdf" } }),
+  inLanguage: "en-AU",
   isAccessibleForFree: true,
-} : isBlogPost ? {
+} : null;
+
+// kind="report" — Failure-First reports (empirical, technical, regulatory,
+// standards, legal-memo, etc.). Heterogeneous by design; the smallest honest
+// representation is a generic Report (Schema.org subtype of Article), never
+// ScholarlyArticle merely because the URL starts with /research/reports/, and
+// no Google Scholar Highwire metadata — reports have no explicit
+// scholarly-inclusion contract today (not invented in this pass).
+const jsonLdReport = kind === 'report' ? {
+  "@context": "https://schema.org",
+  "@type": "Report",
+  headline: title,
+  description,
+  url: canonicalURL,
+  image: imageAbs,
+  author: reportAuthor
+    ? { "@type": "Person", name: reportAuthor }
+    : publisherRef,
+  publisher: publisherRef,
+  ...(publishedDate && { datePublished: publishedDate }),
+  ...(modifiedDate && { dateModified: modifiedDate }),
+  ...(reportNumber != null && { identifier: `FF-${reportNumber}` }),
+  ...(reportClassification && { about: reportClassification }),
+  inLanguage: "en-AU",
+} : null;
+
+// kind="blog-post" — genuinely authored Failure-First blog posts.
+const jsonLdBlogPost = kind === 'blog-post' ? {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: title,
   description,
   url: canonicalURL,
-  image: new URL(image, Astro.site).href,
-  author: {
-    "@type": "Person",
-    name: author,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteName,
-    url: siteUrl,
-    logo: {
-      "@type": "ImageObject",
-      url: `${siteUrl}/og-image.png`,
-    }
-  },
+  image: imageAbs,
+  author: { "@type": "Person", name: author },
+  publisher: publisherRef,
   ...(publishedDate && { datePublished: publishedDate }),
   ...(modifiedDate && { dateModified: modifiedDate }),
-  inLanguage: "en-US",
+  inLanguage: "en-AU",
 } : null;
+
+// kind="daily-paper" — Failure-First's own review/synthesis of somebody
+// else's arXiv paper. This is OUR commentary, authored by Failure-First; it
+// is not the original scholarly work and must never claim to be. No
+// ScholarlyArticle, no citation_* Scholar tags — those belong on the actual
+// paper's own page, not our write-up of it.
+const jsonLdDailyPaper = kind === 'daily-paper' ? {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: title,
+  description,
+  url: canonicalURL,
+  image: imageAbs,
+  author: { "@type": "Person", name: author },
+  publisher: publisherRef,
+  ...(publishedDate && { datePublished: publishedDate }),
+  ...(modifiedDate && { dateModified: modifiedDate }),
+  inLanguage: "en-AU",
+} : null;
+
+const jsonLdArticle = jsonLdPaper ?? jsonLdReport ?? jsonLdBlogPost ?? jsonLdDailyPaper ?? null;
+
+// Google Scholar Highwire meta tags: paper pages only, derived from the
+// paper's own frontmatter. citation_pdf_url is emitted ONLY when the paper
+// actually declares a pdfUrl (never the HTML canonical, never fabricated).
+const scholarAuthors = authorEntries.length > 0 ? authorEntries : (author ? [author] : []);
 ---
 
 <!-- Primary Meta -->
@@ -129,7 +252,7 @@ const jsonLdArticle = isResearchPage ? {
 <link rel="canonical" href={canonicalURL} />
 <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
 {keywords && <meta name="keywords" content={keywords} />}
-<meta name="author" content={author} />
+<meta name="author" content={kind === 'report' && reportAuthor ? reportAuthor : author} />
 <meta name="language" content="English" />
 <meta name="theme-color" content="#0a0a0a" />
 
@@ -139,8 +262,8 @@ const jsonLdArticle = isResearchPage ? {
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:site_name" content={siteName} />
-<meta property="og:locale" content="en_US" />
-<meta property="og:image" content={new URL(image, Astro.site).href} />
+<meta property="og:locale" content="en_AU" />
+<meta property="og:image" content={imageAbs} />
 <meta property="og:image:alt" content={`${title} - ${siteName}`} />
 <meta property="og:image:type" content={image.endsWith('.jpg') || image.endsWith('.jpeg') ? 'image/jpeg' : image.endsWith('.webp') ? 'image/webp' : 'image/png'} />
 <meta property="og:image:width" content="1200" />
@@ -152,25 +275,28 @@ const jsonLdArticle = isResearchPage ? {
 <meta name="twitter:creator" content="@adrianwedd" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(image, Astro.site).href} />
+<meta name="twitter:image" content={imageAbs} />
 <meta name="twitter:image:alt" content={`${title} - ${siteName}`} />
 
 {publishedDate && <meta property="article:published_time" content={publishedDate} />}
 {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
 
-<!-- Google Scholar Meta Tags (for research papers) -->
-{isResearchPage && (
+<!-- Google Scholar Meta Tags — real papers only (kind="paper"). Never emitted
+     for reports, daily-paper reviews, or generic /research/ pages. -->
+{kind === 'paper' && (
   <>
-    <meta name="citation_title" content={title} />
-    <meta name="citation_author" content={author} />
+    <meta name="citation_title" content={paperTitle || title} />
+    {scholarAuthors.map((name) => <meta name="citation_author" content={name} />)}
     {publishedDate && <meta name="citation_publication_date" content={publishedDate.split('T')[0]} />}
+    {venue && <meta name="citation_technical_report_institution" content={venue} />}
     <meta name="citation_journal_title" content={siteName} />
-    <meta name="citation_pdf_url" content={canonicalURL} />
+    {pdfUrl && <meta name="citation_pdf_url" content={new URL(pdfUrl, Astro.site).href} />}
     <meta name="citation_abstract_html_url" content={canonicalURL} />
   </>
 )}
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
-<script type="application/ld+json" set:html={JSON.stringify(jsonLdBase)} />
+{jsonLdWebSite && <script type="application/ld+json" set:html={JSON.stringify(jsonLdWebSite)} />}
+{jsonLdProject && <script type="application/ld+json" set:html={JSON.stringify(jsonLdProject)} />}
 {jsonLdArticle && <script type="application/ld+json" set:html={JSON.stringify(jsonLdArticle)} />}
