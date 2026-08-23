@@ -3,6 +3,14 @@ import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
 
 export async function GET(context: APIContext) {
+  const labEvents = (await getCollection('labLog'))
+    .filter((event) => !event.data.draft)
+    .map((event) => ({
+      title: event.data.title,
+      description: `${event.data.specimen} · ${event.data.status.replaceAll('-', ' ').toUpperCase()} — ${event.data.summary}`,
+      pubDate: event.data.date,
+      link: `/lab-log/#${event.id}`,
+    }));
   const posts = (await getCollection('blog'))
     .filter((post) => !post.data.draft)
     .map((post) => ({
@@ -30,12 +38,12 @@ export async function GET(context: APIContext) {
       link: `/ai-safety-daily/${post.id}/`,
     }));
 
-  const items = [...posts, ...papers, ...dailies]
+  const items = [...labEvents, ...posts, ...papers, ...dailies]
     .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
   return rss({
     title: 'Failure-First Embodied AI',
-    description: 'Research updates, daily paper analyses, and adversarial AI safety findings.',
+    description: 'Lab events, experiment status, measured findings, autopsies, and external intelligence from Failure-First.',
     site: context.site!,
     items,
   });

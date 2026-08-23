@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HeroSection from '../../components/HeroSection.astro';
+import { getCollection, render } from 'astro:content';
+const events = (await getCollection('labLog')).filter((e)=>!e.data.draft).sort((a,b)=>b.data.date.valueOf()-a.data.date.valueOf());
+const labels = { measured:'MEASURED', 'active-experiment':'ACTIVE EXPERIMENT', 'instrument-validation':'INSTRUMENT / VALIDATION', 'programme-bet':'PROGRAMME BET', foundation:'COMPLETED INFRASTRUCTURE' };
+const rendered = await Promise.all(events.map(async event => ({ event, Content:(await render(event)).Content })));
+---
+<BaseLayout title="Lab Log — What is happening now at Failure-First" description="Events from active Failure-First experiments, instruments, and apparatus — with measured results kept visibly separate from work in flight.">
+  <HeroSection title="The lab is<br /><em>not an archive.</em>" subtitle="Events from the machine, with the epistemic status still attached." animation="signal" />
+  <section class="intro"><p>This stream records events, not publication milestones. Failed dependencies, sealed apparatus, hard nulls, and measured consequences can all belong here. They do not all mean the same thing.</p><p><a href="/rss.xml">Subscribe by RSS</a> · <a href="/simviz/">Watch evidence in SimLab</a></p></section>
+  <section class="log">{rendered.map(({event,Content}) => <article id={event.id} class="entry"><div class="meta"><time datetime={event.data.date.toISOString()}>{event.data.date.toLocaleDateString('en-AU',{day:'numeric',month:'long',year:'numeric'})}</time>{event.data.updated && <span>AS OF {event.data.updated.toISOString().replace('.000Z','Z')}</span>}<span class={`status status--${event.data.status}`}>{labels[event.data.status]}</span><span>{event.data.specimen}</span></div><h2>{event.data.title}</h2><p class="summary">{event.data.summary}</p><div class="body"><Content /></div>{event.data.links.length>0 && <div class="links">{event.data.links.map(link => <a href={link.href}>{link.label} &rarr;</a>)}</div>}</article>)}</section>
+</BaseLayout>
+<style>
+  .intro{max-width:720px}.log{border-top:1px solid var(--border)}.entry{padding:2rem 0;border-bottom:1px solid var(--border);scroll-margin-top:5rem}.meta,.status{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}.meta{display:flex;gap:.8rem;flex-wrap:wrap;color:var(--fg-muted)}.status--active-experiment{color:#ffb454}.status--instrument-validation{color:#c9a7ff}.status--programme-bet{color:#ff7b72}.status--foundation{color:#71d4a4}.status--measured{color:#61dafb}.entry h2{max-width:760px;margin:.7rem 0}.summary{font-size:1.1rem;max-width:760px;color:var(--fg)}.body{max-width:720px;color:var(--fg-dim)}.links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+</style>

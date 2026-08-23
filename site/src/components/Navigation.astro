@@ -15,12 +15,13 @@ interface NavItem {
 // slot; Framework finally gets its dropdown; Services is commercial-only (policy moved
 // into Evidence); About + Search are right-aligned utilities.
 const navItems: NavItem[] = [
+  { label: "Lab Log", href: "/lab-log/" },
+  { label: "SimLab", href: "/simviz/" },
   {
     label: "Research",
     href: "/research/",
     children: [
       { label: "Research Hub", href: "/research/", description: "All studies & threads" },
-      { label: "Forward Threat Lab", href: "/research/forward-threat/", description: "Current hard-case frontier — active experiment" },
       { label: "Jailbreak Archaeology", href: "/research/jailbreak-archaeology/", description: "64 scenarios, 6 eras" },
       { label: "Attack Taxonomy", href: "/research/attack-taxonomy/", description: "81 techniques" },
       { label: "Defense Patterns", href: "/research/defense-patterns/", description: "How models resist" },
@@ -29,10 +30,6 @@ const navItems: NavItem[] = [
       { label: "Failure Modes", href: "/research/failure-modes/", description: "Taxonomy of AI failures" },
       { label: "Methodology", href: "/research/methodology/", description: "How we test & grade" },
     ],
-  },
-  {
-    label: "SimLab",
-    href: "/simviz/",
   },
   {
     label: "Evidence",
@@ -46,7 +43,6 @@ const navItems: NavItem[] = [
       { label: "Legal Analysis", href: "/research/legal/", description: "AI safety legal research" },
     ],
   },
-  { label: "Directory", href: "/research-directory/" },
   {
     label: "Framework",
     href: "/framework/",

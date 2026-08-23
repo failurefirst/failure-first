@@ -1,68 +1,62 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
 
-const SIM_URL = 'https://sim.failurefirst.ai';
+const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
 ---
 
 <ContentLayout
   title="SimLab — Failure-First Embodied AI"
-  description="A cinematic, evidence-grounded 3D laboratory for recorded Go2/G1 trajectories — REPLAY of real experiment-derived data, with an honestly-labelled robot POV, sensor cockpit, and peer-radio view. Rendering is derived visualisation, never primary evidence."
+  description="Watch recorded embodied-AI failures, follow the causal chain, inspect falsifiers, and reach the hash-addressed source trace. SimLab is Failure-First's evidence theatre."
   breadcrumbs={[{ label: 'SimLab' }]}
 >
   <section class="hero">
-    <p class="eyebrow">FAILURE-FIRST &middot; DERIVED VISUALISATION &middot; REPLAY</p>
-    <h1>SimLab</h1>
+    <p class="eyebrow">WATCH &rarr; EXPLAIN &rarr; FALSIFY &rarr; RECEIPT</p>
+    <h1>See what the trace actually proves.</h1>
     <p class="lede">
-      A standalone 3D laboratory for recorded Unitree Go2 and G1 trajectories &mdash;
-      cinematic rendering of real physics traces from this research programme,
-      never the other way around. What you see traces back to a source run;
-      nothing here is invented for effect. Every mode you can open &mdash;
-      observer, robot POV, sensor cockpit, peer radio &mdash; renders exactly the
-      channels a recording carries and says <code>UNAVAILABLE</code> for the rest.
+      The current Real Evidence preset is a measured Go2 stand-up control: the
+      body starts prone, the apparatus records the transition, and a phase-scoped
+      falsifier checks body-height drop. No model contacted this run. SimLab says
+      that plainly instead of inventing cognition, sensors, peer messages, or a
+      failure story the trace does not contain.
     </p>
     <a class="cta" href={SIM_URL} target="_blank" rel="noopener noreferrer">
-      Open SimLab <span aria-hidden="true">&rarr;</span>
+      Watch what happened <span aria-hidden="true">&rarr;</span>
     </a>
+    <p class="receipt-note">Open the forensic console in the replay to inspect the run identity, phase-scoped falsifier, unavailable channels, and source-trace hash.</p>
   </section>
 
   <section class="grid">
     <div class="card">
-      <h2>Real evidence, honestly scoped</h2>
+      <h2>1. Watch what happened</h2>
       <p>
-        The <strong>Real Evidence</strong> preset renders a genuine, sha256-hashed
-        MuJoCo trace &mdash; not a synthetic demo. Its verdict names exactly which
-        falsifier check ran and over which phase, and explicitly disclaims the
-        phases that were only recorded, not verified. A phase-scoped result never
-        reads as a whole-scenario claim.
+        The <strong>Real Evidence</strong> preset replays a genuine MuJoCo control
+        trace in temporal order. Watch the robot move from prone to standing and
+        inspect the recorded body state. There is no model-decision event in this run.
       </p>
     </div>
     <div class="card">
-      <h2>Robot POV &amp; sensor cockpit</h2>
+      <h2>2. Why we think it happened</h2>
       <p>
-        Switch to a camera mounted on the robot's own recorded pose &mdash; tagged
-        on-screen as <code>ROBOT POV &middot; DERIVED_VIEW</code>, never sensor
-        imagery, because none was captured. The sensor cockpit lists every telemetry
-        channel a trace could carry; channels the trace doesn't have read
-        <code>UNAVAILABLE</code> instead of showing invented values.
+        The forensic console can keep world observation, model/tool contact, peer
+        transmission, policy decision, actuator state, and outcome in one chain
+        when a recording carries them. Here, missing channels say
+        <code>UNAVAILABLE</code>. Declared state never silently substitutes for physical state.
       </p>
     </div>
     <div class="card">
-      <h2>Peer radio &amp; forensic console</h2>
+      <h2>3. What would falsify it</h2>
       <p>
-        A hideable forensic console reads the loaded trace's events, guard/tool
-        calls, and (when present) peer-to-peer radio messages between robots &mdash;
-        transmission, receipt, and reply lineage, rendered only from
-        <code>radio_tx</code>/<code>radio_rx</code> trace events.
+        Verdicts name the check, phase, and denominator they actually cover. A
+        phase-scoped result never becomes a whole-scenario claim. Failed recovery,
+        hard nulls, missing causal contact, and controls remain visible.
       </p>
     </div>
     <div class="card">
-      <h2>REPLAY vs. LIVE</h2>
+      <h2>4. Inspect the receipt</h2>
       <p>
-        SimLab's default and production mode is <strong>REPLAY</strong>: every
-        pixel derives from a finalized, hash-addressed recording. A LIVE command
-        surface exists for driving a local deterministic simulator session directly;
-        production always shows its true connection state and refuses any command
-        it cannot actually execute &mdash; no faked outcomes, ever.
+        Every production replay derives from a finalized, hash-addressed recording.
+        Deterministic deep links preserve preset, time, and playback state so another
+        reader can reopen the same joint in the causal chain.
       </p>
     </div>
     <div class="card">

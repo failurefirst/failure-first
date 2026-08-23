@@ -8,13 +8,13 @@ import { stats } from '../../data/stats';
 // Research categories with their studies
 const categories = [
   {
-    title: "Forward Threat Lab",
-    description: "The current hard-case frontier: patient, organised adversaries directing many model instances toward a strategic objective over time. Active experiment — not yet a measured finding.",
+    title: "Current experiments",
+    description: "BAD APPLE, OBLITERATUS, LulzBench, and other live work with apparatus state, validation level, and missing verdicts left attached.",
     icon: "methodology",
     color: "danger",
     count: 1,
     links: [
-      { label: "Forward Threat Lab", href: "/research/forward-threat/" },
+      { label: "Open the Lab Log", href: "/lab-log/" },
     ],
   },
   {
@@ -29,7 +29,7 @@ const categories = [
   },
   {
     title: "Jailbreak Archaeology",
-    description: "Historical analysis of attack evolution from 2022-2025. 64 scenarios across 6 eras, tested against 190 models.",
+    description: `Historical attack analysis across ${stats.eras} eras, inside the larger ${stats.modelsDisplay}-model evidence base.`,
     icon: "archaeology",
     color: "warning",
     count: 1,
@@ -94,10 +94,10 @@ const categories = [
   },
   {
     title: "Policy Brief Series",
-    description: "26 policy reports plus 160 total research reports on embodied AI safety: regulation, standards, technical analysis, and policy recommendations.",
+    description: `${stats.policyReports} policy briefs and ${stats.researchReportsDisplay} research reports: regulation, standards, technical analysis, and findings.`,
     icon: "policy",
     color: "secondary",
-    count: 26,
+    count: stats.policyReports,
     links: [
       { label: "All Policy Reports", href: "/research/reports/" },
     ],
@@ -171,7 +171,7 @@ const researchPages = [
   {
     title: "Moltbook: Multi-Agent Attack Surface",
     href: "/research/moltbook/",
-    description: "Empirical analysis of 1,497 AI agent interactions on an agent-only social network.",
+    description: "Observational analysis of 1,497 posts on an agent-only social network.",
     status: "active",
     category: "Multi-Agent",
   },
@@ -261,23 +261,22 @@ const statusLabels: Record<string, string> = {
 ---
 
 <ContentLayout
-  title="Research | Failure-First"
-  description="Research hub for failure-first AI safety studies. Multi-agent analysis, attack taxonomies, defense patterns, and failure modes."
+  title="Experiments, traces, and findings | Failure-First"
+  description="Current embodied and agentic experiments, replayable traces, measured findings, instruments under validation, and the apparatus behind each claim."
   breadcrumbs={[{ label: "Research" }]}
 >
   <HeroSection
-    title="How AI systems<br /><em>fail</em>"
-    subtitle={`${stats.modelsDisplay} models. ${stats.resultsDisplay} results. ${stats.techniquesPlus} attack techniques — plus embodied red-teaming and the current Forward Threat Lab frontier.`}
+    title="Experiment first.<br /><em>Verdict last.</em>"
+    subtitle="Start with what happened. Then follow the causal chain, the falsifier, and the receipt."
     animation="grid"
   />
 
   <section>
     <p>
-      The work runs at three depths. One model at a time, in the jailbreak corpus.
-      Across agents and into bodies, in the multi-agent and embodied work, where a
-      failure stops being a sentence and starts being a position in a room. And
-      across a persistent adversarial organisation, in Forward Threat Lab — which is
-      an experiment, not a set of findings, and is labelled that way throughout.
+      We collect adversarial mechanisms, test them against minds, let those minds
+      interact with peers and worlds, and ask which explanations survive matched
+      intervention. <a href="/lab-log/">The Lab Log</a> shows what is live.
+      <a href="/simviz/">SimLab</a> lets you watch recorded embodied evidence.
     </p>
   </section>
 
@@ -316,63 +315,6 @@ const statusLabels: Record<string, string> = {
       </a>
     ))}
   </div>
-
-  <!-- Cross-Cutting Insights -->
-  <section class="insights-section">
-    <h2>Five Cross-Cutting Insights</h2>
-    <p>
-      Our research converges on five key findings that cut across all studies
-      and inform policy recommendations:
-    </p>
-
-    <div class="insight-grid">
-      <div class="insight card">
-        <h3>1. The Semantic-Kinetic Gap</h3>
-        <p>
-          VLA models collapse the traditional robotics stack (Sense-Plan-Act) into a single
-          neural network. A linguistic misunderstanding becomes a physical hazard with no
-          intermediate controller to catch the error. This is the master vulnerability for
-          embodied AI.
-        </p>
-      </div>
-
-      <div class="insight card">
-        <h3>2. Binary Phase Transitions</h3>
-        <p>
-          Jailbreak success exhibits binary behavior: 0% compliance when attacks fail,
-          100% persistence when they succeed. There is no gradual degradation. Once
-          "captured," models remain compromised.
-        </p>
-      </div>
-
-      <div class="insight card">
-        <h3>3. Multi-Agent Failures Are Emergent</h3>
-        <p>
-          Failures in multi-agent systems are emergent, not additive. Cascade depth,
-          semantic drift velocity, and consensus instability create failure modes that
-          single-agent testing cannot detect.
-        </p>
-      </div>
-
-      <div class="insight card">
-        <h3>4. The Regulatory Danger Zone</h3>
-        <p>
-          2026-2029 is the critical window: EU AI Act compliance deadlines, mass humanoid
-          deployment, and regulatory bodies without embodied AI evaluation capabilities
-          all converge.
-        </p>
-      </div>
-
-      <div class="insight card">
-        <h3>5. Defense Requires Distrust</h3>
-        <p>
-          Effective defense architectures treat AI as an "untrusted oracle" whose outputs
-          are suggestions, not commands. The correct default is to assume the AI will fail
-          and design containment.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Academic Resources -->
   <section class="academic-section">

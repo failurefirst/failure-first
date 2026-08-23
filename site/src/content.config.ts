@@ -161,4 +161,18 @@ const aiSafetyDaily = defineCollection({
   }).passthrough(),
 });
 
-export const collections = { blog, docs, dailyPaper, aiSafetyDaily, reports, legal, policyDocs, papers, services };
+const labLog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/lab-log' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    status: z.enum(['measured', 'active-experiment', 'instrument-validation', 'programme-bet', 'foundation']),
+    specimen: z.string(),
+    links: z.array(z.object({ label: z.string(), href: z.string() })).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs, dailyPaper, aiSafetyDaily, reports, legal, policyDocs, papers, services, labLog };
