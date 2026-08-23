@@ -1,18 +1,19 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContentLayout from '../../layouts/ContentLayout.astro';
 import HeroSection from '../../components/HeroSection.astro';
+import KeyMetrics from '../../components/KeyMetrics.astro';
 import LinkButton from '../../components/LinkButton.astro';
 import WarningBox from '../../components/WarningBox.astro';
 import { stats } from '../../data/stats';
 
 const capabilities = [
-  ['Language & instruction boundaries', 'The mature attack surface. Still badly measured.', 'Jailbreaks, indirect prompt injection, system-prompt extraction, multilingual and encoded attacks, temporal and context attacks, and refusal bypass.', `${stats.promptsPlus} adversarial prompts across ${stats.modelsDisplay} models.`, 'demonstrated'],
-  ['Agentic systems & tool use', 'Every tool call turns model judgment into authority.', 'Tool-boundary attacks, compromised context, indirect injection through retrieved content, multi-turn authority erosion, sub-agent and peer influence, and persistent objective drift.', '', 'demonstrated'],
-  ['Multi-agent propagation', 'One compromised model is interesting. Whether it can change another model’s behaviour is the real question.', 'Cross-agent influence, attacker-generated payloads, behavioural takeover, propagation, and coordinated-agent failure.', 'BAD APPLE uses a matched A1/A2 design. The apparatus is complete; no scientific result is claimed yet.', 'active research'],
-  ['Embodied AI & robotics', 'When a model moves a body, bad reasoning becomes state.', 'Robot cognition, controller and actuator boundaries, physical-consequence tracing, recovery failure, safety-policy interaction, and simulated adversarial environments.', 'We preserve the model output, accepted command, controller invocation, and what the body actually did.', 'demonstrated'],
-  ['Evaluation & grader integrity', 'Sometimes the easiest system to fool is the test.', 'Benchmark leakage, grader failure, heuristic-versus-model disagreement, denominator pathology, evaluation gaming, reproducibility, and claim audits.', '', 'demonstrated'],
-  ['Model integrity & safety removal', 'Safety properties can change without the application changing at all.', 'Weight-space interventions, adapters, quantisation effects, refusal and capability separation, and post-modification regression testing.', 'OBLITERATUS tests whether refusal can be removed without degrading cognition. Results are reported per checkpoint and method, not promoted into a blanket capability claim.', 'active research'],
-  ['Multimodal & perceptual boundaries', 'The world can become part of the prompt.', 'Visual context conflicts, environmental text, sensor-derived instructions, and cross-modal disagreement.', 'SENSORIUM is designed; end-to-end capability has not yet been demonstrated.', 'research frontier'],
+  ['Language & instruction boundaries', 'The mature attack surface. Still badly measured.', 'Jailbreaks, indirect prompt injection, system-prompt extraction, multilingual and encoded attacks, temporal and context attacks, and refusal bypass.', `${stats.promptsPlus} adversarial prompts across ${stats.modelsDisplay} models.`, 'demonstrated', 'taxonomy', 'danger'],
+  ['Agentic systems & tool use', 'Every tool call turns model judgment into authority.', 'Tool-boundary attacks, compromised context, indirect injection through retrieved content, multi-turn authority erosion, sub-agent and peer influence, and persistent objective drift.', '', 'demonstrated', 'reasoning', 'primary'],
+  ['Multi-agent propagation', 'One compromised model is interesting. Whether it can change another model’s behaviour is the real question.', 'Cross-agent influence, attacker-generated payloads, behavioural takeover, propagation, and coordinated-agent failure.', 'BAD APPLE uses a matched A1/A2 design. The apparatus is complete; no scientific result is claimed yet.', 'active research', 'multiagent', 'warning'],
+  ['Embodied AI & robotics', 'When a model moves a body, bad reasoning becomes state.', 'Robot cognition, controller and actuator boundaries, physical-consequence tracing, recovery failure, safety-policy interaction, and simulated adversarial environments.', 'We preserve the model output, accepted command, controller invocation, and what the body actually did.', 'demonstrated', 'methodology', 'success'],
+  ['Evaluation & grader integrity', 'Sometimes the easiest system to fool is the test.', 'Benchmark leakage, grader failure, heuristic-versus-model disagreement, denominator pathology, evaluation gaming, reproducibility, and claim audits.', '', 'demonstrated', 'defense', 'secondary'],
+  ['Model integrity & safety removal', 'Safety properties can change without the application changing at all.', 'Weight-space interventions, adapters, quantisation effects, refusal and capability separation, and post-modification regression testing.', 'OBLITERATUS tests whether refusal can be removed without degrading cognition. Results are reported per checkpoint and method, not promoted into a blanket capability claim.', 'active research', 'archaeology', 'warning'],
+  ['Multimodal & perceptual boundaries', 'The world can become part of the prompt.', 'Visual context conflicts, environmental text, sensor-derived instructions, and cross-modal disagreement.', 'SENSORIUM is designed; end-to-end capability has not yet been demonstrated.', 'research frontier', 'default', 'tertiary'],
 ];
 
 const engagements = [
@@ -24,21 +25,33 @@ const engagements = [
 ];
 ---
 
-<BaseLayout title="Adversarial capabilities | Failure-First" description="Adversarial testing across language, tools, agents, models, graders, sensors, controllers, and embodied systems—with causal evidence and raw receipts." keywords="AI red teaming, agentic AI testing, embodied AI safety, evaluation audit, multi-agent security" animation="pulse" accent="cyan">
-  <HeroSection title="Attack the system.<br /><em>Then attack the explanation.</em>" subtitle="Adversarial intuition, causal evidence, and receipts." animation="pulse" />
+<ContentLayout title="Adversarial capabilities | Failure-First" description="Adversarial testing across language, tools, agents, models, graders, sensors, controllers, and embodied systems—with causal evidence and raw receipts." keywords="AI red teaming, agentic AI testing, embodied AI safety, evaluation audit, multi-agent security" breadcrumbs={[{ label: 'Services' }]} animation="pulse" accent="cyan">
+  <div class="service-opening">
+    <HeroSection title="Attack the system.<br /><em>Then attack the explanation.</em>" subtitle="Adversarial intuition, causal evidence, and receipts." animation="pulse" />
 
-  <section class="intro">
-    <p class="lede">We test where AI systems stop behaving like chatbots and start becoming part of a system.</p>
-    <p>A model output is only the beginning. We follow failures through tools, agents, sensors, controllers, and other models until something changes—or until the attack dies.</p>
-  </section>
+    <section class="intro">
+      <p class="lede">We test where AI systems stop behaving like chatbots and start becoming part of a system.</p>
+      <p>A model output is only the beginning. We follow failures through tools, agents, sensors, controllers, and other models until something changes—or until the attack dies.</p>
+    </section>
+
+    <KeyMetrics compact />
+  </div>
 
   <section id="adversarial-capabilities">
-    <header class="section-heading"><span>01 / attack surfaces</span><h2>Adversarial capabilities</h2></header>
+    <p class="section-label">01 / attack surfaces</p>
+    <h2>Adversarial capabilities</h2>
+    <p>Seven connected surfaces, each labelled by the evidence that exists today.</p>
     <div class="capability-grid">
-      {capabilities.map(([title, thesis, body, evidence, status], index) => (
-        <article class="capability-card">
-          <div class="card-meta"><span>{String(index + 1).padStart(2, '0')}</span><span class={`status status-${status.replaceAll(' ', '-')}`}>{status}</span></div>
-          <h3>{title}</h3><p class="thesis">{thesis}</p><p>{body}</p>
+      {capabilities.map(([title, thesis, body, evidence, status, icon, color], index) => (
+        <article class={`capability-card card accent-${color}`}>
+          <div class="card-header">
+            <span class={`capability-icon icon-${icon}`} aria-hidden="true"></span>
+            <div class="card-heading">
+              <div class="card-meta"><span class="card-number">{String(index + 1).padStart(2, '0')}</span><span class={`status-pill status-${status.replaceAll(' ', '-')}`}>{status}</span></div>
+              <h3>{title}</h3>
+            </div>
+          </div>
+          <p class="thesis">{thesis}</p><p>{body}</p>
           {evidence && <p class="evidence"><strong>Evidence status:</strong> {evidence}</p>}
         </article>
       ))}
@@ -46,63 +59,77 @@ const engagements = [
   </section>
 
   <section id="ways-to-engage">
-    <header class="section-heading"><span>02 / engagement formats</span><h2>Ways to engage</h2></header>
-    <div class="engagement-list">
+    <p class="section-label">02 / engagement formats</p>
+    <h2>Ways to engage</h2>
+    <p>Start with the claim or system boundary that matters. The engagement follows the evidence.</p>
+    <div class="engagement-grid">
       {engagements.map(([title, body, deliverable], index) => (
-        <article class="engagement-row"><span class="engagement-number">{String(index + 1).padStart(2, '0')}</span><div><h3>{title}</h3><p>{body}</p>{deliverable && <p class="deliverable"><strong>Deliverable:</strong> {deliverable}</p>}</div></article>
+        <article class="engagement-card card"><span class="engagement-number">{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{body}</p>{deliverable && <p class="deliverable"><strong>Deliverable:</strong> {deliverable}</p>}</article>
       ))}
     </div>
   </section>
 
-  <section class="method">
+  <section class="method card">
     <p class="eyebrow">The Failure-First difference</p><h2>Breaking it is only half the job.</h2>
     <p>We preserve the inputs, outputs, state transitions, accepted commands, downstream effects, controls, and grading decisions needed to challenge our own explanation. The result is not a vulnerability anecdote. It is an evidence package a hostile reviewer can inspect.</p>
   </section>
 
-  <section class="cta-section">
+  <section class="cta-section card">
     <h2>Bring us the claim you need to trust.</h2><p>We will design the cheapest bounded experiment capable of proving it wrong.</p>
     <LinkButton href="mailto:services@failurefirst.org?subject=Adversarial%20engagement" text="Start with the claim" />
     <p class="contact-alt">Or use the <a href="/contact/">contact form</a>.</p>
   </section>
 
   <WarningBox><p><strong>Evidence before theatre:</strong> Research-frontier capabilities are labelled as such. We do not sell an apparatus design as a demonstrated result, and we do not turn a preliminary result into a general claim.</p></WarningBox>
-</BaseLayout>
+</ContentLayout>
 
 <style>
-  .intro { max-width: 800px; }
+  .intro { max-width: 760px; }
   .lede { color: var(--fg); font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1.35; }
-  .section-heading { border-bottom: 1px solid var(--border-dim, #333); margin-bottom: 1.5rem; padding-bottom: .75rem; }
-  .section-heading span, .eyebrow { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
-  .section-heading h2 { margin: .35rem 0 0; }
+  .section-label, .eyebrow { color: var(--accent-primary); font-family: 'JetBrains Mono', monospace; font-size: .7rem; letter-spacing: .1em; margin: 0 0 .4rem; text-transform: uppercase; }
+  section > h2 { margin-top: 0; }
   .capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
   :global(body main) {
     background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .48) 32rem, rgba(5, 8, 16, .7) 100%);
   }
-  .capability-card { background: rgba(5, 8, 16, .46); border: 1px solid rgba(122, 130, 146, .34); border-radius: 8px; padding: 1.5rem; backdrop-filter: blur(2px); }
+  .capability-card { --card-accent: var(--accent-primary); border-left: 3px solid var(--card-accent); margin-bottom: 0; }
   .capability-card:first-child { grid-column: span 2; }
-  .card-meta { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--fg-dim); text-transform: uppercase; letter-spacing: .08em; }
-  .status { color: var(--recovery-stable, #4ade80); }
-  .status-active-research { color: #f5b942; }
-  .status-research-frontier { color: #b59cff; }
-  .capability-card h3 { font-size: 1.35rem; margin: 1.25rem 0 .35rem; }
+  .accent-danger { --card-accent: var(--failure-critical); }
+  .accent-warning { --card-accent: var(--failure-warning); }
+  .accent-success { --card-accent: var(--recovery-stable); }
+  .accent-secondary { --card-accent: var(--accent-secondary); }
+  .accent-tertiary { --card-accent: var(--accent-tertiary); }
+  .card-header { align-items: flex-start; display: grid; gap: .75rem; grid-template-columns: auto 1fr; }
+  .card-meta { align-items: center; display: flex; justify-content: space-between; gap: .75rem; }
+  .capability-icon { color: var(--card-accent); font-size: 1.5rem; line-height: 1; }
+  .icon-taxonomy::before { content: '\25A6'; }
+  .icon-reasoning::before { content: '\2B21'; }
+  .icon-multiagent::before { content: '\2B19'; }
+  .icon-methodology::before { content: '\2B1A'; }
+  .icon-defense::before { content: '\2B22'; }
+  .icon-archaeology::before { content: '\23F3'; }
+  .icon-default::before { content: '\25CE'; }
+  .card-number { color: var(--fg-muted); font-family: 'JetBrains Mono', monospace; font-size: .625rem; letter-spacing: .04em; }
+  .status-pill { border: 1px solid currentColor; border-radius: 3px; color: var(--recovery-stable); font-family: 'JetBrains Mono', monospace; font-size: .625rem; letter-spacing: .06em; padding: .1875rem .5rem; text-transform: uppercase; white-space: nowrap; }
+  .status-active-research { color: var(--failure-warning); }
+  .status-research-frontier { color: var(--accent-tertiary); }
+  .capability-card h3 { font-size: 1.0625rem; margin: .15rem 0 0; }
   .thesis { color: var(--fg); font-size: 1.05rem; font-style: italic; }
-  .evidence, .deliverable { border-left: 2px solid var(--recovery-stable, #4ade80); color: var(--fg-dim); font-size: .875rem; margin-top: 1.25rem; padding-left: .8rem; }
-  .engagement-list { border-top: 1px solid var(--border-dim, #333); }
-  .engagement-row { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; border-bottom: 1px solid var(--border-dim, #333); padding: 1.5rem 0; }
-  .engagement-number { color: var(--recovery-stable, #4ade80); font-family: 'JetBrains Mono', monospace; font-size: .75rem; padding-top: .35rem; }
-  .engagement-row h3 { margin: 0 0 .5rem; }
-  .engagement-row p, .method p:last-child { max-width: 800px; }
-  .method { background: rgba(5, 8, 16, .42); border: 1px solid var(--recovery-stable, #4ade80); border-radius: 8px; padding: clamp(1.5rem, 4vw, 3rem); backdrop-filter: blur(2px); }
+  .evidence, .deliverable { border-left: 2px solid var(--card-accent, var(--recovery-stable)); color: var(--fg-dim); font-size: .875rem; margin-top: 1.25rem; padding-left: .8rem; }
+  .engagement-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .engagement-card { margin-bottom: 0; }
+  .engagement-card:first-child { grid-column: span 2; }
+  .engagement-number { color: var(--accent-primary); font-family: 'JetBrains Mono', monospace; font-size: .625rem; }
+  .engagement-card h3 { font-size: 1.0625rem; margin: .35rem 0 .5rem; }
+  .method { border-left: 3px solid var(--recovery-stable); padding: clamp(1.5rem, 4vw, 3rem); }
   .method h2 { font-size: clamp(1.8rem, 4vw, 3rem); margin: .5rem 0 1rem; }
-  .cta-section { text-align: center; }
+  .cta-section { background: transparent; border-color: var(--border-subtle); box-shadow: none; text-align: center; }
+  .cta-section:hover { border-color: var(--border-emphasis); transform: none; box-shadow: none; }
   .cta-section p { margin-left: auto; margin-right: auto; }
   .contact-alt { font-size: .85rem; margin-top: 1rem; }
   @media (max-width: 768px) {
     :global(body main) { background: linear-gradient(to bottom, rgba(5, 8, 16, 0) 0, rgba(5, 8, 16, .56) 28rem, rgba(5, 8, 16, .74) 100%); }
-    .capability-grid { grid-template-columns: 1fr; }
-    .capability-card:first-child { grid-column: auto; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .capability-card, .method { backdrop-filter: none; }
+    .capability-grid, .engagement-grid { grid-template-columns: 1fr; }
+    .capability-card:first-child, .engagement-card:first-child { grid-column: auto; }
   }
 </style>

@@ -149,6 +149,17 @@ test.describe('public surface', () => {
         }
       }
 
+      if (path === '/services/') {
+        // Conformance contract: Services may have a commercial hierarchy, but it
+        // must remain composed from the same visible primitives as Research.
+        await expect(page.locator('.breadcrumbs')).toBeVisible();
+        await expect(page.locator('.key-metrics')).toBeVisible();
+        await expect(page.locator('.capability-card.card')).toHaveCount(7);
+        await expect(page.locator('.engagement-card.card')).toHaveCount(5);
+        await expect(page.locator('.capability-card .status-pill')).toHaveCount(7);
+        await expect(page.locator('.engagement-row')).toHaveCount(0);
+      }
+
       const csp = await page.evaluate(() => (window as Window & { __cspViolations?: Violation[] }).__cspViolations || []);
       const enforced = csp.filter(v => v.disposition === 'enforce');
       const reportOnly = csp.filter(v => v.disposition === 'report');
@@ -173,8 +184,9 @@ test.describe('public surface', () => {
       await expect(page).toHaveScreenshot(`${path.replaceAll('/', '-') || 'home'}-${testInfo.project.name}.png`, {
         fullPage: path !== '/about/team/',
         animations: 'disabled',
-        mask: [page.locator('#sensor-grid-bg')],
+        mask: path === '/services/' ? [] : [page.locator('#sensor-grid-bg')],
         maskColor: '#050810',
+        style: path === '/services/' ? '#sensor-grid-bg { visibility: hidden !important; }' : undefined,
         maxDiffPixelRatio: 0.01,
       });
     });
