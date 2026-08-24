@@ -31,6 +31,13 @@ const {
   summary,
 } = Astro.props;
 
+// DD-06 class defect: placeholder strings from the data file ("Unknown", "N/A",
+// "TBD", "None") are truthy and previously rendered as hrefs/field values
+// (18 x href="Unknown" on /research/ai-safety-orgs/, #1043 QA 2026-08-24).
+const isPlaceholder = (v: unknown): boolean =>
+  typeof v === 'string' && /^(unknown|n\/a|tbd|none|null|-)$/i.test(v.trim());
+const hasWebsite = !isPlaceholder(website);
+
 const focusColors: Record<string, string> = {
   'Technical':      '#f97316',
   'Evals':          '#a78bfa',
@@ -76,7 +83,7 @@ const detailUrl = `/research/ai-safety-orgs/${slug}/`;
       {orgType && orgType !== 'Unknown' && <span class="card-type">{orgType}</span>}
     </div>
     <div class="card-links">
-      {website && (
+      {hasWebsite && (
         <a href={website} target="_blank" rel="noopener noreferrer" class="card-link" title="Website">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </a>
@@ -95,21 +102,21 @@ const detailUrl = `/research/ai-safety-orgs/${slug}/`;
       )}
     </div>
 
-    {scope && (
+    {!isPlaceholder(scope) && (
       <div class="card-field">
         <span class="field-label">Scope</span>
         <span class="field-value">{scope}</span>
       </div>
     )}
 
-    {keyPrograms && (
+    {!isPlaceholder(keyPrograms) && (
       <div class="card-field">
         <span class="field-label">Programs</span>
         <span class="field-value">{keyPrograms}</span>
       </div>
     )}
 
-    {fundingSignals && (
+    {!isPlaceholder(fundingSignals) && (
       <div class="card-field">
         <span class="field-label">Funding</span>
         <span class="field-value">{fundingSignals}</span>

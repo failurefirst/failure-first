@@ -12,6 +12,11 @@ export default defineConfig({
   base: '/',
   outDir: 'dist',
   redirects: {
+    // 2026-08-24 (#1043 DD-10 re-check): the '/daily-paper/230908956/' shim was REMOVED.
+    // Its target anthropic-responsible-scaling-policy was deliberately retracted
+    // (fabricated entry, draft:true since 2026-07-09, #963/#969) -- a redirect to a
+    // retracted fabrication is worse than a clean 404. Source id itself was the
+    // hallucinated arXiv id.
     // /reports/* was the old path before the /research/ prefix was added
     '/reports/[...slug]': '/research/reports/[...slug]',
 
@@ -32,7 +37,6 @@ export default defineConfig({
     '/daily-paper/230813387/': '/daily-paper/do-not-answer-dataset-evaluating-llm-safeguards/',
     '/daily-paper/230902404/': '/daily-paper/alignment-tax-capability-cost-safe-fine-tuning/',
     '/daily-paper/230907875/': '/daily-paper/safety-tuned-llama-lessons-improving-safety-llms/',
-    '/daily-paper/230908956/': '/daily-paper/anthropic-responsible-scaling-policy/',
     '/daily-paper/231001405/': '/daily-paper/representation-engineering-ai-transparency/',
     '/daily-paper/231002446/': '/daily-paper/low-resource-languages-jailbreak-gpt4-cross-lingual-safety/',
     '/daily-paper/231003693/': '/daily-paper/fine-tuning-aligned-language-models-compromises-safety-even-when-users-do-not-i/',
