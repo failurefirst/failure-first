@@ -8,7 +8,7 @@ author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
-
+# NIST AI Risk Management Framework 1.0: Gap Analysis for Embodied AI Adversarial Risk
 
 > **Disclaimer:** This document presents research findings, not legal opinion. All references to the NIST AI RMF, AI Act, and related instruments are provided for research analysis purposes. The NIST AI RMF is a voluntary framework; compliance is not a legal requirement unless adopted by reference in procurement contracts or state legislation (see LR-13, Section 2.2). All empirical findings are reported with sample sizes and confidence intervals where available.
 

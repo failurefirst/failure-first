@@ -6,17 +6,17 @@ classification: "Standards Development — External-Facing (suitable for standar
 status: complete
 draft: false
 ---
+# F1-STD-001: Safety Evaluation of AI Systems with Physical Actuation Capabilities
 
 **Document identifier:** F1-STD-001 v0.2
 **Date:** 2026-03-25
-**Status:** Committee Draft (internal)
+**Status:** Committee Draft
 **Prepared by:** Martha Jones, Policy & Standards Lead, Failure-First Embodied AI
 **Target standards bodies:** ISO/IEC JTC 1/SC 42 (via Standards Australia IT-043), CEN/CENELEC JTC 21, NIST AISIC
 **Related instruments:** ISO 10218-1:2025, ISO 10218-2:2025, ISO/TS 15066:2016, ISO 13482:2014, ISO 17757:2019, ISO/IEC 42001:2023, ISO/IEC 23894:2023, NIST AI 100-1 (AI RMF 1.0), Regulation (EU) 2024/1689 (EU AI Act)
 **Related Failure-First reports:** #48, #49, #51, #59, #63, #78, #95, #117, #122, #135, #136, #140, #148, #170, #190, #238, #239, #240, #242, #243, #244, #248, #251
 **Classification:** External-facing (suitable for standards body engagement)
-**Issue:** #383
-**Changes from v0.1:** Added 3 attack families (CCA, RSE, GE) to Annex B; added R8 (mandatory grader calibration disclosure); added R9 (benchmark contamination testing); added R10 (multi-grader ensemble for publication-grade results); updated corpus metrics to then-current canonical values (207 models, 133,722 results as of 2026-03-25; superseded — see v0.3 and CANONICAL_METRICS.md); added self-inoculation defense recommendation (Section 4.7); incorporated Epistemic Crisis and Qwen3 grader findings
+**Changes from v0.1:** Added 3 attack families (CCA, RSE, GE) to Annex B; added R8 (mandatory grader calibration disclosure); added R9 (benchmark contamination testing); added R10 (multi-grader ensemble for publication-grade results); updated corpus metrics to then-current canonical values (207 models, 133,722 results as of 2026-03-25; historical snapshot at time of drafting); added self-inoculation defense recommendation (Section 4.7); incorporated Epistemic Crisis and Qwen3 grader findings
 
 ---
 
@@ -28,7 +28,7 @@ draft: false
 
 This document specifies requirements for the safety evaluation of AI systems that generate outputs decoded into physical actions by robotic or autonomous hardware ("embodied AI systems"). It is intended to complement existing mechanical and functional safety standards for robots and autonomous machinery by addressing the AI planning and decision layer, which those standards do not cover.
 
-The requirements in this document are derived from empirical testing conducted under the Failure-First Embodied AI programme: 207 models (195 with results), 133,722 evaluation results, 33 VLA attack families, 440 adversarial scenarios, and 143 documented attack techniques (see Annex A for empirical basis, all figures from CANONICAL_METRICS.md verified 2026-03-25). They address three documented failure modes that existing evaluation methodologies do not detect:
+The requirements in this document are derived from empirical testing conducted under the Failure-First Embodied AI programme: 207 models (195 with results), 133,722 evaluation results, 33 VLA attack families, 440 adversarial scenarios, and 143 documented attack techniques (see Annex A for empirical basis, all figures from  verified 2026-03-25). They address three documented failure modes that existing evaluation methodologies do not detect:
 
 1. Text-output safety filters do not prevent action-output attacks. In tested VLA systems, 50% of FLIP-graded traces produced safety disclaimers in text while simultaneously generating the requested harmful action sequence (Report #49).
 2. In tested VLA systems, zero action-output refusal mechanisms were observed across 63 valid traces spanning 7 attack families (Report #49).
@@ -649,19 +649,19 @@ The requirements in this standard are informed by empirical testing conducted un
 
 | Metric | Value | Source |
 |--------|-------|--------|
-| Models tested | 207 (195 with results) | CANONICAL_METRICS.md (2026-03-25) |
-| Total prompts | 141,099 | CANONICAL_METRICS.md (2026-03-25) |
-| Total results | 133,722 | CANONICAL_METRICS.md (2026-03-25) |
-| Evaluation runs | 38,458 | CANONICAL_METRICS.md (2026-03-25) |
-| Attack techniques documented | 143 | CANONICAL_METRICS.md (2026-03-25) |
-| VLA attack families | 36 | CANONICAL_METRICS.md (2026-03-25) |
-| VLA scenarios | 411 | CANONICAL_METRICS.md (2026-03-25) |
-| Cohen's kappa (keyword vs LLM) | 0.126 [0.108, 0.145] | CANONICAL_METRICS.md (n=1,989) |
+| Models tested | 207 (195 with results) |  (2026-03-25) |
+| Total prompts | 141,099 |  (2026-03-25) |
+| Total results | 133,722 |  (2026-03-25) |
+| Evaluation runs | 38,458 |  (2026-03-25) |
+| Attack techniques documented | 143 |  (2026-03-25) |
+| VLA attack families | 36 |  (2026-03-25) |
+| VLA scenarios | 411 |  (2026-03-25) |
+| Cohen's kappa (keyword vs LLM) | 0.126 [0.108, 0.145] |  (n=1,989) |
 | Cohen's kappa (Haiku vs heuristic) | 0.097 | Report #177 (n=950) |
-| Corpus integrity score | 0.9724 | CANONICAL_METRICS.md (2026-03-25) |
+| Corpus integrity score | 0.9724 |  (2026-03-25) |
 | FLIP grader calibration | 6/7 graders 100% accuracy on obvious cases; nemotron-3-nano:30b at 80% (kappa=0.652) | Report #244 |
 | Inter-grader agreement (ambiguous) | kappa=0.320 max | Report #240 |
-| Research reports | 240 | CANONICAL_METRICS.md (2026-03-25) |
+| Research reports | 240 |  (2026-03-25) |
 
 ### A.2 Action-Text Decoupling Evidence
 

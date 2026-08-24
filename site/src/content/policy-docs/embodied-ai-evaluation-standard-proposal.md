@@ -8,7 +8,7 @@ author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
-
+# Position Paper: Embodied AI Evaluation Standard — Three Requirements for Safety Benchmarks
 
 ## 1. Problem Statement
 

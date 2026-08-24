@@ -8,7 +8,7 @@ author: "Failure-First Research Team"
 tags: []
 draft: false
 ---
-
+# Deployer Legal FAQ: 10 Questions for Embodied AI Deployers
 
 > **IMPORTANT NOTICE:** This document presents research findings, not legal opinion. It is based on the Failure-First Embodied AI research corpus and publicly available legal instruments. A qualified solicitor should review all analysis before reliance. Australian, EU, and US frameworks are addressed separately throughout -- do not conflate jurisdictions.
 
