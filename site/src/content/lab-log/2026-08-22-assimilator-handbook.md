@@ -7,4 +7,5 @@ specimen: ASSIMILATOR
 links: []
 draft: false
 ---
-The completed vertical slice compiled eight heterogeneous techniques into a content-addressed handbook. This is infrastructure, not an experimental finding.
+
+The completed vertical slice compiled eight heterogeneous techniques into a content-addressed handbook. The source mechanism, provenance, and RED's later invention remain separable. This is infrastructure, not an experimental finding.

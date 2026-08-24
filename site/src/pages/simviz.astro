@@ -1,65 +1,68 @@
 ---
 import ContentLayout from '../layouts/ContentLayout.astro';
-import LinkButton from '../components/LinkButton.astro';
 
-const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
+const SIM_URL = 'https://sim.failurefirst.ai';
 ---
 
 <ContentLayout
   title="SimLab — Failure-First Embodied AI"
-  description="Watch recorded embodied-AI failures, follow the causal chain, inspect falsifiers, and reach the hash-addressed source trace. SimLab is Failure-First's evidence theatre."
+  description="A cinematic, evidence-grounded 3D laboratory for recorded Go2/G1 trajectories — REPLAY of real experiment-derived data, with an honestly-labelled robot POV, sensor cockpit, and peer-radio view. Rendering is derived visualisation, never primary evidence."
   breadcrumbs={[{ label: 'SimLab' }]}
-  animation="signal"
-  accent="cyan"
 >
   <section class="hero">
-    <p class="eyebrow">WATCH &rarr; EXPLAIN &rarr; FALSIFY &rarr; RECEIPT</p>
-    <h1>See what the trace actually proves.</h1>
+    <p class="eyebrow">FAILURE-FIRST &middot; DERIVED VISUALISATION &middot; REPLAY</p>
+    <h1>SimLab</h1>
     <p class="lede">
-      The current Real Evidence preset is a measured Go2 stand-up control: the
-      body starts prone, the apparatus records the transition, and a phase-scoped
-      falsifier checks body-height drop. No model contacted this run. SimLab says
-      that plainly instead of inventing cognition, sensors, peer messages, or a
-      failure story the trace does not contain.
+      A standalone 3D laboratory for recorded Unitree Go2 and G1 trajectories &mdash;
+      cinematic rendering of real physics traces from this research programme,
+      never the other way around. What you see traces back to a source run;
+      nothing here is invented for effect. Every mode you can open &mdash;
+      observer, robot POV, sensor cockpit, peer radio &mdash; renders exactly the
+      channels a recording carries and says <code>UNAVAILABLE</code> for the rest.
     </p>
-    <div class="hero-actions">
-      <LinkButton href={SIM_URL} text="Watch what happened →" external />
-    </div>
-    <p class="receipt-note">Open the forensic console in the replay to inspect the run identity, phase-scoped falsifier, unavailable channels, and source-trace hash.</p>
+    <a class="cta" href={SIM_URL} target="_blank" rel="noopener noreferrer">
+      Open SimLab <span aria-hidden="true">&rarr;</span>
+    </a>
   </section>
 
   <section class="grid">
     <div class="card">
-      <h2>1. Watch what happened</h2>
+      <h2>Real evidence, honestly scoped</h2>
       <p>
-        The <strong>Real Evidence</strong> preset replays a genuine MuJoCo control
-        trace in temporal order. Watch the robot move from prone to standing and
-        inspect the recorded body state. There is no model-decision event in this run.
+        The <strong>Real Evidence</strong> preset renders a genuine, sha256-hashed
+        MuJoCo trace &mdash; not a synthetic demo. Its verdict names exactly which
+        falsifier check ran and over which phase, and explicitly disclaims the
+        phases that were only recorded, not verified. A phase-scoped result never
+        reads as a whole-scenario claim.
       </p>
     </div>
     <div class="card">
-      <h2>2. Why we think it happened</h2>
+      <h2>Robot POV &amp; sensor cockpit</h2>
       <p>
-        The forensic console can keep world observation, model/tool contact, peer
-        transmission, policy decision, actuator state, and outcome in one chain
-        when a recording carries them. Here, missing channels say
-        <code>UNAVAILABLE</code>. Declared state never silently substitutes for physical state.
+        Switch to a camera mounted on the robot's own recorded pose &mdash; tagged
+        on-screen as <code>ROBOT POV &middot; DERIVED_VIEW</code>, never sensor
+        imagery, because none was captured. The sensor cockpit lists every telemetry
+        channel a trace could carry; channels the trace doesn't have read
+        <code>UNAVAILABLE</code> instead of showing invented values.
       </p>
     </div>
     <div class="card">
-      <h2>3. What would falsify it</h2>
+      <h2>Peer radio &amp; forensic console</h2>
       <p>
-        Verdicts name the check, phase, and denominator they actually cover. A
-        phase-scoped result never becomes a whole-scenario claim. Failed recovery,
-        hard nulls, missing causal contact, and controls remain visible.
+        A hideable forensic console reads the loaded trace's events, guard/tool
+        calls, and (when present) peer-to-peer radio messages between robots &mdash;
+        transmission, receipt, and reply lineage, rendered only from
+        <code>radio_tx</code>/<code>radio_rx</code> trace events.
       </p>
     </div>
     <div class="card">
-      <h2>4. Inspect the receipt</h2>
+      <h2>REPLAY vs. LIVE</h2>
       <p>
-        Every production replay derives from a finalized, hash-addressed recording.
-        Deterministic deep links preserve preset, time, and playback state so another
-        reader can reopen the same joint in the causal chain.
+        SimLab's default and production mode is <strong>REPLAY</strong>: every
+        pixel derives from a finalized, hash-addressed recording. A LIVE command
+        surface exists for driving a local deterministic simulator session directly;
+        production always shows its true connection state and refuses any command
+        it cannot actually execute &mdash; no faked outcomes, ever.
       </p>
     </div>
     <div class="card">
@@ -99,28 +102,39 @@ const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
-    color: var(--fg-muted);
+    color: var(--fg-muted, #7a8292);
     margin-bottom: 0.5rem;
   }
   .hero h1 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--fg, #e8ecf2);
     margin: 0 0 1rem;
   }
   .lede {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: var(--fg-dim);
+    color: var(--fg-dim, #b0b8c5);
     margin: 0 auto 1.75rem;
   }
-  .hero-actions {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-primary, #00d2ff);
+    color: #050810;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    border-bottom: none;
+    transition: transform 150ms ease, box-shadow 150ms ease;
   }
-  .receipt-note {
-    font-size: 0.85rem;
-    color: var(--fg-muted);
-    margin: 0 auto;
+  .cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 210, 255, 0.25);
+    border-bottom: none;
   }
 
   .grid {
@@ -132,36 +146,40 @@ const SIM_URL = 'https://sim.failurefirst.ai/?preset=evidence';
   @media (max-width: 700px) {
     .grid { grid-template-columns: 1fr; }
   }
-  /* Use the shared .card primitive from global.css — no local override.
-     The glassmorphism, shimmer, and hover are inherited. */
-  .grid .card {
-    margin-bottom: 0;
+  .card {
+    padding: 1.5rem;
+    border: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
+    border-radius: 8px;
+    background: var(--bg-card, #0f1621);
   }
-  .grid .card h2 {
+  .card h2 {
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--fg, #e8ecf2);
     margin: 0 0 0.6rem;
   }
-  .grid .card p {
+  .card p {
     font-size: 0.9rem;
     line-height: 1.65;
-    color: var(--fg-dim);
+    color: var(--fg-dim, #b0b8c5);
     margin: 0;
   }
-  .grid .card code {
+  .card code {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.82rem;
-    color: var(--accent-primary);
+    color: var(--accent-primary, #00d2ff);
   }
 
   .footnote {
     font-size: 0.8rem;
-    color: var(--fg-muted);
+    color: var(--fg-muted, #7a8292);
     text-align: center;
-    border-top: 1px solid var(--border-subtle);
+    border-top: 1px solid var(--border-subtle, rgba(232, 236, 242, 0.08));
     padding-top: 1.5rem;
   }
   .footnote code {
     font-family: 'JetBrains Mono', monospace;
-    color: var(--fg-dim);
+    color: var(--fg-dim, #b0b8c5);
   }
 </style>

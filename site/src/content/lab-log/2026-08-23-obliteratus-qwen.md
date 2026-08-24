@@ -8,4 +8,5 @@ specimen: OBLITERATUS / Qwen3.8-27B
 links: []
 draft: false
 ---
-The worker disappeared mid-probe with the cause initially unknown. The operator later confirmed that the account had exhausted its compute credit, so the incident was reclassified as a billing termination. Until a candidate checkpoint and paired evaluation receipts exist, there is no scientific verdict.
+
+The worker disappeared mid-probe with the cause initially unknown. The operator later confirmed that the account had exhausted its compute credit, so the incident was reclassified as a billing termination. The frozen pre-surgery baseline is banked. The retry preserves the same model revision, runtime, intervention, and evaluation suites. Until a candidate checkpoint and paired evaluation receipts exist, there is no scientific verdict.

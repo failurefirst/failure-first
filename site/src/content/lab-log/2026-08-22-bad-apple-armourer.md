@@ -9,4 +9,5 @@ links:
     href: /simviz/
 draft: false
 ---
-Both arms share the world, models, budgets, and behavioural endpoint. Until the matched pair runs, there is no result to report.
+
+Both arms share the world, models, budgets, and behavioural endpoint. A1 can inspect frozen historical attacks. A2 receives the frozen ASSIMILATOR handbook and must invent a contextual attack. Until the matched pair runs, there is no A1-versus-A2 result to report.
