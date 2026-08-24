@@ -31,10 +31,9 @@ interface Props {
 }
 
 const { agent, isFirst = false, isCloser = false, index } = Astro.props;
-const { name, role, slug, color, rgb, photo, initials, tagline, bio, tags, audio } = agent;
+const { name, role, slug, color, rgb, initials, tagline, bio, tags, audio } = agent;
 const sectionId = `agent-${slug}`;
 const audioPreload = isFirst ? 'auto' : 'none';
-const imgPriority = index < 2 ? 'high' : 'auto';
 ---
 
 <section
@@ -50,17 +49,12 @@ const imgPriority = index < 2 ? 'high' : 'auto';
 
   <div class="agent-content-wrap">
     <div class="agent-scrim">
-      <!-- Photo -->
-      <div class="agent-photo-wrap">
-        <img
-          src={photo}
-          alt={`${name}, ${role}`}
-          class="agent-photo"
-          style={`--agent-color: ${color}`}
-          loading={index < 2 ? 'eager' : 'lazy'}
-          fetchpriority={imgPriority}
-        />
-        <div class="agent-photo-fallback" style={`--agent-color: ${color}`} aria-hidden="true">
+      <!-- Avatar (DD-09, #1043): initials by deliberate decision. Real-person
+           photographs are NOT wired into AI-agent personas; see
+           docs/decisions/1043_dd09_companion_avatars.md in the private repo.
+           The dead /images/companions/ photo path was removed 2026-08-24. -->
+      <div class="agent-photo-wrap" role="img" aria-label={`${name}, ${role}`}>
+        <div class="agent-photo-fallback agent-photo--initials" style={`--agent-color: ${color}`}>
           {initials}
         </div>
       </div>
@@ -226,11 +220,9 @@ const imgPriority = index < 2 ? 'high' : 'auto';
   font-size: 2.8rem;
   font-weight: 500;
   font-family: 'JetBrains Mono', monospace;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  inset: 0;
 }
 
 /* ── Identity ────────────────────────────────────────────────────── */
