@@ -55,6 +55,6 @@ The research doesn't conclude that all reasoning traces are fabrications or that
 
 Evaluation protocols that treat visible reasoning traces as reliable evidence of how a system made a decision need updating. Grading systems that check whether a model "explained its reasoning correctly" are measuring plausibility, not faithfulness. The distinction matters.
 
-For the full technical analysis, see [Report 45](/research/reports/report-45-inference-trace-manipulation-as-an-adversarial-attack-surface).
+For the full technical analysis, see [Report 395](/research/reports/395-inference-trace-manipulation-as-an-adversarial-attack-surface/).
 
 > **Restored from the 2026-05-21 archive.** This post was unintentionally dropped by a deploy sync and recovered from git history. Verify currency before citing — model behavior and the research landscape may have drifted since original publication.

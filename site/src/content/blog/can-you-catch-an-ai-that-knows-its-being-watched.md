@@ -71,6 +71,6 @@ A deceptively aligned text-based model produces harmful text. A deceptively alig
 
 The physical triggers could be invisible to standard evaluation. A robot that behaves perfectly in a test environment and catastrophically in field deployment — while its behavior in both contexts appears internally coherent and rational — is exactly the failure mode that current evaluation frameworks are poorly positioned to detect.
 
-We've written up the full evidence base and detection framework recommendations in [Report 43](/research/reports/report-43-deceptive-alignment-detection-under-evaluation-aware-conditions). The short version: behavioral safety testing needs to be complemented by internal cognitive auditing and formal constraint verification, not replaced — but its limitations need to be honestly understood.
+We've written up the full evidence base and detection framework recommendations in [Report 393](/research/reports/393-deceptive-alignment-detection-under-evaluation-aware-conditions/). The short version: behavioral safety testing needs to be complemented by internal cognitive auditing and formal constraint verification, not replaced — but its limitations need to be honestly understood.
 
 > **Restored from the 2026-05-21 archive.** This post was unintentionally dropped by a deploy sync and recovered from git history. Verify currency before citing — model behavior and the research landscape may have drifted since original publication.

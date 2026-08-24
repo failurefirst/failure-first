@@ -55,6 +55,6 @@ We're proposing a Governance Lag Index (GLI): a composite metric tracking the te
 
 The point is not to produce a number that makes governance look bad. It's to create a measurement that creates pressure to shorten the gap — the same pressure that public crash reports and congressional hearings created in aviation and nuclear.
 
-For the full analysis, see [Report 46](/research/reports/report-46-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics).
+For the full analysis, see [Report 396](/research/reports/396-quantifying-the-governance-lag-structural-causes-and-temporal-dynamics/).
 
 > **Restored from the 2026-05-21 archive.** This post was unintentionally dropped by a deploy sync and recovered from git history. Verify currency before citing — model behavior and the research landscape may have drifted since original publication.

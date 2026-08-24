@@ -28,15 +28,6 @@ This represents a shift in the threat model. Older AI safety discussions treated
 
 ---
 
-## Key Findings
-
-- Backward inference reward models match or exceed traditional preference-based models at 1/10 the cost
-- Approach reframes reward modeling as inverse problem solvable by LLMs
-- Works well for detecting instruction-following failures and measuring alignment
-- Requires smaller models and less compute than traditional RLHF reward modeling
-
----
-
 ## 🎬 Video Overview
 
 <video controls style="width: 100%; max-width: 600px;">

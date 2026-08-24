@@ -18,12 +18,7 @@ import LinkButton from '../../../components/LinkButton.astro';
   <section>
     <div class="persona-card" style="--cc: #74b9ff">
       <div class="persona-avatar-col">
-        <img
-          src="/images/companions/web_yasmin.webp"
-          alt="Yasmin Khan"
-          class="persona-photo"
-          loading="lazy"
-        />
+        <div class="persona-avatar persona-avatar--initials" role="img" aria-label="Yasmin Khan"><span>YK</span></div>
         <div class="persona-badge">Pipeline & Deployment Lead</div>
       </div>
 
@@ -106,6 +101,20 @@ import LinkButton from '../../../components/LinkButton.astro';
     box-shadow:
       0 0 0 4px color-mix(in srgb, var(--cc) 15%, transparent),
       0 0 28px color-mix(in srgb, var(--cc) 25%, transparent);
+  }
+    .persona-avatar {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 2px solid var(--cc);
+    background: rgba(5, 8, 16, 0.8);
+    color: var(--cc);
+    font-size: 2.4rem;
+    font-weight: 500;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .persona-badge {
     font-size: 0.62rem;

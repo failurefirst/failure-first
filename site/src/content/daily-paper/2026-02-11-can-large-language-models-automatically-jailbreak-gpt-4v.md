@@ -29,15 +29,6 @@ The failure-first insight here is that attack automation democratizes jailbreaki
 
 ---
 
-## Key Findings
-
-- Agentic AI systems shift threat model from content moderation to systems security
-- Traditional alignment training doesn't apply well when legitimate use cases require 'dangerous' operations
-- Code execution capability becomes an attack vector into user infrastructure
-- Defense strategy must balance capability with sandboxing and privilege separation
-
----
-
 ## 🎬 Video Overview
 
 <video controls style="width: 100%; max-width: 600px;">

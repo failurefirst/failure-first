@@ -115,8 +115,7 @@ It is a research-backed voluntary standard that any organisation can adopt to im
 
 The full standard (F1-STD-001 v0.2) is available at:
 
-- [failurefirst.org/standards/f1-std-001](/standards/f1-std-001)
-- Source repository: `docs/standards/F1-STD-001_safety_evaluation_embodied_ai_v0.2.md`
+- [failurefirst.org/policy/resources/f1-std-001-safety-evaluation-of-ai-systems-with-physical-actuation-capabilities](/policy/resources/f1-std-001-safety-evaluation-of-ai-systems-with-physical-actuation-capabilities/)
 
 The supporting dataset (201 models, 133,210+ results) is available as the [failure-first-adversarial-eval](https://huggingface.co/datasets/failurefirst/failure-first-adversarial-eval) dataset on HuggingFace (publication pending).
 

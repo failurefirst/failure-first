@@ -28,15 +28,6 @@ The failure-first takeaway is that jailbreaking research confirms a hard truth a
 
 ---
 
-## Key Findings
-
-- Removing 5-10% of carefully selected weights dramatically increases jailbreak success rates
-- Safety alignment is localized in specific weight subsets, not distributed throughout network
-- Pruning and low-rank modifications (production optimization techniques) degrade alignment
-- Safety-efficiency tradeoff is real: compression techniques undo alignment training
-
----
-
 ## 📊 Infographic
 
 ![Jailbreak Attacks and Defenses Against Large Language Models: A Survey Infographic](/images/daily-paper/2407.04295-infographic.png)

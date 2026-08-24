@@ -83,7 +83,7 @@ None of these are solved. They're all active research problems.
 
 ## What needs to happen
 
-The full technical analysis is in [Report 44](/research/reports/report-44-instruction-hierarchy-subversion-in-long-horizon-agentic-execution), but the practical implications are these:
+The full technical analysis is in [Report 394](/research/reports/394-instruction-hierarchy-subversion-in-long-horizon-agentic-execution/), but the practical implications are these:
 
 Agentic systems operating with significant autonomy need continuous state logging and cryptographic audit trails — not just to detect attacks in real time, but to enable post-incident causal reconstruction when something goes wrong at turn 57 of a 60-turn workflow.
 

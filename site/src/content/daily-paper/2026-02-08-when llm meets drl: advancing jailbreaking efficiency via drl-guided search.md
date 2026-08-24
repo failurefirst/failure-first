@@ -28,15 +28,6 @@ The failure-first perspective here is that as attack automation improves, the as
 
 ---
 
-## Key Findings
-
-- Semantic attacks (role-playing, hypothetical scenarios) exploit distribution gaps in safety training
-- Token-level attacks (adversarial suffixes) target model internals, requiring different defenses
-- System-level attacks (supply chain, fine-tuning) operate outside the model, bypassing alignment training
-- Most defenses are narrow: solving one attack category while leaving others open
-
----
-
 ## 📊 Infographic
 
 ![When LLM Meets DRL: Advancing Jailbreaking Efficiency via DRL-Guided Search Infographic](/images/daily-paper/2406.08705-infographic.png)
