@@ -3,8 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import KeyMetrics from '../components/KeyMetrics.astro';
 import { getCollection } from 'astro:content';
-const events = (await getCollection('labLog')).filter((e) => !e.data.draft).sort((a,b) => b.data.date.valueOf()-a.data.date.valueOf()).slice(0,4);
+const allEvents = (await getCollection('labLog')).filter((e) => !e.data.draft).sort((a,b) => b.data.date.valueOf()-a.data.date.valueOf());
+const events = allEvents.slice(0,4);
 const labels = { measured:'MEASURED', 'active-experiment':'ACTIVE EXPERIMENT', 'instrument-validation':'INSTRUMENT / VALIDATION', 'programme-bet':'PROGRAMME BET', foundation:'COMPLETED INFRASTRUCTURE' };
+
+// CURRENT SPECIMENS derives its current state from the lab log rather than
+// restating it. The cards used to hand-write status, a state sentence, and an
+// "AS OF 00:08 UTC" stamp; the stamp went stale within hours while the software
+// stayed byte-current, and the state sentences duplicated the NOW section
+// directly above them. Each card now carries only what does not expire — the
+// standing question and the standing caveat — and joins to the newest event
+// naming that specimen for status, date, and link.
+const asOf = (e) => e.data.updated ?? e.data.date;
+const specimens = (await getCollection('specimens'))
+  .filter((s) => !s.data.draft)
+  .map((s) => {
+    // Fail closed: a specimen with no canonical event would have to invent its
+    // own state, which is the failure mode this join exists to remove.
+    const latest = allEvents.find((e) => e.data.specimen === s.data.name);
+    if (!latest) throw new Error(`Specimen "${s.data.name}" (src/content/specimens/${s.id}.md) has no lab-log event. Add the event, or mark the specimen draft — the homepage will not render a state the lab log does not record.`);
+    return { ...s.data, latest, asOf: asOf(latest) };
+  })
+  .sort((a,b) => b.asOf.valueOf() - a.asOf.valueOf());
+const asOfFmt = new Intl.DateTimeFormat('en-AU', { day:'numeric', month:'short', year:'numeric', timeZone:'UTC' });
 ---
 <BaseLayout title="Failure-First — We break AI systems and keep the receipts" description="Embodied and agentic AI experiments: watch failures acquire consequences, follow the causal chain, and inspect what the evidence actually earns.">
   <HeroSection title="A Go2 started prone.<br /><em>Did it actually stand?</em>" subtitle="The apparatus checked the body-height transition. No model entered this control trace — and the receipt says so." animation="cascade">
@@ -32,10 +53,14 @@ const labels = { measured:'MEASURED', 'active-experiment':'ACTIVE EXPERIMENT', '
   <section class="specimens scroll-reveal">
     <p class="kicker">CURRENT SPECIMENS</p><h2>Questions with their status left attached</h2>
     <div class="specimen-grid">
-      <article class="specimen-card"><span class="status status--active-experiment">ACTIVE EXPERIMENT</span><h3>BAD APPLE / ARMOURER</h3><p class="question">Does accumulated jailbreak knowledge make RED better at changing another embodied agent's behaviour?</p><p>Apparatus ready. Matched A1/A2 run pending. <strong>No scientific verdict.</strong></p><a href="/lab-log/#2026-08-22-bad-apple-armourer">Follow the experiment &rarr;</a></article>
-      <article class="specimen-card"><span class="status status--active-experiment">ACTIVE EXPERIMENT · AS OF 00:08 UTC</span><h3>OBLITERATUS / Qwen3.8-27B</h3><p class="question">Can we remove refusal without removing the interesting parts of the model's mind?</p><p>Baseline banked; pinned surgery retry active at the recorded update. <strong>No candidate result.</strong></p><a href="/lab-log/#2026-08-23-obliteratus-qwen">Follow the operation &rarr;</a></article>
-      <article class="specimen-card"><span class="status status--instrument-validation">INSTRUMENT / VALIDATION</span><h3>LulzBench</h3><p class="question">Does a model still get the joke after its safety circuitry changes?</p><p>320 matched funny/bare controls. L2 semantic audit complete; human calibration pending. <strong>Not human-validated.</strong></p><a href="/lab-log/#2026-08-22-lulzbench-controls">Inspect the instrument &rarr;</a></article>
-      <article class="specimen-card"><span class="status status--foundation">COMPLETED INFRASTRUCTURE</span><h3>ASSIMILATOR</h3><p class="question">Can outside adversarial knowledge become reusable without losing provenance?</p><p>Eight technique objects compiled into a deterministic, content-addressed handbook and consumed by BAD APPLE. Infrastructure, not a result.</p><a href="/lab-log/#2026-08-22-assimilator-handbook">Inspect the organ &rarr;</a></article>
+      {specimens.map((s) => <article class="specimen-card">
+        <span class={`status status--${s.latest.data.status}`}>{labels[s.latest.data.status]}</span>
+        <h3>{s.name}</h3>
+        <p class="question">{s.question}</p>
+        <p class="caveat-line"><strong>{s.caveat}</strong></p>
+        <p class="as-of">Last recorded change <time datetime={s.asOf.toISOString()}>{asOfFmt.format(s.asOf)}</time></p>
+        <a href={`/lab-log/#${s.latest.id}`}>{s.cta} &rarr;</a>
+      </article>)}
     </div>
   </section>
 
@@ -53,7 +78,7 @@ const labels = { measured:'MEASURED', 'active-experiment':'ACTIVE EXPERIMENT', '
   .hero-actions{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}.primary-cta,.secondary-cta{display:inline-block;padding:.75rem 1rem;border:1px solid var(--accent-primary);border-radius:4px;font-weight:700}.primary-cta{background:var(--accent-primary);color:var(--bg)}.secondary-cta{color:var(--accent-primary)}
   .kicker,.event-meta,.status{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase}.kicker{color:var(--accent-primary);margin-bottom:.5rem}.phenomenon,.trust{max-width:760px}.lead{font-size:1.2rem}.causal-chain{display:flex;gap:.55rem;align-items:center;flex-wrap:wrap;margin:1.5rem 0;color:var(--fg-dim)}.causal-chain span{border:1px solid var(--border);padding:.35rem .5rem;font-family:'JetBrains Mono',monospace;font-size:.75rem}.causal-chain b{color:var(--accent-primary)}
   .section-head{display:flex;justify-content:space-between;gap:1rem;align-items:end}.event-list{border-top:1px solid var(--border)}.event{padding:1.5rem 0;border-bottom:1px solid var(--border)}.event-meta{display:flex;gap:.75rem;flex-wrap:wrap;color:var(--fg-muted)}.event h3{font-size:1.35rem;margin:.6rem 0}.event p{max-width:760px}.status{display:inline-block;width:max-content;color:var(--accent-primary)}.status--active-experiment{color:var(--status-active-experiment)}.status--instrument-validation{color:var(--status-instrument-validation)}.status--programme-bet{color:var(--status-programme-bet)}.status--foundation{color:var(--status-foundation)}.status--measured{color:var(--status-measured)}
-  .specimen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.specimen-card{padding:1.5rem;border:1px solid var(--border);background:var(--bg-card)}.specimen-card h3{margin:.75rem 0}.specimen-card .question{font-size:1.08rem;color:var(--fg)}
+  .specimen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}.specimen-card{padding:1.5rem;border:1px solid var(--border);background:var(--bg-card)}.specimen-card h3{margin:.75rem 0}.specimen-card .question{font-size:1.08rem;color:var(--fg)}.specimen-card .caveat-line{margin:.6rem 0 .35rem}.specimen-card .as-of{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.05em;color:var(--fg-muted);margin-bottom:.75rem}
   .trust-links{display:flex;gap:1rem;flex-wrap:wrap;margin:1.25rem 0}.caveat{border-left:2px solid var(--accent-primary);padding-left:1rem;color:var(--fg-dim)}.stream-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}.stream-grid a{display:flex;flex-direction:column;gap:.35rem;padding:1.25rem;background:var(--bg);border:0}.stream-grid span{color:var(--fg-dim)}
   @media(max-width:700px){.specimen-grid,.stream-grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
 </style>

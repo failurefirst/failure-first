@@ -175,4 +175,24 @@ const labLog = defineCollection({
   }),
 });
 
-export const collections = { blog, docs, dailyPaper, aiSafetyDaily, reports, legal, policyDocs, papers, services, labLog };
+// A specimen is a standing research entity: the question it exists to answer and
+// the caveat that stays attached until evidence retires it. Deliberately holds NO
+// current-state field. Status, "as of" date, and the card's link are derived at
+// build time from the newest labLog event naming the same specimen, so the
+// homepage cannot claim a state the lab log does not record. The homepage used to
+// hand-write both — it shipped "AS OF 00:08 UTC" for two days, a timestamp with
+// its date filed off, which reads as this morning to anyone who has not memorised
+// the log.
+const specimens = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/specimens' }),
+  schema: z.object({
+    // Must match a labLog entry's `specimen` string exactly; the join is by name.
+    name: z.string(),
+    question: z.string(),
+    caveat: z.string(),
+    cta: z.string(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, docs, dailyPaper, aiSafetyDaily, reports, legal, policyDocs, papers, services, labLog, specimens };
