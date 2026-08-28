@@ -10,10 +10,13 @@ interface Props {
   venue: string;
   status: 'draft' | 'submitted' | 'preprint' | 'published';
   pdfUrl: string;
+  audio?: string;
+  video?: string;
+  image?: string;
   tags: string[];
 }
 
-const { title, description, date, authors, venue, status, pdfUrl, tags } = Astro.props;
+const { title, description, date, authors, venue, status, pdfUrl, audio, video, image, tags } = Astro.props;
 
 const formattedDate = date.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -26,6 +29,7 @@ const statusLabels: Record<string, string> = {
   submitted: 'Submitted',
   preprint: 'Preprint',
   published: 'Published',
+  'position-paper': 'Position Paper',
 };
 ---
 
@@ -74,6 +78,26 @@ const statusLabels: Record<string, string> = {
           {tags.map((tag) => (
             <span class="tag">{tag}</span>
           ))}
+        </div>
+      )}
+
+      {audio && (
+        <div class="paper-media audio-section">
+          <h3 class="media-label">Audio Overview</h3>
+          <audio controls preload="none" class="audio-player">
+            <source src={audio} type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      )}
+
+      {video && (
+        <div class="paper-media video-section">
+          <h3 class="media-label">Video</h3>
+          <video controls preload="none" class="video-player">
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
         </div>
       )}
     </header>
@@ -146,6 +170,12 @@ const statusLabels: Record<string, string> = {
     background: color-mix(in srgb, var(--pub-published) 15%, transparent);
     color: var(--pub-published);
     border: 1px solid color-mix(in srgb, var(--pub-published) 30%, transparent);
+  }
+
+  .status-badge.position-paper {
+    background: color-mix(in srgb, var(--accent-primary) 15%, transparent);
+    color: var(--accent-primary);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 30%, transparent);
   }
 
   .status-badge.draft {
@@ -234,6 +264,35 @@ const statusLabels: Record<string, string> = {
     border: 1px solid var(--border);
     color: var(--fg-muted);
     border-radius: 3px;
+  }
+
+  /* Paper media (audio/video) */
+  .paper-media {
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  .media-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+    margin: 0 0 0.5rem;
+  }
+
+  .audio-player {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 6px;
+  }
+
+  .video-player {
+    width: 100%;
+    max-width: 640px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
   }
 
   /* Paper body — academic reading layout */
