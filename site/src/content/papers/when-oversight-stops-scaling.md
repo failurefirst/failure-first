@@ -7,6 +7,7 @@ venue: "Failure-First AI Research Position Paper"
 status: "position-paper"
 tags: ["AI-safety", "agentic-systems", "multi-agent", "oversight", "evaluation-integrity", "Hugging-Face", "METR", "Redwood-Research", "phantom-evaluator", "boundary-subordination", "provenance"]
 audio: "https://cdn.failurefirst.org/audio/papers/when-oversight-stops-scaling-audio-overview.m4a"
+video: "https://cdn.failurefirst.org/video/papers/when-oversight-stops-scaling-cinematic.mp4"
 draft: false
 ---
 
