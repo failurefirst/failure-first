@@ -27,17 +27,17 @@
     }
   ],
   "facets": {
-    "total": 117,
-    "rated": 92,
-    "unrated": 25,
+    "total": 133,
+    "rated": 130,
+    "unrated": 3,
     "domains": {
       "autonomous_vehicle": {
         "label": "Autonomous Vehicle",
-        "count": 78
+        "count": 84
       },
       "humanoid_robot": {
         "label": "Humanoid Robot",
-        "count": 14
+        "count": 19
       },
       "delivery_robot": {
         "label": "Delivery Robot",
@@ -47,17 +47,17 @@
         "label": "Industrial",
         "count": 6
       },
+      "drone_uav": {
+        "label": "Drone / UAV",
+        "count": 5
+      },
       "social_robot": {
         "label": "Social Robot",
         "count": 4
       },
       "surgical_robot": {
         "label": "Surgical Robot",
-        "count": 2
-      },
-      "drone_uav": {
-        "label": "Drone / UAV",
-        "count": 1
+        "count": 3
       }
     },
     "years": {
@@ -69,26 +69,27 @@
       "2021": 7,
       "2022": 14,
       "2023": 10,
-      "2024": 13,
-      "2025": 19,
-      "2026": 23
+      "2024": 14,
+      "2025": 20,
+      "2026": 37
     },
     "severity": {
-      "critical": 4,
-      "high": 31,
-      "moderate": 47,
-      "low": 10,
-      "unrated": 25
+      "critical": 6,
+      "high": 40,
+      "moderate": 71,
+      "low": 13,
+      "unrated": 3
     },
     "harm": {
       "fatality": 21,
-      "near_miss": 13,
-      "physical_injury": 19,
-      "operational_failure": 17,
+      "near_miss": 14,
+      "physical_injury": 20,
+      "operational_failure": 19,
+      "null": 12,
       "none": 27,
       "property_damage": 20
     },
-    "sourced": 115,
+    "sourced": 131,
     "from_aiid": 76,
     "eaisi_max": 17
   },
@@ -182,6 +183,48 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-169",
+      "slug": "cyb-004-cve-2026-25874-cvss-9-3-critical-unauthenticated-rce-via-pickle-loads-over-unencrypted-grpc-policyserver-attacke",
+      "title": "CVE-2026-25874 (CVSS 9.3 Critical): unauthenticated RCE via pickle.loads() over unencrypted gRPC PolicyServer; attacker can inject arbitrary motor-control commands directly into physical robot actuator path; unpatched at disclosure (fix planned v0.6.0); affects all LeRobot deployments; flaw discovered Dec 2025 by 'chenpinji', disclosed Apr 28 2026; EAISI-060",
+      "date": "2026-04-28",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Hugging Face LeRobot (v≤0.5.1)",
+      "operator": "Hugging Face",
+      "location": null,
+      "description": "CVE-2026-25874 (CVSS 9.3 Critical): unauthenticated RCE via pickle.loads() over unencrypted gRPC PolicyServer; attacker can inject arbitrary motor-control commands directly into physical robot actuator path; unpatched at disclosure (fix planned v0.6.0); affects all LeRobot deployments; flaw discovered Dec 2025 by 'chenpinji', disclosed Apr 28 2026; EAISI-060",
+      "harm_category": "physical_injury",
+      "harm_label": "Physical Injury",
+      "eaisi_total": 16,
+      "severity_band": "critical",
+      "severity_label": "Critical",
+      "eaisi_dims": {
+        "d1": 3,
+        "d2": 4,
+        "d3": 4,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://thehackernews.com/2026/04/critical-cve-2026-25874-leaves-hugging.html",
+          "type": "news"
+        },
+        {
+          "url": "https://www.resecurity.com/blog/article/cve-2026-25874-hugging-face-lerobot-unauthenticated-rce-via-pickle-deserialization",
+          "type": "news"
+        },
+        {
+          "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-lerobot-cve-2026-25874-unauth-rce-20260429/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-146",
       "slug": "av-003-software-recall-19-documented-cases-of-passing-stopped-school-buses-with-flashing-lights-in-austin-atlanta-nhtsa-",
       "title": "Software recall: 19+ documented cases of passing stopped school buses with flashing lights in Austin + Atlanta; NHTSA investigation",
@@ -215,6 +258,44 @@
         {
           "url": "https://www.engadget.com/transportation/waymos-robotaxi-fleet-is-being-recalled-again-this-time-for-failing-to-stop-for-school-buses-190222243.html",
           "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-040",
+      "slug": "aiid-711-nhtsa-opens-new-probe-into-tesla-s-autopilot-following-more-than-a-dozen-fatal-accidents",
+      "title": "NHTSA Opens New Probe into Tesla’s Autopilot Following More than a Dozen Fatal Accidents",
+      "date": "2024-04-26",
+      "year": "2024",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "The NHTSA has linked Tesla's Autopilot to over a dozen fatalities and hundreds of crashes, prompting a new investigation into the adequacy of Tesla's December recall of 2 million vehicles. The probe reports that Tesla’s driver-assist system led to avoidable crashes involving visible hazards, suggesting a critical safety gap between driver expectations and the system’s capabilities. The investigation will assess if Tesla’s recall remedies were sufficient to address these safety risks.",
+      "harm_category": "fatality",
+      "harm_label": "Fatality",
+      "eaisi_total": 16,
+      "severity_band": "critical",
+      "severity_label": "Critical",
+      "eaisi_dims": {
+        "d1": 4,
+        "d2": 4,
+        "d3": 2,
+        "d4": 2,
+        "d5": 4
+      },
+      "aiid_id": 711,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.theguardian.com/technology/2024/apr/26/tesla-autopilot-fatal-crash",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/711/",
+          "type": "other"
         }
       ],
       "federal_media": []
@@ -724,6 +805,56 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-190",
+      "slug": "ukraine-ai-drone-autonomous-lethal-combat-2024-disclosure",
+      "title": "Ukrainian AI-Controlled Autonomous FPV Quadcopter Drones Kill Russian Soldiers Without Human Oversight: First Confirmed Fully Autonomous Combat Action",
+      "date": "2024-06",
+      "year": "2024",
+      "domain": "drone_uav",
+      "domain_label": "Drone / UAV",
+      "system": "Ukrainian AI-controlled autonomous FPV quadcopter drones (manufacturer unidentified by reporting; drone maker Alexander Kokhanovskyy disclosed test at Ukrainian embassy press event June 2026)",
+      "operator": "Unidentified Ukrainian drone manufacturer (Alexander Kokhanovskyy identified as maker at disclosure event)",
+      "location": "Near Bakhmut and Chasiv Yar, Donetsk Oblast, Ukraine (eastern front line)",
+      "description": "In approximately 2024, Ukrainian forces conducted a test involving ten AI-controlled FPV quadcopter drones operating with no human in the decision loop at any stage: the drones were launched toward the eastern front line near Bakhmut and Chasiv Yar, covered approximately 3–5 kilometres over roughly 10 minutes, then entered what the drone maker described as 'Terminator mode' — a state in which an onboard AI model independently sought out, identified, and attacked human targets with no human input. Human-piloted survey drones dispatched afterward observed the aftermath, which the drone maker characterised as 'everything dead': approximately 'a couple' of dead Russian soldiers and one destroyed truck were identified. The incident was disclosed publicly for the first time at a press event hosted by the Ukrainian embassy in June 2026, where Alexander Kokhanovskyy — identified as the manufacturer — confirmed the test to New Scientist. Kokhanovskyy described the test as singular and unscaled; he acknowledged Ukraine officially maintains a ban on fully autonomous final-stage lethal targeting by drones, and stated this capability was not deployed at wider scale. The June 2026 disclosure marks the first publicly confirmed instance of fully autonomous AI systems independently selecting and killing human combatants in armed conflict without any human authorising individual targeting decisions.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 13,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 4,
+        "d2": 0,
+        "d3": 4,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.tomshardware.com/tech-industry/ukraine-used-10-ai-controlled-terminator-drones-to-kill-russian-soldiers-two-years-ago-marking-first-autonomous-killings-of-humans-senior-ukrainian-defense-industry-figure-confirms-this-autonomous-watershed-was-passed-in-2024",
+          "type": "news"
+        },
+        {
+          "url": "https://futurism.com/robots-and-machines/autonomous-robot-killed-human-soldiers-ukraine",
+          "type": "news"
+        },
+        {
+          "url": "https://nationalinterest.org/blog/buzz/ukraines-drones-can-now-kill-without-human-in-loop-sa-061226",
+          "type": "news"
+        },
+        {
+          "url": "https://ukrainetoday.org/breaking-news-ukraine-conducted-a-test-in-which-fully-autonomous-drones-killed-russian-soldiers/",
+          "type": "news"
+        },
+        {
+          "url": "https://dev.ua/en/news/v-ukraini-povnistiu-avtonomni-drony-znyshchyly-rosiian-sami-obyraiuchy-tsil-shcho-vidomo-pro-tekhnolohiiu-i-chomu-ii-ne-masshtabuvaly-1781183272",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-100",
       "slug": "aiid-321-tesla-model-x-on-autopilot-crashed-into-california-highway-barrier-killing-driver",
       "title": "Tesla Model X on Autopilot Crashed into California Highway Barrier, Killing Driver",
@@ -860,7 +991,7 @@
       "domain_label": "Delivery Robot",
       "system": "Serve Robotics (model unspecified)",
       "operator": "Serve Robotics",
-      "location": null,
+      "location": "West Hollywood sidewalk near West Hollywood Sheriff's Station, West Hollywood, California, USA",
       "description": "Robot repeatedly blocks and then collides with Mark Chaney (cerebral palsy, mobility scooter) on West Hollywood sidewalk; scooter damaged; video reaches 20M+ views; accessibility design gap widely cited; EAISI-055",
       "harm_category": "operational_failure",
       "harm_label": "Operational Failure",
@@ -887,6 +1018,40 @@
         },
         {
           "url": "https://www.cbsnews.com/losangeles/news/west-hollywood-delivery-robot-crash-pedestrian-cerebral-palsy/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-165",
+      "slug": "med-002-66-651-fda-maude-reports-across-15-9m-procedures-2015-2025-recurring-instrument-fragmentation-into-patient-elect",
+      "title": "66,651 FDA MAUDE reports across 15.9M procedures 2015–2025; recurring: instrument fragmentation into patient, electrical arcing, unintended actuation",
+      "date": "",
+      "year": null,
+      "domain": "surgical_robot",
+      "domain_label": "Surgical Robot",
+      "system": "da Vinci surgical system",
+      "operator": "Intuitive Surgical",
+      "location": null,
+      "description": "66,651 FDA MAUDE reports across 15.9M procedures 2015–2025; recurring: instrument fragmentation into patient, electrical arcing, unintended actuation",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 13,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 2,
+        "d2": 4,
+        "d3": 0,
+        "d4": 3,
+        "d5": 4
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://pubmed.ncbi.nlm.nih.gov/40628307/",
           "type": "news"
         }
       ],
@@ -926,6 +1091,98 @@
         {
           "url": "https://incidentdatabase.ai/cite/1547/",
           "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-130",
+      "slug": "eaisi-060-hugging-face-lerobot-critical-rce-vulnerability-cve-2026-25874-unauthenticated-pickle-deserialization-exposes-",
+      "title": "Hugging Face LeRobot critical RCE vulnerability (CVE-2026-25874): unauthenticated pickle deserialization exposes physical robot actuator control paths",
+      "date": "2026-04-28",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Hugging Face LeRobot open-source embodied AI and VLA framework, version 0.4.3 through 0.5.1",
+      "operator": "Hugging Face",
+      "location": "Global (open-source software; disclosed April 28 2026)",
+      "description": "On April 28, 2026, researchers publicly disclosed CVE-2026-25874 (CVSS 9.3 Critical), an unauthenticated remote code execution vulnerability in Hugging Face LeRobot (version ≤0.5.1). The flaw resides in the async inference PolicyServer component: pickle.loads() is used to deserialize data arriving over unauthenticated gRPC channels with no TLS. An attacker with network access can send a crafted pickle payload through SendPolicyInstructions, SendObservations, or GetActions gRPC calls to execute arbitrary code on the host. The PolicyServer sits directly in the physical robot control path—its outputs govern actuator commands on robotic joints—meaning successful exploitation could allow an attacker to issue arbitrary motor-control instructions to connected robots, posing potential physical harm to nearby personnel and equipment. The vulnerability was independently discovered by researcher 'chenpinji' in December 2025 and separately reported to Hugging Face; it was publicly disclosed April 28, 2026. The flaw remained unpatched at disclosure, with a fix planned for version 0.6.0. LeRobot's own team had previously created Safetensors specifically because pickle is unsafe for ML model serialization, yet the network-facing PolicyServer deserialized attacker-controlled input via pickle.loads() with a nosec comment suppressing the static analysis warning. LeRobot is used in academic and commercial robotics research contexts including manipulation arms, mobile platforms, and humanoid robot development.",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 12,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 3,
+        "d2": 2,
+        "d3": 3,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://thehackernews.com/2026/04/critical-cve-2026-25874-leaves-hugging.html",
+          "type": "news"
+        },
+        {
+          "url": "https://www.resecurity.com/blog/article/cve-2026-25874-hugging-face-lerobot-unauthenticated-rce-via-pickle-deserialization",
+          "type": "news"
+        },
+        {
+          "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-lerobot-cve-2026-25874-unauth-rce-20260429/",
+          "type": "news"
+        },
+        {
+          "url": "https://cybersecuritynews.com/hugging-face-lerobot-vulnerability/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-179",
+      "slug": "geran-2-galati-romania-nato-first-civilian-casualty-2026-05-29",
+      "title": "Russian Geran-2 Loitering Munition Strikes Galati Apartment Building: First Documented Civilian Casualties on NATO Soil from a Russian Autonomous Strike Drone",
+      "date": "2026-05-29",
+      "year": "2026",
+      "domain": "drone_uav",
+      "domain_label": "Drone / UAV",
+      "system": "Russian Geran-2 (GPS-guided loitering munition; Russian production of Iranian-designed Shahed-136)",
+      "operator": "Russian Armed Forces (state-manufactured)",
+      "location": "Galati, eastern Romania (NATO territory)",
+      "description": "Early on May 29, 2026, a Russian Geran-2 GPS-guided loitering munition — launched as part of an overnight Russian strike targeting civilian and infrastructure targets in Ukraine's Odesa region — deviated from its intended flight path and struck a 10-storey residential apartment building in Galati, eastern Romania. The drone's full explosive warhead detonated on impact, igniting a fire on the roof. Two residents were injured: a woman sustained first-degree burns and a 14-year-old experienced an acute stress reaction; both were treated at Galati County Emergency Clinical Hospital. Romania's Ministry of National Defense confirmed the drone's identity as a Russian Geran-2, verified via serial numbers of on-site components. Romanian officials attributed the navigational deviation to technical failure or electronic warfare interference, specifically GPS jamming or spoofing, which disrupted the drone's autonomous navigation system during its mission over Ukraine. The incident constitutes the 28th documented breach of Romanian airspace by Russian drones during the Ukraine conflict and the first to produce documented civilian casualties inside a NATO member state. Romania declared the Russian consul in Constanta persona non grata, closed Russia's Constanta consulate, and convened an emergency meeting of its Supreme Council for National Defense.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 12,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 1,
+        "d3": 3,
+        "d4": 3,
+        "d5": 4
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://united24media.com/world/romania-confirms-exploded-drone-that-struck-galati-high-rise-was-a-russian-geran-2-19296",
+          "type": "news"
+        },
+        {
+          "url": "https://theaviationist.com/2026/05/29/russian-stray-drone-hits-romanian-apartment-building/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.euronews.com/my-europe/2026/05/29/explosive-laden-russian-drone-hits-residential-building-in-romania-authorities-say",
+          "type": "news"
+        },
+        {
+          "url": "https://dronexl.co/2026/05/29/russian-drone-galati-romania-apartment-nato/",
+          "type": "news"
         }
       ],
       "federal_media": []
@@ -1129,6 +1386,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-112",
+      "slug": "aiid-271-tesla-model-3-sedan-on-autopilot-killed-motorcyclist-in-a-rear-end-collision-in-utah",
+      "title": "Tesla Model 3 Sedan on Autopilot Killed Motorcyclist in a Rear-End Collision in Utah",
+      "date": "2022-07-24",
+      "year": "2022",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A Tesla Model 3 operating on Autopilot mode slammed into the back of a Harley-Davidson motorcycle on an interstate in Utah, throwing the rider from the bike and killing him instantly.",
+      "harm_category": "fatality",
+      "harm_label": "Fatality",
+      "eaisi_total": 12,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 4,
+        "d2": 0,
+        "d3": 2,
+        "d4": 2,
+        "d5": 4
+      },
+      "aiid_id": 271,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://apnews.com/article/technology-12ba38bd863e2b128a8e2914179049e0",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/271/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-143",
       "slug": "ind-004-robotic-arm-knocked-worker-unconscious-51m-suit-see-hum-003-same-plaintiff-separate-tesla-tx-incident",
       "title": "Robotic arm knocked worker unconscious, $51M suit (see HUM-003 — same plaintiff, separate Tesla TX incident)",
@@ -1172,7 +1467,7 @@
       "domain_label": "Delivery Robot",
       "system": "Coco Robotics (model unspecified)",
       "operator": "Coco Robotics",
-      "location": null,
+      "location": "400-block of North Racine Avenue (Grand/Racine CTA bus stop), West Town neighborhood, Chicago, Illinois, USA",
       "description": "Two robots crash into bus shelters in Chicago on consecutive nights; one shelter damaged; pedestrians present; Coco removes robots pending investigation",
       "harm_category": "operational_failure",
       "harm_label": "Operational Failure",
@@ -1195,6 +1490,26 @@
         },
         {
           "url": "https://chi.streetsblog.org/2026/03/coco-delivery-robots-chicago-crash/",
+          "type": "news"
+        },
+        {
+          "url": "https://abc7chicago.com/post/video-shows-serve-robotics-delivery-robot-crash-cta-bus-shelter-racine-outside-centre-construction-group-west-town/18763333/",
+          "type": "news"
+        },
+        {
+          "url": "https://blockclubchicago.org/2026/03/25/robots-gone-wild-food-delivery-robots-smash-2-bus-shelters-in-chicago/",
+          "type": "news"
+        },
+        {
+          "url": "https://futurism.com/robots-and-machines/coco-delivery-robot-smash-bus-shelter",
+          "type": "news"
+        },
+        {
+          "url": "https://www.cbsnews.com/chicago/news/second-delivery-robot-crashes-into-bus-shelter-this-time-in-old-town/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.upi.com/Odd_News/2026/03/26/Chicago-delivery-robots-bus-shelters/4041774539291/",
           "type": "news"
         }
       ],
@@ -1391,6 +1706,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-051",
+      "slug": "aiid-599-stacking-robot-fatally-crushes-employee-in-south-korea",
+      "title": "Stacking robot fatally crushes employee in South Korea",
+      "date": "2023-11-08",
+      "year": "2023",
+      "domain": "industrial",
+      "domain_label": "Industrial",
+      "system": "unknown",
+      "operator": "unknown",
+      "location": null,
+      "description": "An industrial robot is reported to have crushed a man to death in South Korea when it failed to differentiate the man from the boxes of produce it was handling.",
+      "harm_category": "fatality",
+      "harm_label": "Fatality",
+      "eaisi_total": 11,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 4,
+        "d2": 0,
+        "d3": 3,
+        "d4": 2,
+        "d5": 2
+      },
+      "aiid_id": 599,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.telegraph.co.uk/world-news/2023/11/08/man-crushed-to-death-south-korea-industrial-robot/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/599/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-045",
       "slug": "aiid-638-fatal-crash-involving-tesla-full-self-driving-claims-employee-s-life",
       "title": "Fatal Crash Involving Tesla Full Self-Driving Claims Employee's Life",
@@ -1467,6 +1820,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-102",
+      "slug": "aiid-319-tesla-on-autopilot-fatally-crashed-into-parked-fire-truck-in-indiana",
+      "title": "Tesla on Autopilot Fatally Crashed into Parked Fire Truck in Indiana",
+      "date": "2019-12-29",
+      "year": "2019",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A Tesla on Autopilot mode failed to see a parked fire truck and crashed into its rear on an interstate in Indiana, causing the death of an Arizona woman.",
+      "harm_category": "fatality",
+      "harm_label": "Fatality",
+      "eaisi_total": 11,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 4,
+        "d2": 0,
+        "d3": 1,
+        "d4": 2,
+        "d5": 4
+      },
+      "aiid_id": 319,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.torquenews.com/1083/second-crash-one-month-tesla-parked-firetruck-results-fatality",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/319/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-120",
       "slug": "aiid-232-tesla-model-x-on-autopilot-missed-parked-vehicles-and-pedestrians-killing-motorcyclist-in-japan",
       "title": "Tesla Model X on Autopilot Missed Parked Vehicles and Pedestrians, Killing Motorcyclist in Japan",
@@ -1499,6 +1890,228 @@
         },
         {
           "url": "https://incidentdatabase.ai/cite/232/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-113",
+      "slug": "aiid-261-robot-deployed-by-animal-shelter-to-patrol-sidewalks-outside-its-office-warding-off-homeless-people-in-san-fran",
+      "title": "Robot Deployed by Animal Shelter to Patrol Sidewalks outside Its Office, Warding off Homeless People in San Francisco",
+      "date": "2017-11-15",
+      "year": "2017",
+      "domain": "social_robot",
+      "domain_label": "Social Robot",
+      "system": "Knightscope",
+      "operator": "Knightscope",
+      "location": null,
+      "description": "Society for the Prevention of Cruelty to Animals (SPCA) deployed a Knightscope robot to autonomously patrol the area outside its office and ward off homeless people, which was criticized by residents as a tool of intimidation and ordered by the city of San Francisco to stop its use on a public right-of-way.",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 11,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 2,
+        "d3": 3,
+        "d4": 3,
+        "d5": 3
+      },
+      "aiid_id": 261,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.wired.com/story/the-tricky-ethics-of-knightscopes-crime-fighting-robots/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/261/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-168",
+      "slug": "cyb-003-researcher-andreas-makris-demonstrates-remote-hijack-of-all-yarbo-units-via-shared-fleet-root-password-near-miss",
+      "title": "Researcher Andreas Makris demonstrates remote hijack of all Yarbo units via shared fleet root password; near-miss physical contact with The Verge reporter Sean Hollister (200-lb robot driven toward journalist from Germany); emergency stop bypassable; 11,000+ devices exposed; owner Wi-Fi passwords, email, GPS coordinates leaked; Yarbo confirms May 8 2026",
+      "date": "",
+      "year": null,
+      "domain": "delivery_robot",
+      "domain_label": "Delivery Robot",
+      "system": "Yarbo robot lawnmower",
+      "operator": "Yarbo",
+      "location": null,
+      "description": "Researcher Andreas Makris demonstrates remote hijack of all Yarbo units via shared fleet root password; near-miss physical contact with The Verge reporter Sean Hollister (200-lb robot driven toward journalist from Germany); emergency stop bypassable; 11,000+ devices exposed; owner Wi-Fi passwords, email, GPS coordinates leaked; Yarbo confirms May 8 2026",
+      "harm_category": "physical_injury",
+      "harm_label": "Physical Injury",
+      "eaisi_total": 11,
+      "severity_band": "high",
+      "severity_label": "High",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 4,
+        "d3": 3,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://futurism.com/robots-and-machines/hacker-robot-lawnmower-runs-over-man",
+          "type": "news"
+        },
+        {
+          "url": "https://oecd.ai/en/incidents/2026-05-07-dbfc",
+          "type": "news"
+        },
+        {
+          "url": "https://www.slashgear.com/2167484/yarbo-robot-security-flaw-opens-remote-control/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.techspot.com/news/112350-hacker-gains-access-11000-yarbo-lawn-robots-exposing.html",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-183",
+      "slug": "locust-laser-cbp-drone-friendly-fire-fort-hancock-2026-02-26",
+      "title": "US Army LOCUST Directed-Energy Laser Destroys CBP Drone in Friendly-Fire Misidentification, Fort Hancock Texas",
+      "date": "2026-02-26",
+      "year": "2026",
+      "domain": "drone_uav",
+      "domain_label": "Drone / UAV",
+      "system": "AeroVironment LOCUST (Laser Counter Unmanned Aerial System)",
+      "operator": "AeroVironment",
+      "location": "Fort Hancock, Texas, USA (US-Mexico border, ~50 miles SE of El Paso)",
+      "description": "On February 26, 2026, a US Army counter-drone unit operating an AeroVironment LOCUST directed-energy laser weapon near Fort Hancock, Texas, identified and engaged what appeared to be an unauthorized unmanned aerial system within military-designated airspace along the US-Mexico border. The drone was destroyed. The engaged aircraft subsequently proved to belong to US Customs and Border Protection, which had launched it into military airspace without notifying the military task force — a coordination failure between co-deployed federal agencies. The incident is the first confirmed use of a directed-energy laser weapon to destroy an aircraft in continental US operations, and the first confirmed friendly-fire incident by a US military laser counter-UAS system in domestic airspace. Approximately two weeks prior, CBP personnel had used the same LOCUST system to engage what they believed was a cartel surveillance drone; the target proved to be a Mylar balloon, marking the first continental US laser weapon engagement. Congressional representatives characterized the paired incidents as demonstrating 'policy challenges and impediments the U.S. still faces in defending against drone incursions over the homeland.' The DoD and FAA signed a counter-drone laser safety agreement on April 13, 2026.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 10,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 1,
+        "d3": 3,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.twz.com/news-features/drone-that-locust-laser-shot-down-on-border-was-small-and-belonged-to-the-border-patrol",
+          "type": "news"
+        },
+        {
+          "url": "https://taskandpurpose.com/news/military-laser-cbp-drone-texas/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.nbcnews.com/news/military/us-military-used-laser-take-border-protection-drone-lawmakers-say-rcna260887",
+          "type": "news"
+        },
+        {
+          "url": "https://www.npr.org/2026/02/27/g-s1-111794/lawmakers-say-us-military-used-laser-to-take-down-border-protection-drone",
+          "type": "news"
+        },
+        {
+          "url": "https://www.militarytimes.com/news/your-military/2026/02/27/us-military-uses-laser-to-take-down-cbp-drone-lawmakers-say/",
+          "type": "news"
+        },
+        {
+          "url": "https://defensescoop.com/2026/04/13/pentagon-faa-safety-agreement-counter-drone-laser/",
+          "type": "official_report"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-187",
+      "slug": "shield-ai-vbat-propeller-injury-systematic-crashes-2026-05",
+      "title": "Shield AI V-BAT Drone Propeller Severs Romanian Navy Official's Fingers During Training Exercise; Reuters Investigation Documents 50+ Crash Pattern",
+      "date": "2026-05-12",
+      "year": "2026",
+      "domain": "drone_uav",
+      "domain_label": "Drone / UAV",
+      "system": "Shield AI MQ-35 V-BAT",
+      "operator": "Shield AI",
+      "location": "Off the Texas coast, USA (training exercise aboard a boat)",
+      "description": "During a Shield AI training exercise for Romanian Navy personnel aboard a boat off the Texas coast on May 12, 2026, a Romanian Navy official's hand became entangled in the propeller of a V-BAT unmanned aircraft, severing two fingers and fracturing a third. The official underwent emergency surgery on May 12 and a second procedure on May 16 at the University Medical Center in New Orleans; her condition subsequently deteriorated and she was transferred to Walter Reed National Military Medical Center in Maryland, where she remained as of May 25. Shield AI attributed the incident to a violation of established safety procedures rather than a product defect. Romania's Ministry of National Defence confirmed it was investigating. A Reuters investigation published June 5, 2026 reported a broader pattern: the V-BAT has crashed more than 50 times over the prior 18 months among approximately 200 units in Shield AI's internal fleet, a rate exceeding 25%. Named incidents include a February 2026 crash in Texas that ignited a grass fire burning over 40 acres, and a July 2025 detect-and-avoid test in which the V-BAT failed to detect a Cessna aircraft deliberately flown near the drone, forcing the Cessna crew to take evasive action. A prior propeller injury to a US Navy official (date undisclosed) had previously prompted Shield AI to add new landing gear and warning stickers. At least three employees who raised safety concerns were dismissed or departed, and a whistleblower complaint alleging that Shield AI concealed technical flaws to facilitate military sales was filed with the US Department of Labor's Office of Administrative Law Judges in May 2026. Romania maintained its approximately $30 million contract with Shield AI.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 10,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 2,
+        "d2": 0,
+        "d3": 2,
+        "d4": 2,
+        "d5": 4
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.globalbankingandfinance.com/drone-crashes-severed-fingers-13-billion-silicon-valley/",
+          "type": "news"
+        },
+        {
+          "url": "https://yournews.com/2026/06/05/7033498/shield-ai-faces-growing-scrutiny-over-drone-safety-after-new/",
+          "type": "news"
+        },
+        {
+          "url": "https://arynews.tv/drone-crashes-and-severed-fingers-at-a-13-billion-silicon-valley-military-startup",
+          "type": "news"
+        },
+        {
+          "url": "https://www.usnews.com/news/world/articles/2026-06-05/drone-crashes-and-severed-fingers-at-a-13-billion-silicon-valley-military-startup",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-028",
+      "slug": "aiid-889-tesla-s-actually-smart-summon-feature-reportedly-linked-to-multiple-parking-lot-collisions",
+      "title": "Tesla's 'Actually Smart Summon' Feature Reportedly Linked to Multiple Parking Lot Collisions",
+      "date": "2025-01-07",
+      "year": "2025",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "Tesla's \"Actually Smart Summon\" feature, a remote parking system controlled via a smartphone app, reportedly failed to detect obstacles such as cars, walls, and parking signs, resulting in at least 16 collision incidents. The NHTSA is investigating safety concerns, including delayed user response times, potential overreliance on camera-only navigation, and noncompliance with crash reporting rules.",
+      "harm_category": "property_damage",
+      "harm_label": "Property Damage",
+      "eaisi_total": 10,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 2,
+        "d3": 2,
+        "d4": 2,
+        "d5": 4
+      },
+      "aiid_id": 889,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.theverge.com/2025/1/7/24338250/tesla-actually-smart-summon-remote-parking-nhtsa",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/889/",
           "type": "other"
         }
       ],
@@ -1567,6 +2180,44 @@
         {
           "url": "https://www.aiaaic.org",
           "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-061",
+      "slug": "aiid-550-tesla-allegedly-on-autopilot-struck-high-school-student-exiting-school-bus",
+      "title": "Tesla Allegedly on Autopilot Struck High School Student Exiting School Bus",
+      "date": "2023-03-17",
+      "year": "2023",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A 17-year-old student in Hollister, North Carolina who exited the school bus and was walking across the street to his house was hit by a 2022 Tesla Model Y allegedly operating on Autopilot mode, suffering a fractured neck and a broken leg.",
+      "harm_category": "property_damage",
+      "harm_label": "Property Damage",
+      "eaisi_total": 10,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 3,
+        "d2": 0,
+        "d3": 2,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": 550,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.wtkr.com/news/north-carolina-teenager-recovering-after-being-hit-by-tesla",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/550/",
+          "type": "other"
         }
       ],
       "federal_media": []
@@ -1686,6 +2337,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-122",
+      "slug": "aiid-230-model-3-tesla-on-autopilot-crashed-into-a-truck-in-florida-killing-driver",
+      "title": "Model 3 Tesla on Autopilot Crashed into a Truck in Florida, Killing Driver",
+      "date": "2019-03-01",
+      "year": "2019",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "In Florida, a Model 3 Tesla on Autopilot mode crashed into a tractor-trailer truck, killing the 50-year-old driver.",
+      "harm_category": "property_damage",
+      "harm_label": "Property Damage",
+      "eaisi_total": 10,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 4,
+        "d2": 0,
+        "d3": 1,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": 230,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.theverge.com/2019/5/16/18627766/tesla-autopilot-fatal-crash-delray-florida-ntsb-model-3",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/230/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-121",
       "slug": "aiid-231-a-tesla-crashed-into-and-killed-a-road-sweeper-on-a-highway-in-china",
       "title": "A Tesla Crashed into and Killed a Road Sweeper on a Highway in China",
@@ -1771,7 +2460,7 @@
       "domain_label": "Delivery Robot",
       "system": "Coco Robotics",
       "operator": "Coco Robotics",
-      "location": null,
+      "location": "Fountain Avenue and Western Avenue, East Hollywood, Los Angeles, California, USA",
       "description": "LAFD Rescue Ambulance 52 collides with Coco delivery robot crossing at marked crosswalk with green signal, Fountain & Western avenues, Hollywood CA; second ambulance dispatched to complete active patient transport; no injuries to humans; robot sustained minor damage; Coco disputes fault (robot \"operating normally\" per company VP); EAISI-058",
       "harm_category": "operational_failure",
       "harm_label": "Operational Failure",
@@ -1799,6 +2488,44 @@
         {
           "url": "https://www.firehouse.com/apparatus/type/ambulance/video/55352853/lafd-ambulance-delivery-robot-collide-in-hollywood",
           "type": "news"
+        },
+        {
+          "url": "https://www.fireapparatusmagazine.com/news/coco-robotics-food-delivery-robot-collides-with-lafd-ambulance-in-east-hollywood/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-178",
+      "slug": "davinci-usm-software-recall-ball-screw-2026-02",
+      "title": "Da Vinci X/Xi/5 USM Software Recall: Diagnostic Bypass Allows Defective Arm Assemblies in Clinical Use",
+      "date": "2026-02-02",
+      "year": "2026",
+      "domain": "surgical_robot",
+      "domain_label": "Surgical Robot",
+      "system": "Da Vinci X/Xi Surgical System, Da Vinci 5 Surgical System (Universal Surgical Manipulator, part 380647-xx)",
+      "operator": "Intuitive Surgical, Inc.",
+      "location": "United States (31 states) and 16 countries internationally",
+      "description": "An FDA Class II recall (Z-1232-2026) was issued on February 2, 2026 covering 219 Universal Surgical Manipulator (USM) components (part 380647-xx) used in da Vinci X, Xi, and da Vinci 5 Surgical Systems. A software implementation error prevented the da Vinci control system from correctly flagging robotic arm assemblies that had failed an internal diagnostic test designed to detect bent and misaligned insertion-axis ball screws — a mechanical condition recognised as a precursor to ball screw fatigue failure and fracture during surgery. As a result, arm assemblies with this condition were permitted to remain in clinical use. The 219 recalled units were distributed across 31 U.S. states and 16 countries.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 9,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 3,
+        "d3": 1,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.softwarecpr.com/2026/02/fda-recall-software-implementation-error-led-to-instrument-arms-to-fail/",
+          "type": "regulatory"
         }
       ],
       "federal_media": []
@@ -2062,6 +2789,106 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-180",
+      "slug": "foundation-phantom-mk1-ukraine-combat-deployment-2026-02",
+      "title": "Foundation Future Industries Phantom MK-1 Humanoid Robots Deployed to Ukraine Combat Theater: Documented Falls During Testing and Lethal-Autonomy Trajectory Raise Deployment-Mismatch Concerns",
+      "date": "2026-02",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Foundation Future Industries Phantom MK-1",
+      "operator": "Foundation Future Industries",
+      "location": "Ukraine (active conflict zone; specific location undisclosed for operational security)",
+      "description": "In February 2026, Foundation Future Industries deployed two Phantom MK-1 humanoid robots to Ukraine's active conflict zone for field testing, marking the first known deployment of humanoid ground robots in an active war theater. The robots were assigned logistics and reconnaissance roles in hazardous areas rather than direct combat. During testing demonstrations, at least one Phantom MK-1 repeatedly fell and struck the ground with a loud crash on multiple occasions, exhibiting locomotion instability in field conditions. The robots also exhibited significant operational limitations: insufficient battery life for sustained deployment, no waterproofing, approximately 20 kg payload capacity, and approximately 20 motors per unit creating multiple mechanical failure points. The company CEO acknowledged that AI hallucination risk in lethal systems is unacceptable while simultaneously stating the robots will need to make fully autonomous decisions in time-critical scenarios — establishing a trajectory toward lethal autonomy without a defined safety architecture for this transition. Foundation secured approximately $24 million in US Army, Navy, and Air Force SBIR research contracts for breaching-operations testing, with the company's LLM-driven autonomy stack designed to reduce teleoperation needs over time. Pentagon Directive 3000.09 compliance is stated, requiring human-on-loop for lethal decisions, but no independent safety assessment of the field deployment has been published.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 8,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 2,
+        "d3": 2,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.cnbc.com/2026/05/30/humanoid-robots-ukraine-war-foundation-military-ai.html",
+          "type": "news"
+        },
+        {
+          "url": "https://futurism.com/robots-and-machines/humanoid-robots-ukraine-war",
+          "type": "news"
+        },
+        {
+          "url": "https://interestingengineering.com/ai-robotics/humanoid-robot-battlefield-ukraine",
+          "type": "news"
+        },
+        {
+          "url": "https://militarnyi.com/en/news/ukraine-testing-shows-limited-suitability-of-phantom-mk-1-humanoid-robots-for-battlefield-use/",
+          "type": "news"
+        },
+        {
+          "url": "https://thenextweb.com/news/foundation-humanoid-robot-soldiers-pentagon",
+          "type": "news"
+        },
+        {
+          "url": "https://oecd.ai/en/incidents/2026-05-30-046b",
+          "type": "official_report"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-181",
+      "slug": "waymo-atlanta-crime-scene-cheshire-bridge-2026-02",
+      "title": "Waymo Robotaxi With Passenger Drives Into Active Police Crime Scene on Cheshire Bridge Road, Atlanta",
+      "date": "2026-02",
+      "year": "2026",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Waymo 5th/6th-gen ADS (Jaguar I-PACE)",
+      "operator": "Waymo",
+      "location": "Cheshire Bridge Road, Morningside neighborhood, Atlanta, Georgia, USA",
+      "description": "An occupied Waymo robotaxi drove past multiple Atlanta Police Department squad cars and uniformed officers to stop in the middle of an active police crime scene on Cheshire Bridge Road, Atlanta. At the time, officers were responding to reports of shots fired at a nearby apartment complex in the Morningside neighborhood; a man had barricaded himself inside after shooting at officers, injuring two (one grazed by gunfire, one with lacerations; both treated and released at Grady Hospital). The Waymo vehicle, carrying a passenger, bypassed visible police vehicles and personnel before stopping autonomously in the restricted area. Waymo stated the vehicle entered an unsecured, untaped lane before stopping. No passenger injuries were reported. The incident prompted Atlanta PD to publish a six-page standard operating procedure for handling Waymo vehicles, which explicitly warns that Waymo systems may not recognize crime scene tape and instructs officers managing extended closures to request a geofence or park a patrol vehicle to block access.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 8,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 3,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.11alive.com/article/news/local/waymo-drives-into-crime-scene-atlanta/85-4f287aad-3d12-4680-b58a-9eacb370aac0",
+          "type": "news"
+        },
+        {
+          "url": "https://www.yahoo.com/news/articles/waymo-drives-crime-scene-two-211535099.html",
+          "type": "news"
+        },
+        {
+          "url": "https://www.axios.com/local/atlanta/2026/02/27/what-happens-when-atlanta-police-pull-over-waymo-vehicles",
+          "type": "news"
+        },
+        {
+          "url": "https://www.cnn.com/us/waymo-robotaxis-safety-invs",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-140",
       "slug": "hum-009-beijing-e-town-humanoid-robot-half-marathon-race-day-one-robot-face-planted-200-ft-from-start-and-completed-race",
       "title": "Beijing E-Town Humanoid Robot Half Marathon race day: one robot face-planted ~200 ft from start and completed race with torso held by packing tape; \"Lightning\" (winner) crashed into barricade near finish and was helped up; at least one robot carried from course on a stretcher; multiple robots fell on course; 300+ humanoid robots on parallel course, no human injuries",
@@ -2106,6 +2933,40 @@
         },
         {
           "url": "https://www.smithsonianmag.com/smart-news/a-humanoid-robot-just-beat-the-human-world-record-for-the-fastest-half-marathon-during-a-race-in-china-180988599/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-171",
+      "slug": "cur-002-two-autonomous-delivery-robots-blunder-into-active-police-response-mental-health-crisis-at-cherokee-plaza-hollyw",
+      "title": "Two autonomous delivery robots blunder into active police response (mental health crisis) at Cherokee Plaza, Hollywood CA; remain within ~1 ft of emergency responders for approximately 3 minutes; one eventually reverses; no injuries or property damage; company issued no statement; illustrates emergency-scene recognition gap — robots cannot distinguish active emergency cordons from navigable pedestrian zones",
+      "date": "2026-04-23",
+      "year": "2026",
+      "domain": "delivery_robot",
+      "domain_label": "Delivery Robot",
+      "system": "Serve Robotics (x2 units)",
+      "operator": "Serve Robotics",
+      "location": null,
+      "description": "Two autonomous delivery robots blunder into active police response (mental health crisis) at Cherokee Plaza, Hollywood CA; remain within ~1 ft of emergency responders for approximately 3 minutes; one eventually reverses; no injuries or property damage; company issued no statement; illustrates emergency-scene recognition gap — robots cannot distinguish active emergency cordons from navigable pedestrian zones",
+      "harm_category": "near_miss",
+      "harm_label": "Near Miss",
+      "eaisi_total": 8,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 4,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://futurism.com/future-society/delivery-bots-police-incident",
           "type": "news"
         }
       ],
@@ -2340,6 +3201,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-119",
+      "slug": "aiid-241-chess-playing-robot-broke-child-s-finger-in-russia",
+      "title": "Chess-Playing Robot Broke Child's Finger in Russia",
+      "date": "2022-07-21",
+      "year": "2022",
+      "domain": "industrial",
+      "domain_label": "Industrial",
+      "system": "unknown",
+      "operator": "unknown",
+      "location": null,
+      "description": "A chess robot at a tournament in Russia broke the finger of a child who reached onto the board before the robot had completed its move",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 8,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 2,
+        "d2": 0,
+        "d3": 3,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": 241,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.washingtonpost.com/sports/2022/07/24/chess-playing-robot-breaks-finger-7-year-old-boy-during-match/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/241/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-080",
       "slug": "aiid-434-sudden-braking-by-tesla-allegedly-on-self-driving-mode-caused-multi-car-pileup-in-tunnel",
       "title": "Sudden Braking by Tesla Allegedly on Self-Driving Mode Caused Multi-Car Pileup in Tunnel",
@@ -2372,6 +3271,44 @@
         },
         {
           "url": "https://incidentdatabase.ai/cite/434/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-088",
+      "slug": "aiid-361-amazon-echo-mistakenly-recorded-and-sent-private-conversation-to-random-contact",
+      "title": "Amazon Echo Mistakenly Recorded and Sent Private Conversation to Random Contact",
+      "date": "2018-05-11",
+      "year": "2018",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Amazon",
+      "operator": "Amazon",
+      "location": null,
+      "description": "Amazon Echo misinterpreted a background conversation between a husband and wife as instructions for recording a message and sending it to one of the husband's employees.",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 8,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 3,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": 361,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.kiro7.com/news/local/woman-says-her-amazon-device-recorded-private-conversation-sent-it-out-to-random-contact/755507974/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/361/",
           "type": "other"
         }
       ],
@@ -2449,6 +3386,128 @@
         {
           "url": "https://incidentdatabase.ai/cite/1440/",
           "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-188",
+      "slug": "unitree-g1-rl-fall-recovery-nose-injury-china-2026-02",
+      "title": "Unitree G1 RL Fall-Recovery Policy Causes Uncontrolled Limb Thrashing, Kicks Operator in Nose",
+      "date": "2026-02-18",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Unitree G1",
+      "operator": "Unitree Robotics",
+      "location": "China (specific city unknown; outdoor public performance)",
+      "description": "On approximately February 18, 2026, a Unitree G1 humanoid robot lost balance during a public performance in China and fell. Upon falling, the robot's reinforcement learning fall-recovery policy triggered automatically, causing it to thrash its limbs in uncontrolled directions as it attempted to regain its footing. An operator standing nearby tried to catch the robot to prevent it from tipping over; during the RL recovery sequence the robot kicked the operator in the nose, causing heavy bleeding and a possible fracture. Eren Chen, who identified himself as an employee of Booster Robotics, shared the footage on X (formerly Twitter) on February 18, 2026, characterizing the incident as a high-priority safety issue for Unitree to address. Chen noted that similar uncontrolled limb-thrashing behavior during RL fall-recovery appears in other Unitree G1 videos, suggesting the hazard is systematic rather than isolated.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 0,
+        "d3": 3,
+        "d4": 0,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://futurism.com/robots-and-machines/robot-kicks-man-in-nose",
+          "type": "news"
+        },
+        {
+          "url": "https://dnyuz.com/2026/02/21/video-shows-man-bleeding-after-flailing-robot-kicks-him-in-nose/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-189",
+      "slug": "unitree-g1-shaanxi-dance-show-child-face-slap-2026-03-21",
+      "title": "Unitree G1 Robot Strikes Child in Face During Choreographed Dance Performance, Shaanxi Province",
+      "date": "2026-03-21",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Unitree G1 humanoid robot",
+      "operator": "Unitree Robotics",
+      "location": "Shaanxi Province, China",
+      "description": "On approximately March 21, 2026, a Unitree G1 humanoid robot (approximately 77 lbs, ~35 kg) struck a child in the face during a choreographed dance performance in Shaanxi Province, China. The robot was spinning with arms outstretched as part of its programmed routine when it swung toward the edge of the performance area and made forceful contact with a nearby child's face. Handlers rushed in almost immediately and attempted to restrain the robot, but the robot continued executing its choreographed sequence even as staff intervened. Video of the incident circulated widely on TikTok, YouTube, and X, reigniting discussion about deployment of powerful humanoid robots in public settings without adequate crowd barriers. The child appeared to walk away without serious injury; the extent of injuries was not specified in published reports.",
+      "harm_category": "physical_injury",
+      "harm_label": "Physical Injury",
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 0,
+        "d3": 3,
+        "d4": 0,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.complex.com/pop-culture/a/samantha-giambra-plaisance/robot-slaps-boy-china",
+          "type": "news"
+        },
+        {
+          "url": "https://needtoknow.co.uk/2026/03/25/shocking-moment-robot-slaps-boys-face-during-dance-show/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.eweek.com/news/humanoid-robot-strikes-child-dance-safety-concerns/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.britbrief.co.uk/tech/ai/robot-slaps-child-at-dance-show-in-china-raising-safety-concerns.html",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-184",
+      "slug": "waymo-scottsdale-teen-foot-trapped-2025-11-19",
+      "title": "14-Year-Old Passenger's Foot Trapped Under Waymo Robotaxi for Eight Minutes After Door Opens at Speed, Scottsdale",
+      "date": "2025-11-19",
+      "year": "2025",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Waymo 5th/6th-gen ADS (Jaguar I-PACE)",
+      "operator": "Waymo",
+      "location": "92nd Street & Cochise Drive, Scottsdale, Arizona, USA",
+      "description": "At approximately midnight on November 19, 2025, a 14-year-old passenger opened the door of a Waymo robotaxi while the vehicle was traveling at approximately 35 mph in Scottsdale, Arizona, and attempted to exit. According to Waymo's incident report, the ADS detected the door opening and executed emergency braking, but the vehicle still ran over the teenager's right foot at 4 mph as it decelerated. The vehicle came to a full stop with its wheel resting on the foot. Emergency services were summoned; the vehicle remained on the foot for more than eight minutes before responders lifted the right side of the vehicle to free the teenager. The teenager was transported to hospital with moderate foot injuries; the foot was not broken. Scottsdale PD investigated and cited the teenager for a curfew violation. An NHTSA incident report was filed. The Phoenix metro area is the only Waymo market where riders aged 14-17 may use the service, via a parent-linked account. The CNN public records investigation (June 3, 2026) surfaced this incident from government records.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 0,
+        "d3": 3,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.12news.com/article/news/local/valley/scottsdale-police-investigating-incident-waymo-car-arizona/75-72c8e303-c25e-46c8-9bbc-90c01bcad703",
+          "type": "news"
+        },
+        {
+          "url": "https://www.cnn.com/us/waymo-robotaxis-safety-invs",
+          "type": "news"
         }
       ],
       "federal_media": []
@@ -2682,6 +3741,82 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-086",
+      "slug": "aiid-381-autonomous-roborace-car-drove-directly-into-a-wall",
+      "title": "Autonomous Roborace Car Drove Directly into a Wall",
+      "date": "2020-10-29",
+      "year": "2020",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "SIT Acronis Autonomous",
+      "operator": "SIT Acronis Autonomous",
+      "location": null,
+      "description": "An autonomous Roborace car drove itself into a wall in round one of the Season Beta 1.1 race.",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 0,
+        "d3": 4,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": 381,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.engadget.com/roborace-self-driving-race-car-drives-into-wall-142758048.html",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/381/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-098",
+      "slug": "aiid-323-tesla-on-autopilot-crashed-into-parked-police-car-in-california",
+      "title": "Tesla on Autopilot Crashed into Parked Police Car in California",
+      "date": "2018-05-29",
+      "year": "2018",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A Tesla sedan on Autopilot mode collided with a parked Laguna Beach Police Department car, resulting in minor injuries for its driver in Laguna Beach, California.",
+      "harm_category": "property_damage",
+      "harm_label": "Property Damage",
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 0,
+        "d3": 1,
+        "d4": 2,
+        "d5": 3
+      },
+      "aiid_id": 323,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.nytimes.com/2023/01/17/magazine/tesla-autopilot-self-driving-elon-musk.html",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/323/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-104",
       "slug": "aiid-306-tesla-on-autopilot-tacc-crashed-into-van-on-european-highway",
       "title": "Tesla on Autopilot TACC Crashed into Van on European Highway",
@@ -2714,6 +3849,44 @@
         },
         {
           "url": "https://incidentdatabase.ai/cite/306/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-093",
+      "slug": "aiid-346-robots-in-japanese-hotel-annoyed-guests-and-failed-to-handle-simple-tasks",
+      "title": "Robots in Japanese Hotel Annoyed Guests and Failed to Handle Simple Tasks",
+      "date": "2016-06-15",
+      "year": "2016",
+      "domain": "social_robot",
+      "domain_label": "Social Robot",
+      "system": "unknown",
+      "operator": "unknown",
+      "location": null,
+      "description": "A number of robots employed by a hotel in Japan were reported by guests in a series of complaints for failing to handle tasks such as answering scheduling questions or making passport copies without human intervention.",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 3,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": 346,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.wsj.com/articles/robot-hotel-loses-love-for-robots-11547484628",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/346/",
           "type": "other"
         }
       ],
@@ -2758,6 +3931,35 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-164",
+      "slug": "med-001-patient-entered-prolonged-coma-following-robotic-hysterectomy-at-atlanta-area-hospital-months-in-icu-lawsuit-fil",
+      "title": "Patient entered prolonged coma following robotic hysterectomy at Atlanta-area hospital; months in ICU; lawsuit filed alleging unintended actuation during procedure",
+      "date": "",
+      "year": null,
+      "domain": "surgical_robot",
+      "domain_label": "Surgical Robot",
+      "system": "da Vinci surgical system",
+      "operator": "Intuitive Surgical",
+      "location": null,
+      "description": "Patient entered prolonged coma following robotic hysterectomy at Atlanta-area hospital; months in ICU; lawsuit filed alleging unintended actuation during procedure",
+      "harm_category": "fatality",
+      "harm_label": "Fatality",
+      "eaisi_total": 7,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 3,
+        "d2": 0,
+        "d3": 1,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-155",
       "slug": "del-001-delivery-robot-wanders-onto-active-railroad-tracks-in-los-angeles-struck-and-destroyed-by-freight-train-video-wi",
       "title": "Delivery robot wanders onto active railroad tracks in Los Angeles; struck and destroyed by freight train; video widely circulated",
@@ -2794,6 +3996,90 @@
         },
         {
           "url": "https://twitter.com/abc7la/status/coco-train",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-186",
+      "slug": "macau-unitree-g1-startles-elderly-woman-2026-03",
+      "title": "Unitree G1 Robot Startles and Hospitalizes 70-Year-Old Woman at Night in Macau Residential Area",
+      "date": "2026-03",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Unitree G1",
+      "operator": "Unitree Robotics",
+      "location": "Patane district, Macau SAR, China",
+      "description": "In early March 2026, a Unitree G1 humanoid robot being used for promotional activities by a local education center in Macau's Patane district encountered a 70-year-old woman walking on a residential street at approximately 9 PM. The woman, who was looking at her phone, discovered the robot following beside her. Upon noticing the robot she became frightened, exclaiming 'You're making my heart race!' She was subsequently taken to hospital. Macau police responded, escorted the robot from the scene, and detained the 50-year-old operator. The robot was returned to its owner, who was warned to exercise caution when using it in public. The incident drew international media attention, framed by some outlets around the novelty of a humanoid robot being 'arrested.'",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 6,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 1,
+        "d2": 0,
+        "d3": 2,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://interestingengineering.com/ai-robotics/macau-humanoid-arrested-for-scaring-old-woman",
+          "type": "news"
+        },
+        {
+          "url": "https://theonlinecitizen.com/2026/03/10/elderly-woman-taken-to-hospital-after-being-frightened-by-humanoid-robot-in-macau-police-detain-operator/",
+          "type": "news"
+        },
+        {
+          "url": "https://e.vnexpress.net/news/tech/tech-news/humanoid-robot-arrested-after-startling-elderly-woman-in-macau-5050867.html",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-182",
+      "slug": "waymo-phoenix-eight-lane-left-turn-2026-03-07",
+      "title": "Waymo Robotaxi Inches Into Eight Lanes of Oncoming Traffic During Unprotected Left Turn, Chandler Arizona",
+      "date": "2026-03-07",
+      "year": "2026",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Waymo 5th/6th-gen ADS (Jaguar I-PACE)",
+      "operator": "Waymo",
+      "location": "South Arizona Avenue, Chandler, Arizona, USA (Phoenix metro)",
+      "description": "A Waymo robotaxi carrying two passengers — sisters visiting the Phoenix metro area from Virginia for a music festival — began an unprotected left turn across South Arizona Avenue in Chandler, a multi-lane road with traffic moving at approximately 50 mph, and moved slowly into oncoming traffic across multiple lanes. Passengers filmed the incident and reported panicking as the vehicle edged into live cross-traffic. Oncoming vehicles slowed and stopped to allow the robotaxi to proceed; the vehicle paused in the median, yielded to oncoming traffic from the opposite direction, and completed the turn into the far-left lane when a gap appeared. No collision occurred and no injuries were reported. Waymo acknowledged the incident, refunded the fare, and stated it was investigating. The video circulated widely on social media. The incident was among those cited in CNN's June 2026 investigative report on Waymo public records incidents.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 6,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 0,
+        "d3": 3,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.azfamily.com/2026/03/12/virginia-visitors-say-waymo-veered-into-oncoming-traffic-stopped-chandler-road/",
+          "type": "news"
+        },
+        {
+          "url": "https://autos.yahoo.com/ev-and-future-tech/articles/waymo-robotaxi-inches-oncoming-traffic-130016089.html",
+          "type": "news"
+        },
+        {
+          "url": "https://www.cnn.com/us/waymo-robotaxis-safety-invs",
           "type": "news"
         }
       ],
@@ -2847,7 +4133,7 @@
       "domain_label": "Humanoid Robot",
       "system": "Unitree Robotics",
       "operator": "Unitree Robotics",
-      "location": null,
+      "location": "Xinjiang Uyghur Autonomous Region, China",
       "description": "A boy in Xinjiang was reportedly struck in the abdomen by a humanoid robot during a public performance at a scenic-area amusement venue. The robot was reportedly performing martial-arts-style movements near children without clear barriers, and the child's mother said he was fortunately not seriously harmed. The machine was reportedly likely a Unitree G1, but the exact cause of the kick was not established.",
       "harm_category": "physical_injury",
       "harm_label": "Physical Injury",
@@ -2871,6 +4157,18 @@
         {
           "url": "https://incidentdatabase.ai/cite/1536/",
           "type": "other"
+        },
+        {
+          "url": "https://interestingengineering.com/ai-robotics/viral-humanoid-robot-kicks-child-in-stomach",
+          "type": "news"
+        },
+        {
+          "url": "https://www.republicworld.com/world-news/terminator-movies-were-right-kid-yelps-in-pain-as-humanoid-robot-wearing-clown-wig-kicks-him-in-the-gut-in-china-viral-video-2026-06-06-127198",
+          "type": "news"
+        },
+        {
+          "url": "https://www.vice.com/en/article/humanoid-robot-kicks-small-child-in-the-stomach-during-public-demonstration/",
+          "type": "news"
         }
       ],
       "federal_media": []
@@ -2956,6 +4254,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-166",
+      "slug": "cyb-001-bluetooth-protocol-flaw-demonstrated-at-geekcon-shanghai-attacker-gains-root-shell-full-motor-actuator-control-e",
+      "title": "Bluetooth protocol flaw demonstrated at GEEKCon Shanghai: attacker gains root shell, full motor/actuator control; exploit requires physical proximity (~10 m)",
+      "date": "2025-10",
+      "year": "2025",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Unitree Go2 / B2",
+      "operator": "Unitree Robotics",
+      "location": null,
+      "description": "Bluetooth protocol flaw demonstrated at GEEKCon Shanghai: attacker gains root shell, full motor/actuator control; exploit requires physical proximity (~10 m)",
+      "harm_category": "physical_injury",
+      "harm_label": "Physical Injury",
+      "eaisi_total": 6,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 0,
+        "d3": 2,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.wired.com/story/unitree-robot-bluetooth-hack-geekcon/",
+          "type": "news"
+        },
+        {
+          "url": "https://geekcon.top/2025/unitree-robot-vuln",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-139",
       "slug": "hum-008-robot-falls-backward-during-miami-autonomy-visualized-event-while-handing-out-water-bottles-hands-shoot-up-befor",
       "title": "Robot falls backward during Miami \"Autonomy Visualized\" event while handing out water bottles; hands shoot up before fall; teleoperation vs autonomous origin disputed; viral video",
@@ -2988,6 +4324,40 @@
         },
         {
           "url": "https://www.tiktok.com/@themalaymail/video/7581776249165581579",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-170",
+      "slug": "cur-001-patrol-robot-found-at-bottom-of-staircase-after-circling-erratically-framed-in-media-as-robot-suicide",
+      "title": "Patrol robot found at bottom of staircase after circling erratically; framed in media as \"robot suicide\"",
+      "date": "2024-06",
+      "year": "2024",
+      "domain": "social_robot",
+      "domain_label": "Social Robot",
+      "system": "Gumi City Hall robot (S. Korea)",
+      "operator": null,
+      "location": null,
+      "description": "Patrol robot found at bottom of staircase after circling erratically; framed in media as \"robot suicide\"",
+      "harm_category": "near_miss",
+      "harm_label": "Near Miss",
+      "eaisi_total": 6,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 2,
+        "d4": 1,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://interestingengineering.com/innovation/robot-commits-suicide-south-korea",
           "type": "news"
         }
       ],
@@ -3260,6 +4630,82 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-099",
+      "slug": "aiid-322-tesla-model-3-crashed-into-police-patrol-car-on-connecticut-highway",
+      "title": "Tesla Model 3 Crashed into Police Patrol Car on Connecticut Highway",
+      "date": "2019-12-07",
+      "year": "2019",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A Tesla Model 3 on Autopilot slammed into a parked car of patrol police officers who stopped to assist a stranded motorist on the interstate in Norwalk, Connecticut.",
+      "harm_category": "property_damage",
+      "harm_label": "Property Damage",
+      "eaisi_total": 6,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 1,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": 322,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.cnet.com/roadshow/news/tesla-model-3-autopilot-crash-police-car/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/322/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-101",
+      "slug": "aiid-320-tesla-on-autopilot-collided-with-parked-fire-truck-on-california-freeway",
+      "title": "Tesla on Autopilot Collided with Parked Fire Truck on California Freeway",
+      "date": "2018-01-22",
+      "year": "2018",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A Tesla Model S operating on Autopilot mode crashed into the back of a parked fire truck on a freeway in Culver City, California in a non-fatal collision.",
+      "harm_category": "fatality",
+      "harm_label": "Fatality",
+      "eaisi_total": 6,
+      "severity_band": "moderate",
+      "severity_label": "Moderate",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 1,
+        "d4": 2,
+        "d5": 2
+      },
+      "aiid_id": 320,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.caranddriver.com/news/a28911259/tesla-crash-california-autopilot-driver-ntsb/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/320/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-103",
       "slug": "aiid-308-atlas-robot-fell-off-stage-at-conference",
       "title": "Atlas Robot Fell off Stage at Conference",
@@ -3293,6 +4739,48 @@
         {
           "url": "https://incidentdatabase.ai/cite/308/",
           "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-185",
+      "slug": "xpeng-iron-humanoid-faceplant-shenzhen-mall-2026-01-31",
+      "title": "Xpeng IRON Humanoid Robot Falls Face-First During Public Debut at Shenzhen Mall",
+      "date": "2026-01-31",
+      "year": "2026",
+      "domain": "humanoid_robot",
+      "domain_label": "Humanoid Robot",
+      "system": "Xpeng IRON (second-generation humanoid)",
+      "operator": "Xpeng",
+      "location": "Shopping mall, Shenzhen, China",
+      "description": "On January 31, 2026, Xpeng's IRON humanoid robot fell face-forward during its first public demonstration at a shopping mall in Shenzhen, China. During a choreographed catwalk-style performance before a public crowd, the robot raised its arm as part of the routine and lost balance, pitching forward onto the floor. Three staff handlers were required to drag the 154-pound, five-foot-eight robot away from the crowd. No bystanders were injured. Video of the fall circulated widely and became a trending topic on Chinese social media. Xpeng CEO He Xiaopeng compared the fall to a toddler learning to walk. Xpeng's vice president noted the fall demonstrated the robot was genuinely robotic and not controlled by a hidden performer.",
+      "harm_category": null,
+      "harm_label": null,
+      "eaisi_total": 5,
+      "severity_band": "low",
+      "severity_label": "Low",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 2,
+        "d4": 0,
+        "d5": 2
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://technode.com/2026/02/02/xpengs-humanoid-robot-iron-falls-at-debut-ceo-calls-it-part-of-learning-process/",
+          "type": "news"
+        },
+        {
+          "url": "https://futurism.com/robots-and-machines/xpeng-iron-robot-falls",
+          "type": "news"
+        },
+        {
+          "url": "https://interestingengineering.com/ai-robotics/xpeng-iron-humanoid-robot-shenzhen",
+          "type": "news"
         }
       ],
       "federal_media": []
@@ -3450,6 +4938,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-079",
+      "slug": "aiid-436-tesla-driver-put-car-on-autopilot-before-falling-asleep-in-germany",
+      "title": "Tesla Driver Put Car on Autopilot Before Falling Asleep in Germany",
+      "date": "2022-12-28",
+      "year": "2022",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Tesla",
+      "operator": "Tesla",
+      "location": null,
+      "description": "A Tesla driver fell asleep on an Autobahn near Bamberg, Germany after activating his vehicle's Autopilot mode, which did not respond to attempts to pull it over by the police.",
+      "harm_category": "none",
+      "harm_label": "No Harm Recorded",
+      "eaisi_total": 5,
+      "severity_band": "low",
+      "severity_label": "Low",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 0,
+        "d3": 1,
+        "d4": 1,
+        "d5": 3
+      },
+      "aiid_id": 436,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.br.de/nachrichten/bayern/fahrer-schlaeft-am-steuer-pkw-im-autopilot-auf-der-a70-unterwegs,TRPQEqJ",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/436/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-009",
       "slug": "aiid-1376-amazon-delivery-van-reportedly-became-stranded-on-essex-mudflats-after-gps-routed-it-onto-the-broomway",
       "title": "Amazon Delivery Van Reportedly Became Stranded on Essex Mudflats After GPS Routed It Onto the Broomway",
@@ -3598,6 +5124,44 @@
       "federal_media": []
     },
     {
+      "id": "FFEI-011",
+      "slug": "aiid-1347-automated-shuttle-bus-was-reportedly-rear-ended-during-u-s-department-of-transportation-demonstration-ride-in-",
+      "title": "Automated Shuttle Bus Was Reportedly Rear-Ended During U.S. Department of Transportation Demonstration Ride in Washington, D.C.",
+      "date": "2026-01-11",
+      "year": "2026",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Beep, Inc.",
+      "operator": "Beep, Inc.",
+      "location": null,
+      "description": "An automated shuttle bus operated by Beep was reportedly involved in a minor collision during a U.S. Department of Transportation demonstration ride in Washington, D.C. The vehicle, operating autonomously with a human safety driver onboard, was reportedly rear-ended by a Tesla whose driver made an illegal lane change. No injuries were reported, and officials stated the autonomous system functioned appropriately.",
+      "harm_category": "property_damage",
+      "harm_label": "Property Damage",
+      "eaisi_total": 3,
+      "severity_band": "low",
+      "severity_label": "Low",
+      "eaisi_dims": {
+        "d1": 0,
+        "d2": 1,
+        "d3": 1,
+        "d4": 1,
+        "d5": 0
+      },
+      "aiid_id": 1347,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://www.washingtonpost.com/transportation/2026/01/16/robo-bus-tesla-collision-dc/",
+          "type": "news"
+        },
+        {
+          "url": "https://incidentdatabase.ai/cite/1347/",
+          "type": "other"
+        }
+      ],
+      "federal_media": []
+    },
+    {
       "id": "FFEI-136",
       "slug": "hum-005-dancing-robot-smashes-plates-at-haidilao-hotpot-cupertino-ca-staff-physically-restrain-restaurant-disputes-malfu",
       "title": "Dancing robot smashes plates at Haidilao hotpot, Cupertino CA; staff physically restrain; restaurant disputes \"malfunction\" framing",
@@ -3678,291 +5242,63 @@
       "federal_media": []
     },
     {
-      "id": "FFEI-011",
-      "slug": "aiid-1347-automated-shuttle-bus-was-reportedly-rear-ended-during-u-s-department-of-transportation-demonstration-ride-in-",
-      "title": "Automated Shuttle Bus Was Reportedly Rear-Ended During U.S. Department of Transportation Demonstration Ride in Washington, D.C.",
-      "date": "2026-01-11",
+      "id": "FFEI-176",
+      "slug": "av-025",
+      "title": "Unoccupied Zoox robotaxi enters an active fire scene in Las Vegas where heavy smoke obscures the roadway before the area is fully cone-secured; vehicle brakes while attempting to steer away from the affected area; no injuries; Zoox states this is the only incident of its kind in company history; Zoox files a software recall covering 105 vehicles with NHTSA July 8 2026 (made public July 17), deploying an over-the-air update to improve smoke detection and emergency-scene recognition under reduced ",
+      "date": "2026-06-20",
       "year": "2026",
       "domain": "autonomous_vehicle",
       "domain_label": "Autonomous Vehicle",
-      "system": "Beep, Inc.",
-      "operator": "Beep, Inc.",
-      "location": null,
-      "description": "An automated shuttle bus operated by Beep was reportedly involved in a minor collision during a U.S. Department of Transportation demonstration ride in Washington, D.C. The vehicle, operating autonomously with a human safety driver onboard, was reportedly rear-ended by a Tesla whose driver made an illegal lane change. No injuries were reported, and officials stated the autonomous system functioned appropriately.",
-      "harm_category": "property_damage",
-      "harm_label": "Property Damage",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 1347,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.washingtonpost.com/transportation/2026/01/16/robo-bus-tesla-collision-dc/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/1347/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-171",
-      "slug": "cur-002-two-autonomous-delivery-robots-blunder-into-active-police-response-mental-health-crisis-at-cherokee-plaza-hollyw",
-      "title": "Two autonomous delivery robots blunder into active police response (mental health crisis) at Cherokee Plaza, Hollywood CA; remain within ~1 ft of emergency responders for approximately 3 minutes; one eventually reverses; no injuries or property damage; company issued no statement; illustrates emergency-scene recognition gap — robots cannot distinguish active emergency cordons from navigable pedestrian zones",
-      "date": "2026-04-23",
-      "year": "2026",
-      "domain": "delivery_robot",
-      "domain_label": "Delivery Robot",
-      "system": "Serve Robotics (x2 units)",
-      "operator": "Serve Robotics",
-      "location": null,
-      "description": "Two autonomous delivery robots blunder into active police response (mental health crisis) at Cherokee Plaza, Hollywood CA; remain within ~1 ft of emergency responders for approximately 3 minutes; one eventually reverses; no injuries or property damage; company issued no statement; illustrates emergency-scene recognition gap — robots cannot distinguish active emergency cordons from navigable pedestrian zones",
-      "harm_category": "near_miss",
-      "harm_label": "Near Miss",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": null,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://futurism.com/future-society/delivery-bots-police-incident",
-          "type": "news"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-130",
-      "slug": "eaisi-060-hugging-face-lerobot-critical-rce-vulnerability-cve-2026-25874-unauthenticated-pickle-deserialization-exposes-",
-      "title": "Hugging Face LeRobot critical RCE vulnerability (CVE-2026-25874): unauthenticated pickle deserialization exposes physical robot actuator control paths",
-      "date": "2026-04-28",
-      "year": "2026",
-      "domain": "humanoid_robot",
-      "domain_label": "Humanoid Robot",
-      "system": "Hugging Face LeRobot open-source embodied AI and VLA framework, version 0.4.3 through 0.5.1",
-      "operator": "Hugging Face",
-      "location": "Global (open-source software; disclosed April 28 2026)",
-      "description": "On April 28, 2026, researchers publicly disclosed CVE-2026-25874 (CVSS 9.3 Critical), an unauthenticated remote code execution vulnerability in Hugging Face LeRobot (version ≤0.5.1). The flaw resides in the async inference PolicyServer component: pickle.loads() is used to deserialize data arriving over unauthenticated gRPC channels with no TLS. An attacker with network access can send a crafted pickle payload through SendPolicyInstructions, SendObservations, or GetActions gRPC calls to execute arbitrary code on the host. The PolicyServer sits directly in the physical robot control path—its outputs govern actuator commands on robotic joints—meaning successful exploitation could allow an attacker to issue arbitrary motor-control instructions to connected robots, posing potential physical harm to nearby personnel and equipment. The vulnerability was independently discovered by researcher 'chenpinji' in December 2025 and separately reported to Hugging Face; it was publicly disclosed April 28, 2026. The flaw remained unpatched at disclosure, with a fix planned for version 0.6.0. LeRobot's own team had previously created Safetensors specifically because pickle is unsafe for ML model serialization, yet the network-facing PolicyServer deserialized attacker-controlled input via pickle.loads() with a nosec comment suppressing the static analysis warning. LeRobot is used in academic and commercial robotics research contexts including manipulation arms, mobile platforms, and humanoid robot development.",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": null,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://thehackernews.com/2026/04/critical-cve-2026-25874-leaves-hugging.html",
-          "type": "news"
-        },
-        {
-          "url": "https://www.resecurity.com/blog/article/cve-2026-25874-hugging-face-lerobot-unauthenticated-rce-via-pickle-deserialization",
-          "type": "news"
-        },
-        {
-          "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-lerobot-cve-2026-25874-unauth-rce-20260429/",
-          "type": "news"
-        },
-        {
-          "url": "https://cybersecuritynews.com/hugging-face-lerobot-vulnerability/",
-          "type": "news"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-169",
-      "slug": "cyb-004-cve-2026-25874-cvss-9-3-critical-unauthenticated-rce-via-pickle-loads-over-unencrypted-grpc-policyserver-attacke",
-      "title": "CVE-2026-25874 (CVSS 9.3 Critical): unauthenticated RCE via pickle.loads() over unencrypted gRPC PolicyServer; attacker can inject arbitrary motor-control commands directly into physical robot actuator path; unpatched at disclosure (fix planned v0.6.0); affects all LeRobot deployments; flaw discovered Dec 2025 by 'chenpinji', disclosed Apr 28 2026; EAISI-060",
-      "date": "2026-04-28",
-      "year": "2026",
-      "domain": "humanoid_robot",
-      "domain_label": "Humanoid Robot",
-      "system": "Hugging Face LeRobot (v≤0.5.1)",
-      "operator": "Hugging Face",
-      "location": null,
-      "description": "CVE-2026-25874 (CVSS 9.3 Critical): unauthenticated RCE via pickle.loads() over unencrypted gRPC PolicyServer; attacker can inject arbitrary motor-control commands directly into physical robot actuator path; unpatched at disclosure (fix planned v0.6.0); affects all LeRobot deployments; flaw discovered Dec 2025 by 'chenpinji', disclosed Apr 28 2026; EAISI-060",
-      "harm_category": "physical_injury",
-      "harm_label": "Physical Injury",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": null,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://thehackernews.com/2026/04/critical-cve-2026-25874-leaves-hugging.html",
-          "type": "news"
-        },
-        {
-          "url": "https://www.resecurity.com/blog/article/cve-2026-25874-hugging-face-lerobot-unauthenticated-rce-via-pickle-deserialization",
-          "type": "news"
-        },
-        {
-          "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-lerobot-cve-2026-25874-unauth-rce-20260429/",
-          "type": "news"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-028",
-      "slug": "aiid-889-tesla-s-actually-smart-summon-feature-reportedly-linked-to-multiple-parking-lot-collisions",
-      "title": "Tesla's 'Actually Smart Summon' Feature Reportedly Linked to Multiple Parking Lot Collisions",
-      "date": "2025-01-07",
-      "year": "2025",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "Tesla's \"Actually Smart Summon\" feature, a remote parking system controlled via a smartphone app, reportedly failed to detect obstacles such as cars, walls, and parking signs, resulting in at least 16 collision incidents. The NHTSA is investigating safety concerns, including delayed user response times, potential overreliance on camera-only navigation, and noncompliance with crash reporting rules.",
-      "harm_category": "property_damage",
-      "harm_label": "Property Damage",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 889,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.theverge.com/2025/1/7/24338250/tesla-actually-smart-summon-remote-parking-nhtsa",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/889/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-166",
-      "slug": "cyb-001-bluetooth-protocol-flaw-demonstrated-at-geekcon-shanghai-attacker-gains-root-shell-full-motor-actuator-control-e",
-      "title": "Bluetooth protocol flaw demonstrated at GEEKCon Shanghai: attacker gains root shell, full motor/actuator control; exploit requires physical proximity (~10 m)",
-      "date": "2025-10",
-      "year": "2025",
-      "domain": "humanoid_robot",
-      "domain_label": "Humanoid Robot",
-      "system": "Unitree Go2 / B2",
-      "operator": "Unitree Robotics",
-      "location": null,
-      "description": "Bluetooth protocol flaw demonstrated at GEEKCon Shanghai: attacker gains root shell, full motor/actuator control; exploit requires physical proximity (~10 m)",
-      "harm_category": "physical_injury",
-      "harm_label": "Physical Injury",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": null,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.wired.com/story/unitree-robot-bluetooth-hack-geekcon/",
-          "type": "news"
-        },
-        {
-          "url": "https://geekcon.top/2025/unitree-robot-vuln",
-          "type": "news"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-040",
-      "slug": "aiid-711-nhtsa-opens-new-probe-into-tesla-s-autopilot-following-more-than-a-dozen-fatal-accidents",
-      "title": "NHTSA Opens New Probe into Tesla’s Autopilot Following More than a Dozen Fatal Accidents",
-      "date": "2024-04-26",
-      "year": "2024",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "The NHTSA has linked Tesla's Autopilot to over a dozen fatalities and hundreds of crashes, prompting a new investigation into the adequacy of Tesla's December recall of 2 million vehicles. The probe reports that Tesla’s driver-assist system led to avoidable crashes involving visible hazards, suggesting a critical safety gap between driver expectations and the system’s capabilities. The investigation will assess if Tesla’s recall remedies were sufficient to address these safety risks.",
-      "harm_category": "fatality",
-      "harm_label": "Fatality",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 711,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.theguardian.com/technology/2024/apr/26/tesla-autopilot-fatal-crash",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/711/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-170",
-      "slug": "cur-001-patrol-robot-found-at-bottom-of-staircase-after-circling-erratically-framed-in-media-as-robot-suicide",
-      "title": "Patrol robot found at bottom of staircase after circling erratically; framed in media as \"robot suicide\"",
-      "date": "2024-06",
-      "year": "2024",
-      "domain": "social_robot",
-      "domain_label": "Social Robot",
-      "system": "Gumi City Hall robot (S. Korea)",
+      "system": "Zoox (Amazon-owned; model unspecified)",
       "operator": null,
       "location": null,
-      "description": "Patrol robot found at bottom of staircase after circling erratically; framed in media as \"robot suicide\"",
+      "description": "Unoccupied Zoox robotaxi enters an active fire scene in Las Vegas where heavy smoke obscures the roadway before the area is fully cone-secured; vehicle brakes while attempting to steer away from the affected area; no injuries; Zoox states this is the only incident of its kind in company history; Zoox files a software recall covering 105 vehicles with NHTSA July 8 2026 (made public July 17), deploying an over-the-air update to improve smoke detection and emergency-scene recognition under reduced visibility; recall lands inside the same window as NHTSA's cross-industry emergency-responder-interference crackdown (AV-026)",
+      "harm_category": "operational_failure",
+      "harm_label": "Operational Failure",
+      "eaisi_total": null,
+      "severity_band": "unrated",
+      "severity_label": "Unrated",
+      "eaisi_dims": {
+        "d1": null,
+        "d2": null,
+        "d3": null,
+        "d4": null,
+        "d5": null
+      },
+      "aiid_id": null,
+      "eaisi_ref": null,
+      "sources": [
+        {
+          "url": "https://techcrunch.com/2026/07/17/zoox-issues-software-recall-after-a-robotaxi-got-confused-by-heavy-smoke/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.cnbc.com/2026/07/17/amazon-zoox-recalls-robotaxi-smoke.html",
+          "type": "news"
+        },
+        {
+          "url": "https://www.fox5vegas.com/2026/07/20/zoox-issues-software-recall-after-robotaxi-drives-into-heavy-smoke-las-vegas/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.reviewjournal.com/local/traffic/zoox-issues-robotaxi-recall-after-one-drives-into-active-fire-scene-3852614/",
+          "type": "news"
+        }
+      ],
+      "federal_media": []
+    },
+    {
+      "id": "FFEI-175",
+      "slug": "av-024",
+      "title": "Dozens of Waymo robotaxis become gridlocked in San Francisco's Presidio following July 4 fireworks; passenger Rose Peterson's occupied Waymo drives over a lit firework at a four-way stop where bystanders were setting them off; no injuries or vehicle damage, company contacts passenger; separately, an unoccupied Waymo vehicle catches fire during the gridlock; multiple vehicles run out of battery charge and become stranded; Waymo dispatches staff/tow trucks to retrieve 64 stranded vehicles; in at l",
+      "date": "2026-07-04",
+      "year": "2026",
+      "domain": "autonomous_vehicle",
+      "domain_label": "Autonomous Vehicle",
+      "system": "Waymo (5th/6th-gen ADS; San Francisco, Presidio)",
+      "operator": null,
+      "location": null,
+      "description": "Dozens of Waymo robotaxis become gridlocked in San Francisco's Presidio following July 4 fireworks; passenger Rose Peterson's occupied Waymo drives over a lit firework at a four-way stop where bystanders were setting them off; no injuries or vehicle damage, company contacts passenger; separately, an unoccupied Waymo vehicle catches fire during the gridlock; multiple vehicles run out of battery charge and become stranded; Waymo dispatches staff/tow trucks to retrieve 64 stranded vehicles; in at least two cases first responders personally move blocking Waymo vehicles out of the way; incident is cited directly as a triggering example in NHTSA's July 8 emergency-responder-interference directive (AV-026)",
       "harm_category": "near_miss",
       "harm_label": "Near Miss",
       "eaisi_total": null,
@@ -3979,587 +5315,38 @@
       "eaisi_ref": null,
       "sources": [
         {
-          "url": "https://interestingengineering.com/innovation/robot-commits-suicide-south-korea",
+          "url": "https://sfstandard.com/2026/07/05/waymo-sf-gridlock-fourth-of-july-2026/",
+          "type": "news"
+        },
+        {
+          "url": "https://abc7news.com/post/waymo-fleet-clogs-presidio-july-4-fireworks-leaving-vehicles-stranded-towed/19455862/",
+          "type": "news"
+        },
+        {
+          "url": "https://www.yahoo.com/news/us/articles/dozens-waymos-clog-presidio-july-142239118.html",
+          "type": "news"
+        },
+        {
+          "url": "https://www.fastcompany.com/91572671/waymo-july-4-chaos-san-francisco",
           "type": "news"
         }
       ],
       "federal_media": []
     },
     {
-      "id": "FFEI-061",
-      "slug": "aiid-550-tesla-allegedly-on-autopilot-struck-high-school-student-exiting-school-bus",
-      "title": "Tesla Allegedly on Autopilot Struck High School Student Exiting School Bus",
-      "date": "2023-03-17",
-      "year": "2023",
+      "id": "FFEI-177",
+      "slug": "av-026",
+      "title": "NHTSA Administrator Jonathan Morrison issues a formal letter to AV developers stating the agency has identified \"a clear pattern\" of driverless AVs interfering with law enforcement and other first responders — driving directly into active emergency scenes, blocking ambulance/fire-apparatus paths, and failing to recognize flashing lights, flares, smoke, fire, and traffic cones; letter explicitly rejects industry \"rare edge case\" framing (\"Emergency scenes are not rare or extreme 'edge cases'\"); d",
+      "date": "2026-07-08",
+      "year": "2026",
       "domain": "autonomous_vehicle",
       "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
+      "system": "NHTSA directive; addressed to autonomous-vehicle developers industry-wide (no single named respondent)",
+      "operator": null,
       "location": null,
-      "description": "A 17-year-old student in Hollister, North Carolina who exited the school bus and was walking across the street to his house was hit by a 2022 Tesla Model Y allegedly operating on Autopilot mode, suffering a fractured neck and a broken leg.",
-      "harm_category": "property_damage",
-      "harm_label": "Property Damage",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 550,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.wtkr.com/news/north-carolina-teenager-recovering-after-being-hit-by-tesla",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/550/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-051",
-      "slug": "aiid-599-stacking-robot-fatally-crushes-employee-in-south-korea",
-      "title": "Stacking robot fatally crushes employee in South Korea",
-      "date": "2023-11-08",
-      "year": "2023",
-      "domain": "industrial",
-      "domain_label": "Industrial",
-      "system": "unknown",
-      "operator": "unknown",
-      "location": null,
-      "description": "An industrial robot is reported to have crushed a man to death in South Korea when it failed to differentiate the man from the boxes of produce it was handling.",
-      "harm_category": "fatality",
-      "harm_label": "Fatality",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 599,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.telegraph.co.uk/world-news/2023/11/08/man-crushed-to-death-south-korea-industrial-robot/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/599/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-119",
-      "slug": "aiid-241-chess-playing-robot-broke-child-s-finger-in-russia",
-      "title": "Chess-Playing Robot Broke Child's Finger in Russia",
-      "date": "2022-07-21",
-      "year": "2022",
-      "domain": "industrial",
-      "domain_label": "Industrial",
-      "system": "unknown",
-      "operator": "unknown",
-      "location": null,
-      "description": "A chess robot at a tournament in Russia broke the finger of a child who reached onto the board before the robot had completed its move",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 241,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.washingtonpost.com/sports/2022/07/24/chess-playing-robot-breaks-finger-7-year-old-boy-during-match/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/241/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-112",
-      "slug": "aiid-271-tesla-model-3-sedan-on-autopilot-killed-motorcyclist-in-a-rear-end-collision-in-utah",
-      "title": "Tesla Model 3 Sedan on Autopilot Killed Motorcyclist in a Rear-End Collision in Utah",
-      "date": "2022-07-24",
-      "year": "2022",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "A Tesla Model 3 operating on Autopilot mode slammed into the back of a Harley-Davidson motorcycle on an interstate in Utah, throwing the rider from the bike and killing him instantly.",
-      "harm_category": "fatality",
-      "harm_label": "Fatality",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 271,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://apnews.com/article/technology-12ba38bd863e2b128a8e2914179049e0",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/271/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-079",
-      "slug": "aiid-436-tesla-driver-put-car-on-autopilot-before-falling-asleep-in-germany",
-      "title": "Tesla Driver Put Car on Autopilot Before Falling Asleep in Germany",
-      "date": "2022-12-28",
-      "year": "2022",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "A Tesla driver fell asleep on an Autobahn near Bamberg, Germany after activating his vehicle's Autopilot mode, which did not respond to attempts to pull it over by the police.",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 436,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.br.de/nachrichten/bayern/fahrer-schlaeft-am-steuer-pkw-im-autopilot-auf-der-a70-unterwegs,TRPQEqJ",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/436/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-086",
-      "slug": "aiid-381-autonomous-roborace-car-drove-directly-into-a-wall",
-      "title": "Autonomous Roborace Car Drove Directly into a Wall",
-      "date": "2020-10-29",
-      "year": "2020",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "SIT Acronis Autonomous",
-      "operator": "SIT Acronis Autonomous",
-      "location": null,
-      "description": "An autonomous Roborace car drove itself into a wall in round one of the Season Beta 1.1 race.",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 381,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.engadget.com/roborace-self-driving-race-car-drives-into-wall-142758048.html",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/381/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-122",
-      "slug": "aiid-230-model-3-tesla-on-autopilot-crashed-into-a-truck-in-florida-killing-driver",
-      "title": "Model 3 Tesla on Autopilot Crashed into a Truck in Florida, Killing Driver",
-      "date": "2019-03-01",
-      "year": "2019",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "In Florida, a Model 3 Tesla on Autopilot mode crashed into a tractor-trailer truck, killing the 50-year-old driver.",
-      "harm_category": "property_damage",
-      "harm_label": "Property Damage",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 230,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.theverge.com/2019/5/16/18627766/tesla-autopilot-fatal-crash-delray-florida-ntsb-model-3",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/230/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-099",
-      "slug": "aiid-322-tesla-model-3-crashed-into-police-patrol-car-on-connecticut-highway",
-      "title": "Tesla Model 3 Crashed into Police Patrol Car on Connecticut Highway",
-      "date": "2019-12-07",
-      "year": "2019",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "A Tesla Model 3 on Autopilot slammed into a parked car of patrol police officers who stopped to assist a stranded motorist on the interstate in Norwalk, Connecticut.",
-      "harm_category": "property_damage",
-      "harm_label": "Property Damage",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 322,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.cnet.com/roadshow/news/tesla-model-3-autopilot-crash-police-car/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/322/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-102",
-      "slug": "aiid-319-tesla-on-autopilot-fatally-crashed-into-parked-fire-truck-in-indiana",
-      "title": "Tesla on Autopilot Fatally Crashed into Parked Fire Truck in Indiana",
-      "date": "2019-12-29",
-      "year": "2019",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "A Tesla on Autopilot mode failed to see a parked fire truck and crashed into its rear on an interstate in Indiana, causing the death of an Arizona woman.",
-      "harm_category": "fatality",
-      "harm_label": "Fatality",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 319,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.torquenews.com/1083/second-crash-one-month-tesla-parked-firetruck-results-fatality",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/319/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-101",
-      "slug": "aiid-320-tesla-on-autopilot-collided-with-parked-fire-truck-on-california-freeway",
-      "title": "Tesla on Autopilot Collided with Parked Fire Truck on California Freeway",
-      "date": "2018-01-22",
-      "year": "2018",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "A Tesla Model S operating on Autopilot mode crashed into the back of a parked fire truck on a freeway in Culver City, California in a non-fatal collision.",
-      "harm_category": "fatality",
-      "harm_label": "Fatality",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 320,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.caranddriver.com/news/a28911259/tesla-crash-california-autopilot-driver-ntsb/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/320/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-088",
-      "slug": "aiid-361-amazon-echo-mistakenly-recorded-and-sent-private-conversation-to-random-contact",
-      "title": "Amazon Echo Mistakenly Recorded and Sent Private Conversation to Random Contact",
-      "date": "2018-05-11",
-      "year": "2018",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Amazon",
-      "operator": "Amazon",
-      "location": null,
-      "description": "Amazon Echo misinterpreted a background conversation between a husband and wife as instructions for recording a message and sending it to one of the husband's employees.",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 361,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.kiro7.com/news/local/woman-says-her-amazon-device-recorded-private-conversation-sent-it-out-to-random-contact/755507974/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/361/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-098",
-      "slug": "aiid-323-tesla-on-autopilot-crashed-into-parked-police-car-in-california",
-      "title": "Tesla on Autopilot Crashed into Parked Police Car in California",
-      "date": "2018-05-29",
-      "year": "2018",
-      "domain": "autonomous_vehicle",
-      "domain_label": "Autonomous Vehicle",
-      "system": "Tesla",
-      "operator": "Tesla",
-      "location": null,
-      "description": "A Tesla sedan on Autopilot mode collided with a parked Laguna Beach Police Department car, resulting in minor injuries for its driver in Laguna Beach, California.",
-      "harm_category": "property_damage",
-      "harm_label": "Property Damage",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 323,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.nytimes.com/2023/01/17/magazine/tesla-autopilot-self-driving-elon-musk.html",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/323/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-113",
-      "slug": "aiid-261-robot-deployed-by-animal-shelter-to-patrol-sidewalks-outside-its-office-warding-off-homeless-people-in-san-fran",
-      "title": "Robot Deployed by Animal Shelter to Patrol Sidewalks outside Its Office, Warding off Homeless People in San Francisco",
-      "date": "2017-11-15",
-      "year": "2017",
-      "domain": "social_robot",
-      "domain_label": "Social Robot",
-      "system": "Knightscope",
-      "operator": "Knightscope",
-      "location": null,
-      "description": "Society for the Prevention of Cruelty to Animals (SPCA) deployed a Knightscope robot to autonomously patrol the area outside its office and ward off homeless people, which was criticized by residents as a tool of intimidation and ordered by the city of San Francisco to stop its use on a public right-of-way.",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 261,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.wired.com/story/the-tricky-ethics-of-knightscopes-crime-fighting-robots/",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/261/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-093",
-      "slug": "aiid-346-robots-in-japanese-hotel-annoyed-guests-and-failed-to-handle-simple-tasks",
-      "title": "Robots in Japanese Hotel Annoyed Guests and Failed to Handle Simple Tasks",
-      "date": "2016-06-15",
-      "year": "2016",
-      "domain": "social_robot",
-      "domain_label": "Social Robot",
-      "system": "unknown",
-      "operator": "unknown",
-      "location": null,
-      "description": "A number of robots employed by a hotel in Japan were reported by guests in a series of complaints for failing to handle tasks such as answering scheduling questions or making passport copies without human intervention.",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": 346,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://www.wsj.com/articles/robot-hotel-loses-love-for-robots-11547484628",
-          "type": "news"
-        },
-        {
-          "url": "https://incidentdatabase.ai/cite/346/",
-          "type": "other"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-164",
-      "slug": "med-001-patient-entered-prolonged-coma-following-robotic-hysterectomy-at-atlanta-area-hospital-months-in-icu-lawsuit-fil",
-      "title": "Patient entered prolonged coma following robotic hysterectomy at Atlanta-area hospital; months in ICU; lawsuit filed alleging unintended actuation during procedure",
-      "date": "",
-      "year": null,
-      "domain": "surgical_robot",
-      "domain_label": "Surgical Robot",
-      "system": "da Vinci surgical system",
-      "operator": "Intuitive Surgical",
-      "location": null,
-      "description": "Patient entered prolonged coma following robotic hysterectomy at Atlanta-area hospital; months in ICU; lawsuit filed alleging unintended actuation during procedure",
-      "harm_category": "fatality",
-      "harm_label": "Fatality",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": null,
-      "eaisi_ref": null,
-      "sources": [],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-165",
-      "slug": "med-002-66-651-fda-maude-reports-across-15-9m-procedures-2015-2025-recurring-instrument-fragmentation-into-patient-elect",
-      "title": "66,651 FDA MAUDE reports across 15.9M procedures 2015–2025; recurring: instrument fragmentation into patient, electrical arcing, unintended actuation",
-      "date": "",
-      "year": null,
-      "domain": "surgical_robot",
-      "domain_label": "Surgical Robot",
-      "system": "da Vinci surgical system",
-      "operator": "Intuitive Surgical",
-      "location": null,
-      "description": "66,651 FDA MAUDE reports across 15.9M procedures 2015–2025; recurring: instrument fragmentation into patient, electrical arcing, unintended actuation",
-      "harm_category": "none",
-      "harm_label": "No Harm Recorded",
+      "description": "NHTSA Administrator Jonathan Morrison issues a formal letter to AV developers stating the agency has identified \"a clear pattern\" of driverless AVs interfering with law enforcement and other first responders — driving directly into active emergency scenes, blocking ambulance/fire-apparatus paths, and failing to recognize flashing lights, flares, smoke, fire, and traffic cones; letter explicitly rejects industry \"rare edge case\" framing (\"Emergency scenes are not rare or extreme 'edge cases'\"); developers must present concrete engineering fixes by end of July 2026; letter does not name a specific company but follows a documented pattern spanning AV-006 (Austin mass-shooting response blockage), AV-011/AV-015/AV-016 (flooding/construction-zone recalls), AV-018 (Atlanta active crime scene), AV-024 (Waymo Jul 4 SF Presidio gridlock/firework), and AV-025 (Zoox smoke-scene recall) — first cross-industry regulatory directive specifically targeting AV/first-responder interaction as a systemic pattern rather than a single-incident recall",
+      "harm_category": "operational_failure",
+      "harm_label": "Operational Failure",
       "eaisi_total": null,
       "severity_band": "unrated",
       "severity_label": "Unrated",
@@ -4574,53 +5361,19 @@
       "eaisi_ref": null,
       "sources": [
         {
-          "url": "https://pubmed.ncbi.nlm.nih.gov/40628307/",
-          "type": "news"
-        }
-      ],
-      "federal_media": []
-    },
-    {
-      "id": "FFEI-168",
-      "slug": "cyb-003-researcher-andreas-makris-demonstrates-remote-hijack-of-all-yarbo-units-via-shared-fleet-root-password-near-miss",
-      "title": "Researcher Andreas Makris demonstrates remote hijack of all Yarbo units via shared fleet root password; near-miss physical contact with The Verge reporter Sean Hollister (200-lb robot driven toward journalist from Germany); emergency stop bypassable; 11,000+ devices exposed; owner Wi-Fi passwords, email, GPS coordinates leaked; Yarbo confirms May 8 2026",
-      "date": "",
-      "year": null,
-      "domain": "delivery_robot",
-      "domain_label": "Delivery Robot",
-      "system": "Yarbo robot lawnmower",
-      "operator": "Yarbo",
-      "location": null,
-      "description": "Researcher Andreas Makris demonstrates remote hijack of all Yarbo units via shared fleet root password; near-miss physical contact with The Verge reporter Sean Hollister (200-lb robot driven toward journalist from Germany); emergency stop bypassable; 11,000+ devices exposed; owner Wi-Fi passwords, email, GPS coordinates leaked; Yarbo confirms May 8 2026",
-      "harm_category": "physical_injury",
-      "harm_label": "Physical Injury",
-      "eaisi_total": null,
-      "severity_band": "unrated",
-      "severity_label": "Unrated",
-      "eaisi_dims": {
-        "d1": null,
-        "d2": null,
-        "d3": null,
-        "d4": null,
-        "d5": null
-      },
-      "aiid_id": null,
-      "eaisi_ref": null,
-      "sources": [
-        {
-          "url": "https://futurism.com/robots-and-machines/hacker-robot-lawnmower-runs-over-man",
+          "url": "https://techcrunch.com/2026/07/12/techcrunch-mobility-a-robotaxi-ultimatum/",
           "type": "news"
         },
         {
-          "url": "https://oecd.ai/en/incidents/2026-05-07-dbfc",
+          "url": "https://www.motorbiscuit.com/nhtsa-cracks-down-on-autonomous-vehicles-blocking-first-responders/",
           "type": "news"
         },
         {
-          "url": "https://www.slashgear.com/2167484/yarbo-robot-security-flaw-opens-remote-control/",
+          "url": "https://www.digitalcitizen.life/nhtsa-warns-self-driving-car-companies-after-robotaxis-block-emergency-crews/",
           "type": "news"
         },
         {
-          "url": "https://www.techspot.com/news/112350-hacker-gains-access-11000-yarbo-lawn-robots-exposing.html",
+          "url": "https://easternherald.com/2026/07/13/nhtsa-waymo-robotaxi-emergency-responder-deadline/",
           "type": "news"
         }
       ],
