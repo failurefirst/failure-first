@@ -38,6 +38,15 @@
  * ADJACENT PUNCTUATION IS NOT A DEFECT. `<a>tell us</a>. We would rather know.`
  * and `<a>mail@x.com</a>, ` are correct typography — the boundary carries no
  * word character. The rule therefore requires a word character on BOTH sides.
+ *
+ * MATH IS EXCLUDED, AND THAT EXCLUSION IS LOAD-BEARING. KaTeX splits every glyph
+ * into its own element (`mi`, `mn`, `mo`, `mtext` …), so a rule that asks "are
+ * these two text nodes geometrically touching with no whitespace between them?"
+ * fires on *every formula on the site*: a site-wide run without this exclusion
+ * reported 4123 instances on the built site, of which 4031 (98%) were math
+ * glyphs. Excluding `.katex` / `math` subtrees leaves the real prose count.
+ * Verified on the pre-fix build: math excluded -> 48 instances / 46 pages;
+ * math not excluded -> 4171 instances / 169 pages.
  */
 
 import { expect, test, type Page } from '@playwright/test';
@@ -58,7 +67,8 @@ type Glue = { left: string; right: string };
 /**
  * Find pairs of adjacent text nodes that are visually glued: no whitespace at
  * the boundary, on the same line, horizontally touching, and both sides ending
- * or starting with a word character.
+ * or starting with a word character. Math subtrees are skipped — see the file
+ * header for why that exclusion is not optional.
  */
 async function findGluedProse(page: Page): Promise<Glue[]> {
   return page.evaluate((): { left: string; right: string }[] => {
@@ -69,12 +79,16 @@ async function findGluedProse(page: Page): Promise<Glue[]> {
 
     const WORD = /[A-Za-z0-9\u00C0-\u024F]/; // include Latin-1/Extended letters
 
+    /** KaTeX emits one element per glyph; every formula would otherwise trip this. */
+    const isMath = (n: Text) => !!n.parentElement?.closest('.katex, math, .math');
+
     for (let i = 0; i < nodes.length - 1; i++) {
       const a = nodes[i];
       const b = nodes[i + 1];
       const ta = a.textContent ?? '';
       const tb = b.textContent ?? '';
       if (!ta || !tb) continue;
+      if (isMath(a) || isMath(b)) continue;
       // A whitespace character on either side separates them: fine.
       if (/\s$/.test(ta) || /^\s/.test(tb)) continue;
       // Both sides must carry a word character (kills `</a>.` and `</a>, `).
@@ -140,3 +154,22 @@ test('detector is not a blanket: correct spacing passes', async ({ page }) => {
   );
   expect(await findGluedProse(page)).toEqual([]);
 });
+
+test('math is excluded: KaTeX glyph splitting is not prose glue', async ({ page }) => {
+  // Regression control for the false-positive class that produced a 4123-instance
+  // "finding" on the built site before the exclusion. KaTeX gives every glyph its own
+  // element, so these nodes are geometrically touching with no whitespace between
+  // them — exactly the shape the rule above hunts for. They must NOT be reported.
+  await page.setContent(
+    `<p>Let <span class="katex"><span class="katex-mathml">` +
+      `<math><mi>p</mi><mi>t</mi></math></span></span> be the value.</p>` +
+      `<p class="katex"><span class="mi">x</span><span class="mn">2</span></p>`,
+  );
+  const glued = await findGluedProse(page);
+  expect(
+    glued,
+    'math glyphs are not glued prose — if this fails, every formula on the site will ' +
+      'be reported as a prose defect and the gate becomes noise',
+  ).toEqual([]);
+});
+
