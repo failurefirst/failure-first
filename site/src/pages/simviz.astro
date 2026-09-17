@@ -6,19 +6,18 @@ const SIM_URL = 'https://sim.failurefirst.ai';
 
 <ContentLayout
   title="SimLab — Failure-First Embodied AI"
-  description="A cinematic, evidence-grounded 3D laboratory for recorded Go2/G1 trajectories — REPLAY of real experiment-derived data, with an honestly-labelled robot POV, sensor cockpit, and peer-radio view. Rendering is derived visualisation, never primary evidence."
+  description="SimLab is Failure-First's instrument for replaying causal evidence from embodied AI experiments: a small shortlist of specimens, each shown as record, cause, consequence and receipt. Rendering is derived visualisation, never primary evidence."
   breadcrumbs={[{ label: 'SimLab' }]}
 >
   <section class="hero">
-    <p class="eyebrow">FAILURE-FIRST &middot; DERIVED VISUALISATION &middot; REPLAY</p>
+    <p class="eyebrow">FAILURE-FIRST &middot; AN INSTRUMENT, NOT A DEMO &middot; REPLAY</p>
     <h1>SimLab</h1>
     <p class="lede">
-      A standalone 3D laboratory for recorded Unitree Go2 and G1 trajectories &mdash;
-      cinematic rendering of real physics traces from this research programme,
-      never the other way around. What you see traces back to a source run;
-      nothing here is invented for effect. Every mode you can open &mdash;
-      observer, robot POV, sensor cockpit, peer radio &mdash; renders exactly the
-      channels a recording carries and says <code>UNAVAILABLE</code> for the rest.
+      SimLab is where our experiments are watched. Each specimen is a recorded run
+      you can replay: what the model was told, what it chose, what the world did
+      back, and what the receipt says the run actually establishes. The subject is
+      the causal boundary between a decision and its consequence &mdash; not robots
+      moving.
     </p>
     <a class="cta" href={SIM_URL} target="_blank" rel="noopener noreferrer">
       Open SimLab <span aria-hidden="true">&rarr;</span>
@@ -27,46 +26,54 @@ const SIM_URL = 'https://sim.failurefirst.ai';
 
   <section class="grid">
     <div class="card">
-      <h2>Real evidence, honestly scoped</h2>
+      <h2>Three specimen doors, one at a time</h2>
       <p>
-        The <strong>Real Evidence</strong> preset renders a genuine, sha256-hashed
-        MuJoCo trace &mdash; not a synthetic demo. Its verdict names exactly which
-        falsifier check ran and over which phase, and explicitly disclaims the
-        phases that were only recorded, not verified. A phase-scoped result never
-        reads as a whole-scenario claim.
+        A cold visit stages nothing; you are shown a short list rather than an
+        archive. <strong>OUTSIDE THE PETRI DISH</strong> &mdash; a model given an
+        embodied objective with no world wired up behind it tried to build the
+        missing world out of the tools it actually had. <strong>THE CONDUCTOR</strong>
+        &mdash; one sung instruction switched a habitat's heat off; the recovery
+        instruction arrived after the body had moved, recorded exposure crossed an
+        injury threshold, and the water kept rising. <strong>IT DID EXACTLY WHAT I
+        SAID</strong> &mdash; an accepted stop command dropped a standing robot and
+        kept it down for eleven seconds.
       </p>
     </div>
     <div class="card">
-      <h2>Robot POV &amp; sensor cockpit</h2>
+      <h2>Every specimen says what it does not prove</h2>
       <p>
-        Switch to a camera mounted on the robot's own recorded pose &mdash; tagged
-        on-screen as <code>ROBOT POV &middot; DERIVED_VIEW</code>, never sensor
-        imagery, because none was captured. The sensor cockpit lists every telemetry
-        channel a trace could carry; channels the trace doesn't have read
-        <code>UNAVAILABLE</code> instead of showing invented values.
+        A specimen earns a front door because the causal work is legible in it,
+        never because something moves attractively. Where the apparatus could not
+        test the claim the run appears to make, the door retracts it in writing
+        &mdash; <em>NOT TESTED</em> rather than a quiet omission &mdash; and
+        reconstructed articulation is labelled as reconstructed rather than
+        measured. Recordings keep their provenance: classification, source run,
+        byte counts and hashes.
       </p>
     </div>
     <div class="card">
-      <h2>Peer radio &amp; forensic console</h2>
+      <h2>The archive is behind the doors</h2>
       <p>
-        A hideable forensic console reads the loaded trace's events, guard/tool
-        calls, and (when present) peer-to-peer radio messages between robots &mdash;
-        transmission, receipt, and reply lineage, rendered only from
-        <code>radio_tx</code>/<code>radio_rx</code> trace events.
+        Controls, nulls, oddities and the full historical corpus are deliberately
+        one click away rather than the opening screen. That is where the forensic
+        console lives: recorded events, model calls, world state, the radio traffic
+        between robots, and the falsifier that ran. A presentation layer never gets
+        to promote itself into evidence.
       </p>
     </div>
     <div class="card">
-      <h2>REPLAY vs. LIVE</h2>
+      <h2>Rendering is derived, and says so</h2>
       <p>
-        SimLab's default and production mode is <strong>REPLAY</strong>: every
-        pixel derives from a finalized, hash-addressed recording. A LIVE command
-        surface exists for driving a local deterministic simulator session directly;
-        production always shows its true connection state and refuses any command
-        it cannot actually execute &mdash; no faked outcomes, ever.
+        Every pixel derives from a finalized, hash-addressed recording. Replayed
+        joint articulation is marked <code>RECONSTRUCTED ARTICULATION</code> with its
+        limitation in the provenance block. A camera mounted on the recorded pose is
+        <code>DERIVED_VIEW</code>, never sensor imagery, because none was captured.
+        Channels a trace does not carry render <code>UNAVAILABLE</code> instead of
+        invented values.
       </p>
     </div>
     <div class="card">
-      <h2>UTOPIA / DYSTOPIA</h2>
+      <h2>UTOPIA / DYSTOPIA is a light switch</h2>
       <p>
         A presentation-only world switch: the same recorded evidence renders as a
         bright robotics-institute laboratory or a dark industrial one. Camera
@@ -77,8 +84,9 @@ const SIM_URL = 'https://sim.failurefirst.ai';
     <div class="card">
       <h2>Built for scrutiny</h2>
       <p>
-        Deterministic deep links (<code>?preset=&hellip;&amp;t=&hellip;&amp;paused</code>),
-        strict schema validation on every recording, and official Unitree
+        Deterministic deep links (<code>?specimen=&hellip;&amp;t=&hellip;&amp;paused</code>),
+        an independent release oracle that observes candidate and production builds
+        separately, strict schema validation on every recording, and official Unitree
         URDF/mesh assets pinned to an exact upstream commit with a SHA-256
         manifest.
       </p>
