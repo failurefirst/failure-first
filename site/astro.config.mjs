@@ -11,6 +11,18 @@ export default defineConfig({
   site: 'https://failurefirst.org',
   base: '/',
   outDir: 'dist',
+  // Astro's HTML compressor strips a whitespace run that crosses a source
+  // newline immediately before/after an inline element, so
+  //
+  //     ... You can opt out using the
+  //     <a href="...">Google Analytics Opt-out Browser Add-on</a>.
+  //
+  // compiled to `...using the<a href=...>` and rendered on production as
+  // `theGoogle Analytics Opt-out Browser Add-on` — a missing space in visible
+  // prose, on 81 pages including /research-directory/, /about/ and 404.
+  // A browser collapses a single space but never invents one, so the fix is to
+  // keep the source whitespace rather than to reword 81 pages.
+  compressHTML: false,
   redirects: {
     // 2026-08-24 (#1043 DD-10 re-check): the '/daily-paper/230908956/' shim was REMOVED.
     // Its target anthropic-responsible-scaling-policy was deliberately retracted
