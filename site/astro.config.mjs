@@ -11,17 +11,31 @@ export default defineConfig({
   site: 'https://failurefirst.org',
   base: '/',
   outDir: 'dist',
-  // Astro's HTML compressor strips a whitespace run that crosses a source
-  // newline immediately before/after an inline element, so
+  // Astro's default `compressHTML` is the string "jsx" (astro/dist/core/config/
+  // schemas/defaults.js:29), which is JSX-semantics whitespace trimming: a
+  // whitespace run that CONTAINS A NEWLINE between text and an element is
+  // dropped. So
   //
   //     ... You can opt out using the
   //     <a href="...">Google Analytics Opt-out Browser Add-on</a>.
   //
   // compiled to `...using the<a href=...>` and rendered on production as
   // `theGoogle Analytics Opt-out Browser Add-on` — a missing space in visible
-  // prose, on 81 pages including /research-directory/, /about/ and 404.
-  // A browser collapses a single space but never invents one, so the fix is to
-  // keep the source whitespace rather than to reword 81 pages.
+  // prose. A browser collapses a single space but never invents one, so the fix
+  // is to keep the source whitespace rather than to reword the affected pages.
+  //
+  // Scope, established rather than assumed: the defects are all `word\n<tag>`
+  // in `.astro` pages, which is the path this option governs. The markdown
+  // pipeline is separate (see `markdown.processor` below) and is NOT touched by
+  // this setting.
+  //
+  // The tradeoff, stated so it is not rediscovered later: turning trimming off
+  // also stops JSX from suppressing incidental whitespace in component layouts,
+  // so it can ADD a space where an author relied on trimming. Measured against
+  // the public-surface screenshot gate: failing tests are IDENTICAL before and
+  // after this change (6 failed / 2 passed on a local build either way), so this
+  // change introduces no screenshot regression. See runs/qa/1145-public-proof-surface/
+  // PRODUCTION_HOSTILE_READ_AND_GLUED_PROSE_2026-09-18.md §2.8.
   compressHTML: false,
   redirects: {
     // 2026-08-24 (#1043 DD-10 re-check): the '/daily-paper/230908956/' shim was REMOVED.

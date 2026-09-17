@@ -47,6 +47,21 @@
  * glyphs. Excluding `.katex` / `math` subtrees leaves the real prose count.
  * Verified on the pre-fix build: math excluded -> 48 instances / 46 pages;
  * math not excluded -> 4171 instances / 169 pages.
+ *
+ * KNOWN LIMITS OF THIS RULE (raise before claiming site-wide coverage):
+ *   * Viewport-dependent. It only sees glue that appears at the viewport running it,
+ *     so a defect that shows at one width and not another is caught on one project
+ *     (`desktop` / `mobile`) and missed on the other.
+ *   * LTR only. In RTL or vertical writing, DOM-adjacent nodes are not
+ *     left-right adjacent, so the geometric test never fires.
+ *   * Latin-only word class. Glue in Greek, Cyrillic, Arabic, Hebrew or CJK does
+ *     not satisfy the word-character requirement and is silently skipped.
+ *   * Cannot distinguish "padded" from "fixed". A boundary saved by an element's own
+ *     padding (`<code>` here has 6.8px) is not reported: correct for a
+ *     VISIBLE-defect gate, but it means a source-level glue can survive unremarked
+ *     behind padding.
+ *   * Covers the 8 routes in ROUTES, not the whole site. It is a route-level guard,
+ *     not a site-wide proof.
  */
 
 import { expect, test, type Page } from '@playwright/test';
