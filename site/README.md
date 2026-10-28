@@ -23,7 +23,9 @@ Built with [Astro 7](https://astro.build/) (static output), deployed to [failure
 
 - **Node.js ≥ 20** (we test on 20 and 22)
 - **npm ≥ 10** (ships with Node)
-- ~500 MB free disk for a clean build
+- Space for a temporary copy of `public/` plus generated output. The wrapper's
+  500 MB disk precheck is only a floor, not the peak build requirement: Astro
+  copies public media before the later media-strip step removes it.
 
 No system-level dependencies. No framework runtimes.
 
@@ -39,6 +41,22 @@ All commands run from `site/`.
 | `npm run preview` | Serve `dist/` locally (post-build smoke test) |
 
 From the repo root, `bash scripts/build_site.sh` is a thin wrapper that does a disk-space precheck and then runs `npm run build`. The wrapper used to stash media around an old `outDir: ../docs` build; that machinery was removed in the Cloudflare Pages migration (commit `db8e6fac9d`).
+
+### Local build retention
+
+Use `npm run dev` for routine source review; it does not require a retained
+production build. Keep `dist/` only while a named preview, verification or
+deployment task consumes it. Cloudflare builds production from source and does
+not depend on this checkout's retained output.
+
+Run a fresh `npm run build` before `npm run preview` or any use of local build
+output. Do not substitute bare `astro build`: the npm command also verifies
+podcast output, builds search and strips copied media. A failed or interrupted
+build can leave partial output, including large media copies, so a remaining
+`dist/` directory is not evidence of a completed build. Retiring exact
+source-backed duplicate files can also leave partial output; rebuild before
+previewing it. Preserve canonical `public/` assets and any distinct output whose
+recovery or active consumer has not been established.
 
 ## Architecture
 
