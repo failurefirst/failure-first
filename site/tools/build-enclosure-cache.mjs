@@ -2,12 +2,13 @@
 // Build src/data/enclosure-sizes.json by validating every build-visible enclosure.
 // HEAD supplies size; a one-byte Range GET proves the object is actual media.
 // The written key set is exactly the current source set, so stale entries are pruned.
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { glob } from 'glob';
 import matter from 'gray-matter';
 import { acceptsEnclosureMedia } from './enclosure-validation.mjs';
+import { classifyFailure, writeCacheAtomically } from './enclosure-cache-io.mjs';
 
 const CDN_BASE = 'https://cdn.failurefirst.org';
 const here = dirname(fileURLToPath(import.meta.url));
@@ -117,12 +118,27 @@ for (let index = 0; index < todo.length; index += CONCURRENCY) {
   await Promise.all(todo.slice(index, index + CONCURRENCY).map(probe));
 }
 
-writeFileSync(cachePath, `${JSON.stringify(cache, Object.keys(cache).sort(), 2)}\n`);
 if (failures.length) {
+  const transient = failures.filter((failure) => classifyFailure(failure) === 'transient');
+  const persistent = failures.filter((failure) => classifyFailure(failure) === 'persistent');
   console.error(
     `\n${failures.length} enclosure(s) unresolved; repair or exclude the source, do not ship:`,
   );
   for (const failure of failures) console.error(`  ${failure}`);
+  if (persistent.length) {
+    console.error(
+      `\nPERSISTENT (${persistent.length}): HTTP 4xx, a size disagreement, or an object that is not the expected media. That is a dead or wrong object — repair or exclude the source; re-running will not help.`,
+    );
+  }
+  if (transient.length) {
+    console.error(
+      `\nTRANSIENT (${transient.length}): HTTP 5xx, 429, or a transport error (DNS/TLS/timeout/reset). These are often an origin or edge blip — re-running the probe is reasonable. If the same object keeps failing, treat it as persistent.`,
+    );
+  }
+  console.error(
+    `\nNot writing ${cachePath}: the previous cache is left untouched (issue #1221). A refused validation must not persist a cache that disagrees with the source set.`,
+  );
   process.exit(1);
 }
+writeCacheAtomically(cachePath, cache);
 console.log(`Wrote ${Object.keys(cache).length} sizes to ${cachePath}`);
